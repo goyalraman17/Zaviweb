@@ -42,10 +42,11 @@ export default function StickyCTA() {
           href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full px-6 py-4 text-center text-base font-semibold text-white bg-zavi-black rounded-xl"
+          className="group relative block w-full px-6 py-4 text-center text-base font-semibold text-white rounded-xl overflow-hidden"
           whileTap={{ scale: 0.95 }}
         >
-          Install on Google Play
+          <div className="absolute inset-0 bg-gradient-to-r from-zavi-blue-400 via-zavi-blue-500 to-zavi-blue-600" />
+          <span className="relative">Get on Google Play</span>
         </motion.a>
       </div>
     </motion.div>

@@ -1,11 +1,7 @@
 import Hero from '@/components/Hero';
-import Problem from '@/components/Problem';
-import BeforeAfter from '@/components/BeforeAfter';
-import Features from '@/components/Features';
-import Audience from '@/components/Audience';
+import LiveDemo from '@/components/LiveDemo';
 import HowItWorks from '@/components/HowItWorks';
-import Privacy from '@/components/Privacy';
-import Pro from '@/components/Pro';
+import Trust from '@/components/Trust';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
@@ -14,13 +10,9 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <Hero />
-      <Problem />
-      <BeforeAfter />
-      <Features />
-      <Audience />
+      <LiveDemo />
       <HowItWorks />
-      <Privacy />
-      <Pro />
+      <Trust />
       <FinalCTA />
       <Footer />
       <StickyCTA />
