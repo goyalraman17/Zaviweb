@@ -37,19 +37,40 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl">
-              {/* Z flow icon inspired by app */}
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              {/* Z wave flow icon matching app logo */}
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
                 <defs>
-                  <linearGradient id="zavi-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="zavi-gradient-top" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1a8cff" />
+                    <stop offset="100%" stopColor="#0073e6" />
+                  </linearGradient>
+                  <linearGradient id="zavi-gradient-flow" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#4da6ff" />
+                    <stop offset="50%" stopColor="#1a8cff" />
                     <stop offset="100%" stopColor="#0073e6" />
                   </linearGradient>
                 </defs>
+                {/* Top bar */}
+                <rect x="12" y="10" width="28" height="5" rx="2.5" fill="url(#zavi-gradient-top)"/>
+                {/* Flowing wave */}
                 <path
-                  d="M14 12 H34 L24 24 L34 36 H14 L24 24 Z"
-                  fill="url(#zavi-gradient)"
-                  className="drop-shadow-lg"
+                  d="M 16 15 Q 20 18, 22 22 T 26 30 T 30 38"
+                  stroke="url(#zavi-gradient-flow)"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.9"
                 />
+                <path
+                  d="M 22 15 Q 26 20, 28 24 T 32 32 T 36 38"
+                  stroke="url(#zavi-gradient-flow)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.6"
+                />
+                {/* Bottom bar */}
+                <rect x="12" y="37" width="28" height="5" rx="2.5" fill="url(#zavi-gradient-top)"/>
               </svg>
             </div>
           </motion.div>
