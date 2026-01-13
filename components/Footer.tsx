@@ -70,12 +70,12 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <li>
-                <a href="#features" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/#features" className="text-zavi-navy-300 hover:text-white transition-colors">
                   Features
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/#pricing" className="text-zavi-navy-300 hover:text-white transition-colors">
                   Pricing
                 </a>
               </li>
@@ -85,7 +85,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/#faq" className="text-zavi-navy-300 hover:text-white transition-colors">
                   FAQ
                 </a>
               </li>
@@ -111,22 +111,22 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <li>
-                <a href="#" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/about" className="text-zavi-navy-300 hover:text-white transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/privacy" className="text-zavi-navy-300 hover:text-white transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/terms" className="text-zavi-navy-300 hover:text-white transition-colors">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/contact" className="text-zavi-navy-300 hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
