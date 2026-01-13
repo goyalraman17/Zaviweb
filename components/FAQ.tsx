@@ -44,7 +44,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-32 md:py-40 bg-white">
+    <section id="faq" ref={ref} className="py-32 md:py-40 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"

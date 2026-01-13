@@ -8,7 +8,7 @@ export default function ProTier() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-32 md:py-40 bg-white">
+    <section id="pricing" ref={ref} className="py-32 md:py-40 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
