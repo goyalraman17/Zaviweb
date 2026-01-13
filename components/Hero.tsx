@@ -76,7 +76,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1
-            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-white tracking-tight leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-white tracking-tight leading-[1.2]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -107,7 +107,7 @@ export default function Hero() {
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-10 py-5 text-lg font-semibold text-white rounded-2xl overflow-hidden shadow-2xl"
+              className="group relative px-8 sm:px-10 py-4 sm:py-5 text-lg font-semibold text-white rounded-2xl overflow-hidden shadow-2xl"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
