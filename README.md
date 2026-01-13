@@ -1,51 +1,58 @@
-# Zavi AI - Interactive Landing Page
+# Zavi AI - World-Class Marketing Website
 
-A production-grade, motion-driven landing page for Zavi AI voice typing keyboard. Built with Next.js 14, React, TypeScript, Framer Motion, and Tailwind CSS.
+A world-class, motion-driven marketing website for Zavi AI voice typing keyboard. Built to compete with the best SaaS product sites with premium restraint, intelligent motion, and conversion-focused design.
+
+## Philosophy
+
+This website demonstrates intelligence through interaction, not explanation. Every animation has meaning. Every section earns its space. Built to the quality standard of Wispr Flow, Linear, and Arc.
 
 ## Features
 
-- 🎨 **Motion-First Design**: Scroll-choreographed animations and micro-interactions throughout
-- 📱 **Mobile-First & Responsive**: Optimized for all screen sizes with device-specific interactions
-- ⚡ **Performance Optimized**: Fast load times, smooth 60fps animations, efficient rendering
-- ♿ **Accessible**: Respects `prefers-reduced-motion` and includes proper semantic HTML
-- 🎯 **Conversion Focused**: Strategic CTAs with sticky mobile action bar
-- 🎭 **Interactive Demo**: Animated before/after speech transformation showcase
+- 🎯 **Show, Don't Tell**: Live typing demo shows intelligence happening in real-time
+- 🎨 **App-Matched Design**: Visual language extracted from actual app screenshots
+- ⚡ **Meaningful Motion**: Typing effects, mic pulse, word cleanup - motion that clarifies transformation
+- 🏆 **Premium Restraint**: Fewer words, bigger spacing, calm confidence
+- 📱 **Mobile-First**: Optimized interactions for touch and desktop
+- 🚀 **Performance**: 60fps animations, GPU-accelerated, instant load
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS with custom blue/navy palette
 - **Animation**: Framer Motion
-- **Font**: Inter (Google Fonts)
+- **Font**: Inter via Google Fonts
 
 ## Project Structure
 
 ```
 zaviweb/
 ├── app/
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
+│   ├── globals.css          # Tailwind + Inter font
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Main page (5 sections)
 ├── components/
-│   ├── Hero.tsx              # Animated hero with ambient background
-│   ├── Problem.tsx           # Problem statement cards
-│   ├── BeforeAfter.tsx       # Interactive speech demo (centerpiece)
-│   ├── Features.tsx          # Feature grid with icons
-│   ├── Audience.tsx          # Target personas
-│   ├── HowItWorks.tsx        # 3-step process
-│   ├── Privacy.tsx           # Privacy assurances
-│   ├── Pro.tsx               # Pro tier promotion
-│   ├── FinalCTA.tsx          # Cinematic closing CTA
-│   ├── Footer.tsx            # Site footer
-│   ├── StickyCTA.tsx         # Scroll-aware mobile CTA
-│   └── AnimatedSection.tsx   # Reusable scroll animation wrapper
+│   ├── Hero.tsx             # Navy gradient hero with Z-icon + CTA
+│   ├── LiveDemo.tsx         # Live typing demo (centerpiece) ⭐
+│   ├── HowItWorks.tsx       # 3 steps with visual icons
+│   ├── Trust.tsx            # Privacy points
+│   ├── FinalCTA.tsx         # Cinematic blue gradient CTA
+│   ├── Footer.tsx           # Simple footer
+│   └── StickyCTA.tsx        # Mobile sticky CTA
 ├── package.json
 ├── tsconfig.json
-├── tailwind.config.ts
+├── tailwind.config.ts       # Custom blue/navy palette
 ├── next.config.js
 └── postcss.config.js
 ```
+
+### Section Flow
+
+1. **Hero** - Navy gradient, Z-icon, bold headline, blue CTA
+2. **LiveDemo** - Shows intelligence: speech → cleanup → typed text ⭐
+3. **HowItWorks** - 3 visual steps, minimal copy
+4. **Trust** - Privacy points, calm presentation
+5. **FinalCTA** - Blue gradient, conversion-focused
 
 ## Installation & Development
 
@@ -120,27 +127,38 @@ https://play.google.com/store/apps/details?id=com.pingpros.keyboard
 ## Key Interactions
 
 ### Hero Section
-- Animated headline reveal with staggered word appearance
-- Ambient floating background elements
-- Smooth scroll indicator
-- Hover/tap button micro-interactions
+- Navy gradient background with subtle grid pattern
+- Animated Z-icon with blue gradient fill
+- Headline reveal with blue gradient text
+- Blue gradient CTA button with play icon
+- Ambient glow animation
 
-### Before/After Demo
-- Desktop: Side-by-side comparison with arrow transition
-- Mobile: Animated text morphing with color/style transformation
-- Scroll-triggered activation with smooth easing
+### Live Demo (Centerpiece)
+- Mic button with pulsing animation while "listening"
+- Words appear one by one with red strikethrough on fillers
+- Transition to "Cleaning up..." state
+- Clean text types out character-by-character with cursor
+- Progress indicator shows 3 phases
+- Demonstrates intelligence through motion
 
-### Sticky CTA
+### How It Works
+- 3 visual step icons with subtle animations
+- Mic pulse, speech waves, checkmark path animation
+- Hover scale on icons
+
+### Trust Section
+- Icon animations on hover
+- Minimal, calm presentation
+
+### Final CTA
+- Matching navy gradient background
+- Blue gradient CTA matches hero
+- Ambient background animations
+
+### Sticky Mobile CTA
 - Appears after 800px scroll
-- Hides 600px before page end
-- Mobile-only with backdrop blur
+- Blue gradient button
 - Smooth slide-up/down transitions
-
-### Card Animations
-- Scroll-triggered fade-in with stagger delays
-- Hover lift effects on all interactive cards
-- Icon rotation/scale on hover
-- Button press feedback
 
 ## Performance Notes
 
