@@ -8,7 +8,7 @@ export default function NotJustTranscription() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="features" ref={ref} className="py-32 md:py-40 bg-white">
+    <section id="features" ref={ref} className="py-32 md:py-40 bg-zavi-paper">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -17,11 +17,11 @@ export default function NotJustTranscription() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-zavi-gray-900 mb-6">
-              This isn't voice typing
+            <h2 className="text-5xl md:text-6xl font-bold text-zavi-charcoal mb-6">
+              Why people switch from Google Voice Typing
             </h2>
-            <p className="text-2xl md:text-3xl text-zavi-gray-600 font-light">
-              It's an AI writing assistant
+            <p className="text-2xl md:text-3xl text-zavi-gray-text font-light">
+              Zavi doesn't just transcribe. It writes.
             </p>
           </motion.div>
 
@@ -32,21 +32,21 @@ export default function NotJustTranscription() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="flex items-start gap-4 mb-6">
+              <div className="flex items-start gap-4 mb-6 bg-white p-6 rounded-2xl border border-zavi-border">
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-zavi-gray-100 flex items-center justify-center">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 15C13.6569 15 15 13.6569 15 12V6C15 4.34315 13.6569 3 12 3C10.3431 3 9 4.34315 9 6V12C9 13.6569 10.3431 15 12 15Z" fill="#9ca3af"/>
-                    <path d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12M12 17V21M12 21H8M12 21H16" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M12 15C13.6569 15 15 13.6569 15 12V6C15 4.34315 13.6569 3 12 3C10.3431 3 9 4.34315 9 6V12C9 13.6569 10.3431 15 12 15Z" fill="#9A9DA4"/>
+                    <path d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12M12 17V21M12 21H8M12 21H16" stroke="#9A9DA4" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-zavi-gray-700 mb-3">
-                    Normal voice typing
+                  <h3 className="text-2xl font-semibold text-zavi-gray-text mb-3">
+                    Google Voice Typing
                   </h3>
-                  <p className="text-lg text-zavi-gray-600 leading-relaxed mb-4">
-                    Captures every word you say. Including all the "um"s, "uh"s, false starts, and rambling. You spend minutes cleaning it up afterward.
+                  <p className="text-lg text-zavi-gray-text leading-relaxed mb-4">
+                    Captures every word you say. All the "um"s, "uh"s, false starts. Then you spend 5 minutes editing.
                   </p>
-                  <div className="text-base text-zavi-gray-500 italic">
+                  <div className="text-base text-zavi-disabled italic bg-zavi-paper px-3 py-2 rounded-lg">
                     "um so I wanted to uh reach out about like the project because you know we should probably uh finalize this"
                   </div>
                 </div>
@@ -59,21 +59,21 @@ export default function NotJustTranscription() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-zavi-blue-400 to-zavi-blue-600 flex items-center justify-center shadow-lg">
+              <div className="flex items-start gap-4 mb-6 bg-white p-6 rounded-2xl border-2 border-zavi-blue shadow-sm">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-zavi-blue flex items-center justify-center shadow-lg">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M12 3L6 6L12 9L18 6L12 3Z" fill="white"/>
                     <path d="M6 12L12 15L18 12M6 18L12 21L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-zavi-gray-900 mb-3">
-                    Zavi AI
+                  <h3 className="text-2xl font-semibold text-zavi-charcoal mb-3">
+                    Zavi AI Keyboard
                   </h3>
-                  <p className="text-lg text-zavi-gray-900 leading-relaxed mb-4 font-medium">
-                    Removes filler words. Fixes grammar. Structures your thoughts. Turns natural speech into professional writing—instantly.
+                  <p className="text-lg text-zavi-charcoal leading-relaxed mb-4 font-medium">
+                    Removes fillers, fixes grammar, structures thoughts. Same speech → perfect writing. Zero editing needed.
                   </p>
-                  <div className="text-base text-zavi-gray-900 font-medium">
+                  <div className="text-base text-zavi-charcoal font-semibold bg-zavi-blue-50 px-3 py-2 rounded-lg">
                     "I wanted to reach out about the project. We should finalize this."
                   </div>
                 </div>
@@ -87,8 +87,8 @@ export default function NotJustTranscription() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <p className="text-xl text-zavi-gray-600 max-w-3xl mx-auto">
-              No editing required. No cleanup needed. Just speak naturally and get professional text, ready to send.
+            <p className="text-xl text-zavi-gray-text max-w-3xl mx-auto font-medium">
+              Save 10+ minutes per day. Never edit voice messages again.
             </p>
           </motion.div>
         </div>

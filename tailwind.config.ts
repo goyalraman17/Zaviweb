@@ -13,43 +13,56 @@ const config: Config = {
       },
       colors: {
         'zavi': {
-          navy: {
-            50: '#f0f4f8',
-            100: '#d9e2ec',
-            200: '#bcccdc',
-            300: '#9fb3c8',
-            400: '#829ab1',
-            500: '#627d98',
-            600: '#486581',
-            700: '#334e68',
-            800: '#243b53',
-            900: '#102a43',
-            950: '#0a1929',
-          },
-          blue: {
-            50: '#e6f2ff',
-            100: '#b3d9ff',
-            200: '#80bfff',
-            300: '#4da6ff',
-            400: '#1a8cff',
-            500: '#0073e6',
-            600: '#005bb3',
-            700: '#004480',
-            800: '#002c4d',
-            900: '#00141a',
-          },
+          // Light mode palette - single colors
+          'paper': '#F4F5F7',         // Primary background
+          'surface': '#FFFFFF',        // Cards, elevated surfaces
+          'border': '#E1E3E8',         // Dividers, borders
+          'charcoal': '#1A1C20',       // Primary text
+          'gray-text': '#6B6E75',      // Secondary text
+          'disabled': '#B5B8BF',       // Disabled/inactive elements
+          'blue': '#5BA4FF',           // Primary accent shorthand (use blue-400 for scale)
+          'gold': '#E6C15A',           // Secondary accent shorthand (use gold-400 for scale)
+          'icon-inactive': '#9A9DA4',  // Inactive icons
+
+          // Extended grays for gradients
           gray: {
-            50: '#f9fafb',
-            100: '#f3f4f6',
-            200: '#e5e7eb',
-            300: '#d1d5db',
-            400: '#9ca3af',
-            500: '#6b7280',
-            600: '#4b5563',
-            700: '#374151',
-            800: '#1f2937',
-            900: '#111827',
+            50: '#F4F5F7',
+            100: '#E9EBED',
+            200: '#E1E3E8',
+            300: '#D0D3D9',
+            400: '#B5B8BF',
+            500: '#9A9DA4',
+            600: '#6B6E75',
+            700: '#4A4D53',
+            800: '#2E3035',
+            900: '#1A1C20',
           }
+        },
+        // Blue scale for accents (separate from zavi namespace to avoid conflicts)
+        'zavi-blue': {
+          50: '#EBF4FF',
+          100: '#D6E9FF',
+          200: '#ADDAFF',
+          300: '#85CAFF',
+          400: '#5BA4FF',  // Primary accent
+          500: '#3D8FEB',
+          600: '#2875D1',
+          700: '#1A5BAD',
+          800: '#0F4389',
+          900: '#072B5C',
+        },
+        // Gold scale for secondary accent
+        'zavi-gold': {
+          50: '#FDF8EB',
+          100: '#FAF1D6',
+          200: '#F4E3AD',
+          300: '#EED585',
+          400: '#E6C15A',  // Secondary accent
+          500: '#D4A940',
+          600: '#B48E2D',
+          700: '#8F711F',
+          800: '#6A5414',
+          900: '#45380A',
         }
       },
       animation: {
