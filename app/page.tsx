@@ -1,3 +1,4 @@
+import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Metrics from '@/components/Metrics';
 import NotJustTranscription from '@/components/NotJustTranscription';
@@ -15,21 +16,24 @@ import StickyCTA from '@/components/StickyCTA';
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
-      <Hero />
-      <Metrics />
-      <NotJustTranscription />
-      <LiveDemo />
-      <WorksEverywhere />
-      <HowItWorks />
-      <UseCases />
-      <Testimonials />
-      <Trust />
-      <ProTier />
-      <FAQ />
-      <FinalCTA />
-      <Footer />
-      <StickyCTA />
-    </main>
+    <>
+      <Navigation />
+      <main className="overflow-hidden">
+        <Hero />
+        <Metrics />
+        <NotJustTranscription />
+        <LiveDemo />
+        <WorksEverywhere />
+        <HowItWorks />
+        <UseCases />
+        <Testimonials />
+        <Trust />
+        <ProTier />
+        <FAQ />
+        <FinalCTA />
+        <Footer />
+        <StickyCTA />
+      </main>
+    </>
   );
 }

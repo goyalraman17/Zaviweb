@@ -37,18 +37,34 @@ export default function Metrics() {
           {metrics.map((metric, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.9 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              whileHover={{
+                scale: 1.05,
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
+              className="text-center group cursor-pointer"
             >
-              <div className="text-4xl md:text-5xl font-bold text-zavi-charcoal mb-2">
+              <motion.div
+                className="text-4xl md:text-5xl font-bold text-zavi-charcoal mb-2"
+                whileHover={{ scale: 1.1, color: "#5BA4FF" }}
+                transition={{ duration: 0.2 }}
+              >
                 {metric.value}
-              </div>
-              <div className="text-base md:text-lg font-semibold text-zavi-blue mb-1">
+              </motion.div>
+              <motion.div
+                className="text-base md:text-lg font-semibold text-zavi-blue mb-1"
+                whileHover={{ scale: 1.05 }}
+              >
                 {metric.label}
-              </div>
-              <div className="text-sm text-zavi-gray-text">
+              </motion.div>
+              <div className="text-sm text-zavi-gray-text group-hover:text-zavi-charcoal transition-colors">
                 {metric.detail}
               </div>
             </motion.div>
