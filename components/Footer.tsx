@@ -6,7 +6,7 @@ const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pingpr
 
 export default function Footer() {
   return (
-    <footer className="bg-zavi-navy-950 py-16">
+    <footer className="bg-white border-t border-zavi-border py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 max-w-6xl mx-auto">
           {/* Brand Column */}
@@ -18,17 +18,17 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center border-2 border-zavi-border">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect x="6" y="5" width="12" height="2" rx="1" fill="#1a8cff"/>
-                  <path d="M8 7Q9 9 10 11T11 17" stroke="#1a8cff" strokeWidth="2.5" strokeLinecap="round"/>
-                  <rect x="6" y="17" width="12" height="2" rx="1" fill="#1a8cff"/>
+                  <rect x="6" y="5" width="12" height="2" rx="1" fill="#5BA4FF"/>
+                  <path d="M8 7Q9 9 10 11T11 17" stroke="#5BA4FF" strokeWidth="2.5" strokeLinecap="round"/>
+                  <rect x="6" y="17" width="12" height="2" rx="1" fill="#5BA4FF"/>
                 </svg>
               </div>
-              <span className="text-xl font-bold text-white">Zavi AI</span>
+              <span className="text-xl font-bold text-zavi-charcoal">Zavi AI</span>
             </motion.div>
             <motion.p
-              className="text-base text-zavi-navy-300 mb-4 max-w-sm"
+              className="text-base text-zavi-gray-text mb-4 max-w-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -37,7 +37,7 @@ export default function Footer() {
               Voice typing keyboard for Android. Turn natural speech into professional text in any app.
             </motion.p>
             <motion.div
-              className="flex items-center gap-2 text-sm text-zavi-navy-400"
+              className="flex items-center gap-2 text-sm text-zavi-gray-text"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -54,7 +54,7 @@ export default function Footer() {
           {/* Product Column */}
           <div>
             <motion.h3
-              className="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+              className="text-sm font-semibold text-zavi-charcoal uppercase tracking-wider mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -70,22 +70,22 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <li>
-                <a href="/#features" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/#features" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   Features
                 </a>
               </li>
               <li>
-                <a href="/#pricing" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/#pricing" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   Download
                 </a>
               </li>
               <li>
-                <a href="/#faq" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/#faq" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   FAQ
                 </a>
               </li>
@@ -95,7 +95,7 @@ export default function Footer() {
           {/* Company Column */}
           <div>
             <motion.h3
-              className="text-sm font-semibold text-white uppercase tracking-wider mb-4"
+              className="text-sm font-semibold text-zavi-charcoal uppercase tracking-wider mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -111,22 +111,22 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <li>
-                <a href="/about" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/about" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/privacy" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/terms" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-zavi-navy-300 hover:text-white transition-colors">
+                <a href="/contact" className="text-zavi-gray-text hover:text-zavi-blue transition-colors">
                   Contact
                 </a>
               </li>
@@ -136,13 +136,13 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <motion.div
-          className="pt-8 border-t border-zavi-navy-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+          className="pt-8 border-t border-zavi-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.7 }}
         >
-          <p className="text-sm text-zavi-navy-400">
+          <p className="text-sm text-zavi-gray-text">
             © 2026 Zavi. Built for people who think faster than they type.
           </p>
           <div className="flex items-center gap-4">
@@ -150,7 +150,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zavi-navy-400 hover:text-white transition-colors"
+              className="text-zavi-icon-inactive hover:text-zavi-blue transition-colors"
               aria-label="Twitter"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -161,7 +161,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zavi-navy-400 hover:text-white transition-colors"
+              className="text-zavi-icon-inactive hover:text-zavi-blue transition-colors"
               aria-label="LinkedIn"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
