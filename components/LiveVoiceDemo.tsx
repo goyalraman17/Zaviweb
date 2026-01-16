@@ -6,7 +6,6 @@ import {
   fadeIn,
   fadeUp,
   staggerContainer,
-  pressCompression,
   successPop,
   duration,
   easing,
@@ -279,10 +278,8 @@ export default function LiveVoiceDemo() {
                 ? 'bg-green-500 shadow-lg shadow-green-500/50'
                 : 'bg-zavi-blue shadow-lg shadow-zavi-blue/50'
             }`}
-            initial="rest"
-            whileHover="hover"
-            whileTap="tap"
-            variants={pressCompression}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             disabled={state === 'processing'}
           >
             <AnimatePresence mode="wait">
