@@ -3,8 +3,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard';
-
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
@@ -23,9 +21,8 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { name: 'Features', href: '/#features' },
-    { name: 'Pricing', href: '/#pricing' },
-    { name: 'FAQ', href: '/#faq' },
+    { name: 'Product', href: '/#features' },
+    { name: 'Privacy', href: '/privacy' },
   ];
 
   return (
@@ -70,27 +67,19 @@ export default function Navigation() {
               </motion.a>
             ))}
 
-            <motion.a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative px-6 py-2.5 text-sm font-semibold text-white rounded-xl overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.3 }}
+            <motion.button
+              onClick={() => {
+                const downloadSection = document.querySelector('[data-section="download"]');
+                if (downloadSection) {
+                  downloadSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="px-6 py-2.5 text-sm font-semibold text-white bg-zavi-blue rounded-xl hover:bg-zavi-blue-500 transition-colors"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="absolute inset-0 bg-zavi-blue" />
-              <div className="absolute inset-0 bg-gradient-to-r from-zavi-blue-400 to-zavi-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 2C7.11634 2 6.24254 2.17415 5.42614 2.51307C4.60974 2.85199 3.86803 3.34815 3.24264 3.97363C2.00089 5.21538 1.29999 6.90869 1.29999 8.68C1.29999 10.4513 2.00089 12.1446 3.24264 13.3864C3.86803 14.0119 4.60974 14.508 5.42614 14.8469C6.24254 15.1859 7.11634 15.36 8 15.36C9.78407 15.36 11.4954 14.6591 12.7574 13.3864C14.0194 12.1137 14.7 10.4513 14.7 8.68C14.7 7.78547 14.5214 6.89944 14.1755 6.07202C13.8296 5.24459 13.3233 4.49303 12.6831 3.86269C12.043 3.23235 11.2816 2.73609 10.4414 2.39608C9.60113 2.05607 8.69851 1.88006 7.8 1.88006Z" fill="currentColor" fillOpacity="0.2"/>
-                  <path d="M6.66667 5.46667L11.1111 8L6.66667 10.5333V5.46667Z" fill="currentColor"/>
-                </svg>
-                Download
-              </span>
-            </motion.a>
+              Download
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
