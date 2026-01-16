@@ -1,6 +1,6 @@
 // New conversion-focused components
 import Navigation from '@/components/Navigation';
-import HeroNew from '@/components/HeroNew';
+import HeroRedesign from '@/components/HeroRedesign';
 import PlatformAvailability from '@/components/PlatformAvailability';
 import ProblemStatement from '@/components/ProblemStatement';
 import PainAmplification from '@/components/PainAmplification';
@@ -40,8 +40,8 @@ export default function Home() {
     <>
       <Navigation />
       <main className="overflow-hidden">
-        {/* Hero with embedded Live Voice Demo */}
-        <HeroNew />
+        {/* Hero with embedded Live Voice Demo - REDESIGNED */}
+        <HeroRedesign />
 
         {/* Platform availability - works everywhere */}
         <PlatformAvailability />
