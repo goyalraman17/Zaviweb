@@ -12,6 +12,7 @@
 
   body {
     @apply antialiased;
+    background-color: #FAFAFA;
   }
 
   * {
@@ -22,5 +23,31 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg;
+  }
+
+  .glass-subtle {
+    @apply bg-white/60 backdrop-blur-md;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 text-sm font-semibold text-white bg-zavi-blue rounded-xl hover:bg-zavi-blue-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 text-sm font-semibold text-zavi-charcoal bg-white border border-zavi-border rounded-xl hover:border-zavi-blue/30 hover:bg-zavi-blue/5 transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-zavi-border/50 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
+  }
+
+  .section-pad {
+    @apply py-24 md:py-32;
   }
 }

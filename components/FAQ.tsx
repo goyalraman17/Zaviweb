@@ -44,7 +44,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" ref={ref} className="py-32 md:py-40 bg-white">
+    <section id="faq" ref={ref} className="py-32 md:py-40 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -52,7 +52,8 @@ export default function FAQ() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-zavi-gray-900 mb-6">
+          <span className="text-sm font-semibold text-zavi-blue tracking-wider uppercase">FAQ</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-zavi-charcoal mt-3 mb-6">
             Frequently asked questions
           </h2>
           <p className="text-lg md:text-xl text-zavi-gray-600 max-w-2xl mx-auto">
@@ -67,13 +68,13 @@ export default function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="border border-zavi-gray-200 rounded-2xl overflow-hidden bg-white"
+              className="card overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 sm:px-8 sm:py-6 text-left flex items-center justify-between gap-4 hover:bg-zavi-gray-50 transition-colors"
+                className="w-full px-6 py-5 sm:px-8 sm:py-6 text-left flex items-center justify-between gap-4 hover:bg-zavi-gray-50/50 transition-colors"
               >
-                <span className="text-base sm:text-lg font-semibold text-zavi-gray-900">
+                <span className="text-base sm:text-lg font-semibold text-zavi-charcoal">
                   {faq.question}
                 </span>
                 <motion.svg
@@ -81,7 +82,7 @@ export default function FAQ() {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="flex-shrink-0 text-zavi-gray-600"
+                  className="flex-shrink-0 text-zavi-blue"
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -103,7 +104,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-5 sm:px-8 sm:pb-6 text-sm sm:text-base text-zavi-gray-700 leading-relaxed">
+                    <div className="px-6 pb-5 sm:px-8 sm:pb-6 text-sm sm:text-base text-zavi-gray-600 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

@@ -62,7 +62,7 @@ export default function Features() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-white">
+    <section ref={ref} className="py-24 md:py-32 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
@@ -70,12 +70,13 @@ export default function Features() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-zavi-black mb-4">
+          <span className="text-sm font-semibold text-zavi-blue tracking-wider uppercase">Features</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-zavi-charcoal mt-3 mb-4">
             Built for real phone usage
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -83,19 +84,19 @@ export default function Features() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group"
+              className="card p-8 group"
             >
               <motion.div
-                className="w-16 h-16 mb-5 flex items-center justify-center bg-zavi-gray-100 rounded-2xl text-zavi-black"
+                className="w-14 h-14 mb-5 flex items-center justify-center bg-gradient-to-br from-zavi-blue/10 to-blue-500/10 rounded-2xl text-zavi-blue group-hover:from-zavi-blue/20 group-hover:to-blue-500/20 transition-all duration-300"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
                 {feature.icon}
               </motion.div>
-              <h3 className="text-2xl font-semibold text-zavi-black mb-3">
+              <h3 className="text-xl font-semibold text-zavi-charcoal mb-3 group-hover:text-zavi-blue transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-lg text-zavi-gray-700 leading-relaxed">
+              <p className="text-base text-zavi-gray-600 leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
