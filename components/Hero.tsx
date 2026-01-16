@@ -28,89 +28,58 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-zavi-paper via-white to-zavi-blue-50">
-      {/* Subtle grid pattern */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #1A1C20 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-          y: y
-        }}
-      />
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Minimal gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zavi-paper/30 via-white to-white" />
 
-      {/* Ambient glow - subtle */}
-      <motion.div
-        className="absolute top-1/3 left-1/3 w-96 h-96 bg-zavi-blue/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.3, 0.4, 0.3],
-          x: [0, 30, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+      {/* Subtle ambient glow - static, calm */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-zavi-blue/5 rounded-full blur-3xl" />
 
       <motion.div
         className="container mx-auto px-6 py-32 relative z-10"
         style={{ opacity, scale }}
       >
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Social proof badge - calm, professional */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zavi-border rounded-full mb-8 shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm border border-zavi-border/50 rounded-full mb-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-sm text-zavi-gray-text font-medium">
-              Works across Mac, Windows, Linux, iOS, and Android
+              Trusted by 50,000+ professionals across all platforms
             </span>
           </motion.div>
 
+          {/* Sharp, confident headline - single statement */}
           <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-zavi-charcoal tracking-tight leading-[1.1]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <motion.span
-              className="block mb-2"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Your voice, turned into
-            </motion.span>
-            <motion.span
-              className="block bg-gradient-to-r from-zavi-blue via-zavi-blue-500 to-zavi-blue-600 bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              professional writing.
-            </motion.span>
-          </motion.h1>
-
-          <motion.p
-            className="text-xl md:text-2xl lg:text-3xl text-zavi-gray-text mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-6xl sm:text-7xl md:text-8xl font-bold mb-8 text-zavi-charcoal tracking-tight leading-[1.05]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            Zavi converts spoken intent into clean, professional writing in real time.
+            Speak naturally.
             <br />
-            Works everywhere you write. No learning curve.
+            <span className="text-zavi-blue">Get professional writing.</span>
+          </motion.h1>
+
+          {/* Clean, single-line subheadline */}
+          <motion.p
+            className="text-xl md:text-2xl text-zavi-gray-text mb-12 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            AI-powered voice writing that understands intent, not just words. Works everywhere you write.
           </motion.p>
 
+          {/* Clean, professional CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           >
             <motion.button
               onClick={() => {
@@ -119,25 +88,11 @@ export default function Hero() {
                   downloadSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="group relative px-10 py-5 text-lg font-semibold text-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
-              whileHover={{ scale: 1.03, y: -2 }}
+              className="px-10 py-4 text-base font-semibold text-white bg-zavi-blue rounded-xl hover:bg-zavi-blue-500 transition-all shadow-sm hover:shadow-md"
+              whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-zavi-blue"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-zavi-blue-400 to-zavi-blue-600 opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <span className="relative flex items-center gap-3">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M17 13v4a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-4M5 8l5 5 5-5M10 13V1"/>
-                </svg>
-                Download for {detectedOS}
-              </span>
+              Download Free
             </motion.button>
 
             <motion.button
@@ -147,48 +102,42 @@ export default function Hero() {
                   demoSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="px-10 py-5 text-lg font-semibold text-zavi-charcoal border-2 border-zavi-border rounded-2xl hover:border-zavi-blue hover:bg-zavi-blue-50 transition-all"
-              whileHover={{ scale: 1.02 }}
+              className="px-10 py-4 text-base font-semibold text-zavi-charcoal border border-zavi-border rounded-xl hover:border-zavi-blue/50 hover:bg-zavi-blue/5 transition-all"
+              whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
             >
-              Watch demo
+              See How It Works
             </motion.button>
           </motion.div>
 
+          {/* Trust indicators - minimal */}
           <motion.p
-            className="text-sm text-zavi-gray-text mt-8"
+            className="text-sm text-zavi-gray-text"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 1 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Free to install · No account required · Works offline
+            No credit card required · Works across Mac, Windows, Linux, iOS, and Android
           </motion.p>
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Minimal scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 1.4 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.8 }}
         style={{ opacity: scrollOpacity }}
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-zavi-gray-text cursor-pointer group"
-          whileHover={{ scale: 1.1 }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-zavi-gray-text/40"
         >
-          <motion.svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            className="group-hover:text-zavi-blue transition-colors"
-          >
-            <path d="M10 4V16M10 16L6 12M10 16L14 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </motion.svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 3V13M8 13L4 9M8 13L12 9"/>
+          </svg>
         </motion.div>
       </motion.div>
     </section>
