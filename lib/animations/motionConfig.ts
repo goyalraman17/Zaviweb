@@ -88,7 +88,7 @@ export const shouldReduceMotion = (): boolean => {
  */
 export const getTransition = (
   customDuration?: number,
-  customEasing?: number[]
+  customEasing?: readonly number[] | number[]
 ) => {
   if (shouldReduceMotion()) {
     return {
