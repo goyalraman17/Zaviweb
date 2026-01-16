@@ -1,13 +1,22 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard';
+import { useRef, useState, useEffect } from 'react';
 
 export default function FinalCTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [detectedOS, setDetectedOS] = useState<string>('');
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    if (userAgent.includes('mac')) setDetectedOS('macOS');
+    else if (userAgent.includes('win')) setDetectedOS('Windows');
+    else if (userAgent.includes('linux')) setDetectedOS('Linux');
+    else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('iOS');
+    else if (userAgent.includes('android')) setDetectedOS('Android');
+    else setDetectedOS('your device');
+  }, []);
 
   return (
     <section ref={ref} className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-zavi-blue-50 via-white to-zavi-blue-100">
@@ -70,22 +79,24 @@ export default function FinalCTA() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <motion.a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => {
+                const downloadSection = document.querySelector('[data-section="download"]');
+                if (downloadSection) {
+                  downloadSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="group relative inline-flex items-center gap-3 px-12 py-6 text-xl font-semibold text-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
               <div className="absolute inset-0 bg-zavi-blue" />
               <div className="absolute inset-0 bg-gradient-to-r from-zavi-blue-400 to-zavi-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <svg className="relative" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path d="M14 2C12.0222 2 10.0575 2.38664 8.22252 3.13834C6.38756 3.89005 4.71802 5.00033 3.30883 6.40952C-0.536223 10.2549 -0.536223 16.4118 3.30883 20.2571C5.71802 22.6663 8.84698 23.8333 14 23.8333C19.153 23.8333 22.282 22.6663 24.6912 20.2571C28.5365 16.4118 28.5365 10.2549 24.6912 6.40952C23.282 5.00033 21.6124 3.89005 19.7775 3.13834C17.9425 2.38664 15.9778 2 14 2Z" fill="currentColor" fillOpacity="0.2"/>
-                <path d="M11.6667 9.33334L18.6667 14L11.6667 18.6667V9.33334Z" fill="currentColor"/>
+              <svg className="relative" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
               </svg>
-              <span className="relative">Download Free on Google Play</span>
-            </motion.a>
+              <span className="relative">Download for {detectedOS}</span>
+            </motion.button>
           </motion.div>
 
           <motion.p
@@ -94,7 +105,7 @@ export default function FinalCTA() {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
           >
-            ⭐ 4.8/5 rating · Free · Android 8.0+ · No account required
+            Free to install · Works across all platforms · No account required
           </motion.p>
         </motion.div>
       </div>

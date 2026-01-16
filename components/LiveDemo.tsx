@@ -64,7 +64,7 @@ export default function LiveDemo() {
   }, [isInView, currentWordIndex, isCleaningUp, cleanedText, showFinal]);
 
   return (
-    <section ref={ref} className="py-32 md:py-40 bg-white relative overflow-hidden">
+    <section ref={ref} data-section="demo" className="py-32 md:py-40 bg-white relative overflow-hidden">
       {/* Background subtle pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-zavi-gray-50/50 to-white" />
 

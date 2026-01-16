@@ -18,7 +18,7 @@ export default function NotJustTranscription() {
             transition={{ duration: 0.7 }}
           >
             <h2 className="text-5xl md:text-6xl font-bold text-zavi-charcoal mb-6">
-              Why people switch from Google Voice Typing
+              Why people switch from traditional dictation
             </h2>
             <p className="text-2xl md:text-3xl text-zavi-gray-text font-light">
               Zavi doesn't just transcribe. It writes.
@@ -48,7 +48,7 @@ export default function NotJustTranscription() {
                 </motion.div>
                 <div>
                   <h3 className="text-2xl font-semibold text-zavi-gray-text mb-3">
-                    Google Voice Typing
+                    Traditional Dictation
                   </h3>
                   <p className="text-lg text-zavi-gray-text leading-relaxed mb-4">
                     Captures every word you say. All the "um"s, "uh"s, false starts. Then you spend 5 minutes editing.
