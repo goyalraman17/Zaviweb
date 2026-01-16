@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: "Contact Us | Zavi AI",
-  description: "Get in touch with Zavi AI. Contact our support team for help with the voice typing keyboard.",
+  description: "Get in touch with Zavi AI. Contact our support team for help with the voice writing platform.",
 };
 
 export default function ContactPage() {

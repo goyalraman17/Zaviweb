@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: "About Zavi AI | Voice Typing Keyboard",
-  description: "Learn about Zavi AI and our mission to make communication faster and more natural through AI-powered voice typing.",
+  title: "About Zavi AI | Voice Writing Platform",
+  description: "Learn about Zavi AI and our mission to make communication faster and more natural through AI-powered voice writing.",
 };
 
 export default function AboutPage() {
@@ -31,17 +31,17 @@ export default function AboutPage() {
 
           <div className="prose prose-lg prose-invert max-w-none">
             <p className="text-xl text-zavi-navy-200 mb-6 leading-relaxed">
-              Zavi AI is redefining how people communicate on mobile devices. We built an AI-powered voice typing keyboard that transforms natural speech into professional text—instantly.
+              Zavi AI is redefining how people communicate. We built an AI-powered voice writing platform that transforms natural speech into professional text—instantly, across all your devices.
             </p>
 
             <h2 className="text-3xl font-bold text-white mt-12 mb-4">Our Mission</h2>
             <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              We believe communication should be effortless. Typing on a phone is slow, tedious, and frustrating. Traditional voice typing captures every "um" and "uh," leaving you to clean up the mess. We knew there was a better way.
+              We believe communication should be effortless. Typing is slow and tedious. Traditional dictation captures every "um" and "uh," leaving you to clean up the mess. We knew there was a better way.
             </p>
 
             <h2 className="text-3xl font-bold text-white mt-12 mb-4">What Makes Zavi Different</h2>
             <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              Zavi isn't just voice-to-text—it's an AI writing assistant in your keyboard. We remove filler words, fix grammar, and structure your thoughts into clear, professional text. All in real-time, in any Android app.
+              Zavi isn't just voice-to-text—it's an AI writing assistant that works everywhere you write. We remove filler words, fix grammar, and structure your thoughts into clear, professional text. All in real-time, across every platform.
             </p>
 
             <h2 className="text-3xl font-bold text-white mt-12 mb-4">Privacy First</h2>
@@ -51,12 +51,12 @@ export default function AboutPage() {
 
             <h2 className="text-3xl font-bold text-white mt-12 mb-4">Built for Everyone</h2>
             <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              Whether you're a professional composing emails on the go, a creator capturing ideas, or someone who simply prefers speaking to typing—Zavi was built for you. We support 100+ languages and work in every Android app you use daily.
+              Whether you're a professional composing emails, a creator capturing ideas, or someone who simply prefers speaking to typing—Zavi was built for you. We support 100+ languages and work on Mac, Windows, Linux, iOS, and Android.
             </p>
 
             <h2 className="text-3xl font-bold text-white mt-12 mb-4">Join Us</h2>
             <p className="text-lg text-zavi-navy-300 mb-8 leading-relaxed">
-              Over 50,000 users have already made the switch to Zavi. Join a community of people who think faster than they type.
+              Over 50,000 professionals have already made the switch to Zavi. Join a community of people who think faster than they type.
             </p>
 
             <div className="mt-12">
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 href="/"
                 className="inline-block px-8 py-4 bg-gradient-to-r from-zavi-blue-400 via-zavi-blue-500 to-zavi-blue-600 text-white font-semibold rounded-2xl hover:opacity-90 transition-opacity"
               >
-                Get Zavi on Google Play
+                Download Zavi
               </Link>
             </div>
           </div>

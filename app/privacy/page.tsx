@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">Introduction</h2>
             <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
-              At Zavi AI, your privacy is our priority. This Privacy Policy explains how we collect, use, and protect your information when you use our voice typing keyboard application.
+              At Zavi AI, your privacy is our priority. This Privacy Policy explains how we collect, use, and protect your information when you use our voice writing platform.
             </p>
 
             <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">Information We Collect</h2>

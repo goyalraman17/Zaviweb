@@ -9,24 +9,24 @@ const faqs = [
     answer: "Zavi requires an internet connection for AI processing. The advanced language models that clean up your speech and fix grammar run in the cloud to ensure maximum accuracy and speed."
   },
   {
-    question: "Which Android versions are supported?",
-    answer: "Zavi works on Android 8.0 (Oreo) and above. The app is optimized for modern Android devices and requires approximately 20MB of storage space."
+    question: "Which platforms does Zavi support?",
+    answer: "Zavi works on Mac, Windows, Linux, iOS, and Android. Each platform is fully supported with identical writing quality and features."
   },
   {
-    question: "How does Zavi compare to Google's voice typing?",
-    answer: "While Google voice typing captures everything you say word-for-word, Zavi goes further by removing filler words (um, uh, like), fixing grammar, and structuring your thoughts into professional text. Think of it as having an editor clean up your speech in real-time."
+    question: "How does Zavi compare to standard dictation?",
+    answer: "While standard dictation captures everything you say word-for-word, Zavi goes further by removing filler words (um, uh, like), fixing grammar, and structuring your thoughts into professional text. Think of it as having an editor clean up your speech in real-time."
   },
   {
     question: "Is my voice data really private?",
     answer: "Yes. Your microphone only activates when you tap the button. Audio is processed and immediately deleted—we never store recordings. All data transmission is encrypted. You can request deletion of your data at any time."
   },
   {
-    question: "Can I easily switch back to my regular keyboard?",
-    answer: "Absolutely. Zavi works like any other Android keyboard. You can switch between Zavi and your regular keyboard anytime using the keyboard selector button. No settings changes needed."
+    question: "How does Zavi integrate with my workflow?",
+    answer: "Zavi works at the system level across your device. On desktop, it appears as a voice input option. On mobile, it integrates with your input methods. No app switching needed."
   },
   {
     question: "What's included in the free version?",
-    answer: "The free version includes AI-powered speech cleanup, works in every Android app, supports 100+ languages, and provides professional-grade text editing. You'll have daily usage limits and standard processing speed."
+    answer: "The free version includes AI-powered speech cleanup, works across all your devices, supports 100+ languages, and provides professional-grade text editing. You'll have daily usage limits and standard processing speed."
   },
   {
     question: "What's the difference between Free and Pro?",

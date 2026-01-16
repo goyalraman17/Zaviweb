@@ -34,7 +34,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Voice typing keyboard for Android. Turn natural speech into professional text in any app.
+              Voice writing layer for modern work. Turn natural speech into professional text across all your devices.
             </motion.p>
             <motion.div
               className="flex items-center gap-2 text-sm text-zavi-gray-text"
@@ -45,9 +45,9 @@ export default function Footer() {
             >
               <span>⭐ 4.8</span>
               <span>•</span>
-              <span>50K+ downloads</span>
+              <span>50K+ users</span>
               <span>•</span>
-              <span>Android 8.0+</span>
+              <span>Mac, Windows, iOS, Android</span>
             </motion.div>
           </div>
 

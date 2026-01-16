@@ -116,6 +116,9 @@ export default function Hero() {
 
             {/* Trust line */}
             <p className="text-sm text-zavi-gray-text">
+              Platform-agnostic · No app switching · No lock-in
+            </p>
+            <p className="text-xs text-zavi-gray-text/70">
               Free · Mac, Windows, Linux, iOS, Android · Privacy-first
             </p>
           </motion.div>

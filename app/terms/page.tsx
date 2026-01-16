@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: "Terms of Service | Zavi AI",
-  description: "Zavi AI's terms of service. Read our terms and conditions for using the voice typing keyboard.",
+  description: "Zavi AI's terms of service. Read our terms and conditions for using the voice writing platform.",
 };
 
 export default function TermsPage() {
@@ -38,7 +38,7 @@ export default function TermsPage() {
 
             <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">2. Description of Service</h2>
             <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
-              Zavi is an AI-powered voice typing keyboard application for Android devices. The service converts speech to text while removing filler words, correcting grammar, and improving structure.
+              Zavi is an AI-powered voice writing platform available on Mac, Windows, Linux, iOS, and Android. The service converts speech to text while removing filler words, correcting grammar, and improving structure.
             </p>
 
             <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">3. User Responsibilities</h2>
