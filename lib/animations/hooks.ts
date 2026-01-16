@@ -29,7 +29,7 @@ export function useScrollAnimation(
   const isInView = useInView(ref, {
     amount: options?.amount ?? viewport.amount,
     once: options?.once ?? viewport.once,
-    margin: options?.margin ?? viewport.margin,
+    margin: (options?.margin ?? viewport.margin) as any,
   });
 
   // If reduced motion is preferred, always return true (no animation)
