@@ -1,39 +1,35 @@
 // New conversion-focused components
 import Navigation from '@/components/Navigation';
 import HeroRedesign from '@/components/HeroRedesign';
-import PlatformAvailability from '@/components/PlatformAvailability';
+import LanguageSection from '@/components/LanguageSection';
+import DownloadSection from '@/components/DownloadSection';
+import WorksEverywhereSection from '@/components/WorksEverywhereSection';
 import ProblemStatement from '@/components/ProblemStatement';
-import PainAmplification from '@/components/PainAmplification';
 import ZaviSolution from '@/components/ZaviSolution';
 import CategoryCreation from '@/components/CategoryCreation';
-import HowZaviWorks from '@/components/HowZaviWorks';
-import LanguageUnlock from '@/components/LanguageUnlock';
 import Audiences from '@/components/Audiences';
-import WhyItSticks from '@/components/WhyItSticks';
 import TrustSignals from '@/components/TrustSignals';
 import PricingNew from '@/components/PricingNew';
 import FAQ from '@/components/FAQ';
 import FinalCTANew from '@/components/FinalCTANew';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
-import PlatformDownload from '@/components/PlatformDownload';
 
 /**
  * Zavi Marketing Website - Conversion-Focused Experience
  *
- * Structure:
- * 1. Hero + Live Voice Demo (highest priority - shows value immediately)
- * 2. Platform Availability (works everywhere)
- * 3. Problem → Pain → Solution narrative (conversion flow)
- * 4. Category Creation (position as new input layer)
- * 5. How It Works (trust building)
- * 6. Language Unlock (global feature)
- * 7. Audiences (if you write daily, this is for you)
- * 8. Why It Sticks (habit formation)
- * 9. Trust Signals (production-ready)
- * 10. Pricing (priced for habit)
- * 11. FAQ (objection handling)
- * 12. Final CTA (conversion)
+ * Clean, focused flow:
+ * 1. Hero + Live Demo (immediate value)
+ * 2. Language Support (global unlock)
+ * 3. Download (conversion point)
+ * 4. Works Everywhere (trust builder)
+ * 5. Problem → Solution (narrative)
+ * 6. Category Creation (positioning)
+ * 7. Audiences (targeting)
+ * 8. Trust Signals (credibility)
+ * 9. Pricing (conversion)
+ * 10. FAQ (objections)
+ * 11. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -43,37 +39,32 @@ export default function Home() {
         {/* Hero with embedded Live Voice Demo - REDESIGNED */}
         <HeroRedesign />
 
-        {/* Platform availability - works everywhere */}
-        <PlatformAvailability />
+        {/* Language Support - speak native, get professional */}
+        <LanguageSection />
 
-        {/* Problem → Pain → Solution narrative flow */}
+        {/* Download Section - all platforms */}
+        <DownloadSection />
+
+        {/* Works Everywhere - common apps */}
+        <WorksEverywhereSection />
+
+        {/* Problem identification */}
         <ProblemStatement />
-        <PainAmplification />
+
+        {/* Solution */}
         <ZaviSolution />
 
         {/* Category creation - not voice typing */}
         <CategoryCreation />
 
-        {/* How it works - build trust */}
-        <HowZaviWorks />
-
-        {/* Global language unlock */}
-        <LanguageUnlock />
-
         {/* Target audiences */}
         <Audiences />
-
-        {/* Why it sticks - habit formation */}
-        <WhyItSticks />
 
         {/* Trust and product readiness */}
         <TrustSignals />
 
         {/* Pricing */}
         <PricingNew />
-
-        {/* Download section */}
-        <PlatformDownload />
 
         {/* FAQ - objection handling */}
         <FAQ />
