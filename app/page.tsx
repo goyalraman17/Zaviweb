@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Metrics from '@/components/Metrics';
+import PlatformDownload from '@/components/PlatformDownload';
 import NotJustTranscription from '@/components/NotJustTranscription';
 import LiveDemo from '@/components/LiveDemo';
 import WorksEverywhere from '@/components/WorksEverywhere';
@@ -21,6 +22,7 @@ export default function Home() {
       <main className="overflow-hidden">
         <Hero />
         <Metrics />
+        <PlatformDownload />
         <NotJustTranscription />
         <LiveDemo />
         <WorksEverywhere />
