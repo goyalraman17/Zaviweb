@@ -45,7 +45,7 @@ export default function ProTier() {
               {[
                 "50 messages per day",
                 "AI cleanup & grammar fixes",
-                "Works everywhere on Android",
+                "Works across all platforms",
                 "100+ languages",
                 "No credit card needed"
               ].map((feature, index) => (

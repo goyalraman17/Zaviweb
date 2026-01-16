@@ -13,20 +13,22 @@ const config: Config = {
       },
       colors: {
         'zavi': {
-          // Light mode palette - single colors
-          'paper': '#F4F5F7',         // Primary background
-          'surface': '#FFFFFF',        // Cards, elevated surfaces
-          'border': '#E1E3E8',         // Dividers, borders
-          'charcoal': '#1A1C20',       // Primary text
-          'gray-text': '#6B6E75',      // Secondary text
-          'disabled': '#B5B8BF',       // Disabled/inactive elements
-          'blue': '#5BA4FF',           // Primary accent shorthand (use blue-400 for scale)
-          'gold': '#E6C15A',           // Secondary accent shorthand (use gold-400 for scale)
-          'icon-inactive': '#9A9DA4',  // Inactive icons
+          // Official Zavi light mode palette
+          'paper': '#f0eff8',          // Primary background
+          'surface': '#FFFFFF',         // Cards, elevated surfaces
+          'border': '#E1E3E8',          // Dividers, borders
+          'charcoal': '#34384c',        // Primary headings and text
+          'gray-text': '#21232A',       // Secondary text, labels, hints
+          'disabled': '#B5B8BF',        // Disabled/inactive elements
+          'blue': '#5381d2',            // Brand color - primary accent
+          'gold': '#E6C15A',            // Secondary accent
+          'icon-default': '#1A1C20',    // Default icons
+          'icon-inactive': '#9A9DA4',   // Inactive icons
+          'icon-active': '#5BA4FF',     // Active icons (kept for compatibility)
 
           // Extended grays for gradients
           gray: {
-            50: '#F4F5F7',
+            50: '#f0eff8',
             100: '#E9EBED',
             200: '#E1E3E8',
             300: '#D0D3D9',
@@ -34,22 +36,22 @@ const config: Config = {
             500: '#9A9DA4',
             600: '#6B6E75',
             700: '#4A4D53',
-            800: '#2E3035',
-            900: '#1A1C20',
+            800: '#34384c',
+            900: '#21232A',
           }
         },
-        // Blue scale for accents (separate from zavi namespace to avoid conflicts)
+        // Blue scale for accents (centered around #5381d2)
         'zavi-blue': {
-          50: '#EBF4FF',
-          100: '#D6E9FF',
-          200: '#ADDAFF',
-          300: '#85CAFF',
-          400: '#5BA4FF',  // Primary accent
-          500: '#3D8FEB',
-          600: '#2875D1',
-          700: '#1A5BAD',
-          800: '#0F4389',
-          900: '#072B5C',
+          50: '#EDF3FC',
+          100: '#DBE7F9',
+          200: '#B7CFF3',
+          300: '#93B7ED',
+          400: '#5381d2',  // Brand color - primary accent
+          500: '#4570BE',
+          600: '#395FA8',
+          700: '#2D4E92',
+          800: '#213D7C',
+          900: '#152C66',
         },
         // Gold scale for secondary accent
         'zavi-gold': {
