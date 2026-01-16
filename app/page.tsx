@@ -1,14 +1,12 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import Metrics from '@/components/Metrics';
-import PlatformDownload from '@/components/PlatformDownload';
-import NotJustTranscription from '@/components/NotJustTranscription';
-import LiveDemo from '@/components/LiveDemo';
-import WorksEverywhere from '@/components/WorksEverywhere';
+import SpeedMagic from '@/components/SpeedMagic';
+import WorksEverywhereNew from '@/components/WorksEverywhereNew';
 import HowItWorks from '@/components/HowItWorks';
 import UseCases from '@/components/UseCases';
-import Testimonials from '@/components/Testimonials';
 import Trust from '@/components/Trust';
+import Testimonials from '@/components/Testimonials';
+import PlatformDownload from '@/components/PlatformDownload';
 import ProTier from '@/components/ProTier';
 import FAQ from '@/components/FAQ';
 import FinalCTA from '@/components/FinalCTA';
@@ -21,15 +19,13 @@ export default function Home() {
       <Navigation />
       <main className="overflow-hidden">
         <Hero />
-        <Metrics />
-        <PlatformDownload />
-        <NotJustTranscription />
-        <LiveDemo />
-        <WorksEverywhere />
+        <SpeedMagic />
+        <WorksEverywhereNew />
         <HowItWorks />
         <UseCases />
-        <Testimonials />
         <Trust />
+        <Testimonials />
+        <PlatformDownload />
         <ProTier />
         <FAQ />
         <FinalCTA />
