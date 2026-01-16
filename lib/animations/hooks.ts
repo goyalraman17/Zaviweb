@@ -62,6 +62,9 @@ export function useStaggerDelay(index: number, baseDelay: number = 0.1): number 
  * Hook for scroll-based parallax effects
  * Returns scroll progress value
  *
+ * Note: Reduced motion is handled by the motion config system,
+ * not at the hook level. The MotionValue itself is safe to use.
+ *
  * @param ref - React ref to the element
  */
 export function useParallax(ref: RefObject<HTMLElement>) {
@@ -69,15 +72,6 @@ export function useParallax(ref: RefObject<HTMLElement>) {
     target: ref,
     offset: ['start end', 'end start'],
   });
-
-  // If reduced motion, return static value
-  if (shouldReduceMotion()) {
-    const staticValue = {
-      get: () => 0,
-      set: () => {},
-    } as MotionValue<number>;
-    return staticValue;
-  }
 
   return scrollYProgress;
 }
