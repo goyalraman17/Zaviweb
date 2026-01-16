@@ -2,6 +2,16 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import {
+  staggerContainerSlow,
+  fadeUp,
+  fadeUpLarge,
+  ctaPrimary,
+  ctaSecondary,
+  duration,
+  easing,
+  motion as motionValues,
+} from '@/lib/animations';
 
 export default function Hero() {
   const ref = useRef(null);
@@ -12,6 +22,7 @@ export default function Hero() {
     offset: ["start start", "end start"]
   });
 
+  // Parallax effects for scroll-based animation
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
@@ -36,13 +47,15 @@ export default function Hero() {
       <motion.div
         className="container mx-auto px-6 py-32 relative z-10"
         style={{ opacity, scale, y }}
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainerSlow}
       >
         <div className="max-w-5xl mx-auto text-center">
+          {/* Trust Badge */}
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-zavi-border/60 rounded-full mb-10 shadow-sm"
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeUp}
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -53,30 +66,27 @@ export default function Hero() {
             </span>
           </motion.div>
 
+          {/* Headline */}
           <motion.h1
             className="text-6xl sm:text-7xl md:text-8xl font-bold mb-8 text-zavi-charcoal tracking-tight leading-[1.05]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeUpLarge}
           >
             Speak Naturally and Get
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-blue-600">Professional Text Everywhere</span>
           </motion.h1>
 
+          {/* Subheading */}
           <motion.p
             className="text-xl md:text-2xl text-zavi-gray-text mb-12 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeUp}
           >
             AI-powered voice writing that understands intent, not just words. Works everywhere you write.
           </motion.p>
 
+          {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeUp}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           >
             <motion.button
@@ -87,8 +97,10 @@ export default function Hero() {
                 }
               }}
               className="btn-primary"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              variants={ctaPrimary}
             >
               Download Free
               <svg className="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,8 +116,10 @@ export default function Hero() {
                 }
               }}
               className="btn-secondary"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              variants={ctaSecondary}
             >
               See How It Works
               <svg className="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,11 +129,10 @@ export default function Hero() {
             </motion.button>
           </motion.div>
 
+          {/* Platform Info */}
           <motion.p
             className="text-sm text-zavi-gray-text/70"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            variants={fadeUp}
           >
             <span className="inline-flex items-center gap-1">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -133,11 +146,12 @@ export default function Hero() {
         </div>
       </motion.div>
 
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.8 }}
+        transition={{ duration: duration.slow, delay: 0.8, ease: easing.smooth }}
         style={{ opacity: scrollOpacity }}
       >
         <motion.div

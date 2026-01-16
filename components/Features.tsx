@@ -1,7 +1,15 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import {
+  useScrollAnimation,
+  fadeUp,
+  staggerContainer,
+  hoverLift,
+  hoverScale,
+  getStaggerDelay,
+} from '@/lib/animations';
 
 const features = [
   {
@@ -59,16 +67,17 @@ const features = [
 
 export default function Features() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useScrollAnimation(ref);
 
   return (
     <section ref={ref} className="py-24 md:py-32 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-6">
+        {/* Section Header */}
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={fadeUp}
         >
           <span className="text-sm font-semibold text-zavi-blue tracking-wider uppercase">Features</span>
           <h2 className="text-4xl md:text-5xl font-bold text-zavi-charcoal mt-3 mb-4">
@@ -76,23 +85,31 @@ export default function Features() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Feature Grid */}
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={staggerContainer}
+        >
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
+              variants={fadeUp}
               className="card p-8 group"
+              style={{ willChange: 'transform, opacity' }}
             >
+              {/* Icon Container */}
               <motion.div
                 className="w-14 h-14 mb-5 flex items-center justify-center bg-gradient-to-br from-zavi-blue/10 to-blue-500/10 rounded-2xl text-zavi-blue group-hover:from-zavi-blue/20 group-hover:to-blue-500/20 transition-all duration-300"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
+                initial="rest"
+                whileHover="hover"
+                variants={hoverScale}
               >
                 {feature.icon}
               </motion.div>
+
+              {/* Content */}
               <h3 className="text-xl font-semibold text-zavi-charcoal mb-3 group-hover:text-zavi-blue transition-colors">
                 {feature.title}
               </h3>
@@ -101,7 +118,7 @@ export default function Features() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
