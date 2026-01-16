@@ -1,11 +1,11 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { ctaPrimary, duration, easing } from '@/lib/animations';
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  const { scrollY } = useScroll();
 
   useEffect(() => {
     const updateVisibility = () => {
@@ -21,7 +21,7 @@ export default function StickyCTA() {
     };
 
     updateVisibility();
-    window.addEventListener('scroll', updateVisibility);
+    window.addEventListener('scroll', updateVisibility, { passive: true });
     return () => window.removeEventListener('scroll', updateVisibility);
   }, []);
 
@@ -33,7 +33,8 @@ export default function StickyCTA() {
         y: isVisible ? 0 : 100,
         opacity: isVisible ? 1 : 0
       }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: duration.base, ease: easing.smooth }}
+      style={{ willChange: 'transform, opacity' }}
     >
       <div className="bg-white/95 backdrop-blur-lg border-t border-zavi-border px-6 py-4 shadow-2xl">
         <motion.button
@@ -44,7 +45,11 @@ export default function StickyCTA() {
             }
           }}
           className="group relative block w-full px-6 py-4 text-center text-base font-semibold text-white rounded-xl overflow-hidden shadow-lg"
-          whileTap={{ scale: 0.95 }}
+          initial="rest"
+          whileHover="hover"
+          whileTap="tap"
+          variants={ctaPrimary}
+          style={{ willChange: 'transform' }}
         >
           <div className="absolute inset-0 bg-zavi-blue" />
           <span className="relative flex items-center justify-center gap-2">

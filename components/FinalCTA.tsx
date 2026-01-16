@@ -1,11 +1,20 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import {
+  useScrollAnimation,
+  staggerContainer,
+  fadeUp,
+  fadeUpLarge,
+  ctaPrimary,
+  duration,
+  easing,
+} from '@/lib/animations';
 
 export default function FinalCTA() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useScrollAnimation(ref);
   const [detectedOS, setDetectedOS] = useState<string>('');
 
   useEffect(() => {
@@ -52,33 +61,28 @@ export default function FinalCTA() {
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={staggerContainer}
         >
+          {/* Headline */}
           <motion.h2
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            variants={fadeUpLarge}
           >
             Join 50,000+ users typing 5x faster
           </motion.h2>
 
+          {/* Subheading */}
           <motion.p
             className="text-xl md:text-2xl text-zavi-gray-text mb-12 font-light max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            variants={fadeUp}
           >
             Free to install. Works in 30 seconds. Start speaking, stop editing.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-          >
+          {/* Primary CTA Button */}
+          <motion.div variants={fadeUp}>
             <motion.button
               onClick={() => {
                 const downloadSection = document.querySelector('[data-section="download"]');
@@ -86,9 +90,12 @@ export default function FinalCTA() {
                   downloadSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="group relative inline-flex items-center gap-3 px-12 py-6 text-xl font-semibold text-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              className="group relative inline-flex items-center gap-3 px-12 py-6 text-xl font-semibold text-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow"
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              variants={ctaPrimary}
+              style={{ willChange: 'transform' }}
             >
               <div className="absolute inset-0 bg-zavi-blue" />
               <div className="absolute inset-0 bg-gradient-to-r from-zavi-blue-400 to-zavi-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -99,11 +106,10 @@ export default function FinalCTA() {
             </motion.button>
           </motion.div>
 
+          {/* Supporting Text */}
           <motion.p
             className="text-sm text-zavi-gray-text mt-8"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
+            variants={fadeUp}
           >
             Free to install · Works across all platforms · No account required
           </motion.p>
