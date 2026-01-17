@@ -36,7 +36,7 @@ const PLANS = [
       'Voice tone learning',
       'Email support',
     ],
-    cta: 'Get Starter',
+    cta: 'Start Starter',
     highlighted: false,
   },
   {
@@ -51,23 +51,9 @@ const PLANS = [
       'Priority support',
       'Team features coming soon',
     ],
-    cta: 'Get Pro',
+    cta: 'Start Pro',
     highlighted: true,
-  },
-  {
-    name: 'Enterprise',
-    price: '$49',
-    period: '/seat/month',
-    description: 'For teams and organizations',
-    features: [
-      'Everything in Pro',
-      'Team management',
-      'SSO and security controls',
-      'Dedicated support',
-      'Custom contracts',
-    ],
-    cta: 'Contact Sales',
-    highlighted: false,
+    helperText: 'Best for individuals and small teams',
   },
 ];
 
@@ -122,7 +108,7 @@ export default function PricingNew() {
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid md:grid-cols-3 gap-6 mb-12"
             variants={staggerContainer}
           >
             {PLANS.map((plan, index) => (
@@ -205,28 +191,60 @@ export default function PricingNew() {
                   ))}
                 </ul>
 
-                <motion.button
-                  className={`w-full px-6 py-3 rounded-xl font-semibold transition-all ${
-                    plan.highlighted
-                      ? 'bg-white text-zavi-blue hover:bg-zavi-paper shadow-lg'
-                      : 'bg-zavi-blue text-white hover:bg-zavi-blue-500 shadow-md'
-                  }`}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  variants={plan.highlighted ? ctaPrimary : ctaSecondary}
-                >
-                  {plan.cta}
-                </motion.button>
+                <div>
+                  <motion.button
+                    className={`w-full px-6 py-3 rounded-xl font-semibold transition-all ${
+                      plan.highlighted
+                        ? 'bg-white text-zavi-blue hover:bg-zavi-paper shadow-lg'
+                        : 'bg-zavi-blue text-white hover:bg-zavi-blue-500 shadow-md'
+                    }`}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap"
+                    variants={plan.highlighted ? ctaPrimary : ctaSecondary}
+                  >
+                    {plan.cta}
+                  </motion.button>
+
+                  {plan.helperText && (
+                    <p className="text-center text-xs text-white/70 mt-3">
+                      {plan.helperText}
+                    </p>
+                  )}
+                </div>
               </motion.div>
             ))}
           </motion.div>
 
-          <motion.p
-            className="text-center text-sm text-zavi-gray-text mt-12"
+          {/* Enterprise Callout - Separate, Quiet */}
+          <motion.div
+            className="max-w-2xl mx-auto mb-12"
             variants={fadeUp}
           >
-            All plans include 7-day free trial • Cancel anytime • No credit card required for Free tier
+            <div className="bg-zavi-paper/50 border border-zavi-border/30 rounded-2xl p-8 text-center">
+              <h3 className="text-xl font-bold text-zavi-charcoal mb-2">
+                Enterprise
+              </h3>
+              <p className="text-sm text-zavi-gray-text mb-6">
+                For larger teams with custom needs and advanced security
+              </p>
+              <motion.button
+                className="px-8 py-3 bg-white border border-zavi-border rounded-xl text-zavi-charcoal font-semibold hover:border-zavi-blue/50 hover:bg-zavi-blue/5 transition-all"
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+                variants={ctaSecondary}
+              >
+                Contact Sales
+              </motion.button>
+            </div>
+          </motion.div>
+
+          <motion.p
+            className="text-center text-sm text-zavi-gray-text"
+            variants={fadeUp}
+          >
+            Cancel anytime. No credit card required to start.
           </motion.p>
         </motion.div>
       </div>
