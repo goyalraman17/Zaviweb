@@ -14,7 +14,7 @@ export default function ProblemStatement() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-gradient-to-b from-white to-zavi-paper/30">
+    <section ref={ref} className="py-32 md:py-48 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-4xl mx-auto text-center"
@@ -23,14 +23,18 @@ export default function ProblemStatement() {
           variants={staggerContainer}
         >
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-zavi-charcoal mb-8 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-12 leading-[1.1]"
             variants={fadeUpLarge}
           >
-            Typing Is the Bottleneck.
+            Typing Is the
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-charcoal to-zavi-gray-text">
+              Bottleneck.
+            </span>
           </motion.h2>
 
           <motion.div
-            className="space-y-6 text-lg md:text-xl text-zavi-gray-text leading-relaxed"
+            className="space-y-8 text-xl md:text-2xl text-zavi-gray-text leading-relaxed"
             variants={fadeUp}
           >
             <p>
@@ -40,7 +44,7 @@ export default function ProblemStatement() {
               {' '}Voice should fix this.
             </p>
 
-            <p className="text-2xl md:text-3xl font-semibold text-zavi-charcoal">
+            <p className="text-3xl md:text-4xl font-bold text-zavi-charcoal">
               It does not.
             </p>
 
@@ -50,7 +54,7 @@ export default function ProblemStatement() {
               And rewriting kills the benefit.
             </p>
 
-            <p className="text-xl md:text-2xl font-semibold text-zavi-charcoal pt-4">
+            <p className="text-2xl md:text-3xl font-semibold text-zavi-charcoal pt-6">
               This is why voice never replaced the keyboard.
             </p>
           </motion.div>
