@@ -81,7 +81,7 @@ export default function Navigation() {
               </motion.a>
             ))}
 
-            {/* CTA Button */}
+            {/* CTA Button - Premium: More prominent with "free" language */}
             <div className="ml-2 pl-2 border-l border-zavi-border">
               <motion.button
                 onClick={() => {
@@ -90,13 +90,16 @@ export default function Navigation() {
                     downloadSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="px-5 py-2.5 text-sm font-semibold text-white bg-zavi-blue rounded-xl hover:bg-zavi-blue-500 transition-all shadow-lg shadow-zavi-blue/25 hover:shadow-xl hover:shadow-zavi-blue/30"
+                className="group px-6 py-3 text-sm font-semibold text-white bg-zavi-blue rounded-xl hover:bg-zavi-blue-500 transition-all shadow-lg shadow-zavi-blue/25 hover:shadow-xl hover:shadow-zavi-blue/35 flex items-center gap-2"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 variants={ctaPrimary}
               >
-                Download
+                Download for free
+                <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </motion.button>
             </div>
           </div>
