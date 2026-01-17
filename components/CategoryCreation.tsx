@@ -33,7 +33,7 @@ export default function CategoryCreation() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-white">
+    <section ref={ref} className="py-32 md:py-40 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-5xl mx-auto"
@@ -42,43 +42,46 @@ export default function CategoryCreation() {
           variants={staggerContainer}
         >
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-zavi-charcoal mb-8 text-center leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 text-center leading-[1.1]"
             variants={fadeUpLarge}
           >
-            This Is Not Voice Typing.
+            This Is Not
+            <br />
+            Voice Typing.
           </motion.h2>
 
           <motion.p
-            className="text-xl text-zavi-gray-text text-center mb-16"
+            className="text-xl md:text-2xl text-zavi-gray-text text-center mb-20 max-w-3xl mx-auto"
             variants={fadeUp}
           >
             Zavi is a new input layer for professional writing.
           </motion.p>
 
           <motion.div
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-3 gap-8"
             variants={staggerContainer}
           >
             {COMPARISONS.map((item, index) => (
               <motion.div
                 key={index}
-                className={`relative rounded-2xl p-8 text-center transition-all duration-300 ${
+                className={`group relative rounded-2xl p-10 text-center transition-all duration-500 ${
                   item.highlight
-                    ? 'bg-gradient-to-br from-zavi-blue to-blue-600 text-white shadow-xl border-2 border-zavi-blue'
-                    : 'bg-zavi-paper border border-zavi-border hover:shadow-lg'
+                    ? 'bg-gradient-to-br from-zavi-blue to-blue-600 text-white shadow-2xl border-2 border-zavi-blue scale-[1.02]'
+                    : 'bg-zavi-paper border border-zavi-border/50 hover:shadow-xl hover:border-zavi-blue/30'
                 }`}
                 variants={fadeUp}
+                whileHover={!item.highlight ? { y: -4 } : {}}
               >
                 {item.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-zavi-gold text-xs font-bold text-zavi-charcoal rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-zavi-gold text-xs font-bold text-zavi-charcoal rounded-full tracking-wide">
                     NEW CATEGORY
                   </div>
                 )}
 
-                <div className="text-5xl mb-4">{item.icon}</div>
+                <div className="text-5xl mb-6">{item.icon}</div>
 
                 <h3
-                  className={`text-xl font-bold mb-3 ${
+                  className={`text-xl font-bold mb-4 ${
                     item.highlight ? 'text-white' : 'text-zavi-charcoal'
                   }`}
                 >
@@ -86,7 +89,7 @@ export default function CategoryCreation() {
                 </h3>
 
                 <p
-                  className={`text-sm ${
+                  className={`text-base leading-relaxed ${
                     item.highlight ? 'text-white/90' : 'text-zavi-gray-text'
                   }`}
                 >
@@ -97,7 +100,7 @@ export default function CategoryCreation() {
           </motion.div>
 
           <motion.p
-            className="text-center text-lg text-zavi-gray-text mt-16"
+            className="text-center text-lg md:text-xl text-zavi-gray-text mt-20"
             variants={fadeUp}
           >
             Position: <span className="font-semibold text-zavi-charcoal">A new way to create text</span>
