@@ -4,8 +4,6 @@ import HeroRedesign from '@/components/HeroRedesign';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
 import WorksEverywhereSection from '@/components/WorksEverywhereSection';
-import ProblemStatement from '@/components/ProblemStatement';
-import ZaviSolution from '@/components/ZaviSolution';
 import CategoryCreation from '@/components/CategoryCreation';
 import Audiences from '@/components/Audiences';
 import TrustSignals from '@/components/TrustSignals';
@@ -23,13 +21,12 @@ import StickyCTA from '@/components/StickyCTA';
  * 2. Language Support (global unlock)
  * 3. Download (conversion point)
  * 4. Works Everywhere (trust builder)
- * 5. Problem → Solution (narrative)
- * 6. Category Creation (positioning)
- * 7. Audiences (targeting)
- * 8. Trust Signals (credibility)
- * 9. Pricing (conversion)
- * 10. FAQ (objections)
- * 11. Final CTA (last conversion push)
+ * 5. Category Creation (positioning)
+ * 6. Audiences (targeting)
+ * 7. Trust Signals (credibility)
+ * 8. Pricing (conversion)
+ * 9. FAQ (objections)
+ * 10. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -47,12 +44,6 @@ export default function Home() {
 
         {/* Works Everywhere - common apps */}
         <WorksEverywhereSection />
-
-        {/* Problem identification */}
-        <ProblemStatement />
-
-        {/* Solution */}
-        <ZaviSolution />
 
         {/* Category creation - not voice typing */}
         <CategoryCreation />
