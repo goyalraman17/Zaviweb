@@ -352,14 +352,20 @@ export const scrollReveal: Variants = {
  */
 export const headerReveal: Variants = {
   top: {
-    backgroundColor: 'rgba(255, 255, 255, 0)',
+    backgroundColor: 'rgba(26, 30, 35, 0)',
     backdropFilter: 'blur(0px)',
     boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
   },
+  visible: {
+    backgroundColor: 'rgba(26, 30, 35, 0.95)',
+    backdropFilter: 'blur(16px)',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    transition: getTransition(duration.base, easing.smooth),
+  },
   scrolled: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    backdropFilter: 'blur(12px)',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+    backgroundColor: 'rgba(26, 30, 35, 0.98)',
+    backdropFilter: 'blur(16px)',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
     transition: getTransition(duration.base, easing.smooth),
   },
 };
