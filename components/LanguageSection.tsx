@@ -29,7 +29,7 @@ export default function LanguageSection() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-white">
+    <section ref={ref} className="py-32 md:py-40 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -38,9 +38,9 @@ export default function LanguageSection() {
           variants={staggerContainer}
         >
           {/* Heading */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-zavi-charcoal mb-4 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 leading-[1.1]"
               variants={fadeUpLarge}
             >
               Speak in Your Native Language.
@@ -50,7 +50,7 @@ export default function LanguageSection() {
               </span>
             </motion.h2>
             <motion.p
-              className="text-xl text-zavi-gray-text max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-zavi-gray-text max-w-3xl mx-auto leading-relaxed"
               variants={fadeUp}
             >
               Think naturally in your language. Zavi translates your intent into professional English instantly.
@@ -59,14 +59,15 @@ export default function LanguageSection() {
 
           {/* Language Flow Examples */}
           <motion.div
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-3 gap-8"
             variants={staggerContainer}
           >
             {LANGUAGE_FLOWS.map((flow, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl border border-zavi-border/50 p-6 hover:shadow-xl transition-all duration-300"
+                className="group bg-white rounded-2xl border border-zavi-border/50 p-8 hover:shadow-xl hover:border-zavi-blue/30 transition-all duration-500"
                 variants={fadeUp}
+                whileHover={{ y: -4 }}
               >
                 {/* Input */}
                 <div className="mb-4">

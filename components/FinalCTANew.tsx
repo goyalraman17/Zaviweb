@@ -65,7 +65,7 @@ export default function FinalCTANew() {
         >
           {/* Headline */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 leading-[1.1]"
             variants={fadeUpLarge}
           >
             Stop Translating Thoughts
@@ -75,7 +75,7 @@ export default function FinalCTANew() {
 
           {/* Subheadline */}
           <motion.p
-            className="text-2xl md:text-3xl text-zavi-gray-text mb-16 font-light"
+            className="text-xl md:text-2xl text-zavi-gray-text mb-20 max-w-2xl mx-auto leading-relaxed"
             variants={fadeUp}
           >
             Let writing happen naturally.
