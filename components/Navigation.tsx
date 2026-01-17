@@ -27,9 +27,8 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { name: 'Product', href: '/#features', id: 'product', hasDropdown: true },
+    { name: 'Product', href: '/', id: 'product' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
-    { name: 'About', href: '/#about', id: 'about', hasDropdown: true },
     { name: 'Privacy', href: '/privacy', id: 'privacy' },
   ];
 
@@ -129,7 +128,7 @@ export default function Navigation() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors group flex items-center gap-1"
+                className="relative px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors group"
                 initial="hidden"
                 animate="visible"
                 variants={fadeDown}
@@ -144,11 +143,6 @@ export default function Navigation() {
                 >
                   {link.name}
                 </motion.span>
-                {link.hasDropdown && (
-                  <svg className="w-3 h-3 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                  </svg>
-                )}
                 <motion.span
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-zavi-blue"
                   initial={{ width: 0 }}
