@@ -2,6 +2,7 @@
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import LanguageTranslationHero from '@/components/LanguageTranslationHero';
+import KillYourKeyboard from '@/components/KillYourKeyboard';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
 import WorksEverywhereSection from '@/components/WorksEverywhereSection';
@@ -39,6 +40,9 @@ export default function Home() {
 
         {/* Language Translation Hero - Speak in Any Language */}
         <LanguageTranslationHero />
+
+        {/* Kill Your Keyboard - Smart Editing */}
+        <KillYourKeyboard />
 
         {/* Language Support - speak native, get professional */}
         <LanguageSection />
