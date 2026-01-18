@@ -37,13 +37,8 @@ export default function StickyCTA() {
       style={{ willChange: 'transform, opacity' }}
     >
       <div className="bg-white/95 backdrop-blur-lg border-t border-zavi-border px-6 py-4 shadow-2xl">
-        <motion.button
-          onClick={() => {
-            const downloadSection = document.querySelector('[data-section="download"]');
-            if (downloadSection) {
-              downloadSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
+        <motion.a
+          href="/try-free"
           className="group relative block w-full px-6 py-4 text-center text-base font-semibold text-white rounded-xl overflow-hidden shadow-lg"
           initial="rest"
           whileHover="hover"
@@ -54,11 +49,11 @@ export default function StickyCTA() {
           <div className="absolute inset-0 bg-zavi-blue" />
           <span className="relative flex items-center justify-center gap-2">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M17 13v4a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-4M5 8l5 5 5-5M10 13V1"/>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
             </svg>
-            Download Free
+            Try Zavi Free
           </span>
-        </motion.button>
+        </motion.a>
       </div>
     </motion.div>
   );
