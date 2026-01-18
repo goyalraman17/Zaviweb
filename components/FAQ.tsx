@@ -72,7 +72,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" ref={ref} className="section-pad bg-gradient-to-b from-white to-gray-50">
+    <section id="faq" ref={ref} className="py-24 md:py-32 pb-32 md:pb-48 bg-gradient-to-b from-white to-gray-50">
       <div className="container-wide">
         <motion.div
           className="text-center mb-16"
@@ -138,7 +138,7 @@ export default function FAQ() {
                     {category.title}
                   </h3>
 
-                  <div className="space-y-3">
+                  <div className="space-y-6">
                     {category.items.map((item, itemIndex) => {
                       const key = `${categoryIndex}-${itemIndex}`;
                       const isOpen = openIndex === key;
@@ -150,7 +150,7 @@ export default function FAQ() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                           transition={{ duration: 0.4, delay: 0.05 * itemIndex }}
-                          className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 transition-colors"
+                          className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-gray-200 transition-colors"
                         >
                           <button
                             onClick={() => toggleItem(categoryIndex, itemIndex)}
@@ -237,41 +237,6 @@ export default function FAQ() {
             </div>
           </div>
         </div>
-
-        {/* Bottom CTA Section */}
-        <motion.div
-          className="mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
-          <div className="bg-gradient-to-br from-zavi-charcoal to-gray-800 rounded-3xl p-12 text-center relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-64 h-64 bg-zavi-blue rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
-            </div>
-
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Kill your keyboard. Forever.
-              </h3>
-              <p className="text-xl text-gray-300 mb-8">
-                Writing faster is one click away.
-              </p>
-
-              <a
-                href="#download"
-                className="inline-block bg-zavi-blue hover:bg-blue-600 text-white font-semibold py-4 px-10 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
-              >
-                Get Zavi for Mac
-              </a>
-              <p className="text-sm text-gray-400 mt-4">
-                No credit card. Cancel anytime.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
