@@ -94,28 +94,25 @@ export default function DownloadSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-gradient-to-b from-zavi-paper/30 to-white" data-section="download">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="section-pad bg-gray-50" data-section="download">
+      <div className="container-large">
         <motion.div
-          className="max-w-6xl mx-auto"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={staggerContainer}
         >
-          {/* Heading - Speed, Ease, System-Wide */}
+          {/* Heading */}
           <div className="text-center mb-16">
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-zavi-charcoal mb-6 leading-tight"
+              className="text-zavi-charcoal mb-6"
               variants={fadeUpLarge}
             >
               Ready in 30 Seconds.
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-purple-600">
-                Works Everywhere You Type.
-              </span>
+              Works Everywhere You Type.
             </motion.h2>
             <motion.p
-              className="text-xl md:text-2xl text-zavi-gray-text max-w-2xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
               variants={fadeUp}
             >
               Choose your device and start writing faster
@@ -133,76 +130,59 @@ export default function DownloadSection() {
               return (
                 <motion.div
                   key={platform.name}
-                  className={`group relative bg-white rounded-2xl border transition-all duration-300 ${
+                  className={`group relative card p-6 transition-all duration-300 ${
                     isRecommended
-                      ? 'border-zavi-blue/50 shadow-2xl scale-[1.04] p-8'
-                      : 'border-zavi-border/20 hover:border-zavi-border/40 shadow-sm p-6 opacity-75 hover:opacity-100'
+                      ? 'border-zavi-blue shadow-lg'
+                      : 'hover:shadow-md'
                   }`}
                   variants={fadeUp}
-                  style={{ willChange: 'transform' }}
                 >
-                  {/* Recommended Badge - Softer Language */}
+                  {/* Recommended Badge */}
                   {isRecommended && (
-                    <motion.div
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-zavi-blue text-white text-xs font-medium rounded-full shadow-lg"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-zavi-blue text-white text-xs font-semibold rounded-full">
                       For you
-                    </motion.div>
+                    </div>
                   )}
 
-                  <div className={`transition-colors mb-4 ${
-                    isRecommended ? 'text-zavi-blue' : 'text-zavi-charcoal/60 group-hover:text-zavi-charcoal'
-                  }`}>
-                    <div className={isRecommended ? 'w-12 h-12' : 'w-10 h-10'}>
-                      {platform.icon}
-                    </div>
+                  <div className={`mb-4 ${
+                    isRecommended ? 'text-zavi-blue' : 'text-gray-600 group-hover:text-zavi-charcoal'
+                  } transition-colors`}>
+                    {platform.icon}
                   </div>
 
-                  <h3 className={`font-bold text-zavi-charcoal mb-2 ${
-                    isRecommended ? 'text-2xl' : 'text-xl'
-                  }`}>
+                  <h3 className="text-xl font-bold text-zavi-charcoal mb-2">
                     {platform.name}
                   </h3>
 
-                  <p className={`text-zavi-gray-text mb-6 leading-relaxed ${
-                    isRecommended ? 'text-sm min-h-[42px]' : 'text-xs min-h-[36px]'
-                  }`}>
+                  <p className="text-sm text-gray-600 mb-6 min-h-[40px]">
                     {platform.valueDescription}
                   </p>
 
-                  <motion.button
-                    className={`w-full font-semibold rounded-xl transition-all inline-flex items-center justify-center gap-2 ${
+                  <button
+                    className={`w-full font-semibold rounded-lg transition-all inline-flex items-center justify-center gap-2 py-3 ${
                       isRecommended
-                        ? 'px-6 py-4 text-white bg-zavi-blue hover:bg-zavi-blue-500 shadow-lg hover:shadow-xl'
-                        : 'px-5 py-3 text-zavi-blue bg-white border border-zavi-blue/30 hover:bg-zavi-blue/5 hover:border-zavi-blue/50'
+                        ? 'btn-primary'
+                        : 'text-sm text-zavi-blue bg-white border-2 border-gray-200 hover:border-zavi-blue hover:bg-zavi-blue/5'
                     }`}
-                    initial="rest"
-                    whileHover="hover"
-                    whileTap="tap"
-                    variants={ctaPrimary}
-                    style={{ willChange: 'transform' }}
                   >
-                    <span className={isRecommended ? 'text-base' : 'text-sm'}>
+                    <span className="text-sm">
                       {platform.buttonText}
                     </span>
-                    <svg className={isRecommended ? 'w-4 h-4' : 'w-3.5 h-3.5'} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                  </motion.button>
+                  </button>
                 </motion.div>
               );
             })}
           </motion.div>
 
-          {/* Friction-Killing Microcopy */}
+          {/* Microcopy */}
           <motion.p
-            className="text-center text-sm text-zavi-gray-text/80"
+            className="text-center text-sm text-gray-500"
             variants={fadeUp}
           >
-            No signup no learning curve no credit card
+            No signup • No learning curve • No credit card
           </motion.p>
         </motion.div>
       </div>

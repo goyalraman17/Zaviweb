@@ -66,11 +66,11 @@ export default function Navigation() {
       initial="top"
       animate="visible"
       variants={headerReveal}
-      className="fixed top-0 left-0 right-0 z-50 bg-zavi-charcoal/95 backdrop-blur-lg border-b border-white/5"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo & Platform Badges */}
+      <div className="container-large">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
           <div className="flex items-center gap-8">
             <motion.a
               href="/"
@@ -80,14 +80,14 @@ export default function Navigation() {
               whileTap="tap"
               variants={hoverScaleSubtle}
             >
-              <div className="relative w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10 group-hover:border-zavi-blue/50 transition-all duration-300">
+              <div className="relative w-10 h-10 bg-zavi-blue/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-zavi-blue/20 group-hover:border-zavi-blue transition-all duration-300">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <rect x="6" y="5" width="12" height="2" rx="1" fill="#5381d2"/>
                   <path d="M8 7Q9 9 10 11T11 17" stroke="#5381d2" strokeWidth="2.5" strokeLinecap="round"/>
                   <rect x="6" y="17" width="12" height="2" rx="1" fill="#5381d2"/>
                 </svg>
               </div>
-              <span className="text-xl font-bold text-white">Zavi</span>
+              <span className="text-xl font-bold text-zavi-charcoal">Zavi</span>
             </motion.a>
 
             {/* Platform Badges */}
@@ -99,7 +99,7 @@ export default function Navigation() {
                   animate="visible"
                   variants={fadeDown}
                   transition={{ delay: getStaggerDelay(index, 0.05, 0.1) }}
-                  className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center gap-2 text-white/70 text-xs font-medium hover:bg-white/10 hover:border-white/20 transition-all"
+                  className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full flex items-center gap-2 text-gray-600 text-xs font-medium hover:bg-gray-200 hover:border-gray-300 transition-all"
                 >
                   {platform.icon === 'apple' && (
                     <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
@@ -128,7 +128,7 @@ export default function Navigation() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors group"
+                className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-zavi-charcoal transition-colors group"
                 initial="hidden"
                 animate="visible"
                 variants={fadeDown}
@@ -161,7 +161,7 @@ export default function Navigation() {
                 downloadSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="hidden md:flex items-center gap-2 px-6 py-3 text-sm font-semibold text-zavi-charcoal bg-white rounded-full hover:bg-white/90 transition-all shadow-lg hover:shadow-xl"
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-zavi-blue rounded-full hover:bg-zavi-blue-500 transition-all shadow-md hover:shadow-lg"
             initial="rest"
             whileHover="hover"
             whileTap="tap"
@@ -173,7 +173,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-zavi-charcoal"
             initial="rest"
             whileTap="tap"
             variants={hoverScaleSubtle}
