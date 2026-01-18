@@ -199,4 +199,8 @@
   .container-small {
     @apply max-w-3xl mx-auto px-4 sm:px-6;
   }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
