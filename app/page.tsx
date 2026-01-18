@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import LanguageTranslationHero from '@/components/LanguageTranslationHero';
 import KillYourKeyboard from '@/components/KillYourKeyboard';
+import AdaptsToYourRole from '@/components/AdaptsToYourRole';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
 import WorksEverywhereSection from '@/components/WorksEverywhereSection';
@@ -43,6 +44,9 @@ export default function Home() {
 
         {/* Kill Your Keyboard - Smart Editing */}
         <KillYourKeyboard />
+
+        {/* Adapts to Your Role - Interactive Cohorts */}
+        <AdaptsToYourRole />
 
         {/* Language Support - speak native, get professional */}
         <LanguageSection />
