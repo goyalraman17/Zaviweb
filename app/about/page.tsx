@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: "About Zavi AI | Voice Typing Keyboard",
-  description: "Learn about Zavi AI and our mission to make communication faster and more natural through AI-powered voice typing.",
+  description: "We are a team of designers, AI researchers, and engineers rethinking how humans interact with technology. Making tech more conversational, effortless, and human.",
 };
 
 export default function AboutPage() {
@@ -30,33 +30,20 @@ export default function AboutPage() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8">About Zavi</h1>
 
           <div className="prose prose-lg prose-invert max-w-none">
-            <p className="text-xl text-zavi-navy-200 mb-6 leading-relaxed">
-              Zavi AI is redefining how people communicate on mobile devices. We built an AI-powered voice typing keyboard that transforms natural speech into professional text—instantly.
+            <p className="text-xl text-zavi-navy-200 mb-8 leading-relaxed">
+              We are a team of designers, AI researchers, and engineers who step away from the status quo to rethink the fundamental layer of computing — how humans interact with technology.
             </p>
 
-            <h2 className="text-3xl font-bold text-white mt-12 mb-4">Our Mission</h2>
-            <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              We believe communication should be effortless. Typing on a phone is slow, tedious, and frustrating. Traditional voice typing captures every "um" and "uh," leaving you to clean up the mess. We knew there was a better way.
-            </p>
-
-            <h2 className="text-3xl font-bold text-white mt-12 mb-4">What Makes Zavi Different</h2>
-            <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              Zavi isn't just voice-to-text—it's an AI writing assistant in your keyboard. We remove filler words, fix grammar, and structure your thoughts into clear, professional text. All in real-time, in any Android app.
-            </p>
-
-            <h2 className="text-3xl font-bold text-white mt-12 mb-4">Privacy First</h2>
-            <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              Your privacy is non-negotiable. Zavi's microphone only activates when you tap. We process your speech and immediately delete the audio—we never store recordings. Your data is encrypted, and you maintain full control.
-            </p>
-
-            <h2 className="text-3xl font-bold text-white mt-12 mb-4">Built for Everyone</h2>
-            <p className="text-lg text-zavi-navy-300 mb-6 leading-relaxed">
-              Whether you're a professional composing emails on the go, a creator capturing ideas, or someone who simply prefers speaking to typing—Zavi was built for you. We support 100+ languages and work in every Android app you use daily.
-            </p>
-
-            <h2 className="text-3xl font-bold text-white mt-12 mb-4">Join Us</h2>
             <p className="text-lg text-zavi-navy-300 mb-8 leading-relaxed">
-              Over 50,000 users have already made the switch to Zavi. Join a community of people who think faster than they type.
+              Our mission is to make interacting with your devices as effortless as talking to a close friend. As we make tech more conversational, we create a world where people enjoy more clarity, connection, and agency – with less screen time, context-switching, and cognitive overload. Communicating and creating become easier, busywork disappears, and everyone has more time for what matters most.
+            </p>
+
+            <p className="text-lg text-zavi-navy-300 mb-8 leading-relaxed">
+              Our first product Zavi, makes voice dictation delightful. We focus on the biggest use case for technology — letting people communicate with others, their thoughts, and AI. Over the last few months, Zavi became the first consumer voice dictation platform that makes people want to use voice more than their keyboards.
+            </p>
+
+            <p className="text-xl text-zavi-navy-200 mb-8 leading-relaxed font-semibold">
+              And we're just getting started.
             </p>
 
             <div className="mt-12">
