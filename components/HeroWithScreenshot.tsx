@@ -27,7 +27,7 @@ export default function HeroWithScreenshot() {
               variants={fadeUpLarge}
               style={{ lineHeight: 1.15 }}
             >
-              Zavi AI: Your Voice, Polished Instantly.
+              Your voice. Perfectly written. Instantly. Everywhere
             </motion.h1>
 
             {/* Subheading */}
