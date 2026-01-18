@@ -1,252 +1,367 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import {
-  useScrollAnimation,
-  staggerContainer,
+  staggerContainerSlow,
   fadeUp,
   fadeUpLarge,
   ctaPrimary,
-  ctaSecondary,
 } from '@/lib/animations';
 
-const PLANS = [
-  {
-    name: 'Free',
-    price: '$0',
-    description: 'Try Zavi risk-free',
-    features: [
-      '100 conversions/month',
-      'All languages supported',
-      'System keyboard access',
-      'All platforms',
-    ],
-    cta: 'Start Free',
-    highlighted: false,
-  },
-  {
-    name: 'Starter',
-    price: '$9.99',
-    period: '/month',
-    description: 'For consistent daily writers',
-    features: [
-      '1,000 conversions/month',
-      'Priority processing',
-      'Voice tone learning',
-      'Email support',
-    ],
-    cta: 'Start Starter',
-    highlighted: false,
-  },
-  {
-    name: 'Pro',
-    price: '$29',
-    period: '/month',
-    description: 'For professionals who live in writing',
-    features: [
-      'Unlimited conversions',
-      'Custom voice profiles',
-      'Advanced context awareness',
-      'Priority support',
-      'Team features coming soon',
-    ],
-    cta: 'Start Pro',
-    highlighted: true,
-    helperText: 'Best for individuals and small teams',
-  },
-];
-
 export default function PricingNew() {
-  const ref = useRef(null);
-  const isInView = useScrollAnimation(ref);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-gradient-to-b from-zavi-paper/30 to-white" data-section="pricing">
-      <div className="container mx-auto px-6">
+    <section
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
+      }}
+      data-section="pricing"
+    >
+      <div className="container-large relative z-10">
         <motion.div
-          className="max-w-7xl mx-auto"
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={staggerContainer}
+          animate="visible"
+          variants={staggerContainerSlow}
         >
-          <motion.div className="text-center mb-16" variants={fadeUpLarge}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zavi-charcoal mb-4">
-              Priced for Daily Writing.
+          {/* Header */}
+          <motion.div className="text-center mb-12" variants={fadeUpLarge}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1a1a1a] mb-4">
+              Write 4x Faster Anywhere Using Your Voice
             </h2>
-            <p className="text-xl text-zavi-gray-text mb-8">
-              Built for habit, not experiments.
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              Turn natural speech into clean, professional text across every app you use.
             </p>
 
+            {/* Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8">
+              <div className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg className="w-5 h-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>Trusted by professionals, founders, and teams</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm md:text-base text-gray-700">
+                <svg className="w-5 h-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>Cancel anytime. No credit card for free plan</span>
+              </div>
+            </div>
+
             {/* Billing Toggle */}
-            <div className="inline-flex items-center gap-4 p-1 bg-zavi-paper rounded-full border border-zavi-border">
+            <div className="inline-flex items-center gap-2 p-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
               <button
                 onClick={() => setBillingCycle('monthly')}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   billingCycle === 'monthly'
-                    ? 'bg-zavi-blue text-white shadow-md'
-                    : 'text-zavi-gray-text hover:text-zavi-charcoal'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBillingCycle('annual')}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
                   billingCycle === 'annual'
-                    ? 'bg-zavi-blue text-white shadow-md'
-                    : 'text-zavi-gray-text hover:text-zavi-charcoal'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                Annual
-                <span className="ml-2 text-xs bg-zavi-gold text-zavi-charcoal px-2 py-0.5 rounded-full">
-                  Save 20%
-                </span>
+                <span>Annual (2 months free)</span>
+                <div className="w-10 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full relative">
+                  <div className={`absolute top-0.5 ${billingCycle === 'annual' ? 'right-0.5' : 'left-0.5'} w-4 h-4 bg-white rounded-full transition-all`}></div>
+                </div>
               </button>
             </div>
           </motion.div>
 
+          {/* Pricing Cards */}
           <motion.div
-            className="grid md:grid-cols-3 gap-6 mb-12"
-            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12"
+            variants={staggerContainerSlow}
           >
-            {PLANS.map((plan, index) => (
-              <motion.div
-                key={index}
-                className={`relative rounded-2xl p-8 transition-all duration-300 ${
-                  plan.highlighted
-                    ? 'bg-gradient-to-br from-zavi-blue to-blue-600 text-white shadow-2xl border-2 border-zavi-blue scale-105'
-                    : 'bg-white border border-zavi-border/50 hover:shadow-xl hover:border-zavi-blue/30'
-                }`}
-                variants={fadeUp}
-              >
-                {plan.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-zavi-gold text-zavi-charcoal text-xs font-bold rounded-full">
-                    MOST POPULAR
-                  </div>
-                )}
+            {/* Free Plan */}
+            <motion.div
+              className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg"
+              variants={fadeUp}
+            >
+              <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
+              <p className="text-gray-600 mb-6">For trying voice-first writing</p>
 
-                <div className="mb-6">
-                  <h3
-                    className={`text-lg font-bold mb-2 ${
-                      plan.highlighted ? 'text-white' : 'text-zavi-charcoal'
-                    }`}
-                  >
-                    {plan.name}
-                  </h3>
-                  <div className="flex items-baseline gap-1 mb-2">
-                    <span
-                      className={`text-4xl font-bold ${
-                        plan.highlighted ? 'text-white' : 'text-zavi-charcoal'
-                      }`}
-                    >
-                      {plan.price}
-                    </span>
-                    {plan.period && (
-                      <span
-                        className={`text-sm ${
-                          plan.highlighted ? 'text-white/70' : 'text-zavi-gray-text'
-                        }`}
-                      >
-                        {plan.period}
-                      </span>
-                    )}
-                  </div>
-                  <p
-                    className={`text-sm ${
-                      plan.highlighted ? 'text-white/80' : 'text-zavi-gray-text'
-                    }`}
-                  >
-                    {plan.description}
-                  </p>
-                </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Write up to 1,500 words per week</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Speak naturally. Zavi cleans grammar and punctuation automatically</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Works across your apps</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Supports mixed languages</span>
+                </li>
+              </ul>
 
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <svg
-                        className={`w-5 h-5 flex-shrink-0 ${
-                          plan.highlighted ? 'text-white' : 'text-green-600'
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span
-                        className={`text-sm ${
-                          plan.highlighted ? 'text-white' : 'text-zavi-charcoal'
-                        }`}
-                      >
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div>
-                  <motion.button
-                    className={`w-full px-6 py-3 rounded-xl font-semibold transition-all ${
-                      plan.highlighted
-                        ? 'bg-white text-zavi-blue hover:bg-zavi-paper shadow-lg'
-                        : 'bg-zavi-blue text-white hover:bg-zavi-blue-500 shadow-md'
-                    }`}
-                    initial="rest"
-                    whileHover="hover"
-                    whileTap="tap"
-                    variants={plan.highlighted ? ctaPrimary : ctaSecondary}
-                  >
-                    {plan.cta}
-                  </motion.button>
-
-                  {plan.helperText && (
-                    <p className="text-center text-xs text-white/70 mt-3">
-                      {plan.helperText}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Enterprise Callout - Separate, Quiet */}
-          <motion.div
-            className="max-w-2xl mx-auto mb-12"
-            variants={fadeUp}
-          >
-            <div className="bg-zavi-paper/50 border border-zavi-border/30 rounded-2xl p-8 text-center">
-              <h3 className="text-xl font-bold text-zavi-charcoal mb-2">
-                Enterprise
-              </h3>
-              <p className="text-sm text-zavi-gray-text mb-6">
-                For larger teams with custom needs and advanced security
-              </p>
               <motion.button
-                className="px-8 py-3 bg-white border border-zavi-border rounded-xl text-zavi-charcoal font-semibold hover:border-zavi-blue/50 hover:bg-zavi-blue/5 transition-all"
+                className="w-full px-6 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
+                style={{
+                  background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
+                }}
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
-                variants={ctaSecondary}
+                variants={ctaPrimary}
               >
-                Contact Sales
+                Try Free. No Credit Card
               </motion.button>
+            </motion.div>
+
+            {/* Pro Plan - Most Popular */}
+            <motion.div
+              className="relative rounded-3xl p-8 shadow-2xl transform scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
+              }}
+              variants={fadeUp}
+            >
+              {/* Most Popular Badge */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-white text-purple-700 text-sm font-bold rounded-full shadow-lg">
+                Most Popular
+              </div>
+
+              <h3 className="text-3xl font-bold text-white mb-1">Pro</h3>
+              <p className="text-white/90 mb-4">(Most Popular for Daily Writing)</p>
+
+              {/* Save Time Badge */}
+              <div className="bg-[#E6C15A] text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg mb-6">
+                Save 30+ minutes per day on typing
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-white">Unlimited voice writing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-white">Works everywhere you type</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-white">Removes filler words automatically</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-white">Fixes grammar and structure instantly</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-white">Advanced rewrites for clarity and tone</span>
+                </li>
+              </ul>
+
+              <motion.button
+                className="w-full px-6 py-4 rounded-full font-semibold bg-white text-purple-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+                variants={ctaPrimary}
+              >
+                Upgrade to Pro
+              </motion.button>
+
+              <p className="text-center text-white/80 text-sm">7-day money-back guarantee</p>
+            </motion.div>
+
+            {/* Teams Plan */}
+            <motion.div
+              className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg"
+              variants={fadeUp}
+            >
+              <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
+              <p className="text-gray-600 mb-2">(For Fast-Growing Companies)</p>
+              <p className="text-gray-700 mb-6">For teams that communicate at scale</p>
+
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Everything in Pro</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Shared terminology and brand voice</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Usage analytics across team</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Admin controls and centralized billing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Priority support</span>
+                </li>
+              </ul>
+
+              <motion.button
+                className="w-full px-6 py-4 rounded-full font-semibold text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-purple-500 hover:bg-gray-50 transition-all mb-3"
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+                variants={ctaPrimary}
+              >
+                Start with 3 Users
+              </motion.button>
+
+              <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
+            </motion.div>
+          </motion.div>
+
+          {/* Enterprise Section */}
+          <motion.div
+            className="max-w-5xl mx-auto rounded-3xl p-12 text-center shadow-xl mb-16"
+            style={{
+              background: 'linear-gradient(135deg, #9370DB 0%, #7B68EE 100%)',
+            }}
+            variants={fadeUp}
+          >
+            <h3 className="text-3xl font-bold text-white mb-4">Enterprise-grade voice writing</h3>
+            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+              Custom integrations, security reviews, dedicated support, and organization-wide rollout.
+            </p>
+            <motion.button
+              className="px-10 py-4 rounded-full font-semibold bg-white text-purple-700 shadow-lg hover:bg-gray-50 transition-all"
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              variants={ctaPrimary}
+            >
+              Talk to Sales
+            </motion.button>
+          </motion.div>
+
+          {/* Testimonials Section */}
+          <motion.div className="max-w-6xl mx-auto mb-16" variants={fadeUp}>
+            <h3 className="text-3xl md:text-4xl font-bold text-center text-[#1a1a1a] mb-12">
+              Loved by Writers & Founders
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Testimonial 1 */}
+              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-pink-300 to-purple-300 rounded-full"></div>
+                  <div>
+                    <h4 className="text-xl font-bold text-[#1a1a1a]">Sarah M.</h4>
+                    <p className="text-gray-600">Startup Founder</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-lg mb-4">
+                  "I replaced typing with Zavi for emails and Slack. I now finish replies in half the time."
+                </p>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-300 to-purple-300 rounded-full"></div>
+                  <div>
+                    <h4 className="text-xl font-bold text-[#1a1a1a]">Aakash P.</h4>
+                    <p className="text-gray-600">Marketing Lead</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-lg mb-4">
+                  "Game changer. I save hours every week writing content. Works great with my Indian accent."
+                </p>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          <motion.p
-            className="text-center text-sm text-zavi-gray-text"
+          {/* FAQ CTA Section */}
+          <motion.div
+            className="max-w-5xl mx-auto rounded-3xl p-12 text-center bg-white/90 backdrop-blur-sm shadow-lg"
             variants={fadeUp}
           >
-            Cancel anytime. No credit card required to start.
-          </motion.p>
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-4">
+              Frequently Asked Questions
+            </h3>
+            <p className="text-xl text-gray-700 mb-8">
+              Stop typing. <span className="font-bold">Start speaking.</span> Writing faster is one click away.
+            </p>
+            <motion.button
+              className="px-10 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
+              style={{
+                background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
+              }}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              variants={ctaPrimary}
+            >
+              Get Zavi for Mac
+            </motion.button>
+          </motion.div>
         </motion.div>
+      </div>
+
+      {/* Bottom Tagline */}
+      <div className="text-center mt-16">
+        <p className="text-2xl md:text-3xl text-[#1a1a1a] font-medium">
+          Stop typing. <span className="font-bold">Start speaking.</span> Writing faster is one click away.
+        </p>
       </div>
     </section>
   );
