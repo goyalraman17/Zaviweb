@@ -20,20 +20,37 @@ export default function Footer() {
               className="flex items-start gap-3"
             >
               <div className="w-8 h-8 mt-1">
-                <svg width="32" height="32" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="512" height="512" fill="transparent"/>
-                  <path d="M256 96C256 96 192 96 192 160L256 160C256 160 256 96 256 96Z" fill="#1E5EFF"/>
-                  <path d="M256 96L384 96C384 96 384 224 256 224C256 224 256 160 192 160C192 160 192 288 256 288C256 288 256 352 320 352C320 352 384 352 384 288L320 288C320 288 320 352 256 352C256 352 256 288 256 288C256 288 384 288 384 160C384 160 384 96 256 96Z" fill="url(#footerGradient1)"/>
-                  <path d="M256 288C256 288 128 288 128 352C128 352 128 416 256 416C256 416 256 352 320 352C320 352 320 224 256 224C256 224 256 288 256 288Z" fill="url(#footerGradient2)"/>
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Top bar */}
+                  <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#footerTopBar)"/>
+
+                  {/* Flowing Z layers - from back to front */}
+                  <path d="M 75 22 Q 65 30, 55 38 Q 45 46, 35 54 Q 25 62, 25 70"
+                        stroke="#87CEEB" strokeWidth="8" fill="none" opacity="0.3"/>
+                  <path d="M 77 22 Q 67 30, 57 38 Q 47 46, 37 54 Q 27 62, 25 70"
+                        stroke="#5DADE2" strokeWidth="8" fill="none" opacity="0.4"/>
+                  <path d="M 79 22 Q 69 30, 59 38 Q 49 46, 39 54 Q 29 62, 25 70"
+                        stroke="#3498DB" strokeWidth="9" fill="none" opacity="0.5"/>
+                  <path d="M 81 22 Q 71 30, 61 38 Q 51 46, 41 54 Q 31 62, 25 70"
+                        stroke="#2E86C1" strokeWidth="10" fill="none" opacity="0.6"/>
+                  <path d="M 83 22 Q 73 30, 63 38 Q 53 46, 43 54 Q 33 62, 25 70"
+                        stroke="#2874A6" strokeWidth="11" fill="none" opacity="0.8"/>
+                  <path d="M 85 22 Q 75 30, 65 38 Q 55 46, 45 54 Q 35 62, 25 70"
+                        stroke="#1F5F8B" strokeWidth="12" fill="none" opacity="1"/>
+
+                  {/* Bottom bar */}
+                  <rect x="15" y="78" width="70" height="12" rx="6" fill="url(#footerBottomBar)"/>
+
                   <defs>
-                    <linearGradient id="footerGradient1" x1="256" y1="96" x2="256" y2="352" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#2E6FFF"/>
-                      <stop offset="0.5" stopColor="#4A8AFF"/>
-                      <stop offset="1" stopColor="#6BA5FF"/>
+                    <linearGradient id="footerTopBar" x1="15" y1="16" x2="85" y2="16" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#2E5FDD"/>
+                      <stop offset="50%" stopColor="#3B82F6"/>
+                      <stop offset="100%" stopColor="#60A5FA"/>
                     </linearGradient>
-                    <linearGradient id="footerGradient2" x1="256" y1="224" x2="256" y2="416" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#4A8AFF"/>
-                      <stop offset="1" stopColor="#2E6FFF"/>
+                    <linearGradient id="footerBottomBar" x1="15" y1="84" x2="85" y2="84" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#2E5FDD"/>
+                      <stop offset="50%" stopColor="#3B82F6"/>
+                      <stop offset="100%" stopColor="#60A5FA"/>
                     </linearGradient>
                   </defs>
                 </svg>
