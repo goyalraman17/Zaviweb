@@ -6,7 +6,6 @@ import KillYourKeyboard from '@/components/KillYourKeyboard';
 import AdaptsToYourRole from '@/components/AdaptsToYourRole';
 import OnTheGoOrAtYourDesk from '@/components/OnTheGoOrAtYourDesk';
 import LanguageSection from '@/components/LanguageSection';
-import TrustSignals from '@/components/TrustSignals';
 import PricingNew from '@/components/PricingNew';
 import FAQ from '@/components/FAQ';
 import FinalCTANew from '@/components/FinalCTANew';
@@ -23,10 +22,9 @@ import StickyCTA from '@/components/StickyCTA';
  * 4. Adapts to Your Role (role-specific demos)
  * 5. On-the-go or At Your Desk (cross-device sync)
  * 6. Language Support (multilingual capability)
- * 7. Trust Signals (credibility)
- * 8. Pricing (conversion)
- * 9. FAQ (objections)
- * 10. Final CTA (last conversion push)
+ * 7. Pricing (conversion)
+ * 8. FAQ (objections)
+ * 9. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -50,9 +48,6 @@ export default function Home() {
 
         {/* Language Support - speak native, get professional */}
         <LanguageSection />
-
-        {/* Trust and product readiness */}
-        <TrustSignals />
 
         {/* Pricing */}
         <PricingNew />
