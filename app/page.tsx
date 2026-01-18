@@ -7,9 +7,6 @@ import AdaptsToYourRole from '@/components/AdaptsToYourRole';
 import OnTheGoOrAtYourDesk from '@/components/OnTheGoOrAtYourDesk';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
-import WorksEverywhereSection from '@/components/WorksEverywhereSection';
-import CategoryCreation from '@/components/CategoryCreation';
-import Audiences from '@/components/Audiences';
 import TrustSignals from '@/components/TrustSignals';
 import PricingNew from '@/components/PricingNew';
 import FAQ from '@/components/FAQ';
@@ -22,15 +19,16 @@ import StickyCTA from '@/components/StickyCTA';
  *
  * Clean, focused flow:
  * 1. Hero + Live Demo (immediate value)
- * 2. Language Support (global unlock)
- * 3. Download (conversion point)
- * 4. Works Everywhere (trust builder)
- * 5. Category Creation (positioning)
- * 6. Audiences (targeting)
- * 7. Trust Signals (credibility)
- * 8. Pricing (conversion)
- * 9. FAQ (objections)
- * 10. Final CTA (last conversion push)
+ * 2. Language Translation Hero (global unlock)
+ * 3. Kill Your Keyboard (smart editing showcase)
+ * 4. Adapts to Your Role (role-specific demos)
+ * 5. On-the-go or At Your Desk (cross-device sync)
+ * 6. Language Support (multilingual capability)
+ * 7. Download (conversion point)
+ * 8. Trust Signals (credibility)
+ * 9. Pricing (conversion)
+ * 10. FAQ (objections)
+ * 11. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -57,15 +55,6 @@ export default function Home() {
 
         {/* Download Section - all platforms */}
         <DownloadSection />
-
-        {/* Works Everywhere - common apps */}
-        <WorksEverywhereSection />
-
-        {/* Category creation - not voice typing */}
-        <CategoryCreation />
-
-        {/* Target audiences */}
-        <Audiences />
 
         {/* Trust and product readiness */}
         <TrustSignals />
