@@ -79,13 +79,11 @@ export default function Navigation() {
             whileTap="tap"
             variants={hoverScaleSubtle}
           >
-            <div className="relative w-10 h-10 bg-zavi-blue/10 backdrop-blur-sm rounded-lg flex items-center justify-center border border-zavi-blue/20 group-hover:border-zavi-blue transition-all duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="6" y="5" width="12" height="2" rx="1" fill="#5381d2"/>
-                <path d="M8 7Q9 9 10 11T11 17" stroke="#5381d2" strokeWidth="2.5" strokeLinecap="round"/>
-                <rect x="6" y="17" width="12" height="2" rx="1" fill="#5381d2"/>
-              </svg>
-            </div>
+            <img
+              src="/zavi-logo.png"
+              alt="Zavi Logo"
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-xl font-bold text-zavi-charcoal">Zavi</span>
           </motion.a>
 

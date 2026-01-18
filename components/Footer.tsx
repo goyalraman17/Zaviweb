@@ -17,11 +17,19 @@ export default function Footer() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="flex items-start gap-3"
             >
-              <h2 className="text-3xl font-bold text-white/90 mb-2">Zavi</h2>
-              <p className="text-sm text-gray-500">
-                Think faster than you type.
-              </p>
+              <img
+                src="/zavi-logo.png"
+                alt="Zavi Logo"
+                className="w-8 h-8 object-contain mt-1"
+              />
+              <div>
+                <h2 className="text-3xl font-bold text-white/90 mb-2">Zavi</h2>
+                <p className="text-sm text-gray-500">
+                  Think faster than you type.
+                </p>
+              </div>
             </motion.div>
           </div>
 
