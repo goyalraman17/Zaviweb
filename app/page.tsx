@@ -4,6 +4,7 @@ import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import LanguageTranslationHero from '@/components/LanguageTranslationHero';
 import KillYourKeyboard from '@/components/KillYourKeyboard';
 import AdaptsToYourRole from '@/components/AdaptsToYourRole';
+import OnTheGoOrAtYourDesk from '@/components/OnTheGoOrAtYourDesk';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
 import WorksEverywhereSection from '@/components/WorksEverywhereSection';
@@ -47,6 +48,9 @@ export default function Home() {
 
         {/* Adapts to Your Role - Interactive Cohorts */}
         <AdaptsToYourRole />
+
+        {/* On-the-go or At Your Desk - Device Sync */}
+        <OnTheGoOrAtYourDesk />
 
         {/* Language Support - speak native, get professional */}
         <LanguageSection />
