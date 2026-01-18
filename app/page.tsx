@@ -1,6 +1,6 @@
 // New conversion-focused components
 import Navigation from '@/components/Navigation';
-import HeroRedesign from '@/components/HeroRedesign';
+import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
 import WorksEverywhereSection from '@/components/WorksEverywhereSection';
@@ -33,8 +33,8 @@ export default function Home() {
     <>
       <Navigation />
       <main className="overflow-hidden">
-        {/* Hero with embedded Live Voice Demo - REDESIGNED */}
-        <HeroRedesign />
+        {/* Hero with Screenshot - Matches Landing Page Design */}
+        <HeroWithScreenshot />
 
         {/* Language Support - speak native, get professional */}
         <LanguageSection />
