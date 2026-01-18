@@ -1,6 +1,7 @@
 // New conversion-focused components
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
+import KillYourKeyboard from '@/components/KillYourKeyboard';
 import LanguageSection from '@/components/LanguageSection';
 import DownloadSection from '@/components/DownloadSection';
 import WorksEverywhereSection from '@/components/WorksEverywhereSection';
@@ -35,6 +36,9 @@ export default function Home() {
       <main className="overflow-hidden">
         {/* Hero with Screenshot - Matches Landing Page Design */}
         <HeroWithScreenshot />
+
+        {/* Kill Your Keyboard Section - Key Features */}
+        <KillYourKeyboard />
 
         {/* Language Support - speak native, get professional */}
         <LanguageSection />
