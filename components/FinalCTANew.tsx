@@ -26,37 +26,8 @@ export default function FinalCTANew() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-zavi-blue/5 via-white to-purple-50/30">
-      {/* Ambient background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-zavi-blue/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section ref={ref} className="section-pad-lg bg-white">
+      <div className="container-medium">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial="hidden"
@@ -65,8 +36,9 @@ export default function FinalCTANew() {
         >
           {/* Headline */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 leading-[1.1]"
+            className="text-zavi-charcoal mb-6"
             variants={fadeUpLarge}
+            style={{ lineHeight: 1.1 }}
           >
             Stop Translating Thoughts
             <br />
@@ -75,7 +47,7 @@ export default function FinalCTANew() {
 
           {/* Subheadline */}
           <motion.p
-            className="text-xl md:text-2xl text-zavi-gray-text mb-20 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto"
             variants={fadeUp}
           >
             Let writing happen naturally.
@@ -86,66 +58,55 @@ export default function FinalCTANew() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
             variants={fadeUp}
           >
-            <motion.button
+            <button
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="group relative inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow"
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
-              variants={ctaPrimary}
-              style={{ willChange: 'transform' }}
+              className="btn-primary inline-flex items-center gap-2 text-lg"
             >
-              <div className="absolute inset-0 bg-zavi-blue" />
-              <div className="absolute inset-0 bg-gradient-to-r from-zavi-blue-400 to-zavi-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <svg className="relative w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
               </svg>
-              <span className="relative">Start Speaking</span>
-            </motion.button>
+              <span>Start Speaking</span>
+            </button>
 
-            <motion.button
+            <button
               onClick={() => {
                 const downloadSection = document.querySelector('[data-section="download"]');
                 if (downloadSection) {
                   downloadSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="group relative inline-flex items-center gap-3 px-12 py-6 text-xl font-semibold text-zavi-charcoal bg-white rounded-2xl border-2 border-zavi-border hover:border-zavi-blue/30 hover:bg-zavi-blue/5 transition-all shadow-xl hover:shadow-2xl"
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
-              variants={ctaPrimary}
+              className="btn-secondary inline-flex items-center gap-2 text-lg"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
               <span>Download Zavi</span>
-            </motion.button>
+            </button>
           </motion.div>
 
-          {/* Supporting Text */}
+          {/* Stats */}
           <motion.div
-            className="mt-16 grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
+            className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
             variants={fadeUp}
           >
             <div className="text-center">
-              <div className="text-4xl font-bold text-zavi-blue mb-2">50,000+</div>
-              <div className="text-sm text-zavi-gray-text">Active users</div>
+              <div className="text-3xl md:text-4xl font-bold text-zavi-blue mb-1">50K+</div>
+              <div className="text-sm text-gray-600">Active users</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-zavi-blue mb-2">5x</div>
-              <div className="text-sm text-zavi-gray-text">Faster writing</div>
+              <div className="text-3xl md:text-4xl font-bold text-zavi-blue mb-1">5x</div>
+              <div className="text-sm text-gray-600">Faster writing</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-zavi-blue mb-2">&lt;200ms</div>
-              <div className="text-sm text-zavi-gray-text">Response time</div>
+              <div className="text-3xl md:text-4xl font-bold text-zavi-blue mb-1">&lt;200ms</div>
+              <div className="text-sm text-gray-600">Response time</div>
             </div>
           </motion.div>
 
           <motion.p
-            className="text-sm text-zavi-gray-text mt-12"
+            className="text-sm text-gray-500 mt-12"
             variants={fadeUp}
           >
             Free to install • Works across all platforms • No credit card required
