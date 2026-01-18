@@ -121,21 +121,16 @@ export default function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <motion.button
-            onClick={() => {
-              const downloadSection = document.querySelector('[data-section="download"]');
-              if (downloadSection) {
-                downloadSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+          <motion.a
+            href="/try-free"
             className="hidden md:flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all shadow-sm hover:shadow-md"
             initial="rest"
             whileHover="hover"
             whileTap="tap"
             variants={ctaPrimary}
           >
-            Download for macOS
-          </motion.button>
+            Try Zavi Free
+          </motion.a>
 
           {/* Mobile Menu Button */}
           <motion.button

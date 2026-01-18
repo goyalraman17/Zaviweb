@@ -43,21 +43,16 @@ export default function HeroWithScreenshot() {
               variants={fadeUp}
               className="flex flex-col sm:flex-row items-start gap-4 mb-16"
             >
-              <motion.button
-                onClick={() => {
-                  const downloadSection = document.querySelector('[data-section="download"]');
-                  if (downloadSection) {
-                    downloadSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="px-8 py-4 text-base font-semibold text-white bg-[#6B7FE8] rounded-xl hover:bg-[#5a6fd4] transition-all shadow-lg hover:shadow-xl"
+              <motion.a
+                href="/try-free"
+                className="px-8 py-4 text-base font-semibold text-white bg-[#6B7FE8] rounded-xl hover:bg-[#5a6fd4] transition-all shadow-lg hover:shadow-xl inline-block"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 variants={ctaPrimary}
               >
                 Try Zavi Free
-              </motion.button>
+              </motion.a>
 
               <motion.button
                 onClick={() => {

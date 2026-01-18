@@ -63,32 +63,25 @@ export default function FinalCTANew() {
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
             variants={fadeUp}
           >
-            <button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+            <a
+              href="/try-free"
               className="btn-primary inline-flex items-center gap-3 text-xl px-10 py-5"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
               </svg>
               <span>Start Speaking</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => {
-                const downloadSection = document.querySelector('[data-section="download"]');
-                if (downloadSection) {
-                  downloadSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+            <a
+              href="/try-free"
               className="btn-secondary inline-flex items-center gap-3 text-xl px-10 py-5"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Zavi</span>
-            </button>
+              <span>Try Zavi Free</span>
+            </a>
           </motion.div>
 
           {/* Stats */}
