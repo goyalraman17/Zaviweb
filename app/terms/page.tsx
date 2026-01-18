@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Navigation from '@/components/Navigation';
 
 export const metadata = {
   title: "Terms of Service | Zavi AI",
@@ -7,22 +8,9 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="py-6 border-b border-zavi-gray-200 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity w-fit">
-            <div className="w-10 h-10 bg-gradient-to-br from-zavi-blue-400 to-zavi-blue-600 rounded-full flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="6" y="5" width="12" height="2" rx="1" fill="white"/>
-                <path d="M8 7Q9 9 10 11T11 17" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                <rect x="6" y="17" width="12" height="2" rx="1" fill="white"/>
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-zavi-gray-900">Zavi AI</span>
-          </Link>
-        </div>
-      </header>
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-white pt-20">
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -144,6 +132,7 @@ export default function TermsPage() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

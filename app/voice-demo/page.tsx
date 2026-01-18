@@ -1,5 +1,6 @@
 'use client';
 
+import Navigation from '@/components/Navigation';
 import {
   Hero,
   DemoCard,
@@ -12,7 +13,9 @@ import {
 
 export default function VoiceDemoPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
       <Hero />
 
@@ -44,6 +47,7 @@ export default function VoiceDemoPage() {
 
       {/* Footer Spacer */}
       <div className="h-16 bg-gradient-to-b from-white to-[#F5F1EC]/30" />
-    </main>
+      </main>
+    </>
   );
 }
