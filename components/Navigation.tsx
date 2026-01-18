@@ -79,11 +79,25 @@ export default function Navigation() {
             whileTap="tap"
             variants={hoverScaleSubtle}
           >
-            <img
-              src="/zavi-logo.png"
-              alt="Zavi Logo"
-              className="w-10 h-10 object-contain"
-            />
+            <div className="relative w-10 h-10 rounded-lg flex items-center justify-center">
+              <svg width="40" height="40" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="512" height="512" fill="white"/>
+                <path d="M256 96C256 96 192 96 192 160L256 160C256 160 256 96 256 96Z" fill="#1E5EFF"/>
+                <path d="M256 96L384 96C384 96 384 224 256 224C256 224 256 160 192 160C192 160 192 288 256 288C256 288 256 352 320 352C320 352 384 352 384 288L320 288C320 288 320 352 256 352C256 352 256 288 256 288C256 288 384 288 384 160C384 160 384 96 256 96Z" fill="url(#gradient1)"/>
+                <path d="M256 288C256 288 128 288 128 352C128 352 128 416 256 416C256 416 256 352 320 352C320 352 320 224 256 224C256 224 256 288 256 288Z" fill="url(#gradient2)"/>
+                <defs>
+                  <linearGradient id="gradient1" x1="256" y1="96" x2="256" y2="352" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#2E6FFF"/>
+                    <stop offset="0.5" stopColor="#4A8AFF"/>
+                    <stop offset="1" stopColor="#6BA5FF"/>
+                  </linearGradient>
+                  <linearGradient id="gradient2" x1="256" y1="224" x2="256" y2="416" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#4A8AFF"/>
+                    <stop offset="1" stopColor="#2E6FFF"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
             <span className="text-xl font-bold text-zavi-charcoal">Zavi</span>
           </motion.a>
 
