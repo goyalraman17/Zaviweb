@@ -89,7 +89,7 @@ export default function Navigation() {
       initial="top"
       animate="visible"
       variants={headerReveal}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200"
     >
       <div className="container-large">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -186,7 +186,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-3 text-zavi-charcoal relative z-[60] touch-manipulation"
+            className="md:hidden p-3 text-zavi-charcoal relative z-[10000] touch-manipulation"
             onClick={toggleMobileMenu}
             initial="rest"
             whileTap="tap"
@@ -208,25 +208,28 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mobileMenuOpen && (
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] md:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={closeMobileMenu}
+              style={{ top: 0 }}
             />
 
             {/* Menu Panel */}
             <motion.div
-              className="fixed top-16 right-0 bottom-0 w-full max-w-sm bg-white z-[58] md:hidden shadow-2xl overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-sm bg-white z-[9999] md:hidden shadow-2xl overflow-y-auto"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              style={{ paddingTop: '64px' }}
             >
               <div className="p-6 space-y-6">
                 {/* Navigation Links */}
