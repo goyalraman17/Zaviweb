@@ -76,7 +76,7 @@ export default function VoiceTypingDemo() {
         <motion.div
           variants={staggerContainerSlow}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true }}
         >
           {/* Heading */}
