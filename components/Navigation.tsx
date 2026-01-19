@@ -13,8 +13,10 @@ import {
 
 export default function Navigation() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
-  const [detectedOS, setDetectedOS] = useState<string>('macOS');
+  const [detectedOS, setDetectedOS] = useState<string>('Unknown');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [showDetectedTooltip, setShowDetectedTooltip] = useState<boolean>(false);
 
   // Toggle mobile menu function
   const toggleMobileMenu = () => {
@@ -26,6 +28,7 @@ export default function Navigation() {
     setMobileMenuOpen(false);
   };
 
+  // Detect OS
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
@@ -33,8 +36,18 @@ export default function Navigation() {
       else if (userAgent.includes('win')) setDetectedOS('Windows');
       else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('iOS');
       else if (userAgent.includes('android')) setDetectedOS('Android');
-      else setDetectedOS('macOS');
+      else if (userAgent.includes('linux')) setDetectedOS('Linux');
+      else setDetectedOS('Unknown');
     }
+  }, []);
+
+  // Handle scroll for navbar height reduction
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent body scroll when mobile menu is open
@@ -49,54 +62,45 @@ export default function Navigation() {
     };
   }, [mobileMenuOpen]);
 
-  const navLinks = [
-    { name: 'Product', href: '/', id: 'product' },
-    { name: 'Pricing', href: '/#pricing', id: 'pricing' },
-    { name: 'Privacy', href: '/privacy', id: 'privacy' },
-  ];
-
-  const platforms = [
-    { name: 'iOS', icon: 'apple' },
-    { name: 'Mac', icon: 'apple' },
-    { name: 'Windows', icon: 'windows' },
-    { name: 'Android', icon: 'android' },
-  ];
-
-  const getOSIcon = () => {
-    if (detectedOS === 'macOS' || detectedOS === 'iOS') {
-      return (
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-        </svg>
-      );
-    } else if (detectedOS === 'Windows') {
-      return (
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 5.45v6.11l7.5.02V3.45L3 5.45zm7.5 7.68L3 13.11v6.14l7.5 1.98v-8.1zm1.5-8.1v8.12l9-.02V3.45l-9 1.58zm9 9.68l-9 .02v8.08l9 1.58v-9.68z"/>
-        </svg>
-      );
-    } else {
-      return (
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.523 15.3414c-.5511-.0001-.9993-.4484-.9993-.9995s.4483-.9995.9993-.9995c.5511 0 .9993.4484.9993.9995s-.4482.9995-.9993.9995m-5.046-8.3476c-.5511 0-.9993-.4484-.9993-.9995s.4482-.9995.9993-.9995.9993.4484.9993.9995-.4482.9995-.9993.9995m-5.046 8.3476c-.5511 0-.9993-.4484-.9993-.9995s.4482-.9995.9993-.9995.9993.4484.9993.9995-.4482.9995-.9993.9995m0-7.5466c-.5511 0-.9993-.4484-.9993-.9995s.4482-.9995.9993-.9995.9993.4484.9993.9995-.4482.9995-.9993.9995m12.5455 13.7512c-.1555 1.3-1.1033 2.348-2.4035 2.6085-3.7422.747-7.5477.747-11.29 0-1.3-.2605-2.248-1.3085-2.4035-2.6085-.3645-3.0403-.3645-6.1195 0-9.1598.1555-1.3 1.1035-2.348 2.4035-2.6085 3.7423-.747 7.5478-.747 11.29 0 1.3002.2605 2.248 1.3085 2.4035 2.6085.3645 3.0403.3645 6.1195 0 9.1598z"/>
-        </svg>
-      );
+  // Get download text based on detected OS
+  const getDownloadText = () => {
+    switch (detectedOS) {
+      case 'macOS': return 'Download for macOS';
+      case 'Windows': return 'Download for Windows';
+      case 'iOS': return 'Get on App Store';
+      case 'Android': return 'Get on Play Store';
+      case 'Linux': return 'Download for Linux';
+      default: return 'Download Free';
     }
   };
+
+  // Scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    closeMobileMenu();
+  };
+
+  const navLinks = [
+    { name: 'How it Works', onClick: () => scrollToSection('how-it-works'), id: 'how-it-works' },
+    { name: 'Pricing', href: '/#pricing', id: 'pricing' },
+  ];
 
   return (
     <motion.nav
       initial="top"
       animate="visible"
       variants={headerReveal}
-      className="fixed top-0 left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200 transition-all duration-300"
     >
       <div className="container-large">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'}`}>
           {/* Logo */}
-          <motion.a
-            href="/"
-            className="flex items-center gap-3 group relative z-50"
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 group relative z-50 cursor-pointer bg-transparent border-none"
             initial="rest"
             whileHover="hover"
             whileTap="tap"
@@ -139,49 +143,78 @@ export default function Navigation() {
               </svg>
             </div>
             <span className="text-xl font-bold text-zavi-charcoal">Zavi</span>
-          </motion.a>
+          </motion.button>
 
           {/* Center Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-zavi-charcoal transition-colors group"
-                initial="hidden"
-                animate="visible"
-                variants={fadeDown}
-                transition={{ delay: getStaggerDelay(index, 0.05, 0.15) }}
-                onMouseEnter={() => setActiveLink(link.id)}
-                onMouseLeave={() => setActiveLink(null)}
-              >
-                <motion.span
-                  initial="rest"
-                  whileHover="hover"
-                  variants={navItem}
-                >
-                  {link.name}
-                </motion.span>
-                <motion.span
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-zavi-blue"
-                  initial={{ width: 0 }}
-                  animate={{ width: activeLink === link.id ? '70%' : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
-            ))}
+            {navLinks.map((link, index) => {
+              const Element = link.onClick ? 'button' : 'a';
+              const props = link.onClick
+                ? { onClick: link.onClick, type: 'button' as const }
+                : { href: link.href };
+
+              return (
+                <motion.div key={link.name} className="relative">
+                  <Element
+                    {...props}
+                    className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-zavi-charcoal transition-colors bg-transparent border-none cursor-pointer"
+                    onMouseEnter={() => setActiveLink(link.id)}
+                    onMouseLeave={() => setActiveLink(null)}
+                  >
+                    <motion.span
+                      initial="rest"
+                      whileHover="hover"
+                      variants={navItem}
+                    >
+                      {link.name}
+                    </motion.span>
+                  </Element>
+                  <motion.span
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-zavi-blue pointer-events-none"
+                    initial={{ width: 0 }}
+                    animate={{ width: activeLink === link.id ? '70%' : 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              );
+            })}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Desktop */}
+          <div className="hidden md:block relative">
+            <motion.a
+              href="/try-free"
+              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all shadow-sm hover:shadow-md"
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              variants={ctaPrimary}
+              onMouseEnter={() => setShowDetectedTooltip(true)}
+              onMouseLeave={() => setShowDetectedTooltip(false)}
+            >
+              {getDownloadText()}
+            </motion.a>
+            {showDetectedTooltip && detectedOS !== 'Unknown' && (
+              <motion.div
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white text-xs rounded-md whitespace-nowrap"
+              >
+                Detected: {detectedOS}
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
+              </motion.div>
+            )}
+          </div>
+
+          {/* CTA Button - Mobile (visible outside menu) */}
           <motion.a
             href="/try-free"
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all shadow-sm hover:shadow-md"
+            className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all shadow-sm mr-2"
             initial="rest"
-            whileHover="hover"
             whileTap="tap"
             variants={ctaPrimary}
           >
-            Try Zavi Free
+            {getDownloadText()}
           </motion.a>
 
           {/* Mobile Menu Button */}
@@ -219,7 +252,7 @@ export default function Navigation() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={closeMobileMenu}
-              style={{ top: '64px' }}
+              style={{ top: isScrolled ? '56px' : '64px' }}
             />
 
             {/* Dropdown Menu Panel */}
@@ -229,37 +262,70 @@ export default function Navigation() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              style={{ top: '64px', overflow: 'hidden' }}
+              style={{ top: isScrolled ? '56px' : '64px', overflow: 'hidden' }}
             >
               <div className="max-w-screen-xl mx-auto px-4 py-4">
-                {/* Navigation Links */}
-                <div className="space-y-1">
-                  {navLinks.map((link, index) => (
-                    <motion.a
-                      key={link.name}
-                      href={link.href}
-                      className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      onClick={closeMobileMenu}
-                    >
-                      {link.name}
-                    </motion.a>
-                  ))}
-                </div>
-
-                {/* CTA Button */}
+                {/* CTA Button - First in menu */}
                 <motion.a
                   href="/try-free"
-                  className="block w-full mt-4 px-6 py-3 text-center text-base font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all"
+                  className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all mb-4"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
+                  transition={{ delay: 0.05 }}
                   onClick={closeMobileMenu}
                 >
-                  Try Zavi Free
+                  {getDownloadText()}
                 </motion.a>
+
+                {/* Navigation Links */}
+                <div className="space-y-1">
+                  {navLinks.map((link, index) => {
+                    if (link.onClick) {
+                      return (
+                        <motion.button
+                          key={link.name}
+                          onClick={(e) => {
+                            link.onClick();
+                            closeMobileMenu();
+                          }}
+                          type="button"
+                          className="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors bg-transparent border-none cursor-pointer"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: (index + 1) * 0.05 }}
+                        >
+                          {link.name}
+                        </motion.button>
+                      );
+                    } else {
+                      return (
+                        <motion.a
+                          key={link.name}
+                          href={link.href}
+                          className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: (index + 1) * 0.05 }}
+                          onClick={closeMobileMenu}
+                        >
+                          {link.name}
+                        </motion.a>
+                      );
+                    }
+                  })}
+
+                  {/* Privacy Policy Link */}
+                  <motion.a
+                    href="/privacy"
+                    className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: (navLinks.length + 1) * 0.05 }}
+                    onClick={closeMobileMenu}
+                  >
+                    Privacy Policy
+                  </motion.a>
+                </div>
               </div>
             </motion.div>
           </>
