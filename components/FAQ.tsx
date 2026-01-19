@@ -72,10 +72,10 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" ref={ref} className="py-24 md:py-32 pb-32 md:pb-48 bg-gradient-to-b from-white to-gray-50">
+    <section id="faq" ref={ref} className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-white to-gray-50">
       <div className="container-wide">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}

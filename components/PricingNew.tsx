@@ -14,7 +14,7 @@ export default function PricingNew() {
 
   return (
     <section
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-12 md:py-20 lg:py-32 overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
       }}

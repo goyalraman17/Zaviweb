@@ -29,7 +29,7 @@ export default function LanguageSection() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-32 md:py-40 bg-gradient-to-b from-white to-zavi-paper/30">
+    <section ref={ref} className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-white to-zavi-paper/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -38,9 +38,9 @@ export default function LanguageSection() {
           variants={staggerContainer}
         >
           {/* Heading */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-8 md:mb-12 lg:mb-20">
             <motion.h2
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 leading-[1.1]"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-zavi-charcoal mb-4 md:mb-6 lg:mb-8 leading-[1.1]"
               variants={fadeUpLarge}
             >
               Speak in Your Native Language.
@@ -50,7 +50,7 @@ export default function LanguageSection() {
               </span>
             </motion.h2>
             <motion.p
-              className="text-xl md:text-2xl text-zavi-gray-text max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg lg:text-xl xl:text-2xl text-zavi-gray-text max-w-3xl mx-auto leading-relaxed"
               variants={fadeUp}
             >
               Think naturally in your language. Zavi translates your intent into professional English instantly.
@@ -117,7 +117,7 @@ export default function LanguageSection() {
 
           {/* Supported Languages */}
           <motion.div
-            className="mt-12 text-center"
+            className="mt-8 md:mt-10 lg:mt-12 text-center"
             variants={fadeUp}
           >
             <p className="text-sm text-zavi-gray-text mb-4">
