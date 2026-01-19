@@ -5,7 +5,7 @@ import { fadeIn, fadeUp } from '@/lib/animations';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#F5F1EC] rounded-b-[3rem] px-6 py-24 md:py-32 lg:py-40">
+    <section className="relative overflow-hidden bg-[#F5F1EC] rounded-b-[3rem] px-4 py-12 sm:px-6 sm:py-16 md:py-24 lg:py-32">
       <div className="max-w-5xl mx-auto text-center">
         {/* Main Headline */}
         <motion.h1

@@ -56,11 +56,11 @@ export default function ToneSwitcher() {
   const selectedToneData = tones.find(t => t.id === selectedTone) || tones[1];
 
   return (
-    <section className="px-6 py-16 md:py-24 bg-gradient-to-b from-[#F5F1EC] to-white">
+    <section className="px-4 py-10 sm:px-6 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#F5F1EC] to-white">
       <div className="max-w-5xl mx-auto">
         <motion.div
           {...staggerContainer}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
           <motion.h2
             {...fadeUp}
@@ -82,7 +82,7 @@ export default function ToneSwitcher() {
         <motion.div
           {...fadeUp}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12"
         >
           {tones.map((tone, index) => (
             <motion.button

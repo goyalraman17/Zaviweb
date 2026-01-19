@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import {
   headerReveal,
@@ -14,6 +14,7 @@ import {
 export default function Navigation() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [detectedOS, setDetectedOS] = useState<string>('macOS');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -25,6 +26,18 @@ export default function Navigation() {
       else setDetectedOS('macOS');
     }
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: 'Product', href: '/', id: 'product' },
@@ -73,7 +86,7 @@ export default function Navigation() {
           {/* Logo */}
           <motion.a
             href="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group relative z-50"
             initial="rest"
             whileHover="hover"
             whileTap="tap"
@@ -163,17 +176,107 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-zavi-charcoal"
+            className="md:hidden p-2 text-zavi-charcoal relative z-50"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             initial="rest"
             whileTap="tap"
             variants={hoverScaleSubtle}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
+            {mobileMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            )}
           </motion.button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+
+            {/* Menu Panel */}
+            <motion.div
+              className="fixed top-16 right-0 bottom-0 w-full max-w-sm bg-white z-40 md:hidden shadow-2xl overflow-y-auto"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            >
+              <div className="p-6 space-y-6">
+                {/* Navigation Links */}
+                <div className="space-y-2">
+                  {navLinks.map((link, index) => (
+                    <motion.a
+                      key={link.name}
+                      href={link.href}
+                      className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </motion.a>
+                  ))}
+                </div>
+
+                {/* Divider */}
+                <div className="border-t border-gray-200" />
+
+                {/* CTA Button */}
+                <motion.a
+                  href="/try-free"
+                  className="block w-full px-6 py-4 text-center text-base font-semibold text-white bg-[#3B4AA3] rounded-xl hover:bg-[#323e8a] transition-all shadow-md active:scale-[0.98]"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                    Try Zavi Free
+                  </div>
+                </motion.a>
+
+                {/* Platform Icons */}
+                <div className="pt-4">
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
+                    Available on
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {platforms.map((platform) => (
+                      <div
+                        key={platform.name}
+                        className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-lg text-sm text-gray-700"
+                      >
+                        {getOSIcon()}
+                        <span>{platform.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

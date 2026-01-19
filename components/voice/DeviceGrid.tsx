@@ -58,11 +58,11 @@ export default function DeviceGrid() {
   ];
 
   return (
-    <section className="px-6 py-16 md:py-24 bg-white">
+    <section className="px-4 py-10 sm:px-6 sm:py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...staggerContainer}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16"
         >
           <motion.h2
             {...fadeUp}
@@ -83,7 +83,7 @@ export default function DeviceGrid() {
         {/* Device Grid */}
         <motion.div
           {...staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         >
           {devices.map((device, index) => (
             <motion.div
@@ -96,7 +96,7 @@ export default function DeviceGrid() {
             >
               {/* Card */}
               <div
-                className={`relative bg-gradient-to-br ${device.bgGradient} rounded-3xl p-8 md:p-10 h-full transition-all duration-300 group-hover:shadow-xl group-hover:shadow-black/10`}
+                className={`relative bg-gradient-to-br ${device.bgGradient} rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 h-full transition-all duration-300 group-hover:shadow-xl group-hover:shadow-black/10`}
               >
                 {/* Icon Container */}
                 <motion.div
@@ -155,7 +155,7 @@ export default function DeviceGrid() {
         <motion.div
           {...fadeUp}
           transition={{ delay: 0.6 }}
-          className="text-center mt-12 md:mt-16"
+          className="text-center mt-8 md:mt-12 lg:mt-16"
         >
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
