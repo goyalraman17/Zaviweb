@@ -1,6 +1,7 @@
 // New conversion-focused components
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
+import VoiceTypingDemo from '@/components/VoiceTypingDemo';
 import LanguageTranslationHero from '@/components/LanguageTranslationHero';
 import KillYourKeyboard from '@/components/KillYourKeyboard';
 import AdaptsToYourRole from '@/components/AdaptsToYourRole';
@@ -17,14 +18,15 @@ import StickyCTA from '@/components/StickyCTA';
  *
  * Clean, focused flow:
  * 1. Hero + Live Demo (immediate value)
- * 2. Language Translation Hero (global unlock)
- * 3. Kill Your Keyboard (smart editing showcase)
- * 4. Adapts to Your Role (role-specific demos)
- * 5. On-the-go or At Your Desk (cross-device sync)
- * 6. Language Support (multilingual capability)
- * 7. Pricing (conversion)
- * 8. FAQ (objections)
- * 9. Final CTA (last conversion push)
+ * 2. Voice Typing Demo (interactive use case showcase)
+ * 3. Language Translation Hero (global unlock)
+ * 4. Kill Your Keyboard (smart editing showcase)
+ * 5. Adapts to Your Role (role-specific demos)
+ * 6. On-the-go or At Your Desk (cross-device sync)
+ * 7. Language Support (multilingual capability)
+ * 8. Pricing (conversion)
+ * 9. FAQ (objections)
+ * 10. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -33,6 +35,9 @@ export default function Home() {
       <main className="overflow-hidden">
         {/* Hero with Screenshot - Matches Landing Page Design */}
         <HeroWithScreenshot />
+
+        {/* Voice Typing Demo - Interactive Use Case Showcase */}
+        <VoiceTypingDemo />
 
         {/* Language Translation Hero - Speak in Any Language */}
         <LanguageTranslationHero />

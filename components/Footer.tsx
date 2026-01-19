@@ -1,41 +1,40 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Twitter, Instagram, Linkedin } from 'lucide-react';
-
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard';
+import { fadeUp, staggerContainerSlow } from '@/lib/animations';
 
 export default function Footer() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer
-      className="relative py-12 overflow-hidden"
+      className="relative py-12 md:py-16 overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #2a2d3a 0%, #1f2229 50%, #1a1c23 100%)'
+        background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
       }}
     >
-      {/* Premium background decoration */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="container-large relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainerSlow}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8"
+        >
           {/* Brand Column */}
-          <div className="md:col-span-5">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex items-start gap-3"
-            >
+          <motion.div variants={fadeUp} className="md:col-span-1">
+            <div className="flex items-start gap-3 mb-4">
               <div className="w-8 h-8 mt-1">
                 <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Top bar */}
                   <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#footerTopBar)"/>
 
-                  {/* Flowing Z layers - from back to front */}
+                  {/* Flowing Z layers */}
                   <path d="M 75 22 Q 65 30, 55 38 Q 45 46, 35 54 Q 25 62, 25 70"
                         stroke="#87CEEB" strokeWidth="8" fill="none" opacity="0.3"/>
                   <path d="M 77 22 Q 67 30, 57 38 Q 47 46, 37 54 Q 27 62, 25 70"
@@ -54,159 +53,127 @@ export default function Footer() {
 
                   <defs>
                     <linearGradient id="footerTopBar" x1="15" y1="16" x2="85" y2="16" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#2E5FDD"/>
-                      <stop offset="50%" stopColor="#3B82F6"/>
-                      <stop offset="100%" stopColor="#60A5FA"/>
+                      <stop offset="0%" stopColor="#6B7FE8"/>
+                      <stop offset="50%" stopColor="#8B5CF6"/>
+                      <stop offset="100%" stopColor="#A855F7"/>
                     </linearGradient>
                     <linearGradient id="footerBottomBar" x1="15" y1="84" x2="85" y2="84" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#2E5FDD"/>
-                      <stop offset="50%" stopColor="#3B82F6"/>
-                      <stop offset="100%" stopColor="#60A5FA"/>
+                      <stop offset="0%" stopColor="#6B7FE8"/>
+                      <stop offset="50%" stopColor="#8B5CF6"/>
+                      <stop offset="100%" stopColor="#A855F7"/>
                     </linearGradient>
                   </defs>
                 </svg>
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white mb-2">Zavi</h2>
-                <p className="text-sm text-gray-400">
+                <h2 className="text-2xl font-bold text-gray-900">Zavi</h2>
+                <p className="text-sm text-gray-600 mt-1">
                   Think faster than you type.
                 </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
-          {/* Product Column */}
-          <div className="md:col-span-3">
-            <motion.h3
-              className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+          {/* Product Links */}
+          <motion.div variants={fadeUp} className="md:col-span-1">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
               Product
-            </motion.h3>
-            <motion.ul
-              className="space-y-3"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            </h3>
+            <ul className="space-y-2">
               <li>
-                <a href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Features
+                <a
+                  href="/how-it-works"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  How it Works
                 </a>
               </li>
               <li>
-                <a href="/#pricing" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <button
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors text-left"
+                >
                   Pricing
-                </a>
+                </button>
               </li>
               <li>
-                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Download
-                </a>
-              </li>
-              <li>
-                <a href="/#faq" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <button
+                  onClick={() => scrollToSection('faq')}
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors text-left"
+                >
                   FAQ
-                </a>
+                </button>
               </li>
-            </motion.ul>
-          </div>
+            </ul>
+          </motion.div>
 
-          {/* Company Column */}
-          <div className="md:col-span-4">
-            <motion.h3
-              className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
+          {/* Company Links */}
+          <motion.div variants={fadeUp} className="md:col-span-1">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
               Company
-            </motion.h3>
-            <motion.ul
-              className="space-y-3"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
+            </h3>
+            <ul className="space-y-2">
               <li>
-                <a href="/about" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="/privacy"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="/terms"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="/contact"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
                   Contact
                 </a>
               </li>
-            </motion.ul>
-          </div>
-        </div>
+            </ul>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
         <motion.div
-          className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="pt-6 border-t border-gray-300 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
-          <p className="text-xs text-gray-500 order-2 sm:order-1">
+          <p className="text-xs text-gray-600 order-2 sm:order-1">
             © 2026 Zavi. Built for people who think faster than they type.
           </p>
           <div className="flex items-center gap-4 order-1 sm:order-2">
             <a
-              href="https://twitter.com"
+              href="https://twitter.com/zavihq"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
               aria-label="Twitter"
             >
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white transition-colors"
-              aria-label="X"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/company/zavihq"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white transition-colors"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-4 h-4" />
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
             </a>
           </div>
         </motion.div>
