@@ -26,12 +26,21 @@ export default function FinalCTANew() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-zavi-blue rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400 rounded-full blur-3xl"></div>
+    <section
+      ref={ref}
+      className="relative py-12 md:py-20 lg:py-32 overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)'
+      }}
+    >
+      {/* Premium background decoration with enhanced glow */}
+      <div className="absolute inset-0 opacity-[0.08]">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
       </div>
+
+      {/* Subtle radial glow overlay */}
+      <div className="absolute inset-0 bg-gradient-radial from-white/30 via-transparent to-transparent"></div>
 
       <div className="container-medium relative z-10">
         <motion.div
@@ -42,7 +51,13 @@ export default function FinalCTANew() {
         >
           {/* Headline */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-8 leading-[1.1]"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]"
+            style={{
+              background: 'linear-gradient(135deg, #1a1a1a 0%, #34384c 50%, #4A4D53 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
             variants={fadeUpLarge}
           >
             Stop Translating Thoughts
@@ -52,7 +67,7 @@ export default function FinalCTANew() {
 
           {/* Subheadline */}
           <motion.p
-            className="text-2xl md:text-3xl text-gray-600 mb-16 max-w-3xl mx-auto font-light"
+            className="text-2xl md:text-3xl text-zavi-gray-700 mb-16 max-w-3xl mx-auto font-light"
             variants={fadeUp}
           >
             Let writing happen naturally.
@@ -90,21 +105,51 @@ export default function FinalCTANew() {
             variants={fadeUp}
           >
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-zavi-blue mb-2">50K+</div>
-              <div className="text-base text-gray-500">Active users</div>
+              <div
+                className="text-4xl md:text-5xl font-bold mb-2"
+                style={{
+                  background: 'linear-gradient(135deg, #5381d2 0%, #7B68EE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                50K+
+              </div>
+              <div className="text-base text-zavi-gray-600 font-medium">Active users</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-zavi-blue mb-2">5x</div>
-              <div className="text-base text-gray-500">Faster writing</div>
+              <div
+                className="text-4xl md:text-5xl font-bold mb-2"
+                style={{
+                  background: 'linear-gradient(135deg, #5381d2 0%, #7B68EE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                5x
+              </div>
+              <div className="text-base text-zavi-gray-600 font-medium">Faster writing</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-zavi-blue mb-2">&lt;200ms</div>
-              <div className="text-base text-gray-500">Response time</div>
+              <div
+                className="text-4xl md:text-5xl font-bold mb-2"
+                style={{
+                  background: 'linear-gradient(135deg, #5381d2 0%, #7B68EE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                &lt;200ms
+              </div>
+              <div className="text-base text-zavi-gray-600 font-medium">Response time</div>
             </div>
           </motion.div>
 
           <motion.p
-            className="text-base text-gray-500 mt-16"
+            className="text-base text-zavi-gray-600 mt-16 font-medium"
             variants={fadeUp}
           >
             Free to install • Works across all platforms • No credit card required

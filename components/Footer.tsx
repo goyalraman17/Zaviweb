@@ -7,8 +7,19 @@ const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pingpr
 
 export default function Footer() {
   return (
-    <footer className="bg-[#313131] py-12">
-      <div className="container-large">
+    <footer
+      className="relative py-12 overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #2a2d3a 0%, #1f2229 50%, #1a1c23 100%)'
+      }}
+    >
+      {/* Premium background decoration */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container-large relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
           {/* Brand Column */}
           <div className="md:col-span-5">
@@ -56,8 +67,8 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-white/90 mb-2">Zavi</h2>
-                <p className="text-sm text-gray-500">
+                <h2 className="text-3xl font-bold text-white mb-2">Zavi</h2>
+                <p className="text-sm text-gray-400">
                   Think faster than you type.
                 </p>
               </div>
@@ -67,7 +78,7 @@ export default function Footer() {
           {/* Product Column */}
           <div className="md:col-span-3">
             <motion.h3
-              className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4"
+              className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -83,22 +94,22 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <li>
-                <a href="/#features" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Features
                 </a>
               </li>
               <li>
-                <a href="/#pricing" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/#pricing" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Download
                 </a>
               </li>
               <li>
-                <a href="/#faq" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/#faq" className="text-sm text-gray-400 hover:text-white transition-colors">
                   FAQ
                 </a>
               </li>
@@ -108,7 +119,7 @@ export default function Footer() {
           {/* Company Column */}
           <div className="md:col-span-4">
             <motion.h3
-              className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4"
+              className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -124,22 +135,22 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <li>
-                <a href="/about" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/about" className="text-sm text-gray-400 hover:text-white transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+                <a href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
@@ -155,7 +166,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <p className="text-xs text-gray-600 order-2 sm:order-1">
+          <p className="text-xs text-gray-500 order-2 sm:order-1">
             © 2026 Zavi. Built for people who think faster than they type.
           </p>
           <div className="flex items-center gap-4 order-1 sm:order-2">
@@ -163,7 +174,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-500 transition-colors"
+              className="text-gray-500 hover:text-white transition-colors"
               aria-label="Twitter"
             >
               <Twitter className="w-4 h-4" />
@@ -172,7 +183,7 @@ export default function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-500 transition-colors"
+              className="text-gray-500 hover:text-white transition-colors"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
@@ -181,7 +192,7 @@ export default function Footer() {
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-500 transition-colors"
+              className="text-gray-500 hover:text-white transition-colors"
               aria-label="X"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -192,7 +203,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-500 transition-colors"
+              className="text-gray-500 hover:text-white transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
