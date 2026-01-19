@@ -25,11 +25,11 @@ export default function DemoCard() {
   const [currentExample, setCurrentExample] = useState(0);
 
   return (
-    <section className="px-6 py-16 md:py-24 bg-white">
+    <section className="px-4 py-10 sm:px-6 sm:py-12 md:py-16 lg:py-20 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...staggerContainer}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
           <motion.h2
             {...fadeUp}

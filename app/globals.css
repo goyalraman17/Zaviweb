@@ -8,6 +8,8 @@
   html {
     @apply scroll-smooth;
     scroll-padding-top: 80px;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
   }
 
   body {
@@ -16,6 +18,10 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     color: #1A1A1A;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
+    /* Improve mobile text rendering */
+    -webkit-tap-highlight-color: transparent;
   }
 
   * {
@@ -202,5 +208,43 @@
 
   .container-wide {
     @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ============================================
+     MOBILE TOUCH TARGETS
+     Ensure all interactive elements meet minimum 44x44px touch target
+     ============================================ */
+  @media (max-width: 768px) {
+    button,
+    a[role="button"],
+    input[type="button"],
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* ============================================
+     MOBILE OPTIMIZATIONS
+     ============================================ */
+  @media (max-width: 768px) {
+    /* Improve mobile font readability */
+    body {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Prevent zoom on input focus */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
+
+    /* Optimize images for mobile */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }
