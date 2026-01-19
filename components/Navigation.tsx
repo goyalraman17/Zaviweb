@@ -213,34 +213,34 @@ export default function Navigation() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] md:hidden"
+              className="fixed inset-0 bg-black/40 z-[9998] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={closeMobileMenu}
-              style={{ top: 0 }}
+              style={{ top: '64px' }}
             />
 
-            {/* Menu Panel */}
+            {/* Dropdown Menu Panel */}
             <motion.div
-              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-sm bg-white z-[9999] md:hidden shadow-2xl overflow-y-auto"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              style={{ paddingTop: '64px' }}
+              className="fixed left-0 right-0 w-full bg-white z-[9999] md:hidden shadow-lg border-b border-gray-200"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              style={{ top: '64px', overflow: 'hidden' }}
             >
-              <div className="p-6 space-y-6">
+              <div className="max-w-screen-xl mx-auto px-4 py-4">
                 {/* Navigation Links */}
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {navLinks.map((link, index) => (
                     <motion.a
                       key={link.name}
                       href={link.href}
-                      className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
                       onClick={closeMobileMenu}
                     >
@@ -249,43 +249,17 @@ export default function Navigation() {
                   ))}
                 </div>
 
-                {/* Divider */}
-                <div className="border-t border-gray-200" />
-
                 {/* CTA Button */}
                 <motion.a
                   href="/try-free"
-                  className="block w-full px-6 py-4 text-center text-base font-semibold text-white bg-[#3B4AA3] rounded-xl hover:bg-[#323e8a] transition-all shadow-md active:scale-[0.98]"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="block w-full mt-4 px-6 py-3 text-center text-base font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all"
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.15 }}
                   onClick={closeMobileMenu}
                 >
-                  <div className="flex items-center justify-center gap-2">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                    </svg>
-                    Try Zavi Free
-                  </div>
+                  Try Zavi Free
                 </motion.a>
-
-                {/* Platform Icons */}
-                <div className="pt-4">
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
-                    Available on
-                  </p>
-                  <div className="grid grid-cols-2 gap-3">
-                    {platforms.map((platform) => (
-                      <div
-                        key={platform.name}
-                        className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-lg text-sm text-gray-700"
-                      >
-                        {getOSIcon()}
-                        <span>{platform.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </motion.div>
           </>
