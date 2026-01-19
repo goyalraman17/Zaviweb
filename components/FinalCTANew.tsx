@@ -26,7 +26,7 @@ export default function FinalCTANew() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-40 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden">
+    <section ref={ref} className="relative py-12 md:py-20 lg:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden">
       {/* Subtle background decoration */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-zavi-blue rounded-full blur-3xl"></div>

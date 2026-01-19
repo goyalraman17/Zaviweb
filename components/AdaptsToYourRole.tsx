@@ -253,7 +253,7 @@ export default function AdaptsToYourRole() {
   const currentContent = cohortData[selectedCohort];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: 'linear-gradient(135deg, #f5f7fa 0%, #e8ecf4 100%)' }}>
+    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden" style={{ background: 'linear-gradient(135deg, #f5f7fa 0%, #e8ecf4 100%)' }}>
       <div className="container-large relative z-10">
         <motion.div
           initial="hidden"
