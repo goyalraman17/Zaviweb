@@ -16,6 +16,16 @@ export default function Navigation() {
   const [detectedOS, setDetectedOS] = useState<string>('macOS');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
+  // Toggle mobile menu function
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(prev => !prev);
+  };
+
+  // Close mobile menu function
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
@@ -176,12 +186,13 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-zavi-charcoal relative z-50"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-3 text-zavi-charcoal relative z-[60] touch-manipulation"
+            onClick={toggleMobileMenu}
             initial="rest"
             whileTap="tap"
             variants={hoverScaleSubtle}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            type="button"
           >
             {mobileMenuOpen ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -202,16 +213,16 @@ export default function Navigation() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[55] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMobileMenu}
             />
 
             {/* Menu Panel */}
             <motion.div
-              className="fixed top-16 right-0 bottom-0 w-full max-w-sm bg-white z-40 md:hidden shadow-2xl overflow-y-auto"
+              className="fixed top-16 right-0 bottom-0 w-full max-w-sm bg-white z-[58] md:hidden shadow-2xl overflow-y-auto"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -228,7 +239,7 @@ export default function Navigation() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMobileMenu}
                     >
                       {link.name}
                     </motion.a>
@@ -245,7 +256,7 @@ export default function Navigation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   <div className="flex items-center justify-center gap-2">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
