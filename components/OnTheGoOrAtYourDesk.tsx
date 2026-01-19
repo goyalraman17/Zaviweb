@@ -12,13 +12,13 @@ import {
 export default function OnTheGoOrAtYourDesk() {
   return (
     <section
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-12 md:py-20 lg:py-32 overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #E8E5F5 0%, #DDD6F3 50%, #D4C5F0 100%)',
       }}
     >
       <div className="container-large relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left Side - Content */}
           <motion.div
             initial="hidden"
@@ -27,7 +27,7 @@ export default function OnTheGoOrAtYourDesk() {
           >
             {/* Main Heading */}
             <motion.h2
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6"
               variants={fadeUpLarge}
               style={{
                 lineHeight: 1.15,
@@ -42,7 +42,7 @@ export default function OnTheGoOrAtYourDesk() {
 
             {/* Description */}
             <motion.p
-              className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-xl"
+              className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed max-w-xl"
               variants={fadeUp}
             >
               Zavi works seamlessly across all your devices. Sync your recordings and notes between Mac, iPhone, iPad, and Windows.
@@ -51,27 +51,27 @@ export default function OnTheGoOrAtYourDesk() {
             {/* Platform Badges */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-4 mb-8"
+              className="flex flex-wrap items-center gap-3 md:gap-4 mb-6 md:mb-8"
             >
               {/* iOS Badge */}
-              <div className="flex items-center gap-2 px-5 py-3 bg-white rounded-full shadow-md">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <div className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-3 bg-white rounded-full shadow-md">
+                <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                 </svg>
                 <span className="text-sm font-semibold text-gray-800">iOS</span>
               </div>
 
               {/* Mac Badge */}
-              <div className="flex items-center gap-2 px-5 py-3 bg-white rounded-full shadow-md">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <div className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-3 bg-white rounded-full shadow-md">
+                <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                 </svg>
                 <span className="text-sm font-semibold text-gray-800">Mac</span>
               </div>
 
               {/* Windows Badge */}
-              <div className="flex items-center gap-2 px-5 py-3 bg-white rounded-full shadow-md">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <div className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-3 bg-white rounded-full shadow-md">
+                <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M3 5.45v6.11l7.5.02V3.45L3 5.45zm7.5 7.68L3 13.11v6.14l7.5 1.98v-8.1zm1.5-8.1v8.12l9-.02V3.45l-9 1.58zm9 9.68l-9 .02v8.08l9 1.58v-9.68z"/>
                 </svg>
                 <span className="text-sm font-semibold text-gray-800">Windows</span>
@@ -79,7 +79,7 @@ export default function OnTheGoOrAtYourDesk() {
             </motion.div>
 
             {/* CTA Button */}
-            <motion.div variants={fadeUp} className="mb-6">
+            <motion.div variants={fadeUp} className="mb-4 md:mb-6">
               <motion.button
                 onClick={() => {
                   const downloadSection = document.querySelector('[data-section="download"]');
@@ -87,7 +87,7 @@ export default function OnTheGoOrAtYourDesk() {
                     downloadSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold text-white rounded-full shadow-lg hover:shadow-xl transition-all"
                 style={{
                   background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
                 }}
@@ -96,7 +96,7 @@ export default function OnTheGoOrAtYourDesk() {
                 whileTap="tap"
                 variants={ctaPrimary}
               >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                 </svg>
                 <span>Download for macOS</span>
@@ -106,9 +106,9 @@ export default function OnTheGoOrAtYourDesk() {
             {/* Sync Info Text */}
             <motion.p
               variants={fadeUp}
-              className="text-sm md:text-base text-gray-600 font-medium"
+              className="text-xs md:text-sm lg:text-base text-gray-600 font-medium"
             >
-              Syncs seamlessly across<br />Mac, iPhone, iPad & Windows
+              Syncs seamlessly across<br className="hidden md:block" /><span className="md:hidden"> </span>Mac, iPhone, iPad & Windows
             </motion.p>
           </motion.div>
 
@@ -117,7 +117,7 @@ export default function OnTheGoOrAtYourDesk() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative hidden lg:block"
           >
             <div className="relative">
               {/* MacBook Mockup */}
@@ -332,32 +332,32 @@ export default function OnTheGoOrAtYourDesk() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-24 text-center"
+          className="mt-10 md:mt-16 lg:mt-24 text-center"
         >
-          <p className="text-lg md:text-xl text-gray-700 mb-8 font-medium">
+          <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 font-medium">
             Syncs seamlessly across Mac, iPhone, iPad & Windows
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 lg:gap-6">
             {/* Mac */}
-            <div className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-md">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+            <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">
+              <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
               </svg>
               <span className="text-base font-semibold text-gray-800">Mac</span>
             </div>
 
             {/* iOS */}
-            <div className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-md">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+            <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">
+              <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
               </svg>
               <span className="text-base font-semibold text-gray-800">iOS</span>
             </div>
 
             {/* iPad */}
-            <div className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-md">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">
+              <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="4" y="2" width="16" height="20" rx="2" />
                 <line x1="12" y1="18" x2="12.01" y2="18" />
               </svg>
@@ -365,8 +365,8 @@ export default function OnTheGoOrAtYourDesk() {
             </div>
 
             {/* Windows */}
-            <div className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-md">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+            <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">
+              <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3 5.45v6.11l7.5.02V3.45L3 5.45zm7.5 7.68L3 13.11v6.14l7.5 1.98v-8.1zm1.5-8.1v8.12l9-.02V3.45l-9 1.58zm9 9.68l-9 .02v8.08l9 1.58v-9.68z"/>
               </svg>
               <span className="text-base font-semibold text-gray-800">Windows</span>
