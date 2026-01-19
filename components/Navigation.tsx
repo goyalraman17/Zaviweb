@@ -84,7 +84,7 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { name: 'How it Works', onClick: () => scrollToSection('how-it-works'), id: 'how-it-works' },
+    { name: 'How it Works', href: '/how-it-works', id: 'how-it-works' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
   ];
 
@@ -147,37 +147,30 @@ export default function Navigation() {
 
           {/* Center Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link, index) => {
-              const Element = link.onClick ? 'button' : 'a';
-              const props = link.onClick
-                ? { onClick: link.onClick, type: 'button' as const }
-                : { href: link.href };
-
-              return (
-                <motion.div key={link.name} className="relative">
-                  <Element
-                    {...props}
-                    className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-zavi-charcoal transition-colors bg-transparent border-none cursor-pointer"
-                    onMouseEnter={() => setActiveLink(link.id)}
-                    onMouseLeave={() => setActiveLink(null)}
-                  >
-                    <motion.span
-                      initial="rest"
-                      whileHover="hover"
-                      variants={navItem}
-                    >
-                      {link.name}
-                    </motion.span>
-                  </Element>
+            {navLinks.map((link, index) => (
+              <motion.div key={link.name} className="relative">
+                <a
+                  href={link.href}
+                  className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-zavi-charcoal transition-colors"
+                  onMouseEnter={() => setActiveLink(link.id)}
+                  onMouseLeave={() => setActiveLink(null)}
+                >
                   <motion.span
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-zavi-blue pointer-events-none"
-                    initial={{ width: 0 }}
-                    animate={{ width: activeLink === link.id ? '70%' : 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.div>
-              );
-            })}
+                    initial="rest"
+                    whileHover="hover"
+                    variants={navItem}
+                  >
+                    {link.name}
+                  </motion.span>
+                </a>
+                <motion.span
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-zavi-blue pointer-events-none"
+                  initial={{ width: 0 }}
+                  animate={{ width: activeLink === link.id ? '70%' : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+            ))}
           </div>
 
           {/* CTA Button - Desktop */}
@@ -279,40 +272,19 @@ export default function Navigation() {
 
                 {/* Navigation Links */}
                 <div className="space-y-1">
-                  {navLinks.map((link, index) => {
-                    if (link.onClick) {
-                      return (
-                        <motion.button
-                          key={link.name}
-                          onClick={(e) => {
-                            link.onClick();
-                            closeMobileMenu();
-                          }}
-                          type="button"
-                          className="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors bg-transparent border-none cursor-pointer"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: (index + 1) * 0.05 }}
-                        >
-                          {link.name}
-                        </motion.button>
-                      );
-                    } else {
-                      return (
-                        <motion.a
-                          key={link.name}
-                          href={link.href}
-                          className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: (index + 1) * 0.05 }}
-                          onClick={closeMobileMenu}
-                        >
-                          {link.name}
-                        </motion.a>
-                      );
-                    }
-                  })}
+                  {navLinks.map((link, index) => (
+                    <motion.a
+                      key={link.name}
+                      href={link.href}
+                      className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-zavi-charcoal hover:bg-gray-50 rounded-lg transition-colors"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: (index + 1) * 0.05 }}
+                      onClick={closeMobileMenu}
+                    >
+                      {link.name}
+                    </motion.a>
+                  ))}
 
                   {/* Privacy Policy Link */}
                   <motion.a
