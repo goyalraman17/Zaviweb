@@ -8,6 +8,7 @@ import {
   fadeUpLarge,
   ctaPrimary,
 } from '@/lib/animations';
+import { analytics } from '@/lib/analytics';
 import LiveVoiceDemo from './LiveVoiceDemo';
 
 export default function HeroWithScreenshot() {
@@ -72,6 +73,12 @@ export default function HeroWithScreenshot() {
             >
               <motion.a
                 href="/try-free"
+                onClick={() => {
+                  analytics.track('cta_hero_click', {
+                    text: getDownloadText(),
+                    os: detectedOS,
+                  });
+                }}
                 className="inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-xl transition-all shadow-xl hover:shadow-2xl"
                 initial="rest"
                 whileHover="hover"

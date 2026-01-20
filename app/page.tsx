@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import VoiceTypingDemo from '@/components/VoiceTypingDemo';
 import StickyCTA from '@/components/StickyCTA';
+import PageAnalytics from '@/components/PageAnalytics';
 
 // Lazy load below-the-fold components for better performance
 const VideoDemo = dynamic(() => import('@/components/VideoDemo'), {
@@ -38,6 +39,7 @@ const Footer = dynamic(() => import('@/components/Footer'));
 export default function Home() {
   return (
     <>
+      <PageAnalytics />
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero with Screenshot - Matches Landing Page Design */}

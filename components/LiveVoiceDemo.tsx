@@ -13,6 +13,7 @@ import {
 import { useVoiceRecording } from '@/hooks/useVoiceRecording';
 import { useUIState } from '@/hooks/useUIState';
 import { useLanguageSettings, INPUT_LANGUAGES, OUTPUT_LANGUAGES } from '@/hooks/useLanguageSettings';
+import { analytics } from '@/lib/analytics';
 
 type Tone = 'neutral' | 'formal' | 'casual';
 
@@ -32,8 +33,10 @@ export default function LiveVoiceDemo() {
   const handleMicClick = () => {
     if (state === 'idle') {
       startRecording();
+      analytics.track('demo_start', { mode: demoMode });
     } else if (state === 'listening') {
       stopRecording();
+      analytics.track('demo_stop');
     } else if (state === 'ready') {
       reset();
     }
@@ -48,11 +51,15 @@ export default function LiveVoiceDemo() {
   const handleEdit = () => {
     startEditing();
     setEditedText(polishedText);
+    analytics.track('demo_edit');
   };
 
   const handleInsert = () => {
     // In real app, this would insert into the active field
     copyToClipboard();
+    analytics.track('demo_insert', {
+      text_length: polishedText.length,
+    });
     setTimeout(() => {
       reset();
     }, 1000);
@@ -60,6 +67,7 @@ export default function LiveVoiceDemo() {
 
   const handleUndo = () => {
     undo();
+    analytics.track('demo_undo');
   };
 
   const reset = () => {

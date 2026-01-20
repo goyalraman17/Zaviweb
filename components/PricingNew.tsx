@@ -1,16 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   staggerContainerSlow,
   fadeUp,
   fadeUpLarge,
   ctaPrimary,
 } from '@/lib/animations';
+import { analytics } from '@/lib/analytics';
 
 export default function PricingNew() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+
+  // Track pricing page view
+  useEffect(() => {
+    analytics.track('pricing_view');
+  }, []);
 
   return (
     <section
@@ -55,7 +61,10 @@ export default function PricingNew() {
             {/* Billing Toggle */}
             <div className="inline-flex items-center gap-2 p-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
               <button
-                onClick={() => setBillingCycle('monthly')}
+                onClick={() => {
+                  setBillingCycle('monthly');
+                  analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
+                }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   billingCycle === 'monthly'
                     ? 'bg-white text-gray-900 shadow-sm'
@@ -65,7 +74,10 @@ export default function PricingNew() {
                 Monthly
               </button>
               <button
-                onClick={() => setBillingCycle('annual')}
+                onClick={() => {
+                  setBillingCycle('annual');
+                  analytics.track('pricing_toggle_billing', { cycle: 'annual' });
+                }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
                   billingCycle === 'annual'
                     ? 'bg-white text-gray-900 shadow-sm'
@@ -122,6 +134,12 @@ export default function PricingNew() {
               </ul>
 
               <motion.button
+                onClick={() => {
+                  analytics.track('pricing_plan_click', {
+                    plan: 'free',
+                    billing_cycle: billingCycle,
+                  });
+                }}
                 className="w-full px-6 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
                 style={{
                   background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
@@ -191,6 +209,12 @@ export default function PricingNew() {
               </ul>
 
               <motion.button
+                onClick={() => {
+                  analytics.track('pricing_plan_click', {
+                    plan: 'pro',
+                    billing_cycle: billingCycle,
+                  });
+                }}
                 className="w-full px-6 py-4 rounded-full font-semibold bg-white text-purple-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
                 initial="rest"
                 whileHover="hover"
