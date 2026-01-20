@@ -4,6 +4,8 @@
  */
 
 export type AnalyticsEventName =
+  // Page Events
+  | 'page_view'
   // CTA Events
   | 'cta_click'
   | 'cta_hero_click'
