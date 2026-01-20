@@ -23,16 +23,15 @@ export default function HeroWithScreenshot() {
           >
             {/* Headline */}
             <motion.h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-[#1a1a1a]"
+              className="text-display-lg text-[#1a1a1a] mb-6"
               variants={fadeUpLarge}
-              style={{ lineHeight: 1.15 }}
             >
               Your Voice, Polished Instantly
             </motion.h1>
 
             {/* Subheading */}
             <motion.p
-              className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-xl"
+              className="text-body-lg text-gray-700 mb-8 max-w-xl"
               variants={fadeUp}
             >
               Speak naturally, and Zavi transcribes and refines your voice in real-time. Rambled thoughts become clear, perfectly formatted text, without fillers, typos, or grammatical errors.

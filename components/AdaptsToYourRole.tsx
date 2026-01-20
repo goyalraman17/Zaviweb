@@ -270,16 +270,15 @@ export default function AdaptsToYourRole() {
         >
           {/* Main Heading */}
           <motion.h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-[#1a1a1a]"
+            className="text-display text-[#1a1a1a] mb-4"
             variants={fadeUpLarge}
-            style={{ lineHeight: 1.15 }}
           >
             Zavi adapts to your role.
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-12"
+            className="text-body-xl text-gray-700 mb-12"
             variants={fadeUp}
           >
             Streamline any workflow instantly.
@@ -326,7 +325,7 @@ export default function AdaptsToYourRole() {
             className="relative"
           >
             {/* Title */}
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 text-[#1a1a1a]">
+            <h3 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-[#1a1a1a]">
               {currentContent.title}
             </h3>
 
