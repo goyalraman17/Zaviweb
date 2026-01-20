@@ -8,7 +8,7 @@ import {
   fadeUpLarge,
 } from '@/lib/animations';
 
-type CohortType = 'developers' | 'teams' | 'students' | 'creators' | 'sales' | 'support' | 'lawyers' | 'leaders' | 'accessibility' | 'better';
+type CohortType = 'developers' | 'teams' | 'students' | 'creators' | 'sales' | 'support' | 'lawyers' | 'leaders' | 'accessibility' | 'executives';
 
 interface CohortContent {
   title: string;
@@ -218,24 +218,24 @@ const cohortData: Record<CohortType, CohortContent> = {
       </svg>,
     ],
   },
-  better: {
-    title: 'Work smarter, not harder, everywhere you type.',
-    rawInput: 'Basically we just need to get this done asap and make sure it\'s good quality and everyone is on the same page about what we\'re doing.',
+  executives: {
+    title: 'Lead with clarity. Speak your thoughts, send perfect emails.',
+    rawInput: 'So yeah we really need to uh pivot our Q2 strategy based on the market feedback um also make sure the team is aligned on priorities and we should probably schedule a sync with stakeholders soon.',
     polishedOutput: {
-      body: 'Action Items:\n\n• Prioritize completion with high quality standards\n• Ensure team alignment on objectives and approach\n• Establish clear communication channels\n• Set realistic timeline expectations',
+      body: 'Strategic Action Plan:\n\n• Adjust Q2 strategy based on market insights\n• Realign team priorities with updated goals\n• Schedule stakeholder alignment meeting\n• Communicate changes across organization',
     },
     icons: [
-      <svg key="productivity" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 1a3 3 0 0 0 3 3 3 3 0 0 0-3 3 3 3 0 0 0-3-3 3 3 0 0 0 3-3z"/>
-        <path d="M19 11a3 3 0 0 0 3 3 3 3 0 0 0-3 3 3 3 0 0 0-3-3 3 3 0 0 0 3-3z"/>
-        <path d="M5 17a3 3 0 0 0 3 3 3 3 0 0 0-3 3 3 3 0 0 0-3-3 3 3 0 0 0 3-3z"/>
+      <svg key="email" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 7l10 7 10-7"/>
       </svg>,
-      <svg key="rocket" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      <svg key="calendar" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <path d="M16 2v4M8 2v4M3 10h18"/>
       </svg>,
-      <svg key="check" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M9 12l2 2 4-4"/>
+      <svg key="briefcase" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
       </svg>,
     ],
   },
@@ -246,7 +246,18 @@ export default function AdaptsToYourRole() {
   const [showAllCohorts, setShowAllCohorts] = useState(false);
 
   const cohorts = [
-    { id: 'teams' as CohortType, label: 'Teams', icon: '👥' },
+    {
+      id: 'teams' as CohortType,
+      label: 'Teams',
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+          <circle cx="9" cy="7" r="3" fill="#7B68EE"/>
+          <circle cx="15" cy="7" r="3" fill="#5381d2"/>
+          <circle cx="12" cy="14" r="3" fill="#48bb78"/>
+          <path d="M6 21c0-2.5 2-4 4-4h4c2 0 4 1.5 4 4" stroke="#7B68EE" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      )
+    },
     { id: 'students' as CohortType, label: 'Students', icon: '🎓' },
     { id: 'developers' as CohortType, label: 'Developers', icon: '</>' },
     { id: 'creators' as CohortType, label: 'Creators', icon: '🎬' },
@@ -254,8 +265,29 @@ export default function AdaptsToYourRole() {
     { id: 'support' as CohortType, label: 'Customer Support', icon: '🎧' },
     { id: 'lawyers' as CohortType, label: 'Lawyers', icon: '⚖️' },
     { id: 'leaders' as CohortType, label: 'Leaders', icon: '📊' },
-    { id: 'accessibility' as CohortType, label: 'Accessibility', icon: '♿' },
-    { id: 'better' as CohortType, label: 'Better', icon: '📈' },
+    {
+      id: 'accessibility' as CohortType,
+      label: 'Accessibility',
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="5" r="2" fill="#48bb78"/>
+          <circle cx="12" cy="12" r="8" stroke="#5381d2" strokeWidth="2"/>
+          <path d="M12 7v5M9.5 10l5 0M10 15l2 4M14 15l-2 4" stroke="#7B68EE" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      )
+    },
+    {
+      id: 'executives' as CohortType,
+      label: 'Executives',
+      icon: (
+        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="8" width="16" height="12" rx="2" fill="#7B68EE" opacity="0.2"/>
+          <rect x="4" y="8" width="16" height="12" rx="2" stroke="#7B68EE" strokeWidth="2"/>
+          <path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="#5381d2" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="12" cy="14" r="1.5" fill="#48bb78"/>
+        </svg>
+      )
+    },
   ];
 
   // Show only first 6 cohorts on mobile unless "Show more" is clicked
