@@ -434,6 +434,7 @@ export default function LiveVoiceDemo() {
                 ? 'bg-green-500 shadow-lg shadow-green-500/50'
                 : 'bg-zavi-blue shadow-lg shadow-zavi-blue/50'
             }`}
+            style={{ willChange: 'transform' }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             disabled={state === 'processing'}
@@ -536,7 +537,7 @@ export default function LiveVoiceDemo() {
             )}
           </motion.div>
 
-          {/* Waveform Visualization */}
+          {/* Waveform Visualization - Optimized for performance */}
           {waveformActive && (
             <motion.div
               className="flex items-center justify-center gap-1 mt-8"
@@ -544,10 +545,11 @@ export default function LiveVoiceDemo() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
             >
-              {[...Array(20)].map((_, i) => (
+              {[...Array(15)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="w-1 bg-zavi-blue rounded-full"
+                  style={{ willChange: 'height' }}
                   animate={{
                     height: [8, 24, 8],
                   }}
@@ -570,11 +572,13 @@ export default function LiveVoiceDemo() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50"
+                style={{ willChange: 'opacity, transform' }}
                 onClick={() => setShowAdvancedMenu(false)}
               >
                 <motion.div
                   className="bg-white rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4"
                   onClick={(e) => e.stopPropagation()}
+                  style={{ willChange: 'transform' }}
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                 >
@@ -661,6 +665,7 @@ export default function LiveVoiceDemo() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
+              style={{ willChange: 'opacity, transform' }}
               className="border-t border-zavi-border/30"
             >
               {/* Preview Text with Highlight Glow */}

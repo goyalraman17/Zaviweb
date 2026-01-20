@@ -1,18 +1,23 @@
 // New conversion-focused components
+import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import VoiceTypingDemo from '@/components/VoiceTypingDemo';
-import VideoDemo from '@/components/VideoDemo';
-import LanguageTranslationHero from '@/components/LanguageTranslationHero';
-import KillYourKeyboard from '@/components/KillYourKeyboard';
-import AdaptsToYourRole from '@/components/AdaptsToYourRole';
-import OnTheGoOrAtYourDesk from '@/components/OnTheGoOrAtYourDesk';
-import LanguageSection from '@/components/LanguageSection';
-import PricingNew from '@/components/PricingNew';
-import FAQ from '@/components/FAQ';
-import FinalCTANew from '@/components/FinalCTANew';
-import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
+
+// Lazy load below-the-fold components for better performance
+const VideoDemo = dynamic(() => import('@/components/VideoDemo'), {
+  loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
+});
+const LanguageTranslationHero = dynamic(() => import('@/components/LanguageTranslationHero'));
+const KillYourKeyboard = dynamic(() => import('@/components/KillYourKeyboard'));
+const AdaptsToYourRole = dynamic(() => import('@/components/AdaptsToYourRole'));
+const OnTheGoOrAtYourDesk = dynamic(() => import('@/components/OnTheGoOrAtYourDesk'));
+const LanguageSection = dynamic(() => import('@/components/LanguageSection'));
+const PricingNew = dynamic(() => import('@/components/PricingNew'));
+const FAQ = dynamic(() => import('@/components/FAQ'));
+const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
+const Footer = dynamic(() => import('@/components/Footer'));
 
 /**
  * Zavi Marketing Website - Conversion-Focused Experience
