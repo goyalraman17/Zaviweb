@@ -2,6 +2,7 @@
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import VoiceTypingDemo from '@/components/VoiceTypingDemo';
+import VideoDemo from '@/components/VideoDemo';
 import LanguageTranslationHero from '@/components/LanguageTranslationHero';
 import KillYourKeyboard from '@/components/KillYourKeyboard';
 import AdaptsToYourRole from '@/components/AdaptsToYourRole';
@@ -19,14 +20,15 @@ import StickyCTA from '@/components/StickyCTA';
  * Clean, focused flow:
  * 1. Hero + Live Demo (immediate value)
  * 2. Voice Typing Demo (interactive use case showcase)
- * 3. Language Translation Hero (global unlock)
- * 4. Kill Your Keyboard (smart editing showcase)
- * 5. Adapts to Your Role (role-specific demos)
- * 6. On-the-go or At Your Desk (cross-device sync)
- * 7. Language Support (multilingual capability)
- * 8. Pricing (conversion)
- * 9. FAQ (objections)
- * 10. Final CTA (last conversion push)
+ * 3. Video Demo (product in action)
+ * 4. Language Translation Hero (global unlock)
+ * 5. Kill Your Keyboard (smart editing showcase)
+ * 6. Adapts to Your Role (role-specific demos)
+ * 7. On-the-go or At Your Desk (cross-device sync)
+ * 8. Language Support (multilingual capability)
+ * 9. Pricing (conversion)
+ * 10. FAQ (objections)
+ * 11. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -38,6 +40,9 @@ export default function Home() {
 
         {/* Voice Typing Demo - Interactive Use Case Showcase */}
         <VoiceTypingDemo />
+
+        {/* Video Demo - See Zavi in Action */}
+        <VideoDemo />
 
         {/* Language Translation Hero - Speak in Any Language */}
         <LanguageTranslationHero />

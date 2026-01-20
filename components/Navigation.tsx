@@ -98,9 +98,9 @@ export default function Navigation() {
       <div className="container-large">
         <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'}`}>
           {/* Logo */}
-          <motion.button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-3 group relative z-50 cursor-pointer bg-transparent border-none"
+          <motion.a
+            href="/"
+            className="flex items-center gap-3 group relative z-50 cursor-pointer"
             initial="rest"
             whileHover="hover"
             whileTap="tap"
@@ -143,7 +143,7 @@ export default function Navigation() {
               </svg>
             </div>
             <span className="text-xl font-bold text-zavi-charcoal">Zavi</span>
-          </motion.button>
+          </motion.a>
 
           {/* Center Navigation */}
           <div className="hidden md:flex items-center gap-1">

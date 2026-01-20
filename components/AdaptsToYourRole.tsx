@@ -36,13 +36,13 @@ const cohortData: Record<CohortType, CohortContent> = {
       priority: 'Priority: High',
     },
     icons: [
-      <svg key="github" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <svg key="github" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-label="GitHub">
         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
       </svg>,
-      <svg key="jira" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <svg key="jira" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-label="Jira">
         <path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z" fill="#2684FF"/>
       </svg>,
-      <svg key="vscode" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <svg key="vscode" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-label="Visual Studio Code">
         <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" fill="#007ACC"/>
       </svg>,
     ],
@@ -54,16 +54,20 @@ const cohortData: Record<CohortType, CohortContent> = {
       body: 'Team Update: Q2 roadmap review rescheduled to next week to allow marketing additional time for messaging refinement. Sales team will be included in the discussion.',
     },
     icons: [
-      <svg key="slack" className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+      <svg key="slack" className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-label="Slack">
         <path d="M6 15a2 2 0 01-2 2 2 2 0 01-2-2 2 2 0 012-2h2v2zm1 0a2 2 0 012-2 2 2 0 012 2v5a2 2 0 01-2 2 2 2 0 01-2-2v-5z" fill="#E01E5A"/>
         <path d="M9 6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H9zm0 1a2 2 0 012 2 2 2 0 01-2 2H4a2 2 0 01-2-2 2 2 0 012-2h5z" fill="#36C5F0"/>
         <path d="M18 9a2 2 0 012-2 2 2 0 012 2 2 2 0 01-2 2h-2V9zm-1 0a2 2 0 01-2 2 2 2 0 01-2-2V4a2 2 0 012-2 2 2 0 012 2v5z" fill="#2EB67D"/>
         <path d="M15 18a2 2 0 012 2 2 2 0 01-2 2 2 2 0 01-2-2v-2h2zm0-1a2 2 0 01-2-2 2 2 0 012-2h5a2 2 0 012 2 2 2 0 01-2 2h-5z" fill="#ECB22E"/>
       </svg>,
-      <svg key="teams" className="w-8 h-8" viewBox="0 0 24 24" fill="#5059C9">
-        <path d="M19.5 0h-15C3.119 0 2 1.119 2 2.5v15C2 18.881 3.119 20 4.5 20h15c1.381 0 2.5-1.119 2.5-2.5v-15C22 1.119 20.881 0 19.5 0zm-7 17.5h-8v-11h8v11zm6.5-11v11h-5v-11h5z"/>
+      <svg key="teams" className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-label="Microsoft Teams">
+        <rect x="4" y="4" width="7" height="7" rx="1" fill="#5B5FC7"/>
+        <rect x="13" y="4" width="7" height="7" rx="1" fill="#5B5FC7"/>
+        <rect x="4" y="13" width="7" height="7" rx="1" fill="#5B5FC7"/>
+        <circle cx="16.5" cy="16.5" r="3.5" fill="#7B83EB"/>
+        <path d="M16.5 15v3M15 16.5h3" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>,
-      <svg key="notion" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <svg key="notion" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-label="Notion">
         <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z" fill="#000"/>
       </svg>,
     ],
@@ -75,7 +79,7 @@ const cohortData: Record<CohortType, CohortContent> = {
       body: 'Lecture Notes - Photosynthesis:\n\nLight-dependent reactions occur in the thylakoid membrane, while the Calvin cycle takes place in the stroma. The light-dependent reactions capture energy from sunlight, producing ATP and NADPH, which are then used in the Calvin cycle to synthesize glucose.',
     },
     icons: [
-      <svg key="notion" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+      <svg key="notion" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-label="Notion">
         <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z" fill="#000"/>
       </svg>,
       <svg key="docs" className="w-8 h-8" viewBox="0 0 24 24" fill="none">
@@ -196,18 +200,21 @@ const cohortData: Record<CohortType, CohortContent> = {
       body: 'Accessibility Requirements:\n\n• Keyboard Navigation: Full keyboard control without mouse dependency\n\n• Screen Reader Support: ARIA labels and semantic HTML structure\n\n• High Contrast Mode: Enhanced visibility for visually impaired users\n\n• WCAG 2.1 AA Compliance',
     },
     icons: [
-      <svg key="accessibility" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM10 7a2 2 0 0 0-2 2v10a2 2 0 0 0 4 0V9a2 2 0 0 0-2-2z"/>
-        <path d="M16 9a2 2 0 0 0-2 2v8a2 2 0 0 0 4 0v-8a2 2 0 0 0-2-2z"/>
-        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+      <svg key="accessibility" className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-label="Accessibility">
+        <circle cx="12" cy="12" r="10" stroke="#0066CC" strokeWidth="2" fill="none"/>
+        <circle cx="12" cy="6" r="1.5" fill="#0066CC"/>
+        <path d="M8 10h8M10 10v6c0 1.5-0.5 2-1 2M14 10v6c0 1.5 0.5 2 1 2" stroke="#0066CC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>,
-      <svg key="voiceover" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+      <svg key="voiceover" className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-label="Voice Over">
+        <rect x="8" y="3" width="8" height="10" rx="4" fill="#4CAF50"/>
+        <path d="M12 13v3M9 16h6" stroke="#4CAF50" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M6 9c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="#4CAF50" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M4 9c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="#4CAF50" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5"/>
       </svg>,
-      <svg key="text-to-speech" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
-        <path d="M15 9a5 5 0 0 1 0 6M18 6a9 9 0 0 1 0 12"/>
+      <svg key="text-to-speech" className="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-label="Text to Speech">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="#FF9800" stroke="#FF9800" strokeWidth="1"/>
+        <path d="M15.5 12a3.5 3.5 0 0 0 0-7" stroke="#FF9800" strokeWidth="2" strokeLinecap="round" fill="none"/>
+        <path d="M18 12a6 6 0 0 0 0-12" stroke="#FF9800" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.6"/>
       </svg>,
     ],
   },
@@ -263,16 +270,15 @@ export default function AdaptsToYourRole() {
         >
           {/* Main Heading */}
           <motion.h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-[#1a1a1a]"
+            className="text-display text-[#1a1a1a] mb-4"
             variants={fadeUpLarge}
-            style={{ lineHeight: 1.15 }}
           >
             Zavi adapts to your role.
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-12"
+            className="text-body-xl text-gray-700 mb-12"
             variants={fadeUp}
           >
             Streamline any workflow instantly.
@@ -287,9 +293,12 @@ export default function AdaptsToYourRole() {
               <button
                 key={cohort.id}
                 onClick={() => setSelectedCohort(cohort.id)}
+                aria-label={`View ${cohort.label} use case`}
+                aria-pressed={selectedCohort === cohort.id}
                 className={`
                   relative px-6 py-4 rounded-xl font-semibold text-sm md:text-base
                   transition-all duration-300 shadow-md hover:shadow-lg
+                  focus:outline-none focus:ring-2 focus:ring-[#7B68EE] focus:ring-offset-2
                   ${selectedCohort === cohort.id
                     ? 'bg-gradient-to-br from-[#7B68EE] to-[#9370DB] text-white scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -297,7 +306,7 @@ export default function AdaptsToYourRole() {
                 `}
               >
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-2xl">{cohort.icon}</span>
+                  <span className="text-2xl" aria-hidden="true">{cohort.icon}</span>
                   <span>{cohort.label}</span>
                 </div>
               </button>
@@ -316,7 +325,7 @@ export default function AdaptsToYourRole() {
             className="relative"
           >
             {/* Title */}
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 text-[#1a1a1a]">
+            <h3 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-[#1a1a1a]">
               {currentContent.title}
             </h3>
 
@@ -439,7 +448,7 @@ export default function AdaptsToYourRole() {
                 </div>
 
                 {/* Platform Icons */}
-                <div className="flex items-center justify-center gap-6 mt-10 pt-8 border-t border-gray-200">
+                <div className="flex items-center justify-center gap-6 mt-10 pt-8 border-t border-gray-200" role="list" aria-label="Supported platforms">
                   {currentContent.icons.map((icon, index) => (
                     <motion.div
                       key={index}
@@ -447,6 +456,7 @@ export default function AdaptsToYourRole() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 }}
                       className="text-gray-600 hover:text-gray-900 transition-colors"
+                      role="listitem"
                     >
                       {icon}
                     </motion.div>

@@ -82,7 +82,7 @@ export default function VoiceTypingDemo() {
           {/* Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 md:mb-6"
+            className="text-display text-center mb-4 md:mb-6"
           >
             Try voice typing for any use case.
           </motion.h2>
@@ -90,7 +90,7 @@ export default function VoiceTypingDemo() {
           {/* Subheading */}
           <motion.p
             variants={fadeUp}
-            className="text-lg sm:text-xl md:text-2xl text-gray-600 text-center max-w-4xl mx-auto mb-8 md:mb-12"
+            className="text-body-xl text-gray-600 text-center max-w-4xl mx-auto mb-8 md:mb-12"
           >
             Zavi auto-formats your speech into polished text in seconds—across all your favorite apps.
           </motion.p>
