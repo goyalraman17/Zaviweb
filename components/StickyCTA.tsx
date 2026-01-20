@@ -13,8 +13,8 @@ export default function StickyCTA() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      // Show after scrolling down 800px, hide when near bottom (last 600px)
-      const showThreshold = 800;
+      // Show after scrolling down 400px (mobile optimized), hide when near bottom (last 600px)
+      const showThreshold = 400;
       const hideThreshold = documentHeight - windowHeight - 600;
 
       setIsVisible(currentScroll > showThreshold && currentScroll < hideThreshold);
