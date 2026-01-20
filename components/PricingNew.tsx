@@ -91,32 +91,33 @@ export default function PricingNew() {
               variants={fadeUp}
             >
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
-              <p className="text-gray-600 mb-6">For trying voice-first writing</p>
+              <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Curious explorers</p>
+              <p className="text-gray-600 mb-6">Try voice-first writing risk-free</p>
 
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Write up to 1,500 words per week</span>
+                  <span className="text-gray-700">Speak 1,500 words per week</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Speak naturally. Zavi cleans grammar and punctuation automatically</span>
+                  <span className="text-gray-700">Sound professional without editing</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Works across your apps</span>
+                  <span className="text-gray-700">Write anywhere you type</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Supports mixed languages</span>
+                  <span className="text-gray-700">Speak in any language</span>
                 </li>
               </ul>
 
@@ -148,11 +149,12 @@ export default function PricingNew() {
               </div>
 
               <h3 className="text-3xl font-bold text-white mb-1">Pro</h3>
-              <p className="text-white/90 mb-4">(Most Popular for Daily Writing)</p>
+              <p className="text-sm font-semibold text-white/90 mb-2">Recommended for: Daily communicators</p>
+              <p className="text-white/80 mb-4">Write at the speed of thought</p>
 
               {/* Save Time Badge */}
               <div className="bg-[#E6C15A] text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg mb-6">
-                Save 30+ minutes per day on typing
+                Save 30+ minutes per day
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -160,31 +162,31 @@ export default function PricingNew() {
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-white">Unlimited voice writing</span>
+                  <span className="text-white">Never type again</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-white">Works everywhere you type</span>
+                  <span className="text-white">Sound polished in every message</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-white">Removes filler words automatically</span>
+                  <span className="text-white">Eliminate fillers and awkward phrasing</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-white">Fixes grammar and structure instantly</span>
+                  <span className="text-white">Perfect grammar without thinking</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-white">Advanced rewrites for clarity and tone</span>
+                  <span className="text-white">Match your tone to any audience</span>
                 </li>
               </ul>
 
@@ -207,39 +209,39 @@ export default function PricingNew() {
               variants={fadeUp}
             >
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
-              <p className="text-gray-600 mb-2">(For Fast-Growing Companies)</p>
-              <p className="text-gray-700 mb-6">For teams that communicate at scale</p>
+              <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
+              <p className="text-gray-600 mb-6">Communicate faster as a team</p>
 
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Everything in Pro</span>
+                  <span className="text-gray-700">Everything in Pro for everyone</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Shared terminology and brand voice</span>
+                  <span className="text-gray-700">Stay on-brand across all messages</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Usage analytics across team</span>
+                  <span className="text-gray-700">Track team productivity gains</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Admin controls and centralized billing</span>
+                  <span className="text-gray-700">Simple admin and billing</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Priority support</span>
+                  <span className="text-gray-700">Get help when you need it</span>
                 </li>
               </ul>
 

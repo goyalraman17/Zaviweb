@@ -17,6 +17,8 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [showDetectedTooltip, setShowDetectedTooltip] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   // Toggle mobile menu function
   const toggleMobileMenu = () => {
@@ -41,14 +43,29 @@ export default function Navigation() {
     }
   }, []);
 
-  // Handle scroll for navbar height reduction
+  // Handle scroll for navbar visibility and height
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Update scrolled state
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -93,7 +110,10 @@ export default function Navigation() {
       initial="top"
       animate="visible"
       variants={headerReveal}
-      className="fixed top-0 left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200 transition-all duration-300"
+      className={`fixed left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200 transition-all duration-300 ${
+        isVisible ? 'top-0' : '-top-24'
+      }`}
+      style={{ transitionProperty: 'top, height' }}
     >
       <div className="container-large">
         <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'}`}>
