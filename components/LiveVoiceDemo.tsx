@@ -425,7 +425,7 @@ export default function LiveVoiceDemo() {
                 clearTimeout(longPressTimerRef.current);
               }
             }}
-            className={`relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`relative w-28 h-28 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-300 touch-manipulation ${
               state === 'listening'
                 ? 'bg-red-500 shadow-lg shadow-red-500/50'
                 : state === 'processing'

@@ -243,6 +243,7 @@ const cohortData: Record<CohortType, CohortContent> = {
 
 export default function AdaptsToYourRole() {
   const [selectedCohort, setSelectedCohort] = useState<CohortType>('developers');
+  const [showAllCohorts, setShowAllCohorts] = useState(false);
 
   const cohorts = [
     { id: 'teams' as CohortType, label: 'Teams', icon: '👥' },
@@ -256,6 +257,11 @@ export default function AdaptsToYourRole() {
     { id: 'accessibility' as CohortType, label: 'Accessibility', icon: '♿' },
     { id: 'better' as CohortType, label: 'Better', icon: '📈' },
   ];
+
+  // Show only first 6 cohorts on mobile unless "Show more" is clicked
+  const visibleCohorts = typeof window !== 'undefined' && window.innerWidth < 768 && !showAllCohorts
+    ? cohorts.slice(0, 6)
+    : cohorts;
 
   const currentContent = cohortData[selectedCohort];
 
@@ -287,9 +293,9 @@ export default function AdaptsToYourRole() {
           {/* Cohort Buttons Grid */}
           <motion.div
             variants={fadeUp}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto mb-16"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto mb-8"
           >
-            {cohorts.map((cohort) => (
+            {visibleCohorts.map((cohort) => (
               <button
                 key={cohort.id}
                 onClick={() => setSelectedCohort(cohort.id)}
@@ -297,7 +303,7 @@ export default function AdaptsToYourRole() {
                 aria-pressed={selectedCohort === cohort.id}
                 className={`
                   relative px-6 py-4 rounded-xl font-semibold text-sm md:text-base
-                  transition-all duration-300 shadow-md hover:shadow-lg
+                  transition-all duration-300 shadow-md hover:shadow-lg touch-manipulation
                   focus:outline-none focus:ring-2 focus:ring-[#7B68EE] focus:ring-offset-2
                   ${selectedCohort === cohort.id
                     ? 'bg-gradient-to-br from-[#7B68EE] to-[#9370DB] text-white scale-105'
@@ -312,6 +318,17 @@ export default function AdaptsToYourRole() {
               </button>
             ))}
           </motion.div>
+
+          {/* Show More Button (Mobile Only) */}
+          {typeof window !== 'undefined' && window.innerWidth < 768 && !showAllCohorts && (
+            <motion.button
+              variants={fadeUp}
+              onClick={() => setShowAllCohorts(true)}
+              className="mx-auto mb-16 px-6 py-3 bg-white text-gray-700 border-2 border-gray-300 rounded-xl font-semibold text-sm hover:bg-gray-50 hover:border-gray-400 transition-all shadow-sm"
+            >
+              Show {cohorts.length - visibleCohorts.length} more roles
+            </motion.button>
+          )}
         </motion.div>
 
         {/* Dynamic Content Area */}

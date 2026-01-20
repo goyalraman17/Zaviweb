@@ -197,7 +197,7 @@ export default function Navigation() {
           <div className="hidden md:block relative">
             <motion.a
               href="/try-free"
-              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all shadow-sm hover:shadow-md"
+              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-lg transition-all shadow-sm hover:shadow-md"
               initial="rest"
               whileHover="hover"
               whileTap="tap"
@@ -222,7 +222,7 @@ export default function Navigation() {
           {/* CTA Button - Mobile (visible outside menu) */}
           <motion.a
             href="/try-free"
-            className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all shadow-sm mr-2"
+            className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-lg transition-all shadow-sm mr-2"
             initial="rest"
             whileTap="tap"
             variants={ctaPrimary}
@@ -281,7 +281,7 @@ export default function Navigation() {
                 {/* CTA Button - First in menu */}
                 <motion.a
                   href="/try-free"
-                  className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-[#3B4AA3] rounded-lg hover:bg-[#323e8a] transition-all mb-4"
+                  className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-lg transition-all mb-4"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 }}
