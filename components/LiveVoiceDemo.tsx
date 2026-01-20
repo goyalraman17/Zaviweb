@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import {
   fadeIn,
   fadeUp,
@@ -10,192 +10,33 @@ import {
   duration,
   easing,
 } from '@/lib/animations';
+import { useVoiceRecording } from '@/hooks/useVoiceRecording';
+import { useUIState } from '@/hooks/useUIState';
+import { useLanguageSettings, INPUT_LANGUAGES, OUTPUT_LANGUAGES } from '@/hooks/useLanguageSettings';
+import { analytics } from '@/lib/analytics';
 
-type RecordingState = 'idle' | 'listening' | 'processing' | 'ready';
-type DemoMode = 'user' | 'auto';
 type Tone = 'neutral' | 'formal' | 'casual';
 
-interface Language {
-  code: string;
-  name: string;
-}
-
-const INPUT_LANGUAGES: Language[] = [
-  { code: 'auto', name: 'Auto Detect' },
-  { code: 'en', name: 'English' },
-  { code: 'hi', name: 'Hindi' },
-  { code: 'es', name: 'Spanish' },
-  { code: 'pt', name: 'Portuguese' },
-  { code: 'fr', name: 'French' },
-  { code: 'de', name: 'German' },
-  { code: 'zh', name: 'Chinese' },
-];
-
-const OUTPUT_LANGUAGES: Language[] = [
-  { code: 'en', name: 'English' },
-  { code: 'es', name: 'Spanish' },
-  { code: 'fr', name: 'French' },
-  { code: 'de', name: 'German' },
-];
-
-const DEMO_EXAMPLES = [
-  {
-    raw: "yeah so maybe just tell them we will check and come back next week",
-    polished: "We will review this and follow up next week."
-  },
-  {
-    raw: "um I think we should probably like discuss this with the team first you know",
-    polished: "Let's discuss this with the team before proceeding."
-  },
-  {
-    raw: "so basically what I'm trying to say is we need more time to finish this properly",
-    polished: "We need additional time to complete this properly."
-  },
-];
-
 export default function LiveVoiceDemo() {
-  const [state, setState] = useState<RecordingState>('idle');
-  const [demoMode, setDemoMode] = useState<DemoMode>('user');
-  const [inputLang, setInputLang] = useState('auto');
-  const [outputLang, setOutputLang] = useState('en');
-  const [rawText, setRawText] = useState('');
-  const [polishedText, setPolishedText] = useState('');
-  const [waveformActive, setWaveformActive] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [currentExample, setCurrentExample] = useState(0);
-  const [detectedLang, setDetectedLang] = useState<string>('');
-  const [showLangPill, setShowLangPill] = useState(false);
-  const [showPrivacyPopup, setShowPrivacyPopup] = useState(false);
-  const [showAdvancedMenu, setShowAdvancedMenu] = useState(false);
-  const [selectedTone, setSelectedTone] = useState<Tone>('neutral');
-  const [undoStack, setUndoStack] = useState<string[]>([]);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState('');
+  // Custom hooks for state management
+  const languageSettings = useLanguageSettings();
+  const { inputLang, outputLang, detectedLang, selectedTone, editedText, setInputLang, setOutputLang, setDetectedLang, setSelectedTone, setEditedText } = languageSettings;
 
-  const recognitionRef = useRef<any>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const recording = useVoiceRecording(inputLang);
+  const { state, demoMode, rawText, polishedText, waveformActive, undoStack, startRecording, stopRecording, reset: resetRecording, undo, setPolishedText } = recording;
+
+  const uiState = useUIState();
+  const { showLangPill, showPrivacyPopup, showAdvancedMenu, copied, isEditing, setShowLangPill, togglePrivacyPopup, showPrivacy, hidePrivacy, showAdvanced, hideAdvanced, markCopied, startEditing, stopEditing } = uiState;
+
   const longPressTimerRef = useRef<NodeJS.Timeout>();
-
-  // Initialize speech recognition
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-      if (SpeechRecognition) {
-        recognitionRef.current = new SpeechRecognition();
-        recognitionRef.current.continuous = true;
-        recognitionRef.current.interimResults = true;
-        recognitionRef.current.lang = inputLang === 'auto' ? 'en-US' : `${inputLang}-US`;
-
-        recognitionRef.current.onresult = (event: any) => {
-          let interim = '';
-          for (let i = event.resultIndex; i < event.results.length; i++) {
-            const transcript = event.results[i][0].transcript;
-            if (event.results[i].isFinal) {
-              setRawText(prev => prev + transcript + ' ');
-            } else {
-              interim += transcript;
-            }
-          }
-          if (interim) {
-            setRawText(prev => prev + interim);
-          }
-        };
-
-        recognitionRef.current.onerror = () => {
-          // Fallback to auto demo
-          startAutoDemo();
-        };
-      } else {
-        // No speech recognition support, start auto demo
-        setDemoMode('auto');
-        startAutoDemo();
-      }
-    }
-  }, [inputLang]);
-
-  const startAutoDemo = () => {
-    setDemoMode('auto');
-    setState('idle');
-    const example = DEMO_EXAMPLES[currentExample];
-
-    // Simulate recording
-    setTimeout(() => {
-      setState('listening');
-      setWaveformActive(true);
-      setRawText('');
-
-      // Type out raw text character by character
-      let charIndex = 0;
-      const typeInterval = setInterval(() => {
-        if (charIndex < example.raw.length) {
-          setRawText(example.raw.substring(0, charIndex + 1));
-          charIndex++;
-        } else {
-          clearInterval(typeInterval);
-          // Process after raw text is complete
-          setTimeout(() => {
-            setState('processing');
-            setWaveformActive(false);
-            setTimeout(() => {
-              setPolishedText(example.polished);
-              setState('ready');
-              setCurrentExample((prev) => (prev + 1) % DEMO_EXAMPLES.length);
-            }, 800);
-          }, 500);
-        }
-      }, 50);
-    }, 500);
-  };
-
-  const startRecording = () => {
-    if (demoMode === 'auto') {
-      startAutoDemo();
-      return;
-    }
-
-    if (recognitionRef.current) {
-      setRawText('');
-      setPolishedText('');
-      setState('listening');
-      setWaveformActive(true);
-      recognitionRef.current.start();
-    }
-  };
-
-  const stopRecording = () => {
-    if (recognitionRef.current && state === 'listening') {
-      recognitionRef.current.stop();
-      setWaveformActive(false);
-      setState('processing');
-
-      // Simulate language detection
-      if (inputLang === 'auto') {
-        setDetectedLang('English');
-      }
-
-      // Simulate AI processing
-      setTimeout(() => {
-        // Save raw text to undo stack
-        setUndoStack([rawText]);
-
-        // In real app, this would call the API
-        const polished = rawText
-          .replace(/um|uh|like|you know|basically|so/gi, '')
-          .replace(/\s+/g, ' ')
-          .trim();
-
-        const capitalized = polished.charAt(0).toUpperCase() + polished.slice(1);
-        setPolishedText(capitalized + (capitalized.endsWith('.') ? '' : '.'));
-        setState('ready');
-      }, 1200);
-    }
-  };
 
   const handleMicClick = () => {
     if (state === 'idle') {
       startRecording();
+      analytics.track('demo_start', { mode: demoMode });
     } else if (state === 'listening') {
       stopRecording();
+      analytics.track('demo_stop');
     } else if (state === 'ready') {
       reset();
     }
@@ -203,47 +44,43 @@ export default function LiveVoiceDemo() {
 
   const handleMicLongPress = () => {
     if (state === 'idle') {
-      setShowAdvancedMenu(true);
+      showAdvanced();
     }
   };
 
   const handleEdit = () => {
-    setIsEditing(true);
+    startEditing();
     setEditedText(polishedText);
+    analytics.track('demo_edit');
   };
 
   const handleInsert = () => {
     // In real app, this would insert into the active field
     copyToClipboard();
+    analytics.track('demo_insert', {
+      text_length: polishedText.length,
+    });
     setTimeout(() => {
       reset();
     }, 1000);
   };
 
   const handleUndo = () => {
-    if (undoStack.length > 0) {
-      setPolishedText(undoStack[0]);
-      setUndoStack([]);
-    }
+    undo();
+    analytics.track('demo_undo');
   };
 
   const reset = () => {
-    setState('idle');
-    setRawText('');
-    setPolishedText('');
-    setWaveformActive(false);
-    setCopied(false);
+    resetRecording();
     setDetectedLang('');
-    setIsEditing(false);
+    stopEditing();
     setEditedText('');
-    setUndoStack([]);
-    setShowAdvancedMenu(false);
+    hideAdvanced();
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(polishedText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    markCopied();
   };
 
   const downloadText = () => {
@@ -280,7 +117,7 @@ export default function LiveVoiceDemo() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setShowLangPill(!showLangPill)}
-                className="flex items-center gap-2 px-4 py-2 bg-zavi-paper border border-zavi-border rounded-full text-xs font-medium text-zavi-charcoal hover:bg-white transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-zavi-paper border border-zavi-border rounded-full text-xs font-medium text-zavi-charcoal hover:bg-white transition-all focus:outline-none focus:ring-2 focus:ring-zavi-blue focus:ring-offset-2"
                 aria-label={showLangPill ? "Hide language settings" : "Show language settings"}
                 aria-expanded={showLangPill}
               >
@@ -303,12 +140,12 @@ export default function LiveVoiceDemo() {
             {/* Privacy Badge */}
             <div className="relative">
               <button
-                onMouseEnter={() => setShowPrivacyPopup(true)}
-                onMouseLeave={() => setShowPrivacyPopup(false)}
-                onClick={() => setShowPrivacyPopup(!showPrivacyPopup)}
+                onMouseEnter={showPrivacy}
+                onMouseLeave={hidePrivacy}
+                onClick={togglePrivacyPopup}
                 onKeyDown={(e) => {
                   if (e.key === 'Escape') {
-                    setShowPrivacyPopup(false);
+                    hidePrivacy();
                   }
                 }}
                 aria-label="Privacy information"
@@ -611,10 +448,10 @@ export default function LiveVoiceDemo() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50"
                 style={{ willChange: 'opacity, transform' }}
-                onClick={() => setShowAdvancedMenu(false)}
+                onClick={hideAdvanced}
                 onKeyDown={(e) => {
                   if (e.key === 'Escape') {
-                    setShowAdvancedMenu(false);
+                    hideAdvanced();
                   }
                 }}
                 role="dialog"
@@ -657,7 +494,7 @@ export default function LiveVoiceDemo() {
 
                   {/* Close Button */}
                   <button
-                    onClick={() => setShowAdvancedMenu(false)}
+                    onClick={hideAdvanced}
                     aria-label="Close advanced options"
                     className="w-full px-6 py-3 bg-zavi-blue text-white rounded-lg font-semibold hover:bg-zavi-blue/90 transition-all focus:outline-none focus:ring-2 focus:ring-zavi-blue focus:ring-offset-2"
                   >

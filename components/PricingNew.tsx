@@ -1,16 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   staggerContainerSlow,
   fadeUp,
   fadeUpLarge,
   ctaPrimary,
 } from '@/lib/animations';
+import { analytics } from '@/lib/analytics';
 
 export default function PricingNew() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+
+  // Track pricing page view
+  useEffect(() => {
+    analytics.track('pricing_view');
+  }, []);
 
   return (
     <section
@@ -30,10 +36,10 @@ export default function PricingNew() {
           {/* Header */}
           <motion.div className="text-center mb-12" variants={fadeUpLarge}>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1a1a1a] mb-4">
-              Write 4x Faster Anywhere Using Your Voice
+              Choose Your Plan. Start Writing Faster Today.
             </h2>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Turn natural speech into clean, professional text across every app you use.
+              Join thousands of professionals who've ditched their keyboard for Zavi.
             </p>
 
             {/* Trust Badges */}
@@ -55,7 +61,10 @@ export default function PricingNew() {
             {/* Billing Toggle */}
             <div className="inline-flex items-center gap-2 p-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
               <button
-                onClick={() => setBillingCycle('monthly')}
+                onClick={() => {
+                  setBillingCycle('monthly');
+                  analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
+                }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   billingCycle === 'monthly'
                     ? 'bg-white text-gray-900 shadow-sm'
@@ -65,7 +74,10 @@ export default function PricingNew() {
                 Monthly
               </button>
               <button
-                onClick={() => setBillingCycle('annual')}
+                onClick={() => {
+                  setBillingCycle('annual');
+                  analytics.track('pricing_toggle_billing', { cycle: 'annual' });
+                }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
                   billingCycle === 'annual'
                     ? 'bg-white text-gray-900 shadow-sm'
@@ -122,6 +134,12 @@ export default function PricingNew() {
               </ul>
 
               <motion.button
+                onClick={() => {
+                  analytics.track('pricing_plan_click', {
+                    plan: 'free',
+                    billing_cycle: billingCycle,
+                  });
+                }}
                 className="w-full px-6 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
                 style={{
                   background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
@@ -131,7 +149,7 @@ export default function PricingNew() {
                 whileTap="tap"
                 variants={ctaPrimary}
               >
-                Try Free. No Credit Card
+                Start Free Forever
               </motion.button>
             </motion.div>
 
@@ -191,13 +209,19 @@ export default function PricingNew() {
               </ul>
 
               <motion.button
+                onClick={() => {
+                  analytics.track('pricing_plan_click', {
+                    plan: 'pro',
+                    billing_cycle: billingCycle,
+                  });
+                }}
                 className="w-full px-6 py-4 rounded-full font-semibold bg-white text-purple-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 variants={ctaPrimary}
               >
-                Upgrade to Pro
+                Start 7-Day Free Trial
               </motion.button>
 
               <p className="text-center text-white/80 text-sm">7-day money-back guarantee</p>

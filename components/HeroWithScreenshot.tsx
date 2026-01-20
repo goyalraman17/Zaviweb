@@ -8,6 +8,7 @@ import {
   fadeUpLarge,
   ctaPrimary,
 } from '@/lib/animations';
+import { analytics } from '@/lib/analytics';
 import LiveVoiceDemo from './LiveVoiceDemo';
 
 export default function HeroWithScreenshot() {
@@ -29,12 +30,12 @@ export default function HeroWithScreenshot() {
   // Get download text based on detected OS
   const getDownloadText = () => {
     switch (detectedOS) {
-      case 'macOS': return 'Download for macOS';
-      case 'Windows': return 'Download for Windows';
-      case 'iOS': return 'Get on App Store';
-      case 'Android': return 'Get on Play Store';
-      case 'Linux': return 'Download for Linux';
-      default: return 'Download Free';
+      case 'macOS': return 'Start Free Trial';
+      case 'Windows': return 'Start Free Trial';
+      case 'iOS': return 'Get Free on App Store';
+      case 'Android': return 'Get Free on Play Store';
+      case 'Linux': return 'Start Free Trial';
+      default: return 'Start Free Trial';
     }
   };
 
@@ -54,7 +55,7 @@ export default function HeroWithScreenshot() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6"
               variants={fadeUpLarge}
             >
-              Your Voice, Polished Instantly
+              Stop Typing. Start Speaking.
             </motion.h1>
 
             {/* One-liner value prop */}
@@ -62,7 +63,7 @@ export default function HeroWithScreenshot() {
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
               variants={fadeUp}
             >
-              Speak naturally. Zavi removes fillers, fixes grammar, and makes you sound professional.
+              Turn messy speech into polished text—instantly. No more "um's", no awkward phrasing. Just clear, professional writing in seconds.
             </motion.p>
 
             {/* Single CTA - Platform Specific Download */}
@@ -72,6 +73,12 @@ export default function HeroWithScreenshot() {
             >
               <motion.a
                 href="/try-free"
+                onClick={() => {
+                  analytics.track('cta_hero_click', {
+                    text: getDownloadText(),
+                    os: detectedOS,
+                  });
+                }}
                 className="inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-xl transition-all shadow-xl hover:shadow-2xl"
                 initial="rest"
                 whileHover="hover"
