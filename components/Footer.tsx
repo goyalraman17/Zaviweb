@@ -4,13 +4,6 @@ import { motion } from 'framer-motion';
 import { fadeUp, staggerContainerSlow } from '@/lib/animations';
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer
       className="relative py-12 md:py-16 overflow-hidden"
@@ -24,12 +17,12 @@ export default function Footer() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainerSlow}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8"
+          className="text-center"
         >
-          {/* Brand Column */}
-          <motion.div variants={fadeUp} className="md:col-span-1">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="w-8 h-8 mt-1">
+          {/* Brand */}
+          <motion.div variants={fadeUp} className="mb-8">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="w-8 h-8">
                 <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Top bar */}
                   <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#footerTopBar)"/>
@@ -65,79 +58,37 @@ export default function Footer() {
                   </defs>
                 </svg>
               </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900">Zavi</h2>
-                <p className="text-sm text-gray-600 mt-1">
-                  Think faster than you type.
-                </p>
-              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Zavi</h2>
             </div>
+            <p className="text-sm text-gray-600">
+              Think faster than you type.
+            </p>
           </motion.div>
 
-          {/* Product Links */}
-          <motion.div variants={fadeUp} className="md:col-span-1">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
-              Product
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="/how-it-works"
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  How it Works
-                </a>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('pricing')}
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors text-left"
-                >
-                  Pricing
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('faq')}
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors text-left"
-                >
-                  FAQ
-                </button>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Company Links */}
-          <motion.div variants={fadeUp} className="md:col-span-1">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
-              Company
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="/privacy"
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/terms"
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
+          {/* Essential Links Only */}
+          <motion.div variants={fadeUp} className="mb-6">
+            <div className="flex items-center justify-center gap-6 flex-wrap">
+              <a
+                href="/privacy"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Privacy
+              </a>
+              <span className="text-gray-400">•</span>
+              <a
+                href="/terms"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Terms
+              </a>
+              <span className="text-gray-400">•</span>
+              <a
+                href="/contact"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Contact
+              </a>
+            </div>
           </motion.div>
         </motion.div>
 
