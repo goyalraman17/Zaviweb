@@ -257,17 +257,23 @@ export default function LiveVoiceDemo() {
   };
 
   return (
-    <motion.div
+    <section
+      aria-labelledby="voice-demo-heading"
       className="w-full max-w-4xl mx-auto"
-      initial="hidden"
-      animate="visible"
-      variants={staggerContainer}
     >
-      {/* Demo Card */}
+      <h2 id="voice-demo-heading" className="sr-only">Interactive Voice Recording Demo</h2>
       <motion.div
-        className="relative bg-white rounded-3xl border border-zavi-border/50 shadow-2xl overflow-hidden"
-        variants={fadeUp}
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
       >
+        {/* Demo Card */}
+        <motion.div
+          className="relative bg-white rounded-3xl border border-zavi-border/50 shadow-2xl overflow-hidden"
+          variants={fadeUp}
+          role="region"
+          aria-label="Voice recording interface"
+        >
         {/* Compact Language Toggle Pill */}
         {!showLangPill && state === 'idle' && (
           <div className="flex items-center justify-between gap-4 p-4 border-b border-zavi-border/30">
@@ -275,16 +281,18 @@ export default function LiveVoiceDemo() {
               <button
                 onClick={() => setShowLangPill(!showLangPill)}
                 className="flex items-center gap-2 px-4 py-2 bg-zavi-paper border border-zavi-border rounded-full text-xs font-medium text-zavi-charcoal hover:bg-white transition-all"
+                aria-label={showLangPill ? "Hide language settings" : "Show language settings"}
+                aria-expanded={showLangPill}
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
                 <span>{inputLang === 'auto' ? 'Auto-detect' : INPUT_LANGUAGES.find(l => l.code === inputLang)?.name}</span>
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <svg className="w-4 h-4 text-zavi-gray-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-zavi-gray-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
               <span className="text-xs font-medium text-zavi-charcoal">
@@ -298,9 +306,16 @@ export default function LiveVoiceDemo() {
                 onMouseEnter={() => setShowPrivacyPopup(true)}
                 onMouseLeave={() => setShowPrivacyPopup(false)}
                 onClick={() => setShowPrivacyPopup(!showPrivacyPopup)}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-xs font-medium text-green-700 hover:bg-green-100 transition-all"
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') {
+                    setShowPrivacyPopup(false);
+                  }
+                }}
+                aria-label="Privacy information"
+                aria-expanded={showPrivacyPopup}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-xs font-medium text-green-700 hover:bg-green-100 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
               >
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
                 Private by design
@@ -354,15 +369,17 @@ export default function LiveVoiceDemo() {
             >
               <div className="flex items-center justify-between gap-4 p-6 border-b border-zavi-border/30">
                 <div className="flex-1">
-                  <label className="block text-xs font-medium text-zavi-gray-text mb-2">
+                  <label htmlFor="input-language-select" className="block text-xs font-medium text-zavi-gray-text mb-2">
                     Speak in
                   </label>
                   <select
+                    id="input-language-select"
                     value={inputLang}
                     onChange={(e) => {
                       setInputLang(e.target.value);
                       setShowLangPill(false);
                     }}
+                    aria-label="Select input language"
                     className="w-full px-4 py-2 bg-zavi-paper border border-zavi-border rounded-lg text-sm font-medium text-zavi-charcoal focus:outline-none focus:ring-2 focus:ring-zavi-blue/20 focus:border-zavi-blue transition-all"
                     disabled={state === 'listening' || state === 'processing'}
                   >
@@ -381,15 +398,17 @@ export default function LiveVoiceDemo() {
                 </div>
 
                 <div className="flex-1">
-                  <label className="block text-xs font-medium text-zavi-gray-text mb-2">
+                  <label htmlFor="output-language-select" className="block text-xs font-medium text-zavi-gray-text mb-2">
                     Output in
                   </label>
                   <select
+                    id="output-language-select"
                     value={outputLang}
                     onChange={(e) => {
                       setOutputLang(e.target.value);
                       setShowLangPill(false);
                     }}
+                    aria-label="Select output language"
                     className="w-full px-4 py-2 bg-zavi-paper border border-zavi-border rounded-lg text-sm font-medium text-zavi-charcoal focus:outline-none focus:ring-2 focus:ring-zavi-blue/20 focus:border-zavi-blue transition-all"
                     disabled={state === 'listening' || state === 'processing'}
                   >
@@ -425,14 +444,30 @@ export default function LiveVoiceDemo() {
                 clearTimeout(longPressTimerRef.current);
               }
             }}
-            className={`relative w-28 h-28 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-300 touch-manipulation ${
-              state === 'listening'
-                ? 'bg-red-500 shadow-lg shadow-red-500/50'
-                : state === 'processing'
-                ? 'bg-yellow-500 shadow-lg shadow-yellow-500/50'
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleMicClick();
+              }
+            }}
+            aria-label={
+              state === 'idle'
+                ? 'Start voice recording'
+                : state === 'listening'
+                ? 'Stop voice recording'
                 : state === 'ready'
-                ? 'bg-green-500 shadow-lg shadow-green-500/50'
-                : 'bg-zavi-blue shadow-lg shadow-zavi-blue/50'
+                ? 'Reset and start new recording'
+                : 'Processing voice input'
+            }
+            aria-pressed={state === 'listening'}
+            className={`relative w-28 h-28 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-300 touch-manipulation focus:outline-none focus:ring-4 focus:ring-offset-2 ${
+              state === 'listening'
+                ? 'bg-red-500 shadow-lg shadow-red-500/50 focus:ring-red-500/50'
+                : state === 'processing'
+                ? 'bg-yellow-500 shadow-lg shadow-yellow-500/50 focus:ring-yellow-500/50'
+                : state === 'ready'
+                ? 'bg-green-500 shadow-lg shadow-green-500/50 focus:ring-green-500/50'
+                : 'bg-zavi-blue shadow-lg shadow-zavi-blue/50 focus:ring-zavi-blue/50'
             }`}
             style={{ willChange: 'transform' }}
             whileHover={{ scale: 1.05 }}
@@ -515,10 +550,13 @@ export default function LiveVoiceDemo() {
             )}
           </motion.button>
 
-          {/* Status Label */}
+          {/* Status Label with aria-live for screen readers */}
           <motion.div
             className="mt-6 text-center"
             variants={fadeIn}
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
           >
             <p className="text-sm font-semibold text-zavi-charcoal">
               {state === 'idle' && 'Click to start • Long press for options'}
@@ -574,6 +612,14 @@ export default function LiveVoiceDemo() {
                 className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50"
                 style={{ willChange: 'opacity, transform' }}
                 onClick={() => setShowAdvancedMenu(false)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') {
+                    setShowAdvancedMenu(false);
+                  }
+                }}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="advanced-menu-title"
               >
                 <motion.div
                   className="bg-white rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4"
@@ -582,19 +628,22 @@ export default function LiveVoiceDemo() {
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                 >
-                  <h3 className="text-lg font-semibold text-zavi-charcoal mb-4">Advanced Options</h3>
+                  <h3 id="advanced-menu-title" className="text-lg font-semibold text-zavi-charcoal mb-4">Advanced Options</h3>
 
                   {/* Tone Selection */}
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-zavi-gray-text mb-2">
+                    <label id="tone-selection-label" className="block text-sm font-medium text-zavi-gray-text mb-2">
                       Output Tone
                     </label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-labelledby="tone-selection-label">
                       {(['neutral', 'formal', 'casual'] as Tone[]).map((tone) => (
                         <button
                           key={tone}
                           onClick={() => setSelectedTone(tone)}
-                          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                          role="radio"
+                          aria-checked={selectedTone === tone}
+                          aria-label={`${tone.charAt(0).toUpperCase() + tone.slice(1)} tone`}
+                          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-zavi-blue focus:ring-offset-2 ${
                             selectedTone === tone
                               ? 'bg-zavi-blue text-white shadow-md'
                               : 'bg-zavi-paper text-zavi-charcoal hover:bg-white'
@@ -609,7 +658,8 @@ export default function LiveVoiceDemo() {
                   {/* Close Button */}
                   <button
                     onClick={() => setShowAdvancedMenu(false)}
-                    className="w-full px-6 py-3 bg-zavi-blue text-white rounded-lg font-semibold hover:bg-zavi-blue/90 transition-all"
+                    aria-label="Close advanced options"
+                    className="w-full px-6 py-3 bg-zavi-blue text-white rounded-lg font-semibold hover:bg-zavi-blue/90 transition-all focus:outline-none focus:ring-2 focus:ring-zavi-blue focus:ring-offset-2"
                   >
                     Done
                   </button>
@@ -681,13 +731,14 @@ export default function LiveVoiceDemo() {
               </motion.div>
 
               {/* Action Bar */}
-              <div className="flex items-center justify-between gap-2 p-4 bg-white">
+              <div className="flex items-center justify-between gap-2 p-4 bg-white" role="toolbar" aria-label="Text editing actions">
                 {/* Left: Edit */}
                 <button
                   onClick={handleEdit}
-                  className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all"
+                  aria-label="Edit polished text"
+                  className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
                   Edit
@@ -697,9 +748,10 @@ export default function LiveVoiceDemo() {
                 {undoStack.length > 0 && (
                   <button
                     onClick={handleUndo}
-                    className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-zavi-blue hover:text-zavi-blue/80 transition-all"
+                    aria-label="Undo changes"
+                    className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-zavi-blue hover:text-zavi-blue/80 transition-all focus:outline-none focus:ring-2 focus:ring-zavi-blue focus:ring-offset-2 rounded-lg"
                   >
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                     </svg>
                     Undo
@@ -709,12 +761,13 @@ export default function LiveVoiceDemo() {
                 {/* Right: Insert */}
                 <motion.button
                   onClick={handleInsert}
-                  className="flex items-center gap-2 px-8 py-3 bg-zavi-blue text-white rounded-xl text-sm font-semibold hover:bg-zavi-blue/90 transition-all shadow-lg"
+                  aria-label="Insert text and copy to clipboard"
+                  className="flex items-center gap-2 px-8 py-3 bg-zavi-blue text-white rounded-xl text-sm font-semibold hover:bg-zavi-blue/90 transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-zavi-blue focus:ring-offset-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Insert
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </motion.button>
@@ -754,5 +807,6 @@ export default function LiveVoiceDemo() {
         Speak once. Send immediately.
       </motion.p>
     </motion.div>
+    </section>
   );
 }
