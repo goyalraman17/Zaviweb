@@ -140,7 +140,10 @@ export function useTrackPricing() {
       analytics.track('pricing_toggle_billing', { cycle });
     },
     trackPlanClick: (plan: string, price?: number) => {
-      analytics.track('pricing_plan_click', { plan, price });
+      analytics.track('pricing_plan_click', {
+        plan,
+        ...(price !== undefined && { price }),
+      });
     },
   };
 }
