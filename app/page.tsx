@@ -22,15 +22,17 @@ const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
 /**
  * Zavi Marketing Website - Conversion-Optimized Flow
  *
- * Optimized funnel: Hook → Demonstrate → Personalize → Price → Bonus Features → Handle Objections → Convert
+ * UNIQUE DIFFERENTIATOR: Language switching on-the-go (NO ONE ELSE DOES THIS!)
+ *
+ * Optimized funnel: Hook → DIFFERENTIATE → Demonstrate → Personalize → Price → Bonus → Objections → Convert
  *
  * 1. Hero + Live Demo (immediate hook - interactive value)
- * 2. Video Demo (prove it works - visual demonstration)
- * 3. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
- * 4. Kill Your Keyboard (wow moment - smart editing magic)
- * 5. Adapts to Your Role (deep personalization - see yourself using it)
- * 6. Pricing (convert while interest is HIGH)
- * 7. Language Translation Hero (bonus value - global unlock)
+ * 2. Language Translation Hero (BIGGEST DIFFERENTIATOR - switch languages instantly!)
+ * 3. Video Demo (prove it works - visual demonstration)
+ * 4. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
+ * 5. Kill Your Keyboard (wow moment - smart editing magic)
+ * 6. Adapts to Your Role (deep personalization - see yourself using it)
+ * 7. Pricing (convert while interest is HIGH)
  * 8. On-the-go or At Your Desk (flexibility - works everywhere)
  * 9. FAQ (handle objections before they leave)
  * 10. Language Support (supporting detail - multilingual proof)
@@ -44,6 +46,9 @@ export default function Home() {
       <main className="overflow-hidden">
         {/* Hero with Screenshot - Immediate Hook */}
         <HeroWithScreenshot />
+
+        {/* Language Translation Hero - BIGGEST DIFFERENTIATOR (Position #2!) */}
+        <LanguageTranslationHero />
 
         {/* Video Demo - Prove It Works */}
         <VideoDemo />
@@ -59,9 +64,6 @@ export default function Home() {
 
         {/* Pricing - Convert While Excited */}
         <PricingNew />
-
-        {/* Language Translation Hero - Bonus Global Value */}
-        <LanguageTranslationHero />
 
         {/* On-the-go or At Your Desk - Flexibility Everywhere */}
         <OnTheGoOrAtYourDesk />
