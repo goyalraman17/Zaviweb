@@ -26,14 +26,6 @@ export default function KillYourKeyboard() {
             Kill Your Keyboard. Forever.
           </motion.h2>
 
-          {/* Subtitle */}
-          <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
-            variants={fadeUp}
-          >
-            Speak naturally. Sound professional everywhere.
-          </motion.p>
-
           {/* Feature Pills */}
           <motion.div
             variants={fadeUp}

@@ -138,14 +138,6 @@ export default function HeroWithScreenshot() {
               >
                 Get professional text.
               </motion.p>
-              <motion.p
-                className="text-lg md:text-xl text-gray-600"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-              >
-                No filler words. Perfect grammar. Instant formatting.
-              </motion.p>
             </motion.div>
 
             {/* Single Dominant CTA with glow effect */}

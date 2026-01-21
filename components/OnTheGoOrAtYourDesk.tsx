@@ -40,14 +40,6 @@ export default function OnTheGoOrAtYourDesk() {
               On-the-go or at your desk
             </motion.h2>
 
-            {/* Description */}
-            <motion.p
-              className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed max-w-xl"
-              variants={fadeUp}
-            >
-              Seamless sync across all devices.
-            </motion.p>
-
             {/* Feature Pills */}
             <motion.div
               variants={fadeUp}
