@@ -61,18 +61,20 @@ export default function HeroWithScreenshot() {
               </span>
             </motion.h1>
 
-            {/* One-liner value prop */}
-            <motion.p
-              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
+            {/* Short declarative lines - Speech → Writing → Outcome */}
+            <motion.div
+              className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto space-y-3"
               variants={fadeUp}
             >
-              Speak naturally, get professional text. Zavi removes filler words, fixes grammar, and formats everything instantly. Works in every app you use.
-            </motion.p>
+              <p className="font-medium">Speak naturally.</p>
+              <p>Get professional text.</p>
+              <p className="text-lg md:text-xl text-gray-600">No filler words. Perfect grammar. Instant formatting.</p>
+            </motion.div>
 
-            {/* Single CTA - Platform Specific Download */}
+            {/* Single Dominant CTA */}
             <motion.div
               variants={fadeUp}
-              className="mb-8"
+              className="mb-10"
             >
               <motion.a
                 href="/#download"
@@ -87,60 +89,26 @@ export default function HeroWithScreenshot() {
                     downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }}
-                className="inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-xl transition-all shadow-xl hover:shadow-2xl"
+                className="inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] hover:from-[#5A6DD7] hover:to-[#7A4BE5] rounded-2xl transition-all shadow-2xl hover:shadow-3xl hover:scale-105"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 variants={ctaPrimary}
               >
-                {getDownloadText()}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
+                Download Free
               </motion.a>
             </motion.div>
 
-            {/* Trust Badges */}
-            <motion.div
+            {/* Minimal trust line */}
+            <motion.p
               variants={fadeUp}
-              className="flex flex-wrap items-center justify-center gap-6 mb-4"
+              className="text-sm text-gray-600 mb-16"
             >
-              <span className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-                <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                4.7 on Google Play
-              </span>
-              <span className="text-gray-400">•</span>
-              <span className="text-sm font-semibold text-gray-700">
-                50K+ Active Users
-              </span>
-            </motion.div>
-
-            {/* Security Badges */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap items-center justify-center gap-3 mb-12"
-            >
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-xs font-medium text-green-700">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                Private by design
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-full text-xs font-medium text-blue-700">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                No credit card required
-              </span>
-            </motion.div>
-
-            {/* Micro Badges */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap items-center justify-center gap-3 mb-16"
-            >
+              Free forever • No credit card • 50,000+ users
+            </motion.p>
               <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full text-sm font-medium text-gray-700 shadow-sm">
                 <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

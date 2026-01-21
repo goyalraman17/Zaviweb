@@ -104,17 +104,18 @@ export default function DeviceDownload() {
           {/* Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3"
           >
-            Download Zavi
+            Works Everywhere
           </motion.h2>
 
-          <motion.p
+          <motion.div
             variants={fadeUp}
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto space-y-2"
           >
-            Available on all your devices. Start speaking, stop typing.
-          </motion.p>
+            <p>Mac. Windows. iPhone. Android. Linux.</p>
+            <p className="text-lg text-gray-500">Click your device to download.</p>
+          </motion.div>
 
           {/* Platform Grid */}
           <motion.div
