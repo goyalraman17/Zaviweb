@@ -20,19 +20,20 @@ const FAQ = dynamic(() => import('@/components/FAQ'));
 const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
 
 /**
- * Zavi Marketing Website - Conversion-Focused Experience
+ * Zavi Marketing Website - Conversion-Optimized Flow
  *
- * Clean, focused flow:
- * 1. Hero + Live Demo (immediate value)
- * 2. Voice Typing Demo (interactive use case showcase)
- * 3. Video Demo (product in action)
- * 4. Language Translation Hero (global unlock)
- * 5. Kill Your Keyboard (smart editing showcase)
- * 6. Adapts to Your Role (role-specific demos)
- * 7. On-the-go or At Your Desk (cross-device sync)
- * 8. Language Support (multilingual capability)
- * 9. Pricing (conversion)
- * 10. FAQ (objections)
+ * Optimized funnel: Hook → Demonstrate → Personalize → Price → Bonus Features → Handle Objections → Convert
+ *
+ * 1. Hero + Live Demo (immediate hook - interactive value)
+ * 2. Video Demo (prove it works - visual demonstration)
+ * 3. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
+ * 4. Kill Your Keyboard (wow moment - smart editing magic)
+ * 5. Adapts to Your Role (deep personalization - see yourself using it)
+ * 6. Pricing (convert while interest is HIGH)
+ * 7. Language Translation Hero (bonus value - global unlock)
+ * 8. On-the-go or At Your Desk (flexibility - works everywhere)
+ * 9. FAQ (handle objections before they leave)
+ * 10. Language Support (supporting detail - multilingual proof)
  * 11. Final CTA (last conversion push)
  */
 export default function Home() {
@@ -41,37 +42,37 @@ export default function Home() {
       <PageAnalytics />
       <Navigation />
       <main className="overflow-hidden">
-        {/* Hero with Screenshot - Matches Landing Page Design */}
+        {/* Hero with Screenshot - Immediate Hook */}
         <HeroWithScreenshot />
 
-        {/* Voice Typing Demo - Interactive Use Case Showcase */}
-        <VoiceTypingDemo />
-
-        {/* Video Demo - See Zavi in Action */}
+        {/* Video Demo - Prove It Works */}
         <VideoDemo />
 
-        {/* Language Translation Hero - Speak in Any Language */}
-        <LanguageTranslationHero />
+        {/* Voice Typing Demo - Relatable Use Cases */}
+        <VoiceTypingDemo />
 
-        {/* Kill Your Keyboard - Smart Editing */}
+        {/* Kill Your Keyboard - Wow Moment */}
         <KillYourKeyboard />
 
-        {/* Adapts to Your Role - Interactive Cohorts */}
+        {/* Adapts to Your Role - Deep Personalization */}
         <AdaptsToYourRole />
 
-        {/* On-the-go or At Your Desk - Device Sync */}
-        <OnTheGoOrAtYourDesk />
-
-        {/* Language Support - speak native, get professional */}
-        <LanguageSection />
-
-        {/* Pricing */}
+        {/* Pricing - Convert While Excited */}
         <PricingNew />
 
-        {/* FAQ - objection handling */}
+        {/* Language Translation Hero - Bonus Global Value */}
+        <LanguageTranslationHero />
+
+        {/* On-the-go or At Your Desk - Flexibility Everywhere */}
+        <OnTheGoOrAtYourDesk />
+
+        {/* FAQ - Handle Objections */}
         <FAQ />
 
-        {/* Final CTA */}
+        {/* Language Support - Multilingual Proof */}
+        <LanguageSection />
+
+        {/* Final CTA - Last Conversion Push */}
         <FinalCTANew />
 
         {/* Sticky mobile CTA */}
