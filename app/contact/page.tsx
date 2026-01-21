@@ -99,12 +99,12 @@ export default function ContactPage() {
               <p className="text-lg text-gray-700 mb-6">
                 Before reaching out, you might find your answer in our FAQ section.
               </p>
-              <Link
+              <a
                 href="/#faq"
                 className="inline-block px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-all shadow-sm hover:shadow-md"
               >
                 View FAQ
-              </Link>
+              </a>
             </div>
 
             <div className="pt-8 border-t border-gray-300 text-center">

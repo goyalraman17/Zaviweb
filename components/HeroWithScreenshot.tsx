@@ -40,7 +40,7 @@ export default function HeroWithScreenshot() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 bg-white">
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

@@ -28,7 +28,7 @@ export default function FinalCTANew() {
   return (
     <section
       ref={ref}
-      className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-indigo-50 to-slate-50"
+      className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50"
     >
       {/* Premium background decoration with enhanced glow */}
       <div className="absolute inset-0 opacity-[0.12]">

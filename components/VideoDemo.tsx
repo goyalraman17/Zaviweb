@@ -8,10 +8,7 @@ export default function VideoDemo() {
   return (
     <section
       id="how-it-works"
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
-      }}
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50"
     >
       <div className="container-large">
         <motion.div

@@ -61,7 +61,7 @@ export default function TrustSignals() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-32 md:py-40 bg-white">
+    <section ref={ref} className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -71,7 +71,7 @@ export default function TrustSignals() {
         >
           {/* Premium: Trusted By Section with Logos */}
           <motion.div className="text-center mb-20" variants={fadeUp}>
-            <p className="text-sm font-medium text-zavi-gray-text/70 uppercase tracking-wider mb-8">
+            <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-8">
               Trusted by teams at
             </p>
             <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
@@ -83,7 +83,7 @@ export default function TrustSignals() {
                   animate={isInView ? { opacity: 0.4, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <svg className="h-7 fill-zavi-charcoal" viewBox="0 0 24 24">
+                  <svg className="h-7 fill-gray-900" viewBox="0 0 24 24">
                     <path d={company.logo} />
                   </svg>
                 </motion.div>
@@ -92,14 +92,14 @@ export default function TrustSignals() {
           </motion.div>
 
           <motion.div className="text-center mb-20" variants={fadeUpLarge}>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-zavi-charcoal mb-6 leading-[1.1]">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.1]">
               Built for Daily Use.
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
                 Not Demos.
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-zavi-gray-text max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
               Production-grade. Enterprise-ready. Available now.
             </p>
           </motion.div>
@@ -111,19 +111,19 @@ export default function TrustSignals() {
             {TRUST_POINTS.map((point, index) => (
               <motion.div
                 key={index}
-                className="group bg-zavi-paper rounded-2xl border border-zavi-border/50 p-8 hover:shadow-xl hover:border-zavi-blue/30 transition-all duration-500"
+                className="group bg-white rounded-2xl border border-slate-200/50 p-8 hover:shadow-xl hover:border-indigo-300/50 transition-all duration-500"
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
               >
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 text-zavi-blue group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0 text-indigo-600 group-hover:scale-110 transition-transform duration-300">
                     {point.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-zavi-charcoal mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {point.title}
                     </h3>
-                    <p className="text-base text-zavi-gray-text leading-relaxed">
+                    <p className="text-base text-gray-600 leading-relaxed">
                       {point.description}
                     </p>
                   </div>
@@ -133,10 +133,10 @@ export default function TrustSignals() {
           </motion.div>
 
           <motion.div
-            className="text-center p-10 bg-gradient-to-br from-zavi-blue/5 to-purple-50/30 rounded-3xl border border-zavi-blue/10"
+            className="text-center p-10 bg-gradient-to-br from-indigo-50/50 to-violet-50/30 rounded-3xl border border-indigo-200/30"
             variants={fadeUp}
           >
-            <p className="text-lg md:text-xl text-zavi-charcoal font-semibold">
+            <p className="text-lg md:text-xl text-gray-900 font-semibold">
               Quiet confidence. No testimonial walls. Just results.
             </p>
           </motion.div>
