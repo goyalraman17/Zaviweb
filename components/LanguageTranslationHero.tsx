@@ -12,7 +12,7 @@ import {
 export default function LanguageTranslationHero() {
   return (
     <section
-      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-indigo-50 via-violet-50 to-indigo-50"
+      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50"
     >
       <div className="container-large relative z-10">
         <motion.div
