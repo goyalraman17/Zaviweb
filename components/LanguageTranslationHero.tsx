@@ -22,6 +22,19 @@ export default function LanguageTranslationHero() {
           variants={staggerContainerSlow}
           className="text-center"
         >
+          {/* World's First Badge */}
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 px-6 py-3 mb-6 bg-gradient-to-r from-[#7B68EE]/10 to-[#9370DB]/10 border-2 border-[#7B68EE]/30 rounded-full"
+          >
+            <svg className="w-5 h-5 text-[#7B68EE]" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="text-sm md:text-base font-bold text-[#7B68EE] uppercase tracking-wide">
+              World's First • No One Else Does This
+            </span>
+          </motion.div>
+
           {/* Main Heading */}
           <motion.h1
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 text-[#34384c]"
@@ -56,7 +69,15 @@ export default function LanguageTranslationHero() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-[#34384c] mb-8 max-w-4xl mx-auto"
+            className="text-lg md:text-xl lg:text-2xl text-[#34384c] mb-3 max-w-4xl mx-auto"
+            variants={fadeUp}
+          >
+            Switch languages instantly while typing. No other voice typing tool can do this.
+          </motion.p>
+
+          {/* Secondary Subtitle */}
+          <motion.p
+            className="text-base md:text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
             variants={fadeUp}
           >
             Zavi rewrites your speech into polished writing instantly, across every app.
