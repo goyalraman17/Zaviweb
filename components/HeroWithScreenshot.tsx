@@ -30,12 +30,12 @@ export default function HeroWithScreenshot() {
   // Get download text based on detected OS
   const getDownloadText = () => {
     switch (detectedOS) {
-      case 'macOS': return 'Start Free Trial';
-      case 'Windows': return 'Start Free Trial';
-      case 'iOS': return 'Get Free on App Store';
-      case 'Android': return 'Get Free on Play Store';
-      case 'Linux': return 'Start Free Trial';
-      default: return 'Start Free Trial';
+      case 'macOS': return 'Download Free for macOS';
+      case 'Windows': return 'Download Free for Windows';
+      case 'iOS': return 'Download on App Store';
+      case 'Android': return 'Download on Play Store';
+      case 'Linux': return 'Download Free for Linux';
+      default: return 'Download Zavi Free';
     }
   };
 
@@ -55,7 +55,10 @@ export default function HeroWithScreenshot() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6"
               variants={fadeUpLarge}
             >
-              Stop Typing. Start Speaking.
+              Your Voice.<br />
+              <span className="bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] bg-clip-text text-transparent">
+                Perfectly Written.
+              </span>
             </motion.h1>
 
             {/* One-liner value prop */}
@@ -63,7 +66,7 @@ export default function HeroWithScreenshot() {
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
               variants={fadeUp}
             >
-              Turn messy speech into polished text instantly. No more "um's", no awkward phrasing. Just clear, professional writing in seconds.
+              Speak naturally, get professional text. Zavi removes filler words, fixes grammar, and formats everything instantly. Works in every app you use.
             </motion.p>
 
             {/* Single CTA - Platform Specific Download */}
@@ -72,12 +75,17 @@ export default function HeroWithScreenshot() {
               className="mb-8"
             >
               <motion.a
-                href="/#try-demo"
-                onClick={() => {
+                href="/#download"
+                onClick={(e) => {
+                  e.preventDefault();
                   analytics.track('cta_hero_click', {
                     text: getDownloadText(),
                     os: detectedOS,
                   });
+                  const downloadSection = document.getElementById('download');
+                  if (downloadSection) {
+                    downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
                 }}
                 className="inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-xl transition-all shadow-xl hover:shadow-2xl"
                 initial="rest"

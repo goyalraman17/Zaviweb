@@ -196,7 +196,7 @@ export default function Navigation() {
           {/* CTA Button - Desktop */}
           <div className="hidden md:block relative">
             <motion.a
-              href="/#try-demo"
+              href="/#download"
               className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-lg transition-all shadow-sm hover:shadow-md"
               initial="rest"
               whileHover="hover"
@@ -221,7 +221,7 @@ export default function Navigation() {
 
           {/* CTA Button - Mobile (visible outside menu) */}
           <motion.a
-            href="/#try-demo"
+            href="/#download"
             className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-lg transition-all shadow-sm mr-2"
             initial="rest"
             whileTap="tap"
@@ -280,7 +280,7 @@ export default function Navigation() {
               <div className="max-w-screen-xl mx-auto px-4 py-4">
                 {/* CTA Button - First in menu */}
                 <motion.a
-                  href="/#try-demo"
+                  href="/#download"
                   className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-zavi-blue hover:bg-zavi-blue-500 rounded-lg transition-all mb-4"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}

@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
+import DeviceDownload from '@/components/DeviceDownload';
 import VoiceTypingDemo from '@/components/VoiceTypingDemo';
 import StickyCTA from '@/components/StickyCTA';
 import PageAnalytics from '@/components/PageAnalytics';
@@ -24,19 +25,20 @@ const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
  *
  * UNIQUE DIFFERENTIATOR: Language switching on-the-go (NO ONE ELSE DOES THIS!)
  *
- * Optimized funnel: Hook → DIFFERENTIATE → Demonstrate → Personalize → Price → Bonus → Objections → Convert
+ * Optimized funnel: Hook → DIFFERENTIATE → DOWNLOAD → Demonstrate → Personalize → Price → Objections → Convert
  *
- * 1. Hero + Live Demo (immediate hook - interactive value)
+ * 1. Hero + Live Demo (immediate hook - clear value prop)
  * 2. Language Translation Hero (BIGGEST DIFFERENTIATOR - switch languages instantly!)
- * 3. Video Demo (prove it works - visual demonstration)
- * 4. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
- * 5. Kill Your Keyboard (wow moment - smart editing magic)
- * 6. Adapts to Your Role (deep personalization - see yourself using it)
- * 7. Pricing (convert while interest is HIGH)
- * 8. On-the-go or At Your Desk (flexibility - works everywhere)
- * 9. FAQ (handle objections before they leave)
- * 10. Language Support (supporting detail - multilingual proof)
- * 11. Final CTA (last conversion push)
+ * 3. Device Download (CONVERSION OPPORTUNITY - auto-detect device, one-click download)
+ * 4. Video Demo (prove it works - visual demonstration)
+ * 5. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
+ * 6. Kill Your Keyboard (wow moment - smart editing magic)
+ * 7. Adapts to Your Role (deep personalization - see yourself using it)
+ * 8. Pricing (convert while interest is HIGH)
+ * 9. On-the-go or At Your Desk (flexibility - works everywhere)
+ * 10. FAQ (handle objections before they leave)
+ * 11. Language Support (supporting detail - multilingual proof)
+ * 12. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -47,8 +49,11 @@ export default function Home() {
         {/* Hero with Screenshot - Immediate Hook */}
         <HeroWithScreenshot />
 
-        {/* Language Translation Hero - BIGGEST DIFFERENTIATOR (Position #2!) */}
+        {/* Language Translation Hero - BIGGEST DIFFERENTIATOR */}
         <LanguageTranslationHero />
+
+        {/* Device Download - PRIMARY CONVERSION POINT */}
+        <DeviceDownload />
 
         {/* Video Demo - Prove It Works */}
         <VideoDemo />
