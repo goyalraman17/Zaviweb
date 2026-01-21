@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
+import DeviceDownload from '@/components/DeviceDownload';
 import VoiceTypingDemo from '@/components/VoiceTypingDemo';
 import StickyCTA from '@/components/StickyCTA';
 import PageAnalytics from '@/components/PageAnalytics';
@@ -18,23 +19,26 @@ const LanguageSection = dynamic(() => import('@/components/LanguageSection'));
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
 const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
-const Footer = dynamic(() => import('@/components/Footer'));
 
 /**
- * Zavi Marketing Website - Conversion-Focused Experience
+ * Zavi Marketing Website - Conversion-Optimized Flow
  *
- * Clean, focused flow:
- * 1. Hero + Live Demo (immediate value)
- * 2. Voice Typing Demo (interactive use case showcase)
- * 3. Video Demo (product in action)
- * 4. Language Translation Hero (global unlock)
- * 5. Kill Your Keyboard (smart editing showcase)
- * 6. Adapts to Your Role (role-specific demos)
- * 7. On-the-go or At Your Desk (cross-device sync)
- * 8. Language Support (multilingual capability)
- * 9. Pricing (conversion)
- * 10. FAQ (objections)
- * 11. Final CTA (last conversion push)
+ * UNIQUE DIFFERENTIATOR: Language switching on-the-go (NO ONE ELSE DOES THIS!)
+ *
+ * Optimized funnel: Hook → DIFFERENTIATE → DOWNLOAD → Demonstrate → Personalize → Price → Objections → Convert
+ *
+ * 1. Hero + Live Demo (immediate hook - clear value prop)
+ * 2. Language Translation Hero (BIGGEST DIFFERENTIATOR - switch languages instantly!)
+ * 3. Device Download (CONVERSION OPPORTUNITY - auto-detect device, one-click download)
+ * 4. Video Demo (prove it works - visual demonstration)
+ * 5. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
+ * 6. Kill Your Keyboard (wow moment - smart editing magic)
+ * 7. Adapts to Your Role (deep personalization - see yourself using it)
+ * 8. Pricing (convert while interest is HIGH)
+ * 9. On-the-go or At Your Desk (flexibility - works everywhere)
+ * 10. FAQ (handle objections before they leave)
+ * 11. Language Support (supporting detail - multilingual proof)
+ * 12. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -42,41 +46,41 @@ export default function Home() {
       <PageAnalytics />
       <Navigation />
       <main className="overflow-hidden">
-        {/* Hero with Screenshot - Matches Landing Page Design */}
+        {/* Hero with Screenshot - Immediate Hook */}
         <HeroWithScreenshot />
 
-        {/* Voice Typing Demo - Interactive Use Case Showcase */}
-        <VoiceTypingDemo />
-
-        {/* Video Demo - See Zavi in Action */}
-        <VideoDemo />
-
-        {/* Language Translation Hero - Speak in Any Language */}
+        {/* Language Translation Hero - BIGGEST DIFFERENTIATOR */}
         <LanguageTranslationHero />
 
-        {/* Kill Your Keyboard - Smart Editing */}
+        {/* Device Download - PRIMARY CONVERSION POINT */}
+        <DeviceDownload />
+
+        {/* Video Demo - Prove It Works */}
+        <VideoDemo />
+
+        {/* Voice Typing Demo - Relatable Use Cases */}
+        <VoiceTypingDemo />
+
+        {/* Kill Your Keyboard - Wow Moment */}
         <KillYourKeyboard />
 
-        {/* Adapts to Your Role - Interactive Cohorts */}
+        {/* Adapts to Your Role - Deep Personalization */}
         <AdaptsToYourRole />
 
-        {/* On-the-go or At Your Desk - Device Sync */}
-        <OnTheGoOrAtYourDesk />
-
-        {/* Language Support - speak native, get professional */}
-        <LanguageSection />
-
-        {/* Pricing */}
+        {/* Pricing - Convert While Excited */}
         <PricingNew />
 
-        {/* FAQ - objection handling */}
+        {/* On-the-go or At Your Desk - Flexibility Everywhere */}
+        <OnTheGoOrAtYourDesk />
+
+        {/* FAQ - Handle Objections */}
         <FAQ />
 
-        {/* Final CTA */}
-        <FinalCTANew />
+        {/* Language Support - Multilingual Proof */}
+        <LanguageSection />
 
-        {/* Footer */}
-        <Footer />
+        {/* Final CTA - Last Conversion Push */}
+        <FinalCTANew />
 
         {/* Sticky mobile CTA */}
         <StickyCTA />

@@ -12,8 +12,7 @@ import {
 export default function LanguageTranslationHero() {
   return (
     <section
-      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen"
-      style={{ background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)' }}
+      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-indigo-50 via-violet-50 to-indigo-50"
     >
       <div className="container-large relative z-10">
         <motion.div
@@ -22,6 +21,19 @@ export default function LanguageTranslationHero() {
           variants={staggerContainerSlow}
           className="text-center"
         >
+          {/* World's First Badge */}
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 px-6 py-3 mb-6 bg-gradient-to-r from-indigo-100 to-violet-100 border-2 border-indigo-300 rounded-full"
+          >
+            <svg className="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="text-sm md:text-base font-bold text-indigo-700 uppercase tracking-wide">
+              World's First • No One Else Does This
+            </span>
+          </motion.div>
+
           {/* Main Heading */}
           <motion.h1
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 text-[#34384c]"
@@ -30,7 +42,7 @@ export default function LanguageTranslationHero() {
           >
             Speak in Any{' '}
             <span
-              className="bg-gradient-to-r from-[#7B68EE] to-[#9370DB] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Language
@@ -46,7 +58,7 @@ export default function LanguageTranslationHero() {
           >
             Sound Perfect in{' '}
             <span
-              className="bg-gradient-to-r from-[#7B68EE] to-[#9370DB] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Another
@@ -54,40 +66,40 @@ export default function LanguageTranslationHero() {
             .
           </motion.h2>
 
-          {/* Subtitle */}
-          <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-[#34384c] mb-8 max-w-4xl mx-auto"
+          {/* Short declarative lines */}
+          <motion.div
+            className="text-xl md:text-2xl text-[#34384c] mb-8 max-w-3xl mx-auto space-y-3"
             variants={fadeUp}
           >
-            Zavi rewrites your speech into polished writing instantly, across every app.
-          </motion.p>
-
-          {/* CTA Button */}
-          <motion.div variants={fadeUp} className="mb-4">
-            <motion.button
-              onClick={() => {
-                const downloadSection = document.querySelector('[data-section="download"]');
-                if (downloadSection) {
-                  downloadSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="px-10 py-5 text-lg font-semibold text-white bg-[#5381d2] rounded-full hover:bg-[#4570c1] transition-all shadow-lg hover:shadow-xl"
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
-              variants={ctaPrimary}
-            >
-              Download for macOS
-            </motion.button>
+            <p className="font-medium">Switch languages instantly.</p>
+            <p>While you type.</p>
+            <p className="text-lg md:text-xl text-gray-600">No other voice tool can do this.</p>
           </motion.div>
 
-          {/* Compatibility Text */}
-          <motion.p
-            className="text-sm md:text-base text-gray-600 mb-12"
+          {/* Capability Pills */}
+          <motion.div
             variants={fadeUp}
+            className="flex flex-wrap items-center justify-center gap-3 mb-12"
           >
-            Works in Gmail, WhatsApp, Slack, Notion, Chrome
-          </motion.p>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              100+ Languages
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Real-Time Switch
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Auto-Translate
+            </span>
+          </motion.div>
 
           {/* Demo Image */}
           <motion.div

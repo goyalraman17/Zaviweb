@@ -29,7 +29,7 @@ export default function LanguageSection() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-white to-zavi-paper/30">
+    <section ref={ref} className="py-12 md:py-20 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -115,14 +115,17 @@ export default function LanguageSection() {
             ))}
           </motion.div>
 
-          {/* Supported Languages */}
+          {/* Supported Languages with Badge */}
           <motion.div
             className="mt-8 md:mt-10 lg:mt-12 text-center"
             variants={fadeUp}
           >
-            <p className="text-sm text-zavi-gray-text mb-4">
-              Supports 30+ languages including:
-            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm mb-4">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              30+ Languages
+            </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
               {['Hindi', 'Spanish', 'Portuguese', 'French', 'German', 'Chinese', 'Japanese', 'Korean', 'Arabic', 'Italian'].map((lang) => (
                 <span

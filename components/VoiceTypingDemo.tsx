@@ -71,7 +71,7 @@ export default function VoiceTypingDemo() {
   const [activeUseCase, setActiveUseCase] = useState(useCases[0])
 
   return (
-    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <section id="try-demo" className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 to-white">
       <div className="container-large relative z-10">
         <motion.div
           variants={staggerContainerSlow}
@@ -84,16 +84,41 @@ export default function VoiceTypingDemo() {
             variants={fadeUp}
             className="text-display text-center mb-4 md:mb-6"
           >
-            Try voice typing for any use case.
+            Use It Anywhere
           </motion.h2>
 
-          {/* Subheading */}
+          {/* Short declarative line */}
           <motion.p
             variants={fadeUp}
-            className="text-body-xl text-gray-600 text-center max-w-4xl mx-auto mb-8 md:mb-12"
+            className="text-xl md:text-2xl text-gray-700 text-center max-w-3xl mx-auto mb-6 font-medium"
           >
-            Zavi auto-formats your speech into polished text in seconds—across all your favorite apps.
+            Every app you use. Zero setup.
           </motion.p>
+
+          {/* App Pills */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-12"
+          >
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              Gmail
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              Slack
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              ChatGPT
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              Notion
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              WhatsApp
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              +1000s more
+            </span>
+          </motion.div>
 
           {/* Use Case Tabs */}
           <motion.div
@@ -107,12 +132,12 @@ export default function VoiceTypingDemo() {
                   key={useCase.id}
                   onClick={() => setActiveUseCase(useCase)}
                   className={`
-                    flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-full text-sm md:text-base font-medium
+                    flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold
                     transition-all duration-300 border-2
                     ${
                       activeUseCase.id === useCase.id
-                        ? 'bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] text-white border-transparent shadow-lg scale-105'
-                        : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300 hover:shadow-md'
+                        ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white border-transparent shadow-lg scale-105'
+                        : 'bg-white text-slate-700 border-slate-200 hover:border-indigo-300 hover:shadow-md'
                     }
                   `}
                 >
@@ -179,7 +204,7 @@ export default function VoiceTypingDemo() {
               className="flex flex-col items-center gap-4"
             >
               <a
-                href="/try-free"
+                href="/#try-demo"
                 className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

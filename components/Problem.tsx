@@ -14,7 +14,7 @@ const problems = [
   },
   {
     title: "So you just type less",
-    description: "Shorter emails. Surface-level responses. Half-formed thoughts. Not because you want to—because typing takes too long."
+    description: "Shorter emails. Surface-level responses. Half-formed thoughts. Not because you want to, but because typing takes forever."
   }
 ];
 

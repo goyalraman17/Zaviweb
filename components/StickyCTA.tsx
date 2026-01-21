@@ -38,7 +38,7 @@ export default function StickyCTA() {
     >
       <div className="bg-white/95 backdrop-blur-lg border-t border-zavi-border px-6 py-4 shadow-2xl">
         <motion.a
-          href="/try-free"
+          href="/#download"
           className="group relative block w-full px-6 py-4 text-center text-base font-semibold text-white rounded-xl overflow-hidden shadow-lg"
           initial="rest"
           whileHover="hover"
@@ -48,10 +48,10 @@ export default function StickyCTA() {
         >
           <div className="absolute inset-0 bg-zavi-blue" />
           <span className="relative flex items-center justify-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Try Zavi Free
+            Download Zavi Free
           </span>
         </motion.a>
       </div>

@@ -139,10 +139,10 @@ import {
 
 ## Demo Page
 
-View all components in action:
+View all components in action on the landing page:
 
 ```
-http://localhost:3000/voice-demo
+http://localhost:3000/#download
 ```
 
 ## Customization

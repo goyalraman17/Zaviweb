@@ -9,7 +9,7 @@ import {
 
 export default function KillYourKeyboard() {
   return (
-    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-white">
+    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-50/30 via-violet-50/20 to-indigo-50/30">
       <div className="container-large relative z-10">
         <motion.div
           initial="hidden"
@@ -26,13 +26,30 @@ export default function KillYourKeyboard() {
             Kill Your Keyboard. Forever.
           </motion.h2>
 
-          {/* Subtitle */}
-          <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-16 max-w-3xl mx-auto"
+          {/* Feature Pills */}
+          <motion.div
             variants={fadeUp}
+            className="flex flex-wrap items-center justify-center gap-3 mb-16"
           >
-            Speak naturally. Sound professional everywhere.
-          </motion.p>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Removes Fillers
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-50 border border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Perfect Grammar
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-semibold text-emerald-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Instant Polish
+            </span>
+          </motion.div>
 
           {/* Demo Mockup */}
           <motion.div

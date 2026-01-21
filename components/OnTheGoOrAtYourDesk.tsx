@@ -12,10 +12,7 @@ import {
 export default function OnTheGoOrAtYourDesk() {
   return (
     <section
-      className="relative py-12 md:py-20 lg:py-32 overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #E8E5F5 0%, #DDD6F3 50%, #D4C5F0 100%)',
-      }}
+      className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-white"
     >
       <div className="container-large relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
@@ -40,13 +37,30 @@ export default function OnTheGoOrAtYourDesk() {
               On-the-go or at your desk
             </motion.h2>
 
-            {/* Description */}
-            <motion.p
-              className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed max-w-xl"
+            {/* Feature Pills */}
+            <motion.div
               variants={fadeUp}
+              className="flex flex-wrap items-center gap-3 mb-6 md:mb-8"
             >
-              Zavi works seamlessly across all your devices. Sync your recordings and notes between Mac, iPhone, iPad, and Windows.
-            </motion.p>
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Auto-Sync
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                All Devices
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Secure
+              </span>
+            </motion.div>
 
             {/* Platform Badges */}
             <motion.div
@@ -103,13 +117,16 @@ export default function OnTheGoOrAtYourDesk() {
               </motion.button>
             </motion.div>
 
-            {/* Sync Info Text */}
-            <motion.p
+            {/* Sync Info Badge */}
+            <motion.div
               variants={fadeUp}
-              className="text-xs md:text-sm lg:text-base text-gray-600 font-medium"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/70 backdrop-blur-sm border border-purple-200 rounded-full text-xs md:text-sm font-medium text-gray-700 shadow-sm"
             >
-              Syncs seamlessly across<br className="hidden md:block" /><span className="md:hidden"> </span>Mac, iPhone, iPad & Windows
-            </motion.p>
+              <svg className="w-3 h-3 md:w-4 md:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Instant sync across devices
+            </motion.div>
           </motion.div>
 
           {/* Right Side - Device Mockups */}
@@ -334,8 +351,8 @@ export default function OnTheGoOrAtYourDesk() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-10 md:mt-16 lg:mt-24 text-center"
         >
-          <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 font-medium">
-            Syncs seamlessly across Mac, iPhone, iPad & Windows
+          <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 font-semibold">
+            Available on all platforms
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 lg:gap-6">

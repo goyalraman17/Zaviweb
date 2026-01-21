@@ -86,10 +86,10 @@ export default function AboutPage() {
                   Join thousands of users who have already transformed the way they communicate.
                 </p>
                 <Link
-                  href="/try-free"
+                  href="/#download"
                   className="inline-block px-8 py-4 bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] text-white font-semibold rounded-xl hover:shadow-xl transition-all"
                 >
-                  Try Zavi Free
+                  Download Zavi Free
                 </Link>
               </div>
 

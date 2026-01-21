@@ -7,6 +7,7 @@ import { fadeUp, staggerContainerSlow } from '@/lib/animations';
 export default function VideoDemo() {
   return (
     <section
+      id="how-it-works"
       className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
@@ -83,35 +84,29 @@ export default function VideoDemo() {
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#F472B6]/20 to-[#60A5FA]/20 rounded-full blur-2xl" />
           </motion.div>
 
-          {/* Key Features Below Video */}
+          {/* Feature Pill Badges */}
           <motion.div
             variants={fadeUp}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
+            className="flex flex-wrap items-center justify-center gap-3 mt-12"
           >
-            {[
-              {
-                title: 'Real-Time Processing',
-                description: 'See your words refined instantly as you speak',
-              },
-              {
-                title: 'Natural Speech',
-                description: 'No need to change how you talk',
-              },
-              {
-                title: 'Universal Compatibility',
-                description: 'Works in any app on your device',
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-xl border border-white/80"
-              >
-                <h3 className="text-lg font-semibold text-[#34384c] mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
-              </div>
-            ))}
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Real-Time Processing
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Natural Speech
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Works Everywhere
+            </span>
           </motion.div>
         </motion.div>
       </div>
