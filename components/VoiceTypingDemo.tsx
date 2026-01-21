@@ -71,7 +71,7 @@ export default function VoiceTypingDemo() {
   const [activeUseCase, setActiveUseCase] = useState(useCases[0])
 
   return (
-    <section id="try-demo" className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <section id="try-demo" className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-50 to-white">
       <div className="container-large relative z-10">
         <motion.div
           variants={staggerContainerSlow}

@@ -62,6 +62,14 @@ const config: Config = {
             900: '#21232A',
           }
         },
+        // Premium Brand Colors (Modern Palette)
+        'brand': {
+          'primary': '#6366F1',      // Indigo-500 - Main brand color
+          'secondary': '#8B5CF6',    // Violet-500 - Secondary brand
+          'accent': '#3B82F6',       // Blue-500 - Accents
+          'dark': '#0F172A',         // Slate-900 - Dark backgrounds
+          'light': '#F8FAFC',        // Slate-50 - Light backgrounds
+        },
         // Blue scale for accents (centered around #5381d2)
         'zavi-blue': {
           50: '#EDF3FC',

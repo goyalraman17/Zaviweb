@@ -92,7 +92,7 @@ export default function DeviceDownload() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100" id="download">
+    <section className="py-16 md:py-24 bg-white" id="download">
       <div className="container-large">
         <motion.div
           initial="hidden"
@@ -134,8 +134,8 @@ export default function DeviceDownload() {
                   className={`
                     relative group p-6 md:p-8 rounded-2xl border-2 transition-all duration-300
                     ${isDetected
-                      ? 'bg-gradient-to-br from-[#6B7FE8] to-[#8B5CF6] border-[#6B7FE8] text-white shadow-xl scale-105'
-                      : 'bg-white border-gray-200 text-gray-700 hover:border-[#6B7FE8] hover:shadow-lg hover:scale-105'
+                      ? 'bg-gradient-to-br from-indigo-600 to-violet-600 border-indigo-600 text-white shadow-xl scale-105'
+                      : 'bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-lg hover:scale-105'
                     }
                     ${isComingSoon ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                   `}
@@ -146,7 +146,7 @@ export default function DeviceDownload() {
                   whileHover={!isComingSoon ? {
                     y: -8,
                     boxShadow: isDetected
-                      ? "0 25px 50px -12px rgba(107, 127, 232, 0.6)"
+                      ? "0 25px 50px -12px rgba(99, 102, 241, 0.6)"
                       : "0 20px 40px -12px rgba(0, 0, 0, 0.15)"
                   } : {}}
                   whileTap={!isComingSoon ? { scale: 0.95 } : {}}
