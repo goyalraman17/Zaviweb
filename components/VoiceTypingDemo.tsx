@@ -87,13 +87,37 @@ export default function VoiceTypingDemo() {
             Use It Anywhere
           </motion.h2>
 
-          {/* Short declarative lines */}
+          {/* Short declarative line */}
+          <motion.p
+            variants={fadeUp}
+            className="text-xl md:text-2xl text-gray-700 text-center max-w-3xl mx-auto mb-6 font-medium"
+          >
+            Every app you use. Zero setup.
+          </motion.p>
+
+          {/* App Pills */}
           <motion.div
             variants={fadeUp}
-            className="text-xl md:text-2xl text-gray-700 text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-2"
+            className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-12"
           >
-            <p className="font-medium">Emails. ChatGPT. Slack. CRM. Notes.</p>
-            <p className="text-lg md:text-xl text-gray-600">Every app you use. Zero setup.</p>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              Gmail
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              Slack
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              ChatGPT
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              Notion
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              WhatsApp
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+              +1000s more
+            </span>
           </motion.div>
 
           {/* Use Case Tabs */}
@@ -108,12 +132,12 @@ export default function VoiceTypingDemo() {
                   key={useCase.id}
                   onClick={() => setActiveUseCase(useCase)}
                   className={`
-                    flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-full text-sm md:text-base font-medium
+                    flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold
                     transition-all duration-300 border-2
                     ${
                       activeUseCase.id === useCase.id
-                        ? 'bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] text-white border-transparent shadow-lg scale-105'
-                        : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300 hover:shadow-md'
+                        ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white border-transparent shadow-lg scale-105'
+                        : 'bg-white text-slate-700 border-slate-200 hover:border-indigo-300 hover:shadow-md'
                     }
                   `}
                 >

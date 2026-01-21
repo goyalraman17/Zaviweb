@@ -68,12 +68,37 @@ export default function LanguageTranslationHero() {
 
           {/* Short declarative lines */}
           <motion.div
-            className="text-xl md:text-2xl text-[#34384c] mb-12 max-w-3xl mx-auto space-y-3"
+            className="text-xl md:text-2xl text-[#34384c] mb-8 max-w-3xl mx-auto space-y-3"
             variants={fadeUp}
           >
             <p className="font-medium">Switch languages instantly.</p>
             <p>While you type.</p>
             <p className="text-lg md:text-xl text-gray-600">No other voice tool can do this.</p>
+          </motion.div>
+
+          {/* Capability Pills */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center justify-center gap-3 mb-12"
+          >
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              100+ Languages
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Real-Time Switch
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Auto-Translate
+            </span>
           </motion.div>
 
           {/* Demo Image */}

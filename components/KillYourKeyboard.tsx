@@ -28,11 +28,36 @@ export default function KillYourKeyboard() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-16 max-w-3xl mx-auto"
+            className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
             variants={fadeUp}
           >
             Speak naturally. Sound professional everywhere.
           </motion.p>
+
+          {/* Feature Pills */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center justify-center gap-3 mb-16"
+          >
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Removes Fillers
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-50 border border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Perfect Grammar
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-semibold text-emerald-700 shadow-sm">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Instant Polish
+            </span>
+          </motion.div>
 
           {/* Demo Mockup */}
           <motion.div
