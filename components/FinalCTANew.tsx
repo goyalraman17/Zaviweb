@@ -60,42 +60,33 @@ export default function FinalCTANew() {
             }}
             variants={fadeUpLarge}
           >
-            Stop Translating Thoughts
+            Your Thoughts.
             <br />
-            Into Text.
+            Instantly Written.
           </motion.h2>
 
-          {/* Subheadline */}
-          <motion.p
-            className="text-xl sm:text-2xl md:text-3xl text-zavi-gray-700 mb-16 max-w-3xl mx-auto font-light px-4"
+          {/* Short declarative outcome */}
+          <motion.div
+            className="text-xl sm:text-2xl md:text-3xl text-zavi-gray-700 mb-16 max-w-3xl mx-auto space-y-3 px-4"
             variants={fadeUp}
           >
-            Let writing happen naturally.
-          </motion.p>
+            <p className="font-medium">Stop typing.</p>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600">Start speaking.</p>
+          </motion.div>
 
-          {/* CTAs */}
+          {/* Single Dominant CTA */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+            className="flex justify-center"
             variants={fadeUp}
           >
             <a
               href="/#download"
-              className="btn-primary inline-flex items-center gap-3 text-xl px-10 py-5"
+              className="inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] hover:from-[#5A6DD7] hover:to-[#7A4BE5] rounded-2xl transition-all shadow-2xl hover:shadow-3xl hover:scale-105"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
               <span>Download Free</span>
-            </a>
-
-            <a
-              href="/#pricing"
-              className="btn-secondary inline-flex items-center gap-3 text-xl px-10 py-5"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-              </svg>
-              <span>View Pricing</span>
             </a>
           </motion.div>
 

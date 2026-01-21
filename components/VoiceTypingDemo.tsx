@@ -84,16 +84,17 @@ export default function VoiceTypingDemo() {
             variants={fadeUp}
             className="text-display text-center mb-4 md:mb-6"
           >
-            Try voice typing for any use case.
+            Use It Anywhere
           </motion.h2>
 
-          {/* Subheading */}
-          <motion.p
+          {/* Short declarative lines */}
+          <motion.div
             variants={fadeUp}
-            className="text-body-xl text-gray-600 text-center max-w-4xl mx-auto mb-8 md:mb-12"
+            className="text-xl md:text-2xl text-gray-700 text-center max-w-3xl mx-auto mb-8 md:mb-12 space-y-2"
           >
-            Zavi auto-formats your speech into polished text in seconds, across all your favorite apps.
-          </motion.p>
+            <p className="font-medium">Emails. ChatGPT. Slack. CRM. Notes.</p>
+            <p className="text-lg md:text-xl text-gray-600">Every app you use. Zero setup.</p>
+          </motion.div>
 
           {/* Use Case Tabs */}
           <motion.div

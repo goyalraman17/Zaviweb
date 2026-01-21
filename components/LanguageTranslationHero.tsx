@@ -67,48 +67,15 @@ export default function LanguageTranslationHero() {
             .
           </motion.h2>
 
-          {/* Subtitle */}
-          <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-[#34384c] mb-3 max-w-4xl mx-auto"
+          {/* Short declarative lines */}
+          <motion.div
+            className="text-xl md:text-2xl text-[#34384c] mb-12 max-w-3xl mx-auto space-y-3"
             variants={fadeUp}
           >
-            Switch languages instantly while typing. No other voice typing tool can do this.
-          </motion.p>
-
-          {/* Secondary Subtitle */}
-          <motion.p
-            className="text-base md:text-lg lg:text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
-            variants={fadeUp}
-          >
-            Zavi rewrites your speech into polished writing instantly, across every app.
-          </motion.p>
-
-          {/* CTA Button */}
-          <motion.div variants={fadeUp} className="mb-4">
-            <motion.button
-              onClick={() => {
-                const downloadSection = document.querySelector('[data-section="download"]');
-                if (downloadSection) {
-                  downloadSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="px-10 py-5 text-lg font-semibold text-white bg-[#5381d2] rounded-full hover:bg-[#4570c1] transition-all shadow-lg hover:shadow-xl"
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
-              variants={ctaPrimary}
-            >
-              Download for macOS
-            </motion.button>
+            <p className="font-medium">Switch languages instantly.</p>
+            <p>While you type.</p>
+            <p className="text-lg md:text-xl text-gray-600">No other voice tool can do this.</p>
           </motion.div>
-
-          {/* Compatibility Text */}
-          <motion.p
-            className="text-sm md:text-base text-gray-600 mb-12"
-            variants={fadeUp}
-          >
-            Works in Gmail, WhatsApp, Slack, Notion, Chrome
-          </motion.p>
 
           {/* Demo Image */}
           <motion.div
