@@ -7,6 +7,7 @@ import { fadeUp, staggerContainerSlow } from '@/lib/animations';
 export default function VideoDemo() {
   return (
     <section
+      id="how-it-works"
       className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
       style={{
         background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
