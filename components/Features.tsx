@@ -20,7 +20,7 @@ const features = [
       </svg>
     ),
     title: "System-wide keyboard",
-    description: "Works in every app. Gmail, WhatsApp, Slack, LinkedIn, Notes—anywhere you type."
+    description: "Works in every app. Gmail, WhatsApp, Slack, LinkedIn, Notes. Anywhere you type."
   },
   {
     icon: (
@@ -30,7 +30,7 @@ const features = [
       </svg>
     ),
     title: "AI auto-editing",
-    description: "Removes filler words, fixes grammar, and structures your thoughts—all in real time."
+    description: "Removes filler words, fixes grammar, and structures your thoughts. All in real time."
   },
   {
     icon: (

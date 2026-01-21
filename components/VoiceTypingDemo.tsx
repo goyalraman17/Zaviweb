@@ -92,7 +92,7 @@ export default function VoiceTypingDemo() {
             variants={fadeUp}
             className="text-body-xl text-gray-600 text-center max-w-4xl mx-auto mb-8 md:mb-12"
           >
-            Zavi auto-formats your speech into polished text in seconds—across all your favorite apps.
+            Zavi auto-formats your speech into polished text in seconds, across all your favorite apps.
           </motion.p>
 
           {/* Use Case Tabs */}

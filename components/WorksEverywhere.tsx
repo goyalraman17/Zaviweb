@@ -31,7 +31,7 @@ export default function WorksEverywhere() {
             Works in every app
           </h2>
           <p className="text-xl md:text-2xl text-zavi-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-            Zavi is a system-wide Android keyboard. That means it works everywhere you type—no app switching, no copy-paste, no limitations.
+            Zavi is a system-wide Android keyboard. That means it works everywhere you type. No app switching, no copy-paste, no limitations.
           </p>
         </motion.div>
 

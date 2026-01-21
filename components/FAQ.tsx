@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "How is Zavi different from regular voice typing?",
-    answer: "Regular voice typing captures everything word-for-word—including 'um's, 'uh's, and awkward phrasing. Zavi removes fillers, fixes grammar, and turns messy speech into professional text automatically."
+    answer: "Regular voice typing captures everything word for word, including all your 'um's, 'uh's, and awkward phrasing. Zavi removes fillers, fixes grammar, and turns messy speech into professional text automatically."
   },
   {
     question: "What's included in the free plan?",
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Which platforms does Zavi support?",
-    answer: "Zavi works on Android 8.0+ and integrates with every app on your device—Gmail, WhatsApp, Slack, Notion, Google Docs, and more. iOS support coming in 2026."
+    answer: "Zavi works on Android 8.0+ and integrates with every app on your device. Gmail, WhatsApp, Slack, Notion, Google Docs, and more. iOS support coming in 2026."
   },
   {
     question: "Can I cancel my subscription anytime?",

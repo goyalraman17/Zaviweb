@@ -63,7 +63,7 @@ export default function HeroWithScreenshot() {
               className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto"
               variants={fadeUp}
             >
-              Turn messy speech into polished text—instantly. No more "um's", no awkward phrasing. Just clear, professional writing in seconds.
+              Turn messy speech into polished text instantly. No more "um's", no awkward phrasing. Just clear, professional writing in seconds.
             </motion.p>
 
             {/* Single CTA - Platform Specific Download */}
