@@ -12,7 +12,6 @@ const VideoDemo = dynamic(() => import('@/components/VideoDemo'), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
 });
 const LanguageTranslationHero = dynamic(() => import('@/components/LanguageTranslationHero'));
-const TrustSignals = dynamic(() => import('@/components/TrustSignals'));
 const Metrics = dynamic(() => import('@/components/Metrics'));
 const KillYourKeyboard = dynamic(() => import('@/components/KillYourKeyboard'));
 const AdaptsToYourRole = dynamic(() => import('@/components/AdaptsToYourRole'));
@@ -27,25 +26,24 @@ const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
  * Zavi Marketing Website - Conversion-Optimized Flow
  *
  * POSITIONING: "The Voice Writing Layer" - Not transcription, not writing tools, but voice-first structured writing
- * UNIQUE DIFFERENTIATOR: Language switching on-the-go (NO ONE ELSE DOES THIS!)
+ * UNIQUE DIFFERENTIATOR: Multi-language voice writing with instant language switching
  *
- * Optimized funnel: Hook → DIFFERENTIATE → TRUST → DOWNLOAD → Demonstrate → PROOF → Personalize → Price → TESTIMONIALS → Objections → Convert
+ * Optimized funnel: Hook → DIFFERENTIATE → DOWNLOAD → Demonstrate → PROOF → Personalize → Price → TESTIMONIALS → Objections → Convert
  *
  * 1. Hero + Live Demo (immediate hook - clear value prop)
- * 2. Language Translation Hero (BIGGEST DIFFERENTIATOR - switch languages instantly!)
- * 3. Trust Signals (company logos + "used by 50K+ professionals") ← NEW
- * 4. Device Download (CONVERSION OPPORTUNITY - auto-detect device, one-click download)
- * 5. Video Demo (prove it works - visual demonstration)
- * 6. Metrics (impressive stats - 5x faster, <2s response, 100+ languages) ← NEW
- * 7. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
- * 8. Kill Your Keyboard (wow moment - smart editing magic)
- * 9. Adapts to Your Role (deep personalization - see yourself using it)
- * 10. Pricing (convert while interest is HIGH)
- * 11. Testimonials (real customer stories with names and results) ← NEW
- * 12. On-the-go or At Your Desk (flexibility - works everywhere)
- * 13. FAQ (handle objections before they leave)
- * 14. Language Support (supporting detail - multilingual proof)
- * 15. Final CTA (last conversion push)
+ * 2. Language Translation Hero (multi-language switching - switch languages instantly!)
+ * 3. Device Download (CONVERSION OPPORTUNITY - auto-detect device, one-click download)
+ * 4. Video Demo (prove it works - visual demonstration)
+ * 5. Metrics (impressive stats - 5x faster, <2s response, 100+ languages) ← NEW
+ * 6. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
+ * 7. Kill Your Keyboard (wow moment - smart editing magic)
+ * 8. Adapts to Your Role (deep personalization - see yourself using it)
+ * 9. Pricing (convert while interest is HIGH)
+ * 10. Testimonials (real customer stories with names and results) ← NEW
+ * 11. On-the-go or At Your Desk (flexibility - works everywhere)
+ * 12. FAQ (handle objections before they leave)
+ * 13. Language Support (supporting detail - multilingual proof)
+ * 14. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -58,9 +56,6 @@ export default function Home() {
 
         {/* Language Translation Hero - BIGGEST DIFFERENTIATOR */}
         <LanguageTranslationHero />
-
-        {/* Trust Signals - Credibility (NEW) */}
-        <TrustSignals />
 
         {/* Device Download - PRIMARY CONVERSION POINT */}
         <DeviceDownload />
