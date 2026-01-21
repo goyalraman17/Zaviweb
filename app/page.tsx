@@ -18,7 +18,6 @@ const LanguageSection = dynamic(() => import('@/components/LanguageSection'));
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
 const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
-const Footer = dynamic(() => import('@/components/Footer'));
 
 /**
  * Zavi Marketing Website - Conversion-Focused Experience
@@ -74,9 +73,6 @@ export default function Home() {
 
         {/* Final CTA */}
         <FinalCTANew />
-
-        {/* Footer */}
-        <Footer />
 
         {/* Sticky mobile CTA */}
         <StickyCTA />
