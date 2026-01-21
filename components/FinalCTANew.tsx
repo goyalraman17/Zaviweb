@@ -51,7 +51,7 @@ export default function FinalCTANew() {
         >
           {/* Headline */}
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.15] px-4"
             style={{
               background: 'linear-gradient(135deg, #1a1a1a 0%, #34384c 50%, #4A4D53 100%)',
               WebkitBackgroundClip: 'text',
@@ -67,7 +67,7 @@ export default function FinalCTANew() {
 
           {/* Subheadline */}
           <motion.p
-            className="text-2xl md:text-3xl text-zavi-gray-700 mb-16 max-w-3xl mx-auto font-light"
+            className="text-xl sm:text-2xl md:text-3xl text-zavi-gray-700 mb-16 max-w-3xl mx-auto font-light px-4"
             variants={fadeUp}
           >
             Let writing happen naturally.
@@ -101,12 +101,12 @@ export default function FinalCTANew() {
 
           {/* Stats */}
           <motion.div
-            className="mt-20 grid grid-cols-3 gap-12 max-w-3xl mx-auto"
+            className="mt-20 grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 max-w-3xl mx-auto px-4"
             variants={fadeUp}
           >
             <div className="text-center">
               <div
-                className="text-4xl md:text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2"
                 style={{
                   background: 'linear-gradient(135deg, #5381d2 0%, #7B68EE 100%)',
                   WebkitBackgroundClip: 'text',
@@ -116,11 +116,11 @@ export default function FinalCTANew() {
               >
                 50K+
               </div>
-              <div className="text-base text-zavi-gray-600 font-medium">Active users</div>
+              <div className="text-xs sm:text-sm md:text-base text-zavi-gray-600 font-medium">Active users</div>
             </div>
             <div className="text-center">
               <div
-                className="text-4xl md:text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2"
                 style={{
                   background: 'linear-gradient(135deg, #5381d2 0%, #7B68EE 100%)',
                   WebkitBackgroundClip: 'text',
@@ -130,11 +130,11 @@ export default function FinalCTANew() {
               >
                 5x
               </div>
-              <div className="text-base text-zavi-gray-600 font-medium">Faster writing</div>
+              <div className="text-xs sm:text-sm md:text-base text-zavi-gray-600 font-medium">Faster writing</div>
             </div>
             <div className="text-center">
               <div
-                className="text-4xl md:text-5xl font-bold mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2"
                 style={{
                   background: 'linear-gradient(135deg, #5381d2 0%, #7B68EE 100%)',
                   WebkitBackgroundClip: 'text',
@@ -144,7 +144,7 @@ export default function FinalCTANew() {
               >
                 &lt;200ms
               </div>
-              <div className="text-base text-zavi-gray-600 font-medium">Response time</div>
+              <div className="text-xs sm:text-sm md:text-base text-zavi-gray-600 font-medium">Response time</div>
             </div>
           </motion.div>
 
