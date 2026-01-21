@@ -142,7 +142,7 @@ import {
 View all components in action on the landing page:
 
 ```
-http://localhost:3000/#try-demo
+http://localhost:3000/#download
 ```
 
 ## Customization
