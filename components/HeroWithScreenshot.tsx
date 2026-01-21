@@ -41,6 +41,48 @@ export default function HeroWithScreenshot() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20" style={{ background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)' }}>
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, -50, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      </div>
+
       <div className="container-large relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Simplified Hero Content */}
@@ -53,12 +95,27 @@ export default function HeroWithScreenshot() {
             {/* Headline */}
             <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6"
-              variants={fadeUpLarge}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               Your Voice.<br />
-              <span className="bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] bg-clip-text text-transparent">
+              <motion.span
+                className="bg-gradient-to-r from-[#6B7FE8] via-[#8B5CF6] to-[#6B7FE8] bg-clip-text text-transparent"
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  backgroundSize: '200% 200%',
+                }}
+              >
                 Perfectly Written.
-              </span>
+              </motion.span>
             </motion.h1>
 
             {/* Short declarative lines - Speech → Writing → Outcome */}
@@ -66,15 +123,38 @@ export default function HeroWithScreenshot() {
               className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto space-y-3"
               variants={fadeUp}
             >
-              <p className="font-medium">Speak naturally.</p>
-              <p>Get professional text.</p>
-              <p className="text-lg md:text-xl text-gray-600">No filler words. Perfect grammar. Instant formatting.</p>
+              <motion.p
+                className="font-medium"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                Speak naturally.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                Get professional text.
+              </motion.p>
+              <motion.p
+                className="text-lg md:text-xl text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+              >
+                No filler words. Perfect grammar. Instant formatting.
+              </motion.p>
             </motion.div>
 
-            {/* Single Dominant CTA */}
+            {/* Single Dominant CTA with glow effect */}
             <motion.div
               variants={fadeUp}
               className="mb-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.9, duration: 0.5, type: "spring", stiffness: 100 }}
             >
               <motion.a
                 href="/#download"
@@ -89,16 +169,56 @@ export default function HeroWithScreenshot() {
                     downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }}
-                className="inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] hover:from-[#5A6DD7] hover:to-[#7A4BE5] rounded-2xl transition-all shadow-2xl hover:shadow-3xl hover:scale-105"
+                className="relative inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] rounded-2xl transition-all shadow-2xl overflow-hidden group"
                 initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={ctaPrimary}
+                whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(107, 127, 232, 0.5)" }}
+                whileTap={{ scale: 0.98 }}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                {/* Animated glow */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] opacity-0 group-hover:opacity-75 blur-xl"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+
+                {/* Shimmer effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  animate={{
+                    x: ['-200%', '200%'],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                    repeatDelay: 1,
+                  }}
+                />
+
+                <motion.svg
+                  className="w-6 h-6 relative z-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  animate={{
+                    y: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Download Free
+                </motion.svg>
+                <span className="relative z-10">Download Free</span>
               </motion.a>
             </motion.div>
 
@@ -106,6 +226,9 @@ export default function HeroWithScreenshot() {
             <motion.p
               variants={fadeUp}
               className="text-sm text-gray-600 mb-16"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.1, duration: 0.6 }}
             >
               Free forever • No credit card • 50,000+ users
             </motion.p>

@@ -35,8 +35,32 @@ export default function FinalCTANew() {
     >
       {/* Premium background decoration with enhanced glow */}
       <div className="absolute inset-0 opacity-[0.08]">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 30, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, -30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </div>
 
       {/* Subtle radial glow overlay */}
@@ -79,15 +103,58 @@ export default function FinalCTANew() {
             className="flex justify-center"
             variants={fadeUp}
           >
-            <a
+            <motion.a
               href="/#download"
-              className="inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] hover:from-[#5A6DD7] hover:to-[#7A4BE5] rounded-2xl transition-all shadow-2xl hover:shadow-3xl hover:scale-105"
+              className="relative inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] rounded-2xl transition-all shadow-2xl overflow-hidden group"
+              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(107, 127, 232, 0.5)" }}
+              whileTap={{ scale: 0.98 }}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+              {/* Animated glow */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] opacity-0 group-hover:opacity-75 blur-xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Shimmer effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                animate={{
+                  x: ['-200%', '200%'],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatDelay: 1,
+                }}
+              />
+
+              <motion.svg
+                className="w-6 h-6 relative z-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                animate={{
+                  y: [0, 5, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              <span>Download Free</span>
-            </a>
+              </motion.svg>
+              <span className="relative z-10">Download Free</span>
+            </motion.a>
           </motion.div>
 
           {/* Stats */}

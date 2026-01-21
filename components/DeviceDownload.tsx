@@ -139,8 +139,17 @@ export default function DeviceDownload() {
                     }
                     ${isComingSoon ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                   `}
-                  whileHover={!isComingSoon ? { y: -4 } : {}}
-                  whileTap={!isComingSoon ? { scale: 0.98 } : {}}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: platforms.indexOf(platform) * 0.1, duration: 0.5 }}
+                  whileHover={!isComingSoon ? {
+                    y: -8,
+                    boxShadow: isDetected
+                      ? "0 25px 50px -12px rgba(107, 127, 232, 0.6)"
+                      : "0 20px 40px -12px rgba(0, 0, 0, 0.15)"
+                  } : {}}
+                  whileTap={!isComingSoon ? { scale: 0.95 } : {}}
                 >
                   {/* Detected Badge */}
                   {isDetected && (
