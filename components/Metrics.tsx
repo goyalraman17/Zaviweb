@@ -31,7 +31,7 @@ export default function Metrics() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 md:py-24 bg-gradient-to-b from-white to-zavi-paper/30 border-y border-zavi-border/50">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
           {metrics.map((metric, index) => (
@@ -52,19 +52,19 @@ export default function Metrics() {
               className="text-center group cursor-pointer"
             >
               <motion.div
-                className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-zavi-charcoal to-zavi-blue bg-clip-text text-transparent mb-2"
+                className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-gray-900 to-indigo-600 bg-clip-text text-transparent mb-2"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
                 {metric.value}
               </motion.div>
               <motion.div
-                className="text-lg md:text-xl font-semibold text-zavi-blue mb-1"
+                className="text-lg md:text-xl font-semibold text-indigo-600 mb-1"
                 whileHover={{ scale: 1.05 }}
               >
                 {metric.label}
               </motion.div>
-              <div className="text-sm text-zavi-gray-500 group-hover:text-zavi-gray-700 transition-colors">
+              <div className="text-sm text-gray-500 group-hover:text-gray-700 transition-colors">
                 {metric.detail}
               </div>
             </motion.div>
