@@ -71,7 +71,7 @@ export default function VoiceTypingDemo() {
   const [activeUseCase, setActiveUseCase] = useState(useCases[0])
 
   return (
-    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <section id="try-demo" className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
       <div className="container-large relative z-10">
         <motion.div
           variants={staggerContainerSlow}
@@ -179,7 +179,7 @@ export default function VoiceTypingDemo() {
               className="flex flex-col items-center gap-4"
             >
               <a
-                href="/try-free"
+                href="/#try-demo"
                 className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#6B7FE8] to-[#8B5CF6] text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

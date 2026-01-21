@@ -72,7 +72,7 @@ export default function HeroWithScreenshot() {
               className="mb-8"
             >
               <motion.a
-                href="/try-free"
+                href="/#try-demo"
                 onClick={() => {
                   analytics.track('cta_hero_click', {
                     text: getDownloadText(),

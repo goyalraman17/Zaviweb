@@ -79,7 +79,7 @@ export default function FinalCTANew() {
             variants={fadeUp}
           >
             <a
-              href="/try-free"
+              href="/#try-demo"
               className="btn-primary inline-flex items-center gap-3 text-xl px-10 py-5"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@ export default function FinalCTANew() {
             </a>
 
             <a
-              href="/try-free"
+              href="/#try-demo"
               className="btn-secondary inline-flex items-center gap-3 text-xl px-10 py-5"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

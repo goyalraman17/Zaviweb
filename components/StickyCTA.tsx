@@ -38,7 +38,7 @@ export default function StickyCTA() {
     >
       <div className="bg-white/95 backdrop-blur-lg border-t border-zavi-border px-6 py-4 shadow-2xl">
         <motion.a
-          href="/try-free"
+          href="/#try-demo"
           className="group relative block w-full px-6 py-4 text-center text-base font-semibold text-white rounded-xl overflow-hidden shadow-lg"
           initial="rest"
           whileHover="hover"
