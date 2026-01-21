@@ -12,10 +12,7 @@ import {
 export default function OnTheGoOrAtYourDesk() {
   return (
     <section
-      className="relative py-12 md:py-20 lg:py-32 overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #E8E5F5 0%, #DDD6F3 50%, #D4C5F0 100%)',
-      }}
+      className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-white"
     >
       <div className="container-large relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">

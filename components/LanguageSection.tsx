@@ -29,7 +29,7 @@ export default function LanguageSection() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-12 md:py-20 lg:py-32 bg-gradient-to-b from-white to-zavi-paper/30">
+    <section ref={ref} className="py-12 md:py-20 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-6xl mx-auto"

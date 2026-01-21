@@ -9,7 +9,7 @@ import {
 
 export default function KillYourKeyboard() {
   return (
-    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-white">
+    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-50/30 via-violet-50/20 to-indigo-50/30">
       <div className="container-large relative z-10">
         <motion.div
           initial="hidden"
