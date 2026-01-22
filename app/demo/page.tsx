@@ -713,17 +713,15 @@ export default function DemoPage() {
 
                 {/* Record button */}
                 <div className="flex flex-col items-center">
-                  <motion.button
+                  <button
                     type="button"
                     onClick={toggleRecording}
                     disabled={authStatus === 'error' || !isConnected}
-                    className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation ${
+                    className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${
                       isRecording
-                        ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_40px_rgba(239,68,68,0.4)]'
-                        : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] active:scale-95'
+                        ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_40px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
+                        : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     <AnimatePresence mode="wait">
                       {isRecording ? (
@@ -734,7 +732,7 @@ export default function DemoPage() {
                           exit={{ scale: 0, opacity: 0 }}
                           className="absolute inset-0 flex items-center justify-center pointer-events-none"
                         >
-                          <div className="w-12 h-12 bg-white rounded-lg" />
+                          <div className="w-12 h-12 bg-white rounded-lg pointer-events-none" />
                         </motion.div>
                       ) : (
                         <motion.div
@@ -744,7 +742,7 @@ export default function DemoPage() {
                           exit={{ scale: 0, opacity: 0 }}
                           className="absolute inset-0 flex items-center justify-center pointer-events-none"
                         >
-                          <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-16 h-16 text-white pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
                             <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
                           </svg>
@@ -755,13 +753,13 @@ export default function DemoPage() {
                     {/* Pulse effect when recording */}
                     {isRecording && (
                       <motion.div
-                        className="absolute inset-0 rounded-full bg-red-500 pointer-events-none"
+                        className="absolute inset-0 rounded-full bg-red-500 pointer-events-none z-[-1]"
                         initial={{ scale: 1, opacity: 0.5 }}
                         animate={{ scale: 1.4, opacity: 0 }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                       />
                     )}
-                  </motion.button>
+                  </button>
 
                   <motion.p
                     className="mt-6 text-center"
