@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans font-normal" suppressHydrationWarning>
-        <ScrollProgress color="#6366F1" height={3} />
+        <ScrollProgress color="#2563EB" height={3} />
         {children}
         <Footer />
       </body>

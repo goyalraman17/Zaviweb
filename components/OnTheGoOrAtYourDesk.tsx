@@ -28,7 +28,7 @@ export default function OnTheGoOrAtYourDesk() {
               variants={fadeUpLarge}
               style={{
                 lineHeight: 1.15,
-                background: 'linear-gradient(135deg, #4A3F8F 0%, #7B68EE 100%)',
+                background: 'linear-gradient(135deg, #1E40AF 0%, #2563EB 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -42,13 +42,13 @@ export default function OnTheGoOrAtYourDesk() {
               variants={fadeUp}
               className="flex flex-wrap items-center gap-3 mb-6 md:mb-8"
             >
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
                 Auto-Sync
               </span>
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-sky-200 rounded-full text-sm font-semibold text-sky-700 shadow-sm">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
@@ -103,7 +103,7 @@ export default function OnTheGoOrAtYourDesk() {
                 }}
                 className="flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold text-white rounded-full shadow-lg hover:shadow-xl transition-all"
                 style={{
-                  background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
+                  background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
                 }}
                 initial="rest"
                 whileHover="hover"
@@ -120,9 +120,9 @@ export default function OnTheGoOrAtYourDesk() {
             {/* Sync Info Badge */}
             <motion.div
               variants={fadeUp}
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/70 backdrop-blur-sm border border-purple-200 rounded-full text-xs md:text-sm font-medium text-gray-700 shadow-sm"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/70 backdrop-blur-sm border border-blue-200 rounded-full text-xs md:text-sm font-medium text-gray-700 shadow-sm"
             >
-              <svg className="w-3 h-3 md:w-4 md:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               Instant sync across devices
@@ -147,7 +147,7 @@ export default function OnTheGoOrAtYourDesk() {
                       {/* Sidebar */}
                       <div className="w-48 bg-[#2d2d3d] text-white p-4 space-y-2">
                         <div className="flex items-center gap-2 mb-6">
-                          <div className="w-6 h-6 bg-gradient-to-br from-[#7B68EE] to-[#9370DB] rounded"></div>
+                          <div className="w-6 h-6 bg-gradient-to-br from-[#2563EB] to-[#3B82F6] rounded"></div>
                           <span className="font-semibold">Zavi</span>
                         </div>
                         <div className="space-y-1 text-sm">
@@ -265,7 +265,7 @@ export default function OnTheGoOrAtYourDesk() {
                             key={i}
                             className="flex-1 rounded-full"
                             style={{
-                              background: 'linear-gradient(to top, #7B68EE, #9370DB)',
+                              background: 'linear-gradient(to top, #2563EB, #3B82F6)',
                               height: `${20 + Math.random() * 60}%`,
                             }}
                           />
@@ -275,7 +275,7 @@ export default function OnTheGoOrAtYourDesk() {
 
                     {/* Bottom Navigation */}
                     <div className="absolute bottom-4 left-4 right-4 flex justify-center">
-                      <button className="w-12 h-12 bg-gradient-to-br from-[#7B68EE] to-[#9370DB] rounded-full flex items-center justify-center text-white shadow-lg">
+                      <button className="w-12 h-12 bg-gradient-to-br from-[#2563EB] to-[#3B82F6] rounded-full flex items-center justify-center text-white shadow-lg">
                         ▶
                       </button>
                     </div>

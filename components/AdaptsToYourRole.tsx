@@ -251,10 +251,10 @@ export default function AdaptsToYourRole() {
       label: 'Teams',
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-          <circle cx="9" cy="7" r="3" fill="#7B68EE"/>
-          <circle cx="15" cy="7" r="3" fill="#5381d2"/>
+          <circle cx="9" cy="7" r="3" fill="#2563EB"/>
+          <circle cx="15" cy="7" r="3" fill="#3B82F6"/>
           <circle cx="12" cy="14" r="3" fill="#48bb78"/>
-          <path d="M6 21c0-2.5 2-4 4-4h4c2 0 4 1.5 4 4" stroke="#7B68EE" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M6 21c0-2.5 2-4 4-4h4c2 0 4 1.5 4 4" stroke="#2563EB" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       )
     },
@@ -271,8 +271,8 @@ export default function AdaptsToYourRole() {
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="5" r="2" fill="#48bb78"/>
-          <circle cx="12" cy="12" r="8" stroke="#5381d2" strokeWidth="2"/>
-          <path d="M12 7v5M9.5 10l5 0M10 15l2 4M14 15l-2 4" stroke="#7B68EE" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="12" cy="12" r="8" stroke="#3B82F6" strokeWidth="2"/>
+          <path d="M12 7v5M9.5 10l5 0M10 15l2 4M14 15l-2 4" stroke="#2563EB" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       )
     },
@@ -281,9 +281,9 @@ export default function AdaptsToYourRole() {
       label: 'Executives',
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-          <rect x="4" y="8" width="16" height="12" rx="2" fill="#7B68EE" opacity="0.2"/>
-          <rect x="4" y="8" width="16" height="12" rx="2" stroke="#7B68EE" strokeWidth="2"/>
-          <path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="#5381d2" strokeWidth="2" strokeLinecap="round"/>
+          <rect x="4" y="8" width="16" height="12" rx="2" fill="#2563EB" opacity="0.2"/>
+          <rect x="4" y="8" width="16" height="12" rx="2" stroke="#2563EB" strokeWidth="2"/>
+          <path d="M8 8V6a4 4 0 0 1 8 0v2" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round"/>
           <circle cx="12" cy="14" r="1.5" fill="#48bb78"/>
         </svg>
       )
@@ -327,13 +327,13 @@ export default function AdaptsToYourRole() {
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-3 mb-12"
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               10+ Roles
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-sky-200 rounded-full text-sm font-semibold text-sky-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
               </svg>
@@ -361,9 +361,9 @@ export default function AdaptsToYourRole() {
                 className={`
                   relative px-6 py-4 rounded-xl font-semibold text-sm md:text-base
                   transition-all duration-300 shadow-md hover:shadow-lg touch-manipulation
-                  focus:outline-none focus:ring-2 focus:ring-[#7B68EE] focus:ring-offset-2
+                  focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2
                   ${selectedCohort === cohort.id
-                    ? 'bg-gradient-to-br from-[#7B68EE] to-[#9370DB] text-white scale-105'
+                    ? 'bg-gradient-to-br from-[#2563EB] to-[#3B82F6] text-white scale-105'
                     : 'bg-white text-gray-700 hover:bg-gray-50'
                   }
                 `}
@@ -413,7 +413,7 @@ export default function AdaptsToYourRole() {
                       key={i}
                       className="w-1.5 rounded-full"
                       style={{
-                        background: 'linear-gradient(to top, #5381d2, #7B68EE)',
+                        background: 'linear-gradient(to top, #2563EB, #3B82F6)',
                         height: `${height * 12}%`,
                       }}
                       animate={{
@@ -437,7 +437,7 @@ export default function AdaptsToYourRole() {
                       key={i}
                       className="w-1.5 rounded-full"
                       style={{
-                        background: 'linear-gradient(to top, #7B68EE, #9370DB)',
+                        background: 'linear-gradient(to top, #2563EB, #3B82F6)',
                         height: `${height * 12}%`,
                       }}
                       animate={{
@@ -461,7 +461,7 @@ export default function AdaptsToYourRole() {
                     <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
                       Raw Input
                     </h4>
-                    <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-100 relative">
+                    <div className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-6 border border-blue-100 relative">
                       {/* Audio Wave Visualization */}
                       <div className="flex items-center gap-1 mb-4 h-12">
                         {Array.from({ length: 40 }).map((_, i) => (
@@ -469,7 +469,7 @@ export default function AdaptsToYourRole() {
                             key={i}
                             className="flex-1 rounded-full"
                             style={{
-                              background: 'linear-gradient(to top, #7B68EE, #9370DB)',
+                              background: 'linear-gradient(to top, #2563EB, #3B82F6)',
                             }}
                             animate={{
                               height: [`${Math.random() * 30 + 10}%`, `${Math.random() * 60 + 20}%`, `${Math.random() * 30 + 10}%`],
@@ -513,7 +513,7 @@ export default function AdaptsToYourRole() {
                             <p>{currentContent.polishedOutput.assignee}</p>
                           )}
                           {currentContent.polishedOutput.priority && (
-                            <p className="font-semibold text-[#7B68EE]">{currentContent.polishedOutput.priority}</p>
+                            <p className="font-semibold text-[#2563EB]">{currentContent.polishedOutput.priority}</p>
                           )}
                         </div>
                       )}

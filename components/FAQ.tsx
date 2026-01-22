@@ -35,7 +35,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 md:py-32 bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50">
+    <section id="faq" className="py-20 md:py-32 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50">
       <div className="container-wide max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -65,12 +65,12 @@ export default function FAQ() {
                   className="w-full py-6 flex items-center justify-between text-left group"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-lg md:text-xl font-semibold text-gray-900 pr-8 group-hover:text-[#7B68EE] transition-colors">
+                  <span className="text-lg md:text-xl font-semibold text-gray-900 pr-8 group-hover:text-[#2563EB] transition-colors">
                     {faq.question}
                   </span>
                   <ChevronDown
                     className={`w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-[#7B68EE]' : ''
+                      isOpen ? 'rotate-180 text-[#2563EB]' : ''
                     }`}
                   />
                 </button>
