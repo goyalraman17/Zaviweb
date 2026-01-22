@@ -126,23 +126,9 @@ function NumberCounter({ target, suffix = '', duration = 2 }: { target: number, 
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-function ParallaxSection({ children, offset = 50 }: { children: React.ReactNode, offset?: number }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [offset, -offset]);
-  const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
-
-  return (
-    <div ref={ref}>
-      <motion.div style={{ y: smoothY }}>
-        {children}
-      </motion.div>
-    </div>
-  );
+function ParallaxSection({ children, offset = 0 }: { children: React.ReactNode, offset?: number }) {
+  // Parallax disabled to prevent content shifting
+  return <>{children}</>;
 }
 
 export default function AboutPage() {
@@ -266,7 +252,6 @@ export default function AboutPage() {
                   <motion.div
                     key={i}
                     variants={scaleIn}
-                    whileHover={{ scale: 1.05, y: -5 }}
                     className="bg-white/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-xl border border-gray-100"
                   >
                     <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -286,16 +271,7 @@ export default function AboutPage() {
             <div className="container mx-auto max-w-5xl">
               <motion.div
                 className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.3 }}
               >
-                {/* Animated shine effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.6 }}
-                />
 
                 <motion.div
                   className="flex flex-wrap items-center justify-center gap-2 mb-6"
@@ -487,7 +463,6 @@ export default function AboutPage() {
               >
                 <motion.div
                   className="inline-flex items-center gap-2 mb-4"
-                  whileHover={{ scale: 1.05 }}
                 >
                   <Rocket className="w-6 sm:w-8 h-6 sm:h-8 text-indigo-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Our Mission</h2>
@@ -559,8 +534,7 @@ export default function AboutPage() {
                   >
                     Zavi is like having a <motion.span
                       className="font-bold text-indigo-600 px-3 py-1 bg-indigo-50 rounded-lg"
-                      whileHover={{ scale: 1.05 }}
-                      style={{ display: 'inline-block' }}
+                          style={{ display: 'inline-block' }}
                     >
                       professional writer
                     </motion.span> who instantly translates your spoken thoughts into crisp, clear text.
@@ -651,7 +625,6 @@ export default function AboutPage() {
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    whileHover={{ y: -5 }}
                     className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all"
                   >
                     <div className="text-4xl mb-4">{useCase.emoji}</div>
@@ -679,7 +652,6 @@ export default function AboutPage() {
               >
                 <motion.div
                   className="inline-flex items-center gap-2 mb-4"
-                  whileHover={{ scale: 1.05 }}
                 >
                   <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-purple-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Why Zavi Exists</h2>
@@ -830,7 +802,6 @@ export default function AboutPage() {
                     <motion.div
                       className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-7 border-2 border-white/30 shadow-2xl"
                       variants={scaleIn}
-                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
                     >
                       <div className="flex flex-wrap gap-2 mb-4">
                         <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-500 text-white rounded-full text-xs font-semibold">
@@ -869,7 +840,6 @@ export default function AboutPage() {
               >
                 <motion.div
                   className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
-                  whileHover={{ scale: 1.05 }}
                 >
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
@@ -921,7 +891,6 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        whileHover={{ scale: 1.1, y: -3 }}
                         className="inline-flex items-center px-4 py-2 bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-full text-sm font-semibold text-gray-800 shadow-sm cursor-pointer"
                       >
                         {platform}
@@ -995,7 +964,6 @@ export default function AboutPage() {
               >
                 <motion.div
                   className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
-                  whileHover={{ scale: 1.05 }}
                 >
                   <Users className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">The Founders</h2>
@@ -1020,8 +988,6 @@ export default function AboutPage() {
                 <motion.div
                   variants={fadeUpLarge}
                   className="group"
-                  whileHover={{ y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(99,102,241,0.3)] transition-all duration-500 relative overflow-hidden">
                     {/* Animated gradient background */}
@@ -1043,8 +1009,7 @@ export default function AboutPage() {
                         />
                         <motion.div
                           className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-indigo-100"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
+                                  transition={{ duration: 0.3 }}
                         >
                           <Image
                             src="/images/team/raman.svg"
@@ -1078,13 +1043,7 @@ export default function AboutPage() {
                         href="https://www.linkedin.com/in/ramangoyal3"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
-                        whileHover={{
-                          scale: 1.05,
-                          backgroundColor: '#004182',
-                          boxShadow: '0 20px 25px -5px rgba(10, 102, 194, 0.4)'
-                        }}
-                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
                       >
                         <Linkedin className="w-4 h-4" />
                         Connect
@@ -1130,8 +1089,6 @@ export default function AboutPage() {
                 <motion.div
                   variants={fadeUpLarge}
                   className="group"
-                  whileHover={{ y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(139,92,246,0.3)] transition-all duration-500 relative overflow-hidden">
                     {/* Animated gradient background */}
@@ -1153,8 +1110,7 @@ export default function AboutPage() {
                         />
                         <motion.div
                           className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-purple-100"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
+                                  transition={{ duration: 0.3 }}
                         >
                           <Image
                             src="/images/team/himanshu.svg"
@@ -1188,13 +1144,7 @@ export default function AboutPage() {
                         href="https://www.linkedin.com/in/hsyvy"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
-                        whileHover={{
-                          scale: 1.05,
-                          backgroundColor: '#004182',
-                          boxShadow: '0 20px 25px -5px rgba(10, 102, 194, 0.4)'
-                        }}
-                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
                       >
                         <Linkedin className="w-4 h-4" />
                         Connect
@@ -1252,7 +1202,6 @@ export default function AboutPage() {
               >
                 <motion.div
                   className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
-                  whileHover={{ scale: 1.05 }}
                 >
                   <Target className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">How It Works</h2>
@@ -1431,7 +1380,6 @@ export default function AboutPage() {
             >
               <motion.h3
                 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
-                whileHover={{ scale: 1.05 }}
               >
                 Zavi
               </motion.h3>
@@ -1446,10 +1394,9 @@ export default function AboutPage() {
               </motion.p>
               <motion.a
                 href="https://zavivoice.com"
-                className="text-base sm:text-lg text-indigo-600 hover:text-indigo-700 font-semibold"
+                className="text-base sm:text-lg text-indigo-600 hover:text-indigo-700 hover:underline font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, textDecoration: 'underline' }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
