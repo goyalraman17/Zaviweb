@@ -491,13 +491,13 @@ export default function AboutPage() {
                     variants={fadeUp}
                     className="text-base sm:text-lg lg:text-xl text-gray-700"
                   >
-                    The <motion.span
+                    Zavi is like having a <motion.span
                       className="font-bold text-indigo-600 px-3 py-1 bg-indigo-50 rounded-lg"
                       whileHover={{ scale: 1.05 }}
                       style={{ display: 'inline-block' }}
                     >
-                      Voice Writing Layer
-                    </motion.span> understands your intent, then writes it properly.
+                      professional writer
+                    </motion.span> who instantly translates your spoken thoughts into crisp, clear text.
                   </motion.p>
 
                   <motion.div
@@ -901,7 +901,7 @@ export default function AboutPage() {
                           transition={{ duration: 0.3 }}
                         >
                           <Image
-                            src="/images/team/raman.jpg"
+                            src="/images/team/raman.svg"
                             alt="Raman Goyal - Founder & CEO"
                             width={128}
                             height={128}
@@ -965,7 +965,7 @@ export default function AboutPage() {
                       </motion.div>
 
                       <motion.p className="text-sm sm:text-base" variants={fadeUp}>
-                        Obsessed with building infrastructure that feels obvious in hindsight. Spent years making AI disappear into the background—where the best tech belongs.
+                        Built Zavi after years of frustration with voice typing. Believes your voice should be as powerful as your keyboard—actually, more powerful.
                       </motion.p>
 
                       <motion.div
@@ -973,7 +973,7 @@ export default function AboutPage() {
                         className="bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-lg"
                       >
                         <p className="text-sm italic text-indigo-900 font-medium">
-                          "My brain moves faster than my fingers. So I built Zavi."
+                          "I got tired of my fingers being the bottleneck. You shouldn't have to choose between speed and quality."
                         </p>
                       </motion.div>
                     </motion.div>
@@ -1011,7 +1011,7 @@ export default function AboutPage() {
                           transition={{ duration: 0.3 }}
                         >
                           <Image
-                            src="/images/team/himanshu.jpg"
+                            src="/images/team/himanshu.svg"
                             alt="Himanshu Kumar - Co-founder & CTO"
                             width={128}
                             height={128}
@@ -1075,7 +1075,7 @@ export default function AboutPage() {
                       </motion.div>
 
                       <motion.p className="text-sm sm:text-base" variants={fadeUp}>
-                        Makes intelligence feel instant. Not "wait 3 seconds" instant. Actually instant. Building systems that don't make you wait.
+                        Believes AI should feel instant. Built Zavi's engine to understand your voice and deliver perfect text faster than you can type it.
                       </motion.p>
 
                       <motion.div
@@ -1083,7 +1083,7 @@ export default function AboutPage() {
                         className="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r-lg"
                       >
                         <p className="text-sm italic text-purple-900 font-medium">
-                          "Hybrid architecture isn't a feature—it's why Zavi feels instant."
+                          "Waiting kills the flow. Zavi responds instantly because your ideas can't wait."
                         </p>
                       </motion.div>
                     </motion.div>
@@ -1134,17 +1134,16 @@ export default function AboutPage() {
                   className="space-y-4 sm:space-y-6"
                 >
                   {[
-                    { icon: '🎯', text: 'Input layers define platforms' },
-                    { icon: '👻', text: 'Best tech disappears' },
-                    { icon: '🎤', text: 'Voice is inevitable' },
-                    { icon: '🌍', text: 'Language ≠ barrier' },
-                    { icon: '⚡', text: 'Quality first, not last' }
+                    { icon: '🎯', text: 'Your thoughts deserve to be heard' },
+                    { icon: '⚡', text: 'Speed without sacrifice' },
+                    { icon: '🎤', text: 'Voice is the future of writing' },
+                    { icon: '🌍', text: 'Your language, your way' },
+                    { icon: '✨', text: 'Quality happens automatically' }
                   ].map((belief, index) => (
                     <motion.li
                       key={index}
                       variants={fadeUp}
                       className="group"
-                      whileHover={{ x: 5 }}
                     >
                       <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all">
                         <span className="text-2xl sm:text-3xl">{belief.icon}</span>
@@ -1206,39 +1205,37 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                     variants={staggerContainer}
                   >
-                    <motion.div
-                      variants={fadeUp}
-                      className="flex flex-wrap justify-center gap-2"
-                    >
-                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
-                        🎯 2025: 50K users
-                      </span>
-                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
-                        🚀 2026: 1M users
-                      </span>
-                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-400 border-2 border-white/50 rounded-full text-sm font-bold text-white shadow-xl">
-                        💫 2030: Default input layer
-                      </span>
-                    </motion.div>
-
                     <motion.p
                       variants={fadeUp}
-                      className="text-xl sm:text-2xl lg:text-3xl font-bold text-white"
+                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6"
                     >
-                      In 5 years, voice = writing.
-                      <br />
-                      Zavi is why.
+                      Soon, everyone will write with their voice.
                     </motion.p>
+
+                    <motion.div
+                      variants={fadeUp}
+                      className="flex flex-wrap justify-center gap-2 mb-6"
+                    >
+                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
+                        ✍️ No more slow typing
+                      </span>
+                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
+                        🌍 Any language → Perfect English
+                      </span>
+                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-400 border-2 border-white/50 rounded-full text-sm font-bold text-white shadow-xl">
+                        ⚡ Think fast, write faster
+                      </span>
+                    </motion.div>
 
                     <motion.div
                       variants={scaleIn}
                       className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-2xl p-6 text-center"
                     >
-                      <p className="text-lg sm:text-xl font-bold text-blue-100 mb-2">
-                        Not a feature. Not an app.
+                      <p className="text-xl sm:text-2xl font-bold text-white mb-2">
+                        Zavi makes your voice your superpower.
                       </p>
-                      <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
-                        Infrastructure.
+                      <p className="text-base sm:text-lg text-blue-100">
+                        Write emails, messages, docs—all by just talking. No editing. No frustration.
                       </p>
                     </motion.div>
                   </motion.div>
@@ -1262,8 +1259,7 @@ export default function AboutPage() {
                           Get Started with Zavi
                         </motion.span>
                         <motion.div
-                          whileHover={{ x: 5 }}
-                          transition={{ type: "spring", stiffness: 400 }}
+                            transition={{ type: "spring", stiffness: 400 }}
                         >
                           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                         </motion.div>
