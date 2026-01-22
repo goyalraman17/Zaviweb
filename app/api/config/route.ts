@@ -1,14 +1,21 @@
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  // Return demo configuration
-  // In production, you would read this from environment variables
+  // Check if Firebase is configured
+  const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
+  const firebaseProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
+  const firebaseAuthDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+
+  const authEnabled = !!(firebaseApiKey && firebaseProjectId)
+
   return NextResponse.json({
-    authEnabled: false,
-    billingEnabled: false,
-    firebase: {
-      // Firebase config would go here if auth was enabled
-      // For demo purposes, auth is disabled
-    }
+    authEnabled,
+    billingEnabled: false, // Set to true if you want to show usage tracking
+    demoMode: process.env.NEXT_PUBLIC_DEMO_MODE === 'true',
+    firebase: authEnabled ? {
+      apiKey: firebaseApiKey,
+      authDomain: firebaseAuthDomain,
+      projectId: firebaseProjectId,
+    } : {}
   })
 }
