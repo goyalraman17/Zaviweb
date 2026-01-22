@@ -536,7 +536,7 @@ export default function DemoPage() {
                 {/* Record button */}
                 <button
                   onClick={toggleRecording}
-                  disabled={authStatus === 'loading' || authStatus === 'error'}
+                  disabled={authStatus === 'error'}
                   className={`w-[140px] h-[140px] rounded-full border-[3px] bg-[#0a1628] cursor-pointer relative transition-all flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
                     isRecording
                       ? 'border-[#60a5fa] shadow-[0_0_50px_rgba(96,165,250,0.6)]'
