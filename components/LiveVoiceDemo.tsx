@@ -297,6 +297,21 @@ export default function LiveVoiceDemo() {
                 clearTimeout(longPressTimerRef.current);
               }
             }}
+            onTouchStart={() => {
+              longPressTimerRef.current = setTimeout(() => {
+                handleMicLongPress();
+              }, 500);
+            }}
+            onTouchEnd={() => {
+              if (longPressTimerRef.current) {
+                clearTimeout(longPressTimerRef.current);
+              }
+            }}
+            onTouchCancel={() => {
+              if (longPressTimerRef.current) {
+                clearTimeout(longPressTimerRef.current);
+              }
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
