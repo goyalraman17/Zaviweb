@@ -29,6 +29,7 @@ export default function DemoPage() {
   const processorRef = useRef<ScriptProcessorNode | null>(null)
   const waveBarsRef = useRef<number[]>(new Array(NUM_BARS).fill(20))
   const idTokenRef = useRef<string | null>(null)
+  const isRecordingRef = useRef<boolean>(false)
 
   // Initialize Firebase and auto-login
   useEffect(() => {
@@ -111,11 +112,15 @@ export default function DemoPage() {
       }
     }
 
-    ws.onclose = () => {
+    ws.onclose = (event) => {
       setIsConnected(false)
       setPendingRecordStart(false)
       stopRecording()
-      console.log('Disconnected from gateway')
+      console.log('Disconnected from gateway', {
+        code: event.code,
+        reason: event.reason,
+        wasClean: event.wasClean
+      })
     }
 
     ws.onerror = (error) => {
@@ -123,8 +128,13 @@ export default function DemoPage() {
     }
 
     ws.onmessage = (event) => {
-      const data = JSON.parse(event.data)
-      handleMessage(data)
+      console.log('Received message:', event.data)
+      try {
+        const data = JSON.parse(event.data)
+        handleMessage(data)
+      } catch (error) {
+        console.error('Failed to parse message:', event.data, error)
+      }
     }
 
     wsRef.current = ws
@@ -177,18 +187,8 @@ export default function DemoPage() {
         return
       }
 
-      const startMessage: any = {
-        type: 'start',
-        language: language,
-        interim: true
-      }
-
-      if (enableTranslation && targetLanguage) {
-        startMessage.targetLanguage = targetLanguage
-      }
-
-      wsRef.current.send(JSON.stringify(startMessage))
-
+      // First, set up the microphone and audio processing
+      console.log('Requesting microphone access...')
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: {
           channelCount: 1,
@@ -213,7 +213,8 @@ export default function DemoPage() {
 
       let frameCount = 0
       processor.onaudioprocess = (e) => {
-        if (!isRecording || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
+        // Use ref instead of state to avoid stale closure issues
+        if (!isRecordingRef.current || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
 
         const inputData = e.inputBuffer.getChannelData(0)
 
@@ -255,7 +256,26 @@ export default function DemoPage() {
       mediaStreamRef.current = mediaStream
       audioContextRef.current = audioContext
       processorRef.current = processor
+
+      // Set both ref and state - ref for audio processor, state for UI
+      isRecordingRef.current = true
       setIsRecording(true)
+
+      console.log('Audio setup complete, ready to stream')
+
+      // NOW send the start message after audio is ready to stream
+      const startMessage: any = {
+        type: 'start',
+        language: language,
+        interim: true
+      }
+
+      if (enableTranslation && targetLanguage) {
+        startMessage.targetLanguage = targetLanguage
+      }
+
+      console.log('Sending start message:', startMessage)
+      wsRef.current.send(JSON.stringify(startMessage))
 
       console.log('Recording started')
     } catch (error: any) {
@@ -287,6 +307,8 @@ export default function DemoPage() {
       wsRef.current.send(JSON.stringify({ type: 'stop' }))
     }
 
+    // Set both ref and state
+    isRecordingRef.current = false
     setIsRecording(false)
     waveBarsRef.current = new Array(NUM_BARS).fill(20)
     console.log('Recording stopped')
