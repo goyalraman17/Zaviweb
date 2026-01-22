@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
@@ -182,13 +183,38 @@ export default function AboutPage() {
               className="text-center mb-16"
             >
               <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-indigo-100"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 px-4"
               >
-                <Sparkles className="w-5 h-5 text-indigo-600" />
-                <span className="text-sm font-semibold text-indigo-900">Building the Future of Human-AI Interaction</span>
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-indigo-200 rounded-full text-xs sm:text-sm font-semibold text-indigo-700 shadow-sm"
+                >
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
+                  Voice-First
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-purple-200 rounded-full text-xs sm:text-sm font-semibold text-purple-700 shadow-sm"
+                >
+                  <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
+                  100+ Languages
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-pink-200 rounded-full text-xs sm:text-sm font-semibold text-pink-700 shadow-sm"
+                >
+                  <Rocket className="w-3 h-3 sm:w-4 sm:h-4" />
+                  50K+ Users
+                </motion.span>
               </motion.div>
 
               <motion.h1
@@ -271,62 +297,32 @@ export default function AboutPage() {
                   transition={{ duration: 0.6 }}
                 />
 
+                <motion.div
+                  className="flex flex-wrap items-center justify-center gap-2 mb-6"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={staggerFast}
+                >
+                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+                    ⌨️ Keyboards = PCs
+                  </motion.span>
+                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
+                    👆 Touchscreens = Smartphones
+                  </motion.span>
+                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full text-xs font-semibold shadow-lg">
+                    🎤 Voice = Next Era
+                  </motion.span>
+                </motion.div>
+
                 <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 sm:mb-8"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  Every revolution in computing started with how we interact with machines.
-                </motion.p>
-
-                <motion.div
-                  className="space-y-4 sm:space-y-6 mb-6 sm:mb-8"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerContainer}
-                >
-                  {[
-                    { icon: '⌨️', text: 'Keyboards', subtext: 'put computers on every desk.' },
-                    { icon: '👆', text: 'Touchscreens', subtext: 'put computers in every pocket.' },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      variants={fadeUp}
-                      className="flex items-start gap-3 sm:gap-4 group"
-                      whileHover={{ x: 10 }}
-                    >
-                      <motion.div
-                        className="text-2xl sm:text-3xl flex-shrink-0"
-                        whileHover={{ scale: 1.3, rotate: 10 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        {item.icon}
-                      </motion.div>
-                      <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
-                        <span className="font-semibold">{item.text}</span> {item.subtext}
-                      </p>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl text-gray-900 font-semibold leading-relaxed flex items-center gap-2 sm:gap-3"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  <motion.span
-                    className="flex-shrink-0"
-                    animate={{ rotate: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    🎤
-                  </motion.span>
-                  <span>Voice is the next leap. We're making it real.</span>
+                  Every computing revolution started with a new way to interact. Voice is next. We're building it.
                 </motion.p>
               </motion.div>
             </div>
@@ -362,35 +358,52 @@ export default function AboutPage() {
                   />
                 ))}
 
-                <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl leading-relaxed mb-4 sm:mb-6"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
+                  variants={staggerContainer}
+                  className="space-y-6"
                 >
-                  Here's the frustrating truth:
-                </motion.p>
-                <motion.p
-                  className="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 text-gray-300"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                >
-                  You've tried voice typing. Maybe you dictated a text message that came out garbled. Maybe you sent an email with "um" sprinkled throughout. You fixed it by hand. Then you went back to typing.
-                  <br /><br />
-                  Speech recognition works beautifully. But <span className="font-semibold text-white">writing quality</span>? That's still broken. Nobody trusts voice for anything that matters.
-                </motion.p>
-                <motion.p
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6, type: "spring" }}
-                >
-                  We're fixing that. For real.
-                </motion.p>
+                  <motion.p
+                    variants={fadeUp}
+                    className="text-lg sm:text-xl lg:text-2xl leading-relaxed"
+                  >
+                    You've tried voice typing. It gave you garbage.
+                  </motion.p>
+
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-wrap gap-2 justify-center"
+                  >
+                    <span className="inline-flex items-center px-3 py-1.5 bg-red-500/20 border border-red-400/30 rounded-full text-sm text-red-200">
+                      ❌ "um, uh, like"
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1.5 bg-red-500/20 border border-red-400/30 rounded-full text-sm text-red-200">
+                      ❌ Weird phrasing
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1.5 bg-red-500/20 border border-red-400/30 rounded-full text-sm text-red-200">
+                      ❌ Tons of editing
+                    </span>
+                  </motion.div>
+
+                  <motion.p
+                    variants={fadeUp}
+                    className="text-base sm:text-lg lg:text-xl text-gray-300"
+                  >
+                    So you went back to typing. The dream died.
+                  </motion.p>
+
+                  <motion.div
+                    variants={scaleIn}
+                    className="pt-4"
+                  >
+                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-400 to-purple-400 text-white rounded-xl text-lg sm:text-xl font-bold shadow-xl">
+                      <Zap className="w-5 h-5" />
+                      Zavi fixes this
+                    </span>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </div>
           </AnimatedSection>
@@ -443,61 +456,65 @@ export default function AboutPage() {
                 />
 
                 <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 sm:mb-8 font-medium relative z-10"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 font-semibold relative z-10"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  We're making talking to your computer feel as natural as talking to a friend—but the output? That's polished, professional, and ready to send.
+                  Talk naturally. Get perfect writing.
                 </motion.p>
 
                 <motion.div
-                  className="space-y-4 text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed relative z-10"
+                  className="space-y-6 relative z-10"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={staggerContainer}
                 >
-                  <motion.p variants={fadeUp}>
-                    We're building the <motion.span
-                      className="font-bold text-indigo-600"
-                      whileHover={{ scale: 1.05 }}
-                      style={{ display: 'inline-block' }}
-                    >
-                      Voice Writing Layer
-                    </motion.span>—an invisible intelligence that turns your spoken thoughts into crisp, clear writing. Instantly. Everywhere.
-                  </motion.p>
-
                   <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200"
-                    variants={staggerContainer}
+                    variants={fadeUp}
+                    className="flex flex-wrap justify-center gap-2"
                   >
-                    {['Not a dictation tool', 'Not a note-taking app'].map((text, i) => (
-                      <motion.div
-                        key={i}
-                        variants={fadeUp}
-                        className="flex items-center gap-2 sm:gap-3 text-gray-600 text-sm sm:text-base"
-                        whileHover={{ x: 5 }}
-                      >
-                        <motion.span
-                          className="text-xl sm:text-2xl flex-shrink-0"
-                          whileHover={{ rotate: 180 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          ✗
-                        </motion.span>
-                        <span>{text}</span>
-                      </motion.div>
-                    ))}
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-medium text-emerald-700">
+                      ✓ No "um, uh"
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-medium text-emerald-700">
+                      ✓ Perfect tone
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-medium text-emerald-700">
+                      ✓ Ready to send
+                    </span>
                   </motion.div>
 
                   <motion.p
-                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 pt-4 sm:pt-6"
-                    variants={scaleIn}
+                    variants={fadeUp}
+                    className="text-base sm:text-lg lg:text-xl text-gray-700"
                   >
-                    It's the input layer for how humans will work in the AI era.
+                    Zavi is like having a <motion.span
+                      className="font-bold text-indigo-600 px-3 py-1 bg-indigo-50 rounded-lg"
+                      whileHover={{ scale: 1.05 }}
+                      style={{ display: 'inline-block' }}
+                    >
+                      professional writer
+                    </motion.span> who instantly translates your spoken thoughts into crisp, clear text.
                   </motion.p>
+
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-wrap justify-center gap-2 pt-4"
+                  >
+                    <span className="inline-flex items-center px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">
+                      Not dictation
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">
+                      Not notes
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full text-sm font-semibold shadow-lg">
+                      <Zap className="w-3 h-3" />
+                      Input Infrastructure
+                    </span>
+                  </motion.div>
                 </motion.div>
               </motion.div>
             </div>
@@ -536,40 +553,56 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 font-medium"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  Your brain moves at the speed of thought. Your fingers? Not so much.
-                </motion.p>
-
                 <motion.div
-                  className="bg-white rounded-2xl p-5 sm:p-7 lg:p-8 mb-6 shadow-xl"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  whileHover={{ scale: 1.01, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+                  variants={staggerContainer}
+                  className="space-y-6"
                 >
-                  <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-3 sm:mb-4">
-                    <span className="font-bold text-red-600">Voice was supposed to fix this.</span> But it didn't.
-                  </p>
-                  <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
-                    Dictation gives you raw speech—full of "um," "uh," weird phrasing, and typos. You end up rewriting everything anyway. So you go back to typing. The promise dies.
-                  </p>
-                </motion.div>
+                  <motion.p
+                    variants={fadeUp}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900"
+                  >
+                    Your brain: 💨 Fast
+                    <br />
+                    Your fingers: 🐌 Slow
+                  </motion.p>
 
-                <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 leading-relaxed"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                >
-                  Zavi doesn't transcribe your words. It understands your intent—then writes it properly the first time.
-                </motion.p>
+                  <motion.div
+                    variants={fadeUp}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                  >
+                    <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-4 sm:p-6">
+                      <div className="text-red-600 font-bold text-lg mb-2">❌ Old Voice</div>
+                      <div className="space-y-1 text-sm text-red-700">
+                        <div>→ "um, uh, like"</div>
+                        <div>→ Weird phrasing</div>
+                        <div>→ Edit everything</div>
+                        <div>→ Give up, type instead</div>
+                      </div>
+                    </div>
+
+                    <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-4 sm:p-6">
+                      <div className="text-emerald-600 font-bold text-lg mb-2">✓ Zavi</div>
+                      <div className="space-y-1 text-sm text-emerald-700">
+                        <div>→ Understand intent</div>
+                        <div>→ Perfect writing</div>
+                        <div>→ Zero editing</div>
+                        <div>→ Never type again</div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.p
+                    variants={scaleIn}
+                    className="text-base sm:text-lg text-center"
+                  >
+                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-xl">
+                      Intelligence BEFORE text. Not after.
+                    </span>
+                  </motion.p>
+                </motion.div>
               </motion.div>
             </div>
           </AnimatedSection>
@@ -615,37 +648,60 @@ export default function AboutPage() {
                   </motion.div>
 
                   <motion.div
-                    className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl leading-relaxed"
+                    className="space-y-6"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerContainer}
                   >
                     <motion.p
-                      className="text-xl sm:text-2xl font-semibold text-blue-200"
                       variants={fadeUp}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-100"
                     >
-                      Most of the world doesn't think in English.<br />
-                      But work still demands it.
-                    </motion.p>
-
-                    <motion.p
-                      className="text-gray-200 text-sm sm:text-base lg:text-lg"
-                      variants={fadeUp}
-                    >
-                      Imagine having a brilliant idea in your native language—then spending 15 minutes translating it, second-guessing tone, worrying if it sounds "professional enough." Billions of people do this every single day. We call it the "fluency tax."
+                      6 billion people don't think in English.
+                      <br />
+                      Work forces them to.
                     </motion.p>
 
                     <motion.div
-                      className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-7 border border-white/20"
+                      variants={fadeUp}
+                      className="flex flex-wrap gap-2 justify-center"
+                    >
+                      <span className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-xs sm:text-sm text-white">
+                        💭 Think in Hindi
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-xs sm:text-sm text-white">
+                        ⏱️ 15 min translating
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-xs sm:text-sm text-white">
+                        😰 Sound professional?
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1.5 bg-red-500/30 border border-red-400/50 rounded-full text-xs sm:text-sm text-red-100 font-semibold">
+                        💸 Fluency Tax
+                      </span>
+                    </motion.div>
+
+                    <motion.div
+                      className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-7 border-2 border-white/30 shadow-2xl"
                       variants={scaleIn}
                       whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
                     >
-                      <p className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
-                        With Zavi, you think in your language. Speak naturally. And out comes polished, professional English.
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-500 text-white rounded-full text-xs font-semibold">
+                          ✓ Think: Any language
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-500 text-white rounded-full text-xs font-semibold">
+                          ✓ Speak: Naturally
+                        </span>
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-500 text-white rounded-full text-xs font-semibold">
+                          ✓ Get: Perfect English
+                        </span>
+                      </div>
+                      <p className="text-lg sm:text-xl font-bold text-white mb-2">
+                        Zavi breaks the fluency barrier.
                       </p>
-                      <p className="text-sm sm:text-base lg:text-lg text-blue-100">
-                        No other input layer in the world can do this.
+                      <p className="text-sm sm:text-base text-blue-100">
+                        First and only voice input that truly understands multilingual thinking.
                       </p>
                     </motion.div>
                   </motion.div>
@@ -693,58 +749,87 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6 sm:mb-8">
-                  Zavi works everywhere you write. Because that's the point.
-                </p>
-
                 <motion.div
-                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-10"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerFast}
-                >
-                  {['Android', 'iOS', 'macOS', 'Windows', 'Linux'].map((platform, i) => (
-                    <motion.div
-                      key={platform}
-                      variants={scaleIn}
-                      className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-3 sm:p-4 text-center border border-indigo-100 cursor-pointer"
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: [0, -5, 5, 0],
-                        boxShadow: '0 20px 25px -5px rgba(99, 102, 241, 0.3)'
-                      }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <p className="font-semibold text-gray-900 text-sm sm:text-base">{platform}</p>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                <motion.p
-                  className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
-                  Gmail. Slack. Notion. Salesforce. Your company's internal tools. Anywhere text goes, Zavi goes.
-                </motion.p>
-
-                <motion.div
-                  className="space-y-2 sm:space-y-3 text-base sm:text-lg lg:text-xl font-semibold text-gray-900"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={staggerContainer}
+                  className="space-y-8"
                 >
-                  <motion.p variants={fadeUp}>No app switching.</motion.p>
-                  <motion.p variants={fadeUp}>No new workflow.</motion.p>
                   <motion.p
-                    className="text-lg sm:text-xl lg:text-2xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent pt-2"
-                    variants={scaleIn}
+                    variants={fadeUp}
+                    className="text-xl sm:text-2xl font-bold text-gray-900 text-center"
                   >
-                    You just talk. Zavi handles the rest.
+                    Works everywhere. That's the point.
+                  </motion.p>
+
+                  {/* Platform badges */}
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-wrap justify-center gap-2 sm:gap-3"
+                  >
+                    {['📱 Android', '🍎 iOS', '💻 macOS', '🪟 Windows', '🐧 Linux'].map((platform, i) => (
+                      <motion.span
+                        key={platform}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        whileHover={{ scale: 1.1, y: -3 }}
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-full text-sm font-semibold text-gray-800 shadow-sm cursor-pointer"
+                      >
+                        {platform}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+
+                  {/* App badges */}
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-wrap justify-center gap-2"
+                  >
+                    {['Gmail', 'Slack', 'Notion', 'ChatGPT', 'Salesforce', 'Linear', 'Jira', 'Docs'].map((app) => (
+                      <span
+                        key={app}
+                        className="inline-flex items-center px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700"
+                      >
+                        {app}
+                      </span>
+                    ))}
+                    <span className="inline-flex items-center px-3 py-1.5 bg-indigo-100 border border-indigo-300 rounded-full text-xs font-semibold text-indigo-700">
+                      + Every App
+                    </span>
+                  </motion.div>
+
+                  {/* Benefits */}
+                  <motion.div
+                    variants={fadeUp}
+                    className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 border-2 border-indigo-200"
+                  >
+                    <div className="grid sm:grid-cols-3 gap-3 text-center">
+                      <div>
+                        <div className="text-3xl mb-2">🚫</div>
+                        <div className="text-sm font-semibold text-gray-800">No app switching</div>
+                      </div>
+                      <div>
+                        <div className="text-3xl mb-2">⚡</div>
+                        <div className="text-sm font-semibold text-gray-800">No behavior change</div>
+                      </div>
+                      <div>
+                        <div className="text-3xl mb-2">🎯</div>
+                        <div className="text-sm font-semibold text-gray-800">Just works</div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.p
+                    variants={scaleIn}
+                    className="text-center"
+                  >
+                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl text-base sm:text-lg font-bold shadow-xl">
+                      <Zap className="w-4 h-4" />
+                      Talk → Perfect text → Anywhere
+                    </span>
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -811,11 +896,18 @@ export default function AboutPage() {
                           transition={{ duration: 3, repeat: Infinity }}
                         />
                         <motion.div
-                          className="relative w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl sm:text-4xl font-bold shadow-2xl"
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
+                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-indigo-100"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
                         >
-                          RG
+                          <Image
+                            src="/images/team/raman.svg"
+                            alt="Raman Goyal - Founder & CEO"
+                            width={128}
+                            height={128}
+                            className="object-cover w-full h-full"
+                            priority
+                          />
                         </motion.div>
                       </div>
 
@@ -827,21 +919,20 @@ export default function AboutPage() {
                       >
                         Raman Goyal
                       </motion.h3>
-                      <motion.p
-                        className="text-base sm:text-lg text-indigo-600 font-semibold mb-4"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                      >
-                        Founder & CEO
-                      </motion.p>
+                      <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+                        <span className="inline-flex items-center px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">
+                          Founder & CEO
+                        </span>
+                        <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs">
+                          🎓 Edinburgh
+                        </span>
+                      </div>
 
                       <motion.a
                         href="https://www.linkedin.com/in/ramangoyal3"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm sm:text-base"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
                         whileHover={{
                           scale: 1.05,
                           backgroundColor: '#004182',
@@ -849,30 +940,42 @@ export default function AboutPage() {
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Connect on LinkedIn
+                        <Linkedin className="w-4 h-4" />
+                        Connect
                       </motion.a>
                     </div>
 
                     <motion.div
-                      className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed relative z-10"
+                      className="space-y-4 text-gray-700 leading-relaxed relative z-10"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={staggerContainer}
                     >
-                      <motion.p className="text-sm sm:text-base lg:text-lg" variants={fadeUp}>
-                        Raman leads product, vision, and how Zavi shows up in the world.
-                      </motion.p>
+                      <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
+                        <span className="inline-flex items-center px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-md text-xs font-medium">
+                          Product
+                        </span>
+                        <span className="inline-flex items-center px-2.5 py-1 bg-purple-50 text-purple-700 rounded-md text-xs font-medium">
+                          Vision
+                        </span>
+                        <span className="inline-flex items-center px-2.5 py-1 bg-pink-50 text-pink-700 rounded-md text-xs font-medium">
+                          Strategy
+                        </span>
+                      </motion.div>
+
                       <motion.p className="text-sm sm:text-base" variants={fadeUp}>
-                        A <span className="font-semibold text-gray-900">University of Edinburgh</span> grad who's obsessed with building things that feel obvious in hindsight. He's spent years thinking about how AI stops being a "tool" and starts being infrastructure—the kind you forget exists because it just works.
+                        Built Zavi after years of frustration with voice typing. Believes your voice should be as powerful as your keyboard—actually, more powerful.
                       </motion.p>
-                      <motion.p
-                        className="text-sm sm:text-base italic text-gray-600 border-l-4 border-indigo-500 pl-3 sm:pl-4 py-2"
+
+                      <motion.div
                         variants={fadeUp}
+                        className="bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-lg"
                       >
-                        "I built Zavi because I was tired of my fingers being slower than my brain."
-                      </motion.p>
+                        <p className="text-sm italic text-indigo-900 font-medium">
+                          "I got tired of my fingers being the bottleneck. You shouldn't have to choose between speed and quality."
+                        </p>
+                      </motion.div>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -903,11 +1006,18 @@ export default function AboutPage() {
                           transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                         />
                         <motion.div
-                          className="relative w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl sm:text-4xl font-bold shadow-2xl"
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
+                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-purple-100"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
                         >
-                          HK
+                          <Image
+                            src="/images/team/himanshu.svg"
+                            alt="Himanshu Kumar - Co-founder & CTO"
+                            width={128}
+                            height={128}
+                            className="object-cover w-full h-full"
+                            priority
+                          />
                         </motion.div>
                       </div>
 
@@ -919,21 +1029,20 @@ export default function AboutPage() {
                       >
                         Himanshu Kumar
                       </motion.h3>
-                      <motion.p
-                        className="text-base sm:text-lg text-purple-600 font-semibold mb-4"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                      >
-                        Co-founder & CTO
-                      </motion.p>
+                      <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+                        <span className="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">
+                          Co-founder & CTO
+                        </span>
+                        <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs">
+                          🎓 IIT Kharagpur
+                        </span>
+                      </div>
 
                       <motion.a
                         href="https://www.linkedin.com/in/hsyvy"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm sm:text-base"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
                         whileHover={{
                           scale: 1.05,
                           backgroundColor: '#004182',
@@ -941,30 +1050,42 @@ export default function AboutPage() {
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Connect on LinkedIn
+                        <Linkedin className="w-4 h-4" />
+                        Connect
                       </motion.a>
                     </div>
 
                     <motion.div
-                      className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed relative z-10"
+                      className="space-y-4 text-gray-700 leading-relaxed relative z-10"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={staggerContainer}
                     >
-                      <motion.p className="text-sm sm:text-base lg:text-lg" variants={fadeUp}>
-                        Himanshu builds the engine that makes Zavi feel like magic.
-                      </motion.p>
+                      <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
+                        <span className="inline-flex items-center px-2.5 py-1 bg-purple-50 text-purple-700 rounded-md text-xs font-medium">
+                          Edge ML
+                        </span>
+                        <span className="inline-flex items-center px-2.5 py-1 bg-pink-50 text-pink-700 rounded-md text-xs font-medium">
+                          Real-time AI
+                        </span>
+                        <span className="inline-flex items-center px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium">
+                          Architecture
+                        </span>
+                      </motion.div>
+
                       <motion.p className="text-sm sm:text-base" variants={fadeUp}>
-                        An <span className="font-semibold text-gray-900">IIT Kharagpur</span> alum with deep expertise in edge ML, low-latency systems, and real-time AI. He's solving the hardest problem in voice: making intelligence feel instant. Not "wait for it" instant. Actually instant.
+                        Believes AI should feel instant. Built Zavi's engine to understand your voice and deliver perfect text faster than you can type it.
                       </motion.p>
-                      <motion.p
-                        className="text-sm sm:text-base italic text-gray-600 border-l-4 border-purple-500 pl-3 sm:pl-4 py-2"
+
+                      <motion.div
                         variants={fadeUp}
+                        className="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r-lg"
                       >
-                        "The hybrid architecture isn't a feature. It's why Zavi doesn't make you wait."
-                      </motion.p>
+                        <p className="text-sm italic text-purple-900 font-medium">
+                          "Waiting kills the flow. Zavi responds instantly because your ideas can't wait."
+                        </p>
+                      </motion.div>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -1013,24 +1134,21 @@ export default function AboutPage() {
                   className="space-y-4 sm:space-y-6"
                 >
                   {[
-                    'Input layers define platforms.',
-                    'The best technology disappears.',
-                    'Voice is inevitable. Trust is earned.',
-                    'Language should never limit opportunity.',
-                    'Quality belongs at the beginning, not the end.'
+                    { icon: '🎯', text: 'Your thoughts deserve to be heard' },
+                    { icon: '⚡', text: 'Speed without sacrifice' },
+                    { icon: '🎤', text: 'Voice is the future of writing' },
+                    { icon: '🌍', text: 'Your language, your way' },
+                    { icon: '✨', text: 'Quality happens automatically' }
                   ].map((belief, index) => (
                     <motion.li
                       key={index}
                       variants={fadeUp}
-                      className="flex items-start gap-3 sm:gap-4 group"
-                      whileHover={{ x: 10 }}
+                      className="group"
                     >
-                      <motion.div
-                        className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full mt-2 flex-shrink-0"
-                        whileHover={{ scale: 1.5, rotate: 180 }}
-                        transition={{ type: "spring" }}
-                      />
-                      <p className="text-base sm:text-lg lg:text-2xl text-gray-800 font-medium leading-relaxed">{belief}</p>
+                      <div className="flex items-center gap-3 p-3 sm:p-4 bg-white rounded-xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all">
+                        <span className="text-2xl sm:text-3xl">{belief.icon}</span>
+                        <p className="text-sm sm:text-base lg:text-lg text-gray-800 font-semibold">{belief.text}</p>
+                      </div>
                     </motion.li>
                   ))}
                 </motion.ul>
@@ -1081,30 +1199,45 @@ export default function AboutPage() {
                   </motion.h2>
 
                   <motion.div
-                    className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-10"
+                    className="space-y-6 mb-8 sm:mb-10"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerContainer}
                   >
                     <motion.p
-                      className="text-lg sm:text-xl lg:text-2xl font-medium text-blue-200"
                       variants={fadeUp}
+                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6"
                     >
-                      In five years, voice will be how most people write. And Zavi will be the reason why.
+                      Soon, everyone will write with their voice.
                     </motion.p>
-                    <motion.p
-                      className="text-gray-200 text-sm sm:text-base lg:text-lg"
+
+                    <motion.div
                       variants={fadeUp}
+                      className="flex flex-wrap justify-center gap-2 mb-6"
                     >
-                      We're not building a feature. We're building the layer that makes AI feel human—and makes humans more productive than ever.
-                    </motion.p>
-                    <motion.p
-                      className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent"
+                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
+                        ✍️ No more slow typing
+                      </span>
+                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
+                        🌍 Any language → Perfect English
+                      </span>
+                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-400 border-2 border-white/50 rounded-full text-sm font-bold text-white shadow-xl">
+                        ⚡ Think fast, write faster
+                      </span>
+                    </motion.div>
+
+                    <motion.div
                       variants={scaleIn}
+                      className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-2xl p-6 text-center"
                     >
-                      This is just the beginning.
-                    </motion.p>
+                      <p className="text-xl sm:text-2xl font-bold text-white mb-2">
+                        Zavi makes your voice your superpower.
+                      </p>
+                      <p className="text-base sm:text-lg text-blue-100">
+                        Write emails, messages, docs—all by just talking. No editing. No frustration.
+                      </p>
+                    </motion.div>
                   </motion.div>
 
                   <motion.div
@@ -1126,8 +1259,7 @@ export default function AboutPage() {
                           Get Started with Zavi
                         </motion.span>
                         <motion.div
-                          whileHover={{ x: 5 }}
-                          transition={{ type: "spring", stiffness: 400 }}
+                            transition={{ type: "spring", stiffness: 400 }}
                         >
                           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                         </motion.div>
