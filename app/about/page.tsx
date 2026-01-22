@@ -395,7 +395,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
                   What People Are Saying
                 </h2>
                 <p className="text-lg text-gray-600">Real feedback from people who switched to Zavi</p>
@@ -462,10 +462,10 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="inline-flex items-center gap-2 mb-4"
+                  className="inline-flex items-center justify-center gap-2 mb-4 w-full"
                 >
                   <Rocket className="w-6 sm:w-8 h-6 sm:h-8 text-blue-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Our Mission</h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">Our Mission</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
@@ -571,7 +571,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center">
                   How People Use Zavi
                 </h2>
                 <p className="text-lg text-gray-600">Real scenarios, real results</p>
@@ -651,10 +651,10 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="inline-flex items-center gap-2 mb-4"
+                  className="inline-flex items-center justify-center gap-2 mb-4 w-full"
                 >
                   <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-sky-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Why Zavi Exists</h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">Why Zavi Exists</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-sky-600 to-pink-600 mx-auto rounded-full"
@@ -751,7 +751,7 @@ export default function AboutPage() {
 
                 <div className="relative z-10">
                   <motion.div
-                    className="flex items-center gap-2 sm:gap-3 mb-6"
+                    className="flex items-center justify-center gap-2 sm:gap-3 mb-6 w-full"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -762,7 +762,7 @@ export default function AboutPage() {
                     >
                       <Globe className="w-8 sm:w-10 h-8 sm:h-10 text-blue-300 flex-shrink-0" />
                     </motion.div>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Your Language. Your Voice.</h2>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">Your Language. Your Voice.</h2>
                   </motion.div>
 
                   <motion.div
@@ -839,7 +839,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
+                  className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4 w-full text-center"
                 >
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
@@ -963,10 +963,10 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
+                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4 w-full"
                 >
                   <Users className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">The Founders</h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">The Founders</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
@@ -1201,10 +1201,10 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
+                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4 w-full"
                 >
                   <Target className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">How It Works</h2>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">How It Works</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
