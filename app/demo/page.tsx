@@ -716,7 +716,7 @@ export default function DemoPage() {
                   <button
                     type="button"
                     onClick={toggleRecording}
-                    disabled={authStatus === 'error' || !isConnected}
+                    disabled={authStatus === 'error'}
                     className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${
                       isRecording
                         ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_40px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
