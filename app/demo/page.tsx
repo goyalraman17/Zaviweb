@@ -536,7 +536,7 @@ export default function DemoPage() {
                 {/* Record button */}
                 <button
                   onClick={toggleRecording}
-                  disabled={!isConnected}
+                  disabled={authStatus === 'loading' || authStatus === 'error'}
                   className={`w-[140px] h-[140px] rounded-full border-[3px] bg-[#0a1628] cursor-pointer relative transition-all flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
                     isRecording
                       ? 'border-[#60a5fa] shadow-[0_0_50px_rgba(96,165,250,0.6)]'
@@ -548,7 +548,11 @@ export default function DemoPage() {
                   }`} />
                 </button>
                 <p className="mt-6 text-xs text-[#7da1c4] uppercase tracking-[0.15em]">
-                  {isRecording ? 'Click to stop' : 'Tap to record, speak, then stop'}
+                  {isRecording
+                    ? 'Click to stop'
+                    : pendingRecordStart
+                      ? 'Connecting...'
+                      : 'Tap to record, speak, then stop'}
                 </p>
               </div>
 
