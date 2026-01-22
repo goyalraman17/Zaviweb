@@ -29,6 +29,7 @@ export default function DemoPage() {
   const processorRef = useRef<ScriptProcessorNode | null>(null)
   const waveBarsRef = useRef<number[]>(new Array(NUM_BARS).fill(20))
   const idTokenRef = useRef<string | null>(null)
+  const isRecordingRef = useRef<boolean>(false)
 
   // Initialize Firebase and auto-login
   useEffect(() => {
@@ -212,7 +213,8 @@ export default function DemoPage() {
 
       let frameCount = 0
       processor.onaudioprocess = (e) => {
-        if (!isRecording || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
+        // Use ref instead of state to avoid stale closure issues
+        if (!isRecordingRef.current || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
 
         const inputData = e.inputBuffer.getChannelData(0)
 
@@ -254,6 +256,9 @@ export default function DemoPage() {
       mediaStreamRef.current = mediaStream
       audioContextRef.current = audioContext
       processorRef.current = processor
+
+      // Set both ref and state - ref for audio processor, state for UI
+      isRecordingRef.current = true
       setIsRecording(true)
 
       console.log('Audio setup complete, ready to stream')
@@ -302,6 +307,8 @@ export default function DemoPage() {
       wsRef.current.send(JSON.stringify({ type: 'stop' }))
     }
 
+    // Set both ref and state
+    isRecordingRef.current = false
     setIsRecording(false)
     waveBarsRef.current = new Array(NUM_BARS).fill(20)
     console.log('Recording stopped')
