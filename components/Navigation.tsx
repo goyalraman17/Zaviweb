@@ -103,6 +103,7 @@ export default function Navigation() {
   const navLinks = [
     { name: 'How it Works', href: '/#how-it-works', id: 'how-it-works' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
+    { name: 'About', href: '/about', id: 'about' },
   ];
 
   return (
