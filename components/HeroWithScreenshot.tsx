@@ -12,6 +12,8 @@ import { analytics } from '@/lib/analytics';
 import LiveVoiceDemo from './LiveVoiceDemo';
 import FloatingElements from './animated/FloatingElements';
 import TextReveal from './animated/TextReveal';
+import GridPattern from './animated/GridPattern';
+import MorphingBlob from './animated/MorphingBlob';
 
 export default function HeroWithScreenshot() {
   const [detectedOS, setDetectedOS] = useState<string>('Unknown');
@@ -43,6 +45,17 @@ export default function HeroWithScreenshot() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 bg-white">
+      {/* Grid Pattern Background */}
+      <GridPattern className="opacity-30" width={60} height={60} strokeWidth={0.5} />
+
+      {/* Morphing Blobs */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 opacity-20">
+        <MorphingBlob duration={15} color="rgba(99, 102, 241, 0.3)" />
+      </div>
+      <div className="absolute bottom-1/3 right-1/3 w-80 h-80 opacity-15">
+        <MorphingBlob duration={20} color="rgba(139, 92, 246, 0.3)" />
+      </div>
+
       {/* Floating Elements */}
       <FloatingElements count={6} />
 

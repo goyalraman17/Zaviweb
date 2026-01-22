@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/animated/ScrollProgress";
 
 // Optimize font loading with Next.js font optimization
 // Only load essential weights: 400 (regular), 600 (semibold), 700 (bold)
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans font-normal" suppressHydrationWarning>
+        <ScrollProgress color="#6366F1" height={3} />
         {children}
         <Footer />
       </body>

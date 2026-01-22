@@ -6,6 +6,7 @@ import {
   fadeUp,
   fadeUpLarge,
 } from '@/lib/animations';
+import RevealOnScroll from './animated/RevealOnScroll';
 
 export default function KillYourKeyboard() {
   return (
@@ -18,13 +19,15 @@ export default function KillYourKeyboard() {
           className="text-center"
         >
           {/* Main Heading */}
-          <motion.h2
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-[#1a1a1a]"
-            variants={fadeUpLarge}
-            style={{ lineHeight: 1.15 }}
-          >
-            Kill Your Keyboard. Forever.
-          </motion.h2>
+          <RevealOnScroll direction="bottom" duration={0.8}>
+            <motion.h2
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-[#1a1a1a]"
+              variants={fadeUpLarge}
+              style={{ lineHeight: 1.15 }}
+            >
+              Kill Your Keyboard. Forever.
+            </motion.h2>
+          </RevealOnScroll>
 
           {/* Feature Pills */}
           <motion.div
