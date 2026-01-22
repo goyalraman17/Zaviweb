@@ -98,6 +98,9 @@ export default function DemoPage() {
 
     const ws = new WebSocket(url)
 
+    // Set binary type for ArrayBuffer handling
+    ws.binaryType = 'arraybuffer'
+
     ws.onopen = () => {
       setIsConnected(true)
       console.log('Connected to gateway')
@@ -191,29 +194,58 @@ export default function DemoPage() {
           channelCount: 1,
           sampleRate: 16000,
           echoCancellation: true,
-          noiseSuppression: true
+          noiseSuppression: true,
+          autoGainControl: true
         }
       })
 
+      // Create AudioContext with explicit 16kHz sample rate
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({
         sampleRate: 16000
       })
 
+      console.log('AudioContext sample rate:', audioContext.sampleRate)
+
       const source = audioContext.createMediaStreamSource(mediaStream)
+
+      // Use larger buffer for better performance (4096 samples = 256ms at 16kHz)
       const processor = audioContext.createScriptProcessor(4096, 1, 1)
 
+      let frameCount = 0
       processor.onaudioprocess = (e) => {
         if (!isRecording || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
 
         const inputData = e.inputBuffer.getChannelData(0)
-        const pcmData = new Int16Array(inputData.length)
 
+        // Convert Float32Array to Int16Array (PCM 16-bit little-endian)
+        const pcmData = new Int16Array(inputData.length)
         for (let i = 0; i < inputData.length; i++) {
-          const s = Math.max(-1, Math.min(1, inputData[i]))
-          pcmData[i] = s < 0 ? s * 0x8000 : s * 0x7FFF
+          // Clamp the value between -1 and 1
+          const sample = Math.max(-1, Math.min(1, inputData[i]))
+          // Convert to 16-bit PCM
+          pcmData[i] = sample < 0 ? sample * 0x8000 : sample * 0x7FFF
         }
 
-        wsRef.current.send(pcmData.buffer)
+        // Debug: Log first chunk
+        if (frameCount === 0) {
+          console.log('First audio chunk:', {
+            length: pcmData.length,
+            bufferSize: pcmData.buffer.byteLength,
+            sampleRate: audioContext.sampleRate,
+            firstSamples: Array.from(pcmData.slice(0, 10))
+          })
+        }
+        frameCount++
+
+        // Send as ArrayBuffer (binary data)
+        if (wsRef.current.readyState === WebSocket.OPEN) {
+          try {
+            wsRef.current.send(pcmData.buffer)
+          } catch (error) {
+            console.error('Error sending audio data:', error)
+          }
+        }
+
         updateWaveform(inputData)
       }
 
