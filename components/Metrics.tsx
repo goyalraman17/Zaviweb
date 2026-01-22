@@ -2,25 +2,31 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import AnimatedCounter from './animated/AnimatedCounter';
 
 const metrics = [
   {
-    value: "5x",
+    value: 5,
+    suffix: "x",
     label: "Faster",
     detail: "than typing"
   },
   {
-    value: "<2s",
+    value: 2,
+    prefix: "<",
+    suffix: "s",
     label: "Response time",
     detail: "speech to perfect text"
   },
   {
-    value: "100+",
+    value: 100,
+    suffix: "+",
     label: "Languages",
     detail: "speak any, write English"
   },
   {
-    value: "50K+",
+    value: 50,
+    suffix: "K+",
     label: "Users",
     detail: "downloaded this month"
   }
@@ -31,8 +37,38 @@ export default function Metrics() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-16 md:py-24 bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50 relative overflow-hidden">
+      {/* Floating background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, -30, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
           {metrics.map((metric, index) => (
             <motion.div
@@ -56,7 +92,13 @@ export default function Metrics() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
-                {metric.value}
+                {metric.prefix}
+                <AnimatedCounter
+                  end={metric.value}
+                  duration={2}
+                  decimals={0}
+                />
+                {metric.suffix}
               </motion.div>
               <motion.div
                 className="text-lg md:text-xl font-semibold text-indigo-600 mb-1"
