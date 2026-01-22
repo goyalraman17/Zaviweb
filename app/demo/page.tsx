@@ -30,6 +30,7 @@ export default function DemoPage() {
   const waveBarsRef = useRef<number[]>(new Array(NUM_BARS).fill(20))
   const idTokenRef = useRef<string | null>(null)
   const isRecordingRef = useRef<boolean>(false)
+  const pendingRecordStartRef = useRef<boolean>(false)
 
   // Initialize Firebase and auto-login
   useEffect(() => {
@@ -88,6 +89,14 @@ export default function DemoPage() {
 
   // Connect to WebSocket
   const connect = () => {
+    // Close existing WebSocket if any
+    if (wsRef.current) {
+      if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
+        wsRef.current.close()
+      }
+      wsRef.current = null
+    }
+
     const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://zavivoice.com/ws'
 
     // Append auth token if available
@@ -106,7 +115,10 @@ export default function DemoPage() {
       setIsConnected(true)
       console.log('Connected to gateway')
 
-      if (pendingRecordStart) {
+      // Use ref to avoid stale closure issue
+      if (pendingRecordStartRef.current) {
+        console.log('Auto-starting recording after connection')
+        pendingRecordStartRef.current = false
         setPendingRecordStart(false)
         startRecording()
       }
@@ -114,8 +126,10 @@ export default function DemoPage() {
 
     ws.onclose = (event) => {
       setIsConnected(false)
+      pendingRecordStartRef.current = false
       setPendingRecordStart(false)
       stopRecording()
+      wsRef.current = null // Clear the reference so we can reconnect
       console.log('Disconnected from gateway', {
         code: event.code,
         reason: event.reason,
@@ -286,8 +300,7 @@ export default function DemoPage() {
 
   // Stop recording
   const stopRecording = () => {
-    if (!isRecording) return
-
+    // Always clean up audio resources, even if isRecording is false
     if (processorRef.current) {
       processorRef.current.disconnect()
       processorRef.current = null
@@ -303,7 +316,8 @@ export default function DemoPage() {
       mediaStreamRef.current = null
     }
 
-    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+    // Only send stop message if we were actually recording
+    if (isRecording && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'stop' }))
     }
 
@@ -311,7 +325,10 @@ export default function DemoPage() {
     isRecordingRef.current = false
     setIsRecording(false)
     waveBarsRef.current = new Array(NUM_BARS).fill(20)
-    console.log('Recording stopped')
+
+    if (isRecording) {
+      console.log('Recording stopped')
+    }
   }
 
   // Update waveform visualization
@@ -339,7 +356,12 @@ export default function DemoPage() {
       stopRecording()
     } else {
       if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
-        console.log('Connecting...')
+        console.log('WebSocket not connected, reconnecting...', {
+          hasRef: !!wsRef.current,
+          state: wsRef.current?.readyState
+        })
+        // Set both ref and state - ref for the onopen callback, state for UI
+        pendingRecordStartRef.current = true
         setPendingRecordStart(true)
         connect()
         return
@@ -514,7 +536,7 @@ export default function DemoPage() {
                 {/* Record button */}
                 <button
                   onClick={toggleRecording}
-                  disabled={!isConnected}
+                  disabled={authStatus === 'error'}
                   className={`w-[140px] h-[140px] rounded-full border-[3px] bg-[#0a1628] cursor-pointer relative transition-all flex items-center justify-center hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
                     isRecording
                       ? 'border-[#60a5fa] shadow-[0_0_50px_rgba(96,165,250,0.6)]'
@@ -526,7 +548,11 @@ export default function DemoPage() {
                   }`} />
                 </button>
                 <p className="mt-6 text-xs text-[#7da1c4] uppercase tracking-[0.15em]">
-                  {isRecording ? 'Click to stop' : 'Tap to record, speak, then stop'}
+                  {isRecording
+                    ? 'Click to stop'
+                    : pendingRecordStart
+                      ? 'Connecting...'
+                      : 'Tap to record, speak, then stop'}
                 </p>
               </div>
 
