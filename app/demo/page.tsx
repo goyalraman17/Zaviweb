@@ -319,6 +319,9 @@ export default function DemoPage() {
 
   // Stop recording
   const stopRecording = () => {
+    // Check if we were recording before cleaning up
+    const wasRecording = isRecordingRef.current
+
     // Always clean up audio resources, even if isRecording is false
     if (processorRef.current) {
       processorRef.current.disconnect()
@@ -336,7 +339,7 @@ export default function DemoPage() {
     }
 
     // Only send stop message if we were actually recording
-    if (isRecording && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+    if (wasRecording && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'stop' }))
     }
 
@@ -345,7 +348,7 @@ export default function DemoPage() {
     setIsRecording(false)
     waveBarsRef.current = new Array(NUM_BARS).fill(20)
 
-    if (isRecording) {
+    if (wasRecording) {
       console.log('Recording stopped')
       if (hasRecorded && currentStep === 2) {
         setCurrentStep(3)
@@ -637,11 +640,52 @@ export default function DemoPage() {
                 )}
               </motion.div>
 
-              {/* Main recording area */}
+              {/* Language Selection - Prominent Feature */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
+                className="mb-8"
+              >
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                  </svg>
+                  <label htmlFor="language-select" className="text-lg font-semibold text-gray-900">
+                    Select Your Language
+                  </label>
+                </div>
+                <select
+                  id="language-select"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  disabled={isRecording}
+                  className="w-full max-w-md mx-auto block px-6 py-4 bg-white border-2 border-blue-200 text-gray-900 rounded-xl text-center text-lg font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:border-blue-300 shadow-sm"
+                >
+                  <option value="en-US">🇺🇸 English (US)</option>
+                  <option value="en-GB">🇬🇧 English (UK)</option>
+                  <option value="es-ES">🇪🇸 Spanish (Spain)</option>
+                  <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
+                  <option value="fr-FR">🇫🇷 French</option>
+                  <option value="de-DE">🇩🇪 German</option>
+                  <option value="it-IT">🇮🇹 Italian</option>
+                  <option value="pt-BR">🇧🇷 Portuguese</option>
+                  <option value="ja-JP">🇯🇵 Japanese</option>
+                  <option value="ko-KR">🇰🇷 Korean</option>
+                  <option value="cmn-Hans-CN">🇨🇳 Chinese (Simplified)</option>
+                  <option value="hi-IN">🇮🇳 Hindi</option>
+                  <option value="ar-XA">🇸🇦 Arabic</option>
+                </select>
+                {isRecording && (
+                  <p className="mt-2 text-center text-xs text-gray-500">Stop recording to change language</p>
+                )}
+              </motion.div>
+
+              {/* Main recording area */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
                 className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 mb-8"
               >
                 {/* Waveform visualization */}
@@ -748,7 +792,7 @@ export default function DemoPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.6 }}
                 className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 mb-8"
               >
                 <div className="flex items-center justify-between mb-6">
@@ -807,11 +851,11 @@ export default function DemoPage() {
                 )}
               </motion.div>
 
-              {/* Settings panel */}
+              {/* Translation Settings panel */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.7 }}
                 className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
               >
                 <button
@@ -820,10 +864,9 @@ export default function DemoPage() {
                 >
                   <div className="flex items-center gap-3">
                     <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                     </svg>
-                    <span className="text-lg font-semibold text-gray-900">Advanced Settings</span>
+                    <span className="text-lg font-semibold text-gray-900">Translation Settings</span>
                   </div>
                   <motion.svg
                     className="w-5 h-5 text-gray-600"
@@ -847,37 +890,6 @@ export default function DemoPage() {
                       className="border-t border-gray-200"
                     >
                       <div className="p-6 space-y-6">
-                        {/* Language selection */}
-                        <div>
-                          <label htmlFor="language" className="block text-sm font-semibold text-gray-700 mb-2">
-                            Input Language
-                          </label>
-                          <select
-                            id="language"
-                            value={language}
-                            onChange={(e) => setLanguage(e.target.value)}
-                            disabled={isRecording}
-                            className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                          >
-                            <option value="en-US">English (US)</option>
-                            <option value="en-GB">English (UK)</option>
-                            <option value="es-ES">Spanish (Spain)</option>
-                            <option value="es-MX">Spanish (Mexico)</option>
-                            <option value="fr-FR">French (France)</option>
-                            <option value="de-DE">German</option>
-                            <option value="it-IT">Italian</option>
-                            <option value="pt-BR">Portuguese (Brazil)</option>
-                            <option value="ja-JP">Japanese</option>
-                            <option value="ko-KR">Korean</option>
-                            <option value="cmn-Hans-CN">Chinese (Simplified)</option>
-                            <option value="hi-IN">Hindi</option>
-                            <option value="ar-XA">Arabic</option>
-                          </select>
-                          {isRecording && (
-                            <p className="mt-2 text-xs text-gray-500">Stop recording to change language</p>
-                          )}
-                        </div>
-
                         {/* Translation toggle */}
                         <div className="flex items-start gap-4">
                           <div className="flex items-center h-6">
@@ -942,7 +954,7 @@ export default function DemoPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0.8 }}
                 className="mt-12 text-center"
               >
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 border border-blue-100">
