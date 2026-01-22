@@ -111,11 +111,15 @@ export default function DemoPage() {
       }
     }
 
-    ws.onclose = () => {
+    ws.onclose = (event) => {
       setIsConnected(false)
       setPendingRecordStart(false)
       stopRecording()
-      console.log('Disconnected from gateway')
+      console.log('Disconnected from gateway', {
+        code: event.code,
+        reason: event.reason,
+        wasClean: event.wasClean
+      })
     }
 
     ws.onerror = (error) => {
@@ -123,8 +127,13 @@ export default function DemoPage() {
     }
 
     ws.onmessage = (event) => {
-      const data = JSON.parse(event.data)
-      handleMessage(data)
+      console.log('Received message:', event.data)
+      try {
+        const data = JSON.parse(event.data)
+        handleMessage(data)
+      } catch (error) {
+        console.error('Failed to parse message:', event.data, error)
+      }
     }
 
     wsRef.current = ws
@@ -187,6 +196,7 @@ export default function DemoPage() {
         startMessage.targetLanguage = targetLanguage
       }
 
+      console.log('Sending start message:', startMessage)
       wsRef.current.send(JSON.stringify(startMessage))
 
       const mediaStream = await navigator.mediaDevices.getUserMedia({
