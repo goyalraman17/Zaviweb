@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,8 +13,7 @@
     "lucide-react": "^0.562.0",
     "next": "^16.1.1",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "ws": "^8.18.0"
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",

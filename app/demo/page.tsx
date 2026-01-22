@@ -25,8 +25,9 @@ export default function DemoPage() {
 
   // Connect to WebSocket
   const connect = () => {
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
-    const wsUrl = `${protocol}//${window.location.host}/ws`
+    // Connect to the separate WebSocket server
+    // Use environment variable or fallback to zavivoice.com
+    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://zavivoice.com/ws'
 
     console.log('Connecting to gateway:', wsUrl)
 
