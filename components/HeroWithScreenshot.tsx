@@ -10,6 +10,8 @@ import {
 } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
 import LiveVoiceDemo from './LiveVoiceDemo';
+import FloatingElements from './animated/FloatingElements';
+import TextReveal from './animated/TextReveal';
 
 export default function HeroWithScreenshot() {
   const [detectedOS, setDetectedOS] = useState<string>('Unknown');
@@ -41,6 +43,9 @@ export default function HeroWithScreenshot() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 bg-white">
+      {/* Floating Elements */}
+      <FloatingElements count={6} />
+
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
