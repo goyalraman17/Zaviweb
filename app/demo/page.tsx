@@ -186,19 +186,8 @@ export default function DemoPage() {
         return
       }
 
-      const startMessage: any = {
-        type: 'start',
-        language: language,
-        interim: true
-      }
-
-      if (enableTranslation && targetLanguage) {
-        startMessage.targetLanguage = targetLanguage
-      }
-
-      console.log('Sending start message:', startMessage)
-      wsRef.current.send(JSON.stringify(startMessage))
-
+      // First, set up the microphone and audio processing
+      console.log('Requesting microphone access...')
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: {
           channelCount: 1,
@@ -266,6 +255,22 @@ export default function DemoPage() {
       audioContextRef.current = audioContext
       processorRef.current = processor
       setIsRecording(true)
+
+      console.log('Audio setup complete, ready to stream')
+
+      // NOW send the start message after audio is ready to stream
+      const startMessage: any = {
+        type: 'start',
+        language: language,
+        interim: true
+      }
+
+      if (enableTranslation && targetLanguage) {
+        startMessage.targetLanguage = targetLanguage
+      }
+
+      console.log('Sending start message:', startMessage)
+      wsRef.current.send(JSON.stringify(startMessage))
 
       console.log('Recording started')
     } catch (error: any) {
