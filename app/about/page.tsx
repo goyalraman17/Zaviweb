@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import { useInView } from 'framer-motion';
-import { Linkedin, ArrowRight, Globe, Zap, Users, Target, Sparkles, Rocket, TrendingUp } from 'lucide-react';
+import { Linkedin, Target, Users, Heart, Zap, Globe } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,24 +14,6 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-  }
-};
-
-const fadeUpLarge = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-  }
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
   }
 };
 
@@ -46,18 +28,7 @@ const staggerContainer = {
   }
 };
 
-const staggerFast = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0,
-    }
-  }
-};
-
-function AnimatedSection({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+function AnimatedSection({ children, className = '' }: { children: React.ReactNode, className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -67,7 +38,6 @@ function AnimatedSection({ children, className = '', delay = 0 }: { children: Re
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={fadeUp}
-      transition={{ delay }}
       className={className}
     >
       {children}
@@ -75,1338 +45,298 @@ function AnimatedSection({ children, className = '', delay = 0 }: { children: Re
   );
 }
 
-function FloatingOrb({ delay = 0, duration = 20, className = '' }: { delay?: number, duration?: number, className?: string }) {
-  return (
-    <motion.div
-      className={`absolute rounded-full blur-3xl ${className}`}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: [0.3, 0.6, 0.3],
-        scale: [1, 1.2, 1],
-        x: [0, 100, 0],
-        y: [0, -100, 0],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
-  );
-}
-
-function NumberCounter({ target, suffix = '', duration = 2 }: { target: number, suffix?: string, duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    let startTime: number;
-    let animationFrame: number;
-
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(easeOutQuart * target));
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
-      }
-    };
-
-    animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isInView, target, duration]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
-
-function ParallaxSection({ children, offset = 0 }: { children: React.ReactNode, offset?: number }) {
-  // Parallax disabled to prevent content shifting
-  return <>{children}</>;
-}
-
 export default function AboutPage() {
-  const { scrollYProgress } = useScroll();
-  const scaleProgress = useTransform(scrollYProgress, [0, 0.1], [1, 0.95]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 0.1], [1, 0.7]);
-
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-blue-50 overflow-hidden">
-        {/* Hero Section with Parallax */}
-        <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          {/* Animated background orbs */}
-          <FloatingOrb delay={0} duration={25} className="top-20 left-10 w-96 h-96 bg-blue-400/30" />
-          <FloatingOrb delay={2} duration={30} className="top-40 right-20 w-80 h-80 bg-sky-400/30" />
-          <FloatingOrb delay={4} duration={35} className="bottom-20 left-1/3 w-72 h-72 bg-pink-400/20" />
-
-          {/* Animated gradient overlay */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-sky-500/5 to-pink-500/5"
-            animate={{
-              backgroundPosition: ['0% 0%', '100% 100%'],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              repeatType: 'reverse',
-            }}
-          />
-
-          <div className="container mx-auto max-w-6xl relative z-10">
-            <motion.div
-              style={{ scale: scaleProgress, opacity: opacityProgress }}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center mb-16"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 px-4"
-              >
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-blue-200 rounded-full text-xs sm:text-sm font-semibold text-blue-700 shadow-sm"
-                >
-                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
-                  Voice-First
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-sky-200 rounded-full text-xs sm:text-sm font-semibold text-sky-700 shadow-sm"
-                >
-                  <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
-                  100+ Languages
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-pink-200 rounded-full text-xs sm:text-sm font-semibold text-pink-700 shadow-sm"
-                >
-                  <Rocket className="w-3 h-3 sm:w-4 sm:h-4" />
-                  50K+ Users
-                </motion.span>
-              </motion.div>
-
-              <motion.h1
-                className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight px-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                About{' '}
-                <motion.span
-                  className="bg-gradient-to-r from-blue-600 via-sky-600 to-pink-600 bg-clip-text text-transparent"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{
-                    backgroundSize: '200% auto',
-                  }}
-                >
-                  Zavi
-                </motion.span>
-              </motion.h1>
-
-              <motion.p
-                className="text-lg sm:text-xl lg:text-2xl text-gray-700 font-medium max-w-4xl mx-auto leading-relaxed px-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                What if your voice could write better than your hands?
-              </motion.p>
-
-              {/* Animated stats */}
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={staggerFast}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-12 max-w-3xl mx-auto px-4"
-              >
-                {[
-                  { number: 50, suffix: 'K+', label: 'Happy Users' },
-                  { number: 10, suffix: 'M+', label: 'Words Written' },
-                  { number: 100, suffix: '+', label: 'Languages' },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    variants={scaleIn}
-                    className="bg-white/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-xl border border-gray-100"
-                  >
-                    <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent">
-                      <NumberCounter target={stat.number} suffix={stat.suffix} />
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-600 mt-2 font-medium">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Evolution of Computing with 3D cards */}
-        <ParallaxSection offset={30}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
-              >
-
-                <motion.div
-                  className="flex flex-wrap items-center justify-center gap-2 mb-6"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerFast}
-                >
-                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
-                    ⌨️ Keyboards = PCs
-                  </motion.span>
-                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
-                    👆 Touchscreens = Smartphones
-                  </motion.span>
-                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-sky-500 text-white rounded-full text-xs font-semibold shadow-lg">
-                    🎤 Voice = Next Era
-                  </motion.span>
-                </motion.div>
-
-                <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  Every computing revolution started with a new way to interact. Voice is next. We're building it.
-                </motion.p>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* The Problem with dramatic entrance */}
-        <ParallaxSection offset={40}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden"
-                initial={{ opacity: 0, rotateX: 20 }}
-                whileInView={{ opacity: 1, rotateX: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                {/* Animated particles */}
-                {[...Array(15)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full hidden sm:block"
-                    initial={{ opacity: 0, x: Math.random() * 100 + '%', y: Math.random() * 100 + '%' }}
-                    animate={{
-                      opacity: [0, 1, 0],
-                      scale: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      delay: i * 0.1,
-                      repeat: Infinity,
-                    }}
-                  />
-                ))}
-
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerContainer}
-                  className="space-y-6"
-                >
-                  <motion.p
-                    variants={fadeUp}
-                    className="text-lg sm:text-xl lg:text-2xl leading-relaxed"
-                  >
-                    You've tried voice typing. It gave you garbage.
-                  </motion.p>
-
-                  <motion.div
-                    variants={fadeUp}
-                    className="flex flex-wrap gap-2 justify-center"
-                  >
-                    <span className="inline-flex items-center px-3 py-1.5 bg-red-500/20 border border-red-400/30 rounded-full text-sm text-red-200">
-                      ❌ "um, uh, like"
-                    </span>
-                    <span className="inline-flex items-center px-3 py-1.5 bg-red-500/20 border border-red-400/30 rounded-full text-sm text-red-200">
-                      ❌ Weird phrasing
-                    </span>
-                    <span className="inline-flex items-center px-3 py-1.5 bg-red-500/20 border border-red-400/30 rounded-full text-sm text-red-200">
-                      ❌ Tons of editing
-                    </span>
-                  </motion.div>
-
-                  <motion.p
-                    variants={fadeUp}
-                    className="text-base sm:text-lg lg:text-xl text-gray-300"
-                  >
-                    So you went back to typing. The dream died.
-                  </motion.p>
-
-                  <motion.div
-                    variants={scaleIn}
-                    className="pt-4"
-                  >
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-400 to-sky-400 text-white rounded-xl text-lg sm:text-xl font-bold shadow-xl">
-                      <Zap className="w-5 h-5" />
-                      Zavi fixes this
-                    </span>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Customer Testimonials */}
-        <ParallaxSection offset={30}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-6xl">
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                  What People Are Saying
-                </h2>
-                <p className="text-lg text-gray-600">Real feedback from people who switched to Zavi</p>
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-                className="grid md:grid-cols-3 gap-6"
-              >
-                {[
-                  {
-                    quote: "I wrote 50 emails during my commute this morning. Without touching my keyboard once.",
-                    author: "Sarah Chen",
-                    role: "Product Manager",
-                    color: "from-blue-50 to-sky-50 border-blue-200"
-                  },
-                  {
-                    quote: "Finally, voice typing that doesn't embarrass me. No more 'um' and 'uh' in my messages.",
-                    author: "Dev Patel",
-                    role: "Software Engineer",
-                    color: "from-sky-50 to-pink-50 border-sky-200"
-                  },
-                  {
-                    quote: "I can think in Spanish and get perfect English emails. This is actual magic.",
-                    author: "Maria Garcia",
-                    role: "Sales Director",
-                    color: "from-pink-50 to-red-50 border-pink-200"
-                  }
-                ].map((testimonial, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUp}
-                    className={`bg-gradient-to-br ${testimonial.color} border-2 rounded-2xl p-6 relative`}
-                  >
-                    <div className="text-4xl text-blue-400 mb-4">"</div>
-                    <p className="text-gray-800 mb-6 leading-relaxed">{testimonial.quote}</p>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center text-white font-bold">
-                        {testimonial.author.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                        <div className="text-sm text-gray-600">{testimonial.role}</div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Mission with staggered reveals */}
-        <ParallaxSection offset={35}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="inline-flex items-center gap-2 mb-4"
-                >
-                  <Rocket className="w-6 sm:w-8 h-6 sm:h-8 text-blue-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Our Mission</h2>
-                </motion.div>
-                <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 96 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                />
-              </motion.div>
-
-              <motion.div
-                className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                {/* Gradient animation background */}
-                <motion.div
-                  className="absolute inset-0 opacity-5"
-                  animate={{
-                    background: [
-                      'radial-gradient(circle at 0% 0%, #6366f1 0%, transparent 50%)',
-                      'radial-gradient(circle at 100% 100%, #8b5cf6 0%, transparent 50%)',
-                      'radial-gradient(circle at 0% 0%, #6366f1 0%, transparent 50%)',
-                    ],
-                  }}
-                  transition={{ duration: 10, repeat: Infinity }}
-                />
-
-                <motion.p
-                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 font-semibold relative z-10"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                >
-                  Talk naturally. Get perfect writing.
-                </motion.p>
-
-                <motion.div
-                  className="space-y-6 relative z-10"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerContainer}
-                >
-                  <motion.div
-                    variants={fadeUp}
-                    className="flex flex-wrap justify-center gap-2"
-                  >
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-medium text-emerald-700">
-                      ✓ No "um, uh"
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-medium text-emerald-700">
-                      ✓ Perfect tone
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-medium text-emerald-700">
-                      ✓ Ready to send
-                    </span>
-                  </motion.div>
-
-                  <motion.p
-                    variants={fadeUp}
-                    className="text-base sm:text-lg lg:text-xl text-gray-700"
-                  >
-                    Zavi is like having a <motion.span
-                      className="font-bold text-blue-600 px-3 py-1 bg-blue-50 rounded-lg"
-                          style={{ display: 'inline-block' }}
-                    >
-                      professional writer
-                    </motion.span> who instantly translates your spoken thoughts into crisp, clear text.
-                  </motion.p>
-
-                  <motion.div
-                    variants={fadeUp}
-                    className="flex flex-wrap justify-center gap-2 pt-4"
-                  >
-                    <span className="inline-flex items-center px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">
-                      Not dictation
-                    </span>
-                    <span className="inline-flex items-center px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">
-                      Not notes
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-full text-sm font-semibold shadow-lg">
-                      <Zap className="w-3 h-3" />
-                      Input Infrastructure
-                    </span>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Real Use Cases */}
-        <ParallaxSection offset={35}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-6xl">
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                  How People Use Zavi
-                </h2>
-                <p className="text-lg text-gray-600">Real scenarios, real results</p>
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={staggerContainer}
-                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
-                {[
-                  {
-                    emoji: "🚗",
-                    title: "During Your Commute",
-                    description: "Write 20 emails while driving to work (hands-free, eyes on road)",
-                    badge: "30 min → 20 emails"
-                  },
-                  {
-                    emoji: "☕",
-                    title: "Making Coffee",
-                    description: "Reply to Slack threads while your espresso brews",
-                    badge: "5 min → 10 replies"
-                  },
-                  {
-                    emoji: "🚶",
-                    title: "On a Walk",
-                    description: "Draft entire documents while getting your steps in",
-                    badge: "15 min walk → 1000 words"
-                  },
-                  {
-                    emoji: "🛋️",
-                    title: "From Your Couch",
-                    description: "Write professional emails without opening your laptop",
-                    badge: "Phone only"
-                  },
-                  {
-                    emoji: "🌍",
-                    title: "In Any Language",
-                    description: "Think in Hindi, speak naturally, get perfect English",
-                    badge: "100+ languages"
-                  },
-                  {
-                    emoji: "⚡",
-                    title: "When Inspired",
-                    description: "Capture brilliant thoughts instantly before they vanish",
-                    badge: "Zero friction"
-                  }
-                ].map((useCase, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUp}
-                    className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all"
-                  >
-                    <div className="text-4xl mb-4">{useCase.emoji}</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{useCase.title}</h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">{useCase.description}</p>
-                    <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">
-                      {useCase.badge}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Why Zavi Exists */}
-        <ParallaxSection offset={40}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="inline-flex items-center gap-2 mb-4"
-                >
-                  <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-sky-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Why Zavi Exists</h2>
-                </motion.div>
-                <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-sky-600 to-pink-600 mx-auto rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 96 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                />
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-blue-100 relative overflow-hidden"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerContainer}
-                  className="space-y-6"
-                >
-                  <motion.p
-                    variants={fadeUp}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900"
-                  >
-                    Your brain: 💨 Fast
-                    <br />
-                    Your fingers: 🐌 Slow
-                  </motion.p>
-
-                  <motion.div
-                    variants={fadeUp}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                  >
-                    <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-4 sm:p-6">
-                      <div className="text-red-600 font-bold text-lg mb-2">❌ Old Voice</div>
-                      <div className="space-y-1 text-sm text-red-700">
-                        <div>→ "um, uh, like"</div>
-                        <div>→ Weird phrasing</div>
-                        <div>→ Edit everything</div>
-                        <div>→ Give up, type instead</div>
-                      </div>
-                    </div>
-
-                    <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-4 sm:p-6">
-                      <div className="text-emerald-600 font-bold text-lg mb-2">✓ Zavi</div>
-                      <div className="space-y-1 text-sm text-emerald-700">
-                        <div>→ Understand intent</div>
-                        <div>→ Perfect writing</div>
-                        <div>→ Zero editing</div>
-                        <div>→ Never type again</div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.p
-                    variants={scaleIn}
-                    className="text-base sm:text-lg text-center"
-                  >
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl font-semibold shadow-xl">
-                      Intelligence BEFORE text. Not after.
-                    </span>
-                  </motion.p>
-                </motion.div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Global Perspective with enhanced effects */}
-        <ParallaxSection offset={50}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="bg-gradient-to-br from-blue-900 to-blue-900 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden"
-                initial={{ opacity: 0, rotateY: 10 }}
-                whileInView={{ opacity: 1, rotateY: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                {/* Animated orbs */}
-                <motion.div
-                  className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-sky-500/20 rounded-full blur-3xl"
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 8, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute bottom-0 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-blue-500/20 rounded-full blur-3xl"
-                  animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 8, repeat: Infinity }}
-                />
-
-                <div className="relative z-10">
-                  <motion.div
-                    className="flex items-center gap-2 sm:gap-3 mb-6"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                  >
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    >
-                      <Globe className="w-8 sm:w-10 h-8 sm:h-10 text-blue-300 flex-shrink-0" />
-                    </motion.div>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Your Language. Your Voice.</h2>
-                  </motion.div>
-
-                  <motion.div
-                    className="space-y-6"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerContainer}
-                  >
-                    <motion.p
-                      variants={fadeUp}
-                      className="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-100"
-                    >
-                      6 billion people don't think in English.
-                      <br />
-                      Work forces them to.
-                    </motion.p>
-
-                    <motion.div
-                      variants={fadeUp}
-                      className="flex flex-wrap gap-2 justify-center"
-                    >
-                      <span className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-xs sm:text-sm text-white">
-                        💭 Think in Hindi
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-xs sm:text-sm text-white">
-                        ⏱️ 15 min translating
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-xs sm:text-sm text-white">
-                        😰 Sound professional?
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1.5 bg-red-500/30 border border-red-400/50 rounded-full text-xs sm:text-sm text-red-100 font-semibold">
-                        💸 Fluency Tax
-                      </span>
-                    </motion.div>
-
-                    <motion.div
-                      className="bg-white/10 backdrop-blur-md rounded-2xl p-5 sm:p-7 border-2 border-white/30 shadow-2xl"
-                      variants={scaleIn}
-                    >
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-500 text-white rounded-full text-xs font-semibold">
-                          ✓ Think: Any language
-                        </span>
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-500 text-white rounded-full text-xs font-semibold">
-                          ✓ Speak: Naturally
-                        </span>
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-sky-500 text-white rounded-full text-xs font-semibold">
-                          ✓ Get: Perfect English
-                        </span>
-                      </div>
-                      <p className="text-lg sm:text-xl font-bold text-white mb-2">
-                        Zavi breaks the fluency barrier.
-                      </p>
-                      <p className="text-sm sm:text-base text-blue-100">
-                        First and only voice input that truly understands multilingual thinking.
-                      </p>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Built as Infrastructure with platform animations */}
-        <ParallaxSection offset={30}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="flex-shrink-0"
-                  >
-                    <Zap className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600" />
-                  </motion.div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-gray-900 text-center">Built as Infrastructure, Not an App</h2>
-                </motion.div>
-                <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 96 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                />
-              </motion.div>
-
-              <motion.div
-                className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerContainer}
-                  className="space-y-8"
-                >
-                  <motion.p
-                    variants={fadeUp}
-                    className="text-xl sm:text-2xl font-bold text-gray-900 text-center"
-                  >
-                    Works everywhere. That's the point.
-                  </motion.p>
-
-                  {/* Platform badges */}
-                  <motion.div
-                    variants={fadeUp}
-                    className="flex flex-wrap justify-center gap-2 sm:gap-3"
-                  >
-                    {['📱 Android', '🍎 iOS', '💻 macOS', '🪟 Windows', '🐧 Linux'].map((platform, i) => (
-                      <motion.span
-                        key={platform}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-br from-blue-50 to-sky-50 border-2 border-blue-200 rounded-full text-sm font-semibold text-gray-800 shadow-sm cursor-pointer"
-                      >
-                        {platform}
-                      </motion.span>
-                    ))}
-                  </motion.div>
-
-                  {/* App badges */}
-                  <motion.div
-                    variants={fadeUp}
-                    className="flex flex-wrap justify-center gap-2"
-                  >
-                    {['Gmail', 'Slack', 'Notion', 'ChatGPT', 'Salesforce', 'Linear', 'Jira', 'Docs'].map((app) => (
-                      <span
-                        key={app}
-                        className="inline-flex items-center px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700"
-                      >
-                        {app}
-                      </span>
-                    ))}
-                    <span className="inline-flex items-center px-3 py-1.5 bg-blue-100 border border-blue-300 rounded-full text-xs font-semibold text-blue-700">
-                      + Every App
-                    </span>
-                  </motion.div>
-
-                  {/* Benefits */}
-                  <motion.div
-                    variants={fadeUp}
-                    className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-6 border-2 border-blue-200"
-                  >
-                    <div className="grid sm:grid-cols-3 gap-3 text-center">
-                      <div>
-                        <div className="text-3xl mb-2">🚫</div>
-                        <div className="text-sm font-semibold text-gray-800">No app switching</div>
-                      </div>
-                      <div>
-                        <div className="text-3xl mb-2">⚡</div>
-                        <div className="text-sm font-semibold text-gray-800">No behavior change</div>
-                      </div>
-                      <div>
-                        <div className="text-3xl mb-2">🎯</div>
-                        <div className="text-sm font-semibold text-gray-800">Just works</div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.p
-                    variants={scaleIn}
-                    className="text-center"
-                  >
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl text-base sm:text-lg font-bold shadow-xl">
-                      <Zap className="w-4 h-4" />
-                      Talk → Perfect text → Anywhere
-                    </span>
-                  </motion.p>
-                </motion.div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Founders Section with enhanced cards */}
-        <ParallaxSection offset={20}>
-          <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-6xl">
-              <motion.div
-                className="text-center mb-16"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
-                >
-                  <Users className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">The Founders</h2>
-                </motion.div>
-                <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 96 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                />
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-100px' }}
-                variants={staggerContainer}
-                className="grid md:grid-cols-2 gap-8 lg:gap-12"
-              >
-                {/* Raman Goyal */}
-                <motion.div
-                  variants={fadeUpLarge}
-                  className="group"
-                >
-                  <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(99,102,241,0.3)] transition-all duration-500 relative overflow-hidden">
-                    {/* Animated gradient background */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100"
-                      transition={{ duration: 0.5 }}
-                    />
-
-                    <div className="flex flex-col items-center text-center mb-6 relative z-10">
-                      {/* Avatar with pulse animation */}
-                      <div className="relative mb-5 sm:mb-6">
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-blue-500 to-sky-600 rounded-full blur-lg opacity-30 hidden sm:block"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.3, 0.5, 0.3]
-                          }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                        />
-                        <motion.div
-                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-100"
-                                  transition={{ duration: 0.3 }}
-                        >
-                          <Image
-                            src="/images/team/raman.svg"
-                            alt="Raman Goyal - Founder & CEO"
-                            width={128}
-                            height={128}
-                            className="object-cover w-full h-full"
-                            priority
-                          />
-                        </motion.div>
-                      </div>
-
-                      <motion.h3
-                        className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                      >
-                        Raman Goyal
-                      </motion.h3>
-                      <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-                        <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
-                          Founder & CEO
-                        </span>
-                        <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs">
-                          🎓 Edinburgh
-                        </span>
-                      </div>
-
-                      <motion.a
-                        href="https://www.linkedin.com/in/ramangoyal3"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                        Connect
-                      </motion.a>
-                    </div>
-
-                    <motion.div
-                      className="space-y-4 text-gray-700 leading-relaxed relative z-10"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={staggerContainer}
-                    >
-                      <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium">
-                          Product
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-1 bg-sky-50 text-sky-700 rounded-md text-xs font-medium">
-                          Vision
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-1 bg-pink-50 text-pink-700 rounded-md text-xs font-medium">
-                          Strategy
-                        </span>
-                      </motion.div>
-
-                      <motion.p className="text-sm sm:text-base" variants={fadeUp}>
-                        Spent 3 hours writing 5 emails one day and thought "there has to be a better way." Built Zavi so you never have to choose between speed and quality.
-                      </motion.p>
-
-                      <motion.div
-                        variants={fadeUp}
-                        className="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-lg"
-                      >
-                        <p className="text-sm italic text-blue-900 font-medium">
-                          "I built Zavi because I was tired of my thoughts moving faster than my fingers could type."
-                        </p>
-                      </motion.div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-
-                {/* Himanshu Kumar */}
-                <motion.div
-                  variants={fadeUpLarge}
-                  className="group"
-                >
-                  <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(139,92,246,0.3)] transition-all duration-500 relative overflow-hidden">
-                    {/* Animated gradient background */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100"
-                      transition={{ duration: 0.5 }}
-                    />
-
-                    <div className="flex flex-col items-center text-center mb-6 relative z-10">
-                      {/* Avatar with pulse animation */}
-                      <div className="relative mb-5 sm:mb-6">
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-sky-500 to-pink-600 rounded-full blur-lg opacity-30 hidden sm:block"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.3, 0.5, 0.3]
-                          }}
-                          transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-                        />
-                        <motion.div
-                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-sky-100"
-                                  transition={{ duration: 0.3 }}
-                        >
-                          <Image
-                            src="/images/team/himanshu.svg"
-                            alt="Himanshu Kumar - Co-founder & CTO"
-                            width={128}
-                            height={128}
-                            className="object-cover w-full h-full"
-                            priority
-                          />
-                        </motion.div>
-                      </div>
-
-                      <motion.h3
-                        className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                      >
-                        Himanshu Kumar
-                      </motion.h3>
-                      <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-                        <span className="inline-flex items-center px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-semibold">
-                          Co-founder & CTO
-                        </span>
-                        <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs">
-                          🎓 IIT Kharagpur
-                        </span>
-                      </div>
-
-                      <motion.a
-                        href="https://www.linkedin.com/in/hsyvy"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                        Connect
-                      </motion.a>
-                    </div>
-
-                    <motion.div
-                      className="space-y-4 text-gray-700 leading-relaxed relative z-10"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={staggerContainer}
-                    >
-                      <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center px-2.5 py-1 bg-sky-50 text-sky-700 rounded-md text-xs font-medium">
-                          Edge ML
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-1 bg-pink-50 text-pink-700 rounded-md text-xs font-medium">
-                          Real-time AI
-                        </span>
-                        <span className="inline-flex items-center px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium">
-                          Architecture
-                        </span>
-                      </motion.div>
-
-                      <motion.p className="text-sm sm:text-base" variants={fadeUp}>
-                        Hates waiting. Built Zavi's engine to feel instant—not "AI is thinking" instant, but genuinely instant. Because your thoughts move fast and technology should keep up.
-                      </motion.p>
-
-                      <motion.div
-                        variants={fadeUp}
-                        className="bg-sky-50 border-l-4 border-sky-500 p-3 rounded-r-lg"
-                      >
-                        <p className="text-sm italic text-sky-900 font-medium">
-                          "Every second of lag kills your flow. That's why Zavi responds before you even finish talking."
-                        </p>
-                      </motion.div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* What We Believe with animated bullets */}
-        <ParallaxSection offset={30}>
-          <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="text-center mb-12"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <motion.div
-                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
-                >
-                  <Target className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600 flex-shrink-0" />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">How It Works</h2>
-                </motion.div>
-                <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 96 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                />
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-              >
-                <motion.ul
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={staggerContainer}
-                  className="grid md:grid-cols-3 gap-6"
-                >
-                  {[
-                    { icon: '🎤', title: 'Speak it.', subtitle: 'Just talk naturally' },
-                    { icon: '✨', title: 'Perfect it.', subtitle: 'AI handles the rest' },
-                    { icon: '🚀', title: 'Ship it.', subtitle: 'Ready in seconds' }
-                  ].map((belief, index) => (
-                    <motion.li
-                      key={index}
-                      variants={fadeUp}
-                      className="group"
-                    >
-                      <div className="flex flex-col items-center text-center gap-3 p-6 sm:p-8 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center text-3xl">
-                          {belief.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{belief.title}</h3>
-                          <p className="text-sm sm:text-base text-gray-600">{belief.subtitle}</p>
-                        </div>
-                      </div>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Where We Are Going with dramatic CTA */}
-        <ParallaxSection offset={40}>
-          <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8">
-            <div className="container mx-auto max-w-5xl">
-              <motion.div
-                className="bg-gradient-to-br from-gray-900 via-blue-900 to-sky-900 rounded-3xl p-6 sm:p-10 lg:p-16 shadow-2xl text-white relative overflow-hidden"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-              >
-                {/* Animated background orbs */}
-                <motion.div
-                  className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-blue-500/20 rounded-full blur-3xl"
-                  animate={{
-                    x: [0, 50, 0],
-                    y: [0, -50, 0],
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ duration: 10, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-sky-500/20 rounded-full blur-3xl"
-                  animate={{
-                    x: [0, -50, 0],
-                    y: [0, 50, 0],
-                    scale: [1.1, 1, 1.1]
-                  }}
-                  transition={{ duration: 10, repeat: Infinity }}
-                />
-
-                <div className="relative z-10">
-                  <motion.h2
-                    className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 sm:mb-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                  >
-                    Where We're Headed
-                  </motion.h2>
-
-                  <motion.div
-                    className="space-y-6 mb-8 sm:mb-10"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerContainer}
-                  >
-                    <motion.p
-                      variants={fadeUp}
-                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6"
-                    >
-                      Soon, everyone will write with their voice.
-                    </motion.p>
-
-                    <motion.div
-                      variants={fadeUp}
-                      className="flex flex-wrap justify-center gap-2 mb-6"
-                    >
-                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
-                        ✍️ No more slow typing
-                      </span>
-                      <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
-                        🌍 Any language → Perfect English
-                      </span>
-                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-sky-400 border-2 border-white/50 rounded-full text-sm font-bold text-white shadow-xl">
-                        ⚡ Think fast, write faster
-                      </span>
-                    </motion.div>
-
-                    <motion.div
-                      variants={scaleIn}
-                      className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-2xl p-6 text-center"
-                    >
-                      <p className="text-xl sm:text-2xl font-bold text-white mb-2">
-                        Zavi makes your voice your superpower.
-                      </p>
-                      <p className="text-base sm:text-lg text-blue-100">
-                        Write emails, messages, docs—all by just talking. No editing. No frustration.
-                      </p>
-                    </motion.div>
-                  </motion.div>
-
-                  <motion.div
-                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-6 sm:pt-8"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerFast}
-                  >
-                    <motion.div variants={scaleIn} className="w-full sm:w-auto">
-                      <Link
-                        href="/#download"
-                        className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-900 font-bold rounded-xl transition-all duration-300 shadow-xl text-base sm:text-lg w-full sm:w-auto"
-                      >
-                        <span>Get Started with Zavi</span>
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </Link>
-                    </motion.div>
-                    <motion.div variants={scaleIn} className="w-full sm:w-auto">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20 text-base sm:text-lg w-full sm:w-auto"
-                      >
-                        Contact Us
-                      </Link>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </AnimatedSection>
-        </ParallaxSection>
-
-        {/* Footer Tagline with fade-in */}
-        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 text-center">
-          <div className="container mx-auto max-w-4xl">
+      <main className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
+          <div className="container mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <motion.h3
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
-              >
-                Zavi
-              </motion.h3>
-              <motion.p
-                className="text-lg sm:text-xl lg:text-2xl text-gray-600 font-medium mb-2"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                The Voice Writing Layer
-              </motion.p>
-              <motion.a
-                href="https://zavivoice.com"
-                className="text-base sm:text-lg text-blue-600 hover:text-blue-700 hover:underline font-semibold"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-              >
-                zavivoice.com
-              </motion.a>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                About Zavi
+              </h1>
+              <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed">
+                We're building voice input infrastructure for the next era of computing.
+              </p>
             </motion.div>
           </div>
         </section>
+
+        {/* Our Story */}
+        <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="prose prose-lg max-w-none">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  Zavi started with a simple observation: our brains think faster than our fingers can type. In 2023, our founders spent countless hours typing emails, messages, and documents—always feeling the frustration of their thoughts bottlenecking at the keyboard.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  Voice typing existed, but it was broken. It gave you "um, uh, like" filled transcripts that needed extensive editing. It defeated the whole purpose of speed.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  So we built Zavi—not as another note-taking app, but as fundamental input infrastructure. A system that understands intent, removes fillers, fixes grammar, and delivers perfect writing from natural speech.
+                </p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Mission & Vision */}
+        <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-sky-50">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Mission & Vision</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <Target className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Mission</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  To eliminate the gap between human thought and written communication by making voice the primary input method for professional writing.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-sky-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Vision</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  A world where keyboards are optional—where anyone can communicate in perfect, professional writing just by speaking naturally in any language.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Values */}
+        <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: Heart,
+                  title: "User First",
+                  description: "Every decision starts with what's best for people using Zavi. Privacy, speed, and quality are non-negotiable."
+                },
+                {
+                  icon: Zap,
+                  title: "Move Fast",
+                  description: "Ship quickly, iterate constantly. The best product comes from real-world feedback, not endless planning."
+                },
+                {
+                  icon: Globe,
+                  title: "Break Barriers",
+                  description: "Language shouldn't limit anyone's ability to communicate professionally. We're building for 8 billion people."
+                }
+              ].map((value, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-sky-100 rounded-xl flex items-center justify-center mb-4">
+                    <value.icon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Team Section */}
+        <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Users className="w-8 h-8 text-blue-600" />
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">The Team</h2>
+              </div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Raman Goyal */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl ring-4 ring-blue-100 mb-4">
+                    <Image
+                      src="/images/team/raman.svg"
+                      alt="Raman Goyal"
+                      width={128}
+                      height={128}
+                      className="object-cover w-full h-full"
+                      priority
+                    />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Raman Goyal</h3>
+                  <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+                    <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+                      Founder & CEO
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                      University of Edinburgh
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    Previously built voice AI systems. Frustrated by spending hours typing when ideas came in seconds. Founded Zavi to fix this for everyone.
+                  </p>
+
+                  <a
+                    href="https://www.linkedin.com/in/ramangoyal3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all shadow-md"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Himanshu Kumar */}
+              <motion.div
+                variants={fadeUp}
+                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl ring-4 ring-sky-100 mb-4">
+                    <Image
+                      src="/images/team/himanshu.svg"
+                      alt="Himanshu Kumar"
+                      width={128}
+                      height={128}
+                      className="object-cover w-full h-full"
+                      priority
+                    />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Himanshu Kumar</h3>
+                  <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+                    <span className="inline-flex items-center px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold">
+                      Co-founder & CTO
+                    </span>
+                    <span className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                      IIT Kanpur
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    Deep expertise in ML systems and infrastructure. Builds the technology that makes Zavi's voice-to-text transformation feel like magic.
+                  </p>
+
+                  <a
+                    href="https://www.linkedin.com/in/himanshukr033"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all shadow-md"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Why Now */}
+        <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Now</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-8 shadow-lg border border-blue-100">
+              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                <p>
+                  Every major computing platform was defined by a new input method:
+                </p>
+                <ul className="space-y-2 ml-6">
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 mt-1">⌨️</span>
+                    <span><strong>PCs:</strong> Keyboard enabled text-based computing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 mt-1">👆</span>
+                    <span><strong>Smartphones:</strong> Touch made mobile computing possible</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-blue-600 mt-1">🎤</span>
+                    <span><strong>Next Era:</strong> Voice will define the next platform</span>
+                  </li>
+                </ul>
+                <p className="pt-4">
+                  AI models are finally good enough to understand intent, not just transcribe words. Hardware is powerful enough to run this locally. The time is now.
+                </p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Join Us CTA */}
+        <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-sky-600">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              Join Us
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              We're building the future of human-computer interaction. If you're passionate about making technology more human, we'd love to hear from you.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg text-lg"
+              >
+                Get in Touch
+              </Link>
+              <a
+                href="https://zavi.ai"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-all shadow-lg text-lg"
+              >
+                Try Zavi
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
       </main>
     </>
   );

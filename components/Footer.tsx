@@ -8,7 +8,7 @@ export default function Footer() {
     <footer
       className="relative py-12 md:py-16 overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #E8E5F5 0%, #F5E8F0 50%, #E5F0F5 100%)',
+        background: 'linear-gradient(135deg, #DBEAFE 0%, #E0F2FE 50%, #F0F9FF 100%)',
       }}
     >
       <div className="container-large relative z-10">
