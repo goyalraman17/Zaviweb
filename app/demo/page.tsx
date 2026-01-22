@@ -30,6 +30,7 @@ export default function DemoPage() {
   const waveBarsRef = useRef<number[]>(new Array(NUM_BARS).fill(20))
   const idTokenRef = useRef<string | null>(null)
   const isRecordingRef = useRef<boolean>(false)
+  const pendingRecordStartRef = useRef<boolean>(false)
 
   // Initialize Firebase and auto-login
   useEffect(() => {
@@ -114,7 +115,10 @@ export default function DemoPage() {
       setIsConnected(true)
       console.log('Connected to gateway')
 
-      if (pendingRecordStart) {
+      // Use ref to avoid stale closure issue
+      if (pendingRecordStartRef.current) {
+        console.log('Auto-starting recording after connection')
+        pendingRecordStartRef.current = false
         setPendingRecordStart(false)
         startRecording()
       }
@@ -122,6 +126,7 @@ export default function DemoPage() {
 
     ws.onclose = (event) => {
       setIsConnected(false)
+      pendingRecordStartRef.current = false
       setPendingRecordStart(false)
       stopRecording()
       wsRef.current = null // Clear the reference so we can reconnect
@@ -355,6 +360,8 @@ export default function DemoPage() {
           hasRef: !!wsRef.current,
           state: wsRef.current?.readyState
         })
+        // Set both ref and state - ref for the onopen callback, state for UI
+        pendingRecordStartRef.current = true
         setPendingRecordStart(true)
         connect()
         return
