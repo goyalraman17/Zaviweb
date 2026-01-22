@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
+import Script from 'next/script';
 import {
   fadeIn,
   fadeUp,
@@ -10,7 +11,7 @@ import {
   duration,
   easing,
 } from '@/lib/animations';
-import { useVoiceRecording } from '@/hooks/useVoiceRecording';
+import { useVoiceGateway } from '@/hooks/useVoiceGateway';
 import { useUIState } from '@/hooks/useUIState';
 import { useLanguageSettings, INPUT_LANGUAGES, OUTPUT_LANGUAGES } from '@/hooks/useLanguageSettings';
 import { analytics } from '@/lib/analytics';
@@ -22,8 +23,12 @@ export default function LiveVoiceDemo() {
   const languageSettings = useLanguageSettings();
   const { inputLang, outputLang, detectedLang, selectedTone, editedText, setInputLang, setOutputLang, setDetectedLang, setSelectedTone, setEditedText } = languageSettings;
 
-  const recording = useVoiceRecording(inputLang);
-  const { state, demoMode, rawText, polishedText, waveformActive, undoStack, startRecording, stopRecording, reset: resetRecording, undo, setPolishedText } = recording;
+  const recording = useVoiceGateway({
+    inputLang,
+    outputLang,
+    enableTranslation: inputLang !== outputLang
+  });
+  const { state, demoMode, rawText, polishedText, waveformActive, undoStack, isConnected, startRecording, stopRecording, reset: resetRecording, undo, setPolishedText } = recording;
 
   const uiState = useUIState();
   const { showLangPill, showPrivacyPopup, showAdvancedMenu, copied, isEditing, setShowLangPill, togglePrivacyPopup, showPrivacy, hidePrivacy, showAdvanced, hideAdvanced, markCopied, startEditing, stopEditing } = uiState;
@@ -94,16 +99,27 @@ export default function LiveVoiceDemo() {
   };
 
   return (
-    <section
-      aria-labelledby="voice-demo-heading"
-      className="w-full max-w-4xl mx-auto"
-    >
-      <h2 id="voice-demo-heading" className="sr-only">Interactive Voice Recording Demo</h2>
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
+    <>
+      {/* Load Firebase SDK */}
+      <Script
+        src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"
+        strategy="lazyOnload"
+      />
+      <Script
+        src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"
+        strategy="lazyOnload"
+      />
+
+      <section
+        aria-labelledby="voice-demo-heading"
+        className="w-full max-w-4xl mx-auto"
       >
+        <h2 id="voice-demo-heading" className="sr-only">Interactive Voice Recording Demo</h2>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
         {/* Demo Card */}
         <motion.div
           className="relative bg-white rounded-3xl border border-zavi-border/50 shadow-2xl overflow-hidden"
@@ -396,7 +412,8 @@ export default function LiveVoiceDemo() {
             aria-atomic="true"
           >
             <p className="text-sm font-semibold text-zavi-charcoal">
-              {state === 'idle' && 'Click to start • Long press for options'}
+              {!isConnected && state === 'idle' && 'Connecting to voice gateway...'}
+              {isConnected && state === 'idle' && 'Click to start • Long press for options'}
               {state === 'listening' && 'Listening...'}
               {state === 'processing' && 'Polishing your words...'}
               {state === 'ready' && 'Ready • Click mic to start over'}
@@ -620,15 +637,15 @@ export default function LiveVoiceDemo() {
           )}
         </AnimatePresence>
 
-        {/* Auto Demo Indicator */}
-        {demoMode === 'auto' && state === 'idle' && (
+        {/* Connection Status Indicator */}
+        {!isConnected && state === 'idle' && (
           <motion.div
-            className="px-6 py-3 bg-zavi-paper border-t border-zavi-border/30 text-center"
+            className="px-6 py-3 bg-blue-50 border-t border-blue-200/30 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <p className="text-xs text-zavi-gray-text">
-              Microphone not available • Click to see demo
+            <p className="text-xs text-blue-700">
+              Connecting to voice gateway...
             </p>
           </motion.div>
         )}
@@ -645,5 +662,6 @@ export default function LiveVoiceDemo() {
       </motion.p>
     </motion.div>
     </section>
+    </>
   );
 }
