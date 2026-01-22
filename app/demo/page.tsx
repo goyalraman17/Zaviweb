@@ -218,6 +218,11 @@ export default function DemoPage() {
         sampleRate: 16000
       })
 
+      // Resume AudioContext - required for mobile Safari
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume()
+      }
+
       console.log('AudioContext sample rate:', audioContext.sampleRate)
 
       const source = audioContext.createMediaStreamSource(mediaStream)

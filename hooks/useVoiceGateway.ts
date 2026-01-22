@@ -203,6 +203,11 @@ export function useVoiceGateway({ inputLang, outputLang, enableTranslation }: Vo
         sampleRate: 16000
       });
 
+      // Resume AudioContext - required for mobile Safari
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume();
+      }
+
       const source = audioContext.createMediaStreamSource(mediaStream);
       const processor = audioContext.createScriptProcessor(4096, 1, 1);
 
