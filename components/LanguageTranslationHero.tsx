@@ -8,12 +8,19 @@ import {
   fadeUpLarge,
   ctaPrimary,
 } from '@/lib/animations';
+import GradientMesh from './animated/GradientMesh';
 
 export default function LanguageTranslationHero() {
   return (
     <section
       className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50"
     >
+      {/* Animated Gradient Mesh Background */}
+      <GradientMesh
+        colors={['#6366F1', '#8B5CF6', '#3B82F6', '#A855F7']}
+        speed={15}
+      />
+
       <div className="container-large relative z-10">
         <motion.div
           initial="hidden"

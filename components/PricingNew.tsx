@@ -9,6 +9,7 @@ import {
   ctaPrimary,
 } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
+import GlowCard from './animated/GlowCard';
 
 export default function PricingNew() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
@@ -101,10 +102,8 @@ export default function PricingNew() {
             variants={staggerContainerSlow}
           >
             {/* Free Plan */}
-            <motion.div
-              className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg"
-              variants={fadeUp}
-            >
+            <motion.div variants={fadeUp}>
+              <GlowCard glowColor="rgba(99, 102, 241, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
               <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Curious explorers</p>
               <p className="text-gray-600 mb-6">Try voice-first writing risk-free</p>
@@ -154,16 +153,15 @@ export default function PricingNew() {
               >
                 Start Free Forever
               </motion.button>
+              </GlowCard>
             </motion.div>
 
             {/* Pro Plan - Most Popular */}
-            <motion.div
-              className="relative rounded-3xl p-8 shadow-2xl transform scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
-              }}
-              variants={fadeUp}
-            >
+            <motion.div variants={fadeUp}>
+              <GlowCard glowColor="rgba(139, 92, 246, 0.6)" className="h-full">
+                <div className="relative rounded-3xl p-8 shadow-2xl transform scale-105 h-full" style={{
+                  background: 'linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)',
+                }}>
               {/* Most Popular Badge */}
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-white text-purple-700 text-sm font-bold rounded-full shadow-lg">
                 Most Popular
@@ -228,13 +226,13 @@ export default function PricingNew() {
               </motion.button>
 
               <p className="text-center text-white/80 text-sm">7-day money-back guarantee</p>
+                </div>
+              </GlowCard>
             </motion.div>
 
             {/* Teams Plan */}
-            <motion.div
-              className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg"
-              variants={fadeUp}
-            >
+            <motion.div variants={fadeUp}>
+              <GlowCard glowColor="rgba(99, 102, 241, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
               <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
               <p className="text-gray-600 mb-6">Communicate faster as a team</p>
@@ -283,6 +281,7 @@ export default function PricingNew() {
               </motion.button>
 
               <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
+              </GlowCard>
             </motion.div>
           </motion.div>
 
