@@ -13,11 +13,11 @@ import GradientMesh from './animated/GradientMesh';
 export default function LanguageTranslationHero() {
   return (
     <section
-      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50"
+      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50"
     >
       {/* Animated Gradient Mesh Background */}
       <GradientMesh
-        colors={['#6366F1', '#8B5CF6', '#3B82F6', '#A855F7']}
+        colors={['#2563EB', '#3B82F6', '#0EA5E9', '#60A5FA']}
         speed={15}
       />
 
@@ -36,7 +36,7 @@ export default function LanguageTranslationHero() {
           >
             Speak in Any{' '}
             <span
-              className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Language
@@ -52,7 +52,7 @@ export default function LanguageTranslationHero() {
           >
             Sound Perfect in{' '}
             <span
-              className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Another
@@ -74,13 +74,13 @@ export default function LanguageTranslationHero() {
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-3 mb-12"
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
               100+ Languages
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-sky-200 rounded-full text-sm font-semibold text-sky-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -150,7 +150,7 @@ export default function LanguageTranslationHero() {
                 {/* Translation Demo - Two Columns */}
                 <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
                   {/* Left: Original Hindi Text */}
-                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 md:p-8 border border-blue-100">
+                  <div className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-6 md:p-8 border border-blue-100">
                     <div className="space-y-3 text-left">
                       <p className="text-gray-700 text-base md:text-lg leading-relaxed">
                         haan haan client ko batana hai proposal approve ho gaya hai aur hum next phase start kar sakte hain umm
@@ -190,7 +190,7 @@ export default function LanguageTranslationHero() {
                 {[3, 5, 2, 6, 4, 7, 3, 5, 2, 6, 4, 3].map((height, i) => (
                   <motion.div
                     key={i}
-                    className="w-1 bg-gradient-to-t from-[#5381d2] to-[#7B68EE] rounded-full"
+                    className="w-1 bg-gradient-to-t from-[#2563EB] to-[#3B82F6] rounded-full"
                     style={{ height: `${height * 10}%` }}
                     animate={{
                       height: [`${height * 10}%`, `${height * 15}%`, `${height * 10}%`],

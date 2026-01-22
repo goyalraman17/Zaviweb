@@ -148,7 +148,7 @@ export default function WorksEverywhereSection() {
             >
               Write Anywhere
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-blue-600">
                 You Work.
               </span>
             </motion.h2>
@@ -203,7 +203,7 @@ export default function WorksEverywhereSection() {
           >
             {/* Card 1: Trust First */}
             <motion.div
-              className="p-6 bg-gradient-to-br from-zavi-blue/5 to-purple-50/30 rounded-2xl border border-zavi-blue/20"
+              className="p-6 bg-gradient-to-br from-zavi-blue/5 to-sky-50/30 rounded-2xl border border-zavi-blue/20"
               variants={fadeUp}
             >
               <div className="flex items-start gap-4">
@@ -225,7 +225,7 @@ export default function WorksEverywhereSection() {
 
             {/* Card 2: Functionality */}
             <motion.div
-              className="p-6 bg-gradient-to-br from-zavi-blue/5 to-purple-50/30 rounded-2xl border border-zavi-blue/20"
+              className="p-6 bg-gradient-to-br from-zavi-blue/5 to-sky-50/30 rounded-2xl border border-zavi-blue/20"
               variants={fadeUp}
             >
               <div className="flex items-start gap-4">
@@ -247,7 +247,7 @@ export default function WorksEverywhereSection() {
 
             {/* Card 3: Smart Functionality */}
             <motion.div
-              className="p-6 bg-gradient-to-br from-zavi-blue/5 to-purple-50/30 rounded-2xl border border-zavi-blue/20"
+              className="p-6 bg-gradient-to-br from-zavi-blue/5 to-sky-50/30 rounded-2xl border border-zavi-blue/20"
               variants={fadeUp}
             >
               <div className="flex items-start gap-4">

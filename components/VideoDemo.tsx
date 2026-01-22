@@ -8,7 +8,7 @@ export default function VideoDemo() {
   return (
     <section
       id="how-it-works"
-      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50"
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50"
     >
       <div className="container-large">
         <motion.div
@@ -77,8 +77,8 @@ export default function VideoDemo() {
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#6B7FE8]/20 to-[#8B5CF6]/20 rounded-full blur-2xl" />
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#F472B6]/20 to-[#60A5FA]/20 rounded-full blur-2xl" />
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#2563EB]/20 to-[#3B82F6]/20 rounded-full blur-2xl" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#0EA5E9]/20 to-[#60A5FA]/20 rounded-full blur-2xl" />
           </motion.div>
 
           {/* Feature Pill Badges */}
@@ -86,13 +86,13 @@ export default function VideoDemo() {
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-3 mt-12"
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               Real-Time Processing
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-sky-200 rounded-full text-sm font-semibold text-sky-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>

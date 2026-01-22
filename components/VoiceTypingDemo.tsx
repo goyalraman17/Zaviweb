@@ -136,8 +136,8 @@ export default function VoiceTypingDemo() {
                     transition-all duration-300 border-2
                     ${
                       activeUseCase.id === useCase.id
-                        ? 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white border-transparent shadow-lg scale-105'
-                        : 'bg-white text-slate-700 border-slate-200 hover:border-indigo-300 hover:shadow-md'
+                        ? 'bg-gradient-to-r from-blue-600 to-sky-600 text-white border-transparent shadow-lg scale-105'
+                        : 'bg-white text-slate-700 border-slate-200 hover:border-blue-300 hover:shadow-md'
                     }
                   `}
                 >
@@ -163,7 +163,7 @@ export default function VoiceTypingDemo() {
               {/* Email Header */}
               <div className="mb-6 pb-6 border-b border-gray-200">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-sky-400 flex items-center justify-center text-white font-semibold">
                     {activeUseCase.demo.to.charAt(0)}
                   </div>
                   <div>

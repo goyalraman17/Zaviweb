@@ -148,8 +148,8 @@ export default function DeviceDownload() {
                   className={`
                     relative group p-6 md:p-8 rounded-2xl border-2 transition-all duration-300
                     ${isDetected
-                      ? 'bg-gradient-to-br from-indigo-600 to-violet-600 border-indigo-600 text-white shadow-xl scale-105'
-                      : 'bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-lg hover:scale-105'
+                      ? 'bg-gradient-to-br from-blue-600 to-blue-500 border-blue-600 text-white shadow-xl scale-105'
+                      : 'bg-white border-slate-200 text-slate-700 hover:border-blue-300 hover:shadow-lg hover:scale-105'
                     }
                     ${isComingSoon ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                   `}
@@ -160,7 +160,7 @@ export default function DeviceDownload() {
                   whileHover={!isComingSoon ? {
                     y: -8,
                     boxShadow: isDetected
-                      ? "0 25px 50px -12px rgba(99, 102, 241, 0.6)"
+                      ? "0 25px 50px -12px rgba(37, 99, 235, 0.6)"
                       : "0 20px 40px -12px rgba(0, 0, 0, 0.15)"
                   } : {}}
                   whileTap={!isComingSoon ? { scale: 0.95 } : {}}
@@ -190,7 +190,7 @@ export default function DeviceDownload() {
                     {/* Icon */}
                     <div className={`
                       transition-transform duration-300
-                      ${isDetected ? 'text-white' : 'text-gray-600 group-hover:text-[#6B7FE8]'}
+                      ${isDetected ? 'text-white' : 'text-gray-600 group-hover:text-[#2563EB]'}
                       ${!isComingSoon && 'group-hover:scale-110'}
                     `}>
                       {platform.icon}
@@ -208,7 +208,7 @@ export default function DeviceDownload() {
                     {!isComingSoon && (
                       <span className={`
                         text-sm font-medium
-                        ${isDetected ? 'text-white/90' : 'text-gray-500 group-hover:text-[#6B7FE8]'}
+                        ${isDetected ? 'text-white/90' : 'text-gray-500 group-hover:text-[#2563EB]'}
                       `}>
                         {isDetected ? 'Download Now' : 'Get Free'}
                       </span>
@@ -217,7 +217,7 @@ export default function DeviceDownload() {
 
                   {/* Hover Effect */}
                   {!isComingSoon && !isDetected && (
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#6B7FE8]/0 to-[#8B5CF6]/0 group-hover:from-[#6B7FE8]/5 group-hover:to-[#8B5CF6]/5 transition-all duration-300" />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#2563EB]/0 to-[#3B82F6]/0 group-hover:from-[#2563EB]/5 group-hover:to-[#3B82F6]/5 transition-all duration-300" />
                   )}
                 </motion.button>
               );
@@ -241,7 +241,7 @@ export default function DeviceDownload() {
               </svg>
               No Card
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-50 border border-violet-200 rounded-full text-sm font-semibold text-violet-700">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full text-sm font-semibold text-sky-700">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>

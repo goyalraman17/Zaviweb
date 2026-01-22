@@ -46,14 +46,14 @@ export default function Footer() {
 
                   <defs>
                     <linearGradient id="footerTopBar" x1="15" y1="16" x2="85" y2="16" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#6B7FE8"/>
-                      <stop offset="50%" stopColor="#8B5CF6"/>
-                      <stop offset="100%" stopColor="#A855F7"/>
+                      <stop offset="0%" stopColor="#2563EB"/>
+                      <stop offset="50%" stopColor="#3B82F6"/>
+                      <stop offset="100%" stopColor="#60A5FA"/>
                     </linearGradient>
                     <linearGradient id="footerBottomBar" x1="15" y1="84" x2="85" y2="84" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#6B7FE8"/>
-                      <stop offset="50%" stopColor="#8B5CF6"/>
-                      <stop offset="100%" stopColor="#A855F7"/>
+                      <stop offset="0%" stopColor="#2563EB"/>
+                      <stop offset="50%" stopColor="#3B82F6"/>
+                      <stop offset="100%" stopColor="#60A5FA"/>
                     </linearGradient>
                   </defs>
                 </svg>

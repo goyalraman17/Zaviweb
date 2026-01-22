@@ -10,7 +10,7 @@ import RevealOnScroll from './animated/RevealOnScroll';
 
 export default function KillYourKeyboard() {
   return (
-    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-50/50 via-white to-violet-50/50">
+    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50">
       <div className="container-large relative z-10">
         <motion.div
           initial="hidden"
@@ -34,13 +34,13 @@ export default function KillYourKeyboard() {
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-3 mb-16"
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-full text-sm font-semibold text-indigo-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
               Removes Fillers
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-50 border border-violet-200 rounded-full text-sm font-semibold text-violet-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full text-sm font-semibold text-sky-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -125,7 +125,7 @@ export default function KillYourKeyboard() {
                       <span className="text-gray-600 text-sm w-12">Cc:</span>
                       <div className="flex items-center gap-2">
                         {/* Removed Filler Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#7B68EE] to-[#9370DB] text-white text-sm font-medium shadow-md">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white text-sm font-medium shadow-md">
                           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <circle cx="12" cy="12" r="10" />
                             <path d="M15 9l-6 6M9 9l6 6" />
@@ -151,12 +151,12 @@ export default function KillYourKeyboard() {
                   {/* Arrow */}
                   <div className="flex items-center justify-center">
                     <div className="hidden md:block">
-                      <svg className="w-12 h-12 text-[#7B68EE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-12 h-12 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                     <div className="md:hidden">
-                      <svg className="w-8 h-8 text-[#7B68EE] transform rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-8 h-8 text-[#2563EB] transform rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
@@ -172,7 +172,7 @@ export default function KillYourKeyboard() {
 
                 {/* Fixed Phrasing Badge */}
                 <div className="flex justify-center mt-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#7B68EE] to-[#9370DB] text-white text-sm font-medium shadow-md">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white text-sm font-medium shadow-md">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" />
                       <path d="M9 12l2 2 4-4" />
@@ -191,7 +191,7 @@ export default function KillYourKeyboard() {
           >
             {/* Smart Editing */}
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-sky-100 flex items-center justify-center">
                 <div className="relative">
                   <svg className="w-10 h-10 text-[#5381d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 1a3 3 0 003 3 3 3 0 00-3 3 3 3 0 00-3-3 3 3 0 003-3z" />
@@ -211,7 +211,7 @@ export default function KillYourKeyboard() {
 
             {/* 100+ Languages */}
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center relative">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-sky-100 flex items-center justify-center relative">
                 {/* Globe with flags */}
                 <svg className="w-10 h-10 text-[#5381d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10" />
@@ -228,7 +228,7 @@ export default function KillYourKeyboard() {
 
             {/* Instant Translation */}
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-sky-100 flex items-center justify-center">
                 <svg className="w-10 h-10 text-[#5381d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 8h6m-3-3v6M3 12a9 9 0 019-9" />
                   <path d="M16 16l1.5-1.5M21.5 8.5l-3-3-3 3" />
@@ -243,7 +243,7 @@ export default function KillYourKeyboard() {
 
             {/* Works Everywhere */}
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center relative">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-sky-100 flex items-center justify-center relative">
                 {/* Shield with app icons */}
                 <svg className="w-10 h-10 text-[#5381d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -251,7 +251,7 @@ export default function KillYourKeyboard() {
                 {/* Mini app icons around shield */}
                 <div className="absolute -top-1 right-2 w-3 h-3 rounded-sm bg-gradient-to-br from-blue-500 to-blue-600 border border-white"></div>
                 <div className="absolute top-3 -right-1 w-3 h-3 rounded-sm bg-gradient-to-br from-green-500 to-green-600 border border-white"></div>
-                <div className="absolute -bottom-1 left-2 w-3 h-3 rounded-sm bg-gradient-to-br from-purple-500 to-purple-600 border border-white"></div>
+                <div className="absolute -bottom-1 left-2 w-3 h-3 rounded-sm bg-gradient-to-br from-blue-500 to-blue-600 border border-white"></div>
                 <div className="absolute bottom-3 -left-1 w-3 h-3 rounded-sm bg-gradient-to-br from-orange-500 to-orange-600 border border-white"></div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Works Everywhere</h3>

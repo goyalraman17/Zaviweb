@@ -25,7 +25,7 @@ export default function LanguageUnlock() {
   const isInView = useScrollAnimation(ref);
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-gradient-to-br from-zavi-blue/5 via-purple-50/30 to-white">
+    <section ref={ref} className="py-24 md:py-32 bg-gradient-to-br from-zavi-blue/5 via-sky-50/30 to-white">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-5xl mx-auto"
