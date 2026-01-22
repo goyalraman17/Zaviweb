@@ -46,7 +46,7 @@ export default function ContactPage() {
                 <p className="text-base text-gray-700 mb-4">
                   For partnerships, press inquiries, or enterprise solutions.
                 </p>
-                <a href="mailto:hello@zavi.ai" className="text-[#6B7FE8] hover:underline font-semibold">
+                <a href="mailto:hello@zavi.ai" className="text-[#2563EB] hover:underline font-semibold">
                   hello@zavi.ai
                 </a>
               </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 <p className="text-base text-gray-700 mb-4">
                   For privacy concerns, data requests, or legal matters.
                 </p>
-                <a href="mailto:legal@zavi.ai" className="text-[#6B7FE8] hover:underline font-semibold">
+                <a href="mailto:legal@zavi.ai" className="text-[#2563EB] hover:underline font-semibold">
                   legal@zavi.ai
                 </a>
               </div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                 <p className="text-base text-gray-700 mb-4">
                   Join our community to share feedback, connect with other users, and stay updated.
                 </p>
-                <a href="mailto:community@zavi.ai" className="text-[#6B7FE8] hover:underline font-semibold">
+                <a href="mailto:community@zavi.ai" className="text-[#2563EB] hover:underline font-semibold">
                   community@zavi.ai
                 </a>
               </div>

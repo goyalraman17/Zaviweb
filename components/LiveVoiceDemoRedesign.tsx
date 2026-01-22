@@ -345,7 +345,7 @@ export default function LiveVoiceDemoRedesign() {
                   <p className="text-xs font-semibold text-zavi-blue uppercase tracking-wider mb-3">
                     Zavi Output
                   </p>
-                  <div className="p-6 bg-gradient-to-br from-zavi-blue/5 to-purple-50/30 rounded-xl border border-zavi-blue/20">
+                  <div className="p-6 bg-gradient-to-br from-zavi-blue/5 to-sky-50/30 rounded-xl border border-zavi-blue/20">
                     <p className="text-base text-zavi-charcoal leading-relaxed font-medium mb-6">
                       {polishedText}
                     </p>

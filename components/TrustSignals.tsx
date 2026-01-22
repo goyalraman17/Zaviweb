@@ -95,7 +95,7 @@ export default function TrustSignals() {
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.1]">
               Built for Daily Use.
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-600">
                 Not Demos.
               </span>
             </h2>
@@ -111,12 +111,12 @@ export default function TrustSignals() {
             {TRUST_POINTS.map((point, index) => (
               <motion.div
                 key={index}
-                className="group bg-white rounded-2xl border border-slate-200/50 p-8 hover:shadow-xl hover:border-indigo-300/50 transition-all duration-500"
+                className="group bg-white rounded-2xl border border-slate-200/50 p-8 hover:shadow-xl hover:border-blue-300/50 transition-all duration-500"
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
               >
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 text-indigo-600 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex-shrink-0 text-blue-600 group-hover:scale-110 transition-transform duration-300">
                     {point.icon}
                   </div>
                   <div>
@@ -133,7 +133,7 @@ export default function TrustSignals() {
           </motion.div>
 
           <motion.div
-            className="text-center p-10 bg-gradient-to-br from-indigo-50/50 to-violet-50/30 rounded-3xl border border-indigo-200/30"
+            className="text-center p-10 bg-gradient-to-br from-blue-50/50 to-sky-50/30 rounded-3xl border border-blue-200/30"
             variants={fadeUp}
           >
             <p className="text-lg md:text-xl text-gray-900 font-semibold">

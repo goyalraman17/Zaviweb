@@ -30,7 +30,7 @@ export default function ZaviSolution() {
             <br />
             Rewrite Step.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-blue-600">
               Completely.
             </span>
           </motion.h2>

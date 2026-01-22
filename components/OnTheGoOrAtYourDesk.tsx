@@ -177,25 +177,25 @@ export default function OnTheGoOrAtYourDesk() {
                           <div className="flex items-center gap-2">
                             <button className="p-2 hover:bg-gray-100 rounded">🔍</button>
                             <button className="p-2 hover:bg-gray-100 rounded">⚙️</button>
-                            <div className="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full"></div>
+                            <div className="w-8 h-8 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full"></div>
                           </div>
                         </div>
 
                         <div className="space-y-4">
-                          <div className="border-l-4 border-purple-500 pl-4">
+                          <div className="border-l-4 border-blue-500 pl-4">
                             <h4 className="font-bold text-base mb-2">Starlight Product Launch</h4>
                             <p className="text-xs text-gray-500 mb-3">📅 Today team is excited. Clarify def on unclear</p>
                             <div className="space-y-2 text-sm text-gray-600">
                               <div className="flex items-center gap-2">
-                                <span className="text-purple-500">📄</span>
+                                <span className="text-blue-500">📄</span>
                                 <span>update proposal deck</span>
                               </div>
                               <div className="flex items-center gap-2">
-                                <span className="text-purple-500">📄</span>
+                                <span className="text-blue-500">📄</span>
                                 <span>finalize pricing plan</span>
                               </div>
                               <div className="flex items-center gap-2">
-                                <span className="text-purple-500">📄</span>
+                                <span className="text-blue-500">📄</span>
                                 <span>book demo meeting</span>
                               </div>
                             </div>
@@ -258,7 +258,7 @@ export default function OnTheGoOrAtYourDesk() {
                     </div>
 
                     {/* Recording Bar */}
-                    <div className="bg-gradient-to-r from-purple-100 to-blue-100 rounded-full p-3 flex items-center gap-2">
+                    <div className="bg-gradient-to-r from-blue-100 to-sky-100 rounded-full p-3 flex items-center gap-2">
                       <div className="flex-1 flex items-center gap-1 h-8">
                         {Array.from({ length: 30 }).map((_, i) => (
                           <div
@@ -293,13 +293,13 @@ export default function OnTheGoOrAtYourDesk() {
                       <h3 className="text-base font-bold">Prep Notes</h3>
                       <div className="flex items-center gap-2 text-xs">
                         <span>Feb 5</span>
-                        <div className="w-6 h-6 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full"></div>
+                        <div className="w-6 h-6 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full"></div>
                       </div>
                     </div>
 
                     {/* Note Content */}
                     <div className="space-y-3">
-                      <div className="border-l-4 border-purple-500 pl-3">
+                      <div className="border-l-4 border-blue-500 pl-3">
                         <h4 className="font-bold text-sm mb-2">Starlight Product Launch</h4>
                         <p className="text-xs text-gray-500 mb-3">📅 Today team is excited. Clarify def on unclear</p>
                         <div className="space-y-1.5 text-xs text-gray-600">
@@ -319,7 +319,7 @@ export default function OnTheGoOrAtYourDesk() {
                       </div>
 
                       {/* Recording indicator */}
-                      <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-3">
+                      <div className="bg-gradient-to-r from-blue-50 to-sky-50 rounded-lg p-3">
                         <p className="text-xs text-gray-500 mb-2">🎤 Zavi rec settings for optimum</p>
                         <div className="flex items-center gap-3 text-xs">
                           <div className="flex items-center gap-1">

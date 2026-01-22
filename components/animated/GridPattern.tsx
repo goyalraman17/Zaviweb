@@ -36,7 +36,7 @@ export default function GridPattern({
               fill="none"
               stroke="currentColor"
               strokeWidth={strokeWidth}
-              className="text-indigo-500"
+              className="text-blue-600"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={
                 animate
@@ -77,7 +77,7 @@ export default function GridPattern({
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-indigo-500 rounded-full"
+              className="absolute w-1 h-1 bg-blue-600 rounded-full"
               style={{
                 left: `${15 + i * 15}%`,
                 top: `${20 + (i % 3) * 25}%`,

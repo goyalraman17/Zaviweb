@@ -54,7 +54,7 @@ export default function HowItWorks() {
                 }}
                 className="relative"
               >
-                <div className="absolute -inset-4 bg-gradient-to-r from-zavi-blue/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-zavi-blue/20 to-sky-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
                   <div className="text-8xl font-bold bg-gradient-to-br from-zavi-blue/15 to-blue-600/15 bg-clip-text text-transparent mb-6">
                     {step.number}

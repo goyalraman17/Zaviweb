@@ -139,17 +139,17 @@ export default function AboutPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
+      <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-blue-50 overflow-hidden">
         {/* Hero Section with Parallax */}
         <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
           {/* Animated background orbs */}
-          <FloatingOrb delay={0} duration={25} className="top-20 left-10 w-96 h-96 bg-indigo-400/30" />
-          <FloatingOrb delay={2} duration={30} className="top-40 right-20 w-80 h-80 bg-purple-400/30" />
+          <FloatingOrb delay={0} duration={25} className="top-20 left-10 w-96 h-96 bg-blue-400/30" />
+          <FloatingOrb delay={2} duration={30} className="top-40 right-20 w-80 h-80 bg-sky-400/30" />
           <FloatingOrb delay={4} duration={35} className="bottom-20 left-1/3 w-72 h-72 bg-pink-400/20" />
 
           {/* Animated gradient overlay */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5"
+            className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-sky-500/5 to-pink-500/5"
             animate={{
               backgroundPosition: ['0% 0%', '100% 100%'],
             }}
@@ -178,7 +178,7 @@ export default function AboutPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-indigo-200 rounded-full text-xs sm:text-sm font-semibold text-indigo-700 shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-blue-200 rounded-full text-xs sm:text-sm font-semibold text-blue-700 shadow-sm"
                 >
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
                   Voice-First
@@ -187,7 +187,7 @@ export default function AboutPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-purple-200 rounded-full text-xs sm:text-sm font-semibold text-purple-700 shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border-2 border-sky-200 rounded-full text-xs sm:text-sm font-semibold text-sky-700 shadow-sm"
                 >
                   <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
                   100+ Languages
@@ -211,7 +211,7 @@ export default function AboutPage() {
               >
                 About{' '}
                 <motion.span
-                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-blue-600 via-sky-600 to-pink-600 bg-clip-text text-transparent"
                   animate={{
                     backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                   }}
@@ -254,7 +254,7 @@ export default function AboutPage() {
                     variants={scaleIn}
                     className="bg-white/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-xl border border-gray-100"
                   >
-                    <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent">
                       <NumberCounter target={stat.number} suffix={stat.suffix} />
                     </div>
                     <div className="text-xs sm:text-sm text-gray-600 mt-2 font-medium">{stat.label}</div>
@@ -286,7 +286,7 @@ export default function AboutPage() {
                   <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full text-xs font-medium text-slate-700">
                     👆 Touchscreens = Smartphones
                   </motion.span>
-                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full text-xs font-semibold shadow-lg">
+                  <motion.span variants={scaleIn} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-sky-500 text-white rounded-full text-xs font-semibold shadow-lg">
                     🎤 Voice = Next Era
                   </motion.span>
                 </motion.div>
@@ -374,7 +374,7 @@ export default function AboutPage() {
                     variants={scaleIn}
                     className="pt-4"
                   >
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-400 to-purple-400 text-white rounded-xl text-lg sm:text-xl font-bold shadow-xl">
+                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-400 to-sky-400 text-white rounded-xl text-lg sm:text-xl font-bold shadow-xl">
                       <Zap className="w-5 h-5" />
                       Zavi fixes this
                     </span>
@@ -413,13 +413,13 @@ export default function AboutPage() {
                     quote: "I wrote 50 emails during my commute this morning. Without touching my keyboard once.",
                     author: "Sarah Chen",
                     role: "Product Manager",
-                    color: "from-indigo-50 to-purple-50 border-indigo-200"
+                    color: "from-blue-50 to-sky-50 border-blue-200"
                   },
                   {
                     quote: "Finally, voice typing that doesn't embarrass me. No more 'um' and 'uh' in my messages.",
                     author: "Dev Patel",
                     role: "Software Engineer",
-                    color: "from-purple-50 to-pink-50 border-purple-200"
+                    color: "from-sky-50 to-pink-50 border-sky-200"
                   },
                   {
                     quote: "I can think in Spanish and get perfect English emails. This is actual magic.",
@@ -433,10 +433,10 @@ export default function AboutPage() {
                     variants={fadeUp}
                     className={`bg-gradient-to-br ${testimonial.color} border-2 rounded-2xl p-6 relative`}
                   >
-                    <div className="text-4xl text-indigo-400 mb-4">"</div>
+                    <div className="text-4xl text-blue-400 mb-4">"</div>
                     <p className="text-gray-800 mb-6 leading-relaxed">{testimonial.quote}</p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center text-white font-bold">
                         {testimonial.author.charAt(0)}
                       </div>
                       <div>
@@ -464,11 +464,11 @@ export default function AboutPage() {
                 <motion.div
                   className="inline-flex items-center gap-2 mb-4"
                 >
-                  <Rocket className="w-6 sm:w-8 h-6 sm:h-8 text-indigo-600 flex-shrink-0" />
+                  <Rocket className="w-6 sm:w-8 h-6 sm:h-8 text-blue-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Our Mission</h2>
                 </motion.div>
                 <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
+                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: 96 }}
                   viewport={{ once: true }}
@@ -533,7 +533,7 @@ export default function AboutPage() {
                     className="text-base sm:text-lg lg:text-xl text-gray-700"
                   >
                     Zavi is like having a <motion.span
-                      className="font-bold text-indigo-600 px-3 py-1 bg-indigo-50 rounded-lg"
+                      className="font-bold text-blue-600 px-3 py-1 bg-blue-50 rounded-lg"
                           style={{ display: 'inline-block' }}
                     >
                       professional writer
@@ -550,7 +550,7 @@ export default function AboutPage() {
                     <span className="inline-flex items-center px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">
                       Not notes
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full text-sm font-semibold shadow-lg">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-full text-sm font-semibold shadow-lg">
                       <Zap className="w-3 h-3" />
                       Input Infrastructure
                     </span>
@@ -625,12 +625,12 @@ export default function AboutPage() {
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-indigo-200 hover:shadow-xl transition-all"
+                    className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all"
                   >
                     <div className="text-4xl mb-4">{useCase.emoji}</div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{useCase.title}</h3>
                     <p className="text-gray-600 mb-4 text-sm leading-relaxed">{useCase.description}</p>
-                    <span className="inline-flex items-center px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-xs font-semibold">
+                    <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">
                       {useCase.badge}
                     </span>
                   </motion.div>
@@ -653,11 +653,11 @@ export default function AboutPage() {
                 <motion.div
                   className="inline-flex items-center gap-2 mb-4"
                 >
-                  <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-purple-600 flex-shrink-0" />
+                  <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-sky-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Why Zavi Exists</h2>
                 </motion.div>
                 <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto rounded-full"
+                  className="w-24 h-1 bg-gradient-to-r from-sky-600 to-pink-600 mx-auto rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: 96 }}
                   viewport={{ once: true }}
@@ -666,7 +666,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-indigo-100 relative overflow-hidden"
+                className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-blue-100 relative overflow-hidden"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -716,7 +716,7 @@ export default function AboutPage() {
                     variants={scaleIn}
                     className="text-base sm:text-lg text-center"
                   >
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-xl">
+                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl font-semibold shadow-xl">
                       Intelligence BEFORE text. Not after.
                     </span>
                   </motion.p>
@@ -731,7 +731,7 @@ export default function AboutPage() {
           <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-5xl">
               <motion.div
-                className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden"
+                className="bg-gradient-to-br from-blue-900 to-blue-900 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden"
                 initial={{ opacity: 0, rotateY: 10 }}
                 whileInView={{ opacity: 1, rotateY: 0 }}
                 viewport={{ once: true }}
@@ -739,7 +739,7 @@ export default function AboutPage() {
               >
                 {/* Animated orbs */}
                 <motion.div
-                  className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-purple-500/20 rounded-full blur-3xl"
+                  className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-sky-500/20 rounded-full blur-3xl"
                   animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
                   transition={{ duration: 8, repeat: Infinity }}
                 />
@@ -810,7 +810,7 @@ export default function AboutPage() {
                         <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-500 text-white rounded-full text-xs font-semibold">
                           ✓ Speak: Naturally
                         </span>
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-500 text-white rounded-full text-xs font-semibold">
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-sky-500 text-white rounded-full text-xs font-semibold">
                           ✓ Get: Perfect English
                         </span>
                       </div>
@@ -846,12 +846,12 @@ export default function AboutPage() {
                     transition={{ duration: 2, repeat: Infinity }}
                     className="flex-shrink-0"
                   >
-                    <Zap className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600" />
+                    <Zap className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600" />
                   </motion.div>
                   <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-gray-900 text-center">Built as Infrastructure, Not an App</h2>
                 </motion.div>
                 <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
+                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: 96 }}
                   viewport={{ once: true }}
@@ -891,7 +891,7 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-full text-sm font-semibold text-gray-800 shadow-sm cursor-pointer"
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-br from-blue-50 to-sky-50 border-2 border-blue-200 rounded-full text-sm font-semibold text-gray-800 shadow-sm cursor-pointer"
                       >
                         {platform}
                       </motion.span>
@@ -911,7 +911,7 @@ export default function AboutPage() {
                         {app}
                       </span>
                     ))}
-                    <span className="inline-flex items-center px-3 py-1.5 bg-indigo-100 border border-indigo-300 rounded-full text-xs font-semibold text-indigo-700">
+                    <span className="inline-flex items-center px-3 py-1.5 bg-blue-100 border border-blue-300 rounded-full text-xs font-semibold text-blue-700">
                       + Every App
                     </span>
                   </motion.div>
@@ -919,7 +919,7 @@ export default function AboutPage() {
                   {/* Benefits */}
                   <motion.div
                     variants={fadeUp}
-                    className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 border-2 border-indigo-200"
+                    className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-6 border-2 border-blue-200"
                   >
                     <div className="grid sm:grid-cols-3 gap-3 text-center">
                       <div>
@@ -941,7 +941,7 @@ export default function AboutPage() {
                     variants={scaleIn}
                     className="text-center"
                   >
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl text-base sm:text-lg font-bold shadow-xl">
+                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl text-base sm:text-lg font-bold shadow-xl">
                       <Zap className="w-4 h-4" />
                       Talk → Perfect text → Anywhere
                     </span>
@@ -965,11 +965,11 @@ export default function AboutPage() {
                 <motion.div
                   className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
                 >
-                  <Users className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600 flex-shrink-0" />
+                  <Users className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">The Founders</h2>
                 </motion.div>
                 <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
+                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: 96 }}
                   viewport={{ once: true }}
@@ -992,7 +992,7 @@ export default function AboutPage() {
                   <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(99,102,241,0.3)] transition-all duration-500 relative overflow-hidden">
                     {/* Animated gradient background */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-sky-500/5 opacity-0 group-hover:opacity-100"
                       transition={{ duration: 0.5 }}
                     />
 
@@ -1000,7 +1000,7 @@ export default function AboutPage() {
                       {/* Avatar with pulse animation */}
                       <div className="relative mb-5 sm:mb-6">
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full blur-lg opacity-30 hidden sm:block"
+                          className="absolute inset-0 bg-gradient-to-br from-blue-500 to-sky-600 rounded-full blur-lg opacity-30 hidden sm:block"
                           animate={{
                             scale: [1, 1.2, 1],
                             opacity: [0.3, 0.5, 0.3]
@@ -1008,7 +1008,7 @@ export default function AboutPage() {
                           transition={{ duration: 3, repeat: Infinity }}
                         />
                         <motion.div
-                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-indigo-100"
+                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-100"
                                   transition={{ duration: 0.3 }}
                         >
                           <Image
@@ -1031,7 +1031,7 @@ export default function AboutPage() {
                         Raman Goyal
                       </motion.h3>
                       <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-                        <span className="inline-flex items-center px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">
+                        <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
                           Founder & CEO
                         </span>
                         <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs">
@@ -1058,10 +1058,10 @@ export default function AboutPage() {
                       variants={staggerContainer}
                     >
                       <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-md text-xs font-medium">
+                        <span className="inline-flex items-center px-2.5 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-medium">
                           Product
                         </span>
-                        <span className="inline-flex items-center px-2.5 py-1 bg-purple-50 text-purple-700 rounded-md text-xs font-medium">
+                        <span className="inline-flex items-center px-2.5 py-1 bg-sky-50 text-sky-700 rounded-md text-xs font-medium">
                           Vision
                         </span>
                         <span className="inline-flex items-center px-2.5 py-1 bg-pink-50 text-pink-700 rounded-md text-xs font-medium">
@@ -1075,9 +1075,9 @@ export default function AboutPage() {
 
                       <motion.div
                         variants={fadeUp}
-                        className="bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-lg"
+                        className="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r-lg"
                       >
-                        <p className="text-sm italic text-indigo-900 font-medium">
+                        <p className="text-sm italic text-blue-900 font-medium">
                           "I built Zavi because I was tired of my thoughts moving faster than my fingers could type."
                         </p>
                       </motion.div>
@@ -1093,7 +1093,7 @@ export default function AboutPage() {
                   <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(139,92,246,0.3)] transition-all duration-500 relative overflow-hidden">
                     {/* Animated gradient background */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100"
                       transition={{ duration: 0.5 }}
                     />
 
@@ -1101,7 +1101,7 @@ export default function AboutPage() {
                       {/* Avatar with pulse animation */}
                       <div className="relative mb-5 sm:mb-6">
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full blur-lg opacity-30 hidden sm:block"
+                          className="absolute inset-0 bg-gradient-to-br from-sky-500 to-pink-600 rounded-full blur-lg opacity-30 hidden sm:block"
                           animate={{
                             scale: [1, 1.2, 1],
                             opacity: [0.3, 0.5, 0.3]
@@ -1109,7 +1109,7 @@ export default function AboutPage() {
                           transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                         />
                         <motion.div
-                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-purple-100"
+                          className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-sky-100"
                                   transition={{ duration: 0.3 }}
                         >
                           <Image
@@ -1132,7 +1132,7 @@ export default function AboutPage() {
                         Himanshu Kumar
                       </motion.h3>
                       <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-                        <span className="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">
+                        <span className="inline-flex items-center px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-semibold">
                           Co-founder & CTO
                         </span>
                         <span className="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs">
@@ -1159,7 +1159,7 @@ export default function AboutPage() {
                       variants={staggerContainer}
                     >
                       <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center px-2.5 py-1 bg-purple-50 text-purple-700 rounded-md text-xs font-medium">
+                        <span className="inline-flex items-center px-2.5 py-1 bg-sky-50 text-sky-700 rounded-md text-xs font-medium">
                           Edge ML
                         </span>
                         <span className="inline-flex items-center px-2.5 py-1 bg-pink-50 text-pink-700 rounded-md text-xs font-medium">
@@ -1176,9 +1176,9 @@ export default function AboutPage() {
 
                       <motion.div
                         variants={fadeUp}
-                        className="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r-lg"
+                        className="bg-sky-50 border-l-4 border-sky-500 p-3 rounded-r-lg"
                       >
-                        <p className="text-sm italic text-purple-900 font-medium">
+                        <p className="text-sm italic text-sky-900 font-medium">
                           "Every second of lag kills your flow. That's why Zavi responds before you even finish talking."
                         </p>
                       </motion.div>
@@ -1203,11 +1203,11 @@ export default function AboutPage() {
                 <motion.div
                   className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
                 >
-                  <Target className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600 flex-shrink-0" />
+                  <Target className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-blue-600 flex-shrink-0" />
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">How It Works</h2>
                 </motion.div>
                 <motion.div
-                  className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
+                  className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: 96 }}
                   viewport={{ once: true }}
@@ -1216,7 +1216,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                className="bg-gradient-to-br from-white to-indigo-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100"
+                className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -1238,8 +1238,8 @@ export default function AboutPage() {
                       variants={fadeUp}
                       className="group"
                     >
-                      <div className="flex flex-col items-center text-center gap-3 p-6 sm:p-8 bg-white rounded-2xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-xl transition-all">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-3xl">
+                      <div className="flex flex-col items-center text-center gap-3 p-6 sm:p-8 bg-white rounded-2xl border-2 border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center text-3xl">
                           {belief.icon}
                         </div>
                         <div>
@@ -1260,7 +1260,7 @@ export default function AboutPage() {
           <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-5xl">
               <motion.div
-                className="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 rounded-3xl p-6 sm:p-10 lg:p-16 shadow-2xl text-white relative overflow-hidden"
+                className="bg-gradient-to-br from-gray-900 via-blue-900 to-sky-900 rounded-3xl p-6 sm:p-10 lg:p-16 shadow-2xl text-white relative overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -1268,7 +1268,7 @@ export default function AboutPage() {
               >
                 {/* Animated background orbs */}
                 <motion.div
-                  className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500/20 rounded-full blur-3xl"
+                  className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-blue-500/20 rounded-full blur-3xl"
                   animate={{
                     x: [0, 50, 0],
                     y: [0, -50, 0],
@@ -1277,7 +1277,7 @@ export default function AboutPage() {
                   transition={{ duration: 10, repeat: Infinity }}
                 />
                 <motion.div
-                  className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-purple-500/20 rounded-full blur-3xl"
+                  className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-sky-500/20 rounded-full blur-3xl"
                   animate={{
                     x: [0, -50, 0],
                     y: [0, 50, 0],
@@ -1320,7 +1320,7 @@ export default function AboutPage() {
                       <span className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white">
                         🌍 Any language → Perfect English
                       </span>
-                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-400 border-2 border-white/50 rounded-full text-sm font-bold text-white shadow-xl">
+                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-sky-400 border-2 border-white/50 rounded-full text-sm font-bold text-white shadow-xl">
                         ⚡ Think fast, write faster
                       </span>
                     </motion.div>
@@ -1348,7 +1348,7 @@ export default function AboutPage() {
                     <motion.div variants={scaleIn} className="w-full sm:w-auto">
                       <Link
                         href="/#download"
-                        className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white text-indigo-900 font-bold rounded-xl transition-all duration-300 shadow-xl text-base sm:text-lg w-full sm:w-auto"
+                        className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-900 font-bold rounded-xl transition-all duration-300 shadow-xl text-base sm:text-lg w-full sm:w-auto"
                       >
                         <span>Get Started with Zavi</span>
                         <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -1394,7 +1394,7 @@ export default function AboutPage() {
               </motion.p>
               <motion.a
                 href="https://zavivoice.com"
-                className="text-base sm:text-lg text-indigo-600 hover:text-indigo-700 hover:underline font-semibold"
+                className="text-base sm:text-lg text-blue-600 hover:text-blue-700 hover:underline font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0 }}
