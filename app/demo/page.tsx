@@ -88,6 +88,14 @@ export default function DemoPage() {
 
   // Connect to WebSocket
   const connect = () => {
+    // Close existing WebSocket if any
+    if (wsRef.current) {
+      if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
+        wsRef.current.close()
+      }
+      wsRef.current = null
+    }
+
     const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://zavivoice.com/ws'
 
     // Append auth token if available
@@ -116,6 +124,7 @@ export default function DemoPage() {
       setIsConnected(false)
       setPendingRecordStart(false)
       stopRecording()
+      wsRef.current = null // Clear the reference so we can reconnect
       console.log('Disconnected from gateway', {
         code: event.code,
         reason: event.reason,
@@ -286,8 +295,7 @@ export default function DemoPage() {
 
   // Stop recording
   const stopRecording = () => {
-    if (!isRecording) return
-
+    // Always clean up audio resources, even if isRecording is false
     if (processorRef.current) {
       processorRef.current.disconnect()
       processorRef.current = null
@@ -303,7 +311,8 @@ export default function DemoPage() {
       mediaStreamRef.current = null
     }
 
-    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+    // Only send stop message if we were actually recording
+    if (isRecording && wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'stop' }))
     }
 
@@ -311,7 +320,10 @@ export default function DemoPage() {
     isRecordingRef.current = false
     setIsRecording(false)
     waveBarsRef.current = new Array(NUM_BARS).fill(20)
-    console.log('Recording stopped')
+
+    if (isRecording) {
+      console.log('Recording stopped')
+    }
   }
 
   // Update waveform visualization
@@ -339,7 +351,10 @@ export default function DemoPage() {
       stopRecording()
     } else {
       if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
-        console.log('Connecting...')
+        console.log('WebSocket not connected, reconnecting...', {
+          hasRef: !!wsRef.current,
+          state: wsRef.current?.readyState
+        })
         setPendingRecordStart(true)
         connect()
         return
