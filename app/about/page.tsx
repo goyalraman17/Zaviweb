@@ -192,7 +192,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.h1
-                className="text-5xl sm:text-6xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight"
+                className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight px-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -217,12 +217,12 @@ export default function AboutPage() {
               </motion.h1>
 
               <motion.p
-                className="text-xl sm:text-2xl lg:text-4xl text-gray-700 font-medium max-w-4xl mx-auto leading-relaxed"
+                className="text-lg sm:text-xl lg:text-2xl text-gray-700 font-medium max-w-4xl mx-auto leading-relaxed px-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                Re-imagining the Next Generation of Human–Computer Interaction
+                What if your voice could write better than your hands?
               </motion.p>
 
               {/* Animated stats */}
@@ -230,7 +230,7 @@ export default function AboutPage() {
                 initial="hidden"
                 animate="visible"
                 variants={staggerFast}
-                className="grid grid-cols-3 gap-6 mt-12 max-w-3xl mx-auto"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-12 max-w-3xl mx-auto px-4"
               >
                 {[
                   { number: 5, suffix: '+', label: 'Platforms' },
@@ -241,12 +241,12 @@ export default function AboutPage() {
                     key={i}
                     variants={scaleIn}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-100"
+                    className="bg-white/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-xl border border-gray-100"
                   >
-                    <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                       <NumberCounter target={stat.number} suffix={stat.suffix} />
                     </div>
-                    <div className="text-sm text-gray-600 mt-2 font-medium">{stat.label}</div>
+                    <div className="text-xs sm:text-sm text-gray-600 mt-2 font-medium">{stat.label}</div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -259,8 +259,8 @@ export default function AboutPage() {
           <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-5xl">
               <motion.div
-                className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
-                whileHover={{ scale: 1.02 }}
+                className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
               >
                 {/* Animated shine effect */}
@@ -272,40 +272,40 @@ export default function AboutPage() {
                 />
 
                 <motion.p
-                  className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-8 font-light"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 sm:mb-8"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  Computing has always evolved through its input layers.
+                  Every revolution in computing started with how we interact with machines.
                 </motion.p>
 
                 <motion.div
-                  className="space-y-6 mb-8"
+                  className="space-y-4 sm:space-y-6 mb-6 sm:mb-8"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={staggerContainer}
                 >
                   {[
-                    { icon: '⌨️', text: 'Keyboards', subtext: 'enabled personal computing.' },
-                    { icon: '👆', text: 'Touch', subtext: 'unlocked mobile computing.' },
+                    { icon: '⌨️', text: 'Keyboards', subtext: 'put computers on every desk.' },
+                    { icon: '👆', text: 'Touchscreens', subtext: 'put computers in every pocket.' },
                   ].map((item, i) => (
                     <motion.div
                       key={i}
                       variants={fadeUp}
-                      className="flex items-start gap-4 group"
+                      className="flex items-start gap-3 sm:gap-4 group"
                       whileHover={{ x: 10 }}
                     >
                       <motion.div
-                        className="text-3xl"
+                        className="text-2xl sm:text-3xl flex-shrink-0"
                         whileHover={{ scale: 1.3, rotate: 10 }}
                         transition={{ type: "spring", stiffness: 400 }}
                       >
                         {item.icon}
                       </motion.div>
-                      <p className="text-lg sm:text-xl text-gray-700">
+                      <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
                         <span className="font-semibold">{item.text}</span> {item.subtext}
                       </p>
                     </motion.div>
@@ -313,19 +313,20 @@ export default function AboutPage() {
                 </motion.div>
 
                 <motion.p
-                  className="text-xl sm:text-2xl text-gray-900 font-semibold leading-relaxed flex items-center gap-3"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-900 font-semibold leading-relaxed flex items-center gap-2 sm:gap-3"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   <motion.span
+                    className="flex-shrink-0"
                     animate={{ rotate: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     🎤
                   </motion.span>
-                  We believe voice defines the next era.
+                  <span>Voice is the next leap. We're making it real.</span>
                 </motion.p>
               </motion.div>
             </div>
@@ -337,17 +338,17 @@ export default function AboutPage() {
           <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-5xl">
               <motion.div
-                className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 shadow-2xl text-white relative overflow-hidden"
+                className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden"
                 initial={{ opacity: 0, rotateX: 20 }}
                 whileInView={{ opacity: 1, rotateX: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
                 {/* Animated particles */}
-                {[...Array(20)].map((_, i) => (
+                {[...Array(15)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full"
+                    className="absolute w-1 h-1 bg-white rounded-full hidden sm:block"
                     initial={{ opacity: 0, x: Math.random() * 100 + '%', y: Math.random() * 100 + '%' }}
                     animate={{
                       opacity: [0, 1, 0],
@@ -362,31 +363,33 @@ export default function AboutPage() {
                 ))}
 
                 <motion.p
-                  className="text-xl sm:text-2xl leading-relaxed mb-6 font-light"
+                  className="text-lg sm:text-xl lg:text-2xl leading-relaxed mb-4 sm:mb-6"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  But voice, as it exists today, is incomplete.
+                  Here's the frustrating truth:
                 </motion.p>
                 <motion.p
-                  className="text-lg sm:text-xl leading-relaxed mb-6 text-gray-300"
+                  className="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 text-gray-300"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  While speech recognition is nearly perfect, writing quality is not. People still do not trust voice to produce serious, professional output. As a result, the most natural interface humans have remains under-utilized for real work.
+                  You've tried voice typing. Maybe you dictated a text message that came out garbled. Maybe you sent an email with "um" sprinkled throughout. You fixed it by hand. Then you went back to typing.
+                  <br /><br />
+                  Speech recognition works beautifully. But <span className="font-semibold text-white">writing quality</span>? That's still broken. Nobody trusts voice for anything that matters.
                 </motion.p>
                 <motion.p
-                  className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, type: "spring" }}
                 >
-                  Zavi exists to change that.
+                  We're fixing that. For real.
                 </motion.p>
               </motion.div>
             </div>
@@ -407,8 +410,8 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Rocket className="w-8 h-8 text-indigo-600" />
-                  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">Our Mission</h2>
+                  <Rocket className="w-6 sm:w-8 h-6 sm:h-8 text-indigo-600 flex-shrink-0" />
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Our Mission</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
@@ -420,7 +423,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
+                className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100 relative overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -440,45 +443,45 @@ export default function AboutPage() {
                 />
 
                 <motion.p
-                  className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-8 font-medium relative z-10"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 sm:mb-8 font-medium relative z-10"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  Our mission is to make interacting with computers as natural as thinking and speaking, without sacrificing clarity, professionalism, or trust.
+                  We're making talking to your computer feel as natural as talking to a friend—but the output? That's polished, professional, and ready to send.
                 </motion.p>
 
                 <motion.div
-                  className="space-y-4 text-lg sm:text-xl text-gray-700 leading-relaxed relative z-10"
+                  className="space-y-4 text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed relative z-10"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={staggerContainer}
                 >
                   <motion.p variants={fadeUp}>
-                    We are building the <motion.span
+                    We're building the <motion.span
                       className="font-bold text-indigo-600"
                       whileHover={{ scale: 1.05 }}
                       style={{ display: 'inline-block' }}
                     >
                       Voice Writing Layer
-                    </motion.span>: an input layer that converts spoken intent into high-quality written output in real time, across every app and platform.
+                    </motion.span>—an invisible intelligence that turns your spoken thoughts into crisp, clear writing. Instantly. Everywhere.
                   </motion.p>
 
                   <motion.div
-                    className="grid sm:grid-cols-2 gap-4 mt-8 pt-8 border-t border-gray-200"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200"
                     variants={staggerContainer}
                   >
                     {['Not a dictation tool', 'Not a note-taking app'].map((text, i) => (
                       <motion.div
                         key={i}
                         variants={fadeUp}
-                        className="flex items-center gap-3 text-gray-600"
+                        className="flex items-center gap-2 sm:gap-3 text-gray-600 text-sm sm:text-base"
                         whileHover={{ x: 5 }}
                       >
                         <motion.span
-                          className="text-2xl"
+                          className="text-xl sm:text-2xl flex-shrink-0"
                           whileHover={{ rotate: 180 }}
                           transition={{ duration: 0.3 }}
                         >
@@ -490,10 +493,10 @@ export default function AboutPage() {
                   </motion.div>
 
                   <motion.p
-                    className="text-2xl font-bold text-gray-900 pt-6"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 pt-4 sm:pt-6"
                     variants={scaleIn}
                   >
-                    It is input infrastructure for the AI era.
+                    It's the input layer for how humans will work in the AI era.
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -515,8 +518,8 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <TrendingUp className="w-8 h-8 text-purple-600" />
-                  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">Why Zavi Exists</h2>
+                  <TrendingUp className="w-6 sm:w-8 h-6 sm:h-8 text-purple-600 flex-shrink-0" />
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">Why Zavi Exists</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto rounded-full"
@@ -528,44 +531,44 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 sm:p-12 shadow-2xl border border-indigo-100 relative overflow-hidden"
+                className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-indigo-100 relative overflow-hidden"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
                 <motion.p
-                  className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-6 font-medium"
+                  className="text-lg sm:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 font-medium"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  Humans think and speak far faster than they type. Yet modern knowledge work still forces people to translate thoughts into text manually, spending hours each day writing emails, messages, documents, tickets, and updates.
+                  Your brain moves at the speed of thought. Your fingers? Not so much.
                 </motion.p>
 
                 <motion.div
-                  className="bg-white rounded-2xl p-6 sm:p-8 mb-6 shadow-xl"
+                  className="bg-white rounded-2xl p-5 sm:p-7 lg:p-8 mb-6 shadow-xl"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  whileHover={{ scale: 1.02, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+                  whileHover={{ scale: 1.01, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
                 >
-                  <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-4">
-                    <span className="font-bold text-red-600">Voice promised speed, but failed on quality.</span>
+                  <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-3 sm:mb-4">
+                    <span className="font-bold text-red-600">Voice was supposed to fix this.</span> But it didn't.
                   </p>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    Raw speech as text introduces errors, filler, tone issues, and ambiguity. The resulting rewrite loop destroys trust, pushing users back to typing.
+                  <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+                    Dictation gives you raw speech—full of "um," "uh," weird phrasing, and typos. You end up rewriting everything anyway. So you go back to typing. The promise dies.
                   </p>
                 </motion.div>
 
                 <motion.p
-                  className="text-xl sm:text-2xl font-bold text-gray-900"
+                  className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 }}
                 >
-                  Zavi removes this friction entirely by inserting intelligence before text exists, not after.
+                  Zavi doesn't transcribe your words. It understands your intent—then writes it properly the first time.
                 </motion.p>
               </motion.div>
             </div>
@@ -577,7 +580,7 @@ export default function AboutPage() {
           <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-5xl">
               <motion.div
-                className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-3xl p-8 sm:p-12 shadow-2xl text-white relative overflow-hidden"
+                className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl text-white relative overflow-hidden"
                 initial={{ opacity: 0, rotateY: 10 }}
                 whileInView={{ opacity: 1, rotateY: 0 }}
                 viewport={{ once: true }}
@@ -585,19 +588,19 @@ export default function AboutPage() {
               >
                 {/* Animated orbs */}
                 <motion.div
-                  className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"
+                  className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-purple-500/20 rounded-full blur-3xl"
                   animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
                   transition={{ duration: 8, repeat: Infinity }}
                 />
                 <motion.div
-                  className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"
+                  className="absolute bottom-0 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-blue-500/20 rounded-full blur-3xl"
                   animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
                   transition={{ duration: 8, repeat: Infinity }}
                 />
 
                 <div className="relative z-10">
                   <motion.div
-                    className="flex items-center gap-3 mb-6"
+                    className="flex items-center gap-2 sm:gap-3 mb-6"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -606,43 +609,43 @@ export default function AboutPage() {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     >
-                      <Globe className="w-10 h-10 text-blue-300" />
+                      <Globe className="w-8 sm:w-10 h-8 sm:h-10 text-blue-300 flex-shrink-0" />
                     </motion.div>
-                    <h2 className="text-3xl sm:text-4xl font-bold">A Global Perspective on Language</h2>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Your Language. Your Voice.</h2>
                   </motion.div>
 
                   <motion.div
-                    className="space-y-6 text-lg sm:text-xl leading-relaxed"
+                    className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl leading-relaxed"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerContainer}
                   >
                     <motion.p
-                      className="text-2xl font-semibold text-blue-200"
+                      className="text-xl sm:text-2xl font-semibold text-blue-200"
                       variants={fadeUp}
                     >
-                      The world does not think in English.<br />
-                      Work still demands it.
+                      Most of the world doesn't think in English.<br />
+                      But work still demands it.
                     </motion.p>
 
                     <motion.p
-                      className="text-gray-200"
+                      className="text-gray-200 text-sm sm:text-base lg:text-lg"
                       variants={fadeUp}
                     >
-                      For billions of people, professional writing requires mental translation, tone correction, and loss of nuance. This "fluency tax" slows individuals and limits global teams.
+                      Imagine having a brilliant idea in your native language—then spending 15 minutes translating it, second-guessing tone, worrying if it sounds "professional enough." Billions of people do this every single day. We call it the "fluency tax."
                     </motion.p>
 
                     <motion.div
-                      className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                      className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-7 border border-white/20"
                       variants={scaleIn}
-                      whileHover={{ scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
                     >
-                      <p className="text-xl font-semibold mb-3">
-                        Zavi allows people to think in one language and work in another, preserving intent while producing clear, professional writing instantly.
+                      <p className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+                        With Zavi, you think in your language. Speak naturally. And out comes polished, professional English.
                       </p>
-                      <p className="text-lg text-blue-100">
-                        This capability does not exist at the input layer anywhere else in the world today.
+                      <p className="text-sm sm:text-base lg:text-lg text-blue-100">
+                        No other input layer in the world can do this.
                       </p>
                     </motion.div>
                   </motion.div>
@@ -663,16 +666,17 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="flex items-center justify-center gap-3 mb-4"
+                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
+                    className="flex-shrink-0"
                   >
-                    <Zap className="w-10 h-10 text-indigo-600" />
+                    <Zap className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600" />
                   </motion.div>
-                  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">Built as Infrastructure, Not an App</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-gray-900 text-center">Built as Infrastructure, Not an App</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
@@ -684,17 +688,17 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100"
+                className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                  Zavi works wherever writing happens:
+                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6 sm:mb-8">
+                  Zavi works everywhere you write. Because that's the point.
                 </p>
 
                 <motion.div
-                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-10"
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-10"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
@@ -704,7 +708,7 @@ export default function AboutPage() {
                     <motion.div
                       key={platform}
                       variants={scaleIn}
-                      className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 text-center border border-indigo-100 cursor-pointer"
+                      className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-3 sm:p-4 text-center border border-indigo-100 cursor-pointer"
                       whileHover={{
                         scale: 1.1,
                         rotate: [0, -5, 5, 0],
@@ -712,35 +716,35 @@ export default function AboutPage() {
                       }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <p className="font-semibold text-gray-900">{platform}</p>
+                      <p className="font-semibold text-gray-900 text-sm sm:text-base">{platform}</p>
                     </motion.div>
                   ))}
                 </motion.div>
 
                 <motion.p
-                  className="text-lg text-gray-600 leading-relaxed mb-6"
+                  className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                 >
-                  It functions across email, chat, documents, CRM systems, internal tools, and more.
+                  Gmail. Slack. Notion. Salesforce. Your company's internal tools. Anywhere text goes, Zavi goes.
                 </motion.p>
 
                 <motion.div
-                  className="space-y-3 text-xl font-semibold text-gray-900"
+                  className="space-y-2 sm:space-y-3 text-base sm:text-lg lg:text-xl font-semibold text-gray-900"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={staggerContainer}
                 >
                   <motion.p variants={fadeUp}>No app switching.</motion.p>
-                  <motion.p variants={fadeUp}>No behavior change.</motion.p>
+                  <motion.p variants={fadeUp}>No new workflow.</motion.p>
                   <motion.p
-                    className="text-2xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+                    className="text-lg sm:text-xl lg:text-2xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent pt-2"
                     variants={scaleIn}
                   >
-                    Zavi disappears into the workflow, becoming the default way people write.
+                    You just talk. Zavi handles the rest.
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -759,11 +763,11 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="flex items-center justify-center gap-3 mb-4"
+                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Users className="w-10 h-10 text-indigo-600" />
-                  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">The Founders</h2>
+                  <Users className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600 flex-shrink-0" />
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">The Founders</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
@@ -788,7 +792,7 @@ export default function AboutPage() {
                   whileHover={{ y: -10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(99,102,241,0.3)] transition-all duration-500 relative overflow-hidden">
+                  <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(99,102,241,0.3)] transition-all duration-500 relative overflow-hidden">
                     {/* Animated gradient background */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100"
@@ -797,9 +801,9 @@ export default function AboutPage() {
 
                     <div className="flex flex-col items-center text-center mb-6 relative z-10">
                       {/* Avatar with pulse animation */}
-                      <div className="relative mb-6">
+                      <div className="relative mb-5 sm:mb-6">
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full blur-lg opacity-30"
+                          className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full blur-lg opacity-30 hidden sm:block"
                           animate={{
                             scale: [1, 1.2, 1],
                             opacity: [0.3, 0.5, 0.3]
@@ -807,7 +811,7 @@ export default function AboutPage() {
                           transition={{ duration: 3, repeat: Infinity }}
                         />
                         <motion.div
-                          className="relative w-32 h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl"
+                          className="relative w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl sm:text-4xl font-bold shadow-2xl"
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.6 }}
                         >
@@ -816,7 +820,7 @@ export default function AboutPage() {
                       </div>
 
                       <motion.h3
-                        className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"
+                        className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -824,7 +828,7 @@ export default function AboutPage() {
                         Raman Goyal
                       </motion.h3>
                       <motion.p
-                        className="text-lg text-indigo-600 font-semibold mb-4"
+                        className="text-base sm:text-lg text-indigo-600 font-semibold mb-4"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -837,7 +841,7 @@ export default function AboutPage() {
                         href="https://www.linkedin.com/in/ramangoyal3"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm sm:text-base"
                         whileHover={{
                           scale: 1.05,
                           backgroundColor: '#004182',
@@ -845,29 +849,29 @@ export default function AboutPage() {
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Linkedin className="w-5 h-5" />
+                        <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                         Connect on LinkedIn
                       </motion.a>
                     </div>
 
                     <motion.div
-                      className="space-y-4 text-gray-700 leading-relaxed relative z-10"
+                      className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed relative z-10"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={staggerContainer}
                     >
-                      <motion.p className="text-base sm:text-lg" variants={fadeUp}>
-                        Raman leads product, go-to-market, and overall vision at Zavi.
+                      <motion.p className="text-sm sm:text-base lg:text-lg" variants={fadeUp}>
+                        Raman leads product, vision, and how Zavi shows up in the world.
                       </motion.p>
-                      <motion.p className="text-base" variants={fadeUp}>
-                        He graduated from the <span className="font-semibold text-gray-900">University of Edinburgh</span> and brings a deep obsession with building systems that feel inevitable to users. Raman has spent years thinking about how AI can move beyond tools and become foundational infrastructure that reshapes how humans interact with technology.
+                      <motion.p className="text-sm sm:text-base" variants={fadeUp}>
+                        A <span className="font-semibold text-gray-900">University of Edinburgh</span> grad who's obsessed with building things that feel obvious in hindsight. He's spent years thinking about how AI stops being a "tool" and starts being infrastructure—the kind you forget exists because it just works.
                       </motion.p>
                       <motion.p
-                        className="text-base italic text-gray-600 border-l-4 border-indigo-500 pl-4 py-2"
+                        className="text-sm sm:text-base italic text-gray-600 border-l-4 border-indigo-500 pl-3 sm:pl-4 py-2"
                         variants={fadeUp}
                       >
-                        Zavi was born from his own frustration with writing as a bottleneck to thinking speed and clarity.
+                        "I built Zavi because I was tired of my fingers being slower than my brain."
                       </motion.p>
                     </motion.div>
                   </div>
@@ -880,7 +884,7 @@ export default function AboutPage() {
                   whileHover={{ y: -10 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(139,92,246,0.3)] transition-all duration-500 relative overflow-hidden">
+                  <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 hover:shadow-[0_20px_70px_-10px_rgba(139,92,246,0.3)] transition-all duration-500 relative overflow-hidden">
                     {/* Animated gradient background */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100"
@@ -889,9 +893,9 @@ export default function AboutPage() {
 
                     <div className="flex flex-col items-center text-center mb-6 relative z-10">
                       {/* Avatar with pulse animation */}
-                      <div className="relative mb-6">
+                      <div className="relative mb-5 sm:mb-6">
                         <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full blur-lg opacity-30"
+                          className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full blur-lg opacity-30 hidden sm:block"
                           animate={{
                             scale: [1, 1.2, 1],
                             opacity: [0.3, 0.5, 0.3]
@@ -899,7 +903,7 @@ export default function AboutPage() {
                           transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                         />
                         <motion.div
-                          className="relative w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl"
+                          className="relative w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl sm:text-4xl font-bold shadow-2xl"
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.6 }}
                         >
@@ -908,7 +912,7 @@ export default function AboutPage() {
                       </div>
 
                       <motion.h3
-                        className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"
+                        className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -916,7 +920,7 @@ export default function AboutPage() {
                         Himanshu Kumar
                       </motion.h3>
                       <motion.p
-                        className="text-lg text-purple-600 font-semibold mb-4"
+                        className="text-base sm:text-lg text-purple-600 font-semibold mb-4"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -929,7 +933,7 @@ export default function AboutPage() {
                         href="https://www.linkedin.com/in/hsyvy"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg"
+                        className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#0A66C2] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg text-sm sm:text-base"
                         whileHover={{
                           scale: 1.05,
                           backgroundColor: '#004182',
@@ -937,29 +941,29 @@ export default function AboutPage() {
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Linkedin className="w-5 h-5" />
+                        <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                         Connect on LinkedIn
                       </motion.a>
                     </div>
 
                     <motion.div
-                      className="space-y-4 text-gray-700 leading-relaxed relative z-10"
+                      className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed relative z-10"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
                       variants={staggerContainer}
                     >
-                      <motion.p className="text-base sm:text-lg" variants={fadeUp}>
-                        Himanshu leads engineering and system architecture at Zavi.
+                      <motion.p className="text-sm sm:text-base lg:text-lg" variants={fadeUp}>
+                        Himanshu builds the engine that makes Zavi feel like magic.
                       </motion.p>
-                      <motion.p className="text-base" variants={fadeUp}>
-                        He is an alumnus of <span className="font-semibold text-gray-900">IIT Kharagpur</span>, with deep expertise in edge machine learning, low-latency systems, and real-time AI. His work focuses on solving the hardest constraint in voice computing: delivering writing-level intelligence at keyboard-level speed.
+                      <motion.p className="text-sm sm:text-base" variants={fadeUp}>
+                        An <span className="font-semibold text-gray-900">IIT Kharagpur</span> alum with deep expertise in edge ML, low-latency systems, and real-time AI. He's solving the hardest problem in voice: making intelligence feel instant. Not "wait for it" instant. Actually instant.
                       </motion.p>
                       <motion.p
-                        className="text-base italic text-gray-600 border-l-4 border-purple-500 pl-4 py-2"
+                        className="text-sm sm:text-base italic text-gray-600 border-l-4 border-purple-500 pl-3 sm:pl-4 py-2"
                         variants={fadeUp}
                       >
-                        Zavi's hybrid architecture and real-time performance are a direct result of this systems focus.
+                        "The hybrid architecture isn't a feature. It's why Zavi doesn't make you wait."
                       </motion.p>
                     </motion.div>
                   </div>
@@ -980,11 +984,11 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="flex items-center justify-center gap-3 mb-4"
+                  className="flex items-center justify-center gap-2 sm:gap-3 mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Target className="w-10 h-10 text-indigo-600" />
-                  <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">What We Believe</h2>
+                  <Target className="w-7 sm:w-8 lg:w-10 h-7 sm:h-8 lg:h-10 text-indigo-600 flex-shrink-0" />
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">What We Believe</h2>
                 </motion.div>
                 <motion.div
                   className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"
@@ -996,7 +1000,7 @@ export default function AboutPage() {
               </motion.div>
 
               <motion.div
-                className="bg-gradient-to-br from-white to-indigo-50 rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100"
+                className="bg-gradient-to-br from-white to-indigo-50 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border border-gray-100"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -1006,27 +1010,27 @@ export default function AboutPage() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={staggerContainer}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
                   {[
-                    'Input layers define platforms',
-                    'The best technology disappears into use',
-                    'Voice is inevitable, but trust is earned',
-                    'Language should never limit opportunity',
-                    'Quality belongs at the beginning, not the end'
+                    'Input layers define platforms.',
+                    'The best technology disappears.',
+                    'Voice is inevitable. Trust is earned.',
+                    'Language should never limit opportunity.',
+                    'Quality belongs at the beginning, not the end.'
                   ].map((belief, index) => (
                     <motion.li
                       key={index}
                       variants={fadeUp}
-                      className="flex items-start gap-4 group"
+                      className="flex items-start gap-3 sm:gap-4 group"
                       whileHover={{ x: 10 }}
                     >
                       <motion.div
-                        className="w-3 h-3 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full mt-2 flex-shrink-0"
+                        className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full mt-2 flex-shrink-0"
                         whileHover={{ scale: 1.5, rotate: 180 }}
                         transition={{ type: "spring" }}
                       />
-                      <p className="text-xl sm:text-2xl text-gray-800 font-medium leading-relaxed">{belief}</p>
+                      <p className="text-base sm:text-lg lg:text-2xl text-gray-800 font-medium leading-relaxed">{belief}</p>
                     </motion.li>
                   ))}
                 </motion.ul>
@@ -1040,7 +1044,7 @@ export default function AboutPage() {
           <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-5xl">
               <motion.div
-                className="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl text-white relative overflow-hidden"
+                className="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 rounded-3xl p-6 sm:p-10 lg:p-16 shadow-2xl text-white relative overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -1048,7 +1052,7 @@ export default function AboutPage() {
               >
                 {/* Animated background orbs */}
                 <motion.div
-                  className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"
+                  className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-indigo-500/20 rounded-full blur-3xl"
                   animate={{
                     x: [0, 50, 0],
                     y: [0, -50, 0],
@@ -1057,7 +1061,7 @@ export default function AboutPage() {
                   transition={{ duration: 10, repeat: Infinity }}
                 />
                 <motion.div
-                  className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+                  className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-purple-500/20 rounded-full blur-3xl"
                   animate={{
                     x: [0, -50, 0],
                     y: [0, 50, 0],
@@ -1068,52 +1072,52 @@ export default function AboutPage() {
 
                 <div className="relative z-10">
                   <motion.h2
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8"
+                    className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 sm:mb-8"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                   >
-                    Where We Are Going
+                    Where We're Headed
                   </motion.h2>
 
                   <motion.div
-                    className="space-y-6 text-lg sm:text-xl leading-relaxed mb-10"
+                    className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl leading-relaxed mb-8 sm:mb-10"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerContainer}
                   >
                     <motion.p
-                      className="text-xl sm:text-2xl font-medium text-blue-200"
+                      className="text-lg sm:text-xl lg:text-2xl font-medium text-blue-200"
                       variants={fadeUp}
                     >
-                      We are building Zavi to become the default input layer for written communication in the AI era.
+                      In five years, voice will be how most people write. And Zavi will be the reason why.
                     </motion.p>
                     <motion.p
-                      className="text-gray-200"
+                      className="text-gray-200 text-sm sm:text-base lg:text-lg"
                       variants={fadeUp}
                     >
-                      As computing becomes more conversational, Zavi ensures that clarity, professionalism, and intent are never lost.
+                      We're not building a feature. We're building the layer that makes AI feel human—and makes humans more productive than ever.
                     </motion.p>
                     <motion.p
-                      className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent"
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent"
                       variants={scaleIn}
                     >
-                      We are just getting started.
+                      This is just the beginning.
                     </motion.p>
                   </motion.div>
 
                   <motion.div
-                    className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-6 sm:pt-8"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerFast}
                   >
-                    <motion.div variants={scaleIn}>
+                    <motion.div variants={scaleIn} className="w-full sm:w-auto">
                       <Link
                         href="/#download"
-                        className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-indigo-900 font-bold rounded-xl transition-all duration-300 shadow-xl text-lg"
+                        className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white text-indigo-900 font-bold rounded-xl transition-all duration-300 shadow-xl text-base sm:text-lg w-full sm:w-auto"
                       >
                         <motion.span
                           whileHover={{ x: -5 }}
@@ -1125,14 +1129,14 @@ export default function AboutPage() {
                           whileHover={{ x: 5 }}
                           transition={{ type: "spring", stiffness: 400 }}
                         >
-                          <ArrowRight className="w-5 h-5" />
+                          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                         </motion.div>
                       </Link>
                     </motion.div>
-                    <motion.div variants={scaleIn}>
+                    <motion.div variants={scaleIn} className="w-full sm:w-auto">
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20 text-lg"
+                        className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20 text-base sm:text-lg w-full sm:w-auto"
                       >
                         Contact Us
                       </Link>
@@ -1145,7 +1149,7 @@ export default function AboutPage() {
         </ParallaxSection>
 
         {/* Footer Tagline with fade-in */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 text-center">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1154,13 +1158,13 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <motion.h3
-                className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
                 whileHover={{ scale: 1.05 }}
               >
                 Zavi
               </motion.h3>
               <motion.p
-                className="text-xl sm:text-2xl text-gray-600 font-medium mb-2"
+                className="text-lg sm:text-xl lg:text-2xl text-gray-600 font-medium mb-2"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -1170,7 +1174,7 @@ export default function AboutPage() {
               </motion.p>
               <motion.a
                 href="https://zavivoice.com"
-                className="text-lg text-indigo-600 hover:text-indigo-700 font-semibold"
+                className="text-base sm:text-lg text-indigo-600 hover:text-indigo-700 font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, textDecoration: 'underline' }}
