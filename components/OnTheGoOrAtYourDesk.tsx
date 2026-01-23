@@ -22,20 +22,55 @@ export default function OnTheGoOrAtYourDesk() {
             animate="visible"
             variants={staggerContainerSlow}
           >
-            {/* Main Heading */}
-            <motion.h2
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6"
+            {/* Main Heading with Visual Elements */}
+            <motion.div
               variants={fadeUpLarge}
-              style={{
-                lineHeight: 1.15,
-                background: 'linear-gradient(135deg, #1E40AF 0%, #2563EB 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
+              className="mb-6 md:mb-8"
             >
-              On-the-go or at your desk
-            </motion.h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6"
+                style={{
+                  lineHeight: 1.2,
+                  color: '#1E40AF'
+                }}
+              >
+                Work anywhere you want
+              </h2>
+
+              {/* Visual Cards for On-the-go and At Your Desk */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                {/* On-the-go Card */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl border-2 border-blue-200"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-blue-900">On-the-go</h3>
+                    <p className="text-sm text-blue-700">Voice typing anywhere</p>
+                  </div>
+                </motion.div>
+
+                {/* At Your Desk Card */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-blue-900">At your desk</h3>
+                    <p className="text-sm text-blue-700">Desktop productivity</p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
 
             {/* Feature Pills */}
             <motion.div
