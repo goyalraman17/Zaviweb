@@ -407,14 +407,13 @@ export default function OnTheGoOrAtYourDesk() {
               <span className="text-base font-semibold text-gray-800">iOS</span>
             </div>
 
-            {/* iPad */}
-            <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">
-              <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="4" y="2" width="16" height="20" rx="2" />
-                <line x1="12" y1="18" x2="12.01" y2="18" />
-              </svg>
-              <span className="text-base font-semibold text-gray-800">iPad</span>
-            </div>
+              {/* Android Badge (replacing iPad) */}
+              <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">
+                <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2a3 3 0 013 3v2h-6V5a3 3 0 013-3zM6 7h12v11H6V7zm2 2v7h2V9H8zm6 0v7h2V9h-2z" />
+                </svg>
+                <span className="text-base font-semibold text-gray-800">Android</span>
+              </div>
 
             {/* Windows */}
             <div className="flex items-center gap-2 md:gap-3 px-4 py-3 md:px-6 md:py-4 bg-white rounded-xl md:rounded-2xl shadow-md">

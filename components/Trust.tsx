@@ -9,16 +9,12 @@ export default function Trust() {
 
   const metrics = [
     {
-      value: "50K+",
-      label: "Active users",
+      value: "100+",
+      label: "Languages Supported",
     },
     {
       value: "<2s",
       label: "Processing time",
-    },
-    {
-      value: "100+",
-      label: "Languages supported",
     },
     {
       value: "5",
@@ -55,7 +51,7 @@ export default function Trust() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
             {metrics.map((metric, index) => (
               <motion.div
                 key={index}
