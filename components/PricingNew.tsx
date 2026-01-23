@@ -114,7 +114,7 @@ export default function PricingNew() {
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <span className="text-gray-700">Speak 1,500 words per week</span>
+                  <span className="text-gray-700">Speak 1,000 words per week</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -197,6 +197,12 @@ export default function PricingNew() {
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
+                  <span className="text-white">Unlimited words (subject to fair usage)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   <span className="text-white">Never type again</span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -267,6 +273,12 @@ export default function PricingNew() {
               <p className="text-gray-600 mb-6">Communicate faster as a team</p>
 
               <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span className="text-gray-700">Unlimited words (subject to fair usage)</span>
+                </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>

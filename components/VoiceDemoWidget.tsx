@@ -126,15 +126,27 @@ export default function VoiceDemoWidget() {
 
     ws.onclose = (event) => {
       setIsConnected(false)
-      pendingRecordStartRef.current = false
-      setPendingRecordStart(false)
-      stopRecording()
-      wsRef.current = null // Clear the reference so we can reconnect
+      wsRef.current = null
       console.log('Disconnected from gateway', {
         code: event.code,
         reason: event.reason,
         wasClean: event.wasClean
       })
+
+      // Stop recording if we were recording
+      if (isRecordingRef.current) {
+        stopRecording()
+      }
+
+      // Auto-reconnect after a delay (only if not a clean close)
+      if (!event.wasClean) {
+        console.log('WebSocket not connected, reconnecting...')
+        setTimeout(() => {
+          if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
+            connect()
+          }
+        }, 2000)
+      }
     }
 
     ws.onerror = (error) => {
@@ -640,7 +652,7 @@ export default function VoiceDemoWidget() {
                         </span>
                       ) : (
                         <span className="font-medium text-gray-700">
-                          Click to start • Long press for options
+                          Tap to speak • Tap again to view the output
                         </span>
                       )}
                     </motion.p>

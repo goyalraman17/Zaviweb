@@ -15,7 +15,6 @@ const Metrics = dynamic(() => import('@/components/Metrics'));
 const KillYourKeyboard = dynamic(() => import('@/components/KillYourKeyboard'));
 const AdaptsToYourRole = dynamic(() => import('@/components/AdaptsToYourRole'));
 const OnTheGoOrAtYourDesk = dynamic(() => import('@/components/OnTheGoOrAtYourDesk'));
-const LanguageSection = dynamic(() => import('@/components/LanguageSection'));
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
@@ -41,8 +40,7 @@ const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
  * 10. Testimonials (real customer stories with names and results) ← NEW
  * 11. On-the-go or At Your Desk (flexibility - works everywhere)
  * 12. FAQ (handle objections before they leave)
- * 13. Language Support (supporting detail - multilingual proof)
- * 14. Final CTA (last conversion push)
+ * 13. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -82,9 +80,6 @@ export default function Home() {
 
         {/* FAQ - Handle Objections */}
         <FAQ />
-
-        {/* Language Support - Multilingual Proof */}
-        <LanguageSection />
 
         {/* Final CTA - Last Conversion Push */}
         <FinalCTANew />
