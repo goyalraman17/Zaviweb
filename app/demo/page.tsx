@@ -25,7 +25,6 @@ export default function DemoPage() {
   const [firebaseReady, setFirebaseReady] = useState(false)
   const [showOnboarding, setShowOnboarding] = useState(false)
   const [hasRecorded, setHasRecorded] = useState(false)
-  const [showSettings, setShowSettings] = useState(false)
   const [currentStep, setCurrentStep] = useState(1)
 
   const wsRef = useRef<WebSocket | null>(null)
@@ -645,45 +644,111 @@ export default function DemoPage() {
                 )}
               </motion.div>
 
-              {/* Language Selection - Prominent Feature */}
+              {/* Language Selection - Inline and Prominent */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className="mb-8"
               >
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                  </svg>
-                  <label htmlFor="language-select" className="text-lg font-semibold text-gray-900">
-                    Select Your Language
-                  </label>
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8">
+                  {/* Input Language */}
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      </svg>
+                      <label htmlFor="input-language" className="text-base font-semibold text-gray-900">
+                        I speak
+                      </label>
+                    </div>
+                    <select
+                      id="input-language"
+                      value={language}
+                      onChange={(e) => setLanguage(e.target.value)}
+                      disabled={isRecording}
+                      className="w-full px-4 py-3 bg-white border-2 border-blue-200 text-gray-900 rounded-lg text-base font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:border-blue-300"
+                    >
+                      <option value="en-US">🇺🇸 English (US)</option>
+                      <option value="en-GB">🇬🇧 English (UK)</option>
+                      <option value="es-ES">🇪🇸 Spanish (Spain)</option>
+                      <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
+                      <option value="fr-FR">🇫🇷 French</option>
+                      <option value="de-DE">🇩🇪 German</option>
+                      <option value="it-IT">🇮🇹 Italian</option>
+                      <option value="pt-BR">🇧🇷 Portuguese</option>
+                      <option value="ja-JP">🇯🇵 Japanese</option>
+                      <option value="ko-KR">🇰🇷 Korean</option>
+                      <option value="cmn-Hans-CN">🇨🇳 Chinese (Simplified)</option>
+                      <option value="hi-IN">🇮🇳 Hindi</option>
+                      <option value="ar-XA">🇸🇦 Arabic</option>
+                    </select>
+                  </div>
+
+                  {/* Translation Toggle */}
+                  <div className="mb-6 pb-6 border-b border-gray-200">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={enableTranslation}
+                        onChange={(e) => setEnableTranslation(e.target.checked)}
+                        disabled={isRecording}
+                        className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                      />
+                      <div className="flex items-center gap-2">
+                        <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                        <span className="text-base font-semibold text-gray-900">Enable translation</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  {/* Output Language */}
+                  <AnimatePresence>
+                    {enableTranslation && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex items-center gap-2 mb-3">
+                          <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <label htmlFor="output-language" className="text-base font-semibold text-gray-900">
+                            Translate to
+                          </label>
+                        </div>
+                        <select
+                          id="output-language"
+                          value={targetLanguage}
+                          onChange={(e) => setTargetLanguage(e.target.value)}
+                          disabled={isRecording}
+                          className="w-full px-4 py-3 bg-white border-2 border-green-200 text-gray-900 rounded-lg text-base font-medium focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:border-green-300"
+                        >
+                          <option value="">Select language...</option>
+                          <option value="English">English</option>
+                          <option value="Spanish">Spanish</option>
+                          <option value="French">French</option>
+                          <option value="German">German</option>
+                          <option value="Italian">Italian</option>
+                          <option value="Portuguese">Portuguese</option>
+                          <option value="Japanese">Japanese</option>
+                          <option value="Korean">Korean</option>
+                          <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                          <option value="Hindi">Hindi</option>
+                          <option value="Arabic">Arabic</option>
+                        </select>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {isRecording && (
+                    <p className="mt-4 text-center text-xs text-gray-500">Stop recording to change languages</p>
+                  )}
                 </div>
-                <select
-                  id="language-select"
-                  value={language}
-                  onChange={(e) => setLanguage(e.target.value)}
-                  disabled={isRecording}
-                  className="w-full max-w-md mx-auto block px-6 py-4 bg-white border-2 border-blue-200 text-gray-900 rounded-xl text-center text-lg font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:border-blue-300 shadow-sm"
-                >
-                  <option value="en-US">🇺🇸 English (US)</option>
-                  <option value="en-GB">🇬🇧 English (UK)</option>
-                  <option value="es-ES">🇪🇸 Spanish (Spain)</option>
-                  <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
-                  <option value="fr-FR">🇫🇷 French</option>
-                  <option value="de-DE">🇩🇪 German</option>
-                  <option value="it-IT">🇮🇹 Italian</option>
-                  <option value="pt-BR">🇧🇷 Portuguese</option>
-                  <option value="ja-JP">🇯🇵 Japanese</option>
-                  <option value="ko-KR">🇰🇷 Korean</option>
-                  <option value="cmn-Hans-CN">🇨🇳 Chinese (Simplified)</option>
-                  <option value="hi-IN">🇮🇳 Hindi</option>
-                  <option value="ar-XA">🇸🇦 Arabic</option>
-                </select>
-                {isRecording && (
-                  <p className="mt-2 text-center text-xs text-gray-500">Stop recording to change language</p>
-                )}
               </motion.div>
 
               {/* Main recording area */}
@@ -853,105 +918,6 @@ export default function DemoPage() {
                     <span className="font-medium">Great! Your voice is being transcribed in real-time.</span>
                   </motion.div>
                 )}
-              </motion.div>
-
-              {/* Translation Settings panel */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
-              >
-                <button
-                  onClick={() => setShowSettings(!showSettings)}
-                  className="w-full flex items-center justify-between p-6 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex items-center gap-3">
-                    <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                    </svg>
-                    <span className="text-lg font-semibold text-gray-900">Translation Settings</span>
-                  </div>
-                  <motion.svg
-                    className="w-5 h-5 text-gray-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    animate={{ rotate: showSettings ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </motion.svg>
-                </button>
-
-                <AnimatePresence>
-                  {showSettings && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="border-t border-gray-200"
-                    >
-                      <div className="p-6 space-y-6">
-                        {/* Translation toggle */}
-                        <div className="flex items-start gap-4">
-                          <div className="flex items-center h-6">
-                            <input
-                              type="checkbox"
-                              id="enableTranslation"
-                              checked={enableTranslation}
-                              onChange={(e) => setEnableTranslation(e.target.checked)}
-                              disabled={isRecording}
-                              className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                            />
-                          </div>
-                          <div className="flex-1">
-                            <label htmlFor="enableTranslation" className="block text-sm font-semibold text-gray-700 cursor-pointer">
-                              Enable Translation
-                            </label>
-                            <p className="text-xs text-gray-500 mt-1">
-                              Translate your speech to another language in real-time
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Target language */}
-                        {enableTranslation && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                          >
-                            <label htmlFor="targetLanguage" className="block text-sm font-semibold text-gray-700 mb-2">
-                              Translate To
-                            </label>
-                            <select
-                              id="targetLanguage"
-                              value={targetLanguage}
-                              onChange={(e) => setTargetLanguage(e.target.value)}
-                              disabled={isRecording}
-                              className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                            >
-                              <option value="">Select language...</option>
-                              <option value="English">English</option>
-                              <option value="Spanish">Spanish</option>
-                              <option value="French">French</option>
-                              <option value="German">German</option>
-                              <option value="Italian">Italian</option>
-                              <option value="Portuguese">Portuguese</option>
-                              <option value="Japanese">Japanese</option>
-                              <option value="Korean">Korean</option>
-                              <option value="Chinese (Simplified)">Chinese (Simplified)</option>
-                              <option value="Hindi">Hindi</option>
-                              <option value="Arabic">Arabic</option>
-                            </select>
-                          </motion.div>
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </motion.div>
 
               {/* Call to action */}
