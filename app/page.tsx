@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import DeviceDownload from '@/components/DeviceDownload';
-import StickyCTA from '@/components/StickyCTA';
 import PageAnalytics from '@/components/PageAnalytics';
 
 // Lazy load below-the-fold components for better performance
@@ -18,7 +17,6 @@ const OnTheGoOrAtYourDesk = dynamic(() => import('@/components/OnTheGoOrAtYourDe
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
-const FinalCTANew = dynamic(() => import('@/components/FinalCTANew'));
 
 /**
  * Zavi Marketing Website - Conversion-Optimized Flow
@@ -81,11 +79,6 @@ export default function Home() {
         {/* FAQ - Handle Objections */}
         <FAQ />
 
-        {/* Final CTA - Last Conversion Push */}
-        <FinalCTANew />
-
-        {/* Sticky mobile CTA */}
-        <StickyCTA />
       </main>
     </>
   );
