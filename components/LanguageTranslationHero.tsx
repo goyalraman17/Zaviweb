@@ -27,11 +27,11 @@ const LANGUAGE_FLOWS = [
 export default function LanguageTranslationHero() {
   return (
     <section
-      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50"
+      className="relative flex items-center overflow-hidden py-16 md:py-24 lg:py-32 min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-zavi-blue-50/50 via-white to-white"
     >
       {/* Animated Gradient Mesh Background */}
       <GradientMesh
-        colors={['#2563EB', '#3B82F6', '#0EA5E9', '#60A5FA']}
+        colors={['#4570BE', '#5381d2', '#93B7ED', '#B7CFF3']}
         speed={15}
       />
 
@@ -50,7 +50,7 @@ export default function LanguageTranslationHero() {
           >
             Speak in Any{' '}
             <span
-              className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-zavi-blue-600 to-zavi-blue-400 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Language
@@ -66,7 +66,7 @@ export default function LanguageTranslationHero() {
           >
             Sound Perfect in{' '}
             <span
-              className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-zavi-blue-600 to-zavi-blue-400 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Another
@@ -88,19 +88,19 @@ export default function LanguageTranslationHero() {
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-3 mb-12"
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
               100+ Languages
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-sky-200 rounded-full text-sm font-semibold text-sky-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               Real-Time Switch
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-white/80 backdrop-blur-sm border-2 border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -118,7 +118,7 @@ export default function LanguageTranslationHero() {
             {LANGUAGE_FLOWS.map((flow, index) => (
               <motion.div
                 key={index}
-                className="group bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/50 shadow-xl p-4 md:p-6 lg:p-8 hover:shadow-2xl hover:border-blue-200/50 transition-all duration-500"
+                className="group bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/50 shadow-xl p-4 md:p-6 lg:p-8 hover:shadow-2xl hover:border-zavi-blue-300/50 transition-all duration-500"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
@@ -144,17 +144,17 @@ export default function LanguageTranslationHero() {
 
                 {/* Arrow */}
                 <div className="flex justify-center my-2 md:my-3 lg:my-4">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-zavi-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                   </svg>
                 </div>
 
                 {/* Output */}
-                <div className="p-3 md:p-4 bg-gradient-to-br from-blue-50 to-sky-50/50 rounded-lg md:rounded-xl border border-blue-200">
+                <div className="p-3 md:p-4 bg-gradient-to-br from-zavi-blue-50 to-zavi-blue-50/50 rounded-lg md:rounded-xl border border-zavi-blue-200">
                   <div className="flex items-center gap-2 mb-2 md:mb-3">
                     <span className="text-2xl md:text-3xl">{flow.output.flag}</span>
                     <div>
-                      <p className="text-[10px] md:text-xs font-semibold text-blue-700 uppercase tracking-wide">
+                      <p className="text-[10px] md:text-xs font-semibold text-zavi-blue-700 uppercase tracking-wide">
                         Zavi writes
                       </p>
                       <p className="text-xs md:text-sm font-bold text-gray-900">

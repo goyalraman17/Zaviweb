@@ -142,8 +142,8 @@ export default function DeviceDownload() {
                   className={`
                     relative group p-6 md:p-8 rounded-2xl border-2 transition-all duration-300
                     ${isDetected
-                      ? 'bg-gradient-to-br from-blue-600 to-blue-500 border-blue-600 text-white shadow-xl scale-105'
-                      : 'bg-white border-slate-200 text-slate-700 hover:border-blue-300 hover:shadow-lg hover:scale-105'
+                      ? 'bg-gradient-to-br from-zavi-blue-500 to-zavi-blue-400 border-zavi-blue-500 text-white shadow-xl scale-105'
+                      : 'bg-white border-slate-200 text-slate-700 hover:border-zavi-blue-400 hover:shadow-lg hover:scale-105'
                     }
                     ${isComingSoon ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                   `}
@@ -229,13 +229,13 @@ export default function DeviceDownload() {
               </svg>
               Free Download
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-semibold text-blue-700">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>
               No Card
             </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full text-sm font-semibold text-sky-700">
+            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
