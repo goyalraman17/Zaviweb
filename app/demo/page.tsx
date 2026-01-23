@@ -19,9 +19,9 @@ export default function DemoPage() {
   const [interimTranscript, setInterimTranscript] = useState('')
   const [pendingRecordStart, setPendingRecordStart] = useState(false)
   const [latencyDisplay, setLatencyDisplay] = useState('--ms')
-  const [language, setLanguage] = useState('en-US')
-  const [enableTranslation, setEnableTranslation] = useState(false)
-  const [targetLanguage, setTargetLanguage] = useState('')
+  const [language, setLanguage] = useState('auto')
+  const [enableTranslation, setEnableTranslation] = useState(true)
+  const [targetLanguage, setTargetLanguage] = useState('English')
   const [authStatus, setAuthStatus] = useState<'loading' | 'authenticated' | 'demo' | 'error'>('loading')
   const [firebaseReady, setFirebaseReady] = useState(false)
   const [showOnboarding, setShowOnboarding] = useState(false)
@@ -563,7 +563,7 @@ export default function DemoPage() {
 
                 {/* Language Selection - Inline, Horizontal Flow */}
                 <div className="mb-6">
-                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                  <div className="flex items-center justify-center gap-3 flex-wrap">
                     {/* I speak */}
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-gray-700">I speak</span>
@@ -573,6 +573,7 @@ export default function DemoPage() {
                         disabled={isRecording}
                         className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                       >
+                        <option value="auto">🌐 Auto-detect</option>
                         <option value="en-US">🇺🇸 English (US)</option>
                         <option value="en-GB">🇬🇧 English (UK)</option>
                         <option value="es-ES">🇪🇸 Spanish (Spain)</option>
@@ -589,40 +590,29 @@ export default function DemoPage() {
                       </select>
                     </div>
 
-                    {/* Translation Toggle + Target Language */}
-                    <div className="flex items-center gap-2">
-                      <label className="flex items-center gap-1.5 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={enableTranslation}
-                          onChange={(e) => setEnableTranslation(e.target.checked)}
-                          disabled={isRecording}
-                          className="w-3.5 h-3.5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                        />
-                        <span className="text-sm text-gray-600">→</span>
-                      </label>
+                    <span className="text-gray-400">→</span>
 
-                      {enableTranslation && (
-                        <select
-                          value={targetLanguage}
-                          onChange={(e) => setTargetLanguage(e.target.value)}
-                          disabled={isRecording}
-                          className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                        >
-                          <option value="">Select output...</option>
-                          <option value="English">English</option>
-                          <option value="Spanish">Spanish</option>
-                          <option value="French">French</option>
-                          <option value="German">German</option>
-                          <option value="Italian">Italian</option>
-                          <option value="Portuguese">Portuguese</option>
-                          <option value="Japanese">Japanese</option>
-                          <option value="Korean">Korean</option>
-                          <option value="Chinese (Simplified)">Chinese (Simplified)</option>
-                          <option value="Hindi">Hindi</option>
-                          <option value="Arabic">Arabic</option>
-                        </select>
-                      )}
+                    {/* Output Language - Always visible */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-gray-700">I want text in</span>
+                      <select
+                        value={targetLanguage}
+                        onChange={(e) => setTargetLanguage(e.target.value)}
+                        disabled={isRecording}
+                        className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      >
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        <option value="German">German</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Portuguese">Portuguese</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Arabic">Arabic</option>
+                      </select>
                     </div>
                   </div>
                   {isRecording && (
@@ -865,74 +855,88 @@ export default function DemoPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[10000] flex items-center justify-center p-4"
               onClick={closeOnboarding}
             >
               <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
+                initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative"
+                className="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8 relative"
               >
                 <button
                   onClick={closeOnboarding}
                   className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Close"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
 
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div className="text-center mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
                       <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
                     </svg>
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome to Zavi Demo!</h2>
-                  <p className="text-gray-600">Experience the magic of voice-to-text in 3 simple steps</p>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-3">Voice-to-Text in Any Language</h2>
+                  <p className="text-gray-600 text-lg">Speak naturally. Get instant transcription and translation.</p>
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
-                    <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                  <div className="flex items-start gap-4 p-5 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">
                       1
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Select your language</h3>
-                      <p className="text-sm text-gray-600">Choose your input language and optional translation</p>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-1.5 text-base">Choose Your Languages</h3>
+                      <p className="text-sm text-gray-700 leading-relaxed">
+                        Select what language you'll speak in and what language you want the text to appear in.
+                        <span className="font-medium"> Auto-detect works great if you're unsure!</span>
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
-                    <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                  <div className="flex items-start gap-4 p-5 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">
                       2
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Click the microphone</h3>
-                      <p className="text-sm text-gray-600">Press the blue button to start recording</p>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-1.5 text-base">Click the Blue Microphone</h3>
+                      <p className="text-sm text-gray-700 leading-relaxed">
+                        Press the microphone button or hit <kbd className="px-2 py-0.5 bg-gray-200 rounded text-xs font-mono">Space</kbd> to start recording.
+                        <span className="font-medium"> Your browser will ask for microphone permission.</span>
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
-                    <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                  <div className="flex items-start gap-4 p-5 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl border border-blue-200">
+                    <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-md">
                       3
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Watch the magic happen</h3>
-                      <p className="text-sm text-gray-600">See your words appear in real-time!</p>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 mb-1.5 text-base">Speak and Watch the Magic</h3>
+                      <p className="text-sm text-gray-700 leading-relaxed">
+                        Start talking naturally! Your words will appear <span className="font-medium">in real-time</span> as text,
+                        automatically translated if you selected a different output language.
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <button
                   onClick={closeOnboarding}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 rounded-lg transition-all shadow-lg hover:shadow-xl"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Got it, let's try! 🚀
+                  Got it, let's start! 🎤
                 </button>
+
+                <p className="text-center text-xs text-gray-500 mt-4">
+                  Works with Gmail, WhatsApp, Google Docs, Slack, ChatGPT, and more
+                </p>
               </motion.div>
             </motion.div>
           )}
