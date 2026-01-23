@@ -9,7 +9,7 @@ import {
   ctaPrimary,
 } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
-import LiveVoiceDemo from './LiveVoiceDemo';
+import VoiceDemoCard from './VoiceDemoCard';
 import FloatingElements from './animated/FloatingElements';
 import TextReveal from './animated/TextReveal';
 import GridPattern from './animated/GridPattern';
@@ -301,7 +301,7 @@ export default function HeroWithScreenshot() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <LiveVoiceDemo />
+            <VoiceDemoCard />
           </motion.div>
         </div>
       </div>
