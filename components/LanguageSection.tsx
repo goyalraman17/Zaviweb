@@ -11,16 +11,16 @@ import {
 
 const LANGUAGE_FLOWS = [
   {
-    input: { flag: '🇮🇳', name: 'Hindi', example: 'आज मीटिंग में...' },
+    input: { flag: '🇮🇳', name: 'Hindi', example: 'हाँ तो... आज मीटिंग में, उम्म, quarterly targets के बारे में बात की और marketing budget को 15% बढ़ाने का decide किया था।' },
     output: { flag: '🇬🇧', name: 'English', text: 'In today\'s meeting, we discussed the quarterly targets and agreed to increase our marketing budget by 15%.' },
   },
   {
-    input: { flag: '🇪🇸', name: 'Spanish', example: 'Necesitamos hablar sobre...' },
+    input: { flag: '🇪🇸', name: 'Spanish', example: 'Bueno, necesitamos como... hablar del timeline del proyecto, no? Y asegurar que todo el mundo está, eh, alineado con los deliverables.' },
     output: { flag: '🇬🇧', name: 'English', text: 'We need to discuss the project timeline and ensure all stakeholders are aligned on the deliverables.' },
   },
   {
-    input: { flag: '🇧🇷', name: 'Portuguese', example: 'Gostaria de informar que...' },
-    output: { flag: '🇬🇧', name: 'English', text: 'I would like to inform you that the proposal has been approved and we can proceed with the next phase.' },
+    input: { flag: '🇬🇧', name: 'English', example: 'So um, just wanted to let you know that, you know, the proposal got approved and we can like, move forward with next phase now.' },
+    output: { flag: '🇫🇷', name: 'French', text: 'Je voudrais vous informer que la proposition a été approuvée et nous pouvons procéder à la prochaine étape.' },
   },
 ];
 
