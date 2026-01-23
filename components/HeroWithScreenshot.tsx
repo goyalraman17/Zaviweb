@@ -137,7 +137,7 @@ export default function HeroWithScreenshot() {
             </motion.h1>
 
             {/* Short declarative lines - Speech → Writing → Outcome */}
-            <motion.div
+            <motion.h2
               className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto space-y-3"
               variants={fadeUp}
             >
@@ -156,7 +156,7 @@ export default function HeroWithScreenshot() {
               >
                 Get professional text.
               </motion.p>
-            </motion.div>
+            </motion.h2>
 
             {/* Single Dominant CTA with glow effect */}
             <motion.div

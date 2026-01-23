@@ -43,7 +43,7 @@ export default function LanguageTranslationHero() {
           className="text-center"
         >
           {/* Main Heading */}
-          <motion.h1
+          <motion.h2
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 text-[#34384c]"
             variants={fadeUpLarge}
             style={{ lineHeight: 1.15 }}
@@ -56,10 +56,10 @@ export default function LanguageTranslationHero() {
               Language
             </span>
             .
-          </motion.h1>
+          </motion.h2>
 
           {/* Second Line */}
-          <motion.h2
+          <motion.h3
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-[#34384c]"
             variants={fadeUpLarge}
             style={{ lineHeight: 1.15 }}
@@ -72,7 +72,7 @@ export default function LanguageTranslationHero() {
               Another
             </span>
             .
-          </motion.h2>
+          </motion.h3>
 
           {/* Short declarative lines */}
           <motion.div
