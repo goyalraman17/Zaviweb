@@ -26,7 +26,7 @@ const TRUST_POINTS = [
       </svg>
     ),
     title: 'Used daily by professionals',
-    description: '50,000+ users across law, tech, sales, and consulting.',
+    description: 'Trusted by professionals across law, tech, sales, and consulting.',
   },
   {
     icon: (
@@ -43,7 +43,7 @@ const TRUST_POINTS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: 'Sub-200ms latency',
+    title: '<1s response time',
     description: 'Feels instant. No waiting, no loading spinners.',
   },
 ];

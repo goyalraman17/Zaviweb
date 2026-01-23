@@ -12,7 +12,7 @@ const metrics = [
     detail: "than typing"
   },
   {
-    value: 2,
+    value: 1,
     prefix: "<",
     suffix: "s",
     label: "Response time",
@@ -25,10 +25,10 @@ const metrics = [
     detail: "speak any, write English"
   },
   {
-    value: 50,
-    suffix: "K+",
-    label: "Users",
-    detail: "downloaded this month"
+    value: 99,
+    suffix: "%",
+    label: "Accurate",
+    detail: "out of the box"
   }
 ];
 
