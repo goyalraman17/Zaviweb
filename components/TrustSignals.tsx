@@ -43,7 +43,7 @@ const TRUST_POINTS = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: 'Sub-200ms latency',
+    title: '<1s response time',
     description: 'Feels instant. No waiting, no loading spinners.',
   },
 ];

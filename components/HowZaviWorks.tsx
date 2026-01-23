@@ -26,7 +26,7 @@ const STEPS = [
     number: '03',
     title: 'Professional writing appears instantly',
     description: 'Polished, structured, ready to send.',
-    features: ['Sub-200ms latency', 'Zero editing', 'Works in any app'],
+    features: ['<1s response time', 'Zero editing', 'Works in any app'],
   },
 ];
 

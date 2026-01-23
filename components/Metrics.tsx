@@ -12,7 +12,7 @@ const metrics = [
     detail: "than typing"
   },
   {
-    value: 2,
+    value: 1,
     prefix: "<",
     suffix: "s",
     label: "Response time",

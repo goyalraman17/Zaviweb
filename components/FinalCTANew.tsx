@@ -197,7 +197,7 @@ export default function FinalCTANew() {
                   backgroundClip: 'text'
                 }}
               >
-                &lt;200ms
+                &lt;1s
               </div>
               <div className="text-xs sm:text-sm md:text-base text-zavi-gray-600 font-medium">Response time</div>
             </div>
