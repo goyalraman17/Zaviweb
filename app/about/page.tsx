@@ -254,7 +254,7 @@ export default function AboutPage() {
                       Co-founder & CTO
                     </span>
                     <span className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-                      IIT Kanpur
+                      IIT Kharagpur
                     </span>
                   </div>
 
