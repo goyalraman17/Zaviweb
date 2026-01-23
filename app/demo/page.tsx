@@ -503,7 +503,7 @@ export default function DemoPage() {
         {/* Navigation */}
         <Navigation />
 
-        <div className="max-w-6xl mx-auto px-4 md:px-6 pt-24 pb-8 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 pt-24 pb-6 relative z-10">
           {/* Compact Header */}
           <motion.header
             initial={{ opacity: 0, y: 20 }}
@@ -511,10 +511,10 @@ export default function DemoPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-6"
           >
-            <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
+            <h1 className="text-2xl md:text-3xl font-bold mb-1 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent">
               Voice to Text Demo
             </h1>
-            <p className="text-sm md:text-base text-gray-600">
+            <p className="text-sm text-gray-600">
               Transform your voice into text in real-time
             </p>
           </motion.header>
@@ -534,117 +534,82 @@ export default function DemoPage() {
           {/* Main demo area */}
           {authStatus !== 'loading' && (
             <>
-              {/* Compact Status indicators */}
+              {/* Centered Microphone Card - Primary Focus */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="flex justify-center items-center gap-3 mb-4 flex-wrap"
+                className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 mb-4"
               >
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-lg shadow-sm border border-gray-200">
-                  <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                    isConnected ? 'bg-green-500' : 'bg-gray-300'
-                  }`} />
-                  <span className="text-xs font-medium text-gray-700">
-                    {isConnected ? 'Connected' : 'Connecting...'}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-lg shadow-sm border border-gray-200">
-                  <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                    isRecording ? 'bg-red-500 animate-pulse' : 'bg-gray-300'
-                  }`} />
-                  <span className="text-xs font-medium text-gray-700">
-                    {isRecording ? 'Recording' : 'Ready'}
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Two-column layout: Language Selection + Recording */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-                {/* Language Selection - Left Column */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-white rounded-xl shadow-lg border border-gray-200 p-4"
-                >
-                  {/* Input Language */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                      </svg>
-                      <label htmlFor="input-language" className="text-sm font-semibold text-gray-900">
-                        I speak
-                      </label>
-                    </div>
-                    <select
-                      id="input-language"
-                      value={language}
-                      onChange={(e) => setLanguage(e.target.value)}
-                      disabled={isRecording}
-                      className="w-full px-3 py-2 bg-white border-2 border-blue-200 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:border-blue-300"
-                    >
-                      <option value="en-US">🇺🇸 English (US)</option>
-                      <option value="en-GB">🇬🇧 English (UK)</option>
-                      <option value="es-ES">🇪🇸 Spanish (Spain)</option>
-                      <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
-                      <option value="fr-FR">🇫🇷 French</option>
-                      <option value="de-DE">🇩🇪 German</option>
-                      <option value="it-IT">🇮🇹 Italian</option>
-                      <option value="pt-BR">🇧🇷 Portuguese</option>
-                      <option value="ja-JP">🇯🇵 Japanese</option>
-                      <option value="ko-KR">🇰🇷 Korean</option>
-                      <option value="cmn-Hans-CN">🇨🇳 Chinese (Simplified)</option>
-                      <option value="hi-IN">🇮🇳 Hindi</option>
-                      <option value="ar-XA">🇸🇦 Arabic</option>
-                    </select>
+                {/* Status indicators - Subtle, inside card */}
+                <div className="flex justify-center items-center gap-2 mb-4">
+                  <div className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 rounded-md">
+                    <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                      isConnected ? 'bg-green-500' : 'bg-gray-300'
+                    }`} />
+                    <span className="text-xs text-gray-600">
+                      {isConnected ? 'Connected' : 'Connecting...'}
+                    </span>
                   </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 rounded-md">
+                    <span className={`w-1.5 h-1.5 rounded-full transition-all ${
+                      isRecording ? 'bg-red-500 animate-pulse' : 'bg-gray-300'
+                    }`} />
+                    <span className="text-xs text-gray-600">
+                      {isRecording ? 'Recording' : 'Ready'}
+                    </span>
+                  </div>
+                </div>
 
-                  {/* Translation Toggle */}
-                  <div className="mb-4 pb-4 border-b border-gray-200">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={enableTranslation}
-                        onChange={(e) => setEnableTranslation(e.target.checked)}
+                {/* Language Selection - Inline, Horizontal Flow */}
+                <div className="mb-6">
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                    {/* I speak */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-gray-700">I speak</span>
+                      <select
+                        value={language}
+                        onChange={(e) => setLanguage(e.target.value)}
                         disabled={isRecording}
-                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                      />
-                      <div className="flex items-center gap-1.5">
-                        <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                        </svg>
-                        <span className="text-sm font-semibold text-gray-900">Enable translation</span>
-                      </div>
-                    </label>
-                  </div>
-
-                  {/* Output Language */}
-                  <AnimatePresence>
-                    {enableTranslation && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
+                        className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                       >
-                        <div className="flex items-center gap-2 mb-2">
-                          <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                          <label htmlFor="output-language" className="text-sm font-semibold text-gray-900">
-                            Translate to
-                          </label>
-                        </div>
+                        <option value="en-US">🇺🇸 English (US)</option>
+                        <option value="en-GB">🇬🇧 English (UK)</option>
+                        <option value="es-ES">🇪🇸 Spanish (Spain)</option>
+                        <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
+                        <option value="fr-FR">🇫🇷 French</option>
+                        <option value="de-DE">🇩🇪 German</option>
+                        <option value="it-IT">🇮🇹 Italian</option>
+                        <option value="pt-BR">🇧🇷 Portuguese</option>
+                        <option value="ja-JP">🇯🇵 Japanese</option>
+                        <option value="ko-KR">🇰🇷 Korean</option>
+                        <option value="cmn-Hans-CN">🇨🇳 Chinese (Simplified)</option>
+                        <option value="hi-IN">🇮🇳 Hindi</option>
+                        <option value="ar-XA">🇸🇦 Arabic</option>
+                      </select>
+                    </div>
+
+                    {/* Translation Toggle + Target Language */}
+                    <div className="flex items-center gap-2">
+                      <label className="flex items-center gap-1.5 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={enableTranslation}
+                          onChange={(e) => setEnableTranslation(e.target.checked)}
+                          disabled={isRecording}
+                          className="w-3.5 h-3.5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                        />
+                        <span className="text-sm text-gray-600">→</span>
+                      </label>
+
+                      {enableTranslation && (
                         <select
-                          id="output-language"
                           value={targetLanguage}
                           onChange={(e) => setTargetLanguage(e.target.value)}
                           disabled={isRecording}
-                          className="w-full px-3 py-2 bg-white border-2 border-green-200 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:border-green-300"
+                          className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                         >
-                          <option value="">Select language...</option>
+                          <option value="">Select output...</option>
                           <option value="English">English</option>
                           <option value="Spanish">Spanish</option>
                           <option value="French">French</option>
@@ -657,207 +622,236 @@ export default function DemoPage() {
                           <option value="Hindi">Hindi</option>
                           <option value="Arabic">Arabic</option>
                         </select>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
+                      )}
+                    </div>
+                  </div>
                   {isRecording && (
-                    <p className="mt-3 text-center text-xs text-gray-500">Stop recording to change languages</p>
+                    <p className="text-center text-xs text-gray-500 mt-2">Stop recording to change languages</p>
                   )}
-                </motion.div>
+                </div>
 
-                {/* Recording Area - Right Column */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-white rounded-xl shadow-xl border border-gray-200 p-4"
-                >
-                  {/* Compact Waveform */}
-                  <div className="w-full h-16 mb-4 flex items-center justify-center gap-0.5">
-                    {Array.from({ length: NUM_BARS }).map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className={`w-0.5 rounded-full transition-all duration-100 ${
-                          isRecording && waveBarsRef.current[i] > 20
-                            ? 'bg-gradient-to-t from-blue-600 to-blue-400'
-                            : 'bg-gray-200'
-                        }`}
-                        style={{ height: `${Math.min(waveBarsRef.current[i] || 20, 60)}px` }}
-                        animate={isRecording ? {
-                          opacity: [0.5, 1, 0.5],
-                        } : {}}
-                        transition={{
-                          duration: 1,
-                          repeat: Infinity,
-                          delay: i * 0.01
-                        }}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Compact Record button */}
-                  <div className="flex flex-col items-center">
-                    <button
-                      type="button"
-                      onClick={toggleRecording}
-                      disabled={authStatus === 'error'}
-                      className={`relative w-24 h-24 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${
-                        isRecording
-                          ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
-                          : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
+                {/* Compact Waveform */}
+                <div className="w-full h-12 mb-4 flex items-center justify-center gap-0.5">
+                  {Array.from({ length: NUM_BARS }).map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className={`w-0.5 rounded-full transition-all duration-100 ${
+                        isRecording && waveBarsRef.current[i] > 20
+                          ? 'bg-gradient-to-t from-blue-600 to-blue-400'
+                          : 'bg-gray-200'
                       }`}
-                    >
-                      <AnimatePresence mode="wait">
-                        {isRecording ? (
-                          <motion.div
-                            key="stop"
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0, opacity: 0 }}
-                            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                          >
-                            <div className="w-8 h-8 bg-white rounded pointer-events-none" />
-                          </motion.div>
-                        ) : (
-                          <motion.div
-                            key="mic"
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0, opacity: 0 }}
-                            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                          >
-                            <svg className="w-12 h-12 text-white pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                            </svg>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      style={{ height: `${Math.min(waveBarsRef.current[i] || 20, 48)}px` }}
+                      animate={isRecording ? {
+                        opacity: [0.5, 1, 0.5],
+                      } : {}}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        delay: i * 0.01
+                      }}
+                    />
+                  ))}
+                </div>
 
-                      {isRecording && (
-                        <motion.div
-                          className="absolute inset-0 rounded-full bg-red-500 pointer-events-none z-[-1]"
-                          initial={{ scale: 1, opacity: 0.5 }}
-                          animate={{ scale: 1.4, opacity: 0 }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        />
-                      )}
-                    </button>
-
-                    <motion.p
-                      className="mt-3 text-center text-sm"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                    >
+                {/* Large Microphone Button - Primary CTA */}
+                <div className="flex flex-col items-center mb-4">
+                  <button
+                    type="button"
+                    onClick={toggleRecording}
+                    disabled={authStatus === 'error'}
+                    className={`relative w-20 h-20 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${
+                      isRecording
+                        ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
+                        : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
+                    }`}
+                  >
+                    <AnimatePresence mode="wait">
                       {isRecording ? (
-                        <span className="font-semibold text-red-600">
-                          Listening...
-                        </span>
-                      ) : pendingRecordStart ? (
-                        <span className="font-medium text-gray-500">
-                          Connecting...
-                        </span>
+                        <motion.div
+                          key="stop"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        >
+                          <div className="w-7 h-7 bg-white rounded pointer-events-none" />
+                        </motion.div>
                       ) : (
-                        <span className="font-medium text-gray-700">
-                          Click to record
-                        </span>
+                        <motion.div
+                          key="mic"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        >
+                          <svg className="w-10 h-10 text-white pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                          </svg>
+                        </motion.div>
                       )}
-                    </motion.p>
-                    <p className="mt-1 text-xs text-gray-500">
-                      Or press <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border border-gray-300 font-mono text-xs">Space</kbd>
+                    </AnimatePresence>
+
+                    {isRecording && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full bg-red-500 pointer-events-none z-[-1]"
+                        initial={{ scale: 1, opacity: 0.5 }}
+                        animate={{ scale: 1.4, opacity: 0 }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      />
+                    )}
+                  </button>
+
+                  <motion.p
+                    className="mt-2 text-center text-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    {isRecording ? (
+                      <span className="font-semibold text-red-600">
+                        Listening...
+                      </span>
+                    ) : pendingRecordStart ? (
+                      <span className="font-medium text-gray-500">
+                        Connecting...
+                      </span>
+                    ) : (
+                      <span className="font-medium text-gray-700">
+                        Click to record
+                      </span>
+                    )}
+                  </motion.p>
+                  <p className="mt-1 text-xs text-gray-500">
+                    Or press <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border border-gray-300 font-mono text-xs">Space</kbd>
+                  </p>
+                </div>
+
+                {/* App Compatibility Badges - Subtle */}
+                <div className="text-center pt-4 border-t border-gray-100">
+                  <p className="text-xs text-gray-500 mb-2">Works everywhere you type</p>
+                  <div className="flex items-center justify-center gap-3 flex-wrap">
+                    {/* Gmail */}
+                    <div className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+                      <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.545l8.073-6.052C21.69 2.28 24 3.434 24 5.457z"/>
+                      </svg>
+                      <span className="text-[10px] text-gray-600">Gmail</span>
+                    </div>
+                    {/* WhatsApp */}
+                    <div className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+                      <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      <span className="text-[10px] text-gray-600">WhatsApp</span>
+                    </div>
+                    {/* Google Docs */}
+                    <div className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+                      <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.727 6.727H14V0H4.91c-.905 0-1.637.732-1.637 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-5.09zm-.545 10.455H7.09v-1.364h7.09v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/>
+                      </svg>
+                      <span className="text-[10px] text-gray-600">Docs</span>
+                    </div>
+                    {/* Slack */}
+                    <div className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+                      <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+                      </svg>
+                      <span className="text-[10px] text-gray-600">Slack</span>
+                    </div>
+                    {/* ChatGPT */}
+                    <div className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+                      <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
+                      </svg>
+                      <span className="text-[10px] text-gray-600">ChatGPT</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Live Transcript - Collapsed when empty */}
+              <AnimatePresence>
+                {hasText && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 mb-4 overflow-hidden"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Live Transcript
+                      </h2>
+                      <button
+                        onClick={clearTranscript}
+                        className="text-xs font-medium text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded transition-all flex items-center gap-1"
+                      >
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        Clear
+                      </button>
+                    </div>
+                    <div className="max-h-32 overflow-y-auto p-3 bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-lg border border-gray-100">
+                      <div className="text-sm leading-relaxed">
+                        {committedText && <span className="text-gray-900 font-medium">{committedText} </span>}
+                        {editableText && <span className="text-gray-900">{editableText} </span>}
+                        {interimTranscript && (
+                          <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="text-blue-600 italic"
+                          >
+                            {interimTranscript}
+                          </motion.span>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Call to action - Only after first recording */}
+              {hasRecorded && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-center"
+                >
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+                    <p className="text-sm text-gray-600 mb-3">
+                      Love it? Get unlimited transcription with Zavi Desktop
                     </p>
+                    <div className="flex flex-col sm:flex-row gap-2 justify-center">
+                      <Link
+                        href="/#download"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all shadow hover:shadow-md no-underline"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        Download Free
+                      </Link>
+                      <Link
+                        href="/"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-white hover:bg-gray-50 text-gray-900 text-sm font-semibold rounded-lg transition-all border border-gray-200 no-underline"
+                      >
+                        Learn More
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
-              </div>
-
-              {/* Compact Transcript area */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 mb-4"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    Live Transcript
-                  </h2>
-                  {hasText && (
-                    <button
-                      onClick={clearTranscript}
-                      className="text-xs font-medium text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded transition-all flex items-center gap-1"
-                    >
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
-                      Clear
-                    </button>
-                  )}
-                </div>
-                <div className={`${hasText ? 'min-h-[120px] max-h-[200px]' : 'h-[120px]'} overflow-y-auto p-4 bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-lg border border-gray-100`}>
-                  {!hasText ? (
-                    <div className="flex flex-col items-center justify-center h-full text-center">
-                      <svg className="w-10 h-10 text-gray-300 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                      </svg>
-                      <p className="text-gray-400 text-sm">Your transcript will appear here...</p>
-                    </div>
-                  ) : (
-                    <div className="text-base leading-relaxed">
-                      {committedText && <span className="text-gray-900 font-medium">{committedText} </span>}
-                      {editableText && <span className="text-gray-900">{editableText} </span>}
-                      {interimTranscript && (
-                        <motion.span
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="text-blue-600 italic"
-                        >
-                          {interimTranscript}
-                        </motion.span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-
-              {/* Compact Call to action */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-center"
-              >
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
-                  <p className="text-sm text-gray-600 mb-3">
-                    Love it? Get unlimited transcription with Zavi Desktop
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                    <Link
-                      href="/#download"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all shadow hover:shadow-md no-underline"
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                      Download Free
-                    </Link>
-                    <Link
-                      href="/"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-white hover:bg-gray-50 text-gray-900 text-sm font-semibold rounded-lg transition-all border border-gray-200 no-underline"
-                    >
-                      Learn More
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
+              )}
             </>
           )}
 
           {/* Compact Footer */}
-          <footer className="mt-6 pt-4 border-t border-gray-200 text-center">
+          <footer className="mt-4 pt-3 border-t border-gray-200 text-center">
             <p className="text-xs text-gray-500">
               Zavi · <Link href="/privacy" className="text-blue-600 hover:text-blue-700 no-underline">Privacy</Link>
             </p>
@@ -907,8 +901,8 @@ export default function DemoPage() {
                       1
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Click the microphone</h3>
-                      <p className="text-sm text-gray-600">Press the blue button to start recording</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">Select your language</h3>
+                      <p className="text-sm text-gray-600">Choose your input language and optional translation</p>
                     </div>
                   </div>
 
@@ -917,8 +911,8 @@ export default function DemoPage() {
                       2
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Speak clearly</h3>
-                      <p className="text-sm text-gray-600">Try: "Hello, this is a test of voice recognition"</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">Click the microphone</h3>
+                      <p className="text-sm text-gray-600">Press the blue button to start recording</p>
                     </div>
                   </div>
 
