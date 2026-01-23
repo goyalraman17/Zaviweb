@@ -70,30 +70,7 @@ export default function FinalCTANew() {
           animate={isInView ? "visible" : "hidden"}
           variants={staggerContainer}
         >
-          {/* Headline */}
-          <motion.h2
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.15] px-4"
-            style={{
-              background: 'linear-gradient(135deg, #1a1a1a 0%, #34384c 50%, #4A4D53 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}
-            variants={fadeUpLarge}
-          >
-            Your Thoughts.
-            <br />
-            Instantly Written.
-          </motion.h2>
-
-          {/* Short declarative outcome */}
-          <motion.div
-            className="text-xl sm:text-2xl md:text-3xl text-zavi-gray-700 mb-16 max-w-3xl mx-auto space-y-3 px-4"
-            variants={fadeUp}
-          >
-            <p className="font-medium">Stop typing.</p>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600">Start speaking.</p>
-          </motion.div>
+          {/* Headline removed to simplify hero */}
 
           {/* Single Dominant CTA */}
           <motion.div
