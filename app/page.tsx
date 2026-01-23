@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import DeviceDownload from '@/components/DeviceDownload';
-import VoiceTypingDemo from '@/components/VoiceTypingDemo';
+import VoiceDemoWidget from '@/components/VoiceDemoWidget';
 import StickyCTA from '@/components/StickyCTA';
 import PageAnalytics from '@/components/PageAnalytics';
 
@@ -66,8 +66,8 @@ export default function Home() {
         {/* Metrics - Social Proof Stats (NEW) */}
         <Metrics />
 
-        {/* Voice Typing Demo - Relatable Use Cases */}
-        <VoiceTypingDemo />
+        {/* Voice Demo Widget - Interactive Voice to Text */}
+        <VoiceDemoWidget />
 
         {/* Kill Your Keyboard - Wow Moment */}
         <KillYourKeyboard />
