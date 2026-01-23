@@ -33,7 +33,11 @@ export default function VideoDemo() {
             {/* Video Container */}
             <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-gray-700">
               {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm cursor-pointer group hover:bg-black/30 transition-all duration-300">
+              <div
+                className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm cursor-pointer group hover:bg-black/30 transition-all duration-300"
+                role="button"
+                aria-label="Play Video"
+              >
                 <motion.div
                   initial={{ scale: 1 }}
                   whileHover={{ scale: 1.1 }}
