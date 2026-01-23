@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
 
-type Platform = 'macOS' | 'Windows' | 'Linux' | 'iOS' | 'Android';
+type Platform = 'iOS' | 'Android' | 'macOS' | 'Windows';
 
 interface PlatformInfo {
   name: Platform;
@@ -16,50 +16,6 @@ interface PlatformInfo {
 }
 
 const platforms: PlatformInfo[] = [
-  {
-    name: 'macOS',
-    label: 'macOS',
-    downloadUrl: 'https://zavi.ai/download/macos',
-    icon: (
-      <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Windows',
-    label: 'Windows',
-    downloadUrl: 'https://zavi.ai/download/windows',
-    icon: (
-      <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Linux',
-    label: 'Linux',
-    downloadUrl: 'https://zavi.ai/download/linux',
-    icon: (
-      <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
-        {/* Tux body - black */}
-        <path d="M12 2C9.8 2 8 3.8 8 6c0 .5.1 1 .3 1.5-.5.3-1 .8-1.4 1.4C6.3 10 6 11 6 12c0 1.5.5 2.8 1.3 3.8.3.4.7.7 1.1 1-.2.5-.4 1-.4 1.5 0 1.1.9 2 2 2 .3 0 .6-.1.9-.2.3.7 1 1.2 1.8 1.2h1.5c.8 0 1.5-.5 1.8-1.2.3.1.6.2.9.2 1.1 0 2-.9 2-2 0-.5-.1-1-.4-1.5.4-.3.8-.6 1.1-1C18.5 14.8 19 13.5 19 12c0-1-.3-2-.9-2.9-.4-.6-.9-1.1-1.4-1.4.2-.5.3-1 .3-1.5 0-2.2-1.8-4-4-4z" fill="#000000"/>
-        {/* White belly */}
-        <ellipse cx="12" cy="14" rx="4" ry="5" fill="#FFFFFF"/>
-        {/* Eyes - white background */}
-        <circle cx="10.5" cy="7.5" r="1.2" fill="#FFFFFF"/>
-        <circle cx="13.5" cy="7.5" r="1.2" fill="#FFFFFF"/>
-        {/* Eyes - black pupils */}
-        <circle cx="10.7" cy="7.5" r="0.7" fill="#000000"/>
-        <circle cx="13.7" cy="7.5" r="0.7" fill="#000000"/>
-        {/* Beak - orange/yellow */}
-        <path d="M12 9c-1 0-1.5.5-1.5 1h3c0-.5-.5-1-1.5-1z" fill="#FFA500"/>
-        {/* Feet - yellow/orange */}
-        <path d="M9 19c0 .5-.5 1-1 1s-1-.5-1-1 .5-2 1-2 1 1.5 1 2z" fill="#FFC107"/>
-        <path d="M16 19c0 .5.5 1 1 1s1-.5 1-1-.5-2-1-2-1 1.5-1 2z" fill="#FFC107"/>
-      </svg>
-    ),
-  },
   {
     name: 'iOS',
     label: 'iOS',
@@ -80,6 +36,26 @@ const platforms: PlatformInfo[] = [
       </svg>
     ),
   },
+  {
+    name: 'macOS',
+    label: 'macOS',
+    downloadUrl: 'https://zavi.ai/download/macos',
+    icon: (
+      <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Windows',
+    label: 'Windows',
+    downloadUrl: 'https://zavi.ai/download/windows',
+    icon: (
+      <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function DeviceDownload() {
@@ -88,11 +64,10 @@ export default function DeviceDownload() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
-      if (userAgent.includes('mac')) setDetectedPlatform('macOS');
-      else if (userAgent.includes('win')) setDetectedPlatform('Windows');
-      else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedPlatform('iOS');
+      if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedPlatform('iOS');
       else if (userAgent.includes('android')) setDetectedPlatform('Android');
-      else if (userAgent.includes('linux')) setDetectedPlatform('Linux');
+      else if (userAgent.includes('mac')) setDetectedPlatform('macOS');
+      else if (userAgent.includes('win')) setDetectedPlatform('Windows');
     }
   }, []);
 
@@ -127,14 +102,14 @@ export default function DeviceDownload() {
             variants={fadeUp}
             className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto space-y-2"
           >
-            <p>Mac. Windows. iPhone. Android. Linux.</p>
+            <p>iPhone. Android. Mac. Windows.</p>
             <p className="text-lg text-gray-500">Click your device to download.</p>
           </motion.div>
 
           {/* Platform Grid */}
           <motion.div
             variants={fadeUp}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto"
           >
             {platforms.map((platform) => {
               const isDetected = platform.name === detectedPlatform;
