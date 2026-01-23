@@ -717,12 +717,6 @@ export default function VoiceDemoCard() {
                 </motion.div>
               )}
             </AnimatePresence>
-
-            {/* Helper text below */}
-            <div className="text-center mt-6 text-sm text-gray-600">
-              This demo explains the product without text.<br />
-              Speak once. Send immediately.
-            </div>
           </>
         )}
       </div>
