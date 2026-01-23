@@ -138,6 +138,13 @@ export default function Footer() {
               </a>
               <span className="text-gray-400">•</span>
               <a
+                href="/demo"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Demo
+              </a>
+              <span className="text-gray-400">•</span>
+              <a
                 href="/privacy"
                 className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
               >

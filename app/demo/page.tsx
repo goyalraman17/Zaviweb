@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Script from 'next/script'
 import { motion, AnimatePresence } from 'framer-motion'
+import Navigation from '@/components/Navigation'
 
 const NUM_BARS = 60
 
@@ -500,44 +501,9 @@ export default function DemoPage() {
         />
 
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 px-6 md:px-10 py-4 flex justify-between items-center z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200">
-          <Link href="/" className="flex items-center gap-3 no-underline text-gray-900 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 flex items-center justify-center">
-              <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#topBar)"/>
-                <path d="M 85 22 Q 75 30, 65 38 Q 55 46, 45 54 Q 35 62, 25 70"
-                      stroke="#1F5F8B" strokeWidth="12" fill="none" opacity="1"/>
-                <rect x="15" y="78" width="70" height="12" rx="6" fill="url(#bottomBar)"/>
-                <defs>
-                  <linearGradient id="topBar" x1="15" y1="16" x2="85" y2="16" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#2E5FDD"/>
-                    <stop offset="50%" stopColor="#3B82F6"/>
-                    <stop offset="100%" stopColor="#60A5FA"/>
-                  </linearGradient>
-                  <linearGradient id="bottomBar" x1="15" y1="84" x2="85" y2="84" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#2E5FDD"/>
-                    <stop offset="50%" stopColor="#3B82F6"/>
-                    <stop offset="100%" stopColor="#60A5FA"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <span className="text-xl font-bold">Zavi</span>
-          </Link>
-          <div className="flex gap-6 items-center">
-            <Link href="/" className="text-gray-600 hover:text-gray-900 no-underline text-sm font-medium transition-colors hidden sm:block">
-              Home
-            </Link>
-            <Link href="/privacy" className="text-gray-600 hover:text-gray-900 no-underline text-sm font-medium transition-colors hidden sm:block">
-              Privacy
-            </Link>
-            <Link href="/demo" className="text-blue-600 no-underline text-sm font-semibold">
-              Demo
-            </Link>
-          </div>
-        </nav>
+        <Navigation />
 
-        <div className="max-w-6xl mx-auto px-4 md:px-6 pt-20 pb-8 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 pt-24 pb-8 relative z-10">
           {/* Compact Header */}
           <motion.header
             initial={{ opacity: 0, y: 20 }}
