@@ -64,10 +64,29 @@ export default function DeviceDownload() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
-      if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedPlatform('iOS');
-      else if (userAgent.includes('android')) setDetectedPlatform('Android');
-      else if (userAgent.includes('mac')) setDetectedPlatform('macOS');
-      else if (userAgent.includes('win')) setDetectedPlatform('Windows');
+      const platform = window.navigator.platform?.toLowerCase() || '';
+
+      // Check for iPhone
+      if (userAgent.includes('iphone')) {
+        setDetectedPlatform('iOS');
+      }
+      // Check for iPad (including iPadOS 13+ which reports as Mac)
+      else if (userAgent.includes('ipad') ||
+               (platform.includes('mac') && navigator.maxTouchPoints > 1)) {
+        setDetectedPlatform('iOS');
+      }
+      // Check for Android
+      else if (userAgent.includes('android')) {
+        setDetectedPlatform('Android');
+      }
+      // Check for macOS (but not iPad masquerading as Mac)
+      else if (userAgent.includes('mac') && navigator.maxTouchPoints <= 1) {
+        setDetectedPlatform('macOS');
+      }
+      // Check for Windows
+      else if (userAgent.includes('win')) {
+        setDetectedPlatform('Windows');
+      }
     }
   }, []);
 
