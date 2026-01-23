@@ -26,7 +26,7 @@ const TRUST_POINTS = [
       </svg>
     ),
     title: 'Used daily by professionals',
-    description: '50,000+ users across law, tech, sales, and consulting.',
+    description: 'Trusted by professionals across law, tech, sales, and consulting.',
   },
   {
     icon: (
