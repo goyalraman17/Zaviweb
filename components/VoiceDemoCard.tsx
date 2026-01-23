@@ -620,7 +620,7 @@ export default function VoiceDemoCard() {
                     </span>
                   ) : (
                     <span className="font-medium text-gray-700">
-                      Click to start • Long press for options
+                      Tap to start • Tap to Stop
                     </span>
                   )}
                 </motion.p>

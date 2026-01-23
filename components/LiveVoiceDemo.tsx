@@ -428,10 +428,10 @@ export default function LiveVoiceDemo() {
           >
             <p className="text-sm font-semibold text-zavi-charcoal">
               {!isConnected && state === 'idle' && 'Connecting to voice gateway...'}
-              {isConnected && state === 'idle' && 'Click to start • Long press for options'}
+              {isConnected && state === 'idle' && 'Tap to start • Tap to Stop'}
               {state === 'listening' && 'Listening...'}
               {state === 'processing' && 'Polishing your words...'}
-              {state === 'ready' && 'Ready • Click mic to start over'}
+              {state === 'ready' && 'Ready • Tap mic to start over'}
             </p>
             {state === 'listening' && detectedLang && inputLang === 'auto' && (
               <motion.p
