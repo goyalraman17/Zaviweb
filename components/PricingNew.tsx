@@ -106,6 +106,10 @@ export default function PricingNew() {
               <GlowCard glowColor="rgba(37, 99, 235, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
               <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Curious explorers</p>
+              <div className="mb-4">
+                <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
+                <div className="text-gray-600 text-sm">Free forever</div>
+              </div>
               <p className="text-gray-600 mb-6">Try voice-first writing risk-free</p>
 
               <ul className="space-y-4 mb-8">
@@ -171,6 +175,21 @@ export default function PricingNew() {
               <p className="text-sm font-semibold text-white/90 mb-2">Recommended for: Daily communicators</p>
               <p className="text-white/80 mb-4">Write at the speed of thought</p>
 
+              {/* Pricing */}
+              <div className="mb-4">
+                <div className="text-5xl font-bold text-white">
+                  ${billingCycle === 'monthly' ? '7.99' : '49.99'}
+                </div>
+                <div className="text-white/80 text-sm">
+                  {billingCycle === 'monthly' ? 'per month' : 'per year'}
+                </div>
+                {billingCycle === 'annual' && (
+                  <div className="text-white/70 text-xs mt-1">
+                    Save $46 compared to monthly
+                  </div>
+                )}
+              </div>
+
               {/* Save Time Badge */}
               <div className="bg-[#E6C15A] text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg mb-6">
                 Save 30+ minutes per day
@@ -235,6 +254,10 @@ export default function PricingNew() {
               <GlowCard glowColor="rgba(37, 99, 235, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
               <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
+              <div className="mb-4">
+                <div className="text-4xl font-bold text-[#1a1a1a]">$9.99</div>
+                <div className="text-gray-600 text-sm">per seat / month</div>
+              </div>
               <p className="text-gray-600 mb-6">Communicate faster as a team</p>
 
               <ul className="space-y-4 mb-8">
