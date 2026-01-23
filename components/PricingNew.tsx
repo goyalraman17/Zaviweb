@@ -63,7 +63,7 @@ export default function PricingNew() {
             </div>
 
             {/* Billing Toggle */}
-            <div className="inline-flex items-center gap-2 p-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
+            <div className="inline-flex items-center gap-1 p-1 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-md">
               <button
                 onClick={() => {
                   setBillingCycle('monthly');
@@ -71,7 +71,7 @@ export default function PricingNew() {
                 }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   billingCycle === 'monthly'
-                    ? 'bg-white text-gray-900 shadow-sm'
+                    ? 'bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -82,16 +82,13 @@ export default function PricingNew() {
                   setBillingCycle('annual');
                   analytics.track('pricing_toggle_billing', { cycle: 'annual' });
                 }}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
                   billingCycle === 'annual'
-                    ? 'bg-white text-gray-900 shadow-sm'
+                    ? 'bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                <span>Annual (2 months free)</span>
-                <div className="w-10 h-5 bg-gradient-to-r from-blue-500 to-sky-500 rounded-full relative">
-                  <div className={`absolute top-0.5 ${billingCycle === 'annual' ? 'right-0.5' : 'left-0.5'} w-4 h-4 bg-white rounded-full transition-all`}></div>
-                </div>
+                Annual (2 months free)
               </button>
             </div>
           </motion.div>
@@ -255,8 +252,17 @@ export default function PricingNew() {
               <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
               <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
               <div className="mb-4">
-                <div className="text-4xl font-bold text-[#1a1a1a]">$9.99</div>
-                <div className="text-gray-600 text-sm">per seat / month</div>
+                <div className="text-4xl font-bold text-[#1a1a1a]">
+                  ${billingCycle === 'monthly' ? '9.99' : '79.99'}
+                </div>
+                <div className="text-gray-600 text-sm">
+                  {billingCycle === 'monthly' ? 'per seat / month' : 'per seat / year'}
+                </div>
+                {billingCycle === 'annual' && (
+                  <div className="text-gray-600 text-xs mt-1">
+                    Save $40 per seat compared to monthly
+                  </div>
+                )}
               </div>
               <p className="text-gray-600 mb-6">Communicate faster as a team</p>
 
