@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import {
   staggerContainerSlow,
   fadeUp,
@@ -9,6 +8,21 @@ import {
   ctaPrimary,
 } from '@/lib/animations';
 import GradientMesh from './animated/GradientMesh';
+
+const LANGUAGE_FLOWS = [
+  {
+    input: { flag: '🇮🇳', name: 'Hindi', example: 'हाँ तो... आज मीटिंग में, उम्म, quarterly targets के बारे में बात की और marketing budget को 15% बढ़ाने का decide किया था।' },
+    output: { flag: '🇬🇧', name: 'English', text: 'In today\'s meeting, we discussed the quarterly targets and agreed to increase our marketing budget by 15%.' },
+  },
+  {
+    input: { flag: '🇪🇸', name: 'Spanish', example: 'Bueno, necesitamos como... hablar del timeline del proyecto, no? Y asegurar que todo el mundo está, eh, alineado con los deliverables.' },
+    output: { flag: '🇬🇧', name: 'English', text: 'We need to discuss the project timeline and ensure all stakeholders are aligned on the deliverables.' },
+  },
+  {
+    input: { flag: '🇬🇧', name: 'English', example: 'So um, just wanted to let you know that, you know, the proposal got approved and we can like, move forward with next phase now.' },
+    output: { flag: '🇫🇷', name: 'French', text: 'Je voudrais vous informer que la proposition a été approuvée et nous pouvons procéder à la prochaine étape.' },
+  },
+];
 
 export default function LanguageTranslationHero() {
   return (
@@ -94,116 +108,66 @@ export default function LanguageTranslationHero() {
             </span>
           </motion.div>
 
-          {/* Demo Image */}
+          {/* Language Flow Examples - 3 Column Grid */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative max-w-6xl mx-auto mb-12"
+            className="grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto mb-12"
           >
-            <div className="relative rounded-3xl shadow-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-white/50">
-              {/* Email Interface Mock */}
-              <div className="p-6 md:p-8 lg:p-12">
-                {/* Browser-style header */}
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#28CA41]"></div>
-                </div>
-
-                {/* Email Interface */}
-                <div className="space-y-4 mb-6">
-                  {/* Toolbar */}
-                  <div className="flex items-center gap-4 pb-4 border-b border-gray-200">
-                    <button className="text-gray-500 hover:text-gray-700">
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                      </svg>
-                    </button>
-                    <button className="text-gray-500 hover:text-gray-700">
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" />
-                        <path d="M7 11V7a5 5 0 0110 0v4" />
-                      </svg>
-                    </button>
-                    <button className="text-gray-500 hover:text-gray-700">
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  {/* Email Fields */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-gray-600 text-sm w-12">To:</span>
-                      <div className="h-4 bg-gray-200 rounded w-32"></div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-gray-600 text-sm w-12">Cc:</span>
-                      <div className="h-4 bg-gray-200 rounded w-48"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Translation Demo - Two Columns */}
-                <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                  {/* Left: Original Hindi Text */}
-                  <div className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-6 md:p-8 border border-blue-100">
-                    <div className="space-y-3 text-left">
-                      <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                        haan haan client ko batana hai proposal approve ho gaya hai aur hum next phase start kar sakte hain umm
+            {LANGUAGE_FLOWS.map((flow, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white/90 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/50 shadow-xl p-4 md:p-6 lg:p-8 hover:shadow-2xl hover:border-blue-200/50 transition-all duration-500"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                whileHover={{ y: -4 }}
+              >
+                {/* Input */}
+                <div className="mb-3 md:mb-4">
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-2xl md:text-3xl">{flow.input.flag}</span>
+                    <div>
+                      <p className="text-[10px] md:text-xs font-semibold text-gray-600 uppercase tracking-wide">
+                        You speak
+                      </p>
+                      <p className="text-xs md:text-sm font-bold text-gray-900">
+                        {flow.input.name}
                       </p>
                     </div>
                   </div>
+                  <p className="text-xs md:text-sm text-gray-600/70 italic">
+                    {flow.input.example}
+                  </p>
+                </div>
 
-                  {/* Arrow */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
-                    <svg className="w-12 h-12 text-[#5381d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
+                {/* Arrow */}
+                <div className="flex justify-center my-2 md:my-3 lg:my-4">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </div>
 
-                  {/* Mobile Arrow */}
-                  <div className="flex md:hidden items-center justify-center py-2">
-                    <svg className="w-8 h-8 text-[#5381d2] transform rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-
-                  {/* Right: Translated English Text */}
-                  <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-6 md:p-8 border border-green-100">
-                    <div className="space-y-3 text-left">
-                      <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                        The proposal has been approved, and we can proceed with the next phase.
+                {/* Output */}
+                <div className="p-3 md:p-4 bg-gradient-to-br from-blue-50 to-sky-50/50 rounded-lg md:rounded-xl border border-blue-200">
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-2xl md:text-3xl">{flow.output.flag}</span>
+                    <div>
+                      <p className="text-[10px] md:text-xs font-semibold text-blue-700 uppercase tracking-wide">
+                        Zavi writes
+                      </p>
+                      <p className="text-xs md:text-sm font-bold text-gray-900">
+                        {flow.output.name}
                       </p>
                     </div>
                   </div>
+                  <p className="text-xs md:text-sm text-gray-900 leading-relaxed">
+                    {flow.output.text}
+                  </p>
                 </div>
-              </div>
-            </div>
-
-            {/* Decorative Audio Waves */}
-            <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 opacity-30 hidden lg:block">
-              <div className="flex items-end gap-1 h-32">
-                {[3, 5, 2, 6, 4, 7, 3, 5, 2, 6, 4, 3].map((height, i) => (
-                  <motion.div
-                    key={i}
-                    className="w-1 bg-gradient-to-t from-[#2563EB] to-[#3B82F6] rounded-full"
-                    style={{ height: `${height * 10}%` }}
-                    animate={{
-                      height: [`${height * 10}%`, `${height * 15}%`, `${height * 10}%`],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      delay: i * 0.1,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* App Icons */}
