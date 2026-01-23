@@ -79,17 +79,8 @@ export default function Navigation() {
     };
   }, [mobileMenuOpen]);
 
-  // Get download text based on detected OS
-  const getDownloadText = () => {
-    switch (detectedOS) {
-      case 'macOS': return 'Download for macOS';
-      case 'Windows': return 'Download for Windows';
-      case 'iOS': return 'Get on App Store';
-      case 'Android': return 'Get on Play Store';
-      case 'Linux': return 'Download for Linux';
-      default: return 'Download Free';
-    }
-  };
+  // Get download text - always show a neutral CTA
+  const getDownloadText = () => 'Download Free';
 
   // Scroll to section
   const scrollToSection = (sectionId: string) => {
