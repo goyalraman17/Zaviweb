@@ -94,7 +94,7 @@ export default function Navigation() {
   const navLinks = [
     { name: 'How it Works', href: '/#how-it-works', id: 'how-it-works' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
-    { name: 'Demo', href: '/demo', id: 'demo' },
+    { name: 'Try Zavi', href: '/demo', id: 'demo' },
     { name: 'About', href: '/about', id: 'about' },
   ];
 
@@ -103,9 +103,8 @@ export default function Navigation() {
       initial="top"
       animate="visible"
       variants={headerReveal}
-      className={`fixed left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200 transition-all duration-300 ${
-        isVisible ? 'top-0' : '-top-24'
-      }`}
+      className={`fixed left-0 right-0 z-[9997] bg-white/95 backdrop-blur-lg border-b border-gray-200 transition-all duration-300 ${isVisible ? 'top-0' : '-top-24'
+        }`}
       style={{ transitionProperty: 'top, height' }}
     >
       <div className="container-large">
@@ -122,35 +121,35 @@ export default function Navigation() {
             <div className="relative w-10 h-10 flex items-center justify-center">
               <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Top bar */}
-                <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#topBar)"/>
+                <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#topBar)" />
 
                 {/* Flowing Z layers - from back to front */}
                 <path d="M 75 22 Q 65 30, 55 38 Q 45 46, 35 54 Q 25 62, 25 70"
-                      stroke="#87CEEB" strokeWidth="8" fill="none" opacity="0.3"/>
+                  stroke="#87CEEB" strokeWidth="8" fill="none" opacity="0.3" />
                 <path d="M 77 22 Q 67 30, 57 38 Q 47 46, 37 54 Q 27 62, 25 70"
-                      stroke="#5DADE2" strokeWidth="8" fill="none" opacity="0.4"/>
+                  stroke="#5DADE2" strokeWidth="8" fill="none" opacity="0.4" />
                 <path d="M 79 22 Q 69 30, 59 38 Q 49 46, 39 54 Q 29 62, 25 70"
-                      stroke="#3498DB" strokeWidth="9" fill="none" opacity="0.5"/>
+                  stroke="#3498DB" strokeWidth="9" fill="none" opacity="0.5" />
                 <path d="M 81 22 Q 71 30, 61 38 Q 51 46, 41 54 Q 31 62, 25 70"
-                      stroke="#2E86C1" strokeWidth="10" fill="none" opacity="0.6"/>
+                  stroke="#2E86C1" strokeWidth="10" fill="none" opacity="0.6" />
                 <path d="M 83 22 Q 73 30, 63 38 Q 53 46, 43 54 Q 33 62, 25 70"
-                      stroke="#2874A6" strokeWidth="11" fill="none" opacity="0.8"/>
+                  stroke="#2874A6" strokeWidth="11" fill="none" opacity="0.8" />
                 <path d="M 85 22 Q 75 30, 65 38 Q 55 46, 45 54 Q 35 62, 25 70"
-                      stroke="#1F5F8B" strokeWidth="12" fill="none" opacity="1"/>
+                  stroke="#1F5F8B" strokeWidth="12" fill="none" opacity="1" />
 
                 {/* Bottom bar */}
-                <rect x="15" y="78" width="70" height="12" rx="6" fill="url(#bottomBar)"/>
+                <rect x="15" y="78" width="70" height="12" rx="6" fill="url(#bottomBar)" />
 
                 <defs>
                   <linearGradient id="topBar" x1="15" y1="16" x2="85" y2="16" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#2E5FDD"/>
-                    <stop offset="50%" stopColor="#3B82F6"/>
-                    <stop offset="100%" stopColor="#60A5FA"/>
+                    <stop offset="0%" stopColor="#2E5FDD" />
+                    <stop offset="50%" stopColor="#3B82F6" />
+                    <stop offset="100%" stopColor="#60A5FA" />
                   </linearGradient>
                   <linearGradient id="bottomBar" x1="15" y1="84" x2="85" y2="84" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#2E5FDD"/>
-                    <stop offset="50%" stopColor="#3B82F6"/>
-                    <stop offset="100%" stopColor="#60A5FA"/>
+                    <stop offset="0%" stopColor="#2E5FDD" />
+                    <stop offset="50%" stopColor="#3B82F6" />
+                    <stop offset="100%" stopColor="#60A5FA" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -235,11 +234,11 @@ export default function Navigation() {
           >
             {mobileMenuOpen ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             ) : (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             )}
           </motion.button>

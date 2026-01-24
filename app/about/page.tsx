@@ -328,12 +328,12 @@ export default function AboutPage() {
               >
                 Get in Touch
               </Link>
-              <a
-                href="https://zavi.ai"
+              <Link
+                href="/demo"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-all shadow-lg text-lg"
               >
                 Try Zavi
-              </a>
+              </Link>
             </div>
           </div>
         </AnimatedSection>
