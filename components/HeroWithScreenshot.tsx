@@ -130,36 +130,94 @@ export default function HeroWithScreenshot() {
               </motion.span>
             </motion.h1>
 
-            {/* Short declarative lines - Speech → Writing → Outcome */}
-            <motion.h2
-              className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto space-y-3"
+            {/* Process Visual - Replaces sub-headline */}
+            <motion.div
+              className="flex items-center justify-center gap-4 md:gap-8 mb-12"
               variants={fadeUp}
+              initial="hidden"
+              animate="visible"
             >
-              <motion.p
-                className="font-medium"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                Speak naturally.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                Get professional text.
-              </motion.p>
-            </motion.h2>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-zavi-blue-600 shadow-sm border border-blue-100 relative group">
+                  <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                  <motion.div
+                    className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                </div>
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-tighter">Speak</span>
+              </div>
 
-            {/* Single Dominant CTA with glow effect */}
+              <motion.div
+                className="text-zavi-blue-300"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                </svg>
+              </motion.div>
+
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-zavi-blue-600 to-zavi-blue-500 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-blue-200 relative">
+                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.456-2.455l.259-1.036.259 1.036a3.375 3.375 0 002.455 2.455l1.035.259-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                  </svg>
+                </div>
+                <span className="text-xs font-bold text-zavi-blue-600 uppercase tracking-tighter">Analyze</span>
+              </div>
+
+              <motion.div
+                className="text-zavi-blue-300"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                </svg>
+              </motion.div>
+
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-zavi-blue-600 shadow-sm border border-blue-100">
+                  <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <span className="text-xs font-semibold text-gray-500 uppercase tracking-tighter">Write</span>
+              </div>
+            </motion.div>
+
+            {/* Main CTA */}
             <motion.div
               variants={fadeUp}
-              className="mb-10"
+              className="mb-12 relative"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9, duration: 0.5, type: "spring", stiffness: 100 }}
             >
+              {/* Floating App Icons around CTA */}
+              <motion.div
+                className="absolute -left-12 top-0 w-10 h-10 bg-white rounded-xl shadow-lg flex items-center justify-center p-2 hidden lg:flex"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <svg viewBox="0 0 24 24" className="w-full h-full text-[#EA4335]">
+                  <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.545l8.073-6.052C21.69 2.28 24 3.434 24 5.457z" />
+                </svg>
+              </motion.div>
+              <motion.div
+                className="absolute -right-12 bottom-0 w-10 h-10 bg-white rounded-xl shadow-lg flex items-center justify-center p-2 hidden lg:flex"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <svg viewBox="0 0 24 24" className="w-full h-full text-[#4A154B]">
+                  <path fill="currentColor" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" />
+                </svg>
+              </motion.div>
+
               <motion.a
                 href="/#download"
                 onClick={(e) => {
@@ -226,66 +284,67 @@ export default function HeroWithScreenshot() {
               </motion.a>
             </motion.div>
 
-            {/* Trust Pills */}
+            {/* Feature Ribbon - Consolidated */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center justify-center gap-3 mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.0, duration: 0.6 }}
-            >
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-semibold text-green-700">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Free Forever
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                Private
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Trusted Worldwide
-              </span>
-            </motion.div>
-
-            {/* Feature Chips */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap items-center justify-center gap-3 mb-16"
+              className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-16 px-4 py-6 bg-slate-50/50 backdrop-blur-sm rounded-3xl border border-slate-100 max-w-4xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1, duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm">
-                <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                Removes Fillers
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm">
-                <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Perfect Grammar
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm">
-                <svg className="w-4 h-4 text-zavi-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                Instant Format
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-700 shadow-sm">
-                <svg className="w-4 h-4 text-zavi-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Works Everywhere
-              </span>
+              <div className="flex items-center gap-2.5 group">
+                <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-emerald-600 border border-emerald-50">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold text-slate-900 leading-tight">Privacy First</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Safe & Encrypted</p>
+                </div>
+              </div>
+
+              <div className="w-px h-8 bg-slate-200 hidden md:block" />
+
+              <div className="flex items-center gap-2.5 group">
+                <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-zavi-blue-600 border border-blue-50">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold text-slate-900 leading-tight">Auto-Clean</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Removes Fillers</p>
+                </div>
+              </div>
+
+              <div className="w-px h-8 bg-slate-200 hidden md:block" />
+
+              <div className="flex items-center gap-2.5 group">
+                <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-amber-500 border border-amber-50">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold text-slate-900 leading-tight">Instant Format</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Ready to Use</p>
+                </div>
+              </div>
+
+              <div className="w-px h-8 bg-slate-200 hidden md:block" />
+
+              <div className="flex items-center gap-2.5 group">
+                <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-indigo-600 border border-indigo-50">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold text-slate-900 leading-tight">Works Anywhere</p>
+                  <p className="text-[11px] text-slate-500 font-medium">All Your Apps</p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 

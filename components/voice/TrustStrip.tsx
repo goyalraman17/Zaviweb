@@ -69,7 +69,7 @@ export default function TrustStrip() {
           className="text-center mt-12"
         >
           <p className="text-sm md:text-base text-[#5A5766] font-light max-w-2xl mx-auto">
-            Join thousands of professionals who've transformed the way they communicate
+            Experience the 5-star voice typing experience that's transforming professional communication
           </p>
         </motion.div>
       </div>

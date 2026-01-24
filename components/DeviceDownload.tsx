@@ -268,7 +268,7 @@ export default function DeviceDownload() {
             className="mt-16 pt-8 border-t border-slate-100 flex flex-wrap items-center justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all"
           >
             <div className="flex items-center gap-2">
-              <span className="font-bold text-xl text-slate-400">4.8/5</span>
+              <span className="font-bold text-xl text-slate-400">5/5</span>
               <div className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -276,10 +276,8 @@ export default function DeviceDownload() {
                   </svg>
                 ))}
               </div>
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Play Store</span>
+              <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Play Store Rating</span>
             </div>
-            <div className="h-4 w-px bg-slate-200"></div>
-            <span className="text-sm font-medium text-slate-500 leading-relaxed">Trusted by 10,000+ Android users</span>
           </motion.div>
         </motion.div>
       </div>

@@ -58,7 +58,7 @@ export default function PricingNew() {
               Choose Your Plan. Start Writing Faster Today.
             </h2>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Join thousands of professionals who've ditched their keyboard for Zavi.
+              Experience the 5-star voice keyboard that's replacing the traditional typing experience.
             </p>
 
             {/* Trust Pill Badges */}
