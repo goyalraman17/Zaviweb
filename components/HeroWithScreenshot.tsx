@@ -149,7 +149,7 @@ export default function HeroWithScreenshot() {
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                 </div>
-                <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-tighter">Speak</span>
+                <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-tighter">Speak Naturally</span>
               </div>
 
               <motion.div
@@ -168,7 +168,7 @@ export default function HeroWithScreenshot() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.456-2.455l.259-1.036.259 1.036a3.375 3.375 0 002.455 2.455l1.035.259-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                 </div>
-                <span className="text-[10px] sm:text-xs font-bold text-zavi-blue-600 uppercase tracking-tighter">Analyze</span>
+                <span className="text-[10px] sm:text-xs font-bold text-zavi-blue-600 uppercase tracking-tighter">Zavi fixes and writes</span>
               </div>
 
               <motion.div
@@ -187,7 +187,7 @@ export default function HeroWithScreenshot() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-tighter">Write</span>
+                <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-tighter">Done</span>
               </div>
             </motion.div>
 
