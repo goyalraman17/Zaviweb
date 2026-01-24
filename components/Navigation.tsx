@@ -92,7 +92,7 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { name: 'How it Works', href: '/#how-it-works', id: 'how-it-works' },
+    { name: 'Demo', href: '/#how-it-works', id: 'how-it-works' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
     { name: 'Try Zavi', href: '/demo', id: 'demo' },
     { name: 'About', href: '/about', id: 'about' },
