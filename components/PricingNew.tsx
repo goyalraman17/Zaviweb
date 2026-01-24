@@ -69,11 +69,10 @@ export default function PricingNew() {
                   setBillingCycle('monthly');
                   analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
                 }}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                  billingCycle === 'monthly'
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'monthly'
                     ? 'bg-gradient-to-r from-zavi-blue-500 to-zavi-blue-400 text-white shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 Monthly
               </button>
@@ -82,11 +81,10 @@ export default function PricingNew() {
                   setBillingCycle('annual');
                   analytics.track('pricing_toggle_billing', { cycle: 'annual' });
                 }}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                  billingCycle === 'annual'
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'annual'
                     ? 'bg-gradient-to-r from-zavi-blue-500 to-zavi-blue-400 text-white shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
-                }`}
+                  }`}
               >
                 Annual (2 months free)
               </button>
@@ -101,59 +99,59 @@ export default function PricingNew() {
             {/* Free Plan */}
             <motion.div variants={fadeUp}>
               <GlowCard glowColor="rgba(37, 99, 235, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
-              <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
-              <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Curious explorers</p>
-              <div className="mb-4">
-                <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
-                <div className="text-gray-600 text-sm">Free forever</div>
-              </div>
-              <p className="text-gray-600 mb-6">Try voice-first writing risk-free</p>
+                <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
+                <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Curious explorers</p>
+                <div className="mb-4">
+                  <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
+                  <div className="text-gray-600 text-sm">Free forever</div>
+                </div>
+                <p className="text-gray-600 mb-6">Try voice-first writing risk-free</p>
 
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Speak 1,000 words per week</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Sound professional without editing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Write anywhere you type</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Speak in any language</span>
-                </li>
-              </ul>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Speak 1,000 words per week</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Sound professional without editing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Write anywhere you type</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Speak in any language</span>
+                  </li>
+                </ul>
 
-              <motion.button
-                onClick={() => {
-                  analytics.track('pricing_plan_click', {
-                    plan: 'free',
-                    billing_cycle: billingCycle,
-                  });
-                }}
-                className="w-full px-6 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
-                style={{
-                  background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
-                }}
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={ctaPrimary}
-              >
-                Start Free Forever
-              </motion.button>
+                <motion.button
+                  onClick={() => {
+                    analytics.track('pricing_plan_click', {
+                      plan: 'free',
+                      billing_cycle: billingCycle,
+                    });
+                  }}
+                  className="w-full px-6 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
+                  style={{
+                    background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
+                  }}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={ctaPrimary}
+                >
+                  Start Free Forever
+                </motion.button>
               </GlowCard>
             </motion.div>
 
@@ -163,91 +161,91 @@ export default function PricingNew() {
                 <div className="relative rounded-3xl p-8 shadow-2xl transform scale-105 h-full" style={{
                   background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
                 }}>
-              {/* Most Popular Badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-white text-zavi-blue-700 text-sm font-bold rounded-full shadow-lg">
-                Most Popular
-              </div>
-
-              <h3 className="text-3xl font-bold text-white mb-1">Pro</h3>
-              <p className="text-sm font-semibold text-white/90 mb-2">Recommended for: Daily communicators</p>
-              <p className="text-white/80 mb-4">Write at the speed of thought</p>
-
-              {/* Pricing */}
-              <div className="mb-4">
-                <div className="text-5xl font-bold text-white">
-                  ${billingCycle === 'monthly' ? '7.99' : '49.99'}
-                </div>
-                <div className="text-white/80 text-sm">
-                  {billingCycle === 'monthly' ? 'per month' : 'per year'}
-                </div>
-                {billingCycle === 'annual' && (
-                  <div className="text-white/70 text-xs mt-1">
-                    Save $46 compared to monthly
+                  {/* Most Popular Badge */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-white text-zavi-blue-700 text-sm font-bold rounded-full shadow-lg">
+                    Most Popular
                   </div>
-                )}
-              </div>
 
-              {/* Save Time Badge */}
-              <div className="bg-[#E6C15A] text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg mb-6">
-                Save 30+ minutes per day
-              </div>
+                  <h3 className="text-3xl font-bold text-white mb-1">Pro</h3>
+                  <p className="text-sm font-semibold text-white/90 mb-2">Recommended for: Daily communicators</p>
+                  <p className="text-white/80 mb-4">Write at the speed of thought</p>
 
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white">Unlimited words (subject to fair usage)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white">Never type again</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white">Sound polished in every message</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white">Eliminate fillers and awkward phrasing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white">Perfect grammar without thinking</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white">Match your tone to any audience</span>
-                </li>
-              </ul>
+                  {/* Pricing */}
+                  <div className="mb-4">
+                    <div className="text-5xl font-bold text-white">
+                      ${billingCycle === 'monthly' ? '7.99' : '49.99'}
+                    </div>
+                    <div className="text-white/80 text-sm">
+                      {billingCycle === 'monthly' ? 'per month' : 'per year'}
+                    </div>
+                    {billingCycle === 'annual' && (
+                      <div className="text-white/70 text-xs mt-1">
+                        Save $46 compared to monthly
+                      </div>
+                    )}
+                  </div>
 
-              <motion.button
-                onClick={() => {
-                  analytics.track('pricing_plan_click', {
-                    plan: 'pro',
-                    billing_cycle: billingCycle,
-                  });
-                }}
-                className="w-full px-6 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={ctaPrimary}
-              >
-                Start 7-Day Free Trial
-              </motion.button>
+                  {/* Save Time Badge */}
+                  <div className="bg-[#E6C15A] text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg mb-6">
+                    Save 30+ minutes per day
+                  </div>
 
-              <p className="text-center text-white/80 text-sm">7-day money-back guarantee</p>
+                  <ul className="space-y-4 mb-8">
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-white">Unlimited words*</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-white">Never type again</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-white">Sound polished in every message</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-white">Eliminate fillers and awkward phrasing</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-white">Perfect grammar without thinking</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-white">Match your tone to any audience</span>
+                    </li>
+                  </ul>
+
+                  <motion.button
+                    onClick={() => {
+                      analytics.track('pricing_plan_click', {
+                        plan: 'pro',
+                        billing_cycle: billingCycle,
+                      });
+                    }}
+                    className="w-full px-6 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap"
+                    variants={ctaPrimary}
+                  >
+                    Start 7-Day Free Trial
+                  </motion.button>
+
+
                 </div>
               </GlowCard>
             </motion.div>
@@ -255,76 +253,81 @@ export default function PricingNew() {
             {/* Teams Plan */}
             <motion.div variants={fadeUp}>
               <GlowCard glowColor="rgba(37, 99, 235, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
-              <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
-              <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
-              <div className="mb-4">
-                <div className="text-4xl font-bold text-[#1a1a1a]">
-                  ${billingCycle === 'monthly' ? '9.99' : '79.99'}
-                </div>
-                <div className="text-gray-600 text-sm">
-                  {billingCycle === 'monthly' ? 'per seat / month' : 'per seat / year'}
-                </div>
-                {billingCycle === 'annual' && (
-                  <div className="text-gray-600 text-xs mt-1">
-                    Save $40 per seat compared to monthly
+                <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
+                <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
+                <div className="mb-4">
+                  <div className="text-4xl font-bold text-[#1a1a1a]">
+                    ${billingCycle === 'monthly' ? '9.99' : '79.99'}
                   </div>
-                )}
-              </div>
-              <p className="text-gray-600 mb-6">Communicate faster as a team</p>
+                  <div className="text-gray-600 text-sm">
+                    {billingCycle === 'monthly' ? 'per seat / month' : 'per seat / year'}
+                  </div>
+                  {billingCycle === 'annual' && (
+                    <div className="text-gray-600 text-xs mt-1">
+                      Save $40 per seat compared to monthly
+                    </div>
+                  )}
+                </div>
+                <p className="text-gray-600 mb-6">Communicate faster as a team</p>
 
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Unlimited words (subject to fair usage)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Everything in Pro for everyone</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Stay on-brand across all messages</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Track team productivity gains</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Simple admin and billing</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-gray-700">Get help when you need it</span>
-                </li>
-              </ul>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Unlimited words*</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Everything in Pro for everyone</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Stay on-brand across all messages</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Track team productivity gains</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Simple admin and billing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-gray-700">Get help when you need it</span>
+                  </li>
+                </ul>
 
-              <motion.button
-                className="w-full px-6 py-4 rounded-full font-semibold text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-                variants={ctaPrimary}
-              >
-                Start with 3 Users
-              </motion.button>
+                <motion.button
+                  className="w-full px-6 py-4 rounded-full font-semibold text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={ctaPrimary}
+                >
+                  Start with 3 Users
+                </motion.button>
 
-              <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
+                <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
               </GlowCard>
             </motion.div>
           </motion.div>
+
+          {/* Footnote */}
+          <div className="text-center mb-16">
+            <p className="text-gray-500 text-sm">* Subject to fair usage policy. See <a href="/terms" className="underline hover:text-gray-700">Terms and Conditions</a>.</p>
+          </div>
 
           {/* Enterprise Section */}
           <motion.div
