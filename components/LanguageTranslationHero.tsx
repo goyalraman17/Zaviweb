@@ -44,9 +44,9 @@ export default function LanguageTranslationHero() {
         >
           {/* Main Heading */}
           <motion.h2
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 text-[#34384c]"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 text-[#34384c] px-4"
             variants={fadeUpLarge}
-            style={{ lineHeight: 1.15 }}
+            style={{ lineHeight: 1.2 }}
           >
             Speak in Any{' '}
             <span
@@ -60,9 +60,9 @@ export default function LanguageTranslationHero() {
 
           {/* Second Line */}
           <motion.h3
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-[#34384c]"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-[#34384c] px-4"
             variants={fadeUpLarge}
-            style={{ lineHeight: 1.15 }}
+            style={{ lineHeight: 1.2 }}
           >
             Sound Perfect in{' '}
             <span
@@ -173,59 +173,61 @@ export default function LanguageTranslationHero() {
           {/* App Icons */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center justify-center gap-4 md:gap-6"
+            className="flex flex-wrap items-center justify-center gap-6 md:gap-8 pb-8 md:pb-0"
           >
-            {/* Gmail Icon */}
-            <div className="flex items-center gap-2">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="#EA4335"/>
-                <path d="M22 6l-10 7L2 6" stroke="white" strokeWidth="2" fill="none"/>
-              </svg>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+              {/* Gmail Icon */}
+              <div className="flex items-center gap-2 transform hover:scale-110 transition-transform">
+                <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="#EA4335" />
+                  <path d="M22 6l-10 7L2 6" stroke="white" strokeWidth="2" fill="none" />
+                </svg>
+              </div>
+
+              {/* WhatsApp Icon */}
+              <div className="flex items-center gap-2 transform hover:scale-110 transition-transform">
+                <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="#25D366">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </div>
+
+              {/* Slack Icon */}
+              <div className="flex items-center gap-2 transform hover:scale-110 transition-transform">
+                <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 15a2 2 0 01-2 2 2 2 0 01-2-2 2 2 0 012-2h2v2zm1 0a2 2 0 012-2 2 2 0 012 2v5a2 2 0 01-2 2 2 2 0 01-2-2v-5z" fill="#E01E5A" />
+                  <path d="M9 6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H9zm0 1a2 2 0 012 2 2 2 0 01-2 2H4a2 2 0 01-2-2 2 2 0 012-2h5z" fill="#36C5F0" />
+                  <path d="M18 9a2 2 0 012-2 2 2 0 012 2 2 2 0 01-2 2h-2V9zm-1 0a2 2 0 01-2 2 2 2 0 01-2-2V4a2 2 0 012-2 2 2 0 012 2v5z" fill="#2EB67D" />
+                  <path d="M15 18a2 2 0 012 2 2 2 0 01-2 2 2 2 0 01-2-2v-2h2zm0-1a2 2 0 01-2-2 2 2 0 012-2h5a2 2 0 012 2 2 2 0 01-2 2h-5z" fill="#ECB22E" />
+                </svg>
+              </div>
+
+              {/* Notion Icon */}
+              <div className="flex items-center gap-2 transform hover:scale-110 transition-transform">
+                <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z" fill="#000" />
+                </svg>
+              </div>
+
+              {/* Chrome Icon */}
+              <div className="flex items-center gap-2 transform hover:scale-110 transition-transform">
+                <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" fill="#fff" />
+                  <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="url(#chrome-a)" />
+                  <circle cx="12" cy="12" r="4" fill="#fff" />
+                  <circle cx="12" cy="12" r="3" fill="#1A73E8" />
+                  <defs>
+                    <radialGradient id="chrome-a">
+                      <stop offset="0%" stopColor="#fff" stopOpacity=".1" />
+                      <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+                </svg>
+              </div>
             </div>
 
-            {/* WhatsApp Icon */}
-            <div className="flex items-center gap-2">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#25D366">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-            </div>
-
-            {/* Slack Icon */}
-            <div className="flex items-center gap-2">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                <path d="M6 15a2 2 0 01-2 2 2 2 0 01-2-2 2 2 0 012-2h2v2zm1 0a2 2 0 012-2 2 2 0 012 2v5a2 2 0 01-2 2 2 2 0 01-2-2v-5z" fill="#E01E5A"/>
-                <path d="M9 6a2 2 0 01-2-2 2 2 0 012-2 2 2 0 012 2v2H9zm0 1a2 2 0 012 2 2 2 0 01-2 2H4a2 2 0 01-2-2 2 2 0 012-2h5z" fill="#36C5F0"/>
-                <path d="M18 9a2 2 0 012-2 2 2 0 012 2 2 2 0 01-2 2h-2V9zm-1 0a2 2 0 01-2 2 2 2 0 01-2-2V4a2 2 0 012-2 2 2 0 012 2v5z" fill="#2EB67D"/>
-                <path d="M15 18a2 2 0 012 2 2 2 0 01-2 2 2 2 0 01-2-2v-2h2zm0-1a2 2 0 01-2-2 2 2 0 012-2h5a2 2 0 012 2 2 2 0 01-2 2h-5z" fill="#ECB22E"/>
-              </svg>
-            </div>
-
-            {/* Notion Icon */}
-            <div className="flex items-center gap-2">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z" fill="#000"/>
-              </svg>
-            </div>
-
-            {/* Chrome Icon */}
-            <div className="flex items-center gap-2">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" fill="#fff"/>
-                <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="url(#chrome-a)"/>
-                <circle cx="12" cy="12" r="4" fill="#fff"/>
-                <circle cx="12" cy="12" r="3" fill="#1A73E8"/>
-                <defs>
-                  <radialGradient id="chrome-a">
-                    <stop offset="0%" stopColor="#fff" stopOpacity=".1"/>
-                    <stop offset="100%" stopColor="#fff" stopOpacity="0"/>
-                  </radialGradient>
-                </defs>
-              </svg>
-            </div>
-
-            <span className="text-sm md:text-base text-gray-600 font-medium">
+            <p className="w-full text-center text-sm md:text-base text-gray-600 font-medium">
               Gmail, WhatsApp, Slack, Notion, Chrome
-            </span>
+            </p>
           </motion.div>
         </motion.div>
       </div>

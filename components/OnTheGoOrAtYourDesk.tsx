@@ -23,7 +23,7 @@ export default function OnTheGoOrAtYourDesk() {
           variants={fadeUpLarge}
           className="mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6"
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 px-4"
             style={{
               lineHeight: 1.2,
               color: '#1E40AF'
@@ -106,7 +106,7 @@ export default function OnTheGoOrAtYourDesk() {
             </div>
 
             {/* iPhone Mockup */}
-            <div className="absolute bottom-[-30px] sm:bottom-[-60px] left-[-20px] sm:left-[-40px] z-30 w-24 sm:w-32 md:w-48 lg:w-56 scale-[0.8] sm:scale-100 origin-bottom-left">
+            <div className="absolute bottom-[-20px] sm:bottom-[-60px] left-[0px] sm:left-[-40px] z-30 w-24 sm:w-32 md:w-48 lg:w-56 scale-[0.7] sm:scale-100 origin-bottom-left">
               <div className="relative rounded-[20px] sm:rounded-3xl shadow-2xl overflow-hidden bg-gray-900 border-[2px] sm:border-4 border-gray-800">
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-32 h-3 sm:h-6 bg-gray-900 rounded-b-xl sm:rounded-b-2xl z-10"></div>
@@ -173,7 +173,7 @@ export default function OnTheGoOrAtYourDesk() {
             </div>
 
             {/* iPad Mockup */}
-            <div className="absolute top-[40px] sm:top-[80px] right-[-30px] sm:right-[-100px] z-10 w-40 sm:w-60 md:w-80 lg:w-96 scale-[0.8] sm:scale-100 origin-top-right">
+            <div className="absolute top-[20px] sm:top-[80px] right-[0px] sm:right-[-100px] z-10 w-40 sm:w-60 md:w-80 lg:w-96 scale-[0.7] sm:scale-100 origin-top-right">
               <div className="relative rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden bg-gray-900 border-[2px] sm:border-4 border-gray-800">
                 {/* Screen */}
                 <div className="aspect-[4/3] bg-white p-3 sm:p-6 text-left">

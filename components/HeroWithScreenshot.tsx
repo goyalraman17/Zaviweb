@@ -106,10 +106,11 @@ export default function HeroWithScreenshot() {
           >
             {/* Headline */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6 px-4"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
+              style={{ lineHeight: 1.2 }}
             >
               Your Voice.<br />
               <motion.span
@@ -132,61 +133,61 @@ export default function HeroWithScreenshot() {
 
             {/* Process Visual - Replaces sub-headline */}
             <motion.div
-              className="flex items-center justify-center gap-4 md:gap-8 mb-12"
+              className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 mb-12 px-2"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
             >
               <div className="flex flex-col items-center gap-2">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-zavi-blue-600 shadow-sm border border-blue-100 relative group">
-                  <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-zavi-blue-600 shadow-sm border border-blue-100 relative group">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                   </svg>
                   <motion.div
-                    className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"
+                    className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"
                     animate={{ opacity: [1, 0, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                 </div>
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-tighter">Speak</span>
+                <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-tighter">Speak</span>
               </div>
 
               <motion.div
-                className="text-zavi-blue-300"
-                animate={{ x: [0, 5, 0] }}
+                className="text-zavi-blue-200"
+                animate={{ x: [0, 3, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                 </svg>
               </motion.div>
 
               <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-zavi-blue-600 to-zavi-blue-500 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-blue-200 relative">
-                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-zavi-blue-600 to-zavi-blue-500 rounded-2xl sm:rounded-3xl flex items-center justify-center text-white shadow-xl shadow-blue-200 relative">
+                  <svg className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.456-2.455l.259-1.036.259 1.036a3.375 3.375 0 002.455 2.455l1.035.259-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                 </div>
-                <span className="text-xs font-bold text-zavi-blue-600 uppercase tracking-tighter">Analyze</span>
+                <span className="text-[10px] sm:text-xs font-bold text-zavi-blue-600 uppercase tracking-tighter">Analyze</span>
               </div>
 
               <motion.div
-                className="text-zavi-blue-300"
-                animate={{ x: [0, 5, 0] }}
+                className="text-zavi-blue-200"
+                animate={{ x: [0, 3, 0] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                 </svg>
               </motion.div>
 
               <div className="flex flex-col items-center gap-2">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-zavi-blue-600 shadow-sm border border-blue-100">
-                  <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-zavi-blue-600 shadow-sm border border-blue-100">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-tighter">Write</span>
+                <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-tighter">Write</span>
               </div>
             </motion.div>
 
@@ -269,7 +270,7 @@ export default function HeroWithScreenshot() {
                     downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }}
-                className="relative inline-flex items-center gap-3 px-12 py-6 text-xl font-bold text-white bg-gradient-to-r from-zavi-blue-600 to-zavi-blue-500 rounded-2xl transition-all shadow-2xl overflow-hidden group"
+                className="relative inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-bold text-white bg-gradient-to-r from-zavi-blue-600 to-zavi-blue-500 rounded-2xl transition-all shadow-2xl overflow-hidden group"
                 initial="rest"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(37, 99, 235, 0.5)" }}
                 whileTap={{ scale: 0.98 }}

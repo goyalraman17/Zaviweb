@@ -174,7 +174,7 @@ export default function PricingNew() {
             {/* Pro Plan - Most Popular */}
             <motion.div variants={fadeUp}>
               <GlowCard glowColor="rgba(37, 99, 235, 0.6)" className="h-full">
-                <div className="relative rounded-3xl p-8 shadow-2xl transform scale-105 h-full" style={{
+                <div className="relative rounded-3xl p-8 shadow-2xl transform md:scale-105 h-full" style={{
                   background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
                 }}>
                   {/* Most Popular Badge */}

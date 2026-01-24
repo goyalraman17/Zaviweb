@@ -137,7 +137,7 @@ export default function DeviceDownload() {
 
           <motion.div
             variants={fadeUp}
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto space-y-2"
+            className="text-lg md:text-2xl text-gray-600 mb-16 md:mb-20 max-w-2xl mx-auto space-y-2 px-4"
           >
             <p>Live on Android. Coming soon to iOS, Mac, and Windows.</p>
           </motion.div>
@@ -145,7 +145,7 @@ export default function DeviceDownload() {
           {/* Platform Grid */}
           <motion.div
             variants={fadeUp}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-4 md:gap-6 max-w-5xl mx-auto mb-12 px-4 md:px-0"
           >
             {platforms.map((platform) => {
               const isDetected = platform.name === detectedPlatform;
@@ -169,13 +169,13 @@ export default function DeviceDownload() {
                   whileTap={{ scale: 0.98 }}
                 >
                   {/* Status Badge */}
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-20">
                     {isAndroid ? (
-                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">
+                      <span className="inline-flex items-center gap-1 px-4 py-1.5 bg-green-500 text-white text-[11px] font-bold uppercase tracking-wider rounded-full shadow-lg border-2 border-white">
                         Live Now
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded-full border border-slate-200">
+                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded-full border border-slate-200 shadow-sm">
                         Coming Soon
                       </span>
                     )}
