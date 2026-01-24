@@ -34,7 +34,8 @@ export type AnalyticsEventName =
   | 'scroll_depth'
   | 'time_on_page'
   | 'video_play'
-  | 'video_complete';
+  | 'video_complete'
+  | 'waitlist_signup';
 
 export interface AnalyticsEvent {
   name: AnalyticsEventName;

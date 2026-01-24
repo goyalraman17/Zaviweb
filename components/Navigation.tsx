@@ -80,7 +80,10 @@ export default function Navigation() {
   }, [mobileMenuOpen]);
 
   // Get download text - always show a neutral CTA
-  const getDownloadText = () => 'Download Free';
+  const getDownloadText = () => {
+    if (detectedOS === 'Android') return 'Download Free';
+    return 'Get Early Access';
+  };
 
   // Scroll to section
   const scrollToSection = (sectionId: string) => {

@@ -33,14 +33,8 @@ export default function HeroWithScreenshot() {
 
   // Get download text based on detected OS
   const getDownloadText = () => {
-    switch (detectedOS) {
-      case 'macOS': return 'Download Free for macOS';
-      case 'Windows': return 'Download Free for Windows';
-      case 'iOS': return 'Download on App Store';
-      case 'Android': return 'Download on Play Store';
-      case 'Linux': return 'Download Free for Linux';
-      default: return 'Download Zavi Free';
-    }
+    if (detectedOS === 'Android') return 'Download Free';
+    return 'Get Early Access';
   };
 
   return (
@@ -228,7 +222,7 @@ export default function HeroWithScreenshot() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </motion.svg>
-                <span className="relative z-10">Download Free</span>
+                <span className="relative z-10">{getDownloadText()}</span>
               </motion.a>
             </motion.div>
 

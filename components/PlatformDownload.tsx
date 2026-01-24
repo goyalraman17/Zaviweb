@@ -1,7 +1,8 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { analytics } from '@/lib/analytics';
 
 type Platform = 'mac' | 'windows' | 'linux' | 'ios' | 'android';
 
@@ -10,53 +11,58 @@ interface PlatformConfig {
   icon: JSX.Element;
   downloadUrl: string;
   badge?: string;
+  comingSoon?: boolean;
 }
 
 const platforms: Record<Platform, PlatformConfig> = {
-  mac: {
-    name: 'macOS',
-    downloadUrl: '#',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M25.31 14.13c-.02-2.58 2.11-3.83 2.2-3.89-1.2-1.75-3.07-1.99-3.73-2.01-1.59-.16-3.1.93-3.9.93-.81 0-2.05-.91-3.37-.89-1.73.03-3.33.99-4.22 2.53-1.8 3.12-.46 7.74 1.29 10.27.85 1.24 1.87 2.63 3.21 2.58 1.31-.05 1.8-.84 3.38-.84 1.57 0 2.03.84 3.38.81 1.4-.02 2.28-1.27 3.13-2.51 1-1.43 1.41-2.81 1.43-2.89-.03-.01-2.74-1.05-2.77-4.16zm-2.52-7.45c.71-.86 1.19-2.06 1.06-3.25-1.03.04-2.27.68-3.01 1.54-.66.77-1.24 1.99-1.09 3.17 1.15.09 2.32-.58 3.04-1.46z"/>
-      </svg>
-    ),
-  },
-  windows: {
-    name: 'Windows',
-    downloadUrl: '#',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M4 4v11h11V4H4zm13 0v11h11V4H17zM4 17v11h11V17H4zm13 0v11h11V17H17z"/>
-      </svg>
-    ),
-  },
-  linux: {
-    name: 'Linux',
-    downloadUrl: '#',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M16 3c-1.38 0-2.5 1.12-2.5 2.5v2c0 .69-.56 1.25-1.25 1.25h-1.5c-.69 0-1.25.56-1.25 1.25v3c0 .69.56 1.25 1.25 1.25h1.5c.69 0 1.25.56 1.25 1.25v2c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5v-2c0-.69.56-1.25 1.25-1.25h1.5c.69 0 1.25-.56 1.25-1.25v-3c0-.69-.56-1.25-1.25-1.25h-1.5c-.69 0-1.25-.56-1.25-1.25v-2c0-1.38-1.12-2.5-2.5-2.5zm-4 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm8 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-      </svg>
-    ),
-  },
-  ios: {
-    name: 'iOS',
-    downloadUrl: '#',
-    badge: 'App Store',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M25.31 14.13c-.02-2.58 2.11-3.83 2.2-3.89-1.2-1.75-3.07-1.99-3.73-2.01-1.59-.16-3.1.93-3.9.93-.81 0-2.05-.91-3.37-.89-1.73.03-3.33.99-4.22 2.53-1.8 3.12-.46 7.74 1.29 10.27.85 1.24 1.87 2.63 3.21 2.58 1.31-.05 1.8-.84 3.38-.84 1.57 0 2.03.84 3.38.81 1.40-.02 2.28-1.27 3.13-2.51 1-1.43 1.41-2.81 1.43-2.89-.03-.01-2.74-1.05-2.77-4.16z"/>
-      </svg>
-    ),
-  },
   android: {
     name: 'Android',
     downloadUrl: 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
     badge: 'Google Play',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M4 7c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1s1-.45 1-1V8c0-.55-.45-1-1-1zm3 0v13c0 1.1.9 2 2 2h2v5c0 .55.45 1 1 1s1-.45 1-1v-5h2v5c0 .55.45 1 1 1s1-.45 1-1v-5h2c1.1 0 2-.9 2-2V7H7zm21 0c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1s1-.45 1-1V8c0-.55-.45-1-1-1zM10.73 3.27L11.88 2.12c.12-.12.12-.32 0-.44-.12-.12-.32-.12-.44 0L10.27 2.85c-.83-.38-1.77-.6-2.77-.6s-1.94.22-2.77.6L3.56 1.68c-.12-.12-.32-.12-.44 0-.12.12-.12.32 0 .44l1.15 1.15C3.42 4.02 3 5 3 6h10c0-1-.42-1.98-1.27-2.73z"/>
+        <path d="M4 7c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1s1-.45 1-1V8c0-.55-.45-1-1-1zm3 0v13c0 1.1.9 2 2 2h2v5c0 .55.45 1 1 1s1-.45 1-1v-5h2v5c0 .55.45 1 1 1s1-.45 1-1v-5h2c1.1 0 2-.9 2-2V7H7zm21 0c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1s1-.45 1-1V8c0-.55-.45-1-1-1zM10.73 3.27L11.88 2.12c.12-.12.12-.32 0-.44-.12-.12-.32-.12-.44 0L10.27 2.85c-.83-.38-1.77-.6-2.77-.6s-1.94.22-2.77.6L3.56 1.68c-.12-.12-.32-.12-.44 0-.12.12-.12.32 0 .44l1.15 1.15C3.42 4.02 3 5 3 6h10c0-1-.42-1.98-1.27-2.73z" />
+      </svg>
+    ),
+  },
+  mac: {
+    name: 'macOS',
+    downloadUrl: '#',
+    comingSoon: true,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M25.31 14.13c-.02-2.58 2.11-3.83 2.2-3.89-1.2-1.75-3.07-1.99-3.73-2.01-1.59-.16-3.1.93-3.9.93-.81 0-2.05-.91-3.37-.89-1.73.03-3.33.99-4.22 2.53-1.8 3.12-.46 7.74 1.29 10.27.85 1.24 1.87 2.63 3.21 2.58 1.31-.05 1.8-.84 3.38-.84 1.57 0 2.03.84 3.38.81 1.4-.02 2.28-1.27 3.13-2.51 1-1.43 1.41-2.81 1.43-2.89-.03-.01-2.74-1.05-2.77-4.16zm-2.52-7.45c.71-.86 1.19-2.06 1.06-3.25-1.03.04-2.27.68-3.01 1.54-.66.77-1.24 1.99-1.09 3.17 1.15.09 2.32-.58 3.04-1.46z" />
+      </svg>
+    ),
+  },
+  windows: {
+    name: 'Windows',
+    downloadUrl: '#',
+    comingSoon: true,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M4 4v11h11V4H4zm13 0v11h11V4H17zM4 17v11h11V17H4zm13 0v11h11V17H17z" />
+      </svg>
+    ),
+  },
+  linux: {
+    name: 'Linux',
+    downloadUrl: '#',
+    comingSoon: true,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M16 3c-1.38 0-2.5 1.12-2.5 2.5v2c0 .69-.56 1.25-1.25 1.25h-1.5c-.69 0-1.25.56-1.25 1.25v3c0 .69.56 1.25 1.25 1.25h1.5c.69 0 1.25.56 1.25 1.25v2c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5v-2c0-.69.56-1.25 1.25-1.25h1.5c.69 0 1.25-.56 1.25-1.25v-3c0-.69-.56-1.25-1.25-1.25h-1.5c-.69 0-1.25-.56-1.25-1.25v-2c0-1.38-1.12-2.5-2.5-2.5zm-4 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm8 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+      </svg>
+    ),
+  },
+  ios: {
+    name: 'iOS',
+    downloadUrl: '#',
+    comingSoon: true,
+    badge: 'App Store',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M25.31 14.13c-.02-2.58 2.11-3.83 2.2-3.89-1.2-1.75-3.07-1.99-3.73-2.01-1.59-.16-3.1.93-3.9.93-.81 0-2.05-.91-3.37-.89-1.73.03-3.33.99-4.22 2.53-1.8 3.12-.46 7.74 1.29 10.27.85 1.24 1.87 2.63 3.21 2.58 1.31-.05 1.8-.84 3.38-.84 1.57 0 2.03.84 3.38.81 1.40-.02 2.28-1.27 3.13-2.51 1-1.43 1.41-2.81 1.43-2.89-.03-.01-2.74-1.05-2.77-4.16z" />
       </svg>
     ),
   },
@@ -67,20 +73,37 @@ export default function PlatformDownload() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [detectedOS, setDetectedOS] = useState<Platform | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     // Detect OS
     const userAgent = window.navigator.userAgent.toLowerCase();
-    if (userAgent.includes('mac')) setDetectedOS('mac');
+    if (userAgent.includes('android')) setDetectedOS('android');
+    else if (userAgent.includes('mac')) setDetectedOS('mac');
     else if (userAgent.includes('win')) setDetectedOS('windows');
     else if (userAgent.includes('linux')) setDetectedOS('linux');
     else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('ios');
-    else if (userAgent.includes('android')) setDetectedOS('android');
 
-    setSelectedPlatform(detectedOS);
+    setSelectedPlatform(detectedOS || 'android');
   }, [detectedOS]);
 
-  const activePlatform = selectedPlatform || detectedOS || 'mac';
+  const activePlatform = selectedPlatform || 'android';
+  const platformInfo = platforms[activePlatform];
+
+  const handleWaitlistSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    analytics.track('waitlist_signup', {
+      platform: activePlatform,
+      email: email
+    });
+
+    setIsSubmitted(true);
+    setEmail('');
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <section ref={ref} data-section="download" className="py-32 md:py-40 bg-white border-y border-zavi-border">
@@ -93,10 +116,10 @@ export default function PlatformDownload() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-zavi-charcoal mb-6">
-              Download for your platform
+              Get Zavi AI
             </h2>
             <p className="text-lg md:text-xl text-zavi-gray-text font-light max-w-2xl mx-auto">
-              Zavi works across macOS, Windows, Linux, iOS, and Android. One account, everywhere you write.
+              Live on Android. Join the waitlist for iOS, macOS, Windows, and Linux.
             </p>
           </div>
 
@@ -105,30 +128,31 @@ export default function PlatformDownload() {
             {(Object.entries(platforms) as [Platform, PlatformConfig][]).map(([key, platform]) => (
               <motion.button
                 key={key}
-                onClick={() => setSelectedPlatform(key)}
-                className={`relative p-6 md:p-8 rounded-2xl border-2 transition-all ${
-                  activePlatform === key
+                onClick={() => {
+                  setSelectedPlatform(key);
+                  setIsSubmitted(false);
+                }}
+                className={`relative p-6 md:p-8 rounded-2xl border-2 transition-all ${activePlatform === key
                     ? 'border-zavi-blue bg-zavi-blue-50 shadow-lg'
                     : 'border-zavi-border bg-white hover:border-zavi-gray-300 hover:shadow-md'
-                }`}
+                  }`}
                 whileHover={{ y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: 0.1 * Object.keys(platforms).indexOf(key) }}
               >
-                <div className={`flex flex-col items-center gap-3 ${
-                  activePlatform === key ? 'text-zavi-blue' : 'text-zavi-gray-600'
-                }`}>
+                <div className={`flex flex-col items-center gap-3 ${activePlatform === key ? 'text-zavi-blue' : 'text-zavi-gray-600'
+                  }`}>
                   {platform.icon}
                   <span className="text-sm md:text-base font-semibold">{platform.name}</span>
-                  {platform.badge && (
-                    <span className="text-xs text-zavi-gray-text">{platform.badge}</span>
-                  )}
+                  <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">
+                    {platform.comingSoon ? 'Soon' : 'Live'}
+                  </span>
                 </div>
                 {detectedOS === key && (
                   <motion.div
-                    className="absolute top-2 right-2 bg-zavi-blue text-white text-xs px-2 py-1 rounded-full"
+                    className="absolute top-2 right-2 bg-zavi-blue text-white text-[9px] px-2 py-0.5 rounded-full font-bold uppercase"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5 }}
@@ -140,30 +164,68 @@ export default function PlatformDownload() {
             ))}
           </div>
 
-          {/* Download CTA */}
+          {/* Action CTA */}
           <motion.div
-            className="text-center"
+            className="text-center max-w-md mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <motion.a
-              href={platforms[activePlatform].downloadUrl}
-              className="inline-flex items-center gap-3 px-12 py-5 bg-zavi-blue text-white text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-              </svg>
-              Download for {platforms[activePlatform].name}
-            </motion.a>
-            <p className="text-sm text-zavi-gray-text mt-6">
-              Free to install · No account required · Works immediately
-            </p>
+            {activePlatform === 'android' ? (
+              <>
+                <motion.a
+                  href={platformInfo.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-12 py-5 bg-zavi-blue text-white text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all w-full justify-center"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  Download for Android
+                </motion.a>
+                <p className="text-sm text-zavi-gray-text mt-6 font-medium">
+                  Free to install · No credit card · Works inside all apps
+                </p>
+              </>
+            ) : (
+              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-inner">
+                {!isSubmitted ? (
+                  <>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">Join the {platformInfo.name} Waitlist</h3>
+                    <p className="text-sm text-slate-600 mb-6">Be the first to know when we launch on {platformInfo.name}.</p>
+                    <form onSubmit={handleWaitlistSubmit} className="flex gap-2">
+                      <input
+                        type="email"
+                        required
+                        placeholder="your@email.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="flex-1 px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-zavi-blue-500"
+                      />
+                      <button type="submit" className="px-6 py-3 bg-zavi-blue text-white font-bold rounded-xl hover:bg-zavi-blue-600 shadow-md">
+                        Join
+                      </button>
+                    </form>
+                  </>
+                ) : (
+                  <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }}>
+                    <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <p className="font-bold text-slate-900">Success! You're on the list.</p>
+                  </motion.div>
+                )}
+              </div>
+            )}
           </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }
+
