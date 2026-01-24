@@ -243,16 +243,6 @@ export default function HeroWithScreenshot() {
                 </svg>
               </motion.div>
 
-              {/* Reddit */}
-              <motion.div
-                className="absolute -left-6 -top-12 w-8 h-8 bg-white rounded-xl shadow-lg flex items-center justify-center p-1.5 hidden lg:flex"
-                animate={{ x: [0, 5, 0], y: [0, -5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              >
-                <svg viewBox="0 0 24 24" className="w-full h-full text-[#FF4500]">
-                  <path fill="currentColor" d="M24 11.5c0-1.65-.67-3.14-1.74-4.23-.01 0-.01-.01-.02-.01l-.22-.22c-1.33-1.33-3.48-1.33-4.81 0l-1.19 1.19c-1.42-.45-3-.72-4.7-.78l.85-3.95 2.73.58c.07.82.76 1.47 1.6 1.47 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .12.01.24.03.36l-3.34-.71c-.13-.03-.26 0-.36.08s-.16.21-.18.34L7.88 7.51C6.18 7.57 4.6 7.84 3.18 8.29l-1.19-1.19c-1.33-1.33-3.48-1.33-4.81 0l-.22.22c-1.07 1.09-1.74 2.58-1.74 4.23 0 1.56.59 2.97 1.56 4.04l-.06.46C-3.3 20.04-1.3 24 12 24s15.3-3.96 15.3-7.95l-.06-.46c.97-1.07 1.56-2.48 1.56-4.04z" />
-                </svg>
-              </motion.div>
 
               {/* Messenger */}
               <motion.div
@@ -265,16 +255,6 @@ export default function HeroWithScreenshot() {
                 </svg>
               </motion.div>
 
-              {/* WeChat */}
-              <motion.div
-                className="absolute left-1/2 -bottom-16 -translate-x-1/2 w-8 h-8 bg-white rounded-xl shadow-lg flex items-center justify-center p-1.5 hidden lg:flex"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-              >
-                <svg viewBox="0 0 24 24" className="w-full h-full text-[#07C160]">
-                  <path fill="currentColor" d="M8.28 1.4c-4.42 0-8 3.08-8 6.88 0 2.1 1.1 3.96 2.83 5.25l-.7 2.12 2.45-1.22c.45.1 1 .15 1.42.15 4.42 0 8-3.08 8-6.88S12.7 1.4 8.28 1.4zm6.82 7.7c-3.6 0-6.52 2.48-6.52 5.54s2.92 5.54 6.52 5.54c.36 0 .73-.04 1.1-.12l1.96 1L17.6 19.3c1.45-1 2.36-2.52 2.36-4.2 0-3.05-2.92-5.54-6.52-5.54z" />
-                </svg>
-              </motion.div>
 
               <motion.a
                 href="/#download"
