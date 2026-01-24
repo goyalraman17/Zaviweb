@@ -381,7 +381,7 @@ export default function HeroWithScreenshot() {
                 </div>
                 <div className="text-left">
                   <p className="text-sm font-bold text-slate-900 leading-tight">Works Anywhere</p>
-                  <p className="text-[11px] text-slate-500 font-medium">Gmail, WhatsApp, Docs, and more.</p>
+                  <p className="text-[11px] text-slate-500 font-medium">Gmail, WhatsApp, Docs etc.</p>
                 </div>
               </div>
             </motion.div>
