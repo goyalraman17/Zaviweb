@@ -196,7 +196,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl ring-4 ring-blue-100 mb-4">
                     <Image
-                      src="/images/team/raman.svg"
+                      src="/images/team/raman.jpg"
                       alt="Raman Goyal"
                       width={128}
                       height={128}
@@ -239,7 +239,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center text-center">
                   <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl ring-4 ring-sky-100 mb-4">
                     <Image
-                      src="/images/team/himanshu.svg"
+                      src="/images/team/himanshu.jpg"
                       alt="Himanshu Kumar"
                       width={128}
                       height={128}
