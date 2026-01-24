@@ -70,8 +70,8 @@ export default function PricingNew() {
                   analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
                 }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'monthly'
-                    ? 'bg-gradient-to-r from-zavi-blue-500 to-zavi-blue-400 text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-zavi-blue-500 to-zavi-blue-400 text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
                 Monthly
@@ -82,8 +82,8 @@ export default function PricingNew() {
                   analytics.track('pricing_toggle_billing', { cycle: 'annual' });
                 }}
                 className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'annual'
-                    ? 'bg-gradient-to-r from-zavi-blue-500 to-zavi-blue-400 text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-zavi-blue-500 to-zavi-blue-400 text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
                 Annual (2 months free)
@@ -134,14 +134,17 @@ export default function PricingNew() {
                   </li>
                 </ul>
 
-                <motion.button
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => {
                     analytics.track('pricing_plan_click', {
                       plan: 'free',
                       billing_cycle: billingCycle,
                     });
                   }}
-                  className="w-full px-6 py-4 rounded-full font-semibold text-white shadow-lg transition-all"
+                  className="block w-full px-6 py-4 rounded-full font-semibold text-center text-white shadow-lg transition-all"
                   style={{
                     background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
                   }}
@@ -151,7 +154,7 @@ export default function PricingNew() {
                   variants={ctaPrimary}
                 >
                   Start Free Forever
-                </motion.button>
+                </motion.a>
               </GlowCard>
             </motion.div>
 
@@ -229,21 +232,24 @@ export default function PricingNew() {
                     </li>
                   </ul>
 
-                  <motion.button
+                  <motion.a
+                    href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => {
                       analytics.track('pricing_plan_click', {
                         plan: 'pro',
                         billing_cycle: billingCycle,
                       });
                     }}
-                    className="w-full px-6 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
+                    className="block w-full px-6 py-4 rounded-full font-semibold text-center bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
                     initial="rest"
                     whileHover="hover"
                     whileTap="tap"
                     variants={ctaPrimary}
                   >
                     Start 7-Day Free Trial
-                  </motion.button>
+                  </motion.a>
 
 
                 </div>
@@ -309,15 +315,18 @@ export default function PricingNew() {
                   </li>
                 </ul>
 
-                <motion.button
-                  className="w-full px-6 py-4 rounded-full font-semibold text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-6 py-4 rounded-full font-semibold text-center text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
                   initial="rest"
                   whileHover="hover"
                   whileTap="tap"
                   variants={ctaPrimary}
                 >
                   Start with 3 Users
-                </motion.button>
+                </motion.a>
 
                 <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
               </GlowCard>
@@ -341,15 +350,18 @@ export default function PricingNew() {
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Custom integrations, security reviews, dedicated support, and organization-wide rollout.
             </p>
-            <motion.button
-              className="px-10 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all"
+            <motion.a
+              href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex px-10 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all"
               initial="rest"
               whileHover="hover"
               whileTap="tap"
               variants={ctaPrimary}
             >
               Talk to Sales
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
