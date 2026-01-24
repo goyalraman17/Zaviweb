@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 const faqs = [
   {
@@ -69,9 +70,8 @@ export default function FAQ() {
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-[#2563EB]' : ''
-                    }`}
+                    className={`w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#2563EB]' : ''
+                      }`}
                   />
                 </button>
 
@@ -100,12 +100,12 @@ export default function FAQ() {
           <p className="text-gray-600 mb-6">
             Still have questions?
           </p>
-          <a
-            href="mailto:support@zavi.ai"
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
           >
             Contact Support
-          </a>
+          </Link>
         </div>
       </div>
     </section>
