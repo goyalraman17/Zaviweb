@@ -14,6 +14,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://zavi.ai'),
+  alternates: {
+    canonical: '/',
+  },
   title: "Zavi AI – Voice Typing Keyboard for Android",
   description: "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app.",
   keywords: ["voice typing", "speech to text", "dictation app", "Android keyboard", "Zavi AI"],
@@ -79,6 +83,29 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans font-normal" suppressHydrationWarning>
         <ScrollProgress color="#2563EB" height={3} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Zavi AI",
+              "applicationCategory": "ProductivityApplication",
+              "operatingSystem": "Android",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "description": "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app with Zavi AI.",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "1250"
+              }
+            })
+          }}
+        />
         {children}
         <Footer />
       </body>
