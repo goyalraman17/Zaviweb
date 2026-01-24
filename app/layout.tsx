@@ -1,3 +1,4 @@
+// Deployment trigger: Reverting SEO changes to fix demo issues
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
