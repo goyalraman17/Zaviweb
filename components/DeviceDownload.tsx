@@ -29,7 +29,7 @@ const platforms: PlatformInfo[] = [
   {
     name: 'Android',
     label: 'Android',
-    downloadUrl: 'https://play.google.com/store/apps/details?id=ai.zavi',
+    downloadUrl: 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
         <path d="M16.61 15.15C16.15 15.15 15.77 15.53 15.77 16C15.77 16.46 16.15 16.85 16.61 16.85C17.07 16.85 17.45 16.46 17.45 16C17.45 15.53 17.07 15.15 16.61 15.15M7.41 15.15C6.95 15.15 6.57 15.53 6.57 16C6.57 16.46 6.95 16.85 7.41 16.85C7.87 16.85 8.25 16.46 8.25 16C8.25 15.53 7.87 15.15 7.41 15.15M16.91 10.14L18.58 7.26C18.67 7.09 18.61 6.88 18.45 6.79C18.28 6.69 18.07 6.75 18 6.92L16.29 9.83C14.95 9.22 13.5 8.9 12 8.91C10.47 8.91 9 9.24 7.73 9.82L6.04 6.91C5.95 6.74 5.74 6.68 5.57 6.78C5.4 6.87 5.35 7.08 5.44 7.25L7.1 10.13C4.25 11.69 2.29 14.58 2 18H22C21.72 14.59 19.77 11.7 16.91 10.14Z" />
@@ -72,7 +72,7 @@ export default function DeviceDownload() {
       }
       // Check for iPad (including iPadOS 13+ which reports as Mac)
       else if (userAgent.includes('ipad') ||
-               (platform.includes('mac') && navigator.maxTouchPoints > 1)) {
+        (platform.includes('mac') && navigator.maxTouchPoints > 1)) {
         setDetectedPlatform('iOS');
       }
       // Check for Android
