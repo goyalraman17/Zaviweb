@@ -485,40 +485,35 @@ export default function VoiceDemoCard() {
                       className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       <option value="auto">🌐 Auto-detect</option>
-                      {/* Global backbone */}
                       <option value="en-US">🇺🇸 English (US)</option>
                       <option value="en-GB">🇬🇧 English (UK)</option>
-                      <option value="es-ES">🇪🇸 Spanish (Spain)</option>
-                      <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
                       <option value="cmn-Hans-CN">🇨🇳 Mandarin Chinese (Simplified)</option>
                       <option value="cmn-Hant-TW">🇹🇼 Mandarin Chinese (Traditional)</option>
                       <option value="hi-IN">🇮🇳 Hindi</option>
-                      <option value="ar-SA">🇸🇦 Arabic</option>
-                      <option value="pt-BR">🇧🇷 Portuguese (Brazil)</option>
-                      <option value="pt-PT">🇵🇹 Portuguese (Portugal)</option>
+                      <option value="es-ES">🇪🇸 Spanish (Spain)</option>
+                      <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
                       <option value="fr-FR">🇫🇷 French (France)</option>
                       <option value="fr-CA">🇨🇦 French (Canada)</option>
-                      <option value="ru-RU">🇷🇺 Russian</option>
-                      {/* South Asia (mobile-first, massive scale) */}
+                      <option value="ar-SA">🇸🇦 Arabic</option>
                       <option value="bn-IN">🇮🇳 Bengali</option>
+                      <option value="pt-BR">🇧🇷 Portuguese (Brazil)</option>
+                      <option value="pt-PT">🇵🇹 Portuguese (Portugal)</option>
+                      <option value="ru-RU">🇷🇺 Russian</option>
                       <option value="ur-PK">🇵🇰 Urdu</option>
-                      <option value="pa-Guru-IN">🇮🇳 Punjabi</option>
+                      <option value="id-ID">🇮🇩 Indonesian</option>
+                      <option value="de-DE">🇩🇪 German</option>
+                      <option value="ja-JP">🇯🇵 Japanese</option>
                       <option value="mr-IN">🇮🇳 Marathi</option>
                       <option value="te-IN">🇮🇳 Telugu</option>
-                      <option value="ta-IN">🇮🇳 Tamil</option>
-                      {/* East & Southeast Asia */}
-                      <option value="id-ID">🇮🇩 Indonesian</option>
-                      <option value="ja-JP">🇯🇵 Japanese</option>
-                      <option value="ko-KR">🇰🇷 Korean</option>
-                      <option value="vi-VN">🇻🇳 Vietnamese</option>
-                      <option value="th-TH">🇹🇭 Thai</option>
-                      <option value="fil-PH">🇵🇭 Filipino</option>
-                      {/* Europe + regional connectors */}
-                      <option value="de-DE">🇩🇪 German</option>
-                      <option value="it-IT">🇮🇹 Italian</option>
-                      <option value="pl-PL">🇵🇱 Polish</option>
                       <option value="tr-TR">🇹🇷 Turkish</option>
-                      {/* Africa / L2 bridge */}
+                      <option value="ta-IN">🇮🇳 Tamil</option>
+                      <option value="vi-VN">🇻🇳 Vietnamese</option>
+                      <option value="ko-KR">🇰🇷 Korean</option>
+                      <option value="it-IT">🇮🇹 Italian</option>
+                      <option value="th-TH">🇹🇭 Thai</option>
+                      <option value="pa-Guru-IN">🇮🇳 Punjabi</option>
+                      <option value="fil-PH">🇵🇭 Filipino</option>
+                      <option value="pl-PL">🇵🇱 Polish</option>
                       <option value="sw-KE">🇰🇪 Swahili</option>
                     </select>
                   </div>
@@ -534,35 +529,30 @@ export default function VoiceDemoCard() {
                       disabled={isRecording}
                       className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
-                      {/* Global backbone */}
                       <option value="English">English</option>
-                      <option value="Spanish">Spanish</option>
                       <option value="Mandarin Chinese">Mandarin Chinese</option>
                       <option value="Hindi">Hindi</option>
-                      <option value="Arabic">Arabic</option>
-                      <option value="Portuguese">Portuguese</option>
+                      <option value="Spanish">Spanish</option>
                       <option value="French">French</option>
-                      <option value="Russian">Russian</option>
-                      {/* South Asia (mobile-first, massive scale) */}
+                      <option value="Arabic">Arabic</option>
                       <option value="Bengali">Bengali</option>
+                      <option value="Portuguese">Portuguese</option>
+                      <option value="Russian">Russian</option>
                       <option value="Urdu">Urdu</option>
-                      <option value="Punjabi">Punjabi</option>
+                      <option value="Indonesian">Indonesian</option>
+                      <option value="German">German</option>
+                      <option value="Japanese">Japanese</option>
                       <option value="Marathi">Marathi</option>
                       <option value="Telugu">Telugu</option>
-                      <option value="Tamil">Tamil</option>
-                      {/* East & Southeast Asia */}
-                      <option value="Indonesian">Indonesian</option>
-                      <option value="Japanese">Japanese</option>
-                      <option value="Korean">Korean</option>
-                      <option value="Vietnamese">Vietnamese</option>
-                      <option value="Thai">Thai</option>
-                      <option value="Filipino">Filipino</option>
-                      {/* Europe + regional connectors */}
-                      <option value="German">German</option>
-                      <option value="Italian">Italian</option>
-                      <option value="Polish">Polish</option>
                       <option value="Turkish">Turkish</option>
-                      {/* Africa / L2 bridge */}
+                      <option value="Tamil">Tamil</option>
+                      <option value="Vietnamese">Vietnamese</option>
+                      <option value="Korean">Korean</option>
+                      <option value="Italian">Italian</option>
+                      <option value="Thai">Thai</option>
+                      <option value="Punjabi">Punjabi</option>
+                      <option value="Filipino">Filipino</option>
+                      <option value="Polish">Polish</option>
                       <option value="Swahili">Swahili</option>
                     </select>
                   </div>
@@ -578,8 +568,8 @@ export default function VoiceDemoCard() {
                   <motion.div
                     key={i}
                     className={`w-0.5 rounded-full transition-all duration-100 ${isRecording && waveBarsRef.current[i] > 20
-                        ? 'bg-gradient-to-t from-blue-600 to-blue-400'
-                        : 'bg-gray-200'
+                      ? 'bg-gradient-to-t from-blue-600 to-blue-400'
+                      : 'bg-gray-200'
                       }`}
                     style={{ height: `${Math.min(waveBarsRef.current[i] || 20, 48)}px` }}
                     animate={isRecording ? {
@@ -601,8 +591,8 @@ export default function VoiceDemoCard() {
                   onClick={toggleRecording}
                   disabled={authStatus === 'error'}
                   className={`relative w-20 h-20 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${isRecording
-                      ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
-                      : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
+                    ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
+                    : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
                     }`}
                 >
                   <AnimatePresence mode="wait">
