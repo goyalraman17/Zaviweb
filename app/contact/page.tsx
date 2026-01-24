@@ -18,7 +18,7 @@ export default function ContactPage() {
               Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#3B82F6]">great together</span>
             </h1>
             <p className="text-xl text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
-              We're a small team building for the next generation of founders. No complex forms, no enterprise jargon—just real people here to help you ship.
+              Reach out anytime. You’ll hear directly from the team behind Zavi.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-20 text-left">
