@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Zavi AI – Voice Typing Keyboard for Android",
     description: "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app.",
-    // creator: '@yourtwitterhandle', // Add your Twitter handle
+    creator: '@zavivoice', // Add your Twitter handle
     images: ['https://zavi.ai/twitter-image.png'], // Add a Twitter-specific image
   },
   icons: {

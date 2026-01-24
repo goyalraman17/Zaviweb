@@ -70,7 +70,7 @@ export default function Footer() {
             <p className="text-sm text-gray-600 mb-4 font-medium">Follow us</p>
             <div className="flex items-center justify-center gap-6">
               <a
-                href="https://x.com/zavihq"
+                href="https://x.com/zavivoice"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-all hover:scale-110"
@@ -81,7 +81,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/company/zavihq"
+                href="https://linkedin.com/company/zavivoice/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-all hover:scale-110"
@@ -92,7 +92,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://reddit.com/r/zavihq"
+                href="https://www.reddit.com/user/Vanilla-Green/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-all hover:scale-110"
@@ -103,7 +103,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com/zavihq"
+                href="https://www.instagram.com/zavivoice/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-all hover:scale-110"
@@ -114,7 +114,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://youtube.com/@zavihq"
+                href="https://www.youtube.com/@goyalraman17"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-all hover:scale-110"
