@@ -22,41 +22,12 @@ export default function Footer() {
           {/* Brand */}
           <motion.div variants={fadeUp} className="mb-8">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="w-8 h-8">
-                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Top bar */}
-                  <rect x="15" y="10" width="70" height="12" rx="6" fill="url(#footerTopBar)" />
-
-                  {/* Flowing Z layers */}
-                  <path d="M 75 22 Q 65 30, 55 38 Q 45 46, 35 54 Q 25 62, 25 70"
-                    stroke="#87CEEB" strokeWidth="8" fill="none" opacity="0.3" />
-                  <path d="M 77 22 Q 67 30, 57 38 Q 47 46, 37 54 Q 27 62, 25 70"
-                    stroke="#5DADE2" strokeWidth="8" fill="none" opacity="0.4" />
-                  <path d="M 79 22 Q 69 30, 59 38 Q 49 46, 39 54 Q 29 62, 25 70"
-                    stroke="#3498DB" strokeWidth="9" fill="none" opacity="0.5" />
-                  <path d="M 81 22 Q 71 30, 61 38 Q 51 46, 41 54 Q 31 62, 25 70"
-                    stroke="#2E86C1" strokeWidth="10" fill="none" opacity="0.6" />
-                  <path d="M 83 22 Q 73 30, 63 38 Q 53 46, 43 54 Q 33 62, 25 70"
-                    stroke="#2874A6" strokeWidth="11" fill="none" opacity="0.8" />
-                  <path d="M 85 22 Q 75 30, 65 38 Q 55 46, 45 54 Q 35 62, 25 70"
-                    stroke="#1F5F8B" strokeWidth="12" fill="none" opacity="1" />
-
-                  {/* Bottom bar */}
-                  <rect x="15" y="78" width="70" height="12" rx="6" fill="url(#footerBottomBar)" />
-
-                  <defs>
-                    <linearGradient id="footerTopBar" x1="15" y1="16" x2="85" y2="16" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#2563EB" />
-                      <stop offset="50%" stopColor="#3B82F6" />
-                      <stop offset="100%" stopColor="#60A5FA" />
-                    </linearGradient>
-                    <linearGradient id="footerBottomBar" x1="15" y1="84" x2="85" y2="84" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#2563EB" />
-                      <stop offset="50%" stopColor="#3B82F6" />
-                      <stop offset="100%" stopColor="#60A5FA" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+              <div className="w-8 h-8 flex items-center justify-center">
+                <img
+                  src="/zavi-logo.png"
+                  alt="Zavi Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h2 className="text-2xl font-bold text-gray-900">Zavi</h2>
             </div>

@@ -21,7 +21,19 @@ export const metadata: Metadata = {
   },
   title: "Zavi AI – Voice Typing Keyboard for Android",
   description: "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app.",
-  keywords: ["voice typing", "speech to text", "dictation app", "Android keyboard", "Zavi AI"],
+  keywords: [
+    "voice typing",
+    "speech to text",
+    "dictation app",
+    "Android keyboard",
+    "Zavi AI",
+    "AI voice writer",
+    "voice writing keyboard",
+    "professional dictation",
+    "filler word removal",
+    "grammar cleanup"
+  ],
+  category: "Productivity",
   authors: [{ name: "Zavi AI" }],
   creator: "Zavi AI",
   publisher: "Zavi AI",
@@ -60,9 +72,16 @@ export const metadata: Metadata = {
     images: ['https://zavi.ai/twitter-image.png'], // Add a Twitter-specific image
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/zavi-logo.png', color: '#2563EB' },
+    ],
   },
   manifest: '/site.webmanifest', // Add a web app manifest
 };
@@ -84,29 +103,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans font-normal" suppressHydrationWarning>
         <ScrollProgress color="#2563EB" height={3} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Zavi AI",
-              "applicationCategory": "ProductivityApplication",
-              "operatingSystem": "Android",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              },
-              "description": "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app with Zavi AI.",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "ratingCount": "1250"
-              }
-            })
-          }}
-        />
         {children}
         <Footer />
       </body>
