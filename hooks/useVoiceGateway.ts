@@ -198,28 +198,47 @@ export function useVoiceGateway({ inputLang, outputLang, enableTranslation }: Vo
         }
       });
 
-      // Create AudioContext
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({
-        sampleRate: 16000
-      });
+      // Create AudioContext - let browser use its default sample rate (Firefox compatibility)
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
 
       // Resume AudioContext - required for mobile Safari
       if (audioContext.state === 'suspended') {
         await audioContext.resume();
       }
 
+      const actualSampleRate = audioContext.sampleRate;
       const source = audioContext.createMediaStreamSource(mediaStream);
       const processor = audioContext.createScriptProcessor(4096, 1, 1);
+
+      const targetSampleRate = 16000;
 
       processor.onaudioprocess = (e) => {
         if (!isRecordingRef.current || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return;
 
         const inputData = e.inputBuffer.getChannelData(0);
 
+        // Resample to 16kHz if needed
+        let resampledData: Float32Array;
+        if (actualSampleRate !== targetSampleRate) {
+          const sampleRateRatio = actualSampleRate / targetSampleRate;
+          const newLength = Math.floor(inputData.length / sampleRateRatio);
+          resampledData = new Float32Array(newLength);
+
+          for (let i = 0; i < newLength; i++) {
+            const srcIndex = i * sampleRateRatio;
+            const srcIndexFloor = Math.floor(srcIndex);
+            const srcIndexCeil = Math.min(srcIndexFloor + 1, inputData.length - 1);
+            const t = srcIndex - srcIndexFloor;
+            resampledData[i] = inputData[srcIndexFloor] * (1 - t) + inputData[srcIndexCeil] * t;
+          }
+        } else {
+          resampledData = inputData;
+        }
+
         // Convert Float32Array to Int16Array (PCM 16-bit little-endian)
-        const pcmData = new Int16Array(inputData.length);
-        for (let i = 0; i < inputData.length; i++) {
-          const sample = Math.max(-1, Math.min(1, inputData[i]));
+        const pcmData = new Int16Array(resampledData.length);
+        for (let i = 0; i < resampledData.length; i++) {
+          const sample = Math.max(-1, Math.min(1, resampledData[i]));
           pcmData[i] = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
         }
 

@@ -212,35 +212,59 @@ export default function VoiceDemoCard() {
         }
       })
 
-      // Create AudioContext with explicit 16kHz sample rate
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({
-        sampleRate: 16000
-      })
+      // Create AudioContext - let browser use its default sample rate (Firefox compatibility)
+      // Firefox doesn't support custom sample rates and will throw an error if you try
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
 
       // Resume AudioContext - required for mobile Safari
       if (audioContext.state === 'suspended') {
         await audioContext.resume()
       }
 
-      console.log('AudioContext sample rate:', audioContext.sampleRate)
+      const actualSampleRate = audioContext.sampleRate
+      console.log('AudioContext sample rate:', actualSampleRate)
 
       const source = audioContext.createMediaStreamSource(mediaStream)
 
-      // Use larger buffer for better performance (4096 samples = 256ms at 16kHz)
-      const processor = audioContext.createScriptProcessor(4096, 1, 1)
+      // Use larger buffer for better performance
+      // Buffer size should be appropriate for the actual sample rate
+      const bufferSize = 4096
+      const processor = audioContext.createScriptProcessor(bufferSize, 1, 1)
 
       let frameCount = 0
+      const targetSampleRate = 16000 // Target sample rate for the server
+
       processor.onaudioprocess = (e) => {
         // Use ref instead of state to avoid stale closure issues
         if (!isRecordingRef.current || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
 
         const inputData = e.inputBuffer.getChannelData(0)
 
+        // Resample to 16kHz if needed (Firefox typically uses 48kHz)
+        let resampledData: Float32Array
+        if (actualSampleRate !== targetSampleRate) {
+          const sampleRateRatio = actualSampleRate / targetSampleRate
+          const newLength = Math.floor(inputData.length / sampleRateRatio)
+          resampledData = new Float32Array(newLength)
+
+          for (let i = 0; i < newLength; i++) {
+            const srcIndex = i * sampleRateRatio
+            const srcIndexFloor = Math.floor(srcIndex)
+            const srcIndexCeil = Math.min(srcIndexFloor + 1, inputData.length - 1)
+            const t = srcIndex - srcIndexFloor
+
+            // Linear interpolation
+            resampledData[i] = inputData[srcIndexFloor] * (1 - t) + inputData[srcIndexCeil] * t
+          }
+        } else {
+          resampledData = inputData
+        }
+
         // Convert Float32Array to Int16Array (PCM 16-bit little-endian)
-        const pcmData = new Int16Array(inputData.length)
-        for (let i = 0; i < inputData.length; i++) {
+        const pcmData = new Int16Array(resampledData.length)
+        for (let i = 0; i < resampledData.length; i++) {
           // Clamp the value between -1 and 1
-          const sample = Math.max(-1, Math.min(1, inputData[i]))
+          const sample = Math.max(-1, Math.min(1, resampledData[i]))
           // Convert to 16-bit PCM
           pcmData[i] = sample < 0 ? sample * 0x8000 : sample * 0x7FFF
         }
@@ -248,9 +272,12 @@ export default function VoiceDemoCard() {
         // Debug: Log first chunk
         if (frameCount === 0) {
           console.log('First audio chunk:', {
-            length: pcmData.length,
+            originalLength: inputData.length,
+            resampledLength: resampledData.length,
+            pcmLength: pcmData.length,
             bufferSize: pcmData.buffer.byteLength,
-            sampleRate: audioContext.sampleRate,
+            originalSampleRate: actualSampleRate,
+            targetSampleRate: targetSampleRate,
             firstSamples: Array.from(pcmData.slice(0, 10))
           })
         }

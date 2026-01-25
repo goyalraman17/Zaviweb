@@ -26,7 +26,12 @@ body {
    TYPOGRAPHY
    ======================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 600;
     line-height: 1.2;
     color: #0a0a0a;
@@ -195,7 +200,7 @@ section {
 
 .problem-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
     max-width: 1000px;
     margin: 0 auto;
@@ -277,6 +282,7 @@ section {
     align-items: center;
     justify-content: center;
     color: #0a0a0a;
+    will-change: transform;
 }
 
 .comparison-arrow svg {
@@ -303,7 +309,7 @@ section {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 48px;
     max-width: 1100px;
     margin: 0 auto;
@@ -345,7 +351,7 @@ section {
 
 .audience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 32px;
     max-width: 1100px;
     margin: 0 auto;
@@ -440,7 +446,7 @@ section {
 
 .privacy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 32px;
     text-align: left;
 }
@@ -482,7 +488,7 @@ section {
 
 .pro-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 24px;
     margin-bottom: 48px;
     text-align: left;
@@ -604,7 +610,7 @@ section {
     }
 
     .features-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 40px;
     }
 }
