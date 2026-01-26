@@ -96,7 +96,7 @@ export default function VoiceDemoCard() {
       wsRef.current = null
     }
 
-    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://zavivoice.com/ws'
+    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://api.zavivoice.com/ws'
 
     // Append auth token if available
     const url = idTokenRef.current

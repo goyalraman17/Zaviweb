@@ -92,7 +92,7 @@ export function useVoiceGateway({ inputLang, outputLang, enableTranslation }: Vo
       wsRef.current = null;
     }
 
-    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://zavivoice.com/ws';
+    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://api.zavivoice.com/ws';
     const url = token ? `${wsUrl}?token=${encodeURIComponent(token)}` : wsUrl;
 
     const ws = new WebSocket(url);
