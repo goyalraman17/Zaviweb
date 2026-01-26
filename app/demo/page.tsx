@@ -110,7 +110,7 @@ export default function DemoPage() {
       wsRef.current = null
     }
 
-    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://zavivoice.com/ws'
+    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://api.zavivoice.com/ws'
 
     // Append auth token if available
     const url = idTokenRef.current
@@ -226,35 +226,58 @@ export default function DemoPage() {
         }
       })
 
-      // Create AudioContext with explicit 16kHz sample rate
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({
-        sampleRate: 16000
-      })
+      // Create AudioContext - let browser use its default sample rate (Firefox compatibility)
+      // Firefox doesn't support custom sample rates and will throw an error if you try
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
 
       // Resume AudioContext - required for mobile Safari
       if (audioContext.state === 'suspended') {
         await audioContext.resume()
       }
 
-      console.log('AudioContext sample rate:', audioContext.sampleRate)
+      const actualSampleRate = audioContext.sampleRate
+      console.log('AudioContext sample rate:', actualSampleRate)
 
       const source = audioContext.createMediaStreamSource(mediaStream)
 
-      // Use larger buffer for better performance (4096 samples = 256ms at 16kHz)
-      const processor = audioContext.createScriptProcessor(4096, 1, 1)
+      // Use larger buffer for better performance
+      const bufferSize = 4096
+      const processor = audioContext.createScriptProcessor(bufferSize, 1, 1)
 
       let frameCount = 0
+      const targetSampleRate = 16000 // Target sample rate for the server
+
       processor.onaudioprocess = (e) => {
         // Use ref instead of state to avoid stale closure issues
         if (!isRecordingRef.current || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) return
 
         const inputData = e.inputBuffer.getChannelData(0)
 
+        // Resample to 16kHz if needed (Firefox typically uses 48kHz)
+        let resampledData: Float32Array
+        if (actualSampleRate !== targetSampleRate) {
+          const sampleRateRatio = actualSampleRate / targetSampleRate
+          const newLength = Math.floor(inputData.length / sampleRateRatio)
+          resampledData = new Float32Array(newLength)
+
+          for (let i = 0; i < newLength; i++) {
+            const srcIndex = i * sampleRateRatio
+            const srcIndexFloor = Math.floor(srcIndex)
+            const srcIndexCeil = Math.min(srcIndexFloor + 1, inputData.length - 1)
+            const t = srcIndex - srcIndexFloor
+
+            // Linear interpolation
+            resampledData[i] = inputData[srcIndexFloor] * (1 - t) + inputData[srcIndexCeil] * t
+          }
+        } else {
+          resampledData = inputData
+        }
+
         // Convert Float32Array to Int16Array (PCM 16-bit little-endian)
-        const pcmData = new Int16Array(inputData.length)
-        for (let i = 0; i < inputData.length; i++) {
+        const pcmData = new Int16Array(resampledData.length)
+        for (let i = 0; i < resampledData.length; i++) {
           // Clamp the value between -1 and 1
-          const sample = Math.max(-1, Math.min(1, inputData[i]))
+          const sample = Math.max(-1, Math.min(1, resampledData[i]))
           // Convert to 16-bit PCM
           pcmData[i] = sample < 0 ? sample * 0x8000 : sample * 0x7FFF
         }
@@ -262,9 +285,12 @@ export default function DemoPage() {
         // Debug: Log first chunk
         if (frameCount === 0) {
           console.log('First audio chunk:', {
-            length: pcmData.length,
+            originalLength: inputData.length,
+            resampledLength: resampledData.length,
+            pcmLength: pcmData.length,
             bufferSize: pcmData.buffer.byteLength,
-            sampleRate: audioContext.sampleRate,
+            originalSampleRate: actualSampleRate,
+            targetSampleRate: targetSampleRate,
             firstSamples: Array.from(pcmData.slice(0, 10))
           })
         }
@@ -655,8 +681,8 @@ export default function DemoPage() {
                     <motion.div
                       key={i}
                       className={`w-0.5 rounded-full transition-all duration-100 ${isRecording && waveBarsRef.current[i] > 20
-                          ? 'bg-gradient-to-t from-blue-600 to-blue-400'
-                          : 'bg-gray-200'
+                        ? 'bg-gradient-to-t from-blue-600 to-blue-400'
+                        : 'bg-gray-200'
                         }`}
                       style={{ height: `${Math.min(waveBarsRef.current[i] || 20, 48)}px` }}
                       animate={isRecording ? {
@@ -678,8 +704,8 @@ export default function DemoPage() {
                     onClick={toggleRecording}
                     disabled={authStatus === 'error'}
                     className={`relative w-20 h-20 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${isRecording
-                        ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
-                        : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
+                      ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
+                      : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
                       }`}
                   >
                     <AnimatePresence mode="wait">
