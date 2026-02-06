@@ -1,10 +1,15 @@
+// VideoDemo.tsx
 'use client';
 
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
+import { useState } from 'react';
 import { fadeUp, staggerContainerSlow } from '@/lib/animations';
 
 export default function VideoDemo() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoId = 'rkBgOnhopyg'; // YouTube Video ID
+
   return (
     <section
       id="how-it-works"
@@ -28,61 +33,61 @@ export default function VideoDemo() {
             </p>
           </motion.div>
 
-          {/* Video Player Placeholder */}
+          {/* Video Player Container */}
           <motion.div variants={fadeUp} className="relative">
-            {/* Video Container */}
-            <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-gray-700">
-              {/* Play Button Overlay */}
-              <div
-                className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm cursor-pointer group hover:bg-black/30 transition-all duration-300"
-                role="button"
-                aria-label="Play Video"
-              >
-                <motion.div
-                  initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative"
+            <div className="relative aspect-[9/16] max-w-[350px] mx-auto bg-gray-900 rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-gray-800 ring-1 ring-gray-900/50">
+
+              {!isPlaying ? (
+                /* Cover / Play Button State */
+                <div
+                  className="absolute inset-0 cursor-pointer group"
+                  onClick={() => setIsPlaying(true)}
+                  role="button"
+                  aria-label="Play Video"
                 >
-                  {/* Pulsing Ring */}
-                  <div className="absolute inset-0 rounded-full bg-white/20 animate-ping" />
+                  {/* Thumbnail Background */}
+                  <img
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt="Video Thumbnail"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
 
                   {/* Play Button */}
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300">
-                    <Play className="w-8 h-8 md:w-10 md:h-10 text-[#5381d2] ml-1 fill-current" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="relative"
+                    >
+                      {/* Pulsing Ring */}
+                      <div className="absolute inset-0 rounded-full bg-white/20 animate-ping" />
+
+                      {/* Button Icon */}
+                      <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                        <Play className="w-8 h-8 md:w-10 md:h-10 text-[#5381d2] ml-1 fill-current" />
+                      </div>
+                    </motion.div>
                   </div>
-                </motion.div>
-              </div>
-
-              {/* Placeholder Content - Replace with actual video */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white/40">
-                  <svg
-                    className="w-32 h-32 mx-auto mb-4 opacity-20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <rect x="2" y="2" width="20" height="20" rx="2.18" strokeWidth="1.5" />
-                    <line x1="7" y1="2" x2="7" y2="22" strokeWidth="1.5" />
-                    <line x1="17" y1="2" x2="17" y2="22" strokeWidth="1.5" />
-                    <line x1="2" y1="12" x2="22" y2="12" strokeWidth="1.5" />
-                    <line x1="2" y1="7" x2="7" y2="7" strokeWidth="1.5" />
-                    <line x1="2" y1="17" x2="7" y2="17" strokeWidth="1.5" />
-                    <line x1="17" y1="17" x2="22" y2="17" strokeWidth="1.5" />
-                    <line x1="17" y1="7" x2="22" y2="7" strokeWidth="1.5" />
-                  </svg>
-                  <p className="text-sm font-medium">Video Demo Placeholder</p>
                 </div>
-              </div>
-
-              {/* Gradient Overlay for Visual Polish */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              ) : (
+                /* YouTube Iframe State */
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&controls=1&showinfo=0&modestbranding=1`}
+                  title="Zavi Demo Video"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#2563EB]/20 to-[#3B82F6]/20 rounded-full blur-2xl" />
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#0EA5E9]/20 to-[#60A5FA]/20 rounded-full blur-2xl" />
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#2563EB]/20 to-[#3B82F6]/20 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#0EA5E9]/20 to-[#60A5FA]/20 rounded-full blur-2xl pointer-events-none" />
           </motion.div>
 
           {/* Feature Pill Badges */}

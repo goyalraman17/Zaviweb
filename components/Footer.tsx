@@ -102,6 +102,13 @@ export default function Footer() {
           <motion.div variants={fadeUp} className="mb-6">
             <div className="flex items-center justify-center gap-6 flex-wrap">
               <a
+                href="/blog"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              >
+                Blog
+              </a>
+              <span className="text-gray-400">•</span>
+              <a
                 href="/about"
                 className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
               >
