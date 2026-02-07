@@ -12,7 +12,7 @@ export default function VideoDemo() {
 
   return (
     <section
-      id="how-it-works"
+      id="video-demo"
       className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50"
     >
       <div className="container-large">
