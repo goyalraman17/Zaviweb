@@ -26,9 +26,7 @@ export default function BlogListingPage() {
                     {blogPosts.map((post) => (
                         <Link href={`/blog/${post.slug}`} key={post.slug} className="group pointer-events-auto">
                             <div className="flex flex-col h-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                                {/* Image Placeholder (using gradient for now) */}
-                                <div className={`h-48 w-full bg-gradient-to-br ${post.slug.includes('keyboard') ? 'from-purple-500 to-indigo-600' : 'from-blue-500 to-cyan-400'
-                                    } opacity-90 group-hover:opacity-100 transition-opacity`} />
+
 
                                 <div className="flex flex-1 flex-col justify-between p-6">
                                     <div className="flex-1">
@@ -123,7 +121,7 @@ export default function BlogListingPage() {
                                         Get productivity tips delivered.
                                     </h2>
                                     <p className="mt-6 mx-auto max-w-2xl text-lg text-blue-100">
-                                        Join thousands of professionals reclaiming their time with voice AI.
+                                        Join forward-thinking professionals reclaiming their time with voice AI.
                                     </p>
                                 </div>
                                 <form action="#" className="mt-12 sm:mx-auto sm:max-w-lg sm:flex">

@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/animated/ScrollProgress";
+import JsonLd from "@/components/SEO/JsonLd";
+import StickyDownloadCTA from "@/components/StickyDownloadCTA";
 
 // Optimize font loading with Next.js font optimization
 // Only load essential weights: 400 (regular), 600 (semibold), 700 (bold)
@@ -102,6 +104,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans font-normal" suppressHydrationWarning>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Zavi AI",
+            "operatingSystem": "Android, macOS, Windows, Linux",
+            "applicationCategory": "ProductivityApplication",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          }}
+        />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Zavi AI",
+            "url": "https://zavi.ai",
+            "logo": "https://zavi.ai/zavi-logo.png",
+            "sameAs": [
+              "https://twitter.com/zavivoice"
+            ]
+          }}
+        />
+        <StickyDownloadCTA />
         <ScrollProgress color="#2563EB" height={3} />
         {children}
         <Footer />

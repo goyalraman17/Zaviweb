@@ -3,11 +3,42 @@ import Navigation from '@/components/Navigation';
 import { blogPosts } from '@/lib/blogData';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import JsonLd from '@/components/SEO/JsonLd';
+import type { Metadata } from 'next';
 
 interface BlogPostProps {
     params: Promise<{
         slug: string;
     }>;
+}
+
+export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
+    const { slug } = await params;
+    const post = blogPosts.find((p) => p.slug === slug);
+
+    if (!post) {
+        return {
+            title: 'Post Not Found | Zavi AI',
+        };
+    }
+
+    return {
+        title: `${post.title} | Zavi AI Blog`,
+        description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: 'article',
+            publishedTime: post.date,
+            authors: [post.author],
+            tags: post.tags,
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+        },
+    };
 }
 
 export async function generateStaticParams() {
@@ -33,6 +64,26 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans">
             <Navigation />
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "description": post.excerpt,
+                    "author": {
+                        "@type": "Person",
+                        "name": post.author
+                    },
+                    "datePublished": post.date, // Note: Schema prefers ISO, but this matches our data mock for now
+                    "genre": post.category,
+                    "keywords": post.tags.join(', '),
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Zavi AI",
+                        "logo": "https://zavi.ai/zavi-logo.png"
+                    }
+                }}
+            />
 
             {/* Progress Bar (Simulated) */}
             <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-gray-100">
@@ -69,11 +120,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                     </div>
                 </header>
 
-                {/* Featured Image Area (Gradient for now) */}
-                <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                    <div className={`w-full aspect-[2/1] rounded-3xl bg-gradient-to-br ${post.slug.includes('keyboard') ? 'from-purple-500 to-indigo-600' : 'from-blue-500 to-cyan-400'
-                        } shadow-2xl skew-y-1 transform transition-transform hover:skew-y-0 duration-700`} />
-                </div>
+
 
                 {/* Content */}
                 <div
@@ -105,12 +152,31 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                                 Type less. Speak more.
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                Join thousands of professionals saving 40+ hours a year with Zavi AI.
+                                Join forward-thinking professionals saving 40+ hours a year with Zavi AI.
                             </p>
                             <Link href="/#download" className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Get Zavi for Free
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Newsletter Signup (Inline) */}
+                <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 py-12 bg-gray-50 rounded-3xl border border-gray-100">
+                    <div className="text-center">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">Get productivity tips delivered</h3>
+                        <p className="text-gray-600 text-sm mb-6">Join forward-thinking professionals reclaiming their time with voice AI.</p>
+                        <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                                required
+                            />
+                            <button className="px-6 py-2.5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors text-sm">
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
                 </div>
             </article>
