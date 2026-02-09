@@ -5,6 +5,8 @@ import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import DeviceDownload from '@/components/DeviceDownload';
 import PageAnalytics from '@/components/PageAnalytics';
 
+import MagicWand from '@/components/MagicWand';
+
 // Lazy load below-the-fold components for better performance
 const VideoDemo = dynamic(() => import('@/components/VideoDemo'), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
@@ -27,18 +29,19 @@ const FAQ = dynamic(() => import('@/components/FAQ'));
  * Optimized funnel: Hook → DIFFERENTIATE → DOWNLOAD → Demonstrate → PROOF → Personalize → Price → TESTIMONIALS → Objections → Convert
  *
  * 1. Hero + Live Demo (immediate hook - clear value prop)
- * 2. Language Translation Hero (multi-language switching - switch languages instantly!)
- * 3. Device Download (CONVERSION OPPORTUNITY - auto-detect device, one-click download)
- * 4. Video Demo (prove it works - visual demonstration)
- * 5. Metrics (impressive stats - 5x faster, <2s response, 100+ languages) ← NEW
- * 6. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
- * 7. Kill Your Keyboard (wow moment - smart editing magic)
- * 8. Adapts to Your Role (deep personalization - see yourself using it)
- * 9. Pricing (convert while interest is HIGH)
- * 10. Testimonials (real customer stories with names and results) ← NEW
- * 11. On-the-go or At Your Desk (flexibility - works everywhere)
- * 12. FAQ (handle objections before they leave)
- * 13. Final CTA (last conversion push)
+ * 2. Magic Wand (Wow Moment - Instant Understanding) ← NEW
+ * 3. Language Translation Hero (multi-language switching - switch languages instantly!)
+ * 4. Device Download (CONVERSION OPPORTUNITY - auto-detect device, one-click download)
+ * 5. Video Demo (prove it works - visual demonstration)
+ * 6. Metrics (impressive stats - 5x faster, <2s response, 100+ languages)
+ * 7. Voice Typing Demo (use cases - emails, ChatGPT, ideas)
+ * 8. Kill Your Keyboard (wow moment - smart editing magic)
+ * 9. Adapts to Your Role (deep personalization - see yourself using it)
+ * 10. Pricing (convert while interest is HIGH)
+ * 11. Testimonials (real customer stories with names and results)
+ * 12. On-the-go or At Your Desk (flexibility - works everywhere)
+ * 13. FAQ (handle objections before they leave)
+ * 14. Final CTA (last conversion push)
  */
 export default function Home() {
   return (
@@ -48,6 +51,9 @@ export default function Home() {
       <main className="overflow-hidden">
         {/* Hero with Screenshot - Immediate Hook */}
         <HeroWithScreenshot />
+
+        {/* Magic Wand Component */}
+        <MagicWand />
 
         {/* Language Translation Hero - BIGGEST DIFFERENTIATOR */}
         <LanguageTranslationHero />

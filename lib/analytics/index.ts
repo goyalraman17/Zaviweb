@@ -13,6 +13,7 @@ export type AnalyticsEventName =
   | 'cta_final_click'
   | 'cta_nav_click'
   | 'cta_sticky_click'
+  | 'cta_magic_wand_click'
   // Download Events
   | 'download_click'
   // Demo Events
