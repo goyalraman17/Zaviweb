@@ -103,14 +103,7 @@ export default function PricingNew() {
     if (isAndroid) {
       window.open('https://play.google.com/store/apps/details?id=com.pingpros.keyboard', '_blank');
     } else {
-      if (plan === 'free') {
-        const downloadSection = document.getElementById('download');
-        if (downloadSection) {
-          downloadSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        handlePayment(plan);
-      }
+      handlePayment(plan);
     }
   };
 
@@ -196,57 +189,68 @@ export default function PricingNew() {
               className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12"
               variants={staggerContainerSlow}
             >
+
               {/* Free Plan */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(37, 99, 235, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
-                  <h3 className="text-3xl font-bold text-[#1a1a1a] mb-2">Free</h3>
-                  <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Curious explorers</p>
-                  <div className="mb-4">
-                    <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
-                    <div className="text-gray-600 text-sm">Free forever</div>
-                  </div>
-                  <p className="text-gray-600 mb-6">Try voice-first writing risk-free</p>
+                <GlowCard glowColor="rgba(200, 200, 200, 0.4)" className="relative rounded-3xl p-8 bg-white border border-gray-200 shadow-lg h-full flex flex-col">
+                  <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Free</h3>
+                  <p className="text-sm font-semibold text-gray-500 mb-2">Forever free</p>
 
-                  <ul className="space-y-4 mb-8">
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
+                    <div className="text-gray-600 text-sm">/ month</div>
+                  </div>
+
+                  <ul className="space-y-4 mb-8 flex-grow">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Speak 1,000 words per week</span>
+                      <span className="text-gray-700">1,000 words per day</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Sound professional without editing</span>
+                      <span className="text-gray-700">Never type again</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Write anywhere you type</span>
+                      <span className="text-gray-700">Sound polished in every message</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Speak in any language</span>
+                      <span className="text-gray-700">Eliminate fillers and awkward phrasing</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-gray-700">Perfect grammar without thinking</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span className="text-gray-700">Match your tone to any audience</span>
                     </li>
                   </ul>
 
-                  <motion.button
-                    onClick={() => handlePlanAction('free')}
-                    className="w-full px-6 py-4 rounded-full font-semibold text-center text-white shadow-lg transition-all"
-                    style={{
-                      background: 'linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)',
+                  <button
+                    onClick={() => {
+                      document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                      if (typeof analytics !== 'undefined') {
+                        analytics.track('pricing_plan_click', { plan: 'free', billing_cycle: billingCycle, is_android: isAndroid });
+                      }
                     }}
-                    initial="rest"
-                    whileHover="hover"
-                    whileTap="tap"
-                    variants={ctaPrimary}
+                    className="w-full px-6 py-4 rounded-full font-semibold text-center bg-gray-100 text-zavi-blue-700 hover:bg-gray-200 transition-all mt-auto"
                   >
-                    {isAndroid ? 'Start Free Forever' : 'Get Early Access'}
-                  </motion.button>
+                    Get Started Free
+                  </button>
                 </GlowCard>
               </motion.div>
 
@@ -296,6 +300,12 @@ export default function PricingNew() {
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
+                        <span className="text-white">Context awareness</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                         <span className="text-white">Never type again</span>
                       </li>
                       <li className="flex items-start gap-3">
@@ -332,7 +342,7 @@ export default function PricingNew() {
                       whileTap="tap"
                       variants={ctaPrimary}
                     >
-                      {isAndroid ? 'Start 7-Day Free Trial' : 'Join Pro Waitlist'}
+                      {isAndroid ? 'Start Pro Subscription' : 'Get Pro Access'}
                     </motion.button>
 
 
@@ -452,8 +462,7 @@ export default function PricingNew() {
             Stop typing. <span className="font-bold">Start speaking.</span> Writing faster is one click away.
           </p>
         </div>
-      </section>
+      </section >
     </>
   );
 }
-
