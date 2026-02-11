@@ -61,8 +61,7 @@ const platforms: PlatformInfo[] = [
   {
     name: 'Linux',
     label: 'Linux',
-    downloadUrl: '#',
-    comingSoon: true,
+    downloadUrl: '/downloads/Zavi_0.1.0_amd64.deb',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
         <path d="M20 12V8H18V12H20M4 12V8H6V12H4M16.5 13.5C16.5 14.33 15.83 15 15 15S13.5 14.33 13.5 13.5 14.17 12 15 12 16.5 12.67 16.5 13.5M10.5 13.5C10.5 14.33 9.83 15 9 15S7.5 14.33 7.5 13.5 8.17 12 9 12 10.5 12.67 10.5 13.5M19 13V18C19 19.11 18.11 20 17 20H15V22H13V20H11V22H9V20H7C5.9 20 5 19.11 5 18V13C5 11.9 5.9 11 7 11H17C18.11 11 19 11.9 19 13M12 2C9 2 7 4.5 7 7V9H17V7C17 4.5 15 2 12 2Z" />
@@ -106,7 +105,18 @@ export default function DeviceDownload() {
         detected_platform: detectedPlatform || 'unknown',
         is_detected: platform === detectedPlatform,
       });
-      window.open(info.downloadUrl, '_blank');
+      // External URLs (e.g. Play Store) open in new tab
+      // Local files use anchor with download attribute to force binary download
+      if (info.downloadUrl.startsWith('http')) {
+        window.open(info.downloadUrl, '_blank');
+      } else {
+        const link = document.createElement('a');
+        link.href = info.downloadUrl;
+        link.download = info.downloadUrl.split('/').pop() || 'download';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     }
   };
 
@@ -149,7 +159,7 @@ export default function DeviceDownload() {
             variants={fadeUp}
             className="text-lg md:text-2xl text-gray-600 mb-16 md:mb-20 max-w-2xl mx-auto space-y-2 px-4"
           >
-            <p>Live on Android and Mac. Coming soon to iOS and Windows.</p>
+            <p>Live on Android, Mac, and Linux. Coming soon to iOS and Windows.</p>
           </motion.div>
 
           {/* Platform Grid */}
@@ -168,7 +178,7 @@ export default function DeviceDownload() {
                   onClick={() => handleAction(platform.name, platform)}
                   className={`
                     relative group p-6 md:p-8 rounded-2xl border-2 transition-all duration-300
-                    ${(isAndroid || platform.name === 'macOS')
+                    ${(isAndroid || platform.name === 'macOS' || platform.name === 'Linux')
                       ? 'bg-gradient-to-br from-zavi-blue-600 to-zavi-blue-500 border-zavi-blue-600 text-white shadow-xl scale-105 z-10'
                       : isActualSelected
                         ? 'border-zavi-blue-400 bg-white shadow-md'
@@ -180,7 +190,7 @@ export default function DeviceDownload() {
                 >
                   {/* Status Badge */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-20">
-                    {(isAndroid || platform.name === 'macOS') ? (
+                    {(isAndroid || platform.name === 'macOS' || platform.name === 'Linux') ? (
                       <span className="inline-flex items-center gap-1 px-4 py-1.5 bg-green-500 text-white text-[11px] font-bold uppercase tracking-wider rounded-full shadow-lg border-2 border-white">
                         Live Now
                       </span>
@@ -191,7 +201,7 @@ export default function DeviceDownload() {
                     )}
                   </div>
 
-                  {isDetected && !(isAndroid || platform.name === 'macOS') && (
+                  {isDetected && !(isAndroid || platform.name === 'macOS' || platform.name === 'Linux') && (
                     <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
                       <span className="px-2 py-0.5 bg-zavi-blue text-white text-[9px] font-bold rounded-full">
                         Your Device
@@ -202,20 +212,20 @@ export default function DeviceDownload() {
                   <div className="flex flex-col items-center gap-3">
                     <div className={`
                       transition-transform duration-300 group-hover:scale-110
-                      ${(isAndroid || platform.name === 'macOS') ? 'text-white' : 'text-slate-400 group-hover:text-zavi-blue-500'}
+                      ${(isAndroid || platform.name === 'macOS' || platform.name === 'Linux') ? 'text-white' : 'text-slate-400 group-hover:text-zavi-blue-500'}
                     `}>
                       {platform.icon}
                     </div>
 
-                    <span className={`text-lg font-bold ${(isAndroid || platform.name === 'macOS') ? 'text-white' : 'text-slate-900'}`}>
+                    <span className={`text-lg font-bold ${(isAndroid || platform.name === 'macOS' || platform.name === 'Linux') ? 'text-white' : 'text-slate-900'}`}>
                       {platform.label}
                     </span>
 
                     <span className={`
                       text-sm font-semibold
-                      ${(isAndroid || platform.name === 'macOS') ? 'text-white/90' : 'text-zavi-blue-500'}
+                      ${(isAndroid || platform.name === 'macOS' || platform.name === 'Linux') ? 'text-white/90' : 'text-zavi-blue-500'}
                     `}>
-                      {(isAndroid || platform.name === 'macOS') ? 'Download' : 'Early Access'}
+                      {(isAndroid || platform.name === 'macOS' || platform.name === 'Linux') ? 'Download' : 'Early Access'}
                     </span>
                   </div>
                 </motion.button>
