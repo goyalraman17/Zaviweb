@@ -1,4 +1,4 @@
-// Deployment trigger: Reverting SEO changes to fix demo issues
+// Deployment trigger: GEO/AEO optimization for AI engine visibility
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -6,6 +6,13 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/animated/ScrollProgress";
 import JsonLd from "@/components/SEO/JsonLd";
 import StickyDownloadCTA from "@/components/StickyDownloadCTA";
+import {
+  websiteSchema,
+  organizationSchema,
+  softwareApplicationSchema,
+  faqSchema,
+  howToSchema,
+} from "@/lib/schemaData";
 
 // Optimize font loading with Next.js font optimization
 // Only load essential weights: 400 (regular), 600 (semibold), 700 (bold)
@@ -21,22 +28,48 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  title: "Zavi AI – Voice Typing Keyboard for Android",
-  description: "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app.",
+  title: {
+    default: "Zavi AI – Voice Typing Keyboard | Turn Speech into Professional Text",
+    template: "%s | Zavi AI"
+  },
+  description: "Zavi AI is a voice typing keyboard that uses AI to turn natural speech into clean, professional text. Removes filler words, fixes grammar, works in every app. 100+ languages. Free to use. Available on Android, macOS, Windows, Linux.",
   keywords: [
     "voice typing",
+    "voice typing keyboard",
+    "AI voice typing",
     "speech to text",
     "dictation app",
+    "AI keyboard",
+    "voice to text",
     "Android keyboard",
     "Zavi AI",
+    "Zavi",
     "AI voice writer",
     "voice writing keyboard",
     "professional dictation",
     "filler word removal",
-    "grammar cleanup"
+    "grammar cleanup",
+    "voice typing app",
+    "best voice typing app",
+    "AI dictation",
+    "voice writing",
+    "speech to text app",
+    "voice input",
+    "hands-free typing",
+    "multilingual voice typing",
+    "voice translation",
+    "zero prompt AI",
+    "Zavi vs Wispr Flow",
+    "Zavi vs Willow",
+    "Zavi vs Gboard",
+    "best AI keyboard 2026",
+    "voice typing for professionals",
   ],
   category: "Productivity",
-  authors: [{ name: "Zavi AI" }],
+  authors: [
+    { name: "Raman Goyal", url: "https://www.linkedin.com/in/ramangoyal3" },
+    { name: "Himanshu Kumar", url: "https://www.linkedin.com/in/himanshukr033" },
+  ],
   creator: "Zavi AI",
   publisher: "Zavi AI",
   robots: {
@@ -51,16 +84,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Zavi AI – Voice Typing Keyboard for Android",
-    description: "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app.",
-    url: "https://zavi.ai", // Replace with your actual domain
+    title: "Zavi AI – Voice Typing Keyboard | Turn Speech into Professional Text",
+    description: "Stop typing. Start speaking. Zavi AI turns natural speech into clean, professional text. AI removes filler words, fixes grammar, works in every app. 100+ languages. Free.",
+    url: "https://zavi.ai",
     siteName: "Zavi AI",
     images: [
       {
-        url: 'https://zavi.ai/og-image.png', // Add an engaging Open Graph image
+        url: 'https://zavi.ai/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zavi AI Voice Typing Keyboard',
+        alt: 'Zavi AI – Voice Typing Keyboard that turns speech into professional text',
       },
     ],
     locale: 'en_US',
@@ -68,10 +101,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Zavi AI – Voice Typing Keyboard for Android",
-    description: "Stop typing. Start speaking. Turn natural speech into clean, professional text in any app.",
-    creator: '@zavivoice', // Add your Twitter handle
-    images: ['https://zavi.ai/twitter-image.png'], // Add a Twitter-specific image
+    title: "Zavi AI – Voice Typing Keyboard | Turn Speech into Professional Text",
+    description: "Stop typing. Start speaking. AI turns your voice into clean, professional text. Works in every app. 100+ languages. Free.",
+    creator: '@zavivoice',
+    site: '@zavivoice',
+    images: ['https://zavi.ai/twitter-image.png'],
   },
   icons: {
     icon: [
@@ -85,7 +119,14 @@ export const metadata: Metadata = {
       { rel: 'mask-icon', url: '/zavi-logo.png', color: '#2563EB' },
     ],
   },
-  manifest: '/site.webmanifest', // Add a web app manifest
+  manifest: '/site.webmanifest',
+  other: {
+    // AI-specific meta tags
+    'ai-content-declaration': 'This website contains factual information about Zavi AI, a voice typing keyboard product.',
+    'citation-title': 'Zavi AI – Voice Typing Keyboard',
+    'citation-author': 'Zavi AI',
+    'citation-url': 'https://zavi.ai',
+  },
 };
 
 export const viewport: Viewport = {
@@ -103,33 +144,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
+      <head>
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="font-sans font-normal" suppressHydrationWarning>
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Zavi AI",
-            "operatingSystem": "Android, macOS, Windows, Linux",
-            "applicationCategory": "ProductivityApplication",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }}
-        />
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Zavi AI",
-            "url": "https://zavi.ai",
-            "logo": "https://zavi.ai/zavi-logo.png",
-            "sameAs": [
-              "https://twitter.com/zavivoice"
-            ]
-          }}
-        />
+        {/* Comprehensive Schema.org structured data for GEO/AEO */}
+        <JsonLd data={websiteSchema} />
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={softwareApplicationSchema} />
+        <JsonLd data={faqSchema} />
+        <JsonLd data={howToSchema} />
+
         <StickyDownloadCTA />
         <ScrollProgress color="#2563EB" height={3} />
         {children}

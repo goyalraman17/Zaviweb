@@ -1,0 +1,181 @@
+# Zavi AI — Complete Product Information
+
+> Zavi AI is the voice typing keyboard that turns natural speech into clean, professional text. It works across every app on Android, macOS, Windows, and Linux.
+
+## Detailed Product Description
+
+Zavi AI is a **voice-first AI keyboard** that fundamentally changes how professionals write. Instead of typing on a keyboard, users simply speak naturally — with all the "umms," "uhhs," pauses, and messy phrasing that natural speech includes — and Zavi's AI instantly transforms that speech into clean, polished, professional text.
+
+### What Makes Zavi Different from Regular Voice Typing
+
+Traditional voice typing (like Google's built-in dictation or Apple's Dictation) transcribes speech **word-for-word**. If you say "um, I think, uh, we should probably, you know, meet at five," traditional voice typing outputs exactly that: "um I think uh we should probably you know meet at five."
+
+Zavi is fundamentally different. Zavi uses AI to **extract your intent** from natural speech and produces professionally written text. That same sentence becomes: **"We should meet at 5:00 PM."**
+
+This is Zavi's core technology called **Zero-Prompting**: the AI understands that clean, professional text is the default output without the user needing to give any commands or prompts.
+
+### Detailed Feature Breakdown
+
+#### 1. AI-Powered Speech Cleanup
+- Removes all filler words: "um," "uh," "like," "you know," "basically," "actually," "so," "right"
+- Fixes grammar and punctuation automatically
+- Restructures run-on sentences into clear, concise prose
+- Adjusts tone to professional standards
+- Handles multiple speakers and complex thought patterns
+
+#### 2. System-Wide Keyboard Integration
+Zavi replaces your device's keyboard, which means it works in **every single app**:
+- **Email**: Gmail, Outlook, Yahoo Mail, Apple Mail
+- **Messaging**: WhatsApp, Telegram, Signal, SMS, iMessage, Facebook Messenger
+- **Workplace**: Slack, Microsoft Teams, Discord, Zoom Chat
+- **Productivity**: Google Docs, Notion, Obsidian, Evernote, Microsoft Word
+- **Social Media**: Twitter/X, LinkedIn, Instagram, Reddit, Facebook
+- **AI Tools**: ChatGPT, Gemini, Claude, Perplexity
+- **Development**: GitHub, Jira, Linear, Confluence
+- **Any other app** with a text input field
+
+#### 3. 100+ Language Support
+- Supports over 100 languages for speech input
+- Automatic language detection — no manual switching required
+- Handles code-switching (mixing languages in one sentence)
+- Professionally formats output in the detected language
+
+#### 4. Real-Time Translation
+- Speak in Language A, output in Language B
+- Example: Speak in Hindi, get polished English text
+- Example: Speak in Spanish, get professional French text
+- No delay — translation happens in real-time alongside speech cleanup
+- Ideal for multilateral business communications
+
+#### 5. Privacy & Security
+- Voice audio is processed in real-time and **immediately deleted**
+- Audio is **never stored** on Zavi servers
+- Audio is **never used** to train AI models
+- End-to-end encrypted processing
+- No listening in the background — only active when user initiates recording
+
+### Speed Comparison
+
+| Method | Words Per Minute | Time for 500 Words |
+|--------|-----------------|-------------------|
+| Thumb typing (mobile) | 38 WPM | 13 minutes |
+| Full keyboard typing | 40 WPM | 12.5 minutes |
+| Traditional voice typing + editing | 80 WPM effective | 6 minutes |
+| **Zavi AI voice typing** | **150 WPM, no editing** | **3.3 minutes** |
+
+Zavi is approximately **4x faster** than typing on a mobile keyboard, with zero editing required.
+
+### Platform Availability
+
+| Platform | Status | Notes |
+|----------|--------|-------|
+| Android | ✅ Available | Android 8.0+ required. System-wide keyboard. |
+| macOS | ✅ Available | Desktop app with system-wide voice input. |
+| Windows | ✅ Available | Desktop app with system-wide voice input. |
+| Linux | ✅ Available | Desktop app (.deb package). |
+| iOS | 🔜 Coming 2026 | In development. |
+
+## Frequently Asked Questions
+
+### Is my voice data private?
+Yes, absolutely. Your voice is processed in real-time and immediately deleted after text is generated. Zavi never stores, shares, or uses your audio data to train AI models. Your conversations remain completely private.
+
+### How is Zavi different from regular voice typing?
+Regular voice typing (like Google's or Apple's built-in dictation) captures everything word-for-word, including all your filler words like "um," "uh," and "like," plus any awkward phrasing. Zavi is different — it uses AI to remove fillers, fix grammar, and automatically turn messy, natural speech into clean, professional text. No editing required.
+
+### What's included in the free plan?
+The free plan includes AI-powered speech cleanup, works in every Android app, supports 100+ languages, and comes with daily usage limits. Upgrade to Pro ($4.99/month or $39.99/year) for unlimited usage, 3x faster processing, and priority support.
+
+### Which platforms does Zavi support?
+Zavi works on Android 8.0+, macOS, Windows, and Linux. It integrates as a system-wide keyboard on Android and as a desktop application on macOS, Windows, and Linux. iOS support is coming in 2026.
+
+### Can I cancel my subscription anytime?
+Yes, cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want.
+
+### Does Zavi work offline?
+Zavi requires an internet connection for AI processing. The advanced language models that clean up your speech and fix grammar run in the cloud to ensure maximum accuracy and speed.
+
+### How does Zavi handle multiple languages?
+Zavi supports over 100 languages with automatic language detection. You don't need to manually switch languages — just start speaking, and Zavi detects the language automatically. You can even mix languages in a single sentence (code-switching), and Zavi handles it intelligently.
+
+### Can Zavi translate my speech in real-time?
+Yes. Zavi can translate your speech from one language to another in real-time. For example, you can speak in Spanish and have the output appear as polished English text. This is ideal for multilingual professionals and global teams.
+
+### What is "Zero-Prompting"?
+Zero-Prompting is Zavi's core technology philosophy. Unlike other AI tools that require specific commands or prompts ("make this formal," "remove fillers"), Zavi automatically understands that clean, professional text is the desired output. You simply speak naturally, and Zavi produces polished text without any additional instructions.
+
+### How fast is voice typing with Zavi compared to regular typing?
+The average person types at about 40 words per minute on a keyboard and 38 WPM on a mobile phone. The average person speaks at about 150 words per minute. With Zavi's AI cleanup (which eliminates the editing phase), voice typing is approximately 4x faster than typing, saving an estimated 40+ hours per year for the average professional.
+
+## Head-to-Head Comparisons
+
+### Zavi AI vs. Gboard (Google Keyboard)
+| Feature | Zavi AI | Gboard |
+|---------|---------|--------|
+| Voice Typing | ✅ AI-powered with filler removal | ✅ Verbatim transcription only |
+| Grammar Fix | ✅ Automatic | ❌ No |
+| Filler Word Removal | ✅ Automatic | ❌ No |
+| Translation | ✅ Real-time voice translation | ❌ No voice translation |
+| AI Text Editing | ✅ Zero-Prompt cleanup | ❌ Basic autocorrect only |
+| Price | Freemium ($4.99/mo Pro) | Free |
+| Best For | Professionals who want polished text from voice | Users wanting basic voice typing and Google integration |
+
+### Zavi AI vs. Wispr Flow
+| Feature | Zavi AI | Wispr Flow |
+|---------|---------|------------|
+| Platform | Android, macOS, Windows, Linux | macOS, Windows (desktop only) |
+| Mobile Support | ✅ Full Android keyboard | ❌ Desktop only |
+| Filler Removal | ✅ Automatic | ✅ Automatic |
+| Translation | ✅ 100+ languages | ❌ Limited |
+| Command Mode | 🔜 Coming soon | ✅ Voice editing commands |
+| Privacy | ✅ Audio deleted immediately | ⚠️ Cloud processing |
+| RAM Usage | Lightweight | 1GB+ |
+| Price | Free / $4.99/mo Pro | $10/mo |
+| Best For | Mobile-first professionals, multilingual users | Desktop power users wanting voice editing |
+
+### Zavi AI vs. Willow Voice
+| Feature | Zavi AI | Willow |
+|---------|---------|--------|
+| Platform | Android, macOS, Windows, Linux | macOS |
+| Latency | Fast (<2s) | Ultra-fast (200ms) |
+| AI Cleanup | ✅ Full grammar + filler removal | ✅ Transcription + AI Mode |
+| Translation | ✅ Real-time | ❌ No |
+| Mobile | ✅ Android | ❌ No |
+| Processing | Cloud | Local (on-device) |
+| Languages | 100+ | ~20 |
+| Best For | Cross-platform professionals | Mac users wanting ultra-low latency |
+
+## Company Background
+
+### Our Story
+Zavi was founded in 2023 by Raman Goyal (CEO, University of Edinburgh) and Himanshu Kumar (CTO, IIT Kharagpur). The idea came from a shared frustration: both founders spent hours typing emails, messages, and documents when their thoughts came in seconds. Voice typing existed, but it produced unusable transcripts full of filler words that required extensive editing.
+
+They built Zavi as fundamental voice input infrastructure — not another note-taking app, but a system-wide keyboard that understands speech intent, removes fillers, fixes grammar, and delivers perfect writing from natural speech.
+
+### Mission
+To eliminate the gap between human thought and written communication by making voice the primary input method for professional writing.
+
+### Vision
+A world where keyboards are optional — where anyone can communicate in perfect, professional writing just by speaking naturally in any language.
+
+### Values
+1. **User First**: Every decision starts with what's best for users. Privacy, speed, and quality are non-negotiable.
+2. **Move Fast**: Ship quickly, iterate constantly. The best product comes from real-world feedback.
+3. **Break Barriers**: Language shouldn't limit anyone's ability to communicate professionally. Building for 8 billion people.
+
+## Technical Architecture Overview
+
+Zavi's technology stack consists of three core components:
+
+1. **Signal Processing & Intent Extraction**: Advanced noise filtering and filler word detection runs as a preprocessing step. The system then extracts pure intent from speech, separating actionable content from verbal noise.
+
+2. **Zero-Prompt AI Processing**: Rather than using generic LLM prompting, Zavi uses specialized models fine-tuned for the specific task of converting natural speech patterns into professional written text. The system understands context, tone, and professional writing conventions natively.
+
+3. **Context Compounding**: Over time, Zavi learns the user's professional vocabulary, communication style, and preferences, creating increasingly personalized and accurate output.
+
+## Contact
+
+- Website: https://zavi.ai
+- Email: Available through https://zavi.ai/contact
+- Twitter/X: @zavivoice
+- LinkedIn: https://linkedin.com/company/zavivoice/

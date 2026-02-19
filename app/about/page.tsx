@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import { Linkedin, Target, Users, Heart, Zap, Globe } from 'lucide-react';
+import JsonLd from '@/components/SEO/JsonLd';
+import { founderSchemas, generateBreadcrumbSchema } from '@/lib/schemaData';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -49,6 +51,14 @@ export default function AboutPage() {
   return (
     <>
       <Navigation />
+      {/* Structured data for founders */}
+      {founderSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
+      <JsonLd data={generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://zavi.ai' },
+        { name: 'About', url: 'https://zavi.ai/about' },
+      ])} />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">

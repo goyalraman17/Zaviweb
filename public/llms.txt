@@ -1,0 +1,101 @@
+# Zavi AI
+
+> Zavi AI is a voice typing keyboard and AI-powered dictation app that turns natural speech into clean, professional text. Available on Android, macOS, Windows, and Linux.
+
+## About Zavi AI
+
+Zavi AI is a voice-first writing tool designed for professionals. Unlike traditional speech-to-text or dictation tools that produce verbatim transcripts full of filler words ("um", "uh", "like"), Zavi uses AI to automatically clean up speech: removing fillers, fixing grammar, restructuring sentences, and delivering polished, ready-to-send text.
+
+Zavi is not a note-taking app or a transcription service — it is a **voice writing keyboard** that works system-wide across every app on your device. Whether you're drafting emails in Gmail, sending messages in WhatsApp or Slack, writing in Google Docs, or prompting ChatGPT, Zavi replaces your keyboard with voice input powered by AI.
+
+### Key Features
+
+- **AI-Powered Speech Cleanup**: Automatically removes filler words (um, uh, like, you know) and fixes grammar in real-time
+- **Works in Every App**: System-wide keyboard integration — works in Gmail, WhatsApp, Slack, Notion, Google Docs, Microsoft Teams, and every other app
+- **100+ Language Support**: Speak in over 100 languages with automatic language detection
+- **Real-Time Translation**: Speak in one language, output in another. Ideal for multilingual professionals and global teams
+- **Zero-Prompt Technology**: No commands needed — Zavi understands your intent and produces professional text automatically
+- **Privacy First**: Voice data is processed in real-time and immediately deleted. Never stored, never used for training
+- **Cross-Platform**: Available on Android, macOS, Windows, and Linux. iOS coming in 2026
+
+### How It Works
+
+1. **Speak Naturally**: Talk as you normally would, with fillers, pauses, and natural speech patterns
+2. **Zavi AI Processes**: AI removes filler words, fixes grammar, improves sentence structure, and polishes the text
+3. **Perfect Text Ready**: Clean, professional, ready-to-send text appears in whatever app you're using
+
+### Pricing
+
+- **Free Plan**: AI-powered speech cleanup, works in every app, 100+ languages, daily usage limits
+- **Pro Plan ($4.99/month or $39.99/year)**: Unlimited usage, 3x faster processing, priority support, advanced formatting
+
+### Company
+
+- **Founded**: 2023
+- **Headquarters**: India
+- **Website**: https://zavi.ai
+- **Founders**:
+  - Raman Goyal, Founder & CEO (University of Edinburgh)
+  - Himanshu Kumar, Co-founder & CTO (IIT Kharagpur)
+
+### Comparisons
+
+- **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI, removing fillers and fixing grammar automatically
+- **Zavi vs. SwiftKey**: SwiftKey focuses on predictive typing; Zavi is voice-first with AI-powered speech cleanup
+- **Zavi vs. Wispr Flow**: Wispr Flow is desktop-only; Zavi works on mobile (Android) and desktop (macOS, Windows, Linux) with multilingual support
+- **Zavi vs. Willow**: Willow focuses on low-latency transcription; Zavi adds AI cleanup, translation, and works across all apps
+
+### Use Cases
+
+- **Emails**: Dictate professional emails 4x faster than typing
+- **Messaging**: Send polished WhatsApp, Slack, and Teams messages by voice
+- **Documents**: Write reports, notes, and documents hands-free
+- **AI Prompts**: Speak your prompts to ChatGPT, Gemini, or Claude naturally
+- **Multilingual Communication**: Speak in your native language, output in English or any target language
+- **Accessibility**: Ideal for people with RSI, carpal tunnel, or mobility limitations
+
+### Technology
+
+Zavi's core technology is called **Zero-Prompting** — the AI system understands that professional, polished text is the default output. Users don't need to give commands like "make this formal" or "remove fillers." The AI extracts pure intent from natural, messy speech and produces executive-ready text automatically.
+
+### Social Links
+
+- Twitter/X: https://x.com/zavivoice
+- LinkedIn: https://linkedin.com/company/zavivoice/
+- Instagram: https://www.instagram.com/zavivoice/
+- YouTube: https://www.youtube.com/@goyalraman17
+- Reddit: https://www.reddit.com/user/Vanilla-Green/
+
+### Download
+
+- Android: https://play.google.com/store/apps/details?id=com.zavi.app
+- Website: https://zavi.ai
+
+## Docs
+
+- [Homepage](https://zavi.ai): Main landing page with interactive demo
+- [About](https://zavi.ai/about): Company story, mission, vision, team, and values
+- [Blog](https://zavi.ai/blog): Articles on voice AI, productivity, and the future of work
+- [Privacy Policy](https://zavi.ai/privacy): How Zavi handles user data and privacy
+- [Terms of Service](https://zavi.ai/terms): Terms and conditions for using Zavi
+- [Contact](https://zavi.ai/contact): Get in touch with the Zavi team
+
+## Blog Posts
+
+- [The End of Prompt Engineering: Making AI Human Again](https://zavi.ai/blog/the-end-of-prompt-engineering): Why the future of AI is Zero Prompting, and how Zavi bridges thought and action
+- [We Are Trapped in the "Coordination Tax"](https://zavi.ai/blog/escaping-the-coordination-tax): How knowledge workers spend 40% of their day on busy work, and how voice AI solves it
+- [Voice AGI: The Interface of the Next Decade](https://zavi.ai/blog/voice-agi-bridging-thought-to-action): The technology behind Zavi's Action Registry and Context Compounding
+- [Why Voice Typing Is 4x Faster Than Your Thumbs](https://zavi.ai/blog/voice-typing-speed-benefits): Data-backed analysis of voice typing productivity gains
+- [Best AI Keyboards for Professionals in 2026](https://zavi.ai/blog/best-ai-keyboards-2026): Comparing Zavi, Gboard, SwiftKey, and more
+- [Zavi vs. Wispr Flow vs. Willow: Which AI Dictation Is Best?](https://zavi.ai/blog/zavi-vs-wispr-flow-vs-willow): Head-to-head comparison of the top AI dictation tools
+- [Beyond Transcription: The Zero-Prompt Revolution](https://zavi.ai/blog/beyond-transcription-zero-prompt-revolution): How Zero-Prompt technology transforms messy speech into executive-ready text
+- [Multilingual Mastery: Breaking the Language Barrier with Voice](https://zavi.ai/blog/multilingual-mastery-voice-translation): Real-time translation and 100+ language support for global teams
+- [Best Voice Typing Apps for Android in 2026: Complete Guide](https://zavi.ai/blog/best-voice-typing-app-android-2026): Definitive comparison of every major voice typing app on Android
+- [How to Type Faster on Your Phone: 7 Proven Methods](https://zavi.ai/blog/how-to-type-faster-on-phone): Data-backed methods to double or quadruple your mobile typing speed
+- [Voice to Text That Removes Filler Words Automatically](https://zavi.ai/blog/voice-to-text-that-removes-filler-words): Ranked comparison of apps that strip "um," "uh," and fillers from speech
+- [Dictation Apps That Fix Grammar Automatically: 2026 Guide](https://zavi.ai/blog/dictation-app-that-fixes-grammar): Find dictation apps that produce ready-to-send text with zero grammar editing
+- [How to Use Voice Typing in WhatsApp, Gmail, Slack & Any App](https://zavi.ai/blog/how-to-use-voice-typing-in-whatsapp): Step-by-step guide to voice typing across all your apps
+- [Speech to Text Accuracy: 2026 Comparison of All Major Tools](https://zavi.ai/blog/speech-to-text-accuracy-comparison-2026): Benchmark testing 8 tools with a new "Ready-to-Use Rate" metric
+- [Voice Typing for RSI & Carpal Tunnel: Accessibility Guide](https://zavi.ai/blog/voice-typing-for-people-with-rsi-carpal-tunnel): Complete hands-free workflow setup for people with typing-related pain
+- [Voice Typing for Students: Write Essays & Notes 4x Faster](https://zavi.ai/blog/voice-typing-for-students-essays-notes): Student guide to using voice typing for essays, notes, and academic work
+- [What Is Zero-Prompt Voice AI? How It Works & Why It Matters](https://zavi.ai/blog/what-is-zero-prompt-voice-ai): Deep dive into Zavi's core technology that eliminates the need for AI commands

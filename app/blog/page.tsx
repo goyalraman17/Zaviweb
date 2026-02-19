@@ -2,15 +2,71 @@
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import { blogPosts } from '@/lib/blogData';
+import JsonLd from '@/components/SEO/JsonLd';
+import { generateBreadcrumbSchema } from '@/lib/schemaData';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Blog – Voice AI, Productivity & Future of Work',
+    description: 'Explore insights on AI voice typing, productivity hacks, voice AI technology, and the future of human-computer interaction. Written by the Zavi AI team.',
+    alternates: {
+        canonical: '/blog',
+    },
+    openGraph: {
+        title: 'Zavi AI Blog – Voice AI, Productivity & Future of Work',
+        description: 'Explore insights on AI voice typing, productivity hacks, voice AI technology, and the future of work.',
+        url: 'https://zavi.ai/blog',
+        type: 'website',
+    },
+};
 
 export default function BlogListingPage() {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://zavi.ai' },
+        { name: 'Blog', url: 'https://zavi.ai/blog' },
+    ]);
+
+    const blogListingSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Zavi AI Blog",
+        "description": "Insights on voice AI, productivity, and the future of work from the Zavi AI team.",
+        "url": "https://zavi.ai/blog",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Zavi AI",
+            "url": "https://zavi.ai"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": blogPosts.length,
+            "itemListElement": blogPosts.map((post, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "url": `https://zavi.ai/blog/${post.slug}`,
+                "name": post.title
+            }))
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
             <Navigation />
+            <JsonLd data={breadcrumbSchema} />
+            <JsonLd data={blogListingSchema} />
 
             {/* Header */}
             <div className="bg-white pt-32 pb-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto text-center">
+                    {/* Breadcrumb */}
+                    <nav aria-label="Breadcrumb" className="mb-8">
+                        <ol className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                            <li><Link href="/" className="hover:text-blue-600 transition-colors">Home</Link></li>
+                            <span className="text-gray-300">/</span>
+                            <li className="text-gray-900 font-medium">Blog</li>
+                        </ol>
+                    </nav>
+
                     <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-4">
                         The Zavi Blog
                     </h1>
@@ -25,7 +81,7 @@ export default function BlogListingPage() {
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {blogPosts.map((post) => (
                         <Link href={`/blog/${post.slug}`} key={post.slug} className="group pointer-events-auto">
-                            <div className="flex flex-col h-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                            <article className="flex flex-col h-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
 
 
                                 <div className="flex flex-1 flex-col justify-between p-6">
@@ -60,7 +116,7 @@ export default function BlogListingPage() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </article>
                         </Link>
                     ))}
                 </div>

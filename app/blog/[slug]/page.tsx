@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import JsonLd from '@/components/SEO/JsonLd';
 import type { Metadata } from 'next';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schemaData';
 
 interface BlogPostProps {
     params: Promise<{
@@ -18,13 +19,15 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 
     if (!post) {
         return {
-            title: 'Post Not Found | Zavi AI',
+            title: 'Post Not Found',
         };
     }
 
     return {
-        title: `${post.title} | Zavi AI Blog`,
+        title: post.title,
         description: post.excerpt,
+        authors: [{ name: post.author }],
+        keywords: post.tags,
         openGraph: {
             title: post.title,
             description: post.excerpt,
@@ -32,11 +35,17 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
             publishedTime: post.date,
             authors: [post.author],
             tags: post.tags,
+            siteName: 'Zavi AI',
+            url: `https://zavi.ai/blog/${post.slug}`,
         },
         twitter: {
             card: 'summary_large_image',
             title: post.title,
             description: post.excerpt,
+            creator: '@zavivoice',
+        },
+        alternates: {
+            canonical: `/blog/${post.slug}`,
         },
     };
 }
@@ -61,38 +70,54 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
     const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
+    // Generate structured data
+    const articleSchema = generateArticleSchema(post);
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://zavi.ai' },
+        { name: 'Blog', url: 'https://zavi.ai/blog' },
+        { name: post.title, url: `https://zavi.ai/blog/${post.slug}` },
+    ]);
+
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans">
             <Navigation />
-            <JsonLd
-                data={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "description": post.excerpt,
-                    "author": {
-                        "@type": "Person",
-                        "name": post.author
-                    },
-                    "datePublished": post.date, // Note: Schema prefers ISO, but this matches our data mock for now
-                    "genre": post.category,
-                    "keywords": post.tags.join(', '),
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Zavi AI",
-                        "logo": "https://zavi.ai/zavi-logo.png"
-                    }
-                }}
-            />
+
+            {/* Enhanced Article Schema */}
+            <JsonLd data={articleSchema} />
+            <JsonLd data={breadcrumbSchema} />
 
             {/* Progress Bar (Simulated) */}
             <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-gray-100">
                 <div className="h-full bg-blue-600 w-full origin-left scale-x-0 animate-progress" />
             </div>
 
-            <article className="pt-32 pb-16 lg:pt-40 lg:pb-24">
+            <article className="pt-32 pb-16 lg:pt-40 lg:pb-24" itemScope itemType="https://schema.org/Article">
                 {/* Post Header */}
                 <header className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+                    {/* Breadcrumb Navigation */}
+                    <nav aria-label="Breadcrumb" className="mb-8">
+                        <ol className="flex items-center justify-center gap-2 text-sm text-gray-500" itemScope itemType="https://schema.org/BreadcrumbList">
+                            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                                <Link href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
+                                    <span itemProp="name">Home</span>
+                                </Link>
+                                <meta itemProp="position" content="1" />
+                            </li>
+                            <span className="text-gray-300">/</span>
+                            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                                <Link href="/blog" itemProp="item" className="hover:text-blue-600 transition-colors">
+                                    <span itemProp="name">Blog</span>
+                                </Link>
+                                <meta itemProp="position" content="2" />
+                            </li>
+                            <span className="text-gray-300">/</span>
+                            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-gray-900 font-medium truncate max-w-[200px]">
+                                <span itemProp="name">{post.title}</span>
+                                <meta itemProp="position" content="3" />
+                            </li>
+                        </ol>
+                    </nav>
+
                     <div className="flex items-center justify-center gap-2 mb-6">
                         <span className="px-3 py-1 text-xs font-semibold tracking-wider text-blue-700 uppercase bg-blue-50 rounded-full">
                             {post.category}
@@ -103,20 +128,36 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                         </span>
                     </div>
 
-                    <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-8 leading-tight">
+                    <h1
+                        className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-8 leading-tight"
+                        itemProp="headline"
+                    >
                         {post.title}
                     </h1>
 
-                    <div className="flex items-center justify-center space-x-4">
+                    {/* Article summary for AI extraction */}
+                    <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" itemProp="description">
+                        {post.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-center space-x-4" itemProp="author" itemScope itemType="https://schema.org/Person">
                         <div className="flex-shrink-0">
                             <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
                                 {post.author.substring(0, 1)}
                             </div>
                         </div>
                         <div className="text-left">
-                            <p className="text-sm font-bold text-gray-900">{post.author}</p>
-                            <p className="text-sm text-gray-500">{post.date}</p>
+                            <p className="text-sm font-bold text-gray-900" itemProp="name">{post.author}</p>
+                            <p className="text-sm text-gray-500">
+                                <time dateTime={post.date} itemProp="datePublished">{post.date}</time>
+                            </p>
                         </div>
+                    </div>
+
+                    {/* Hidden publisher for schema */}
+                    <div className="sr-only" itemProp="publisher" itemScope itemType="https://schema.org/Organization">
+                        <span itemProp="name">Zavi AI</span>
+                        <span itemProp="url">https://zavi.ai</span>
                     </div>
                 </header>
 
@@ -131,6 +172,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
             prose-img:rounded-xl prose-img:shadow-lg
             marker:text-blue-500"
                     dangerouslySetInnerHTML={{ __html: post.content }}
+                    itemProp="articleBody"
                 />
 
                 {/* Tags */}
@@ -142,6 +184,8 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                             </span>
                         ))}
                     </div>
+                    {/* Hidden keywords for schema */}
+                    <meta itemProp="keywords" content={post.tags.join(', ')} />
                 </div>
 
                 {/* Author Bio / Call to Action */}
@@ -152,7 +196,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                                 Type less. Speak more.
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                Join forward-thinking professionals saving 40+ hours a year with Zavi AI.
+                                Join forward-thinking professionals saving 40+ hours a year with Zavi AI voice typing keyboard. Free to download.
                             </p>
                             <Link href="/#download" className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Get Zavi for Free

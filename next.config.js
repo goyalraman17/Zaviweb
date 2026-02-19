@@ -29,6 +29,60 @@ const nextConfig = {
           },
         ],
       },
+      // Serve llms.txt files with proper content type for AI crawlers
+      {
+        source: '/llms.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=86400',
+          },
+        ],
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=86400',
+          },
+        ],
+      },
+      // Security and caching headers for all pages
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      // Serve llms.txt at .well-known/llms.txt as well (emerging standard path)
+      {
+        source: '/.well-known/llms.txt',
+        destination: '/llms.txt',
+      },
     ];
   },
 }
