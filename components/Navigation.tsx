@@ -79,9 +79,8 @@ export default function Navigation() {
     };
   }, [mobileMenuOpen]);
 
-  // Get download text - always show a neutral CTA
   const getDownloadText = () => {
-    if (detectedOS === 'Android') return 'Download Free';
+    if (detectedOS === 'Android' || detectedOS === 'iOS') return 'Download Free';
     return 'Get Early Access';
   };
 

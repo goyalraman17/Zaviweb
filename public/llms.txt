@@ -16,7 +16,7 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 - **Real-Time Translation**: Speak in one language, output in another. Ideal for multilingual professionals and global teams
 - **Zero-Prompt Technology**: No commands needed — Zavi understands your intent and produces professional text automatically
 - **Privacy First**: Voice data is processed in real-time and immediately deleted. Never stored, never used for training
-- **Cross-Platform**: Available on Android, macOS, Windows, and Linux. iOS coming in 2026
+- **Cross-Platform**: Available on Android, iOS, macOS, Windows, and Linux
 
 ### How It Works
 
@@ -74,6 +74,7 @@ Zavi's core technology is called **Zero-Prompting** — the AI system understand
 ### Download
 
 - Android: https://play.google.com/store/apps/details?id=com.zavi.app
+- iOS: https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802
 - Website: https://zavi.ai
 
 ## Docs

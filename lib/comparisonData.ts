@@ -33,7 +33,7 @@ export const comparisons: ComparisonData[] = [
         verdictDetail: 'If you primarily type on your phone and need voice typing in WhatsApp, Gmail, Slack, and every other mobile app, Zavi is the clear choice — it works as a system-wide Android keyboard. If you\'re desktop-only and want advanced voice editing commands (like "select the last paragraph" or "make this more formal"), Wispr Flow has a more mature command mode. For price-conscious users, Zavi\'s free tier and $4.99/mo Pro plan are significantly cheaper than Wispr Flow\'s $10/month.',
         features: [
             { name: 'Price', zavi: 'Free / $4.99/mo Pro', competitor: '$10/month' },
-            { name: 'Platforms', zavi: 'Android, macOS, Windows, Linux', competitor: 'macOS, Windows only' },
+            { name: 'Platforms', zavi: 'Android, iOS, macOS, Windows, Linux', competitor: 'macOS, Windows only' },
             { name: 'Mobile Support', zavi: '✅ Full Android keyboard', competitor: '❌ Desktop only' },
             { name: 'Filler Word Removal', zavi: '✅ Automatic', competitor: '✅ Automatic' },
             { name: 'Grammar Correction', zavi: '✅ Automatic', competitor: '✅ Automatic' },
@@ -149,7 +149,7 @@ export const comparisons: ComparisonData[] = [
         verdictDetail: 'If you work exclusively on a Mac and want the absolute fastest transcription experience with zero cloud dependency, Willow\'s 200ms local processing is unbeatable. But if you need voice typing on your phone, work across multiple platforms, communicate in multiple languages, or want real-time translation, Zavi AI is far more versatile. Zavi supports Android, macOS, Windows, and Linux, offers 100+ languages, and costs less. Most professionals need voice typing on both mobile and desktop, which makes Zavi the more practical choice.',
         features: [
             { name: 'Price', zavi: 'Free / $4.99/mo Pro', competitor: '$8/month' },
-            { name: 'Platforms', zavi: 'Android, macOS, Windows, Linux', competitor: 'macOS only' },
+            { name: 'Platforms', zavi: 'Android, iOS, macOS, Windows, Linux', competitor: 'macOS only' },
             { name: 'Mobile Support', zavi: '✅ Full Android keyboard', competitor: '❌ No mobile' },
             { name: 'Processing', zavi: 'Cloud (fast)', competitor: 'Local (ultra-fast ~200ms)' },
             { name: 'Latency', zavi: '<2 seconds', competitor: '~200ms' },
@@ -215,7 +215,7 @@ export const comparisons: ComparisonData[] = [
             { name: 'Speaker ID', zavi: '❌ Single user', competitor: '✅ Multi-speaker detection' },
             { name: 'Languages', zavi: '100+ languages', competitor: 'English primarily' },
             { name: 'Translation', zavi: '✅ Real-time', competitor: '❌ No' },
-            { name: 'Platforms', zavi: 'Android, macOS, Windows, Linux', competitor: 'Web, iOS, Android' },
+            { name: 'Platforms', zavi: 'Android, iOS, macOS, Windows, Linux', competitor: 'Web, iOS, Android' },
         ],
         zaviAdvantages: [
             'Works as a keyboard in every app — Otter is a standalone app',
@@ -316,7 +316,7 @@ export const comparisons: ComparisonData[] = [
         verdictDetail: 'Dragon NaturallySpeaking is the original professional dictation software and still dominates in specialized fields like healthcare (Dragon Medical) and law (Dragon Legal). However, for the average professional, Dragon is overkill — it costs $200-500 for a license, requires Windows, and needs voice profile training. Zavi AI offers modern AI voice typing for $4.99/month, works on Android and all desktop platforms, requires no training, and includes features Dragon doesn\'t have like real-time translation and multilingual auto-detection. If you need industry-specific vocabulary (medical, legal), Dragon is still the best. For everyone else, Zavi is the better value.',
         features: [
             { name: 'Price', zavi: 'Free / $4.99/mo Pro', competitor: '$200-500+ one-time (or subscription)' },
-            { name: 'Platforms', zavi: 'Android, macOS, Windows, Linux', competitor: 'Windows only (cloud API available)' },
+            { name: 'Platforms', zavi: 'Android, iOS, macOS, Windows, Linux', competitor: 'Windows only (cloud API available)' },
             { name: 'Mobile Support', zavi: '✅ Full Android keyboard', competitor: '❌ No mobile version' },
             { name: 'Setup Required', zavi: 'None — works instantly', competitor: 'Voice profile training required' },
             { name: 'Filler Removal', zavi: '✅ Automatic', competitor: '⚠️ Limited' },

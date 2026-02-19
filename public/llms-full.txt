@@ -1,6 +1,6 @@
 # Zavi AI — Complete Product Information
 
-> Zavi AI is the voice typing keyboard that turns natural speech into clean, professional text. It works across every app on Android, macOS, Windows, and Linux.
+> Zavi AI is the voice typing keyboard that turns natural speech into clean, professional text. It works across every app on Android, iOS, macOS, Windows, and Linux.
 
 ## Detailed Product Description
 
@@ -73,7 +73,7 @@ Zavi is approximately **4x faster** than typing on a mobile keyboard, with zero 
 | macOS | ✅ Available | Desktop app with system-wide voice input. |
 | Windows | ✅ Available | Desktop app with system-wide voice input. |
 | Linux | ✅ Available | Desktop app (.deb package). |
-| iOS | 🔜 Coming 2026 | In development. |
+| iOS | ✅ Available | iOS 16+ required. System-wide keyboard. |
 
 ## Frequently Asked Questions
 
@@ -87,7 +87,7 @@ Regular voice typing (like Google's or Apple's built-in dictation) captures ever
 The free plan includes AI-powered speech cleanup, works in every Android app, supports 100+ languages, and comes with daily usage limits. Upgrade to Pro ($4.99/month or $39.99/year) for unlimited usage, 3x faster processing, and priority support.
 
 ### Which platforms does Zavi support?
-Zavi works on Android 8.0+, macOS, Windows, and Linux. It integrates as a system-wide keyboard on Android and as a desktop application on macOS, Windows, and Linux. iOS support is coming in 2026.
+Zavi works on Android 8.0+, iOS 16+, macOS, Windows, and Linux. It integrates as a system-wide keyboard on Android and iOS, and as a desktop application on macOS, Windows, and Linux.
 
 ### Can I cancel my subscription anytime?
 Yes, cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want.
@@ -123,7 +123,7 @@ The average person types at about 40 words per minute on a keyboard and 38 WPM o
 ### Zavi AI vs. Wispr Flow
 | Feature | Zavi AI | Wispr Flow |
 |---------|---------|------------|
-| Platform | Android, macOS, Windows, Linux | macOS, Windows (desktop only) |
+| Platform | Android, iOS, macOS, Windows, Linux | macOS, Windows (desktop only) |
 | Mobile Support | ✅ Full Android keyboard | ❌ Desktop only |
 | Filler Removal | ✅ Automatic | ✅ Automatic |
 | Translation | ✅ 100+ languages | ❌ Limited |
@@ -136,7 +136,7 @@ The average person types at about 40 words per minute on a keyboard and 38 WPM o
 ### Zavi AI vs. Willow Voice
 | Feature | Zavi AI | Willow |
 |---------|---------|--------|
-| Platform | Android, macOS, Windows, Linux | macOS |
+| Platform | Android, iOS, macOS, Windows, Linux | macOS |
 | Latency | Fast (<2s) | Ultra-fast (200ms) |
 | AI Cleanup | ✅ Full grammar + filler removal | ✅ Transcription + AI Mode |
 | Translation | ✅ Real-time | ❌ No |

@@ -110,7 +110,7 @@ export default function Home() {
             <li>Real-time voice translation — speak in one language, output in another</li>
             <li>Zero-Prompt technology — no commands needed, AI produces professional text by default</li>
             <li>Privacy-first — voice data processed in real-time and immediately deleted, never stored</li>
-            <li>Cross-platform — Android, macOS, Windows, Linux (iOS coming 2026)</li>
+            <li>Cross-platform — Android, iOS, macOS, Windows, Linux</li>
           </ul>
 
           <h2>How Fast is Zavi AI Voice Typing?</h2>

@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Which platforms and apps does Zavi support?",
-    answer: "Zavi works on Android 8.0+, macOS, Windows, and Linux. On Android, it integrates as a system-wide keyboard in every app — Gmail, WhatsApp, Slack, Notion, Google Docs, Microsoft Teams, ChatGPT, and hundreds more. On desktop, it works as a standalone application with system-wide voice input. iOS support is coming in 2026."
+    answer: "Zavi works on Android 8.0+, iOS 16+, macOS, Windows, and Linux. On Android and iOS, it integrates as a system-wide keyboard in every app — Gmail, WhatsApp, Slack, Notion, Google Docs, Microsoft Teams, ChatGPT, and hundreds more. On desktop, it works as a standalone application with system-wide voice input."
   },
   {
     question: "How does Zavi handle multiple languages and translation?",

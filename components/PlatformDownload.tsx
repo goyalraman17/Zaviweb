@@ -57,8 +57,7 @@ const platforms: Record<Platform, PlatformConfig> = {
   },
   ios: {
     name: 'iOS',
-    downloadUrl: '#',
-    comingSoon: true,
+    downloadUrl: 'https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802',
     badge: 'App Store',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
@@ -119,7 +118,7 @@ export default function PlatformDownload() {
               Get Zavi AI
             </h2>
             <p className="text-lg md:text-xl text-zavi-gray-text font-light max-w-2xl mx-auto">
-              Live on Android. Join the waitlist for iOS, macOS, Windows, and Linux.
+              Live on Android and iOS. Join the waitlist for macOS, Windows, and Linux.
             </p>
           </div>
 
@@ -133,8 +132,8 @@ export default function PlatformDownload() {
                   setIsSubmitted(false);
                 }}
                 className={`relative p-6 md:p-8 rounded-2xl border-2 transition-all ${activePlatform === key
-                    ? 'border-zavi-blue bg-zavi-blue-50 shadow-lg'
-                    : 'border-zavi-border bg-white hover:border-zavi-gray-300 hover:shadow-md'
+                  ? 'border-zavi-blue bg-zavi-blue-50 shadow-lg'
+                  : 'border-zavi-border bg-white hover:border-zavi-gray-300 hover:shadow-md'
                   }`}
                 whileHover={{ y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -171,7 +170,7 @@ export default function PlatformDownload() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            {activePlatform === 'android' ? (
+            {(activePlatform === 'android' || activePlatform === 'ios') ? (
               <>
                 <motion.a
                   href={platformInfo.downloadUrl}
@@ -184,7 +183,7 @@ export default function PlatformDownload() {
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
                   </svg>
-                  Download for Android
+                  Download for {platformInfo.name}
                 </motion.a>
                 <p className="text-sm text-zavi-gray-text mt-6 font-medium">
                   Free to install · No credit card · Works inside all apps
