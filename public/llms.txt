@@ -28,6 +28,7 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 
 - **Free Plan**: AI-powered speech cleanup, works in every app, 100+ languages, daily usage limits
 - **Pro Plan ($4.99/month or $39.99/year)**: Unlimited usage, 3x faster processing, priority support, advanced formatting
+- **Pricing page**: https://zavi.ai/pricing
 
 ### Company
 
@@ -40,10 +41,13 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 
 ### Comparisons
 
-- **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI, removing fillers and fixing grammar automatically
-- **Zavi vs. SwiftKey**: SwiftKey focuses on predictive typing; Zavi is voice-first with AI-powered speech cleanup
-- **Zavi vs. Wispr Flow**: Wispr Flow is desktop-only; Zavi works on mobile (Android) and desktop (macOS, Windows, Linux) with multilingual support
-- **Zavi vs. Willow**: Willow focuses on low-latency transcription; Zavi adds AI cleanup, translation, and works across all apps
+- **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI. Full comparison: https://zavi.ai/compare/gboard
+- **Zavi vs. Wispr Flow**: Wispr Flow is desktop-only at $10/mo; Zavi works on mobile + desktop at $4.99/mo. Full comparison: https://zavi.ai/compare/wispr-flow
+- **Zavi vs. Willow**: Willow focuses on low-latency local processing; Zavi adds AI cleanup, translation, and cross-platform support. Full comparison: https://zavi.ai/compare/willow
+- **Zavi vs. Otter.ai**: Otter is for meeting transcription; Zavi is a voice typing keyboard for everyday use. Full comparison: https://zavi.ai/compare/otter-ai
+- **Zavi vs. SwiftKey**: SwiftKey focuses on predictive typing; Zavi is voice-first with AI-powered speech cleanup. Full comparison: https://zavi.ai/compare/swiftkey
+- **Zavi vs. Dragon**: Dragon is enterprise dictation software; Zavi is a modern AI keyboard. Full comparison: https://zavi.ai/compare/dragon
+- **All comparisons**: https://zavi.ai/compare
 
 ### Use Cases
 
@@ -53,6 +57,7 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 - **AI Prompts**: Speak your prompts to ChatGPT, Gemini, or Claude naturally
 - **Multilingual Communication**: Speak in your native language, output in English or any target language
 - **Accessibility**: Ideal for people with RSI, carpal tunnel, or mobility limitations
+- **Students**: Write essays, take lecture notes, and study faster
 
 ### Technology
 
@@ -76,26 +81,63 @@ Zavi's core technology is called **Zero-Prompting** — the AI system understand
 - [Homepage](https://zavi.ai): Main landing page with interactive demo
 - [About](https://zavi.ai/about): Company story, mission, vision, team, and values
 - [Blog](https://zavi.ai/blog): Articles on voice AI, productivity, and the future of work
+- [Pricing](https://zavi.ai/pricing): Detailed pricing plans and feature comparison
+- [Compare](https://zavi.ai/compare): Head-to-head comparisons with competitors
+- [Languages](https://zavi.ai/languages): Voice typing support for 100+ languages
+- [Glossary](https://zavi.ai/glossary): Voice typing and speech-to-text terminology
+- [Changelog](https://zavi.ai/changelog): Product updates and release history
 - [Privacy Policy](https://zavi.ai/privacy): How Zavi handles user data and privacy
 - [Terms of Service](https://zavi.ai/terms): Terms and conditions for using Zavi
 - [Contact](https://zavi.ai/contact): Get in touch with the Zavi team
+- [RSS Feed](https://zavi.ai/feed.xml): Subscribe to blog updates
+
+## Comparisons
+
+- [Zavi AI vs Wispr Flow](https://zavi.ai/compare/wispr-flow): Mobile + desktop vs desktop-only, $4.99 vs $10/mo
+- [Zavi AI vs Google Gboard](https://zavi.ai/compare/gboard): AI cleanup vs verbatim transcription
+- [Zavi AI vs Willow](https://zavi.ai/compare/willow): Cross-platform vs Mac-only local processing
+- [Zavi AI vs Otter.ai](https://zavi.ai/compare/otter-ai): Voice keyboard vs meeting transcription
+- [Zavi AI vs SwiftKey](https://zavi.ai/compare/swiftkey): Voice-first AI vs predictive text keyboard
+- [Zavi AI vs Dragon](https://zavi.ai/compare/dragon): Modern AI keyboard vs legacy enterprise dictation
+
+## Languages
+
+- [Hindi](https://zavi.ai/languages/hindi): Voice typing in Hindi (600M+ speakers)
+- [Spanish](https://zavi.ai/languages/spanish): Voice typing in Spanish (550M+ speakers)
+- [French](https://zavi.ai/languages/french): Voice typing in French (310M+ speakers)
+- [Mandarin Chinese](https://zavi.ai/languages/mandarin-chinese): Voice typing in Chinese (920M+ speakers)
+- [Arabic](https://zavi.ai/languages/arabic): Voice typing in Arabic (370M+ speakers)
+- [Japanese](https://zavi.ai/languages/japanese): Voice typing in Japanese (125M+ speakers)
+- [Korean](https://zavi.ai/languages/korean): Voice typing in Korean (80M+ speakers)
+- [All 100+ languages](https://zavi.ai/languages): Full list of supported languages
 
 ## Blog Posts
 
-- [The End of Prompt Engineering: Making AI Human Again](https://zavi.ai/blog/the-end-of-prompt-engineering): Why the future of AI is Zero Prompting, and how Zavi bridges thought and action
-- [We Are Trapped in the "Coordination Tax"](https://zavi.ai/blog/escaping-the-coordination-tax): How knowledge workers spend 40% of their day on busy work, and how voice AI solves it
-- [Voice AGI: The Interface of the Next Decade](https://zavi.ai/blog/voice-agi-bridging-thought-to-action): The technology behind Zavi's Action Registry and Context Compounding
-- [Why Voice Typing Is 4x Faster Than Your Thumbs](https://zavi.ai/blog/voice-typing-speed-benefits): Data-backed analysis of voice typing productivity gains
+- [The End of Prompt Engineering: Making AI Human Again](https://zavi.ai/blog/the-end-of-prompt-engineering): Why the future of AI is Zero Prompting
+- [We Are Trapped in the "Coordination Tax"](https://zavi.ai/blog/escaping-the-coordination-tax): How voice AI saves 40% of knowledge workers' time
+- [Voice AGI: The Interface of the Next Decade](https://zavi.ai/blog/voice-agi-bridging-thought-to-action): Zavi's Action Registry and Context Compounding
+- [Why Voice Typing Is 4x Faster Than Your Thumbs](https://zavi.ai/blog/voice-typing-speed-benefits): Data-backed productivity gains
 - [Best AI Keyboards for Professionals in 2026](https://zavi.ai/blog/best-ai-keyboards-2026): Comparing Zavi, Gboard, SwiftKey, and more
-- [Zavi vs. Wispr Flow vs. Willow: Which AI Dictation Is Best?](https://zavi.ai/blog/zavi-vs-wispr-flow-vs-willow): Head-to-head comparison of the top AI dictation tools
-- [Beyond Transcription: The Zero-Prompt Revolution](https://zavi.ai/blog/beyond-transcription-zero-prompt-revolution): How Zero-Prompt technology transforms messy speech into executive-ready text
-- [Multilingual Mastery: Breaking the Language Barrier with Voice](https://zavi.ai/blog/multilingual-mastery-voice-translation): Real-time translation and 100+ language support for global teams
-- [Best Voice Typing Apps for Android in 2026: Complete Guide](https://zavi.ai/blog/best-voice-typing-app-android-2026): Definitive comparison of every major voice typing app on Android
-- [How to Type Faster on Your Phone: 7 Proven Methods](https://zavi.ai/blog/how-to-type-faster-on-phone): Data-backed methods to double or quadruple your mobile typing speed
-- [Voice to Text That Removes Filler Words Automatically](https://zavi.ai/blog/voice-to-text-that-removes-filler-words): Ranked comparison of apps that strip "um," "uh," and fillers from speech
-- [Dictation Apps That Fix Grammar Automatically: 2026 Guide](https://zavi.ai/blog/dictation-app-that-fixes-grammar): Find dictation apps that produce ready-to-send text with zero grammar editing
-- [How to Use Voice Typing in WhatsApp, Gmail, Slack & Any App](https://zavi.ai/blog/how-to-use-voice-typing-in-whatsapp): Step-by-step guide to voice typing across all your apps
-- [Speech to Text Accuracy: 2026 Comparison of All Major Tools](https://zavi.ai/blog/speech-to-text-accuracy-comparison-2026): Benchmark testing 8 tools with a new "Ready-to-Use Rate" metric
-- [Voice Typing for RSI & Carpal Tunnel: Accessibility Guide](https://zavi.ai/blog/voice-typing-for-people-with-rsi-carpal-tunnel): Complete hands-free workflow setup for people with typing-related pain
-- [Voice Typing for Students: Write Essays & Notes 4x Faster](https://zavi.ai/blog/voice-typing-for-students-essays-notes): Student guide to using voice typing for essays, notes, and academic work
-- [What Is Zero-Prompt Voice AI? How It Works & Why It Matters](https://zavi.ai/blog/what-is-zero-prompt-voice-ai): Deep dive into Zavi's core technology that eliminates the need for AI commands
+- [Zavi vs. Wispr Flow vs. Willow](https://zavi.ai/blog/zavi-vs-wispr-flow-vs-willow): Head-to-head comparison
+- [Beyond Transcription: The Zero-Prompt Revolution](https://zavi.ai/blog/beyond-transcription-zero-prompt-revolution): How Zero-Prompt transforms speech
+- [Multilingual Mastery](https://zavi.ai/blog/multilingual-mastery-voice-translation): Real-time translation across 100+ languages
+- [Best Voice Typing Apps for Android 2026](https://zavi.ai/blog/best-voice-typing-app-android-2026): Complete comparison guide
+- [How to Type Faster on Your Phone](https://zavi.ai/blog/how-to-type-faster-on-phone): 7 proven methods
+- [Voice to Text That Removes Filler Words](https://zavi.ai/blog/voice-to-text-that-removes-filler-words): App comparison
+- [Dictation Apps That Fix Grammar](https://zavi.ai/blog/dictation-app-that-fixes-grammar): 2026 guide
+- [Voice Typing in WhatsApp, Gmail, Slack](https://zavi.ai/blog/how-to-use-voice-typing-in-whatsapp): Step-by-step guide
+- [Speech to Text Accuracy Comparison](https://zavi.ai/blog/speech-to-text-accuracy-comparison-2026): Benchmark testing
+- [Voice Typing for RSI & Carpal Tunnel](https://zavi.ai/blog/voice-typing-for-people-with-rsi-carpal-tunnel): Accessibility guide
+- [Voice Typing for Students](https://zavi.ai/blog/voice-typing-for-students-essays-notes): Write essays 4x faster
+- [What Is Zero-Prompt Voice AI?](https://zavi.ai/blog/what-is-zero-prompt-voice-ai): Technology deep dive
+
+## Glossary
+
+- [Voice Typing](https://zavi.ai/glossary/voice-typing): Using speech recognition to convert spoken words into typed text
+- [Speech to Text](https://zavi.ai/glossary/speech-to-text): Technology that converts spoken language into written text
+- [Filler Words](https://zavi.ai/glossary/filler-words): Verbal placeholders like "um," "uh," "like" in natural speech
+- [Zero Prompting](https://zavi.ai/glossary/zero-prompting): AI that understands intent without explicit commands
+- [ASR](https://zavi.ai/glossary/asr): Automatic Speech Recognition technology
+- [AI Cleanup](https://zavi.ai/glossary/ai-cleanup): AI post-processing that polishes transcribed text
+- [WPM](https://zavi.ai/glossary/wpm): Words Per Minute — measuring input speed
+- [All terms](https://zavi.ai/glossary): Full voice typing glossary
