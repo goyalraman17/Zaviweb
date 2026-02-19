@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 
 import { blogPosts } from '@/lib/blogData';
+import { comparisons } from '@/lib/comparisonData';
+import { languages } from '@/lib/languageData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://zavi.ai';
@@ -14,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/privacy', priority: 0.4, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.4, changeFrequency: 'yearly' as const },
     { path: '/blog', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/compare', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/languages', priority: 0.8, changeFrequency: 'monthly' as const },
   ];
 
   const staticUrls = staticRoutes.map((route) => ({
@@ -23,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  // Blog posts — higher frequency for SEO freshness signals
+  // Blog posts
   const blogUrls = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(),
@@ -31,8 +35,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Blog categories
+  const categories = Array.from(new Set(blogPosts.map((p) => p.category)));
+  const categoryUrls = categories.map((cat) => ({
+    url: `${baseUrl}/blog/category/${cat.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
+
+  // Blog tags
+  const tags = Array.from(new Set(blogPosts.flatMap((p) => p.tags)));
+  const tagUrls = tags.map((tag) => ({
+    url: `${baseUrl}/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.5,
+  }));
+
+  // Comparison pages — high-intent, high-value
+  const comparisonUrls = comparisons.map((comp) => ({
+    url: `${baseUrl}/compare/${comp.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }));
+
+  // Language pages — programmatic SEO
+  const languageUrls = languages.map((lang) => ({
+    url: `${baseUrl}/languages/${lang.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticUrls,
     ...blogUrls,
+    ...categoryUrls,
+    ...tagUrls,
+    ...comparisonUrls,
+    ...languageUrls,
   ];
 }

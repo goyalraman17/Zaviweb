@@ -148,6 +148,8 @@ export default function RootLayout({
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* RSS Feed autodiscovery */}
+        <link rel="alternate" type="application/rss+xml" title="Zavi AI Blog RSS Feed" href="https://zavi.ai/feed.xml" />
       </head>
       <body className="font-sans font-normal" suppressHydrationWarning>
         {/* Comprehensive Schema.org structured data for GEO/AEO */}
