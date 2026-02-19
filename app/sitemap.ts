@@ -3,6 +3,7 @@ import { MetadataRoute } from 'next'
 import { blogPosts } from '@/lib/blogData';
 import { comparisons } from '@/lib/comparisonData';
 import { languages } from '@/lib/languageData';
+import { glossaryTerms } from '@/lib/glossaryData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://zavi.ai';
@@ -18,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/blog', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/compare', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/languages', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/glossary', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/changelog', priority: 0.6, changeFrequency: 'monthly' as const },
   ];
 
   const staticUrls = staticRoutes.map((route) => ({
@@ -69,6 +72,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Glossary terms
+  const glossaryUrls = glossaryTerms.map((term) => ({
+    url: `${baseUrl}/glossary/${term.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   return [
     ...staticUrls,
     ...blogUrls,
@@ -76,5 +87,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...tagUrls,
     ...comparisonUrls,
     ...languageUrls,
+    ...glossaryUrls,
   ];
 }

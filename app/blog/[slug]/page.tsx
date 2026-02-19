@@ -179,12 +179,11 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-100">
                     <div className="flex flex-wrap gap-2">
                         {post.tags.map(tag => (
-                            <span key={tag} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors cursor-default">
+                            <Link key={tag} href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-blue-100 hover:text-blue-700 transition-colors">
                                 #{tag}
-                            </span>
+                            </Link>
                         ))}
                     </div>
-                    {/* Hidden keywords for schema */}
                     <meta itemProp="keywords" content={post.tags.join(', ')} />
                 </div>
 
@@ -204,6 +203,36 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                         </div>
                     </div>
                 </div>
+
+                {/* Related Posts */}
+                {(() => {
+                    const related = blogPosts
+                        .filter((p) => p.slug !== post.slug)
+                        .map((p) => ({
+                            ...p,
+                            score: p.tags.filter((t) => post.tags.includes(t)).length +
+                                (p.category === post.category ? 2 : 0),
+                        }))
+                        .sort((a, b) => b.score - a.score)
+                        .slice(0, 3);
+
+                    return related.length > 0 ? (
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Related Articles</h3>
+                            <div className="grid sm:grid-cols-3 gap-6">
+                                {related.map((rp) => (
+                                    <Link key={rp.slug} href={`/blog/${rp.slug}`} className="group block">
+                                        <article className="border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-md transition-all h-full">
+                                            <span className="px-2 py-0.5 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">{rp.category}</span>
+                                            <h4 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors mt-3 mb-2 line-clamp-2">{rp.title}</h4>
+                                            <p className="text-sm text-gray-500">{rp.readTime}</p>
+                                        </article>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    ) : null;
+                })()}
 
                 {/* Newsletter Signup (Inline) */}
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 py-12 bg-gray-50 rounded-3xl border border-gray-100">

@@ -98,50 +98,49 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Essential Links Only */}
+          {/* Footer Links */}
           <motion.div variants={fadeUp} className="mb-6">
-            <div className="flex items-center justify-center gap-6 flex-wrap">
-              <a
-                href="/blog"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                Blog
-              </a>
-              <span className="text-gray-400">•</span>
-              <a
-                href="/about"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                About
-              </a>
-              <span className="text-gray-400">•</span>
-              <a
-                href="/demo"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                Try Zavi
-              </a>
-              <span className="text-gray-400">•</span>
-              <a
-                href="/privacy"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                Privacy
-              </a>
-              <span className="text-gray-400">•</span>
-              <a
-                href="/terms"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                Terms
-              </a>
-              <span className="text-gray-400">•</span>
-              <a
-                href="/contact"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium"
-              >
-                Contact
-              </a>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left max-w-3xl mx-auto mb-8">
+              {/* Product */}
+              <div>
+                <p className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Product</p>
+                <div className="space-y-2">
+                  <a href="/#how-it-works" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Demo</a>
+                  <a href="/#pricing" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
+                  <a href="/#download" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Download</a>
+                  <a href="/changelog" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Changelog</a>
+                </div>
+              </div>
+              {/* Compare */}
+              <div>
+                <p className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Compare</p>
+                <div className="space-y-2">
+                  <a href="/compare/wispr-flow" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Wispr Flow</a>
+                  <a href="/compare/gboard" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Gboard</a>
+                  <a href="/compare/willow" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Willow</a>
+                  <a href="/compare/otter-ai" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Otter.ai</a>
+                </div>
+              </div>
+              {/* Resources */}
+              <div>
+                <p className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Resources</p>
+                <div className="space-y-2">
+                  <a href="/blog" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                  <a href="/languages" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Languages</a>
+                  <a href="/glossary" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Glossary</a>
+                  <a href="/about" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                </div>
+              </div>
+              {/* Legal */}
+              <div>
+                <p className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Legal</p>
+                <div className="space-y-2">
+                  <a href="/privacy" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Privacy</a>
+                  <a href="/terms" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Terms</a>
+                  <a href="/contact" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                  <a href="/feed.xml" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">RSS Feed</a>
+                </div>
+              </div>
             </div>
           </motion.div>
         </motion.div>
