@@ -4,15 +4,15 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/downloads/Zavi.dmg',
+        source: '/downloads/Zavi_AI.dmg',
         headers: [
           {
             key: 'Content-Disposition',
-            value: 'attachment; filename="Zavi.dmg"',
+            value: 'attachment; filename="Zavi_AI.dmg"',
           },
           {
             key: 'Content-Type',
-            value: 'application/octet-stream',
+            value: 'application/x-apple-diskimage',
           },
         ],
       },
