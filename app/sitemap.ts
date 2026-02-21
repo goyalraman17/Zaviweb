@@ -4,6 +4,7 @@ import { blogPosts } from '@/lib/blogData';
 import { comparisons } from '@/lib/comparisonData';
 import { languages } from '@/lib/languageData';
 import { glossaryTerms } from '@/lib/glossaryData';
+import { useCases } from '@/lib/useCaseData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://zavi.ai';
@@ -22,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/glossary', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/changelog', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/download', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/use-cases', priority: 0.8, changeFrequency: 'monthly' as const },
   ];
 
   const staticUrls = staticRoutes.map((route) => ({
@@ -81,6 +84,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Use case pages — high-intent
+  const useCaseUrls = useCases.map((uc) => ({
+    url: `${baseUrl}/use-cases/${uc.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticUrls,
     ...blogUrls,
@@ -89,5 +100,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...comparisonUrls,
     ...languageUrls,
     ...glossaryUrls,
+    ...useCaseUrls,
   ];
 }

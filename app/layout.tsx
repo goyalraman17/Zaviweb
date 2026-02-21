@@ -12,6 +12,8 @@ import {
   softwareApplicationSchema,
   faqSchema,
   howToSchema,
+  videoObjectSchema,
+  speakableSchema,
 } from "@/lib/schemaData";
 
 // Optimize font loading with Next.js font optimization
@@ -158,6 +160,8 @@ export default function RootLayout({
         <JsonLd data={softwareApplicationSchema} />
         <JsonLd data={faqSchema} />
         <JsonLd data={howToSchema} />
+        <JsonLd data={videoObjectSchema} />
+        <JsonLd data={speakableSchema} />
 
         <StickyDownloadCTA />
         <ScrollProgress color="#2563EB" height={3} />

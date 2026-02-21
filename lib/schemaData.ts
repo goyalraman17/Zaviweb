@@ -396,3 +396,54 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
         }))
     };
 }
+
+// ============================================
+// VideoObject Schema — Demo video rich results
+// ============================================
+export const videoObjectSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Zavi AI Voice Typing Demo — See It in Action",
+    "description": "Watch how Zavi AI transforms natural speech into clean, professional text. See filler word removal, grammar correction, and real-time processing in action.",
+    "thumbnailUrl": "https://img.youtube.com/vi/rkBgOnhopyg/maxresdefault.jpg",
+    "uploadDate": "2025-10-15",
+    "duration": "PT2M30S",
+    "contentUrl": "https://www.youtube.com/watch?v=rkBgOnhopyg",
+    "embedUrl": "https://www.youtube.com/embed/rkBgOnhopyg",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Zavi AI",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zavi.ai/zavi-logo.png"
+        }
+    },
+    "potentialAction": {
+        "@type": "SeekToAction",
+        "target": "https://www.youtube.com/watch?v=rkBgOnhopyg&t={seek_to_second_number}",
+        "startOffset-input": "required name=seek_to_second_number"
+    }
+};
+
+// ============================================
+// SpeakableSpecification — Voice assistant compatibility
+// ============================================
+export const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Zavi AI — Voice Typing Keyboard",
+    "url": "https://zavi.ai",
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+            "h1",
+            "[itemProp='description']",
+            ".sr-only"
+        ]
+    },
+    "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Zavi AI",
+        "description": "AI-powered voice typing keyboard that turns natural speech into clean, professional text. Removes filler words, fixes grammar, works in every app. Supports 100+ languages."
+    }
+};
