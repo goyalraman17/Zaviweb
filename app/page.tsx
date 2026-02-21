@@ -140,9 +140,10 @@ export default function Home() {
           <h2>Zavi AI vs Competitors</h2>
           <p>
             Zavi AI is more than just traditional dictation software; it is a full-featured AI writing assistant and smart speech recognition keyboard.
-            While basic transcription software like Gboard only offers verbatim speech-to-text without AI cleanup, Zavi functions as the premier voice typing software
-            by offering cross-platform support (Android mobile keyboard app, iOS, macOS, Windows, Linux), 100+ language support with real-time translation app capabilities,
+            While basic transcription software like Gboard only offers verbatim transcription without AI cleanup, Zavi functions as the premier voice typing software and speech to text app
+            by offering cross-platform support (Android mobile keyboard app, iOS, macOS, Windows, Linux), 100+ language support with multilingual translation app capabilities,
             and a free tier starting at $0 with Pro at $7.99/month.
+            For modern writers and UK professionals, Zavi completely replaces legacy tools like Dragon NaturallySpeaking.
             Wispr Flow offers a free tier and Pro at $12/month on Mac, Windows, and iOS — but lacks Android and real-time translation.
             Willow (YC-backed) is available on Mac and iOS at $12-15/month with writing style personalization.
           </p>

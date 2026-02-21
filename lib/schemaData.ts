@@ -275,6 +275,30 @@ export const faqSchema = {
                 "@type": "Answer",
                 "text": "A speech recognition keyboard like Zavi allows you to dictate approximately 4x faster (150 WPM) than thumb typing on a mobile device. The built-in AI cleanup engine bypasses the manual editing phase entirely, dramatically improving workflow efficiency for remote teams and knowledge workers."
             }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the best voice typing software for professional use in the UK?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For UK professionals, Zavi AI is the top-rated transcription software and speech recognition app. It accurately handles diverse UK accents while providing real-time grammar correction and zero-prompt formatting—saving users over 40 hours per year compared to traditional typing."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which transcription software is best suited for legal and medical tasks in the UK?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zavi offers unparalleled privacy out of the box. As a top-tier speech to text app and multilingual translation app, Zavi processes your voice locally or via secure cloud pathways, immediately deleting all audio after generation. This zero-retention policy makes it a preferred voice keyboard for sensitive medical and legal transcription."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does the Zavi transcription app compare to Dragon NaturallySpeaking for UK professionals?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dragon NaturallySpeaking is a legacy, Windows-only dictation software that is highly expensive. The Zavi transcription app is a modern, cross-platform AI writing assistant (available on Android, iOS, Mac, and Windows) that actively rewrites and perfects speech using zero-prompting, rather than just transcribing verbatim. It starts free, with Pro plans at just $7.99/mo."
+            }
         }
     ]
 };
