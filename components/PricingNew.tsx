@@ -206,37 +206,64 @@ export default function PricingNew() {
                       <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">1,000 words per day</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">1,000 Words Per Day</span>
+                        <span className="block text-sm text-gray-600">Daily word limit, type anywhere by voice</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Never type again</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Magic Wand</span>
+                        <span className="block text-sm text-gray-600">Edit, rewrite, or transform any text by voice</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Sound polished in every message</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Voice Commands</span>
+                        <span className="block text-sm text-gray-600">Send emails, messages, and more — hands free</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Eliminate fillers and awkward phrasing</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">All Superpowers</span>
+                        <span className="block text-sm text-gray-600">Gmail, Slack, Notion, GitHub, and more connectors</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Perfect grammar without thinking</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Translate</span>
+                        <span className="block text-sm text-gray-600">Speak in one language, type in another</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Match your tone to any audience</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Priority Processing</span>
+                        <span className="block text-sm text-gray-600">Fastest transcription with AI enhancement</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Tone & Emoji</span>
+                        <span className="block text-sm text-gray-600">Casual, formal, or fun — your voice, your style</span>
+                      </div>
                     </li>
                   </ul>
 
@@ -294,43 +321,64 @@ export default function PricingNew() {
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Unlimited words*</span>
+                        <div>
+                          <span className="block font-semibold text-white">Unlimited Voice Typing</span>
+                          <span className="block text-sm text-white/80">No daily word limits, type anywhere by voice</span>
+                        </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Context awareness</span>
+                        <div>
+                          <span className="block font-semibold text-white">Magic Wand</span>
+                          <span className="block text-sm text-white/80">Edit, rewrite, or transform any text by voice</span>
+                        </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Never type again</span>
+                        <div>
+                          <span className="block font-semibold text-white">Voice Commands</span>
+                          <span className="block text-sm text-white/80">Send emails, messages, and more — hands free</span>
+                        </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Sound polished in every message</span>
+                        <div>
+                          <span className="block font-semibold text-white">All Superpowers</span>
+                          <span className="block text-sm text-white/80">Gmail, Slack, Notion, GitHub, and more connectors</span>
+                        </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Eliminate fillers and awkward phrasing</span>
+                        <div>
+                          <span className="block font-semibold text-white">Translate</span>
+                          <span className="block text-sm text-white/80">Speak in one language, type in another</span>
+                        </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Perfect grammar without thinking</span>
+                        <div>
+                          <span className="block font-semibold text-white">Priority Processing</span>
+                          <span className="block text-sm text-white/80">Fastest transcription with AI enhancement</span>
+                        </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-white">Match your tone to any audience</span>
+                        <div>
+                          <span className="block font-semibold text-white">Tone & Emoji</span>
+                          <span className="block text-sm text-white/80">Casual, formal, or fun — your voice, your style</span>
+                        </div>
                       </li>
                     </ul>
 
@@ -375,37 +423,55 @@ export default function PricingNew() {
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Unlimited words*</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Unlimited Voice Typing</span>
+                        <span className="block text-sm text-gray-600">No daily word limits for any team member</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Everything in Pro for everyone</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Everything in Pro</span>
+                        <span className="block text-sm text-gray-600">All Superpowers, Magic Wand, & Commands</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Stay on-brand across all messages</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Brand Voice</span>
+                        <span className="block text-sm text-gray-600">Stay consistent across all team messages</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Track team productivity gains</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Productivity Analytics</span>
+                        <span className="block text-sm text-gray-600">Track and measure team time savings</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Simple admin and billing</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Centralized Admin</span>
+                        <span className="block text-sm text-gray-600">Simple user management and unified billing</span>
+                      </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span className="text-gray-700">Get help when you need it</span>
+                      <div>
+                        <span className="block font-semibold text-gray-900">Priority Support</span>
+                        <span className="block text-sm text-gray-600">Get dedicated help when your team needs it</span>
+                      </div>
                     </li>
                   </ul>
 
