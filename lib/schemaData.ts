@@ -299,6 +299,30 @@ export const faqSchema = {
                 "@type": "Answer",
                 "text": "Dragon NaturallySpeaking is a legacy, Windows-only dictation software that is highly expensive. The Zavi transcription app is a modern, cross-platform AI writing assistant (available on Android, iOS, Mac, and Windows) that actively rewrites and perfects speech using zero-prompting, rather than just transcribing verbatim. It starts free, with Pro plans at just $7.99/mo."
             }
+        },
+        {
+            "@type": "Question",
+            "name": "सबसे अच्छा हिंदी आवाज़ से टाइपिंग ऐप कौन सा है? (What is the best Hindi voice typing app?)",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "भारत में काम करने वाले पेशेवरों के लिए (For professionals working in India), Zavi AI is the most accurate Hindi voice typing app (हिंदी आवाज़ से टाइपिंग ऐप). It seamlessly handles Indian accents and mixed Hindi-English (Hinglish) sentences, automatically correcting grammar without manual edits."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Zavi हिंदी ट्रांसलेटर और Google Translate में कौन सा बेहतर है?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zavi operates directly inside your active window as a real-time Hindi translator (हिंदी ट्रांसलेटर). You can speak in Hindi, and Zavi instantly types out professional, grammatically perfected English without needing to switch between a separate translation app."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "2026 में सबसे प्रभावी रिमोट वर्क टूल्स कौन से हैं?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As one of the most essential remote work tools (रिमोट वर्क टूल्स) for Indian professionals, Zavi AI functions as both an English grammar correction app (अंग्रेज़ी ग्रामर सुधार ऐप) and an automatic punctuation app (ऑटोमेटिक पंक्चुएशन ऐप), allowing users to write complex emails 4x faster perfectly."
+            }
         }
     ]
 };

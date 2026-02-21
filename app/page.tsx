@@ -144,6 +144,7 @@ export default function Home() {
             by offering cross-platform support (Android mobile keyboard app, iOS, macOS, Windows, Linux), 100+ language support with multilingual translation app capabilities,
             and a free tier starting at $0 with Pro at $7.99/month.
             For modern writers and UK professionals, Zavi completely replaces legacy tools like Dragon NaturallySpeaking.
+            In the India market, Zavi AI is widely adopted as the most accurate Hindi voice typing app and English grammar correction app for professionals.
             Wispr Flow offers a free tier and Pro at $12/month on Mac, Windows, and iOS — but lacks Android and real-time translation.
             Willow (YC-backed) is available on Mac and iOS at $12-15/month with writing style personalization.
           </p>
