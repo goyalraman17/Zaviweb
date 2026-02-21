@@ -21,6 +21,7 @@ const OnTheGoOrAtYourDesk = dynamic(() => import('@/components/OnTheGoOrAtYourDe
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
+const ProPowerUps = dynamic(() => import('@/components/ProPowerUps'));
 
 /**
  * Zavi Marketing Website - Conversion-Optimized Flow
@@ -75,6 +76,9 @@ export default function Home() {
 
         {/* Adapts to Your Role - Deep Personalization */}
         <AdaptsToYourRole />
+
+        {/* Pro Power-Ups - Highlight technical edge before pricing */}
+        <ProPowerUps />
 
         {/* Pricing - Convert While Excited */}
         <PricingNew />
