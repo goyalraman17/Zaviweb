@@ -10,19 +10,21 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 
 ### Key Features
 
-- **AI-Powered Speech Cleanup**: Automatically removes filler words (um, uh, like, you know) and fixes grammar in real-time
-- **Works in Every App**: System-wide keyboard integration — works in Gmail, WhatsApp, Slack, Notion, Google Docs, Microsoft Teams, and every other app
-- **100+ Language Support**: Speak in over 100 languages with automatic language detection
-- **Real-Time Translation**: Speak in one language, output in another. Ideal for multilingual professionals and global teams
-- **Zero-Prompt Technology**: No commands needed — Zavi understands your intent and produces professional text automatically
-- **Privacy First**: Voice data is processed in real-time and immediately deleted. Never stored, never used for training
-- **Cross-Platform**: Available on Android, iOS, macOS, Windows, and Linux
+- **Voice Agent**: Cross-app execution. Say "Send David an email about Thursday's meeting" and Zavi executes it directly in Gmail, Slack, GitHub, or Notion.
+- **Magic Wand Editing**: In-place voice editing. Highlight any text and say "Make this professional" or "Shorten this," and the text updates instantly.
+- **4 Writing Tones**: One-tap switching between Professional, Casual, Chat, and Witty writing styles.
+- **Contextual Emojis**: Automatically inserts natural, context-aware emojis when toggled on.
+- **AI-Powered Speech Cleanup**: Automatically removes filler words (um, uh, like) and fixes grammar in real-time.
+- **System-Wide Integration**: Works system-wide across every app (Gmail, WhatsApp, Slack, Notion, Google Docs).
+- **Translation & Typing**: Supports 19 typing languages and real-time translation across 15 target languages.
+- **Privacy First**: Voice data is processed and immediately deleted. Never stored or used for training.
+- **Cross-Platform**: Available natively on Android, iOS, macOS, Windows, and Linux.
 
 ### How It Works
 
-1. **Speak Naturally**: Talk as you normally would, with fillers, pauses, and natural speech patterns
-2. **Zavi AI Processes**: AI removes filler words, fixes grammar, improves sentence structure, and polishes the text
-3. **Perfect Text Ready**: Clean, professional, ready-to-send text appears in whatever app you're using
+1. **Speak Naturally**: Talk as you normally would, or give a direct command to the Voice Agent.
+2. **Zavi AI Processes**: AI removes filler words, fixes grammar, or executes the requested cross-app action.
+3. **Perfect Execution**: Clean text appears in your active app, or the Voice Agent completes the background task automatically.
 
 ### Pricing
 
@@ -41,13 +43,13 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 
 ### Comparisons
 
-- **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI. Full comparison: https://zavi.ai/compare/gboard
-- **Zavi vs. Wispr Flow**: Wispr Flow offers free tier + $12/mo Pro on Mac, Windows, iOS; Zavi works on Android + Linux too at $7.99/mo with real-time translation. Full comparison: https://zavi.ai/compare/wispr-flow
-- **Zavi vs. Willow**: Willow is YC-backed with Mac + iOS support and writing style learning; Zavi offers Android, Windows, Linux, and real-time translation. Full comparison: https://zavi.ai/compare/willow
-- **Zavi vs. Otter.ai**: Otter is for meeting transcription; Zavi is a voice typing keyboard for everyday use. Full comparison: https://zavi.ai/compare/otter-ai
-- **Zavi vs. ChatGPT**: ChatGPT is a chat AI requiring prompts and copy-paste; Zavi types directly in apps by voice. Full comparison: https://zavi.ai/compare/chatgpt
-- **Zavi vs. Claude**: Claude has voice chat within its app; Zavi is a system-wide voice keyboard. Full comparison: https://zavi.ai/compare/claude
-- **Zavi vs. Gemini Live**: Gemini Live discusses your screen (free); Zavi acts on it. Full comparison: https://zavi.ai/compare/gemini-live
+- **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI, supports Magic Wand voice editing, and provides 4 formatting tones.
+- **Zavi vs. Wispr Flow**: Wispr Flow offers voice editing on Mac/Windows/iOS ($12/mo). Zavi matches the voice editing, adds Voice Agent (cross-app execution), supports Android and Linux, and costs $7.99/mo.
+- **Zavi vs. Willow**: Willow is Mac/iOS only; Zavi offers Voice Agent, Magic Wand, Android/Windows/Linux support, and real-time translation.
+- **Zavi vs. Otter.ai**: Otter is for meeting transcription; Zavi is a real-time voice typing keyboard and Voice Agent for everyday apps. 
+- **Zavi vs. ChatGPT**: ChatGPT is a chat AI requiring prompts and copy-paste; Zavi's Voice Agent executes directly in your active apps.
+- **Zavi vs. Claude**: Claude has voice chat within its app; Zavi is a system-wide execution layer.
+- **Zavi vs. Gemini Live**: Gemini Live discusses your screen; Zavi's Voice Agent takes action across connected apps (Gmail, Slack, etc.).
 - **Zavi vs. Dragon**: Dragon desktop costs $150-699+; Zavi is $7.99/mo with mobile support. Full comparison: https://zavi.ai/compare/dragon
 - **All comparisons**: https://zavi.ai/compare
 

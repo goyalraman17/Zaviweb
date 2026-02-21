@@ -250,8 +250,9 @@ export default function HeroWithScreenshot() {
                 className="absolute -right-6 -bottom-12 w-8 h-8 bg-white rounded-xl shadow-lg flex items-center justify-center p-1.5 hidden lg:flex"
                 animate={{ x: [0, -5, 0], y: [0, 5, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+                aria-hidden="true"
               >
-                <svg viewBox="0 0 24 24" className="w-full h-full text-[#0084FF]">
+                <svg viewBox="0 0 24 24" className="w-full h-full text-[#0084FF]" aria-label="Messenger Icon">
                   <path fill="currentColor" d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.303 2.246.464 3.443.464 6.627 0 12-4.974 12-11.111C24 4.974 18.627 0 12 0zm1.291 14.194l-3.21-3.43-6.27 3.43 6.898-7.331 3.281 3.431 6.199-3.431-6.898 7.331z" />
                 </svg>
               </motion.div>
@@ -274,6 +275,7 @@ export default function HeroWithScreenshot() {
                 initial="rest"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(37, 99, 235, 0.5)" }}
                 whileTap={{ scale: 0.98 }}
+                aria-label={`Download Zavi AI for ${detectedOS === 'unknown' ? 'your device' : detectedOS}`}
               >
                 {/* Animated glow */}
                 <motion.div
@@ -286,6 +288,7 @@ export default function HeroWithScreenshot() {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
+                  aria-hidden="true"
                 />
 
                 {/* Shimmer effect */}

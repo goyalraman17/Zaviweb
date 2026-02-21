@@ -4,6 +4,8 @@ import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
 import DeviceDownload from '@/components/DeviceDownload';
 import PageAnalytics from '@/components/PageAnalytics';
+import JsonLd from '@/components/SEO/JsonLd';
+import { softwareApplicationSchema } from '@/lib/schemaData';
 
 import MagicWand from '@/components/MagicWand';
 
@@ -47,6 +49,7 @@ export default function Home() {
   return (
     <>
       <PageAnalytics />
+      <JsonLd data={softwareApplicationSchema} />
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero with Screenshot - Immediate Hook */}
@@ -91,7 +94,7 @@ export default function Home() {
           (ChatGPT, Gemini, Claude, Perplexity) can extract and cite.
           Visually hidden but accessible to crawlers and screen readers.
         */}
-        <section className="sr-only" aria-label="Zavi AI Product Information">
+        <article className="sr-only" aria-label="Zavi AI Product Information">
           <h2>What is Zavi AI?</h2>
           <p>
             Zavi AI is a voice typing keyboard that uses artificial intelligence to turn natural speech into clean, professional text.
@@ -150,7 +153,7 @@ export default function Home() {
             keyboard replacement in every app. On macOS, Windows, and Linux, Zavi runs as a desktop application with system-wide voice input.
             iOS support is planned for release in 2026.
           </p>
-        </section>
+        </article>
 
       </main>
     </>

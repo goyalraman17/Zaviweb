@@ -3,6 +3,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import TiltCard from './animated/TiltCard';
+import JsonLd from '@/components/SEO/JsonLd';
+import { generateReviewSchema } from '@/lib/schemaData';
 
 const testimonials = [
   {
@@ -29,8 +31,13 @@ export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const reviewSchema = generateReviewSchema(
+    testimonials.map(t => ({ author: t.author, role: t.role, content: t.quote }))
+  );
+
   return (
     <section ref={ref} className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50">
+      <JsonLd data={reviewSchema} />
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"

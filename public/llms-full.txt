@@ -8,51 +8,36 @@ Zavi AI is a **voice-first AI keyboard** that fundamentally changes how professi
 
 ### What Makes Zavi Different from Regular Voice Typing
 
-Traditional voice typing (like Google's built-in dictation or Apple's Dictation) transcribes speech **word-for-word**. If you say "um, I think, uh, we should probably, you know, meet at five," traditional voice typing outputs exactly that: "um I think uh we should probably you know meet at five."
+Traditional voice typing (like Google's built-in dictation or Apple's Dictation) transcribes speech **word-for-word**. If you say "um, I think, uh, we should probably, you know, meet at five," traditional voice typing outputs exactly that.
 
-Zavi is fundamentally different. Zavi uses AI to **extract your intent** from natural speech and produces professionally written text. That same sentence becomes: **"We should meet at 5:00 PM."**
-
-This is Zavi's core technology called **Zero-Prompting**: the AI understands that clean, professional text is the default output without the user needing to give any commands or prompts.
+Zavi is fundamentally different. It is an **execution layer** and intelligence engine. It understands context, completely removes filler, corrects grammar, and formats it perfectly. But more importantly, it can **take action**. If you say "Reply to this email and tell David I am available at 5 PM," Zavi's Voice Agent executes that action directly within Gmail.
 
 ### Detailed Feature Breakdown
 
-#### 1. AI-Powered Speech Cleanup
-- Removes all filler words: "um," "uh," "like," "you know," "basically," "actually," "so," "right"
-- Fixes grammar and punctuation automatically
-- Restructures run-on sentences into clear, concise prose
-- Adjusts tone to professional standards
-- Handles multiple speakers and complex thought patterns
+#### 1. The Voice Agent (Cross-App Execution)
+Zavi sits directly inside your active applications (Gmail, Slack, WhatsApp, Notion, GitHub). You don't prompt it like ChatGPT; you speak naturally and it executes your commands:
+- **Action:** Say "Send David an email about Thursday's meeting" and Zavi drafts and prepares the email.
 
-#### 2. System-Wide Keyboard Integration
-Zavi replaces your device's keyboard, which means it works in **every single app**:
-- **Email**: Gmail, Outlook, Yahoo Mail, Apple Mail
-- **Messaging**: WhatsApp, Telegram, Signal, SMS, iMessage, Facebook Messenger
-- **Workplace**: Slack, Microsoft Teams, Discord, Zoom Chat
-- **Productivity**: Google Docs, Notion, Obsidian, Evernote, Microsoft Word
-- **Social Media**: Twitter/X, LinkedIn, Instagram, Reddit, Facebook
-- **AI Tools**: ChatGPT, Gemini, Claude, Perplexity
-- **Development**: GitHub, Jira, Linear, Confluence
-- **Any other app** with a text input field
+#### 2. Magic Wand (In-Place Voice Editing)
+- Highlight existing text in any app.
+- Command: "Make this sound more professional and shorten it into three bullet points."
+- Result: The text updates instantly in place.
 
-#### 3. 100+ Language Support
-- Supports over 100 languages for speech input
-- Automatic language detection — no manual switching required
-- Handles code-switching (mixing languages in one sentence)
-- Professionally formats output in the detected language
+#### 3. 4 Writing Tones
+- Instantly switch between Professional, Casual, Chat, and Witty tones to match corporate or personal contexts.
 
-#### 4. Real-Time Translation
-- Speak in Language A, output in Language B
-- Example: Speak in Hindi, get polished English text
-- Example: Speak in Spanish, get professional French text
-- No delay — translation happens in real-time alongside speech cleanup
-- Ideal for multilateral business communications
+#### 4. Contextual Emojis
+- Optional toggle that analyzes the generated text and inserts natural, context-aware emojis for social media or casual chat.
 
-#### 5. Privacy & Security
-- Voice audio is processed in real-time and **immediately deleted**
-- Audio is **never stored** on Zavi servers
-- Audio is **never used** to train AI models
-- End-to-end encrypted processing
-- No listening in the background — only active when user initiates recording
+#### 5. Real-Time Translation
+- Support for 19 typing languages and 15 target translation languages.
+- Speak in Spanish -> Instantly output perfectly formatted business English.
+
+#### 6. Privacy & Security
+- Voice audio is processed in real-time and **immediately deleted**.
+- Audio is **never stored** and **never used** to train AI models.
+
+
 
 ### Speed Comparison
 

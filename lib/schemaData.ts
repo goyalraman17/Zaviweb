@@ -113,16 +113,17 @@ export const softwareApplicationSchema = {
         }
     ],
     "featureList": [
+        "Voice Agent — Execute cross-app commands via speech",
+        "Magic Wand — In-place voice editing for text correction",
         "AI-powered filler word removal (um, uh, like, you know)",
+        "4 Writing Tones (Professional, Casual, Chat, Witty)",
         "Automatic grammar and punctuation correction",
         "System-wide keyboard works in every app",
-        "100+ language support with auto-detection",
+        "19 typing languages and 15 target translation languages",
         "Real-time speech-to-text translation",
-        "Zero-Prompt technology — no commands needed",
-        "Privacy-first — voice data never stored",
-        "Cross-platform: Android, macOS, Windows, Linux",
-        "Professional text output from natural speech",
-        "Sentence restructuring for clarity"
+        "Contextual Emojis — Auto-insert appropriate emojis",
+        "Privacy-first — voice data never stored or used for training",
+        "Cross-platform: Android, iOS, macOS, Windows, Linux"
     ],
     "screenshot": "https://zavi.ai/og-image.png",
     "softwareVersion": "1.0",
@@ -447,3 +448,36 @@ export const speakableSchema = {
         "description": "AI-powered voice typing keyboard that turns natural speech into clean, professional text. Removes filler words, fixes grammar, works in every app. Supports 100+ languages."
     }
 };
+
+// ============================================
+// Review Schema Generator — Individual and Aggregate snippets
+// ============================================
+export function generateReviewSchema(testimonials: { author: string; role: string; content: string }[]) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Zavi AI Voice Typing Keyboard",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Android, macOS, Windows, Linux",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": testimonials.length.toString(),
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": testimonials.map(t => ({
+            "@type": "Review",
+            "author": {
+                "@type": "Person",
+                "name": t.author
+            },
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "reviewBody": t.content
+        }))
+    };
+}

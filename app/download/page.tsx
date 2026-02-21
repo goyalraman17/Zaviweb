@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import JsonLd from '@/components/SEO/JsonLd';
-import { generateBreadcrumbSchema } from '@/lib/schemaData';
+import { generateBreadcrumbSchema, softwareApplicationSchema } from '@/lib/schemaData';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -79,34 +79,11 @@ export default function DownloadPage() {
         { name: 'Download', url: 'https://zavi.ai/download' },
     ]);
 
-    const appSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        name: 'Zavi AI Voice Typing Keyboard',
-        description: 'AI-powered voice typing keyboard that turns natural speech into clean, professional text.',
-        applicationCategory: 'ProductivityApplication',
-        operatingSystem: 'Android, iOS, macOS, Windows, Linux',
-        offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD',
-            description: 'Free plan available. Pro at $7.99/month.',
-        },
-        downloadUrl: 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
-        installUrl: 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            ratingCount: '120',
-            bestRating: '5',
-        },
-    };
-
     return (
         <>
             <Navigation />
             <JsonLd data={breadcrumbSchema} />
-            <JsonLd data={appSchema} />
+            <JsonLd data={softwareApplicationSchema} />
 
             <main className="min-h-screen bg-white pt-28 pb-20">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6">

@@ -97,6 +97,8 @@ export default function Navigation() {
     { name: 'Demo', href: '/#how-it-works', id: 'how-it-works' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
     { name: 'Try Zavi', href: '/demo', id: 'demo' },
+    { name: 'Use Cases', href: '/use-cases', id: 'use-cases' },
+    { name: 'Compare', href: '/compare', id: 'compare' },
     { name: 'About', href: '/about', id: 'about' },
   ];
 

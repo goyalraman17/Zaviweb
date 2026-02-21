@@ -58,29 +58,32 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostProps) {
     const { slug } = await params;
-    // Use non-null assertion or find check to get the post
     const post = blogPosts.find((p) => p.slug === slug);
 
     if (!post) {
         notFound();
     }
 
-    // Calculate previous/next posts strictly for navigation
+    const breadcrumbs = [
+        { name: 'Home', url: 'https://zavi.ai' },
+        { name: 'Blog', url: 'https://zavi.ai/blog' },
+        { name: post.title, url: `https://zavi.ai/blog/${post.slug}` }
+    ];
+
+    const articleSchema = generateArticleSchema(post);
+    const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
     const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
     const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
     const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
-    // Generate structured data
-    const articleSchema = generateArticleSchema(post);
-    const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Blog', url: 'https://zavi.ai/blog' },
-        { name: post.title, url: `https://zavi.ai/blog/${post.slug}` },
-    ]);
-
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans">
             <Navigation />
+
+            {/* Enhanced Article Schema */}
+            <JsonLd data={articleSchema} />
+            <JsonLd data={breadcrumbSchema} />
 
             {/* Enhanced Article Schema */}
             <JsonLd data={articleSchema} />
