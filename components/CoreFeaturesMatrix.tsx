@@ -126,7 +126,7 @@ export default function CoreFeaturesMatrix() {
                                 </div>
                             </div>
                             <h4 className="text-xl font-bold text-gray-900 mb-3 relative z-10">Live Web Search</h4>
-                            <p className="text-gray-500 text-sm leading-relaxed relative z-10">Built-in Tavily API allows you to pull real-time web facts into the agent via voice (e.g., <span className="italic text-gray-700">&quot;What is Apple&apos;s stock price right now?&quot;</span>).</p>
+                            <p className="text-gray-500 text-sm leading-relaxed relative z-10">Built-in Live Web API allows you to pull real-time web facts into the agent via voice (e.g., <span className="italic text-gray-700">&quot;What is Apple&apos;s stock price right now?&quot;</span>).</p>
                         </div>
 
                         <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_-4px_rgba(147,51,234,0.1)] hover:-translate-y-1 hover:border-purple-200 transition-all duration-300 flex flex-col group relative overflow-hidden">
@@ -184,11 +184,11 @@ export default function CoreFeaturesMatrix() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
                             { id: 13, title: "Action Buttons", desc: "Bottom row mapping for customizable actions (Undo, Redo, Enter, Space). Backspace supports hold-to-delete with rapid 50ms interval repeats to wipe paragraphs cleanly." },
-                            { id: 14, title: "OS-Level Placement", desc: "Zavi replaces the stock OS keyboard natively. Four dynamic modes automatically resize to context: Number Pad, QWERTY, Symbols, and Voice Module." },
-                            { id: 15, title: "Multi-Ring Mic Indicator", desc: "Physical UI visualizer tracks audio state: 3 concentric expanding rings when capturing vocal data, shifting to an active loading spinner when routing via WebSocket." },
-                            { id: 16, title: "Tap-to-Cancel Rescue", desc: "Never get bricked by slow Wi-Fi. Tapping the active processing loop banner forces an immediate kill-switch reset back to a ready-state." },
-                            { id: 17, title: "Fallback Banner Recovery", desc: "If the OS aggressively kills the background audio engine to save battery, Zavi injects an in-keyboard banner deep-link to bounce you rapidly through the activation setup overlay." },
-                            { id: 18, title: "Deep-Linked Settings", desc: "Control center parameters accessible directly from the keyboard layout interface without manual app-switching." },
+                            { id: 14, title: "System Keyboard Integration", desc: "Zavi replaces the stock keyboard natively. Four dynamic modes automatically resize to context: Number Pad, QWERTY, Symbols, and Voice Module." },
+                            { id: 15, title: "Multi-Ring Mic Indicator", desc: "Physical UI visualizer tracks audio state: 3 concentric expanding rings when capturing vocal data, shifting to an active loading spinner when processing." },
+                            { id: 16, title: "Tap-to-Cancel Rescue", desc: "Never get stuck on a slow connection. Tapping the active processing loop banner forces an immediate reset back to a ready-state." },
+                            { id: 17, title: "Fallback Banner Recovery", desc: "If the system turns off the background audio engine to save battery, Zavi injects an in-keyboard banner to bounce you rapidly through the activation setup." },
+                            { id: 18, title: "Quick Settings Access", desc: "Control parameters accessible directly from the keyboard layout interface without manual app-switching." },
                         ].map(item => (
                             <div key={item.id} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_-4px_rgba(249,115,22,0.1)] hover:-translate-y-1 hover:border-orange-200 transition-all duration-300 flex flex-col group relative overflow-hidden">
                                 <div className="flex justify-between items-start mb-6 relative z-10">
@@ -209,12 +209,12 @@ export default function CoreFeaturesMatrix() {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { id: 19, title: "gRPC Bidirectional Strm", desc: "The protocol engine establishing simultaneous real-time audio chunk uploads and finalized AI transcript downward streaming for ultra-low latency inputs." },
-                            { id: 20, title: "Infinite Stream Rotation", desc: "Bypass typical OS 60-second dictation limits. Zavi dynamically bridges 5-minute chunked sessions with a 1.5s crossover to ensure zero dropped syllables." },
-                            { id: 21, title: "Darwin Notification IPC", desc: "11 distinct low-level OS protocols enable the background App to communicate in real-time with the Keyboard extension independently." },
-                            { id: 22, title: "App Group UserDefaults", desc: "40+ shared keychain/storage vectors allow secure Auth token transmission and macro data injection across the system layer sandbox." },
+                            { id: 19, title: "Real-time Streaming", desc: "Our speech engine establishes simultaneous audio uploads and downstream AI text for ultra-low latency inputs." },
+                            { id: 20, title: "Infinite Session Length", desc: "Bypass typical 60-second dictation limits. Zavi dynamically bridges 5-minute sessions to ensure zero dropped syllables." },
+                            { id: 21, title: "Zero-Latency Core", desc: "Custom background protocols enable the app to communicate in real-time with the keyboard seamlessly." },
+                            { id: 22, title: "Secure Data Storage", desc: "Private on-device storage allows secure token transmission and macro data injection without leaving your phone." },
                             { id: 23, title: "Cloud History Vault", free: true, desc: "Total recovery logging. Access all previous voice inputs filtered by mode (Typing, Wand, Agent). Never lose an dictated draft again." },
-                            { id: 24, title: "Contextual Haptics", desc: "Custom Taptic Engine profiles confirming positive dictation starts, loop failures, and tool-call routing finishes entirely through physical touch." },
+                            { id: 24, title: "Contextual Haptics", desc: "Custom haptic profiles confirming positive dictation starts, completions, and tool actions entirely through physical touch." },
                         ].map(item => (
                             <div key={item.id} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_-4px_rgba(30,41,59,0.1)] hover:-translate-y-1 hover:border-slate-300 transition-all duration-300 flex flex-col group relative overflow-hidden">
                                 <div className="flex justify-between items-start mb-6 relative z-10">
@@ -237,12 +237,12 @@ export default function CoreFeaturesMatrix() {
 
                 <div className="flex flex-wrap justify-center gap-4 relative z-10">
                     {[
-                        { id: 25, title: "Onboarding Aurora Engine" },
-                        { id: 26, title: "Firebase Auth Integration" },
-                        { id: 27, title: "TTS Voice Selection" },
-                        { id: 28, title: "Stale State IPC Recovery" },
-                        { id: 29, title: "Analytics Gamification" },
-                        { id: 30, title: "StoreKit 2 Auto-Subs" },
+                        { id: 25, title: "Smooth Setup Experience" },
+                        { id: 26, title: "Secure Cloud Authentication" },
+                        { id: 27, title: "Premium AI Voice Selection" },
+                        { id: 28, title: "Auto-Recovery System" },
+                        { id: 29, title: "Usage Analytics & Stats" },
+                        { id: 30, title: "Seamless Subscription Management" },
                         { id: 31, title: "Smart Daily Quota Trackers", free: true },
                     ].map(item => (
                         <div key={item.id} className="bg-gray-800/80 border border-gray-700/50 backdrop-blur-sm rounded-2xl py-3 px-5 flex items-center gap-3 relative">

@@ -61,7 +61,7 @@ export default function ProPowerUps() {
                         </div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-3">0ms Latency</h3>
                         <p className="text-gray-600 leading-relaxed font-medium">
-                            Speak instantly with zero delay. Our <strong className="text-indigo-700 font-semibold">Darwin IPC</strong> architecture keeps the mic warm in the background for instant-on recording.
+                            Speak instantly with zero delay. Our <strong className="text-indigo-700 font-semibold">0-Latency Engine</strong> keeps the mic warm in the background for instant-on recording.
                         </p>
                     </motion.div>
 
@@ -75,7 +75,7 @@ export default function ProPowerUps() {
                         </div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-3">Live Web Search</h3>
                         <p className="text-gray-600 leading-relaxed font-medium">
-                            Ask a question and insert the answer without switching apps, powered by the built-in <strong className="text-cyan-700 font-semibold">Tavily integration</strong>.
+                            Ask a question and insert the answer without switching apps, powered by our built-in <strong className="text-cyan-700 font-semibold">Live Web</strong> integration.
                         </p>
                     </motion.div>
 
