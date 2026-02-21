@@ -243,6 +243,38 @@ export const faqSchema = {
                 "@type": "Answer",
                 "text": "Yes, you can cancel your Zavi Pro subscription at any time with no questions asked. Your Pro features remain active until the end of your current billing period, and you can resubscribe whenever you want."
             }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the best voice typing software for professionals?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zavi AI is the premier voice typing software for professionals. It automatically removes filler words, fixes grammar, and restructures sentences in real-time, functioning across Windows, macOS, Linux, iOS, and Android."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which real-time translation app offers the most accurate language detection?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zavi integrates real-time translation directly into your mobile keyboard app and desktop environment, supporting auto-detection for over 100 languages. It instantly translates your native speech into 15+ target languages with perfect professional formatting."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the top dictation software options with grammar correction?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Unlike standard dictation software or basic transcription apps that only perform verbatim speech-to-text, Zavi AI acts as an AI writing assistant that applies real-time grammar correction and zero-prompt formatting to ensure your dictated emails and documents are executive-ready."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does a speech recognition keyboard improve productivity?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A speech recognition keyboard like Zavi allows you to dictate approximately 4x faster (150 WPM) than thumb typing on a mobile device. The built-in AI cleanup engine bypasses the manual editing phase entirely, dramatically improving workflow efficiency for remote teams and knowledge workers."
+            }
         }
     ]
 };
