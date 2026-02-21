@@ -90,11 +90,11 @@ const faqs = [
     },
     {
         question: 'How does Zavi compare to Wispr Flow pricing?',
-        answer: 'Wispr Flow costs $10/month with no free plan. Zavi Pro is $4.99/month (50% cheaper) and includes a generous free tier. Zavi also supports mobile, 100+ languages, and real-time translation.',
+        answer: 'Wispr Flow offers a free tier (2,000 words/week) and Pro at $12/month. Zavi Pro is $4.99/month (58% cheaper). Both have free tiers. Zavi also supports Android, real-time translation, and Linux.',
     },
     {
         question: 'How does Zavi compare to Dragon pricing?',
-        answer: 'Dragon NaturallySpeaking costs $200-500+ for a license. Zavi Pro is $4.99/month — that\'s what Dragon costs for 3-8 years of Zavi Pro.',
+        answer: 'Dragon NaturallySpeaking desktop costs $150-699+ for a one-time license. Dragon cloud subscriptions cost $15-55/month. Zavi Pro is $4.99/month — dramatically more affordable for general voice typing.',
     },
 ];
 
@@ -278,9 +278,9 @@ export default function PricingPage() {
                         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
                             {[
                                 { name: 'Zavi AI Pro', price: '$4.99/mo', note: 'AI voice keyboard', highlight: true },
-                                { name: 'Wispr Flow', price: '$10/mo', note: 'Desktop voice typing', highlight: false },
+                                { name: 'Wispr Flow', price: '$12/mo', note: 'Voice dictation', highlight: false },
                                 { name: 'Otter.ai Pro', price: '$16.99/mo', note: 'Meeting transcription', highlight: false },
-                                { name: 'Dragon', price: '$200-500', note: 'One-time license', highlight: false },
+                                { name: 'Dragon', price: '$150-699+', note: 'One-time license', highlight: false },
                             ].map((comp) => (
                                 <div key={comp.name} className={`rounded-xl p-5 text-center ${comp.highlight ? 'bg-blue-600 text-white' : 'bg-gray-50 border border-gray-200'}`}>
                                     <p className={`text-sm font-medium mb-1 ${comp.highlight ? 'text-blue-200' : 'text-gray-500'}`}>{comp.name}</p>

@@ -123,27 +123,27 @@ The average person types at about 40 words per minute on a keyboard and 38 WPM o
 ### Zavi AI vs. Wispr Flow
 | Feature | Zavi AI | Wispr Flow |
 |---------|---------|------------|
-| Platform | Android, iOS, macOS, Windows, Linux | macOS, Windows (desktop only) |
-| Mobile Support | ✅ Full Android keyboard | ❌ Desktop only |
+| Platform | Android, iOS, macOS, Windows, Linux | macOS, Windows, iOS (Android coming) |
+| Android Support | ✅ Full system keyboard | ❌ Not yet |
 | Filler Removal | ✅ Automatic | ✅ Automatic |
-| Translation | ✅ 100+ languages | ❌ Limited |
-| Command Mode | 🔜 Coming soon | ✅ Voice editing commands |
-| Privacy | ✅ Audio deleted immediately | ⚠️ Cloud processing |
-| RAM Usage | Lightweight | 1GB+ |
-| Price | Free / $4.99/mo Pro | $10/mo |
-| Best For | Mobile-first professionals, multilingual users | Desktop power users wanting voice editing |
+| Languages | 100+ with auto-detection | 100+ languages |
+| Translation | ✅ Real-time any-to-any | ❌ No translation |
+| Command Mode | 🔜 Coming soon | ✅ Advanced Command Mode |
+| Privacy | ✅ Audio deleted immediately | Cloud processing (SOC 2 certified) |
+| Price | Free / $4.99/mo Pro | Free (2K words/wk) / $12/mo Pro |
+| Best For | Android users, multilingual professionals, translation | Desktop power users wanting voice editing commands |
 
 ### Zavi AI vs. Willow Voice
 | Feature | Zavi AI | Willow |
 |---------|---------|--------|
-| Platform | Android, iOS, macOS, Windows, Linux | macOS |
-| Latency | Fast (<2s) | Ultra-fast (200ms) |
-| AI Cleanup | ✅ Full grammar + filler removal | ✅ Transcription + AI Mode |
-| Translation | ✅ Real-time | ❌ No |
-| Mobile | ✅ Android | ❌ No |
-| Processing | Cloud | Local (on-device) |
-| Languages | 100+ | ~20 |
-| Best For | Cross-platform professionals | Mac users wanting ultra-low latency |
+| Platform | Android, iOS, macOS, Windows, Linux | macOS, iOS (Windows coming) |
+| Android Support | ✅ Full system keyboard | ❌ Not available |
+| AI Cleanup | ✅ Full grammar + filler removal | ✅ AI filler removal + formatting |
+| Translation | ✅ Real-time any-to-any | ❌ No translation |
+| Writing Style Learning | 🔜 Coming | ✅ Learns your style |
+| Processing | Cloud | Cloud (with local storage option) |
+| Price | Free / $4.99/mo | Free (2K words/mo) / $12-15/mo |
+| Best For | Android users, translation, cross-platform | Mac/iOS users wanting style personalization |
 
 ## Company Background
 

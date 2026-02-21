@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     title: 'Changelog — What\'s New in Zavi AI',
     description: 'See the latest updates, features, and improvements in Zavi AI. We ship fast — voice typing just keeps getting better.',
     alternates: { canonical: 'https://zavi.ai/changelog' },
+    openGraph: {
+        title: 'Changelog — What\'s New in Zavi AI',
+        description: 'See the latest updates and features added to Zavi AI voice typing keyboard.',
+        url: 'https://zavi.ai/changelog',
+    },
 };
 
 interface ChangelogEntry {

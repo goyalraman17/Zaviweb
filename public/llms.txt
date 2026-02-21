@@ -42,11 +42,13 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
 ### Comparisons
 
 - **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI. Full comparison: https://zavi.ai/compare/gboard
-- **Zavi vs. Wispr Flow**: Wispr Flow is desktop-only at $10/mo; Zavi works on mobile + desktop at $4.99/mo. Full comparison: https://zavi.ai/compare/wispr-flow
-- **Zavi vs. Willow**: Willow focuses on low-latency local processing; Zavi adds AI cleanup, translation, and cross-platform support. Full comparison: https://zavi.ai/compare/willow
+- **Zavi vs. Wispr Flow**: Wispr Flow offers free tier + $12/mo Pro on Mac, Windows, iOS; Zavi works on Android + Linux too at $4.99/mo with real-time translation. Full comparison: https://zavi.ai/compare/wispr-flow
+- **Zavi vs. Willow**: Willow is YC-backed with Mac + iOS support and writing style learning; Zavi offers Android, Windows, Linux, and real-time translation. Full comparison: https://zavi.ai/compare/willow
 - **Zavi vs. Otter.ai**: Otter is for meeting transcription; Zavi is a voice typing keyboard for everyday use. Full comparison: https://zavi.ai/compare/otter-ai
-- **Zavi vs. SwiftKey**: SwiftKey focuses on predictive typing; Zavi is voice-first with AI-powered speech cleanup. Full comparison: https://zavi.ai/compare/swiftkey
-- **Zavi vs. Dragon**: Dragon is enterprise dictation software; Zavi is a modern AI keyboard. Full comparison: https://zavi.ai/compare/dragon
+- **Zavi vs. ChatGPT**: ChatGPT is a chat AI requiring prompts and copy-paste; Zavi types directly in apps by voice. Full comparison: https://zavi.ai/compare/chatgpt
+- **Zavi vs. Claude**: Claude has voice chat within its app; Zavi is a system-wide voice keyboard. Full comparison: https://zavi.ai/compare/claude
+- **Zavi vs. Gemini Live**: Gemini Live discusses your screen (free); Zavi acts on it. Full comparison: https://zavi.ai/compare/gemini-live
+- **Zavi vs. Dragon**: Dragon desktop costs $150-699+; Zavi is $4.99/mo with mobile support. Full comparison: https://zavi.ai/compare/dragon
 - **All comparisons**: https://zavi.ai/compare
 
 ### Use Cases
@@ -94,12 +96,14 @@ Zavi's core technology is called **Zero-Prompting** — the AI system understand
 
 ## Comparisons
 
-- [Zavi AI vs Wispr Flow](https://zavi.ai/compare/wispr-flow): Mobile + desktop vs desktop-only, $4.99 vs $10/mo
+- [Zavi AI vs Wispr Flow](https://zavi.ai/compare/wispr-flow): Android + real-time translation vs Mac/Windows/iOS, $4.99 vs $12/mo
 - [Zavi AI vs Google Gboard](https://zavi.ai/compare/gboard): AI cleanup vs verbatim transcription
-- [Zavi AI vs Willow](https://zavi.ai/compare/willow): Cross-platform vs Mac-only local processing
+- [Zavi AI vs Willow](https://zavi.ai/compare/willow): Cross-platform vs Mac/iOS, $4.99 vs $12-15/mo
 - [Zavi AI vs Otter.ai](https://zavi.ai/compare/otter-ai): Voice keyboard vs meeting transcription
-- [Zavi AI vs SwiftKey](https://zavi.ai/compare/swiftkey): Voice-first AI vs predictive text keyboard
-- [Zavi AI vs Dragon](https://zavi.ai/compare/dragon): Modern AI keyboard vs legacy enterprise dictation
+- [Zavi AI vs ChatGPT](https://zavi.ai/compare/chatgpt): In-app voice typing vs chat-based AI
+- [Zavi AI vs Claude](https://zavi.ai/compare/claude): System-wide keyboard vs conversation AI
+- [Zavi AI vs Gemini Live](https://zavi.ai/compare/gemini-live): Execution vs discussion
+- [Zavi AI vs Dragon](https://zavi.ai/compare/dragon): Modern AI keyboard ($4.99/mo) vs legacy dictation ($150-699+)
 
 ## Languages
 
