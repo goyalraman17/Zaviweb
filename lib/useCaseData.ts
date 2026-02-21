@@ -918,6 +918,38 @@ export const useCases: UseCase[] = [
             { question: 'Can I use it while wearing thick gloves?', answer: 'Yes! If you map the Zavi trigger to a physical hardware button (like the iPhone Action Button) or a Bluetooth headset, you never need to touch the glass screen.' },
         ],
         relatedUseCases: ['drivers', 'hr-recruiting', 'translators'],
+    },
+    {
+        slug: 'creators',
+        title: 'Voice AI for Creators & Influencers',
+        metaTitle: 'AI Voice Assistant for Content Creators — Script Faster | Zavi AI',
+        metaDescription: 'Draft TikTok scripts, YouTube hooks, and brand deal emails 10x faster using Zavi AI\'s native voice keyboard.',
+        heroTitle: 'Script the Video. Close the Deal.',
+        heroSubtitle: 'Turn your chaotic brain dumps into structured YouTube hooks and TikTok scripts instantly via Voice AI.',
+        icon: '📱',
+        problem: 'Content creators are constantly juggling scripting videos, replying to fans across multiple platforms, and negotiating brand deals in their DMs—all leading to massive screen fatigue.',
+        solution: 'Zavi lets creators stay in their flow state. Dictate your raw video ideas while walking. Use the Magic Wand to instantly reformat them into high-retention hooks. Blast through your Instagram and WhatsApp DMs 5x faster using spoken replies.',
+        howItWorks: [
+            'Have an idea for a viral Short?',
+            'Open Apple Notes and trigger Zavi.',
+            'Dictate the messy, 2-minute rant aloud.',
+            'Highlight it and say: "Rewrite this as a 60-second TikTok script with a strong hook."',
+            'Zavi injects the perfect script structure.',
+        ],
+        benefits: [
+            { title: 'The "Witty" Tone Engine', description: 'Nobody wants to watch a robotic video. Zavi\'s "Witty" tone ensures your dictated scripts sound energetic, relatable, and native to the platform.' },
+            { title: 'Automated Emoji Toggles', description: 'Enable the Emoji Toggle to instantly spice up your Instagram captions and community tab posts with perfect, contextually relevant icons.' },
+            { title: 'Voice Agent Outreach (Pro)', description: 'Use the Voice Agent to state: "Email the PR team at Nike from my Gmail and ask if they are open to Q3 sponsorships." Zavi executes the OAuth connection seamlessly.' },
+            { title: 'Custom Creator Dictionary', description: 'Train Zavi to understand niche internet slang, fellow creator names, and platform-specific terminology so it\'s never autocorrected.' },
+        ],
+        exampleBefore: '[Magic Wand command]: "Turn this paragraph into a snappy call to action for the end of my YouTube video."',
+        exampleAfter: 'If you made it this far, you\'re an absolute legend! ⚡ Drop a comment below if you want a Part 2, and don\'t forget to smash that subscribe button. 👇 See you in the next one!',
+        targetAudience: ['YouTubers', 'TikTokers', 'Twitch Streamers', 'Instagram Influencers'],
+        faqItems: [
+            { question: 'Does Zavi work inside Instagram?', answer: 'Yes! Zavi replaces your default iOS or Android keyboard, meaning you can dictate high-quality captions natively inside the Instagram or TikTok app.' },
+            { question: 'Can it help translate my global DMs?', answer: 'Absolutely. Use the Live Translation feature to speak in English and send perfect Spanish or Portuguese replies to your international fans.' },
+        ],
+        relatedUseCases: ['marketers', 'podcasters', 'email'],
     }
 ];
 
