@@ -86,7 +86,7 @@ export const softwareApplicationSchema = {
     "description": "AI-powered voice typing keyboard that transforms natural speech into clean, professional text. Removes filler words, fixes grammar, and works in every app. Supports 100+ languages with real-time translation.",
     "url": "https://zavi.ai",
     "applicationCategory": "ProductivityApplication",
-    "operatingSystem": "Android, macOS, Windows, Linux",
+    "operatingSystem": "Android, iOS, macOS, Windows, Linux",
     "offers": [
         {
             "@type": "Offer",
@@ -98,7 +98,7 @@ export const softwareApplicationSchema = {
         {
             "@type": "Offer",
             "name": "Pro Plan (Monthly)",
-            "price": "4.99",
+            "price": "7.99",
             "priceCurrency": "USD",
             "billingIncrement": "P1M",
             "description": "Unlimited usage, 3x faster processing, priority support, advanced formatting"
@@ -106,10 +106,10 @@ export const softwareApplicationSchema = {
         {
             "@type": "Offer",
             "name": "Pro Plan (Annual)",
-            "price": "39.99",
+            "price": "49.99",
             "priceCurrency": "USD",
             "billingIncrement": "P1Y",
-            "description": "Unlimited usage, 3x faster processing, priority support, advanced formatting — save 33%"
+            "description": "Unlimited usage, 3x faster processing, priority support, advanced formatting — 2 months free"
         }
     ],
     "featureList": [
@@ -176,7 +176,7 @@ export const faqSchema = {
             "name": "What platforms does Zavi AI support?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi AI is available on Android (8.0+), macOS, Windows, and Linux. On Android, it works as a system-wide keyboard in every app (Gmail, WhatsApp, Slack, Notion, and more). On desktop platforms, it runs as a standalone application with system-wide voice input. iOS support is planned for 2026."
+                "text": "Zavi AI is available on Android (8.0+), iOS (16+), macOS, Windows, and Linux. On Android and iOS, it works as a system-wide keyboard in every app (Gmail, WhatsApp, Slack, Notion, and more). On desktop platforms, it runs as a standalone application with system-wide voice input."
             }
         },
         {
@@ -192,7 +192,7 @@ export const faqSchema = {
             "name": "How much does Zavi AI cost?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi AI offers a free plan that includes AI-powered speech cleanup, works in every app, supports 100+ languages, with daily usage limits. The Pro plan costs $4.99/month (or $39.99/year, saving 33%) and includes unlimited usage, 3x faster processing, priority support, and advanced formatting features. You can cancel anytime."
+                "text": "Zavi AI offers a free plan that includes AI-powered speech cleanup, works in every app, supports 100+ languages, with daily usage limits. The Pro plan costs $7.99/month (or $49.99/year) and includes unlimited usage, 3x faster processing, priority support, and advanced formatting features. You can cancel anytime."
             }
         },
         {
@@ -216,7 +216,7 @@ export const faqSchema = {
             "name": "How does Zavi compare to Wispr Flow and Willow?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi, Wispr Flow, and Willow are all AI voice writing tools, but they differ in key ways. Wispr Flow is desktop-only (macOS/Windows), focuses on deep contextual editing with command mode, uses cloud processing, and costs $10/month. Willow is macOS-only with ultra-low latency (200ms) local processing. Zavi is cross-platform (Android, macOS, Windows, Linux), focuses on mobile-first professionals, supports 100+ languages with real-time translation, and starts free with Pro at $4.99/month."
+                "text": "Zavi, Wispr Flow, and Willow are all AI voice writing tools, but they differ in key ways. Wispr Flow supports macOS, Windows, and iOS, offers a free tier and Pro at $12/month with polished Command Mode for voice editing. Willow (YC-backed) supports Mac and iOS with writing style learning at $12-15/month. Zavi is cross-platform (Android, iOS, macOS, Windows, Linux), focuses on mobile-first professionals, supports 100+ languages with real-time translation, and starts free with Pro at $7.99/month."
             }
         },
         {

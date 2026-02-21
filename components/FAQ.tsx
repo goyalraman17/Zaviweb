@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: "What's included in the free plan?",
-    answer: "The free plan includes AI-powered speech cleanup with filler word removal, grammar correction, works in every Android app, supports 100+ languages with auto-detection, and comes with generous daily usage limits. Upgrade to Pro for $4.99/month (or $39.99/year) for unlimited usage, 3x faster processing, and advanced formatting."
+    answer: "The free plan includes AI-powered speech cleanup with filler word removal, grammar correction, works in every Android app, supports 100+ languages with auto-detection, and comes with generous daily usage limits. Upgrade to Pro for $7.99/month (or $49.99/year) for unlimited usage, 3x faster processing, and advanced formatting."
   },
   {
     question: "Which platforms and apps does Zavi support?",
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     question: "How does Zavi compare to Wispr Flow and Willow?",
-    answer: "Wispr Flow is desktop-only (macOS/Windows), focuses on contextual editing with command mode, uses cloud processing, and costs $10/month. Willow is macOS-only with ultra-low 200ms latency and local processing. Zavi is cross-platform (Android, macOS, Windows, Linux), mobile-first, supports 100+ languages with real-time translation, starts free with Pro at $4.99/month, and works as a system-wide keyboard on Android."
+    answer: "Wispr Flow supports macOS, Windows, and iOS with a free tier and Pro at $12/month. It has a polished Command Mode for voice editing. Willow (YC-backed) supports Mac and iOS with writing style learning at $12-15/month. Zavi is cross-platform (Android, iOS, macOS, Windows, Linux), supports 100+ languages with real-time translation, starts free with Pro at $7.99/month, and works as a system-wide keyboard on Android."
   },
   {
     question: "Can I cancel my subscription anytime?",

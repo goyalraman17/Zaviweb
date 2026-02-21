@@ -123,7 +123,7 @@ export default function Home() {
           <h2>Zavi AI Pricing</h2>
           <p>
             Zavi AI offers a free plan with AI-powered speech cleanup, filler word removal, grammar correction, support for 100+ languages,
-            and works in every app. The Pro plan costs $4.99 per month (or $39.99 per year, saving 33%) and includes unlimited usage,
+            and works in every app. The Pro plan costs $7.99 per month (or $49.99 per year) and includes unlimited usage,
             3x faster processing, priority support, and advanced formatting features.
           </p>
 
@@ -138,7 +138,7 @@ export default function Home() {
           <p>
             Zavi AI competes with Wispr Flow, Willow, Gboard, ChatGPT, Claude, Gemini Live, and Dragon. Zavi differentiates by offering
             cross-platform support (Android, iOS, macOS, Windows, Linux), 100+ language support with real-time translation,
-            mobile-first AI keyboard integration, and a free tier starting at $0 with Pro at $4.99/month.
+            mobile-first AI keyboard integration, and a free tier starting at $0 with Pro at $7.99/month.
             Wispr Flow offers a free tier and Pro at $12/month on Mac, Windows, and iOS — but lacks Android and real-time translation.
             Willow (YC-backed) is available on Mac and iOS at $12-15/month with writing style personalization.
             Gboard is free but only offers verbatim transcription without AI cleanup.

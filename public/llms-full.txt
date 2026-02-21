@@ -84,7 +84,7 @@ Yes, absolutely. Your voice is processed in real-time and immediately deleted af
 Regular voice typing (like Google's or Apple's built-in dictation) captures everything word-for-word, including all your filler words like "um," "uh," and "like," plus any awkward phrasing. Zavi is different — it uses AI to remove fillers, fix grammar, and automatically turn messy, natural speech into clean, professional text. No editing required.
 
 ### What's included in the free plan?
-The free plan includes AI-powered speech cleanup, works in every Android app, supports 100+ languages, and comes with daily usage limits. Upgrade to Pro ($4.99/month or $39.99/year) for unlimited usage, 3x faster processing, and priority support.
+The free plan includes AI-powered speech cleanup, works in every Android app, supports 100+ languages, and comes with daily usage limits. Upgrade to Pro ($7.99/month or $49.99/year) for unlimited usage, 3x faster processing, and priority support.
 
 ### Which platforms does Zavi support?
 Zavi works on Android 8.0+, iOS 16+, macOS, Windows, and Linux. It integrates as a system-wide keyboard on Android and iOS, and as a desktop application on macOS, Windows, and Linux.
@@ -117,7 +117,7 @@ The average person types at about 40 words per minute on a keyboard and 38 WPM o
 | Filler Word Removal | ✅ Automatic | ❌ No |
 | Translation | ✅ Real-time voice translation | ❌ No voice translation |
 | AI Text Editing | ✅ Zero-Prompt cleanup | ❌ Basic autocorrect only |
-| Price | Freemium ($4.99/mo Pro) | Free |
+| Price | Freemium ($7.99/mo Pro) | Free |
 | Best For | Professionals who want polished text from voice | Users wanting basic voice typing and Google integration |
 
 ### Zavi AI vs. Wispr Flow
@@ -130,7 +130,7 @@ The average person types at about 40 words per minute on a keyboard and 38 WPM o
 | Translation | ✅ Real-time any-to-any | ❌ No translation |
 | Command Mode | 🔜 Coming soon | ✅ Advanced Command Mode |
 | Privacy | ✅ Audio deleted immediately | Cloud processing (SOC 2 certified) |
-| Price | Free / $4.99/mo Pro | Free (2K words/wk) / $12/mo Pro |
+| Price | Free / $7.99/mo Pro | Free (2K words/wk) / $12/mo Pro |
 | Best For | Android users, multilingual professionals, translation | Desktop power users wanting voice editing commands |
 
 ### Zavi AI vs. Willow Voice
@@ -142,7 +142,7 @@ The average person types at about 40 words per minute on a keyboard and 38 WPM o
 | Translation | ✅ Real-time any-to-any | ❌ No translation |
 | Writing Style Learning | 🔜 Coming | ✅ Learns your style |
 | Processing | Cloud | Cloud (with local storage option) |
-| Price | Free / $4.99/mo | Free (2K words/mo) / $12-15/mo |
+| Price | Free / $7.99/mo | Free (2K words/mo) / $12-15/mo |
 | Best For | Android users, translation, cross-platform | Mac/iOS users wanting style personalization |
 
 ## Company Background

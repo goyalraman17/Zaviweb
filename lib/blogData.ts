@@ -252,7 +252,7 @@ export const blogPosts: BlogPost[] = [
       <p>If you want the <strong>best overall voice typing experience on Android</strong>, <strong>Zavi AI</strong> is the winner. It's the only app that combines system-wide keyboard integration with AI-powered filler word removal, grammar correction, and 100+ language support. It turns messy natural speech into clean, professional text with zero editing needed.</p>
 
       <h2>1. Zavi AI — Best Overall Voice Typing App</h2>
-      <p><strong>Rating: 4.8/5</strong> | <strong>Price: Free (Pro at $4.99/mo)</strong></p>
+      <p><strong>Rating: 4.8/5</strong> | <strong>Price: Free (Pro at $7.99/mo)</strong></p>
       <p>Zavi AI is not just a voice typing app — it's a voice-first AI keyboard that replaces your default Android keyboard. This means it works in <strong>every single app</strong>: Gmail, WhatsApp, Slack, Notion, Google Docs, ChatGPT, Instagram DMs, and any other app with a text field.</p>
       <p>What makes Zavi stand out from every other option is its <strong>Zero-Prompt AI cleanup</strong>. While other apps transcribe your words verbatim (including all the "ums," "uhs," and awkward phrasing), Zavi's AI automatically:</p>
       <ul class="list-disc pl-6 space-y-2 my-4">
@@ -291,11 +291,11 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Real-Time Translation:</strong> Zavi AI ✅ | Gboard ❌ | Speechnotes ❌ | SwiftKey ❌</li>
         <li><strong>Languages:</strong> Zavi AI 100+ | Gboard 50+ | Speechnotes 30+ | SwiftKey 70+</li>
         <li><strong>Effective Speed:</strong> Zavi AI ~150 WPM | Gboard ~80 WPM | Speechnotes ~80 WPM | SwiftKey ~75 WPM</li>
-        <li><strong>Price:</strong> Zavi AI Free/$4.99/mo | Gboard Free | Speechnotes Free/$9.99 | SwiftKey Free</li>
+        <li><strong>Price:</strong> Zavi AI Free/$7.99/mo | Gboard Free | Speechnotes Free/$9.99 | SwiftKey Free</li>
       </ul>
 
       <h2>The Bottom Line</h2>
-      <p>For anyone serious about voice typing on Android, <strong>Zavi AI</strong> is the clear winner. It's the only app that combines a system-wide keyboard (works everywhere), AI-powered cleanup (no editing needed), and 100+ language support. The free plan is generous enough for daily use, and Pro at $4.99/month is a fraction of the time it saves.</p>
+      <p>For anyone serious about voice typing on Android, <strong>Zavi AI</strong> is the clear winner. It's the only app that combines a system-wide keyboard (works everywhere), AI-powered cleanup (no editing needed), and 100+ language support. The free plan is generous enough for daily use, and Pro at $7.99/month is a fraction of the time it saves.</p>
       <p>If you just want basic, free voice typing without any AI features, <strong>Gboard</strong> is the reliable default. For long-form dictation into a notepad, <strong>Speechnotes</strong> is solid.</p>
     `
   },
@@ -384,7 +384,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>What Gboard outputs:</strong> "Um so I was thinking like maybe we should you know probably schedule a meeting for uh next Tuesday at like 3 PM or something"</li>
         <li><strong>What Zavi outputs:</strong> "Let's schedule a meeting for next Tuesday at 3:00 PM."</li>
       </ul>
-      <p><strong>Platforms:</strong> Android, macOS, Windows, Linux | <strong>Price:</strong> Free (Pro $4.99/mo)</p>
+      <p><strong>Platforms:</strong> Android, macOS, Windows, Linux | <strong>Price:</strong> Free (Pro $7.99/mo)</p>
 
       <h3 class="text-xl font-bold mt-6 mb-3 text-gray-900">2. Wispr Flow — Best Filler Removal on Desktop</h3>
       <p>Wispr Flow offers excellent filler removal for Mac and Windows desktop users. It understands context across longer sessions and features a voice command mode for editing. However, it's desktop-only (no mobile support) and costs $10/month.</p>
@@ -432,7 +432,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zavi AI doesn't just fix grammar — it uses its "Zero-Prompting" AI to completely transform spoken language into written language. The output reads like professionally written text, not cleaned-up speech. It works as a system-wide Android keyboard, so the grammar-corrected text appears directly in Gmail, WhatsApp, Slack, and every other app.</p>
       <p><strong>Example:</strong> You say: "hey so i wanted to check in about like the project timeline because i think we might be running behind on a few things and the client emailed me yesterday and they seemed kind of worried"</p>
       <p><strong>Zavi outputs:</strong> "I wanted to check in about the project timeline. I believe we may be running behind on a few items. The client emailed me yesterday and expressed some concern."</p>
-      <p><strong>Price:</strong> Free / Pro $4.99/mo | <strong>Platforms:</strong> Android, macOS, Windows, Linux</p>
+      <p><strong>Price:</strong> Free / Pro $7.99/mo | <strong>Platforms:</strong> Android, macOS, Windows, Linux</p>
 
       <h3 class="text-xl font-bold mt-6 mb-3 text-gray-900">2. Wispr Flow — Best for Desktop Power Users</h3>
       <p><strong>Grammar fix quality: ★★★★☆ (Very Good)</strong></p>

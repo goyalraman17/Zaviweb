@@ -6,11 +6,11 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Pricing — Zavi AI Voice Typing Keyboard | Free & Pro Plans',
-    description: 'Zavi AI pricing: Free plan with AI voice typing in 100+ languages, or Pro at $4.99/month for unlimited usage. Compare plans, features, and FAQs.',
+    description: 'Zavi AI pricing: Free plan with AI voice typing in 100+ languages, or Pro at $7.99/month for unlimited usage. Compare plans, features, and FAQs.',
     alternates: { canonical: 'https://zavi.ai/pricing' },
     openGraph: {
         title: 'Zavi AI Pricing — Voice Typing That Pays for Itself',
-        description: 'Free AI voice typing or Pro at $4.99/month. Save 40+ hours/year typing. Works in every app.',
+        description: 'Free AI voice typing or Pro at $7.99/month. Save 40+ hours/year typing. Works in every app.',
         url: 'https://zavi.ai/pricing',
     },
 };
@@ -35,9 +35,9 @@ const plans = [
     },
     {
         name: 'Pro',
-        price: '$4.99',
+        price: '$7.99',
         period: 'per month',
-        yearlyPrice: '$39.99/year (save 33%)',
+        yearlyPrice: '$49.99/year (2 months free)',
         description: 'Unlimited voice typing for professionals who want maximum productivity',
         features: [
             'Everything in Free, plus:',
@@ -78,7 +78,7 @@ const faqs = [
     },
     {
         question: 'Is Pro worth it?',
-        answer: 'If you send more than 10 messages or emails per day, Pro pays for itself quickly. At $4.99/month, you save 5-10 hours of editing time per month. That\'s less than the cost of a cup of coffee for hours of saved time.',
+        answer: 'If you send more than 10 messages or emails per day, Pro pays for itself quickly. At $7.99/month, you save 5-10 hours of editing time per month. That\'s less than the cost of a cup of coffee for hours of saved time.',
     },
     {
         question: 'Can I cancel Pro anytime?',
@@ -90,11 +90,11 @@ const faqs = [
     },
     {
         question: 'How does Zavi compare to Wispr Flow pricing?',
-        answer: 'Wispr Flow offers a free tier (2,000 words/week) and Pro at $12/month. Zavi Pro is $4.99/month (58% cheaper). Both have free tiers. Zavi also supports Android, real-time translation, and Linux.',
+        answer: 'Wispr Flow offers a free tier (2,000 words/week) and Pro at $12/month. Zavi Pro is $7.99/month (33% cheaper). Both have free tiers. Zavi also supports Android, real-time translation, and Linux.',
     },
     {
         question: 'How does Zavi compare to Dragon pricing?',
-        answer: 'Dragon NaturallySpeaking desktop costs $150-699+ for a one-time license. Dragon cloud subscriptions cost $15-55/month. Zavi Pro is $4.99/month — dramatically more affordable for general voice typing.',
+        answer: 'Dragon NaturallySpeaking desktop costs $150-699+ for a one-time license. Dragon cloud subscriptions cost $15-55/month. Zavi Pro is $7.99/month — dramatically more affordable for general voice typing.',
     },
 ];
 
@@ -123,12 +123,12 @@ export default function PricingPage() {
             {
                 '@type': 'Offer',
                 name: 'Pro Plan (Monthly)',
-                price: '4.99',
+                price: '7.99',
                 priceCurrency: 'USD',
                 availability: 'https://schema.org/InStock',
                 priceSpecification: {
                     '@type': 'UnitPriceSpecification',
-                    price: '4.99',
+                    price: '7.99',
                     priceCurrency: 'USD',
                     billingDuration: 'P1M',
                 },
@@ -251,7 +251,7 @@ export default function PricingPage() {
                     {/* Value Proposition */}
                     <div className="bg-blue-50 rounded-2xl p-8 md:p-12 mb-20 text-center">
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                            $4.99/month saves you 40+ hours per year
+                            $7.99/month saves you 40+ hours per year
                         </h2>
                         <p className="text-gray-600 max-w-xl mx-auto mb-6">
                             Average professionals type 2-3 hours daily. Voice typing at 150 WPM vs 40 WPM thumb typing means you save 15-20 minutes per hour of typing. That&apos;s 5-10 hours saved per month — for less than a coffee.
@@ -277,7 +277,7 @@ export default function PricingPage() {
                         <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">How We Compare on Price</h2>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
                             {[
-                                { name: 'Zavi AI Pro', price: '$4.99/mo', note: 'AI voice keyboard', highlight: true },
+                                { name: 'Zavi AI Pro', price: '$7.99/mo', note: 'AI voice keyboard', highlight: true },
                                 { name: 'Wispr Flow', price: '$12/mo', note: 'Voice dictation', highlight: false },
                                 { name: 'Otter.ai Pro', price: '$16.99/mo', note: 'Meeting transcription', highlight: false },
                                 { name: 'Dragon', price: '$150-699+', note: 'One-time license', highlight: false },
