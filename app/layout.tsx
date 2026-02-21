@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://zavi.ai'),
   alternates: {
     canonical: '/',
+    types: {
+      'text/plain': '/llms.txt',
+    },
   },
   title: {
     default: "Zavi AI – Voice Typing Keyboard | Turn Speech into Professional Text",
@@ -85,6 +88,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+
   openGraph: {
     title: "Zavi AI – Voice Typing Keyboard | Turn Speech into Professional Text",
     description: "Stop typing. Start speaking. Zavi AI turns natural speech into clean, professional text. AI removes filler words, fixes grammar, works in every app. 100+ languages. Free.",
