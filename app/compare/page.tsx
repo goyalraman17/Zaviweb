@@ -215,9 +215,9 @@ export default function ComparePage() {
                     {/* The 31 Core Features Breakdown */}
                     <div className="mb-24">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Under the Hood: 31 Core Capabilities</h2>
+                            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Try Everything Free. Upgrade When You Need Scale.</h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                The most advanced voice architecture ever built into a mobile OS. Everything you need to eliminate typing permanently.
+                                The most advanced voice architecture ever built into a mobile OS. <strong className="text-gray-900">Every single feature below is available to try on the Free Tier.</strong> Zavi Pro simply gives you unlimited usage and priority processing.
                             </p>
                         </div>
 
@@ -228,28 +228,48 @@ export default function ComparePage() {
                                     <span className="text-blue-600">🎙️</span> Core Voice Features
                                 </h3>
                                 <ul className="space-y-6">
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">1. Voice Typing <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free</span></div>
-                                        <p className="text-sm text-gray-600">Tap the mic, speak naturally, and get perfectly punctuated, grammar-corrected text. Works in every app. Real-time interim transcripts with final Gemini LLM enhancement. Supports 19 languages + regional variants.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            1. Voice Typing
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Free (1,000 words/day)</span>
+                                            <span className="bg-blue-100 text-blue-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Unlimited on Pro</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Tap the mic, speak naturally, and get perfectly punctuated, grammar-corrected text. Works natively inside every single app you own. Real-time interim transcripts with final Gemini LLM enhancement. Supports 19+ languages.</p>
                                     </li>
-                                    <li className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
-                                        <div className="font-bold text-gray-900 mb-1">2. Magic Wand <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Pro</span></div>
-                                        <p className="text-sm text-gray-600">Transform existing text instantly based on your voice command: &quot;make it more professional&quot;, &quot;shorten this&quot;, or &quot;rewrite as bullet points&quot;. Zavi edits the text field natively.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            2. Magic Wand
+                                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Unlimited on Pro</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Transform existing text instantly based on your voice command: <span className="italic">&quot;make it more professional&quot;</span>, <span className="italic">&quot;shorten this&quot;</span>, or <span className="italic">&quot;rewrite as bullet points&quot;</span>. Zavi edits the active text field directly.</p>
                                     </li>
-                                    <li className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
-                                        <div className="font-bold text-gray-900 mb-1">3. Voice Agent <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Pro</span></div>
-                                        <p className="text-sm text-gray-600">Speak commands like &quot;Send David an email about Thursday&quot; or &quot;Post to Slack #updates&quot;. Executes multi-turn tool-calling loops (up to 7 turns) across connected apps, reading out results via ultra-realistic TTS.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            3. Voice Agent
+                                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Unlimited on Pro</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Speak commands like <span className="italic">&quot;Send David an email about Thursday&quot;</span> or <span className="italic">&quot;Post to Slack #updates&quot;</span>. Executes multi-turn tool-calling loops across connected apps and reads results out loud.</p>
                                     </li>
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">4. Live Translation <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free*</span></div>
-                                        <p className="text-sm text-gray-600">Speak in your native language, output perfectly translated text into 15 global targets. *Unlimited with Pro tier.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            4. Live Translation
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Free</span>
+                                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Enhanced on Pro</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Speak in your native language, output perfectly translated text into 15 global targets. Essential for distributed teams.</p>
                                     </li>
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">5. Style / Tone Engine <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free</span></div>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            5. Style / Tone Engine
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">100% Free</span>
+                                        </div>
                                         <p className="text-sm text-gray-600">Cycle through 4 specialized AI tones: Professional, Casual (Smile), Chat (Bubbles), or Witty (Playful), ensuring your text matches the structural necessity of the active app.</p>
                                     </li>
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">6. Emoji Auto-Generation <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free</span></div>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            6. Emoji Auto-Generation
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">100% Free</span>
+                                        </div>
                                         <p className="text-sm text-gray-600">When toggled, the AI analyzes semantic intent and injects high-converting contextual emojis directly into the output string.</p>
                                     </li>
                                 </ul>
@@ -258,32 +278,50 @@ export default function ComparePage() {
                             {/* 2. Integrations & Background Audio */}
                             <div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <span className="text-purple-600">⚡</span> Superpowers & Flow
+                                    <span className="text-purple-600">⚡</span> Superpowers & OAuth
                                 </h3>
                                 <ul className="space-y-6">
-                                    <li className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
-                                        <div className="font-bold text-gray-900 mb-1">7. Connected Services (OAuth) <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Pro</span></div>
-                                        <p className="text-sm text-gray-600">Connect Gmail, Slack, GitHub, Notion, LinkedIn, Google Calendar, Docs, Drive, Contacts, YouTube, and Sheets. The Voice Agent intelligently routes actions natively via API to the correct service.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            7. Connected Services
+                                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Unlimited on Pro</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Connect Gmail, Slack, GitHub, Notion, LinkedIn, Google Calendar, Docs, Drive, Contacts, YouTube, and Sheets. The Voice Agent intelligently routes actions natively via APIs.</p>
                                     </li>
-                                    <li className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
-                                        <div className="font-bold text-gray-900 mb-1">8. Web Search Engine <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Pro</span></div>
-                                        <p className="text-sm text-gray-600">Built-in Tavily API allows you to pull real-time web facts into the agent via voice (e.g., &quot;What is Apple&apos;s stock price right now?&quot;).</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            8. Live Web Search
+                                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Unlimited on Pro</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Built-in Tavily API allows you to pull real-time web facts into the agent via voice (e.g., <span className="italic">&quot;What is Apple&apos;s stock price right now?&quot;</span>).</p>
                                     </li>
-                                    <li className="bg-blue-50/50 rounded-xl p-5 border border-blue-100">
-                                        <div className="font-bold text-gray-900 mb-1">9. BYO API Keys <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Pro</span></div>
-                                        <p className="text-sm text-gray-600">Inject your own enterprise OpenAI, Claude, or Gemini API keys for hyper-specialized agent reasoning loops.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            9. BYO API Keys
+                                            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">Pro Feature</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Inject your own enterprise OpenAI, Claude, or Gemini API keys for hyper-specialized agent reasoning loops without rate limits.</p>
                                     </li>
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">10. Continuous Flow Session <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free</span></div>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            10. Continuous Flow Session
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">100% Free</span>
+                                        </div>
                                         <p className="text-sm text-gray-600">Deep-link audio activation keeps the mic engine &quot;warm&quot; in the background with a 1-second IPC heartbeat. Jump between any app while maintaining a flawless 5 minute continuous transcription stream.</p>
                                     </li>
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">11. Custom Dictionary <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free</span></div>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            11. Custom Dictionary
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">100% Free</span>
+                                        </div>
                                         <p className="text-sm text-gray-600">Add proprietary internal project names, proper nouns, and localized geography terms to guarantee 100% spelling accuracy.</p>
                                     </li>
-                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">12. Voice Snippets <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full ml-2 font-semibold">Free</span></div>
-                                        <p className="text-sm text-gray-600">Create fast trigger phrases mapped to massive boilerplate text blocks. Say &quot;Insert my address&quot; to expand to your full shipping format instantly.</p>
+                                    <li className="bg-gray-50 rounded-xl p-5 border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all">
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            12. Voice Snippets
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">100% Free</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Create fast trigger phrases mapped to massive boilerplate text blocks. Say <span className="italic">&quot;Insert my address&quot;</span> to expand to your full shipping format instantly.</p>
                                     </li>
                                 </ul>
                             </div>
@@ -291,7 +329,7 @@ export default function ComparePage() {
                             {/* 3. Keyboard UI & Hardware */}
                             <div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <span className="text-orange-500">⌨️</span> Keyboard UI Architecture
+                                    <span className="text-orange-500">⌨️</span> OS-Level Keyboard Integration
                                 </h3>
                                 <ul className="space-y-6">
                                     <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
@@ -299,8 +337,8 @@ export default function ComparePage() {
                                         <p className="text-sm text-gray-600">Bottom row mapping for customizable actions (Undo, Redo, Enter, Space). Backspace supports hold-to-delete with rapid 50ms interval repeats to wipe paragraphs cleanly without leaving the home row.</p>
                                     </li>
                                     <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">14. OS-Level Integration</div>
-                                        <p className="text-sm text-gray-600">Zavi replaces the stock OS keyboard. Four dynamic modes automatically resize to context: Number Pad, QWERTY, Symbols, and Voice Module.</p>
+                                        <div className="font-bold text-gray-900 mb-1">14. OS-Level Placement</div>
+                                        <p className="text-sm text-gray-600">Zavi replaces the stock OS keyboard natively. Four dynamic modes automatically resize to context: Number Pad, QWERTY, Symbols, and Voice Module.</p>
                                     </li>
                                     <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
                                         <div className="font-bold text-gray-900 mb-1">15. Multi-Ring Mic Indicator</div>
@@ -324,7 +362,7 @@ export default function ComparePage() {
                             {/* 4. Infrastructure & Zavi App Core */}
                             <div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <span className="text-slate-800">🛠️</span> Core App & Infrastructure
+                                    <span className="text-slate-800">🛠️</span> Core Engine Infrastructure
                                 </h3>
                                 <ul className="space-y-6">
                                     <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
@@ -344,39 +382,46 @@ export default function ComparePage() {
                                         <p className="text-sm text-gray-600">40+ shared keychain/storage vectors allow secure Auth token transmission and macro data injection across the system layer sandbox.</p>
                                     </li>
                                     <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
-                                        <div className="font-bold text-gray-900 mb-1">23. Cloud History Vault</div>
-                                        <p className="text-sm text-gray-600">Total recovery logging. Access all previous voice inputs filtered by mode (Typing, Wand, Agent). Never lose an important dictated draft.</p>
+                                        <div className="font-bold text-gray-900 mb-1 flex items-center">
+                                            23. Cloud History Vault
+                                            <span className="bg-green-100 text-green-800 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 font-bold">100% Free</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Total recovery logging. Access all previous voice inputs filtered by mode (Typing, Wand, Agent). Never lose an important dictated draft again.</p>
                                     </li>
                                     <li className="bg-gray-50 rounded-xl p-5 border border-gray-100">
                                         <div className="font-bold text-gray-900 mb-1">24. Contextual Haptics</div>
-                                        <p className="text-sm text-gray-600">Custom Taptic Engine profiles confirming positive dictation starts, loop failures, and tool-call routing finishes.</p>
+                                        <p className="text-sm text-gray-600">Custom Taptic Engine profiles confirming positive dictation starts, loop failures, and tool-call routing finishes entirely through physical touch.</p>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
                         {/* Minor details grid at the bottom */}
-                        <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">25. Onboarding Aurora Engine</div>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">26. Firebase Auth Integration</div>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">27. TTS Voice Selection (Premium)</div>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">28. Stale State IPC Recovery</div>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">29. Analytics Gamification</div>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">30. StoreKit 2 Subs</div>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-4 border border-gray-100 text-center">
-                                <div className="font-bold text-gray-900 text-sm">31. Free Limit (1k Words) Tracking</div>
+                        <div className="mt-12">
+                            <h3 className="text-center font-bold text-gray-900 mb-4 uppercase tracking-widest text-sm">Plus Everything Else Included in the Download</h3>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-3">
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center">
+                                    <span className="font-bold text-gray-700 text-xs">25. Onboarding Aurora Engine</span>
+                                </div>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center">
+                                    <span className="font-bold text-gray-700 text-xs">26. Firebase Auth Integration</span>
+                                </div>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center">
+                                    <span className="font-bold text-gray-700 text-xs">27. TTS Voice Selection (Premium)</span>
+                                </div>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center">
+                                    <span className="font-bold text-gray-700 text-xs">28. Stale State IPC Recovery</span>
+                                </div>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center">
+                                    <span className="font-bold text-gray-700 text-xs">29. Analytics Gamification</span>
+                                </div>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center">
+                                    <span className="font-bold text-gray-700 text-xs">30. StoreKit 2 Auto-Subs</span>
+                                </div>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center flex items-center justify-center relative">
+                                    <div className="absolute -top-2 -right-2 bg-green-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">FREE</div>
+                                    <span className="font-bold text-gray-700 text-xs">31. 1,000 Free Words/Day Tracker</span>
+                                </div>
                             </div>
                         </div>
                     </div>
