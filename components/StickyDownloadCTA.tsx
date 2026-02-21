@@ -52,7 +52,7 @@ export default function StickyDownloadCTA() {
                                     ))}
                                 </div>
                                 <div className="text-xs font-semibold text-slate-600 leading-tight">
-                                    <span className="text-blue-600 font-bold text-sm">50,000+</span><br />Active Users
+                                    <span className="text-blue-600 font-bold text-sm">Loved by</span><br />Professionals
                                 </div>
                             </div>
 
