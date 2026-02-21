@@ -105,7 +105,7 @@ export default function Footer() {
               <div>
                 <p className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Product</p>
                 <div className="space-y-2">
-                  <a href="/#how-it-works" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Demo</a>
+                  <a href="/demo" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Live Demo</a>
                   <a href="/#pricing" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
                   <a href="/#download" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Download</a>
                   <a href="/changelog" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Changelog</a>
@@ -117,8 +117,9 @@ export default function Footer() {
                 <div className="space-y-2">
                   <a href="/compare/wispr-flow" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Wispr Flow</a>
                   <a href="/compare/gboard" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Gboard</a>
-                  <a href="/compare/willow" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Willow</a>
-                  <a href="/compare/otter-ai" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Otter.ai</a>
+                  <a href="/compare/chatgpt" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs ChatGPT</a>
+                  <a href="/compare/dragon" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Dragon</a>
+                  <a href="/compare" className="block text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors">All Comparisons →</a>
                 </div>
               </div>
               {/* Resources */}

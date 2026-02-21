@@ -9,16 +9,19 @@ const testimonials = [
     quote: "The writing quality is noticeably better than standard dictation. My emails sound like I typed them.",
     author: "Sarah Chen",
     role: "Product Manager",
+    rating: 5,
   },
   {
     quote: "Saves me 15 minutes every day. I draft responses while walking between meetings.",
     author: "Marcus Rodriguez",
     role: "Operations Lead",
+    rating: 5,
   },
   {
     quote: "Privacy-first design. Mic only activates when I press it. No recordings stored anywhere.",
     author: "Priya Patel",
     role: "Security Engineer",
+    rating: 5,
   },
 ];
 
@@ -53,33 +56,42 @@ export default function Testimonials() {
                 ease: [0.22, 1, 0.36, 1]
               }}
             >
-              <TiltCard
-                tiltAmount={8}
-                scale={1.03}
-                className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 relative overflow-hidden hover:shadow-2xl transition-shadow h-full"
-              >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/5 to-sky-500/5 rounded-full blur-2xl" />
-              <svg className="w-10 h-10 text-blue-600/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="text-base text-gray-700 leading-relaxed mb-6 relative z-10">
-                "{testimonial.quote}"
-              </p>
+              <div itemScope itemProp="review" itemType="https://schema.org/Review">
+                <TiltCard
+                  tiltAmount={8}
+                  scale={1.03}
+                  className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 relative overflow-hidden hover:shadow-2xl transition-shadow h-full"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-500/5 to-sky-500/5 rounded-full blur-2xl" />
+                  <svg className="w-10 h-10 text-blue-600/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-base text-gray-700 leading-relaxed mb-6 relative z-10" itemProp="reviewBody">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="sr-only" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                    <meta itemProp="ratingValue" content={String(testimonial.rating)} />
+                    <meta itemProp="bestRating" content="5" />
+                  </div>
+                  <div className="sr-only" itemProp="itemReviewed" itemScope itemType="https://schema.org/SoftwareApplication">
+                    <meta itemProp="name" content="Zavi AI" />
+                  </div>
 
-              <div className="flex items-center gap-3 relative z-10">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center text-white font-semibold text-sm">
-                  {testimonial.author.split(' ').map(n => n[0]).join('')}
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900 text-sm">
-                    {testimonial.author}
+                  <div className="flex items-center gap-3 relative z-10" itemProp="author" itemScope itemType="https://schema.org/Person">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center text-white font-semibold text-sm">
+                      {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 text-sm" itemProp="name">
+                        {testimonial.author}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {testimonial.role}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-500">
-                    {testimonial.role}
-                  </div>
-                </div>
+                </TiltCard>
               </div>
-              </TiltCard>
             </motion.div>
           ))}
         </div>
