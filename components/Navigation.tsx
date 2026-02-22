@@ -80,8 +80,8 @@ export default function Navigation() {
   }, [mobileMenuOpen]);
 
   const getDownloadText = () => {
-    if (detectedOS === 'Android' || detectedOS === 'iOS') return 'Download Free';
-    return 'Get Early Access';
+    if (detectedOS === 'Windows') return 'Join Waitlist';
+    return 'Download Free';
   };
 
   // Scroll to section

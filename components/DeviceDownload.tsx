@@ -224,7 +224,7 @@ export default function DeviceDownload() {
                       text-sm font-semibold
                       ${(isAndroid || platform.name === 'iOS' || platform.name === 'macOS' || platform.name === 'Linux') ? 'text-white/90' : 'text-zavi-blue-500'}
                     `}>
-                      {(isAndroid || platform.name === 'iOS' || platform.name === 'macOS' || platform.name === 'Linux') ? 'Download' : 'Early Access'}
+                      {(isAndroid || platform.name === 'iOS' || platform.name === 'macOS' || platform.name === 'Linux') ? 'Download' : 'Join Waitlist'}
                     </span>
                   </div>
                 </motion.button>
@@ -232,7 +232,7 @@ export default function DeviceDownload() {
             })}
           </motion.div>
 
-          {/* Early Access Form */}
+          {/* Waitlist Form */}
           <AnimatePresence mode="wait">
             {selectedForAccess && (
               <motion.div
@@ -243,7 +243,7 @@ export default function DeviceDownload() {
               >
                 {!isSubmitted ? (
                   <>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Get Early Access for {selectedForAccess}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">Join the Waitlist for {selectedForAccess}</h3>
                     <p className="text-slate-600 mb-6 text-sm">We'll notify you as soon as the {selectedForAccess} version is ready for preview.</p>
                     <form onSubmit={handleWaitlistSubmit} className="flex gap-2">
                       <input

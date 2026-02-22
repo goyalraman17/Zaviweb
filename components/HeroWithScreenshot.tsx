@@ -33,8 +33,8 @@ export default function HeroWithScreenshot() {
 
   // Get download text based on detected OS
   const getDownloadText = () => {
-    if (detectedOS === 'Android') return 'Download Free';
-    return 'Get Early Access';
+    if (detectedOS === 'Windows') return 'Join Waitlist';
+    return 'Download Free';
   };
 
   return (
