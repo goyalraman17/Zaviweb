@@ -93,15 +93,11 @@ export default function SuperpowersSection() {
                     variants={staggerContainer}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 mb-6">
-                        <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                        <span className="text-sm font-bold tracking-wide text-indigo-700 uppercase">OS Superpowers</span>
-                    </div>
-                    <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
-                        Give Zavi <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Superpowers</span>
+                    <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight">
+                        Give Your OS <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Superpowers</span>
                     </motion.h2>
-                    <motion.p variants={fadeUp} className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
-                        Just speak. Control your favorite apps, send DMs, search the web, and manage your OS entirely hands-free.
+                    <motion.p variants={fadeUp} className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
+                        Just speak. Control your favorite apps, send DMs, or search the web entirely hands-free.
                     </motion.p>
                 </motion.div>
 

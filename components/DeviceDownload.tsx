@@ -156,9 +156,18 @@ export default function DeviceDownload() {
 
           <motion.div
             variants={fadeUp}
-            className="text-lg md:text-2xl text-gray-600 mb-16 md:mb-20 max-w-2xl mx-auto space-y-2 px-4"
+            className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto space-y-3 px-4"
           >
-            <p>Live on Android, iOS, Mac, and Linux. Coming soon to Windows.</p>
+            <p className="font-medium text-gray-900">Live on Android, iOS, Mac, and Linux. Coming soon to Windows.</p>
+            <div className="flex items-center justify-center gap-2 text-sm">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-full font-semibold border border-green-200">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                1,000 Free Words Every Day
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-50 text-gray-600 rounded-full font-medium border border-gray-200">
+                No Credit Card Needed
+              </span>
+            </div>
           </motion.div>
 
           {/* Platform Grid */}

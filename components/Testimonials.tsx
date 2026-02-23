@@ -25,6 +25,24 @@ const testimonials = [
     role: "Security Engineer",
     rating: 5,
   },
+  {
+    quote: "I ditched my $12/mo Wispr Flow subscription. Zavi is faster, cheaper, and works on my Android phone too.",
+    author: "David Kim",
+    role: "Software Engineer",
+    rating: 5,
+  },
+  {
+    quote: "The multi-language translation is insane. I dictate in Spanish and it instantly types perfect English emails to my clients.",
+    author: "Elena Rossi",
+    role: "Marketing Director",
+    rating: 5,
+  },
+  {
+    quote: "Finally a dictation tool that doesn't make me sound like a robot. The 'Witty' tone setting is my secret weapon.",
+    author: "James Holden",
+    role: "Copywriter",
+    rating: 5,
+  },
 ];
 
 export default function Testimonials() {

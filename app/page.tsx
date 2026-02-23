@@ -60,35 +60,35 @@ export default function Home() {
         {/* 1. Magic Wand Component - Instant Understanding */}
         <MagicWand />
 
-        {/* 2. Device/Platform Download - Primary CTA 1 */}
-        <DeviceDownload />
-
-        {/* 3. Superpowers - MAJOR DIFFERENTIATOR showing immediate utility */}
-        <SuperpowersSection />
-
-        {/* 4. Kill Your Keyboard - Wow Moment & Problem Agitation */}
-        <KillYourKeyboard />
-
-        {/* 5. Metrics - Social Proof & Trust */}
+        {/* 2. Metrics - High-Impact Social Proof early on */}
         <Metrics />
 
-        {/* 6. Language Translation Hero - Feature Differentiator */}
+        {/* 3. Testimonials - Real people backing the initial claim */}
+        <Testimonials />
+
+        {/* 4. Device/Platform Download - Primary CTA 1 (Now armed with trust) */}
+        <DeviceDownload />
+
+        {/* 5. Superpowers - MAJOR DIFFERENTIATOR showing immediate utility */}
+        <SuperpowersSection />
+
+        {/* 6. Kill Your Keyboard - Wow Moment & Problem Agitation */}
+        <KillYourKeyboard />
+
+        {/* 7. Language Translation Hero - Feature Differentiator */}
         <LanguageTranslationHero />
 
-        {/* 7. Video Demo - Deep dive proof */}
+        {/* 8. Video Demo - Deep dive proof */}
         <VideoDemo />
 
-        {/* 8. Adapts to Your Role - Personalization */}
+        {/* 9. Adapts to Your Role - Personalization */}
         <AdaptsToYourRole />
 
-        {/* 9. On-the-go or At Your Desk - Flexibility */}
+        {/* 10. On-the-go or At Your Desk - Flexibility */}
         <OnTheGoOrAtYourDesk />
 
-        {/* 10. Pro Power-Ups - Technical edge to justify price */}
+        {/* 11. Pro Power-Ups - Technical edge to justify price */}
         <ProPowerUps />
-
-        {/* 11. Testimonials - Social proof before asking for money */}
-        <Testimonials />
 
         {/* 12. Pricing - The Ask */}
         <PricingNew />

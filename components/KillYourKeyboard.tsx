@@ -29,9 +29,9 @@ export default function KillYourKeyboard() {
             </motion.h2>
             <motion.p
               variants={fadeUpLarge}
-              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium"
+              className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium"
             >
-              Stop jumping between tabs. Just tell Zavi what you need and watch it click, type, and send it for you. Your personal assistant that actually does the work.
+              Stop jumping between tabs. Just tell Zavi what you need and watch it click, type, and send it for you.
             </motion.p>
           </RevealOnScroll>
 
