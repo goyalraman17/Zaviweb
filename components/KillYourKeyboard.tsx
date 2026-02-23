@@ -25,7 +25,7 @@ export default function KillYourKeyboard() {
               variants={fadeUpLarge}
               style={{ lineHeight: 1.15 }}
             >
-              The world's first Voice <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue-600 to-indigo-600">AGI</span>.
+              The first voice assistant that <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue-600 to-indigo-600">actually does the work.</span>
             </motion.h2>
             <motion.p
               variants={fadeUpLarge}

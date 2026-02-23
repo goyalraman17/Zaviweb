@@ -127,7 +127,7 @@ export default function HeroWithScreenshot() {
                   backgroundSize: '200% 200%',
                 }}
               >
-                The voice-to-action AI that executes tasks, sends emails, and writes perfectly in every app.
+                The voice assistant that actually does the work. It executes tasks, sends emails, and types perfectly in every app.
               </motion.span>
             </motion.h1>
 
