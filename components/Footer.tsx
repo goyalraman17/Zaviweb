@@ -50,8 +50,6 @@ export default function Footer() {
             <div className="space-y-4">
               <a href="/compare/wispr-flow" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Wispr Flow</a>
               <a href="/compare/chatgpt" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs ChatGPT / Claude</a>
-              <a href="/compare" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Gemini / Zapier</a>
-              <a href="/compare/apple-dictation" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Apple / Gboard</a>
             </div>
           </motion.div>
 
