@@ -149,7 +149,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
       <head>
         {/* RSS Feed autodiscovery */}
         <link rel="alternate" type="application/rss+xml" title="Zavi AI Blog RSS Feed" href="https://zavivoice.com/feed.xml" />

@@ -45,13 +45,13 @@ export default function VideoDemo() {
                   role="button"
                   aria-label="Play Video"
                 >
-                  {/* Autoplaying Muted Background Video */}
-                  <div className="absolute inset-0 w-full h-full pointer-events-none scale-105">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&rel=0&showinfo=0`}
-                      title="Zavi Preview"
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  {/* Lightweight Thumbnail Cover */}
+                  <div className="absolute inset-0 w-full h-full pointer-events-none bg-gray-900">
+                    <img
+                      src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                      alt="Zavi Preview"
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-90"
                     />
                   </div>
 

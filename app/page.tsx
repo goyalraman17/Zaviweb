@@ -7,8 +7,9 @@ import PageAnalytics from '@/components/PageAnalytics';
 import JsonLd from '@/components/SEO/JsonLd';
 import { softwareApplicationSchema } from '@/lib/schemaData';
 
-import MagicWand from '@/components/MagicWand';
-
+const MagicWand = dynamic(() => import('@/components/MagicWand'), {
+  loading: () => <div className="h-96 bg-gray-50 flex items-center justify-center">Loading...</div>
+});
 // Lazy load below-the-fold components for better performance
 const VideoDemo = dynamic(() => import('@/components/VideoDemo'), {
   loading: () => <div className="h-96 bg-gray-100 animate-pulse" />
