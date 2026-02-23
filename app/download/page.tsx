@@ -48,7 +48,7 @@ const platforms = [
         requirement: 'macOS 12+',
         description: 'Desktop voice typing app. Speak into any app on your Mac.',
         cta: 'Download for Mac',
-        href: '/download/macos',
+        href: '/Zavi_AI.dmg',
         highlight: false,
     },
     {
@@ -58,7 +58,7 @@ const platforms = [
         requirement: 'Windows 10+',
         description: 'Desktop voice typing for Windows. System-wide voice input.',
         cta: 'Download for Windows',
-        href: '/download/windows',
+        href: 'https://zavivoice.com/Zavi_Windows.exe', // using absolute or assumed path for now, adjust if needed
         highlight: false,
     },
     {
@@ -67,8 +67,8 @@ const platforms = [
         status: 'Available',
         requirement: 'Ubuntu 20.04+ / Debian',
         description: 'Voice typing for Linux desktops. Available as .deb package.',
-        cta: 'Download .deb',
-        href: '/download/linux',
+        cta: 'Download Linux App',
+        href: 'https://zavivoice.com/Zavi_Linux.deb', // using absolute or assumed path.
         highlight: false,
     },
 ];
