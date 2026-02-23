@@ -66,10 +66,6 @@ export default function Footer() {
           className="w-full flex justify-center mb-16"
         >
           <div className="flex items-center gap-8 px-4 w-full justify-center">
-            {/* Extremely large logo to align with the Flow screenshot aesthetic */}
-            <div className="w-24 h-24 md:w-40 md:h-40 bg-slate-900 rounded-[2.5rem] flex items-center justify-center p-4">
-              <img src="/zavi-logo.png" alt="Zavi Icon" className="w-full h-full object-contain brightness-0 invert" />
-            </div>
             <h1 className="text-[100px] md:text-[200px] leading-none font-black text-slate-900 tracking-tighter">Zavi</h1>
           </div>
         </motion.div>
