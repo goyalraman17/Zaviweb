@@ -169,27 +169,27 @@ export default function DownloadPage() {
                     </div>
 
                     {/* Desktop Platforms */}
-                    <div className="grid sm:grid-cols-3 gap-6 mb-24 max-w-5xl mx-auto">
+                    <div className="grid sm:grid-cols-3 gap-6 mb-24 max-w-6xl mx-auto">
                         {desktopPlatforms.map((platform) => (
                             <div
                                 key={platform.name}
-                                className="rounded-3xl p-6 border border-slate-200 bg-white transition-all hover:border-slate-300 hover:shadow-md hover:-translate-y-1"
+                                className="rounded-3xl p-8 border-2 border-slate-200 bg-white transition-all hover:border-blue-400 hover:shadow-xl hover:-translate-y-1"
                             >
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100">{platform.icon}</div>
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">{platform.icon}</div>
                                     <h2 className="text-2xl font-bold text-slate-900">{platform.name}</h2>
                                 </div>
 
-                                <div className="flex items-center gap-2 mb-3">
-                                    <span className="inline-flex items-center px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded-full border border-green-100">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider rounded-full">
                                         ✓ {platform.status}
                                     </span>
-                                    <span className="text-[11px] font-semibold text-slate-500">{platform.requirement}</span>
+                                    <span className="text-xs font-semibold text-slate-500">{platform.requirement}</span>
                                 </div>
-                                <p className="text-slate-600 text-sm mb-6 min-h-[40px] leading-relaxed">{platform.description}</p>
+                                <p className="text-slate-600 text-base mb-8 min-h-[48px] font-medium leading-relaxed">{platform.description}</p>
                                 <a
                                     href={platform.href}
-                                    className="block text-center px-5 py-3 rounded-xl font-bold text-sm bg-slate-100 text-slate-800 hover:bg-slate-200 transition-all border border-slate-200"
+                                    className="block text-center px-6 py-4 rounded-2xl font-bold text-lg bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-md hover:shadow-lg hover:scale-[1.02]"
                                     target={platform.href.startsWith('http') ? '_blank' : undefined}
                                     rel={platform.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                 >
