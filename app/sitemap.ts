@@ -5,6 +5,7 @@ import { comparisons } from '@/lib/comparisonData';
 import { languages } from '@/lib/languageData';
 import { glossaryTerms } from '@/lib/glossaryData';
 import { useCases } from '@/lib/useCaseData';
+import { integrations } from '@/lib/integrationData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://zavi.ai';
@@ -92,6 +93,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // App Integration pages (Superpowers)
+  const integrationUrls = integrations.map((int) => ({
+    url: `${baseUrl}/integrations/${int.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticUrls,
     ...blogUrls,
@@ -101,5 +110,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...languageUrls,
     ...glossaryUrls,
     ...useCaseUrls,
+    ...integrationUrls,
   ];
 }
