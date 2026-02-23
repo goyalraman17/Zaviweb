@@ -35,7 +35,7 @@ export default function VideoDemo() {
 
           {/* Video Player Container */}
           <motion.div variants={fadeUp} className="relative">
-            <div className="relative aspect-[9/16] max-w-[350px] mx-auto bg-gray-900 rounded-[2.5rem] shadow-2xl overflow-hidden border-4 border-gray-800 ring-1 ring-gray-900/50">
+            <div className="relative aspect-video w-full max-w-5xl mx-auto bg-gray-900 rounded-[1.5rem] shadow-2xl overflow-hidden border-4 border-gray-800 ring-1 ring-gray-900/50">
 
               {!isPlaying ? (
                 /* Cover / Play Button State */
