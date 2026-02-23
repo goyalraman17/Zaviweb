@@ -106,34 +106,26 @@ export default function HeroWithScreenshot() {
           >
             {/* Headline */}
             <motion.h1
-              className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[#1a1a1a] mb-6 px-4"
+              className="text-6xl sm:text-7xl lg:text-8xl font-black text-[#1a1a1a] tracking-tight mb-6"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
-              style={{ lineHeight: 1.2 }}
+              style={{ lineHeight: 1.1 }}
             >
-              Don't type, just speak<br />
-              <motion.span
-                className="bg-gradient-to-r from-zavi-blue-600 via-zavi-blue-400 to-zavi-blue-600 bg-clip-text text-transparent text-3xl sm:text-5xl lg:text-5xl mt-4 block leading-snug"
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                style={{
-                  backgroundSize: '200% 200%',
-                }}
-              >
-                The voice assistant that actually does the work. It executes tasks, sends emails, and types perfectly in every app.
-              </motion.span>
+              Don't type, just speak
             </motion.h1>
+            <motion.p
+              className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed font-medium"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              The voice assistant that actually does the work. It executes tasks, sends emails, and types perfectly in every app.
+            </motion.p>
 
             {/* Process Visual - Replaces sub-headline */}
             <motion.div
-              className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 mb-12 px-2"
+              className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 mb-10 px-2"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
