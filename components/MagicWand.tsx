@@ -41,6 +41,24 @@ const magicExamples = [
 
 export default function MagicWand() {
     const [activeCard, setActiveCard] = useState<string | null>(null);
+    const [autoPlay, setAutoPlay] = useState(true);
+
+    useEffect(() => {
+        if (!autoPlay) return;
+
+        const sequence = ['instagram', 'gmail', 'slack'];
+        let currentIndex = 0;
+
+        // Start the first one immediately
+        setActiveCard(sequence[0]);
+
+        const intervalId = setInterval(() => {
+            currentIndex = (currentIndex + 1) % sequence.length;
+            setActiveCard(sequence[currentIndex]);
+        }, 4000);
+
+        return () => clearInterval(intervalId);
+    }, [autoPlay]);
 
     return (
         <section className="py-24 relative overflow-hidden bg-white">
@@ -117,7 +135,10 @@ export default function MagicWand() {
                             key={item.id}
                             item={item}
                             isActive={activeCard === item.id}
-                            onActivate={() => setActiveCard(item.id === activeCard ? null : item.id)}
+                            onActivate={() => {
+                                setAutoPlay(false);
+                                setActiveCard(item.id === activeCard ? null : item.id);
+                            }}
                         />
                     ))}
                 </motion.div>
