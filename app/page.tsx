@@ -57,43 +57,43 @@ export default function Home() {
         {/* Hero with Screenshot - Immediate Hook */}
         <HeroWithScreenshot />
 
-        {/* Magic Wand Component */}
+        {/* 1. Magic Wand Component - Instant Understanding */}
         <MagicWand />
 
-        {/* Language Translation Hero - BIGGEST DIFFERENTIATOR */}
-        <LanguageTranslationHero />
-
-        {/* Device Download - PRIMARY CONVERSION POINT */}
+        {/* 2. Device/Platform Download - Primary CTA 1 */}
         <DeviceDownload />
 
-        {/* Video Demo - Prove It Works */}
-        <VideoDemo />
-
-        {/* Metrics - Social Proof Stats (NEW) */}
-        <Metrics />
-
-        {/* Kill Your Keyboard - Wow Moment */}
-        <KillYourKeyboard />
-
-        {/* Adapts to Your Role - Deep Personalization */}
-        <AdaptsToYourRole />
-
-        {/* Pro Power-Ups - Highlight technical edge before pricing */}
-        <ProPowerUps />
-
-        {/* Superpowers Index - Game Changer Third-Party Integrations */}
+        {/* 3. Superpowers - MAJOR DIFFERENTIATOR showing immediate utility */}
         <SuperpowersSection />
 
-        {/* Pricing - Convert While Excited */}
-        <PricingNew />
+        {/* 4. Kill Your Keyboard - Wow Moment & Problem Agitation */}
+        <KillYourKeyboard />
 
-        {/* Testimonials - Customer Stories (NEW) */}
-        <Testimonials />
+        {/* 5. Metrics - Social Proof & Trust */}
+        <Metrics />
 
-        {/* On-the-go or At Your Desk - Flexibility Everywhere */}
+        {/* 6. Language Translation Hero - Feature Differentiator */}
+        <LanguageTranslationHero />
+
+        {/* 7. Video Demo - Deep dive proof */}
+        <VideoDemo />
+
+        {/* 8. Adapts to Your Role - Personalization */}
+        <AdaptsToYourRole />
+
+        {/* 9. On-the-go or At Your Desk - Flexibility */}
         <OnTheGoOrAtYourDesk />
 
-        {/* FAQ - Handle Objections */}
+        {/* 10. Pro Power-Ups - Technical edge to justify price */}
+        <ProPowerUps />
+
+        {/* 11. Testimonials - Social proof before asking for money */}
+        <Testimonials />
+
+        {/* 12. Pricing - The Ask */}
+        <PricingNew />
+
+        {/* 13. FAQ - Overcome final objections */}
         <FAQ />
 
         {/* 
