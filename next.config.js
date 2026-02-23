@@ -17,15 +17,28 @@ const nextConfig = {
         ],
       },
       {
-        source: '/downloads/Zavi_0.1.0_amd64.deb',
+        source: '/downloads/Zavi_Windows.exe',
         headers: [
           {
             key: 'Content-Disposition',
-            value: 'attachment; filename="Zavi_0.1.0_amd64.deb"',
+            value: 'attachment; filename="Zavi_Windows.exe"',
           },
           {
             key: 'Content-Type',
-            value: 'application/octet-stream',
+            value: 'application/x-msdos-program',
+          },
+        ],
+      },
+      {
+        source: '/downloads/Zavi_Linux.deb',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="Zavi_Linux.deb"',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/vnd.debian.binary-package',
           },
         ],
       },

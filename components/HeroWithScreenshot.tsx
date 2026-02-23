@@ -37,7 +37,7 @@ export default function HeroWithScreenshot() {
 
   // Get download text based on detected OS
   const getDownloadText = () => {
-    if (detectedOS === 'Windows') return 'Join Windows Waitlist';
+    if (detectedOS === 'Windows') return 'Download for Windows';
     if (detectedOS === 'iOS') return 'Get Zavi for iPhone';
     if (detectedOS === 'Android') return 'Get Zavi for Android';
     if (detectedOS === 'macOS') return 'Download for macOS';
@@ -316,7 +316,7 @@ export default function HeroWithScreenshot() {
                   No credit card
                 </span>
                 <span className="text-xs text-gray-500 font-medium mt-1">
-                  Available on Mac, Windows, iOS and Android
+                  Available on Mac, Windows, Linux, iOS and Android
                 </span>
               </div>
             </motion.div>
