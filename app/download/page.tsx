@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation';
+import FAQ from '@/components/FAQ';
 import Link from 'next/link';
 import JsonLd from '@/components/SEO/JsonLd';
 import { generateBreadcrumbSchema, softwareApplicationSchema } from '@/lib/schemaData';
@@ -220,44 +221,8 @@ export default function DownloadPage() {
                         </p>
                     </div>
 
-                    {/* How to Get Started */}
-                    <div className="mb-24">
-                        <h2 className="text-3xl font-black text-slate-900 text-center mb-12">Get Started in 60 Seconds</h2>
-                        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                            {[
-                                { step: '1', title: 'Download & Install', desc: 'Get Zavi from your app store or download page. Set as your default keyboard on mobile.' },
-                                { step: '2', title: 'Tap the Microphone', desc: 'Open any app. Tap the mic icon on the Zavi keyboard and speak naturally.' },
-                                { step: '3', title: 'Get Perfect Text', desc: 'Zavi removes filler words, fixes grammar, and delivers polished text. Send it.' },
-                            ].map((item) => (
-                                <div key={item.step} className="text-center bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md">
-                                    <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl font-black mx-auto mb-6 border border-blue-100 ring-4 ring-white shadow-sm">
-                                        {item.step}
-                                    </div>
-                                    <h3 className="font-bold text-lg text-slate-900 mb-3">{item.title}</h3>
-                                    <p className="text-sm text-slate-600 leading-relaxed font-medium">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
                     {/* FAQ */}
-                    <div className="max-w-3xl mx-auto mb-20 bg-white rounded-3xl p-8 md:p-12 border border-slate-200">
-                        <h2 className="text-3xl font-black text-slate-900 text-center mb-10">Download FAQ</h2>
-                        <div className="space-y-8">
-                            {[
-                                { q: 'Is Zavi AI free to download?', a: 'Yes. Zavi is free to download on all platforms. The free plan includes AI voice typing with filler word removal, grammar correction, and 100+ language support. Pro unlocks unlimited usage.' },
-                                { q: 'Does Zavi work on iPhone?', a: 'Yes. Zavi AI is available on iOS 16+ as a system-wide keyboard. Download from the App Store and enable it in Settings → General → Keyboard → Keyboards → Add New Keyboard → Zavi.' },
-                                { q: 'How do I set Zavi as my default keyboard?', a: 'On Android: Settings → Language & Input → Default Keyboard → Zavi. On iOS: Settings → General → Keyboard → Keyboards → Add Zavi. On desktop, Zavi runs as a standalone app.' },
-                                { q: 'Is my data safe?', a: 'Yes. Zavi processes your voice in real-time and immediately deletes the audio. We never store, share, or use your voice data to train AI models.' },
-                            ].map((faq) => (
-                                <div key={faq.q} className="border-b border-slate-100 pb-8 last:border-0 last:pb-0">
-                                    <h3 className="text-lg font-bold text-slate-900 mb-3">{faq.q}</h3>
-                                    <p className="text-slate-600 leading-relaxed">{faq.a}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
+                    <FAQ />
                 </div>
             </main>
         </>
