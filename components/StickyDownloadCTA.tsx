@@ -32,7 +32,7 @@ export default function StickyDownloadCTA() {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className="fixed bottom-4 md:bottom-8 left-0 w-full pointer-events-none z-[100] flex justify-center px-4">
+                <div className="fixed bottom-4 md:bottom-8 left-0 w-full pointer-events-none z-[9990] flex justify-center px-4">
                     <motion.div
                         initial={{ y: 80, opacity: 0, scale: 0.9 }}
                         animate={{ y: 0, opacity: 1, scale: 1 }}

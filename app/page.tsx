@@ -24,7 +24,7 @@ const FAQ = dynamic(() => import('@/components/FAQ'));
 const FinalCTA = dynamic(() => import('@/components/FinalCTA'));
 const ProPowerUps = dynamic(() => import('@/components/ProPowerUps'));
 const SuperpowersSection = dynamic(() => import('@/components/SuperpowersSection'));
-const MobileStickyCTA = dynamic(() => import('@/components/MobileStickyCTA'));
+
 
 /**
  * Zavi Marketing Website - Conversion-Optimized Flow
@@ -170,8 +170,7 @@ export default function Home() {
           </p>
         </article>
 
-        {/* Global Mobile Sticky CTA */}
-        <MobileStickyCTA />
+
 
       </main>
     </>
