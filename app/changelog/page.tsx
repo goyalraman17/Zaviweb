@@ -24,6 +24,29 @@ interface ChangelogEntry {
 
 const changelog: ChangelogEntry[] = [
     {
+        version: '2.6',
+        date: 'Late February 2026',
+        title: 'Premium UI Overhaul & OpenClaw Integrations',
+        changes: [
+            { type: 'feature', text: 'Premium Footer Overhaul — beautifully redesigned footer with clean layouts, serif typography, and massive branding' },
+            { type: 'feature', text: 'Premium Magic Wand UI — introduced GlowCard hover effects, glassmorphism floating islands, and ambient particles' },
+            { type: 'feature', text: 'OpenClaw Integration Phase — added support for end-to-end voice-to-AI execution pipelines via OpenClaw' },
+            { type: 'improvement', text: 'Expanded "vs Competitors" comparisons with 5 detailed new breakdown pages' },
+            { type: 'fix', text: 'Fixed Next.js download handler to correctly serve Mac DMG and Linux DEB files with accurate filenames' },
+        ],
+    },
+    {
+        version: '2.5',
+        date: 'Early February 2026',
+        title: 'iOS Auto-Return & System Reliability',
+        changes: [
+            { type: 'feature', text: 'Implemented iOS "Auto-Return" — Zavi instantly switches back to your previous app (e.g., WhatsApp) after handling voice input' },
+            { type: 'improvement', text: 'Greatly improved iOS Keyboard audio session handling and background task resilience' },
+            { type: 'fix', text: 'Fixed an issue where tapping the microphone button on the iOS keyboard extension occasionally felt unresponsive' },
+            { type: 'fix', text: 'Resolved "Error occurred. Tap to retry" message states affecting offline voice processing flow' },
+        ],
+    },
+    {
         version: '2.4',
         date: 'February 2026',
         title: 'Multilingual Mastery & New Languages',
