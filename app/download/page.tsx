@@ -65,7 +65,7 @@ const desktopPlatforms = [
         description: 'Desktop voice typing app. Speak into any app on your Mac.',
         cta: 'Download for Mac',
         href: '/Zavi_AI.dmg',
-        highlight: false,
+        highlight: true,
     },
     {
         name: 'Windows',
@@ -79,7 +79,7 @@ const desktopPlatforms = [
         description: 'Desktop voice typing for Windows. System-wide voice input.',
         cta: 'Download for Windows',
         href: 'https://zavivoice.com/Zavi_Windows.exe',
-        highlight: false,
+        highlight: true,
     },
     {
         name: 'Linux',
@@ -93,7 +93,7 @@ const desktopPlatforms = [
         description: 'Voice typing for Linux desktops. Available as .deb package.',
         cta: 'Download Linux App',
         href: 'https://zavivoice.com/Zavi_Linux.deb',
-        highlight: false,
+        highlight: true,
     },
 ];
 

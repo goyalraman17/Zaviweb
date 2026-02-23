@@ -39,11 +39,11 @@ export default function Footer() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <h3 className="text-2xl font-serif text-slate-800 font-medium mb-6">Platforms</h3>
             <div className="space-y-4">
-              <a href="/download/macos" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">macOS App</a>
+              <a href="/download/macos" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Mac App</a>
               <a href="/download/windows" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Windows App</a>
               <a href="/download/linux" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Linux App</a>
-              <a href="/download/ios" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">iOS Keyboard</a>
-              <a href="/download/android" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Android Keyboard</a>
+              <a href="/download/ios" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">iOS App</a>
+              <a href="/download/android" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Android App</a>
             </div>
           </motion.div>
 
