@@ -82,7 +82,7 @@ export default function DeviceDownload() {
 
       if (userAgent.includes('android')) {
         setDetectedPlatform('Android');
-      } else if (userAgent.includes('iphone') || userAgent.includes('ipad') ||
+      } else if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') ||
         (platform.includes('mac') && navigator.maxTouchPoints > 1)) {
         setDetectedPlatform('iOS');
       } else if (userAgent.includes('mac')) {

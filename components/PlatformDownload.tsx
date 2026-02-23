@@ -78,11 +78,11 @@ export default function PlatformDownload() {
   useEffect(() => {
     // Detect OS
     const userAgent = window.navigator.userAgent.toLowerCase();
-    if (userAgent.includes('android')) setDetectedOS('android');
+    if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) setDetectedOS('ios');
+    else if (userAgent.includes('android')) setDetectedOS('android');
     else if (userAgent.includes('mac')) setDetectedOS('mac');
     else if (userAgent.includes('win')) setDetectedOS('windows');
     else if (userAgent.includes('linux')) setDetectedOS('linux');
-    else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('ios');
 
     setSelectedPlatform(detectedOS || 'android');
   }, [detectedOS]);

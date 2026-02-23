@@ -79,7 +79,7 @@ export default function DownloadSection() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
-      if (userAgent.includes('iphone') || userAgent.includes('ipad')) {
+      if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) {
         setDetectedOS('iOS');
       } else if (userAgent.includes('android')) {
         setDetectedOS('Android');
@@ -130,11 +130,10 @@ export default function DownloadSection() {
               return (
                 <motion.div
                   key={platform.name}
-                  className={`group relative card p-6 transition-all duration-300 ${
-                    isRecommended
-                      ? 'border-zavi-blue shadow-lg'
-                      : 'hover:shadow-md'
-                  }`}
+                  className={`group relative card p-6 transition-all duration-300 ${isRecommended
+                    ? 'border-zavi-blue shadow-lg'
+                    : 'hover:shadow-md'
+                    }`}
                   variants={fadeUp}
                 >
                   {/* Recommended Badge */}
@@ -144,9 +143,8 @@ export default function DownloadSection() {
                     </div>
                   )}
 
-                  <div className={`mb-4 ${
-                    isRecommended ? 'text-zavi-blue' : 'text-gray-600 group-hover:text-zavi-charcoal'
-                  } transition-colors`}>
+                  <div className={`mb-4 ${isRecommended ? 'text-zavi-blue' : 'text-gray-600 group-hover:text-zavi-charcoal'
+                    } transition-colors`}>
                     {platform.icon}
                   </div>
 
@@ -159,11 +157,10 @@ export default function DownloadSection() {
                   </p>
 
                   <button
-                    className={`w-full font-semibold rounded-lg transition-all inline-flex items-center justify-center gap-2 py-3 ${
-                      isRecommended
-                        ? 'btn-primary'
-                        : 'text-sm text-zavi-blue bg-white border-2 border-gray-200 hover:border-zavi-blue hover:bg-zavi-blue/5'
-                    }`}
+                    className={`w-full font-semibold rounded-lg transition-all inline-flex items-center justify-center gap-2 py-3 ${isRecommended
+                      ? 'btn-primary'
+                      : 'text-sm text-zavi-blue bg-white border-2 border-gray-200 hover:border-zavi-blue hover:bg-zavi-blue/5'
+                      }`}
                   >
                     <span className="text-sm">
                       {platform.buttonText}

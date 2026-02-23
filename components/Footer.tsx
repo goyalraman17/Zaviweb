@@ -119,6 +119,8 @@ export default function Footer() {
                   <a href="/compare/gboard" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Gboard</a>
                   <a href="/compare/chatgpt" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs ChatGPT</a>
                   <a href="/compare/dragon" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Dragon</a>
+                  <a href="/compare/willow" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Willow</a>
+                  <a href="/compare/apple-dictation" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">vs Apple Dictation</a>
                   <a href="/compare" className="block text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors">All Comparisons →</a>
                 </div>
               </div>

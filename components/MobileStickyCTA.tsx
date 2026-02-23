@@ -10,10 +10,11 @@ export default function MobileStickyCTA() {
     useEffect(() => {
         // Detect OS
         const userAgent = window.navigator.userAgent.toLowerCase();
-        if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('iOS');
+        if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) setDetectedOS('iOS');
         else if (userAgent.includes('android')) setDetectedOS('Android');
         else if (userAgent.includes('mac')) setDetectedOS('macOS');
         else if (userAgent.includes('win')) setDetectedOS('Windows');
+        else if (userAgent.includes('linux')) setDetectedOS('Linux');
 
         // Scroll listener for visibility
         const handleScroll = () => {

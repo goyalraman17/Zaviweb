@@ -15,16 +15,44 @@ import GlowCard from './animated/GlowCard';
 
 export default function PricingNew() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
-  const [isAndroid, setIsAndroid] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+
+  const [isAndroid, setIsAndroid] = useState(false);
+  const [detectedOS, setDetectedOS] = useState<string>('Unknown');
 
   // Track pricing page view and detect OS
   useEffect(() => {
     analytics.track('pricing_view');
     if (typeof window !== 'undefined') {
-      setIsAndroid(window.navigator.userAgent.toLowerCase().includes('android'));
+      const userAgent = window.navigator.userAgent.toLowerCase();
+
+      if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) {
+        setDetectedOS('iOS');
+        setIsAndroid(false);
+      } else if (userAgent.includes('android')) {
+        setDetectedOS('Android');
+        setIsAndroid(true);
+      } else if (userAgent.includes('mac')) {
+        setDetectedOS('macOS');
+        setIsAndroid(false);
+      } else if (userAgent.includes('win')) {
+        setDetectedOS('Windows');
+        setIsAndroid(false);
+      } else if (userAgent.includes('linux')) {
+        setDetectedOS('Linux');
+        setIsAndroid(false);
+      }
     }
   }, []);
+
+  const getButtonText = () => {
+    if (detectedOS === 'Windows') return 'Join Waitlist';
+    if (detectedOS === 'iOS') return 'Get Zavi for iPhone';
+    if (detectedOS === 'Android') return 'Get Zavi for Android';
+    if (detectedOS === 'macOS') return 'Download for macOS';
+    if (detectedOS === 'Linux') return 'Download for Linux';
+    return 'Try Zavi For Free';
+  };
 
   const handlePayment = async (plan: string) => {
     if (isProcessing) return;
@@ -281,7 +309,7 @@ export default function PricingNew() {
                     }}
                     className="w-full px-6 py-4 rounded-full font-bold text-center bg-white border-2 border-green-500 text-green-700 shadow-sm hover:bg-green-50 hover:scale-[1.02] transition-all mt-auto"
                   >
-                    Start Writing For Free
+                    {getButtonText()}
                   </button>
                 </GlowCard>
               </motion.div>
@@ -402,7 +430,7 @@ export default function PricingNew() {
                       whileTap="tap"
                       variants={ctaPrimary}
                     >
-                      {isAndroid ? 'Start Pro Subscription' : 'Get Pro Access'}
+                      {getButtonText().includes('Try') ? 'Get Pro Access' : getButtonText().replace('Get Zavi for', 'Start Pro on').replace('Download for', 'Start Pro on')}
                     </motion.button>
 
 

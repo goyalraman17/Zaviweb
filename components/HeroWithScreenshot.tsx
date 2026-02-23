@@ -22,10 +22,10 @@ export default function HeroWithScreenshot() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
-      if (userAgent.includes('mac')) setDetectedOS('macOS');
-      else if (userAgent.includes('win')) setDetectedOS('Windows');
-      else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('iOS');
+      if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) setDetectedOS('iOS');
       else if (userAgent.includes('android')) setDetectedOS('Android');
+      else if (userAgent.includes('mac')) setDetectedOS('macOS');
+      else if (userAgent.includes('win')) setDetectedOS('Windows');
       else if (userAgent.includes('linux')) setDetectedOS('Linux');
       else setDetectedOS('Unknown');
     }
@@ -33,8 +33,12 @@ export default function HeroWithScreenshot() {
 
   // Get download text based on detected OS
   const getDownloadText = () => {
-    if (detectedOS === 'Windows') return 'Join Waitlist';
-    return 'Download Free';
+    if (detectedOS === 'Windows') return 'Join Windows Waitlist';
+    if (detectedOS === 'iOS') return 'Get Zavi for iPhone';
+    if (detectedOS === 'Android') return 'Get Zavi for Android';
+    if (detectedOS === 'macOS') return 'Download for macOS';
+    if (detectedOS === 'Linux') return 'Download for Linux';
+    return 'Try Zavi For Free';
   };
 
   return (
@@ -294,7 +298,7 @@ export default function HeroWithScreenshot() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </motion.svg>
-                <span className="relative z-10">{detectedOS === 'Windows' ? 'Join the Windows Waitlist' : `Download for ${detectedOS === 'Unknown' ? 'macOS' : detectedOS}`}</span>
+                <span className="relative z-10">{getDownloadText()}</span>
               </motion.a>
 
               {/* Sub CTA text */}

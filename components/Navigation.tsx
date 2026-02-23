@@ -34,10 +34,10 @@ export default function Navigation() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
-      if (userAgent.includes('mac')) setDetectedOS('macOS');
-      else if (userAgent.includes('win')) setDetectedOS('Windows');
-      else if (userAgent.includes('iphone') || userAgent.includes('ipad')) setDetectedOS('iOS');
+      if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) setDetectedOS('iOS');
       else if (userAgent.includes('android')) setDetectedOS('Android');
+      else if (userAgent.includes('mac')) setDetectedOS('macOS');
+      else if (userAgent.includes('win')) setDetectedOS('Windows');
       else if (userAgent.includes('linux')) setDetectedOS('Linux');
       else setDetectedOS('Unknown');
     }
@@ -80,8 +80,12 @@ export default function Navigation() {
   }, [mobileMenuOpen]);
 
   const getDownloadText = () => {
-    if (detectedOS === 'Windows') return 'Join Waitlist';
-    return 'Download Free';
+    if (detectedOS === 'Windows') return 'Join Windows Waitlist';
+    if (detectedOS === 'iOS') return 'Get Zavi for iPhone';
+    if (detectedOS === 'Android') return 'Get Zavi for Android';
+    if (detectedOS === 'macOS') return 'Download for macOS';
+    if (detectedOS === 'Linux') return 'Download for Linux';
+    return 'Try Zavi For Free';
   };
 
   // Scroll to section
