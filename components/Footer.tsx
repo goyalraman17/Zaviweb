@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainerSlow } from '@/lib/animations';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -69,8 +70,10 @@ export default function Footer() {
           transition={{ duration: 0.8 }}
           className="w-full flex justify-center mb-16"
         >
-          <div className="flex items-center gap-8 px-4 w-full justify-center">
-            <h1 className="text-[100px] md:text-[200px] leading-none font-black text-slate-900 tracking-tighter">Zavi</h1>
+          <div className="flex items-center gap-8 px-4 w-full justify-center hover:opacity-80 transition-opacity">
+            <Link href="/">
+              <h1 className="text-[100px] md:text-[200px] leading-none font-black text-slate-900 tracking-tighter cursor-pointer">Zavi</h1>
+            </Link>
           </div>
         </motion.div>
 
