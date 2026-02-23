@@ -31,8 +31,7 @@ export default function KillYourKeyboard() {
               variants={fadeUpLarge}
               className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium"
             >
-              Zavi is the only platform that brings real-time voice, advanced reasoning, screen awareness, and cross-app automation into a single voice-to-execution system.
-              Save 1-2 hours of non-productive work daily.
+              Stop jumping between tabs. Just tell Zavi what you need and watch it click, type, and send it for you. Your personal assistant that actually does the work.
             </motion.p>
           </RevealOnScroll>
 
@@ -273,7 +272,7 @@ export default function KillYourKeyboard() {
                 <div className="absolute bottom-3 -left-1 w-3 h-3 rounded-sm bg-gradient-to-br from-orange-500 to-orange-600 border border-white"></div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Works Everywhere</h3>
-              <p className="text-gray-600">Every app. No setup.</p>
+              <p className="text-gray-600">Zero setup. No new apps to learn.</p>
             </div>
           </motion.div>
         </motion.div>

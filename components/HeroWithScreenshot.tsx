@@ -324,14 +324,19 @@ export default function HeroWithScreenshot() {
               </motion.a>
 
               {/* Sub CTA text */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.0, duration: 0.6 }}
-                className="mt-4 text-sm text-gray-500 font-medium"
-              >
-                Available on Mac, Windows, iOS and Android
-              </motion.div>
+              <div className="flex flex-col items-center gap-1.5 mt-4">
+                <span className="text-sm text-gray-800 font-semibold flex items-center gap-2">
+                  <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Free Forever
+                  <span className="text-gray-300 mx-1">•</span>
+                  No credit card
+                </span>
+                <span className="text-xs text-gray-500 font-medium mt-1">
+                  Available on Mac, Windows, iOS and Android
+                </span>
+              </div>
             </motion.div>
 
             {/* Feature Ribbon - Consolidated */}
