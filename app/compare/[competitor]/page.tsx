@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ competito
     return {
         title: data.metaTitle,
         description: data.metaDescription,
-        alternates: { canonical: `https://zavi.ai/compare/${data.slug}` },
+        alternates: { canonical: `https://zavivoice.com/compare/${data.slug}` },
         openGraph: {
             title: data.metaTitle,
             description: data.metaDescription,
-            url: `https://zavi.ai/compare/${data.slug}`,
+            url: `https://zavivoice.com/compare/${data.slug}`,
             type: 'article',
         },
     };
@@ -34,9 +34,9 @@ export default async function ComparisonPage({ params }: { params: Promise<{ com
     if (!data) notFound();
 
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Compare', url: 'https://zavi.ai/compare' },
-        { name: `vs ${data.competitorName}`, url: `https://zavi.ai/compare/${data.slug}` },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Compare', url: 'https://zavivoice.com/compare' },
+        { name: `vs ${data.competitorName}`, url: `https://zavivoice.com/compare/${data.slug}` },
     ]);
 
     const faqSchema = {

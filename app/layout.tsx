@@ -26,7 +26,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zavi.ai'),
+  metadataBase: new URL('https://zavivoice.com'),
   alternates: {
     canonical: '/',
     types: {
@@ -92,11 +92,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zavi AI – Voice Typing Keyboard | Turn Speech into Professional Text",
     description: "Stop typing. Start speaking. Zavi AI turns natural speech into clean, professional text. AI removes filler words, fixes grammar, works in every app. 100+ languages. Free.",
-    url: "https://zavi.ai",
+    url: "https://zavivoice.com",
     siteName: "Zavi AI",
     images: [
       {
-        url: 'https://zavi.ai/og-image.png',
+        url: 'https://zavivoice.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Zavi AI – Voice Typing Keyboard that turns speech into professional text',
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     description: "Stop typing. Start speaking. AI turns your voice into clean, professional text. Works in every app. 100+ languages. Free.",
     creator: '@zavivoice',
     site: '@zavivoice',
-    images: ['https://zavi.ai/twitter-image.png'],
+    images: ['https://zavivoice.com/twitter-image.png'],
   },
   icons: {
     icon: [
@@ -131,7 +131,7 @@ export const metadata: Metadata = {
     'ai-content-declaration': 'This website contains factual information about Zavi AI, a voice typing keyboard product.',
     'citation-title': 'Zavi AI – Voice Typing Keyboard',
     'citation-author': 'Zavi AI',
-    'citation-url': 'https://zavi.ai',
+    'citation-url': 'https://zavivoice.com',
   },
 };
 
@@ -155,7 +155,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* RSS Feed autodiscovery */}
-        <link rel="alternate" type="application/rss+xml" title="Zavi AI Blog RSS Feed" href="https://zavi.ai/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Zavi AI Blog RSS Feed" href="https://zavivoice.com/feed.xml" />
       </head>
       <body className="font-sans font-normal" suppressHydrationWarning>
         {/* Comprehensive Schema.org structured data for GEO/AEO */}

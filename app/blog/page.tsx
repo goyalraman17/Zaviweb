@@ -15,15 +15,15 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Zavi AI Blog – Voice AI, Productivity & Future of Work',
         description: 'Explore insights on AI voice typing, productivity hacks, voice AI technology, and the future of work.',
-        url: 'https://zavi.ai/blog',
+        url: 'https://zavivoice.com/blog',
         type: 'website',
     },
 };
 
 export default function BlogListingPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Blog', url: 'https://zavi.ai/blog' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Blog', url: 'https://zavivoice.com/blog' },
     ]);
 
     const blogListingSchema = {
@@ -31,11 +31,11 @@ export default function BlogListingPage() {
         "@type": "CollectionPage",
         "name": "Zavi AI Blog",
         "description": "Insights on voice AI, productivity, and the future of work from the Zavi AI team.",
-        "url": "https://zavi.ai/blog",
+        "url": "https://zavivoice.com/blog",
         "publisher": {
             "@type": "Organization",
             "name": "Zavi AI",
-            "url": "https://zavi.ai"
+            "url": "https://zavivoice.com"
         },
         "mainEntity": {
             "@type": "ItemList",
@@ -43,7 +43,7 @@ export default function BlogListingPage() {
             "itemListElement": blogPosts.map((post, index) => ({
                 "@type": "ListItem",
                 "position": index + 1,
-                "url": `https://zavi.ai/blog/${post.slug}`,
+                "url": `https://zavivoice.com/blog/${post.slug}`,
                 "name": post.title
             }))
         }

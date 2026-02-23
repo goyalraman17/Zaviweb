@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ term: str
     return {
         title: `What Is ${data.term}? Definition & Explanation | Zavi AI Glossary`,
         description: `${data.term}: ${data.shortDefinition} Learn more about ${data.term.toLowerCase()} and how it relates to voice typing and AI dictation.`,
-        alternates: { canonical: `https://zavi.ai/glossary/${data.slug}` },
+        alternates: { canonical: `https://zavivoice.com/glossary/${data.slug}` },
         openGraph: {
             title: `What Is ${data.term}? | Zavi AI Glossary`,
             description: data.shortDefinition,
-            url: `https://zavi.ai/glossary/${data.slug}`,
+            url: `https://zavivoice.com/glossary/${data.slug}`,
         },
     };
 }
@@ -33,9 +33,9 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
     if (!data) notFound();
 
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Glossary', url: 'https://zavi.ai/glossary' },
-        { name: data.term, url: `https://zavi.ai/glossary/${data.slug}` },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Glossary', url: 'https://zavivoice.com/glossary' },
+        { name: data.term, url: `https://zavivoice.com/glossary/${data.slug}` },
     ]);
 
     const definitionSchema = {
@@ -43,11 +43,11 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
         '@type': 'DefinedTerm',
         name: data.term,
         description: data.fullDefinition,
-        url: `https://zavi.ai/glossary/${data.slug}`,
+        url: `https://zavivoice.com/glossary/${data.slug}`,
         inDefinedTermSet: {
             '@type': 'DefinedTermSet',
             name: 'Zavi AI Voice Typing Glossary',
-            url: 'https://zavi.ai/glossary',
+            url: 'https://zavivoice.com/glossary',
         },
     };
 

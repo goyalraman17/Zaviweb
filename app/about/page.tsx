@@ -56,8 +56,8 @@ export default function AboutPage() {
         <JsonLd key={i} data={schema} />
       ))}
       <JsonLd data={generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'About', url: 'https://zavi.ai/about' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'About', url: 'https://zavivoice.com/about' },
       ])} />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}

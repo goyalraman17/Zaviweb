@@ -8,13 +8,13 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Voice Typing Glossary — AI Speech to Text Terms & Definitions | Zavi AI',
     description: 'Learn the key terms behind voice typing, speech-to-text, AI dictation, and voice AI technology. From ASR to Zero Prompting, understand the technology that powers modern voice input.',
-    alternates: { canonical: 'https://zavi.ai/glossary' },
+    alternates: { canonical: 'https://zavivoice.com/glossary' },
 };
 
 export default function GlossaryPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Glossary', url: 'https://zavi.ai/glossary' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Glossary', url: 'https://zavivoice.com/glossary' },
     ]);
 
     return (

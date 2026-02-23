@@ -8,18 +8,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Use Cases — How Professionals Use Zavi AI Voice Typing',
     description: 'Discover how professionals use Zavi AI voice typing for email, WhatsApp, Slack, academic writing, and accessibility. See real before/after examples.',
-    alternates: { canonical: 'https://zavi.ai/use-cases' },
+    alternates: { canonical: 'https://zavivoice.com/use-cases' },
     openGraph: {
         title: 'Zavi AI Use Cases — Voice Typing for Every Professional',
         description: 'Email, WhatsApp, Slack, essays, accessibility — see how Zavi AI transforms voice into action across every use case.',
-        url: 'https://zavi.ai/use-cases',
+        url: 'https://zavivoice.com/use-cases',
     },
 };
 
 export default function UseCasesPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Use Cases', url: 'https://zavi.ai/use-cases' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Use Cases', url: 'https://zavivoice.com/use-cases' },
     ]);
 
     return (

@@ -4,11 +4,11 @@ import Navigation from '@/components/Navigation';
 export const metadata = {
   title: "Terms of Service | Zavi AI",
   description: "Zavi AI's terms of service. Read our terms and conditions for using the voice typing keyboard application.",
-  alternates: { canonical: 'https://zavi.ai/terms' },
+  alternates: { canonical: 'https://zavivoice.com/terms' },
   openGraph: {
     title: 'Terms of Service — Zavi AI',
     description: 'Read the terms and conditions for using Zavi AI voice typing keyboard.',
-    url: 'https://zavi.ai/terms',
+    url: 'https://zavivoice.com/terms',
   },
 };
 
@@ -124,7 +124,7 @@ export default function TermsPage() {
                 For questions about these Terms, contact us at:
               </p>
               <p className="text-lg text-zavi-gray-700 mb-6">
-                Email: <a href="mailto:legal@zavi.ai" className="text-zavi-blue-600 hover:underline">legal@zavi.ai</a>
+                Email: <a href="mailto:legal@zavivoice.com" className="text-zavi-blue-600 hover:underline">legal@zavivoice.com</a>
               </p>
 
               <div className="mt-12 pt-8 border-t border-zavi-gray-200">

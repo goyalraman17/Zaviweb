@@ -317,7 +317,7 @@ export const blogPosts: BlogPost[] = [
       <p><strong>Speed gain: 38 WPM → 150 WPM (nearly 4x faster)</strong></p>
       <p>The single most effective way to type faster on your phone is to <strong>stop typing entirely and start speaking</strong>. Modern AI voice typing apps like <strong>Zavi AI</strong> don't just transcribe your words — they clean up your speech automatically, removing filler words and fixing grammar so the text is ready to send without editing.</p>
       <p>A Stanford University study confirmed that voice input on smartphones is <strong>3x faster than typing</strong> on a mobile keyboard, and with AI cleanup (eliminating the editing phase), the effective speed gain is closer to 4x.</p>
-      <p><strong>How to start:</strong> Download <a href="https://zavi.ai">Zavi AI</a> (free on Android), set it as your default keyboard, and tap the microphone icon whenever you'd normally type. Speak naturally — the AI handles the rest.</p>
+      <p><strong>How to start:</strong> Download <a href="https://zavivoice.com">Zavi AI</a> (free on Android), set it as your default keyboard, and tap the microphone icon whenever you'd normally type. Speak naturally — the AI handles the rest.</p>
 
       <h2>2. Enable Swipe/Gesture Typing</h2>
       <p><strong>Speed gain: 38 WPM → 55 WPM (1.4x faster)</strong></p>
@@ -732,7 +732,7 @@ export const blogPosts: BlogPost[] = [
       <p>At Zavi, we believe Zero-Prompt is the future of all AI interfaces. The best interface is one where the user doesn't have to think about the interface at all — they just think, speak, and the right thing happens.</p>
 
       <h2>Try Zero-Prompt Voice Typing</h2>
-      <p>You can experience Zero-Prompt voice typing today with <a href="https://zavi.ai">Zavi AI</a>. Download the free app on Android, set it as your keyboard, and just start talking. You'll immediately see the difference between traditional transcription and Zero-Prompt AI output.</p>
+      <p>You can experience Zero-Prompt voice typing today with <a href="https://zavivoice.com">Zavi AI</a>. Download the free app on Android, set it as your keyboard, and just start talking. You'll immediately see the difference between traditional transcription and Zero-Prompt AI output.</p>
     `
   }
 ];

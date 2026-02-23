@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: { params: Promise<{ language:
     return {
         title: `Voice Typing in ${data.language} — AI Speech to Text | Zavi AI`,
         description: `Use Zavi AI for ${data.language} voice typing and speech-to-text. ${data.intro.slice(0, 130)}`,
-        alternates: { canonical: `https://zavi.ai/languages/${data.slug}` },
+        alternates: { canonical: `https://zavivoice.com/languages/${data.slug}` },
         openGraph: {
             title: `${data.language} Voice Typing — Zavi AI`,
             description: `AI-powered voice typing for ${data.language}. ${data.description}`,
-            url: `https://zavi.ai/languages/${data.slug}`,
+            url: `https://zavivoice.com/languages/${data.slug}`,
         },
     };
 }
@@ -33,9 +33,9 @@ export default async function LanguagePage({ params }: { params: Promise<{ langu
     if (!data) notFound();
 
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Languages', url: 'https://zavi.ai/languages' },
-        { name: data.language, url: `https://zavi.ai/languages/${data.slug}` },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Languages', url: 'https://zavivoice.com/languages' },
+        { name: data.language, url: `https://zavivoice.com/languages/${data.slug}` },
     ]);
 
     const faqSchema = {

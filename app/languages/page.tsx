@@ -8,18 +8,18 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Voice Typing in 100+ Languages — AI Speech to Text | Zavi AI',
     description: 'Zavi AI supports voice typing in 100+ languages including Hindi, Spanish, French, German, Japanese, Korean, Arabic, Chinese, and more. Speak naturally, get clean text with AI grammar correction.',
-    alternates: { canonical: 'https://zavi.ai/languages' },
+    alternates: { canonical: 'https://zavivoice.com/languages' },
     openGraph: {
         title: 'Voice Typing in 100+ Languages — Zavi AI',
         description: 'AI-powered voice typing in Hindi, Spanish, French, German, Japanese, Korean, Arabic, Chinese, and 100+ more languages.',
-        url: 'https://zavi.ai/languages',
+        url: 'https://zavivoice.com/languages',
     },
 };
 
 export default function LanguagesPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Languages', url: 'https://zavi.ai/languages' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Languages', url: 'https://zavivoice.com/languages' },
     ]);
 
     return (

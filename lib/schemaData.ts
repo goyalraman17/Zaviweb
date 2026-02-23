@@ -6,18 +6,18 @@
  */
 
 // ============================================
-// Website Schema — Tells AI "this is zavi.ai"
+// Website Schema — Tells AI "this is zavivoice.com"
 // ============================================
 export const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Zavi AI",
     "alternateName": ["Zavi", "Zavi Voice Typing", "Zavi AI Keyboard"],
-    "url": "https://zavi.ai",
+    "url": "https://zavivoice.com",
     "description": "Zavi AI is a voice typing keyboard that turns natural speech into clean, professional text. AI removes filler words, fixes grammar, and produces polished writing from voice instantly.",
     "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://zavi.ai/blog?q={search_term_string}",
+        "target": "https://zavivoice.com/blog?q={search_term_string}",
         "query-input": "required name=search_term_string"
     },
     "inLanguage": "en-US",
@@ -35,8 +35,8 @@ export const organizationSchema = {
     "@type": "Organization",
     "name": "Zavi AI",
     "alternateName": "Zavi",
-    "url": "https://zavi.ai",
-    "logo": "https://zavi.ai/zavi-logo.png",
+    "url": "https://zavivoice.com",
+    "logo": "https://zavivoice.com/zavi-logo.png",
     "description": "Zavi AI builds voice input infrastructure for the next era of computing. Our AI-powered voice typing keyboard turns natural speech into clean, professional text across every app.",
     "foundingDate": "2023",
     "founders": [
@@ -70,7 +70,7 @@ export const organizationSchema = {
     ],
     "contactPoint": {
         "@type": "ContactPoint",
-        "url": "https://zavi.ai/contact",
+        "url": "https://zavivoice.com/contact",
         "contactType": "customer support"
     }
 };
@@ -84,7 +84,7 @@ export const softwareApplicationSchema = {
     "name": "Zavi AI Voice Typing Keyboard",
     "alternateName": ["Zavi AI", "Zavi Keyboard", "Zavi Voice Typing"],
     "description": "AI-powered voice typing keyboard that transforms natural speech into clean, professional text. Removes filler words, fixes grammar, and works in every app. Supports 100+ languages with real-time translation.",
-    "url": "https://zavi.ai",
+    "url": "https://zavivoice.com",
     "applicationCategory": "ProductivityApplication",
     "operatingSystem": "Android, iOS, macOS, Windows, Linux",
     "offers": [
@@ -125,12 +125,12 @@ export const softwareApplicationSchema = {
         "Privacy-first — voice data never stored or used for training",
         "Cross-platform: Android, iOS, macOS, Windows, Linux"
     ],
-    "screenshot": "https://zavi.ai/og-image.png",
+    "screenshot": "https://zavivoice.com/og-image.png",
     "softwareVersion": "1.0",
     "author": {
         "@type": "Organization",
         "name": "Zavi AI",
-        "url": "https://zavi.ai"
+        "url": "https://zavivoice.com"
     },
     "aggregateRating": {
         "@type": "AggregateRating",
@@ -341,29 +341,29 @@ export const howToSchema = {
             "@type": "HowToStep",
             "position": 1,
             "name": "Download and Install Zavi",
-            "text": "Download Zavi AI from the Google Play Store (Android) or zavi.ai website (macOS, Windows, Linux). Install the app and set Zavi as your default keyboard on Android, or launch the desktop app.",
-            "url": "https://zavi.ai/#download"
+            "text": "Download Zavi AI from the Google Play Store (Android) or zavivoice.com website (macOS, Windows, Linux). Install the app and set Zavi as your default keyboard on Android, or launch the desktop app.",
+            "url": "https://zavivoice.com/#download"
         },
         {
             "@type": "HowToStep",
             "position": 2,
             "name": "Open Any App and Tap the Microphone",
             "text": "Open any app where you want to type — Gmail, WhatsApp, Slack, Notion, or any other app. Tap the microphone icon on the Zavi keyboard to start voice input.",
-            "url": "https://zavi.ai/#how-it-works"
+            "url": "https://zavivoice.com/#how-it-works"
         },
         {
             "@type": "HowToStep",
             "position": 3,
             "name": "Speak Naturally",
             "text": "Speak naturally, just like you would talk to a colleague. Don't worry about filler words, pauses, or perfect sentence structure. Zavi's AI handles all of that automatically.",
-            "url": "https://zavi.ai/#how-it-works"
+            "url": "https://zavivoice.com/#how-it-works"
         },
         {
             "@type": "HowToStep",
             "position": 4,
             "name": "Get Perfect Text",
             "text": "Zavi's AI instantly removes filler words, fixes grammar, restructures sentences, and delivers clean, professional text ready to send. No editing needed.",
-            "url": "https://zavi.ai/#how-it-works"
+            "url": "https://zavivoice.com/#how-it-works"
         }
     ]
 };
@@ -380,7 +380,7 @@ export const founderSchemas = [
         "worksFor": {
             "@type": "Organization",
             "name": "Zavi AI",
-            "url": "https://zavi.ai"
+            "url": "https://zavivoice.com"
         },
         "alumniOf": {
             "@type": "CollegeOrUniversity",
@@ -397,7 +397,7 @@ export const founderSchemas = [
         "worksFor": {
             "@type": "Organization",
             "name": "Zavi AI",
-            "url": "https://zavi.ai"
+            "url": "https://zavivoice.com"
         },
         "alumniOf": {
             "@type": "CollegeOrUniversity",
@@ -446,13 +446,13 @@ export function generateArticleSchema(post: {
             "name": "Zavi AI",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://zavi.ai/zavi-logo.png"
+                "url": "https://zavivoice.com/zavi-logo.png"
             },
-            "url": "https://zavi.ai"
+            "url": "https://zavivoice.com"
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://zavi.ai/blog/${post.slug}`
+            "@id": `https://zavivoice.com/blog/${post.slug}`
         },
         "articleSection": post.category,
         "keywords": post.tags.join(', '),
@@ -496,7 +496,7 @@ export const videoObjectSchema = {
         "name": "Zavi AI",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://zavi.ai/zavi-logo.png"
+            "url": "https://zavivoice.com/zavi-logo.png"
         }
     },
     "potentialAction": {
@@ -513,7 +513,7 @@ export const speakableSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Zavi AI — Voice Typing Keyboard",
-    "url": "https://zavi.ai",
+    "url": "https://zavivoice.com",
     "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [

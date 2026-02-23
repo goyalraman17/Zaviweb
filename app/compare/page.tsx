@@ -9,11 +9,11 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Zavi AI vs Every Alternative — The Voice AGI That Replaces Typing, Prompting & Automation (2026)',
     description: 'Compare Zavi AI to Wispr Flow, ChatGPT, Claude, Gemini Live, Gboard, Dragon, Zapier, Siri & more. The only tool with voice input, zero prompting, screen awareness, and in-app execution. Free download.',
-    alternates: { canonical: 'https://zavi.ai/compare' },
+    alternates: { canonical: 'https://zavivoice.com/compare' },
     openGraph: {
         title: 'Zavi AI vs Every Alternative — Voice AGI Comparison 2026',
         description: 'Dictation tools transcribe. Chat AI needs prompts. Zavi speaks, understands, and executes. See the full landscape comparison.',
-        url: 'https://zavi.ai/compare',
+        url: 'https://zavivoice.com/compare',
     },
 };
 
@@ -49,8 +49,8 @@ const categoryOrder = ['voice-tools', 'chat-ai', 'screen-assistants', 'automatio
 
 export default function ComparePage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Compare', url: 'https://zavi.ai/compare' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Compare', url: 'https://zavivoice.com/compare' },
     ]);
 
     return (

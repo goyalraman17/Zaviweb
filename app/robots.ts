@@ -24,6 +24,6 @@ export default function robots(): MetadataRoute.Robots {
             { userAgent: 'Meta-ExternalAgent', allow: '/' },
             { userAgent: 'Amazonbot', allow: '/' },
         ],
-        sitemap: 'https://zavi.ai/sitemap.xml',
+        sitemap: 'https://zavivoice.com/sitemap.xml',
     }
 }

@@ -1,7 +1,7 @@
 import { blogPosts } from '@/lib/blogData';
 
 export async function GET() {
-    const baseUrl = 'https://zavi.ai';
+    const baseUrl = 'https://zavivoice.com';
 
     const items = blogPosts
         .map(

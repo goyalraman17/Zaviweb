@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "About Zavi AI – The Team Building Voice Input Infrastructure",
         description: "Founded in 2023 by Raman Goyal and Himanshu Kumar. Meet the team building voice input for the next era of computing, making keyboards optional for 8 billion people.",
-        url: "https://zavi.ai/about",
+        url: "https://zavivoice.com/about",
     },
     twitter: {
         card: 'summary_large_image',

@@ -7,11 +7,11 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Changelog — What\'s New in Zavi AI',
     description: 'See the latest updates, features, and improvements in Zavi AI. We ship fast — voice typing just keeps getting better.',
-    alternates: { canonical: 'https://zavi.ai/changelog' },
+    alternates: { canonical: 'https://zavivoice.com/changelog' },
     openGraph: {
         title: 'Changelog — What\'s New in Zavi AI',
         description: 'See the latest updates and features added to Zavi AI voice typing keyboard.',
-        url: 'https://zavi.ai/changelog',
+        url: 'https://zavivoice.com/changelog',
     },
 };
 
@@ -95,8 +95,8 @@ const typeStyles = {
 
 export default function ChangelogPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Changelog', url: 'https://zavi.ai/changelog' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Changelog', url: 'https://zavivoice.com/changelog' },
     ]);
 
     return (

@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: UseCasePageProps): Promise<Me
     return {
         title: uc.metaTitle,
         description: uc.metaDescription,
-        alternates: { canonical: `https://zavi.ai/use-cases/${uc.slug}` },
+        alternates: { canonical: `https://zavivoice.com/use-cases/${uc.slug}` },
         openGraph: {
             title: uc.metaTitle,
             description: uc.metaDescription,
-            url: `https://zavi.ai/use-cases/${uc.slug}`,
+            url: `https://zavivoice.com/use-cases/${uc.slug}`,
         },
     };
 }
@@ -37,9 +37,9 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
     if (!uc) notFound();
 
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Use Cases', url: 'https://zavi.ai/use-cases' },
-        { name: uc.title, url: `https://zavi.ai/use-cases/${uc.slug}` },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Use Cases', url: 'https://zavivoice.com/use-cases' },
+        { name: uc.title, url: `https://zavivoice.com/use-cases/${uc.slug}` },
     ]);
 
     const faqSchema = {

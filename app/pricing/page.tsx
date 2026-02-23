@@ -7,11 +7,11 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Pricing — Zavi AI Voice Typing Keyboard | Free & Pro Plans',
     description: 'Zavi AI pricing: Free plan with AI voice typing in 100+ languages, or Pro at $7.99/month for unlimited usage. Compare plans, features, and FAQs.',
-    alternates: { canonical: 'https://zavi.ai/pricing' },
+    alternates: { canonical: 'https://zavivoice.com/pricing' },
     openGraph: {
         title: 'Zavi AI Pricing — Voice Typing That Pays for Itself',
         description: 'Free AI voice typing or Pro at $7.99/month. Save 40+ hours/year typing. Works in every app.',
-        url: 'https://zavi.ai/pricing',
+        url: 'https://zavivoice.com/pricing',
     },
 };
 
@@ -86,7 +86,7 @@ const faqs = [
     },
     {
         question: 'Do you offer team or enterprise pricing?',
-        answer: 'Yes! Contact us at team@zavi.ai for custom team pricing with centralized billing, usage analytics, and volume discounts.',
+        answer: 'Yes! Contact us at team@zavivoice.com for custom team pricing with centralized billing, usage analytics, and volume discounts.',
     },
     {
         question: 'How does Zavi compare to Wispr Flow pricing?',
@@ -100,8 +100,8 @@ const faqs = [
 
 export default function PricingPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Pricing', url: 'https://zavi.ai/pricing' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Pricing', url: 'https://zavivoice.com/pricing' },
     ]);
 
     const productSchema = {
@@ -110,7 +110,7 @@ export default function PricingPage() {
         name: 'Zavi AI Voice Typing Keyboard',
         description: 'AI-powered voice typing keyboard that turns natural speech into clean, professional text.',
         brand: { '@type': 'Brand', name: 'Zavi AI' },
-        url: 'https://zavi.ai',
+        url: 'https://zavivoice.com',
         offers: [
             {
                 '@type': 'Offer',

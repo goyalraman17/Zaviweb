@@ -207,7 +207,7 @@ Zavi's technology stack consists of three core components:
 
 ## Contact
 
-- Website: https://zavi.ai
-- Email: Available through https://zavi.ai/contact
+- Website: https://zavivoice.com
+- Email: Available through https://zavivoice.com/contact
 - Twitter/X: @zavivoice
 - LinkedIn: https://linkedin.com/company/zavivoice/

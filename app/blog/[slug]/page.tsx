@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
             authors: [post.author],
             tags: post.tags,
             siteName: 'Zavi AI',
-            url: `https://zavi.ai/blog/${post.slug}`,
+            url: `https://zavivoice.com/blog/${post.slug}`,
         },
         twitter: {
             card: 'summary_large_image',
@@ -65,9 +65,9 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     }
 
     const breadcrumbs = [
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Blog', url: 'https://zavi.ai/blog' },
-        { name: post.title, url: `https://zavi.ai/blog/${post.slug}` }
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Blog', url: 'https://zavivoice.com/blog' },
+        { name: post.title, url: `https://zavivoice.com/blog/${post.slug}` }
     ];
 
     const articleSchema = generateArticleSchema(post);
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                     {/* Hidden publisher for schema */}
                     <div className="sr-only" itemProp="publisher" itemScope itemType="https://schema.org/Organization">
                         <span itemProp="name">Zavi AI</span>
-                        <span itemProp="url">https://zavi.ai</span>
+                        <span itemProp="url">https://zavivoice.com</span>
                     </div>
                 </header>
 

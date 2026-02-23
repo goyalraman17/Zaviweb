@@ -8,7 +8,7 @@ import { useCases } from '@/lib/useCaseData';
 import { integrations } from '@/lib/integrationData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://zavi.ai';
+  const baseUrl = 'https://zavivoice.com';
 
   // Static routes with strategic priority assignments for GEO/AEO
   const staticRoutes = [

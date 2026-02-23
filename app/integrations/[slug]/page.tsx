@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: IntegrationPageProps): Promis
     return {
         title: int.metaTitle,
         description: int.metaDesc,
-        alternates: { canonical: `https://zavi.ai/integrations/${int.slug}` },
+        alternates: { canonical: `https://zavivoice.com/integrations/${int.slug}` },
         openGraph: {
             title: int.metaTitle,
             description: int.metaDesc,
-            url: `https://zavi.ai/integrations/${int.slug}`,
+            url: `https://zavivoice.com/integrations/${int.slug}`,
         },
     };
 }
@@ -37,9 +37,9 @@ export default async function IntegrationPage({ params }: IntegrationPageProps) 
     if (!int) notFound();
 
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Integrations', url: 'https://zavi.ai/integrations' },
-        { name: int.name, url: `https://zavi.ai/integrations/${int.slug}` },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Integrations', url: 'https://zavivoice.com/integrations' },
+        { name: int.name, url: `https://zavivoice.com/integrations/${int.slug}` },
     ]);
 
     const faqSchema = {
@@ -80,7 +80,7 @@ export default async function IntegrationPage({ params }: IntegrationPageProps) 
                         </div>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
                             Voice Typing for <br className="hidden md:block" />
-                            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{int.name} on Android</span>
+                            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{int.name}</span>
                         </h1>
                         <p className="text-xl text-gray-600 max-w-2xl md:mx-0 mx-auto leading-relaxed mb-8">
                             {int.shortDesc}
@@ -146,7 +146,7 @@ export default async function IntegrationPage({ params }: IntegrationPageProps) 
                         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">Control {int.name} with your Voice</h2>
                         <p className="text-slate-300 mb-8 max-w-2xl mx-auto text-lg relative z-10">
-                            Stop typing and start speaking. Download Zavi AI on your Android device today and unlock a 3x faster dictation workflow.
+                            Stop typing and start speaking. Download Zavi AI on macOS, Windows, Linux, iOS, or Android today and unlock a 3x faster dictation workflow.
                         </p>
                         <Link href="/download" className="relative z-10 inline-flex px-8 py-4 bg-white text-slate-900 font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg">
                             Get Zavi App Free

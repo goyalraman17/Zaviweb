@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
     return {
         title: `${tagName} Articles — Voice AI Blog | Zavi AI`,
         description: `Read articles about ${tagName.toLowerCase()} from the Zavi AI blog. Tips, guides, and comparisons for voice typing and AI dictation.`,
-        alternates: { canonical: `https://zavi.ai/blog/tag/${slug}` },
+        alternates: { canonical: `https://zavivoice.com/blog/tag/${slug}` },
     };
 }
 
@@ -43,9 +43,9 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
     const posts = blogPosts.filter((p) => p.tags.includes(tagName));
 
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Blog', url: 'https://zavi.ai/blog' },
-        { name: `#${tagName}`, url: `https://zavi.ai/blog/tag/${slug}` },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Blog', url: 'https://zavivoice.com/blog' },
+        { name: `#${tagName}`, url: `https://zavivoice.com/blog/tag/${slug}` },
     ]);
 
     return (

@@ -7,11 +7,11 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Download Zavi AI — Free Voice Typing App for Android, iOS, Mac, Windows, Linux',
     description: 'Download Zavi AI voice typing keyboard for free. Available on Android, iOS, macOS, Windows, and Linux. Turn speech into clean, professional text in every app.',
-    alternates: { canonical: 'https://zavi.ai/download' },
+    alternates: { canonical: 'https://zavivoice.com/download' },
     openGraph: {
         title: 'Download Zavi AI — Voice Typing That Replaces Your Keyboard',
         description: 'Free AI voice typing for Android, iOS, Mac, Windows, and Linux. Speak naturally, get polished text. No editing needed.',
-        url: 'https://zavi.ai/download',
+        url: 'https://zavivoice.com/download',
     },
     twitter: {
         card: 'summary_large_image',
@@ -75,8 +75,8 @@ const platforms = [
 
 export default function DownloadPage() {
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavi.ai' },
-        { name: 'Download', url: 'https://zavi.ai/download' },
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Download', url: 'https://zavivoice.com/download' },
     ]);
 
     return (

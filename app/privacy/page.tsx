@@ -4,11 +4,11 @@ import Navigation from '@/components/Navigation';
 export const metadata = {
   title: "Privacy Policy | Zavi AI",
   description: "Zavi AI's privacy policy. Learn how we protect your voice data — audio is processed in real-time and immediately deleted. Never stored, never shared.",
-  alternates: { canonical: 'https://zavi.ai/privacy' },
+  alternates: { canonical: 'https://zavivoice.com/privacy' },
   openGraph: {
     title: 'Privacy Policy — Zavi AI',
     description: 'Your voice data is processed in real-time and immediately deleted. Never stored, never shared. Read our full privacy policy.',
-    url: 'https://zavi.ai/privacy',
+    url: 'https://zavivoice.com/privacy',
   },
 };
 
@@ -118,7 +118,7 @@ export default function PrivacyPage() {
                 If you have questions about this Privacy Policy or your data, please contact us at:
               </p>
               <p className="text-lg text-zavi-gray-700 mb-6">
-                Email: <a href="mailto:privacy@zavi.ai" className="text-zavi-blue-600 hover:underline">privacy@zavi.ai</a>
+                Email: <a href="mailto:privacy@zavivoice.com" className="text-zavi-blue-600 hover:underline">privacy@zavivoice.com</a>
               </p>
 
               <div className="mt-12 pt-8 border-t border-zavi-gray-200">

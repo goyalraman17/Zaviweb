@@ -4,11 +4,11 @@ import Navigation from '@/components/Navigation';
 export const metadata = {
   title: "Contact Us | Zavi AI",
   description: "Get in touch with the Zavi AI team. Contact support for help with voice typing, or reach out for partnerships and enterprise solutions.",
-  alternates: { canonical: 'https://zavi.ai/contact' },
+  alternates: { canonical: 'https://zavivoice.com/contact' },
   openGraph: {
     title: 'Contact Us — Zavi AI',
     description: 'Get in touch with the Zavi AI team. Product support, partnerships, and enterprise inquiries.',
-    url: 'https://zavi.ai/contact',
+    url: 'https://zavivoice.com/contact',
   },
 };
 
