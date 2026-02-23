@@ -101,7 +101,7 @@ export default function SuperpowersSection() {
                         Give Zavi <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Superpowers</span>
                     </motion.h2>
                     <motion.p variants={fadeUp} className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
-                        Hold Option and speak. Control your favorite apps, send DMs, search the web, and manage your OS entirely hands-free.
+                        Just speak. Control your favorite apps, send DMs, search the web, and manage your OS entirely hands-free.
                     </motion.p>
                 </motion.div>
 
