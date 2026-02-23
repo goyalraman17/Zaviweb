@@ -192,13 +192,18 @@ export default function PricingNew() {
 
               {/* Free Plan */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(200, 200, 200, 0.4)" className="relative rounded-3xl p-8 bg-white border border-gray-200 shadow-lg h-full flex flex-col">
-                  <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Free</h3>
-                  <p className="text-sm font-semibold text-gray-500 mb-2">Forever free</p>
+                <GlowCard glowColor="rgba(34, 197, 94, 0.4)" className="relative rounded-3xl p-8 bg-gradient-to-b from-green-50/50 to-white border-2 border-green-100 shadow-xl h-full flex flex-col">
+                  {/* Zero Risk Badge */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-green-100 text-green-700 text-xs font-bold rounded-full border border-green-200 shadow-sm whitespace-nowrap">
+                    Zero Risk • No Card
+                  </div>
+
+                  <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Free Tier</h3>
+                  <p className="text-sm font-semibold text-green-600 mb-2">Start saving time instantly</p>
 
                   <div className="mb-6">
                     <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
-                    <div className="text-gray-600 text-sm">/ month</div>
+                    <div className="text-gray-600 text-sm">/ forever</div>
                   </div>
 
                   <ul className="space-y-4 mb-8 flex-grow">
@@ -274,9 +279,9 @@ export default function PricingNew() {
                         analytics.track('pricing_plan_click', { plan: 'free', billing_cycle: billingCycle, is_android: isAndroid });
                       }
                     }}
-                    className="w-full px-6 py-4 rounded-full font-semibold text-center bg-gray-100 text-zavi-blue-700 hover:bg-gray-200 transition-all mt-auto"
+                    className="w-full px-6 py-4 rounded-full font-bold text-center bg-white border-2 border-green-500 text-green-700 shadow-sm hover:bg-green-50 hover:scale-[1.02] transition-all mt-auto"
                   >
-                    Get Started Free
+                    Start Writing For Free
                   </button>
                 </GlowCard>
               </motion.div>

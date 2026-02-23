@@ -45,15 +45,18 @@ export default function VideoDemo() {
                   role="button"
                   aria-label="Play Video"
                 >
-                  {/* Thumbnail Background */}
-                  <img
-                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                    alt="Video Thumbnail"
-                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                  />
+                  {/* Autoplaying Muted Background Video */}
+                  <div className="absolute inset-0 w-full h-full pointer-events-none scale-105">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&rel=0&showinfo=0`}
+                      title="Zavi Preview"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                  </div>
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                  {/* Gradient Overlay to make the Play Button pop over the moving video */}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
 
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
