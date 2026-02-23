@@ -10,8 +10,8 @@ import RevealOnScroll from './animated/RevealOnScroll';
 
 export default function KillYourKeyboard() {
   return (
-    <section className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50">
-      <div className="container-large relative z-10">
+    <section className="relative py-12 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50">
+      <div className="container-large relative z-10 px-4 sm:px-6">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -21,7 +21,7 @@ export default function KillYourKeyboard() {
           {/* Main Heading */}
           <RevealOnScroll direction="bottom" duration={0.8}>
             <motion.h2
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 text-[#1a1a1a]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 text-[#1a1a1a] text-balance"
               variants={fadeUpLarge}
               style={{ lineHeight: 1.15 }}
             >
@@ -38,7 +38,7 @@ export default function KillYourKeyboard() {
           {/* Feature Pills */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center justify-center gap-3 mb-16"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-16"
           >
             <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-semibold text-blue-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ export default function KillYourKeyboard() {
               }}
             >
               {/* Email Interface Mock */}
-              <div className="p-6 md:p-10 lg:p-12">
+              <div className="p-4 sm:p-6 md:p-10 lg:p-12">
                 {/* macOS-style window controls */}
                 <div className="flex items-center gap-2 mb-6">
                   <div className="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
@@ -145,56 +145,54 @@ export default function KillYourKeyboard() {
                   <span className="text-sm text-gray-500 italic">draft</span>
                 </div>
 
-                {/* Before/After Comparison */}
-                <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-center">
-                  {/* Before Text */}
-                  <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-200 relative">
-                    <p className="text-gray-700 text-base md:text-lg leading-relaxed font-medium">
-                      <span className="text-gray-400">"</span>Email the updated policy draft to the team and schedule a review call for Thursday at 4 pm.<span className="text-gray-400">"</span>
-                    </p>
-                  </div>
+                {/* Content Area - Stacked on Mobile, Side-by-Side on Desktop */}
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 relative mt-4 md:mt-0">
+                  {/* Subtle Divider for Desktop */}
+                  <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-transparent -translate-x-1/2"></div>
 
-                  {/* Arrow */}
-                  <div className="flex items-center justify-center">
-                    <div className="hidden md:block">
-                      <svg className="w-12 h-12 text-[#2563EB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <div className="md:hidden">
-                      <svg className="w-8 h-8 text-[#2563EB] transform rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* After Text */}
-                  <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-200 relative">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3 bg-blue-50/50 p-2 rounded-lg border border-blue-100">
-                        <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <span className="text-sm font-semibold text-gray-700">Drafted & Sent via Gmail</span>
+                  {/* Before (Manual Typing) */}
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-red-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-600 text-xs font-bold">1</span>
+                        <h4 className="font-semibold text-gray-900">What you actually said:</h4>
                       </div>
-                      <div className="flex items-center gap-3 bg-purple-50/50 p-2 rounded-lg border border-purple-100 mt-2">
-                        <svg className="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span className="text-sm font-semibold text-gray-700">Checked availability & booked Calendar</span>
+                      <div className="bg-white/80 backdrop-blur rounded-xl p-4 sm:p-5 border border-gray-200 shadow-sm font-mono text-sm sm:text-base text-gray-600 leading-relaxed line-through decoration-red-400/50 decoration-2">
+                        "Hey Sarah, um, yeah I reviewed the, like, the Q3 design files you sent over. They look good but maybe we should, uh, bump up the logo size on the hero section? Also, just wanted to check if we're still doing the sync at 2pm? Thanks"
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Fixed Phrasing Badge */}
-                <div className="flex justify-center mt-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white text-sm font-medium shadow-md">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <span>Instant Execution</span>
+                  {/* After (Zavi Output) */}
+                  <div className="relative group mt-6 md:mt-0 pt-6 md:pt-0 border-t md:border-t-0 border-gray-200">
+                    <div className="absolute -inset-4 bg-green-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-600 text-xs font-bold">2</span>
+                        <h4 className="font-semibold text-gray-900">What Zavi wrote instantly:</h4>
+                      </div>
+                      <div className="bg-white rounded-xl p-4 sm:p-5 border-2 border-zavi-blue-200 shadow-md font-sans text-sm sm:text-base text-gray-900 leading-relaxed relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-100 to-transparent rounded-full blur-xl -mr-10 -mt-10 pointer-events-none"></div>
+                        <p className="relative z-10">Hi Sarah,</p>
+                        <br />
+                        <p className="relative z-10">I've reviewed the Q3 design files. They look great overall. My only suggestion is to slightly increase the logo size in the hero section.</p>
+                        <br />
+                        <p className="relative z-10">Also, just confirming if we are still on for our sync at 2 PM today?</p>
+                        <br />
+                        <p className="relative z-10">Best,</p>
+
+                        {/* Zavi Signature Badge */}
+                        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-blue-50 text-zavi-blue-600 text-[10px] sm:text-xs font-semibold border border-blue-100">
+                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Polished by Zavi
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

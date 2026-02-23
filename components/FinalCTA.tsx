@@ -19,7 +19,7 @@ export default function FinalCTA() {
                 >
                     <motion.h2
                         variants={fadeUp}
-                        className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight"
+                        className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight text-balance"
                     >
                         Stop typing.<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue-600 to-indigo-600">Start speaking.</span>

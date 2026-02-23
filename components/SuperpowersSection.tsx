@@ -93,7 +93,7 @@ export default function SuperpowersSection() {
                     variants={staggerContainer}
                     className="text-center mb-16"
                 >
-                    <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight">
+                    <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight text-balance">
                         Give Your OS <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Superpowers</span>
                     </motion.h2>
                     <motion.p variants={fadeUp} className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">

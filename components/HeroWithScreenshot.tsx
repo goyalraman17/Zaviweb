@@ -106,7 +106,7 @@ export default function HeroWithScreenshot() {
           >
             {/* Headline */}
             <motion.h1
-              className="text-6xl sm:text-7xl lg:text-8xl font-black text-[#1a1a1a] tracking-tight mb-6"
+              className="text-6xl sm:text-7xl lg:text-8xl font-black text-[#1a1a1a] tracking-tight mb-6 text-balance"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
