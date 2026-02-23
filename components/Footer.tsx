@@ -18,6 +18,8 @@ export default function Footer() {
               <a href="/about" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">The Zavi Story</a>
               <a href="/blog" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">AI Insights</a>
               <a href="/contact" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Contact Support</a>
+              <a href="/privacy" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Privacy Policy</a>
+              <a href="/terms" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Terms of Service</a>
             </div>
           </motion.div>
 
@@ -28,6 +30,7 @@ export default function Footer() {
               <a href="/demo" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Live Demo</a>
               <a href="/#pricing" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Pricing</a>
               <a href="/integrations" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Integrations</a>
+              <a href="/use-cases" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Use Cases</a>
               <a href="/changelog" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">Changelog</a>
             </div>
           </motion.div>
@@ -49,7 +52,10 @@ export default function Footer() {
             <h3 className="text-2xl font-serif text-slate-800 font-medium mb-6">Comparisons</h3>
             <div className="space-y-4">
               <a href="/compare/wispr-flow" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Wispr Flow</a>
-              <a href="/compare/chatgpt" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs ChatGPT / Claude</a>
+              <a href="/compare/chatgpt" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs ChatGPT</a>
+              <a href="/compare/claude" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Claude</a>
+              <a href="/compare/gemini-live" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Gemini Live</a>
+              <a href="/compare/siri" className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors">vs Apple Siri</a>
             </div>
           </motion.div>
 
