@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
   headerReveal,
   navItem,
@@ -127,10 +128,13 @@ export default function Navigation() {
             variants={hoverScaleSubtle}
           >
             <div className="relative w-10 h-10 flex items-center justify-center">
-              <img
+              <Image
                 src="/zavi-logo.png"
                 alt="Zavi Logo"
-                className="w-full h-full object-contain"
+                width={40}
+                height={40}
+                className="object-contain"
+                priority
               />
             </div>
             <span className="text-xl font-bold text-zavi-charcoal">Zavi</span>

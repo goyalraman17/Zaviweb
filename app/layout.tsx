@@ -151,9 +151,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* RSS Feed autodiscovery */}
         <link rel="alternate" type="application/rss+xml" title="Zavi AI Blog RSS Feed" href="https://zavivoice.com/feed.xml" />
       </head>

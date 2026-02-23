@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import {
   staggerContainerSlow,
   fadeUp,
@@ -9,7 +11,9 @@ import {
   ctaPrimary,
 } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
-import VoiceDemoCard from './VoiceDemoCard';
+const VoiceDemoCard = dynamic(() => import('./VoiceDemoCard'), {
+  loading: () => <div className="h-[400px] w-full bg-gray-50 animate-pulse rounded-2xl" />
+});
 import FloatingElements from './animated/FloatingElements';
 import TextReveal from './animated/TextReveal';
 import GridPattern from './animated/GridPattern';
