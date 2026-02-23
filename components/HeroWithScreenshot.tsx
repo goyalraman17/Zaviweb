@@ -112,9 +112,9 @@ export default function HeroWithScreenshot() {
               transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
               style={{ lineHeight: 1.2 }}
             >
-              Don't Just Type.<br />
+              Don't type, just speak<br />
               <motion.span
-                className="bg-gradient-to-r from-zavi-blue-600 via-zavi-blue-400 to-zavi-blue-600 bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-zavi-blue-600 via-zavi-blue-400 to-zavi-blue-600 bg-clip-text text-transparent text-3xl sm:text-5xl lg:text-5xl mt-4 block leading-snug"
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
@@ -127,7 +127,7 @@ export default function HeroWithScreenshot() {
                   backgroundSize: '200% 200%',
                 }}
               >
-                Command Your OS.
+                The voice-to-action AI that executes tasks, sends emails, and writes perfectly in every app.
               </motion.span>
             </motion.h1>
 

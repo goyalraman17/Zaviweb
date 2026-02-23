@@ -21,12 +21,19 @@ export default function KillYourKeyboard() {
           {/* Main Heading */}
           <RevealOnScroll direction="bottom" duration={0.8}>
             <motion.h2
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 text-[#1a1a1a]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 text-[#1a1a1a]"
               variants={fadeUpLarge}
               style={{ lineHeight: 1.15 }}
             >
-              Kill Your Keyboard. Forever.
+              The world's first Voice <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue-600 to-indigo-600">AGI</span>.
             </motion.h2>
+            <motion.p
+              variants={fadeUpLarge}
+              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium"
+            >
+              Zavi is the only platform that brings real-time voice, advanced reasoning, screen awareness, and cross-app automation into a single voice-to-execution system.
+              Save 1-2 hours of non-productive work daily.
+            </motion.p>
           </RevealOnScroll>
 
           {/* Feature Pills */}
@@ -143,8 +150,8 @@ export default function KillYourKeyboard() {
                 <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-center">
                   {/* Before Text */}
                   <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-200 relative">
-                    <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                      uh yeah so like we should probably tell Jenny from legal about the NDA um being not ready yet or maybe she did send it idk
+                    <p className="text-gray-700 text-base md:text-lg leading-relaxed font-medium">
+                      <span className="text-gray-400">"</span>Email the updated policy draft to the team and schedule a review call for Thursday at 4 pm.<span className="text-gray-400">"</span>
                     </p>
                   </div>
 
@@ -164,9 +171,20 @@ export default function KillYourKeyboard() {
 
                   {/* After Text */}
                   <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-200 relative">
-                    <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                      Let&apos;s inform Jenny from Legal that the NDA is not yet finalized, or check if she has already sent it.
-                    </p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 bg-blue-50/50 p-2 rounded-lg border border-blue-100">
+                        <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span className="text-sm font-semibold text-gray-700">Drafted & Sent via Gmail</span>
+                      </div>
+                      <div className="flex items-center gap-3 bg-purple-50/50 p-2 rounded-lg border border-purple-100 mt-2">
+                        <svg className="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span className="text-sm font-semibold text-gray-700">Checked availability & booked Calendar</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -175,9 +193,9 @@ export default function KillYourKeyboard() {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white text-sm font-medium shadow-md">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" />
-                      <path d="M9 12l2 2 4-4" />
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    <span>Fixed Phrasing</span>
+                    <span>Instant Execution</span>
                   </div>
                 </div>
               </div>
