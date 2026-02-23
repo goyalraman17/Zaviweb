@@ -38,19 +38,19 @@ export default function KillYourKeyboard() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Takes Actions
+              Command Any App
             </span>
             <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-sm font-semibold text-purple-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
-              Controls Apps
+              Voice-to-Action
             </span>
             <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-semibold text-emerald-700 shadow-sm">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Perfect Formatting
+              Flawless Execution
             </span>
           </motion.div>
 
@@ -205,8 +205,8 @@ export default function KillYourKeyboard() {
                   </div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Executes Commands</h3>
-              <p className="text-gray-600">Takes action on apps.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Beyond Transcription</h3>
+              <p className="text-gray-600">Send DMs, create tasks, control OS.</p>
             </div>
 
             {/* 100+ Languages */}
