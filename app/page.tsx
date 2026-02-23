@@ -21,6 +21,7 @@ const OnTheGoOrAtYourDesk = dynamic(() => import('@/components/OnTheGoOrAtYourDe
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
+const FinalCTA = dynamic(() => import('@/components/FinalCTA'));
 const ProPowerUps = dynamic(() => import('@/components/ProPowerUps'));
 const SuperpowersSection = dynamic(() => import('@/components/SuperpowersSection'));
 
@@ -95,6 +96,9 @@ export default function Home() {
 
         {/* 13. FAQ - Overcome final objections */}
         <FAQ />
+
+        {/* 14. Final CTA - The Last Conversion Push */}
+        <FinalCTA />
 
         {/* 
           Machine-readable semantic content for GEO/AEO optimization.

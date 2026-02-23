@@ -204,7 +204,7 @@ export default function DownloadPage() {
                     {/* CTA */}
                     <div className="bg-blue-600 rounded-2xl p-8 md:p-12 text-center">
                         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to type 4x faster?</h2>
-                        <p className="text-blue-100 mb-6">Join thousands of professionals who&apos;ve already made the switch.</p>
+                        <p className="text-blue-100 mb-6">Start saving 1+ hours every day with voice-to-text that actually works.</p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a
                                 href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard"
