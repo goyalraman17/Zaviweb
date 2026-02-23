@@ -250,7 +250,7 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
             <motion.div
                 variants={fadeUp}
                 className={`
-                    bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border transition-all duration-500 relative group flex flex-col h-full overflow-hidden
+                    bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border transition-all duration-500 relative group flex flex-col h-[420px] lg:h-[460px] overflow-hidden
                     ${isActive ? 'border-blue-400/50 ring-[12px] ring-blue-50/50' : 'border-white/60 hover:border-blue-200/50'}
                 `}
             >
