@@ -120,17 +120,19 @@ export default function MagicWand() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeUp}
-                        className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden ring-1 ring-gray-100 shadow-2xl"
+                        className="bg-white/40 backdrop-blur-2xl rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
                     >
                         {/* Decorative background elements */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-50/50 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100/40 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100/40 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
 
-                        <h3 className="text-xl font-black text-gray-900 uppercase tracking-widest mb-10 relative z-10">
-                            Stop Doing This 👇
+                        <h3 className="text-2xl font-black text-gray-900 uppercase tracking-widest mb-8 relative z-10 flex items-center justify-center gap-3">
+                            <span className="w-12 h-[2px] bg-gray-200"></span>
+                            Stop Doing This
+                            <span className="w-12 h-[2px] bg-gray-200"></span>
                         </h3>
 
-                        <div className="flex flex-wrap justify-center gap-4 mb-12 relative z-10">
+                        <div className="flex flex-wrap justify-center gap-4 py-8 px-6 bg-white/50 rounded-3xl border border-white/80 shadow-inner mb-12 relative z-10 max-w-3xl mx-auto">
                             {[
                                 "Switching Apps",
                                 "Copy-Pasting",
@@ -140,37 +142,45 @@ export default function MagicWand() {
                                 <motion.div
                                     key={i}
                                     whileHover={{ scale: 1.05 }}
-                                    className="px-6 py-3 rounded-2xl bg-red-50/80 border border-red-100 text-red-500 font-bold text-sm line-through decoration-red-400/50 decoration-2 shadow-sm"
+                                    className="px-6 py-3 rounded-2xl bg-white border border-red-100 text-red-500 font-bold text-sm tracking-wide shadow-sm flex items-center gap-2"
                                 >
-                                    {text}
+                                    <svg className="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                    <span className="line-through decoration-red-300 decoration-2">{text}</span>
                                 </motion.div>
                             ))}
                         </div>
 
-                        <a
-                            href="#download"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                analytics.track('cta_magic_wand_click', {
-                                    location: 'magic_wand_section'
-                                });
-                                const downloadSection = document.getElementById('download');
-                                if (downloadSection) {
-                                    downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                }
-                            }}
-                            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-2xl font-bold text-xl transition-all hover:scale-105 shadow-xl shadow-blue-500/20 group relative z-10"
-                        >
-                            <span>Try Magic Wand</span>
-                            <motion.img
-                                src="/icons/magic-wand-filled.svg"
-                                alt="Magic Wand"
-                                className="w-6 h-6 object-contain brightness-0 invert"
-                                animate={{ rotate: [0, 15, 0] }}
-                                transition={{ repeat: Infinity, duration: 2, repeatDelay: 3 }}
-                            />
-                        </a>
-                        <p className="mt-6 text-sm text-gray-500 font-medium relative z-10">Automatic • Private • Works in any app</p>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+                            <a
+                                href="#download"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    analytics.track('cta_magic_wand_click', {
+                                        location: 'magic_wand_section'
+                                    });
+                                    const downloadSection = document.getElementById('download');
+                                    if (downloadSection) {
+                                        downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
+                                }}
+                                className="inline-flex justify-center w-full sm:w-auto items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-[0_8px_20px_rgba(37,99,235,0.25)] group"
+                            >
+                                <span>Get Magic Wand</span>
+                                <motion.img
+                                    src="/icons/magic-wand-filled.svg"
+                                    alt="Magic Wand"
+                                    className="w-5 h-5 object-contain brightness-0 invert"
+                                    animate={{ rotate: [0, 15, 0] }}
+                                    transition={{ repeat: Infinity, duration: 2, repeatDelay: 3 }}
+                                />
+                            </a>
+                        </div>
+                        <p className="mt-6 text-sm text-gray-500 font-medium relative z-10 flex items-center justify-center gap-2">
+                            <svg className="w-4 h-4 text-green-500" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>
+                            Automatic • Private • Native Integration
+                        </p>
                     </motion.div>
                 </div>
             </div>
@@ -222,39 +232,48 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
             </div>
 
             {/* Interaction Zone */}
-            <div className="flex-1 flex flex-col gap-5">
-                <div className="flex justify-center -my-4 relative z-10">
+            <div className="flex-1 flex flex-col gap-0 mt-4 relative">
+                {/* Floating Action Button */}
+                <div className="absolute -top-7 left-1/2 transform -translate-x-1/2 z-20">
                     <button
                         onClick={onActivate}
                         className={`
-                            group/btn flex items-center justify-center w-14 h-14 rounded-full border-4 border-white shadow-lg transition-all duration-300
+                            group/btn flex items-center justify-center w-14 h-14 rounded-full border-4 border-white shadow-md transition-all duration-300
                             ${isActive
-                                ? 'bg-blue-600 scale-110 rotate-0'
-                                : 'bg-blue-600 hover:bg-blue-700 hover:scale-105 rotate-0'
+                                ? 'bg-blue-600 scale-110 shadow-blue-500/30 ring-2 ring-blue-100 ring-offset-2'
+                                : 'bg-blue-600 hover:bg-blue-700 hover:scale-105 hover:shadow-lg'
                             }
                         `}
                     >
                         <img
                             src="/icons/magic-wand-filled.svg"
                             alt="Activate"
-                            className={`w-7 h-7 object-contain transition-transform duration-500 brightness-0 invert ${isActive ? 'rotate-12' : ''}`}
+                            className={`w-6 h-6 object-contain transition-transform duration-500 brightness-0 invert ${isActive ? 'rotate-[15deg] scale-110' : ''}`}
                         />
                     </button>
-                    {/* Click me text removed */}
                 </div>
 
                 {/* Result Container */}
-                <div className={`mt-2 flex-1 rounded-2xl border p-5 relative overflow-hidden transition-all duration-500 min-h-[140px]
+                <div className={`mt-0 flex-1 rounded-2xl border p-6 pt-10 relative overflow-hidden transition-all duration-500 md:min-h-[180px]
                     ${isActive
-                        ? 'bg-white border-blue-200 shadow-inner'
+                        ? 'bg-white border-blue-200 shadow-[0_2px_15px_-3px_rgba(37,99,235,0.1)]'
                         : 'bg-gray-50 border-gray-100'
                     }`}
                 >
 
-                    {/* Placeholder */}
+                    {/* Pre-fill UI (Skeleton-ish State) */}
                     {!isActive && (
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm font-semibold">
-                            Magic happens here...
+                        <div className="flex flex-col gap-3 opacity-40 grayscale pointer-events-none transition-opacity duration-300 group-hover:opacity-60">
+                            <div className="flex items-center gap-3 mb-1">
+                                <div className="w-8 h-8 rounded-full bg-gray-200" />
+                                <div className="flex flex-col gap-1.5">
+                                    <div className="h-2.5 w-24 bg-gray-200 rounded-full" />
+                                    <div className="h-2 w-16 bg-gray-100 rounded-full" />
+                                </div>
+                            </div>
+                            <div className="h-2.5 w-full bg-gray-200 rounded-full mt-2" />
+                            <div className="h-2.5 w-4/5 bg-gray-200 rounded-full" />
+                            <div className="h-2.5 w-2/3 bg-gray-200 rounded-full" />
                         </div>
                     )}
 
