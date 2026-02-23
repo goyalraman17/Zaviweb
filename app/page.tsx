@@ -22,6 +22,7 @@ const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
 const ProPowerUps = dynamic(() => import('@/components/ProPowerUps'));
+const SuperpowersSection = dynamic(() => import('@/components/SuperpowersSection'));
 
 /**
  * Zavi Marketing Website - Conversion-Optimized Flow
@@ -79,6 +80,9 @@ export default function Home() {
 
         {/* Pro Power-Ups - Highlight technical edge before pricing */}
         <ProPowerUps />
+
+        {/* Superpowers Index - Game Changer Third-Party Integrations */}
+        <SuperpowersSection />
 
         {/* Pricing - Convert While Excited */}
         <PricingNew />
