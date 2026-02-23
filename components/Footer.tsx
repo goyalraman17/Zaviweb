@@ -5,7 +5,7 @@ import { fadeUp, staggerContainerSlow } from '@/lib/animations';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#FAFAFA] pt-24 pb-12 overflow-hidden border-t border-slate-200">
+    <footer className="relative bg-[#FAFAFA] pt-24 pb-32 md:pb-12 overflow-hidden border-t border-slate-200">
       <div className="container-large relative z-10 max-w-7xl mx-auto px-6">
 
         {/* Top Section: Links Grid */}
