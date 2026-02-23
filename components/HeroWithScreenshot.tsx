@@ -253,13 +253,13 @@ export default function HeroWithScreenshot() {
                     downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }}
-                className="relative inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-bold text-white bg-gradient-to-r from-zavi-blue-600 to-indigo-600 rounded-2xl transition-all shadow-2xl overflow-hidden group"
+                className="relative inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-bold text-white bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 rounded-2xl transition-all shadow-2xl overflow-hidden group"
                 initial="rest"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(37, 99, 235, 0.5)" }}
               >
                 {/* Animated glow */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-zavi-blue-600 to-indigo-600 opacity-0 group-hover:opacity-75 blur-xl"
+                  className="absolute inset-0 bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 opacity-0 group-hover:opacity-75 blur-xl"
                   animate={{
                     scale: [1, 1.2, 1],
                   }}

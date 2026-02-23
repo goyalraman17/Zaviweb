@@ -172,7 +172,7 @@ export default function Navigation() {
           <div className="hidden md:block relative">
             <motion.a
               href="/#download"
-              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-zavi-blue-600 to-indigo-600 rounded-lg transition-all shadow-sm"
+              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 rounded-lg transition-all shadow-sm"
               initial="rest"
               whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(37, 99, 235, 0.3)" }}
               whileTap="tap"
@@ -197,7 +197,7 @@ export default function Navigation() {
           {/* CTA Button - Mobile (visible outside menu) */}
           <motion.a
             href="/#download"
-            className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-zavi-blue-600 to-indigo-600 rounded-lg transition-all shadow-sm mr-2"
+            className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 rounded-lg transition-all shadow-sm mr-2"
             initial="rest"
             whileTap="tap"
             variants={ctaPrimary}
@@ -256,7 +256,7 @@ export default function Navigation() {
                 {/* CTA Button - First in menu */}
                 <motion.a
                   href="/#download"
-                  className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-gradient-to-r from-zavi-blue-600 to-indigo-600 rounded-lg transition-all mb-4 shadow-md"
+                  className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 rounded-lg transition-all mb-4 shadow-md"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 }}

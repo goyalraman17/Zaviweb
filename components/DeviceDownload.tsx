@@ -187,7 +187,7 @@ export default function DeviceDownload() {
                   className={`
                     relative group p-6 md:p-8 rounded-2xl border-2 transition-all duration-300
                     ${(isAndroid || platform.name === 'iOS' || platform.name === 'macOS' || platform.name === 'Linux')
-                      ? 'bg-gradient-to-br from-zavi-blue-600 to-indigo-600 border-zavi-blue-600 text-white shadow-xl scale-105 z-10'
+                      ? 'bg-gradient-to-br from-zavi-blue-800 to-zavi-blue-700 border-zavi-blue-800 text-white shadow-xl scale-105 z-10'
                       : isActualSelected
                         ? 'border-zavi-blue-400 bg-white shadow-md'
                         : 'bg-white border-slate-200 text-slate-700 hover:border-zavi-blue-300 hover:shadow-lg'
