@@ -167,57 +167,25 @@ export default function PlatformDownload() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            {(activePlatform === 'android' || activePlatform === 'ios') ? (
-              <>
-                <motion.a
-                  href={platformInfo.downloadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-12 py-5 bg-zavi-blue text-white text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all w-full justify-center"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                  </svg>
-                  Download for {platformInfo.name}
-                </motion.a>
-                <p className="text-sm text-zavi-gray-text mt-6 font-medium">
-                  Free to install · No credit card · Works inside all apps
-                </p>
-              </>
-            ) : (
-              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-inner">
-                {!isSubmitted ? (
-                  <>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Join the {platformInfo.name} Waitlist</h3>
-                    <p className="text-sm text-slate-600 mb-6">Be the first to know when we launch on {platformInfo.name}.</p>
-                    <form onSubmit={handleWaitlistSubmit} className="flex gap-2">
-                      <input
-                        type="email"
-                        required
-                        placeholder="your@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="flex-1 px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-zavi-blue-500"
-                      />
-                      <button type="submit" className="px-6 py-3 bg-zavi-blue text-white font-bold rounded-xl hover:bg-zavi-blue-600 shadow-md">
-                        Join
-                      </button>
-                    </form>
-                  </>
-                ) : (
-                  <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }}>
-                    <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                    </div>
-                    <p className="font-bold text-slate-900">Success! You're on the list.</p>
-                  </motion.div>
-                )}
-              </div>
-            )}
+            <motion.a
+              href={platformInfo.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-12 py-5 bg-zavi-blue text-white text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all w-full justify-center"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+              </svg>
+              {activePlatform === 'ios' || activePlatform === 'android'
+                ? `Get Zavi on ${platformInfo.name}`
+                : `Download for ${platformInfo.name}`
+              }
+            </motion.a>
+            <p className="text-sm text-zavi-gray-text mt-6 font-medium">
+              Free to install · No credit card · Works inside all apps
+            </p>
           </motion.div>
         </motion.div>
       </div>

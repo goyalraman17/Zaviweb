@@ -109,6 +109,14 @@ export default function Footer() {
                   <a href="/#pricing" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
                   <a href="/#download" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Download</a>
                   <a href="/changelog" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Changelog</a>
+                  <div className="pt-2 flex flex-col gap-2">
+                    <a href="https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802" target="_blank" className="opacity-70 hover:opacity-100 transition-opacity">
+                      <img src="/app-store-badge.png" alt="Download on App Store" className="h-8 w-auto" />
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard" target="_blank" className="opacity-70 hover:opacity-100 transition-opacity">
+                      <img src="/play-store-badge.png" alt="Get it on Google Play" className="h-8 w-auto" />
+                    </a>
+                  </div>
                 </div>
               </div>
               {/* Compare */}
@@ -140,12 +148,22 @@ export default function Footer() {
                 <div className="space-y-2">
                   <a href="/privacy" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Privacy</a>
                   <a href="/terms" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Terms</a>
-                  <a href="/contact" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                  <a href="/contact" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors font-medium">Contact & Support</a>
                   <a href="/feed.xml" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">RSS Feed</a>
                 </div>
               </div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* Global Support Callout */}
+        <motion.div
+          variants={fadeUp}
+          className="max-w-3xl mx-auto mb-12 py-6 px-8 rounded-2xl bg-white/50 border border-white/20 backdrop-blur-sm text-center"
+        >
+          <p className="text-sm text-gray-600">
+            Have questions or need help? <a href="/contact" className="text-blue-600 font-bold hover:underline">Get in touch with our team →</a>
+          </p>
         </motion.div>
 
         {/* Bottom Bar */}

@@ -132,7 +132,7 @@ export const integrations: Integration[] = [
             { question: "Can it understand code vocabulary?", answer: "Yes, our custom dictionary handles programming languages flawlessly." }
         ],
         metaTitle: "GitHub Voice Commands & Dictation | Zavi AI",
-        metaDesc: "Manage GitHub PRs, issues, and workflow entirely by voice across Mac, Windows, and Mobile."
+        metaDesc: "Manage GitHub PRs, issues, and workflow entirely by voice across Mac, Windows, Linux, and Mobile."
     },
     {
         id: "notion",
@@ -156,7 +156,7 @@ export const integrations: Integration[] = [
             { question: "Does it support Notion databases?", answer: "Yes, you can query and add items to your Notion databases via voice." }
         ],
         metaTitle: "Voice Dictation for Notion | Zavi AI",
-        metaDesc: "Create Notion pages, search notes, and manage databases using your voice on Mac, Windows, iOS, and Android."
+        metaDesc: "Create Notion pages, search notes, and manage databases using your voice on Mac, Windows, Linux, iOS, and Android."
     },
     {
         id: "imessage",
@@ -340,7 +340,7 @@ export const integrations: Integration[] = [
             { question: "Does it play the video?", answer: "It will open the video directly in your default browser or YouTube app." }
         ],
         metaTitle: "YouTube Voice Search | Zavi AI",
-        metaDesc: "Search YouTube videos and browse playlists with your voice across Mac, Windows, and mobile."
+        metaDesc: "Search YouTube videos and browse playlists with your voice across Mac, Windows, Linux, and mobile."
     },
     {
         id: "google-sheets",
@@ -501,7 +501,7 @@ export const integrations: Integration[] = [
             { question: "Do I pay for Claude through Zavi?", answer: "No, you securely connect your own Anthropic API key." }
         ],
         metaTitle: "Connect Claude AI to System Keyboard | Zavi AI",
-        metaDesc: "Integrate Anthropic's Claude AI dynamically across Mac, Windows, iOS, and Android using Zavi AI."
+        metaDesc: "Integrate Anthropic's Claude AI dynamically across Mac, Windows, Linux, iOS, and Android using Zavi AI."
     },
     {
         id: "chatgpt",

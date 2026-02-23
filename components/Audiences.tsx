@@ -103,7 +103,7 @@ export default function Audiences() {
             </p>
 
             <p className="text-xs text-zavi-gray-text/60 mt-3">
-              Works across Mac, Windows, iOS, Android
+              Works across Mac, Windows, Linux, iOS, Android
             </p>
           </motion.div>
 

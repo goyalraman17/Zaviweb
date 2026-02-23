@@ -303,7 +303,7 @@ export default function DeviceDownload() {
                   </svg>
                 ))}
               </div>
-              <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Play Store Rating</span>
+              <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">App Store & Play Store Rating</span>
             </div>
           </motion.div>
         </motion.div>
