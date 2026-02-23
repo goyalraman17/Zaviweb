@@ -191,7 +191,7 @@ export default function PricingNew() {
                     analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
                   }}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'monthly'
-                    ? 'bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 text-white shadow-md'
+                    ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
                     }`}
                 >
@@ -203,7 +203,7 @@ export default function PricingNew() {
                     analytics.track('pricing_toggle_billing', { cycle: 'annual' });
                   }}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'annual'
-                    ? 'bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 text-white shadow-md'
+                    ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
                     }`}
                 >
@@ -318,7 +318,7 @@ export default function PricingNew() {
               <motion.div variants={fadeUp}>
                 <GlowCard glowColor="rgba(37, 99, 235, 0.6)" className="h-full">
                   <div className="relative rounded-3xl p-8 shadow-2xl transform md:scale-105 h-full" style={{
-                    background: 'linear-gradient(135deg, #152C66 0%, #213D7C 100%)',
+                    background: 'linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%)',
                   }}>
                     {/* Most Popular Badge */}
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-white text-zavi-blue-700 text-sm font-bold rounded-full shadow-lg">
@@ -543,7 +543,7 @@ export default function PricingNew() {
             <motion.div
               className="max-w-5xl mx-auto rounded-3xl p-12 text-center shadow-xl mb-16"
               style={{
-                background: 'linear-gradient(135deg, #213D7C 0%, #152C66 100%)',
+                background: 'linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%)',
               }}
               variants={fadeUp}
             >

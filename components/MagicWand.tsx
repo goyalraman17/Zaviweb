@@ -176,7 +176,7 @@ export default function MagicWand() {
                                         downloadSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                     }
                                 }}
-                                className="inline-flex justify-center w-full sm:w-auto items-center gap-3 px-10 py-5 bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 hover:from-zavi-blue-900 hover:to-zavi-blue-800 text-white rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-[0_8px_20px_rgba(21,44,102,0.25)] group"
+                                className="inline-flex justify-center w-full sm:w-auto items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-[0_8px_20px_rgba(37,99,235,0.25)] group"
                             >
                                 <span>Get Magic Wand</span>
                                 <Image

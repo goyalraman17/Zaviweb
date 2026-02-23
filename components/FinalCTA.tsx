@@ -35,7 +35,7 @@ export default function FinalCTA() {
                     <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
                         <a
                             href="/#download"
-                            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-zavi-blue-800 to-zavi-blue-700 rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(21,44,102,0.4)]"
+                            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(37,99,235,0.4)]"
                         >
                             <span className="relative z-10">Try Zavi For Free</span>
                             <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
