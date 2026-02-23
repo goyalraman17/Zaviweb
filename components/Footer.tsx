@@ -107,14 +107,50 @@ export default function Footer() {
                 <div className="space-y-2">
                   <a href="/demo" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Live Demo</a>
                   <a href="/#pricing" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-                  <a href="/#download" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Download</a>
+                  <div className="pt-2">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Download</p>
+                    <div className="space-y-1 ml-1 border-l border-gray-200 pl-3">
+                      <a href="/download/macos" className="block text-xs text-gray-500 hover:text-blue-600 transition-colors">for macOS</a>
+                      <a href="/download/windows" className="block text-xs text-gray-500 hover:text-blue-600 transition-colors">for Windows</a>
+                      <a href="/download/linux" className="block text-xs text-gray-500 hover:text-blue-600 transition-colors">for Linux</a>
+                      <a href="/download/ios" className="block text-xs text-gray-500 hover:text-blue-600 transition-colors">for iOS</a>
+                      <a href="/download/android" className="block text-xs text-gray-500 hover:text-blue-600 transition-colors">for Android</a>
+                    </div>
+                  </div>
                   <a href="/changelog" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Changelog</a>
-                  <div className="pt-2 flex flex-col gap-2">
-                    <a href="https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802" target="_blank" className="opacity-70 hover:opacity-100 transition-opacity">
-                      <img src="/app-store-badge.png" alt="Download on App Store" className="h-8 w-auto" />
+                  <a href="/partners" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Partner with Zavi</a>
+
+                  {/* App Store Badges - Inline SVGs for reliability */}
+                  <div className="pt-4 flex flex-col gap-3">
+                    <a
+                      href="https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/badge transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      <svg width="135" height="40" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-[34px] w-auto drop-shadow-sm">
+                        <rect width="135" height="40" rx="6.8" fill="black" />
+                        <path d="M19.1418 25.1328C19.2319 25.1328 19.3364 25.1102 19.4604 25.0425C19.8661 24.8113 20.3005 24.6477 20.7629 24.5575C21.2253 24.4673 21.6819 24.4221 22.1327 24.4221C22.6286 24.4221 23.0909 24.4786 23.5194 24.597C23.9479 24.7154 24.3257 24.8847 24.6527 25.1102C24.7317 25.161 24.8106 25.1863 24.8896 25.1863C25.0135 25.1863 25.115 25.1187 25.1884 24.9777C25.5605 24.2388 25.7523 23.4659 25.7635 22.6593C25.7748 21.8527 25.5943 21.0855 25.2222 20.3575C24.8501 19.6295 24.3312 19.0485 23.6656 18.6141C22.9999 18.1797 22.2104 17.9625 21.2968 17.9625C20.8454 17.9625 20.3996 18.019 19.9594 18.1317C19.5192 18.2445 19.1171 18.4251 18.7529 18.6734L15.9392 14.5029C15.8601 14.3901 15.7531 14.3338 15.6178 14.3338C15.4824 14.3338 15.3865 14.3846 15.3302 14.4861L12.5671 19.0321C12.4826 19.1673 12.4404 19.297 12.4404 19.421C12.4404 19.5562 12.4967 19.6635 12.6094 19.7423L18.4144 23.7011C18.6286 23.8475 18.8258 24.0335 19.0062 24.2592C19.0965 24.3831 19.1418 24.524 19.1418 24.682C19.1418 24.8399 19.0911 24.9809 18.9897 25.1051C18.8881 25.2292 18.7584 25.2911 18.6006 25.2911C18.4989 25.2911 18.403 25.2685 18.3129 25.2235C17.5574 24.8847 16.7845 24.7154 15.9941 24.7154C15.1593 24.7154 14.381 24.8847 13.66 25.2235C12.9383 25.5623 12.2854 26.0416 11.7015 26.6617C11.1176 27.2818 10.632 28.0207 10.2448 28.8785C0.9857 29.7364 9.6828 30.6726 9.6152 31.6877C9.5476 32.7027 9.6547 33.7177 9.9366 34.7329C10.2185 35.7479 10.6358 36.6839 11.1883 37.5408C11.7409 38.3978 12.3781 39.1141 13.0999 39.6896C13.8216 40.2649 14.6167 40.7105 15.4852 41.0263C16.3537 41.3421 17.2561 41.5 18.1923 41.5C19.1284 41.5 20.0308 41.3421 20.8993 41.0263C21.7678 40.7105 22.5684 40.2649 23.3013 39.6896C24.0343 39.1141 24.6714 38.3978 25.2127 37.5408C25.7538 36.6839 26.1712 35.7479 26.4646 34.7329C26.758 33.7177 26.8876 32.7027 26.8539 31.6877C26.8202 30.6726 26.6229 29.7364 26.2618 28.8785L25.3255 28.8C25.2127 28.8 25.1057 28.8282 25.0044 28.8847C24.9028 28.9411 24.8183 29.0256 24.7507 29.1384C24.4124 29.7248 24.001 30.2212 23.5165 30.6273C23.032 31.0334 22.513 31.3323 21.9593 31.5239C21.4057 31.7155 20.8304 31.8115 20.2332 31.8115C19.636 31.8115 19.0494 31.7155 18.4735 31.5239C17.8976 31.3323 17.3676 31.0279 16.8831 30.6105C16.3985 30.1931 15.9869 29.68 15.6486 29.0712C15.6149 29.0035 15.5755 28.9415 15.5303 28.8851L18.8431 25.1843C18.9106 25.1054 19.0102 25.066 19.1418 25.066V25.1328ZM19.5786 11.2384C19.5786 11.2721 19.5843 11.3341 19.5956 11.4243C19.5956 11.7513 19.5392 12.1124 19.4264 12.5072C19.3138 12.9018 19.1502 13.2685 18.9358 13.6068C18.7214 13.9451 18.4564 14.2327 18.1408 14.4697C17.825 14.7066 17.4698 14.8927 17.0749 15.028C16.6801 15.1633 16.2629 15.2311 15.823 15.2311C15.4283 15.2311 15.0506 15.1859 14.6897 15.0957C14.3288 15.0055 13.9736 14.8475 13.6241 14.6219C13.2745 14.3963 12.9642 14.1029 12.6934 13.7421C12.4227 13.3813 12.197 12.9472 12.0166 12.4397C11.8361 11.9322 11.7459 11.3626 11.7459 10.7308C11.7459 10.0911 11.9039 9.5385 12.22 9.0728C12.536 8.6071 12.9532 8.2464 13.4719 7.9904C13.9905 7.7345 14.5601 7.6065 15.1802 7.6065C16.1499 7.6065 16.9622 7.8997 17.6164 8.4859C18.2707 9.0722 18.7501 9.8732 19.0544 10.8884L19.4938 10.8378C19.5501 10.8378 19.6121 10.866 19.6798 10.9224C19.7474 10.9788 19.7813 11.0463 19.7813 11.1252C19.7813 11.1702 19.7756 11.2078 19.7643 11.238L19.5786 11.2384Z" fill="white" />
+                        <text x="36" y="17" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="9" fill="white">Download on the</text>
+                        <text x="36" y="32" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="15" fill="white">App Store</text>
+                      </svg>
                     </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard" target="_blank" className="opacity-70 hover:opacity-100 transition-opacity">
-                      <img src="/play-store-badge.png" alt="Get it on Google Play" className="h-8 w-auto" />
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.pingpros.keyboard"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/badge transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      <svg width="135" height="40" viewBox="0 0 135 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-[34px] w-auto drop-shadow-sm">
+                        <rect width="135" height="40" rx="6.8" fill="black" />
+                        <path d="M14.9333 11L14 11.9333L21.0667 19L14 26.0667L14.9333 27L22 19.9333L29.0667 27L30 26.0667L22.9333 19L30 11.9333L29.0667 11L22 18.0667L14.9333 11Z" fill="none" />
+                        <path d="M9.6631 8.84752C9.43285 9.0886 9.3 9.4287 9.3 9.84523V29.3516C9.3 29.7681 9.43285 30.1082 9.6631 30.3493L9.72893 30.4103L20.6277 19.8242V19.5939L9.72893 8.7845L9.6631 8.84752Z" fill="#3BCCFF" />
+                        <path d="M24.269 23.3644L20.6277 19.8251V19.5947L24.271 16.0553L24.3414 16.0953L28.6531 18.4735C29.8864 19.1481 29.8864 20.2711 28.6531 20.9482L24.3414 23.3245L24.269 23.3644Z" fill="#FFD400" />
+                        <path d="M24.3414 23.3235L9.72891 30.4103C10.1257 30.8245 10.7716 30.865 11.5113 30.4578L24.3414 23.3235Z" fill="#FF3333" />
+                        <path d="M24.3414 16.097L11.5113 8.96275C10.7716 8.55556 10.1257 8.59613 9.72891 9.01026L24.3414 16.097Z" fill="#48FF48" />
+                        <text x="36" y="17" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="8" fill="white">GET IT ON</text>
+                        <text x="36" y="32" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="15" fill="white">Google Play</text>
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -140,6 +176,8 @@ export default function Footer() {
                   <a href="/languages" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Languages</a>
                   <a href="/glossary" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Glossary</a>
                   <a href="/about" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                  <a href="/press-kit" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Press Kit</a>
+                  <a href="/investors" className="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Investors</a>
                 </div>
               </div>
               {/* Legal */}

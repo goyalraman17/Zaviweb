@@ -28,7 +28,7 @@ const platforms = [
         requirement: 'Android 8.0+',
         description: 'System-wide AI keyboard. Works in every app — Gmail, WhatsApp, Slack, and more.',
         cta: 'Get on Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
+        href: '/download/android',
         highlight: true,
     },
     {
@@ -38,7 +38,7 @@ const platforms = [
         requirement: 'iOS 16+',
         description: 'AI voice typing keyboard for iPhone and iPad. Works system-wide in every app.',
         cta: 'Get on App Store',
-        href: 'https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802',
+        href: '/download/ios',
         highlight: true,
     },
     {
@@ -48,7 +48,7 @@ const platforms = [
         requirement: 'macOS 12+',
         description: 'Desktop voice typing app. Speak into any app on your Mac.',
         cta: 'Download for Mac',
-        href: '/downloads/Zavi_AI.dmg',
+        href: '/download/macos',
         highlight: false,
     },
     {
@@ -58,7 +58,7 @@ const platforms = [
         requirement: 'Windows 10+',
         description: 'Desktop voice typing for Windows. System-wide voice input.',
         cta: 'Download for Windows',
-        href: '/#download',
+        href: '/download/windows',
         highlight: false,
     },
     {
@@ -68,7 +68,7 @@ const platforms = [
         requirement: 'Ubuntu 20.04+ / Debian',
         description: 'Voice typing for Linux desktops. Available as .deb package.',
         cta: 'Download .deb',
-        href: '/downloads/Zavi_0.1.0_amd64.deb',
+        href: '/download/linux',
         highlight: false,
     },
 ];
