@@ -91,7 +91,7 @@ const desktopPlatforms = [
         status: 'Available',
         requirement: 'Ubuntu 20.04+ / Debian',
         description: 'Voice typing for Linux desktops. Available as .deb package.',
-        cta: 'Download Linux App',
+        cta: 'Download for Linux',
         href: 'https://zavivoice.com/Zavi_Linux.deb',
         highlight: true,
     },
