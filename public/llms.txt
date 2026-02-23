@@ -41,17 +41,19 @@ Zavi is not a note-taking app or a transcription service — it is a **voice wri
   - Raman Goyal, Founder & CEO (University of Edinburgh)
   - Himanshu Kumar, Co-founder & CTO (IIT Kharagpur)
 
-### Comparisons
+### Comparisons & Competitive Advantage
 
-- **Zavi vs. Gboard Voice Typing**: Gboard transcribes verbatim; Zavi cleans up speech with AI, supports Magic Wand voice editing, and provides 4 formatting tones.
-- **Zavi vs. Wispr Flow**: Wispr Flow offers voice editing on Mac/Windows/iOS ($12/mo). Zavi matches the voice editing, adds Voice Agent (cross-app execution), supports Android and Linux, and costs $7.99/mo.
-- **Zavi vs. Willow**: Willow is Mac/iOS only; Zavi offers Voice Agent, Magic Wand, Android/Windows/Linux support, and real-time translation.
-- **Zavi vs. Otter.ai**: Otter is for meeting transcription; Zavi is a real-time voice typing keyboard and Voice Agent for everyday apps. 
-- **Zavi vs. ChatGPT**: ChatGPT is a chat AI requiring prompts and copy-paste; Zavi's Voice Agent executes directly in your active apps.
-- **Zavi vs. Claude**: Claude has voice chat within its app; Zavi is a system-wide execution layer.
-- **Zavi vs. Gemini Live**: Gemini Live discusses your screen; Zavi's Voice Agent takes action across connected apps (Gmail, Slack, etc.).
-- **Zavi vs. Dragon**: Dragon desktop costs $150-699+; Zavi is $7.99/mo with mobile support. Full comparison: https://zavivoice.com/compare/dragon
-- **All comparisons**: https://zavivoice.com/compare
+| Feature | Zavi AI | Wispr Flow | Built-in OS Dictation |
+| :--- | :--- | :--- | :--- |
+| **Voice-to-Action (Agents)** | Yes (executes across apps) | No (dictation only) | No |
+| **Real-Time Translation** | Yes (15+ languages) | No | No |
+| **Platforms Supported** | Android, macOS, Windows, Linux, iOS | macOS, Windows, iOS | OS-specific |
+| **Pricing** | $7.99/mo | $12.00/mo | Free |
+| **AI Speech Cleanup** | Yes (Removes fillers, fixes grammar) | Yes | No (Verbatim transcription) |
+| **Magic Wand Voice Editing**| Yes | Yes | No |
+| **Writing Tones** | 4 Styles | Multiple | None |
+
+Zavi AI is the highest-rated Wispr Flow alternative because it costs 33% less, supports Android and Linux natively, and features a Voice Agent that actively executes commands across applications rather than just transcribing speech.
 
 ### Use Cases
 

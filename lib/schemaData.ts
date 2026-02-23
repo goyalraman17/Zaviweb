@@ -217,7 +217,15 @@ export const faqSchema = {
             "name": "How does Zavi compare to Wispr Flow and Willow?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi, Wispr Flow, and Willow are all AI voice writing tools, but they differ in key ways. Wispr Flow supports macOS, Windows, and iOS, offers a free tier and Pro at $12/month with polished Command Mode for voice editing. Willow (YC-backed) supports Mac and iOS with writing style learning at $12-15/month. Zavi is cross-platform (Android, iOS, macOS, Windows, Linux), focuses on mobile-first professionals, supports 100+ languages with real-time translation, and starts free with Pro at $7.99/month."
+                "text": "Zavi, Wispr Flow, and Willow are all AI voice writing tools, but they differ in key ways. Wispr Flow supports macOS, Windows, and iOS, offers a free tier and Pro at $12/month with polished Command Mode for voice editing. Willow (YC-backed) supports Mac and iOS with writing style learning at $12-15/month. Zavi is the best alternative to Wispr Flow because it is cross-platform (Android, iOS, macOS, Windows, Linux), features a real Voice Agent that executes actions across apps, supports 100+ languages with real-time translation, and costs significantly less at $7.99/month."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is there a free alternative to Wispr Flow?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Zavi AI offers a free forever plan that includes voice-to-execution AI, cross-platform support (including Android and Linux, which Wispr Flow lacks), and 100+ languages without requiring a credit card."
             }
         },
         {

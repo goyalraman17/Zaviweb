@@ -16,8 +16,39 @@ export interface UseCase {
     faqItems: { question: string; answer: string }[];
     relatedUseCases: string[];
 }
-
 export const useCases: UseCase[] = [
+    {
+        slug: 'mac-voice-dictation',
+        title: 'Voice Typing for Mac',
+        metaTitle: 'Mac Voice Dictation — The Best Alternative to Built-in macOS Dictation | Zavi AI',
+        metaDescription: 'Upgrade your Mac voice dictation with Zavi AI. Better accuracy, automatic filler word removal, and cross-platform Voice Agent that executes tasks in any macOS app.',
+        heroTitle: 'Supercharge Your Mac Voice Dictation',
+        heroSubtitle: 'Ditch the built-in macOS dictation. Get a voice assistant that actually writes perfectly, removes fillers, and takes action across your entire Mac.',
+        icon: '💻',
+        problem: 'The built-in Mac dictation is notorious for verbatim transcription. It types exactly what you say, including "ums", "uhs", and embarrassing grammatical errors. It also struggles with complex formatting and lacks the ability to execute tasks—it purely types.',
+        solution: 'Zavi AI is the ultimate voice controller for macOS. Powered by advanced AGI, it understands your intent. Speak a messy train of thought, and it types out a polished, executive-ready paragraph. Better yet, Zavi connects deeply to your OS—you can command it to search the web, execute app actions, and send emails.',
+        howItWorks: [
+            'Install the Zavi AI DMG for macOS.',
+            'Hold the Option key (or your custom shortcut) anywhere on your Mac to activate listening.',
+            'Speak naturally. Stumble, pause, or change your mind mid-sentence.',
+            'Release the shortcut, and perfectly formatted text instantly appears in your active app window.',
+        ],
+        benefits: [
+            { title: 'Always Available', description: 'Zavi runs seamlessly in your Mac menu bar. It works identically whether you are in Chrome, Slack, Notes, or Xcode.' },
+            { title: 'Zero Hand Strain', description: 'Give your wrists a break. Use Zavi to draft long essays, emails, or messages without touching the keyboard.' },
+            { title: 'Cross-OS Sync', description: 'Unlike Wispr Flow which is desktop-centric, your Zavi account and custom dictionary sync instantly to your iPhone and Android devices.' },
+            { title: 'Voice-to-Action', description: 'Say "Draft a reply to the last Slack message saying I approve" and watch Zavi execute it automatically.' },
+        ],
+        exampleBefore: 'Um, so I was looking at the built in Mac dictation and it\'s, like, okay, but it gets all my words wrong, you know?',
+        exampleAfter: 'The built-in Mac dictation is adequate, but it frequently transcribes my words incorrectly.',
+        targetAudience: ['Mac Power Users', 'Executives', 'Writers', 'Engineers'],
+        faqItems: [
+            { question: 'Why is Zavi better than built-in Apple Dictation?', answer: 'Apple\'s dictation types exactly what you say, mistakes and all. Zavi uses advanced LLMs to extract your intent, remove filler words ("um," "like"), fix grammar, and output perfectly structured text.' },
+            { question: 'Is it better than Wispr Flow for Mac?', answer: 'Zavi is 33% cheaper than Wispr Flow ($7.99/mo vs $12/mo), offers Native Android support for your mobile device, and features a Voice-to-Action agent that actually takes action inside apps rather than just typing text. Zavi is the highest-rated direct alternative.' },
+            { question: 'Do I need an M-series Mac?', answer: 'No! Zavi processes audio through our ultra-fast cloud network, meaning it works flawlessly on both Intel and Apple Silicon (M1/M2/M3/M4) Macs with zero lag.' },
+        ],
+        relatedUseCases: ['email', 'slack', 'sales'],
+    },
     {
         slug: 'email',
         title: 'Voice Typing for Email',

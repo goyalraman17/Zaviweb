@@ -136,10 +136,10 @@ export default function PricingNew() {
               {/* Trust Pill Badges */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
                 <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700 shadow-sm">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg className="w-4 h-4 text-zavi-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
-                  Trusted Worldwide
+                  Rated 4.8/5 by Professionals
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-semibold text-green-700 shadow-sm">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +179,7 @@ export default function PricingNew() {
                     : 'text-gray-600 hover:text-gray-900'
                     }`}
                 >
-                  Annual (2 months free)
+                  Annual (Save 16%)
                 </button>
               </div>
             </motion.div>
@@ -304,9 +304,16 @@ export default function PricingNew() {
                       <div className="text-white/80 text-sm">
                         {billingCycle === 'monthly' ? 'per month' : 'per year'}
                       </div>
-                      {billingCycle === 'annual' && (
+                      {billingCycle === 'annual' ? (
                         <div className="text-white/70 text-xs mt-1">
                           Save $46 compared to monthly
+                        </div>
+                      ) : (
+                        <div className="text-white/70 text-xs font-semibold mt-2 inline-flex items-center gap-1 bg-white/10 px-2 py-1 rounded">
+                          <svg className="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                          33% less than alternative AI dictation apps
                         </div>
                       )}
                     </div>
@@ -476,14 +483,17 @@ export default function PricingNew() {
                   </ul>
 
                   <motion.button
-                    onClick={() => handlePlanAction('teams')}
+                    onClick={() => {
+                      analytics.track('pricing_plan_click', { plan: 'teams_trial', billing_cycle: billingCycle, is_android: isAndroid });
+                      window.location.href = 'mailto:sales@zavivoice.com?subject=Team%20Plan%20Trial%20Request';
+                    }}
                     className="block w-full px-6 py-4 rounded-full font-semibold text-center text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
                     initial="rest"
                     whileHover="hover"
                     whileTap="tap"
                     variants={ctaPrimary}
                   >
-                    {isAndroid ? 'Start with 3 Users' : 'Get Team Access'}
+                    Start 14-Day Team Trial
                   </motion.button>
 
                   <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
