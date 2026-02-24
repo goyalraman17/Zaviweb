@@ -78,7 +78,7 @@ const desktopPlatforms = [
         requirement: 'Windows 10+',
         description: 'Desktop voice typing for Windows. System-wide voice input.',
         cta: 'Download for Windows',
-        href: 'https://zavivoice.com/Zavi_Windows.exe',
+        href: '/downloads/Zavi_Windows.exe',
         highlight: true,
     },
     {
@@ -92,7 +92,7 @@ const desktopPlatforms = [
         requirement: 'Ubuntu 20.04+ / Debian',
         description: 'Voice typing for Linux desktops. Available as .deb package.',
         cta: 'Download for Linux',
-        href: 'https://zavivoice.com/Zavi_Linux.deb',
+        href: '/downloads/Zavi_Linux.deb',
         highlight: true,
     },
 ];
