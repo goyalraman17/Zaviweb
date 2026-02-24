@@ -100,11 +100,6 @@ export default function PricingNew() {
           alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
           // TODO: Verify signature and update user subscription
         },
-        prefill: {
-          name: '',
-          email: '',
-          contact: ''
-        },
         theme: {
           color: '#2563EB'
         }
