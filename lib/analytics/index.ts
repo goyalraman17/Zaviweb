@@ -37,7 +37,9 @@ export type AnalyticsEventName =
   | 'time_on_page'
   | 'video_play'
   | 'video_complete'
-  | 'waitlist_signup';
+  | 'waitlist_signup'
+  // Social Proof Events
+  | 'product_hunt_badge_click';
 
 export interface AnalyticsEvent {
   name: AnalyticsEventName;

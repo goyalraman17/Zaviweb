@@ -318,6 +318,44 @@ export default function HeroWithScreenshot() {
                 <span className="text-xs text-gray-500 font-medium mt-1">
                   Available on Mac, Windows, Linux, iOS and Android
                 </span>
+
+                {/* Product Hunt Badge */}
+                <motion.a
+                  href="https://www.producthunt.com/products/zavi-ai-voice-talk-to-text?launch=zavi-ai-voice-to-action-os"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/80 backdrop-blur-md rounded-full border border-slate-200/60 shadow-sm hover:shadow-md hover:border-orange-200/60 transition-all duration-300 group"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.4, duration: 0.5 }}
+                  whileHover={{ scale: 1.03 }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    analytics.track('product_hunt_badge_click', { location: 'hero' });
+                    window.open('https://www.producthunt.com/products/zavi-ai-voice-talk-to-text?launch=zavi-ai-voice-to-action-os', '_blank', 'noopener,noreferrer');
+                  }}
+                >
+                  {/* Product Hunt Logo */}
+                  <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="20" fill="#FF6154" />
+                    <path d="M22.667 18H18v-4h4.667a2 2 0 110 4zM16 12v16h2v-6h4.667a4 4 0 100-8H16z" fill="white" />
+                  </svg>
+                  <div className="flex flex-col items-start">
+                    <span className="text-xs font-bold text-slate-900 leading-tight tracking-tight">
+                      #7 Product of the Day
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-medium leading-tight">
+                      on Product Hunt
+                    </span>
+                  </div>
+                  {/* Trophy/upvote indicator */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-orange-50 rounded-full border border-orange-100 group-hover:bg-orange-100 transition-colors duration-300">
+                    <svg className="w-3.5 h-3.5 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 4l2.472 5.009L20 9.753l-4 3.898.944 5.505L12 16.533l-4.944 2.623L8 13.651l-4-3.898 5.528-.744z" />
+                    </svg>
+                    <span className="text-[10px] font-bold text-orange-600">#7</span>
+                  </div>
+                </motion.a>
               </div>
             </motion.div>
 
