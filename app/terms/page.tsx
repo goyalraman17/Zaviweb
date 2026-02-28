@@ -22,7 +22,7 @@ export default function TermsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold text-zavi-gray-900 mb-4">Terms of Service</h1>
-            <p className="text-lg text-zavi-gray-600 mb-12">Last updated: January 13, 2026</p>
+            <p className="text-lg text-zavi-gray-600 mb-12">Last updated: February 28, 2026</p>
 
             <div className="prose prose-lg max-w-none">
               <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">1. Acceptance of Terms</h2>
@@ -32,7 +32,7 @@ export default function TermsPage() {
 
               <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">2. Description of Service</h2>
               <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
-                Zavi is an AI-powered voice typing keyboard application for Android devices. The service converts speech to text while removing filler words, correcting grammar, and improving structure.
+                Zavi is an AI-powered voice typing application available on iOS, macOS, Windows, Linux, and Android. The service converts speech to text while removing filler words, correcting grammar, and improving structure using AI.
               </p>
 
               <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">3. User Responsibilities</h2>
@@ -57,7 +57,7 @@ export default function TermsPage() {
 
               <h3 className="text-2xl font-semibold text-zavi-gray-900 mt-8 mb-3">Pro Tier</h3>
               <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
-                Pro subscriptions provide unlimited usage and additional features. Subscriptions are billed through the Google Play Store and are subject to Google's terms and refund policies.
+                Pro subscriptions provide unlimited usage and additional features. Subscriptions are billed through the Apple App Store, Google Play Store, or our website, and are subject to the respective platform's terms and refund policies.
               </p>
 
               <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">5. Intellectual Property</h2>

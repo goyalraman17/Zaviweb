@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold text-zavi-gray-900 mb-4">Privacy Policy</h1>
-            <p className="text-lg text-zavi-gray-600 mb-12">Last updated: January 13, 2026</p>
+            <p className="text-lg text-zavi-gray-600 mb-12">Last updated: February 28, 2026</p>
 
             <div className="prose prose-lg max-w-none">
               <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">Introduction</h2>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-6 text-lg text-zavi-gray-700 mb-6 space-y-2">
                 <li>Feature usage frequency</li>
                 <li>Error reports and crash logs</li>
-                <li>Device type and Android version</li>
+                <li>Device type and operating system version</li>
                 <li>Language preferences</li>
               </ul>
               <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
@@ -90,17 +90,22 @@ export default function PrivacyPage() {
                 <li>Export your data in a portable format</li>
               </ul>
 
-              <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">Third-Party Services</h2>
+              <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">Third-Party AI Services</h2>
               <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
-                Zavi uses trusted third-party services for:
+                To provide voice typing, text enhancement, and AI-powered features, Zavi may send your voice audio and transcribed text to trusted third-party AI services for processing, including services provided by Google, Anthropic, and OpenAI.
+              </p>
+              <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
+                This data is transmitted securely via encrypted connections, processed in real-time, and is not stored by Zavi or these services beyond the immediate processing session. These services are governed by their respective privacy policies and provide industry-standard data protection.
+              </p>
+              <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
+                We may also use:
               </p>
               <ul className="list-disc pl-6 text-lg text-zavi-gray-700 mb-6 space-y-2">
-                <li>Cloud-based speech processing (when on-device processing is unavailable)</li>
-                <li>Analytics and crash reporting</li>
-                <li>Payment processing for Pro subscriptions</li>
+                <li>Analytics and crash reporting services</li>
+                <li>Payment processing for Pro subscriptions (via Apple App Store, Google Play, and Razorpay)</li>
               </ul>
               <p className="text-lg text-zavi-gray-700 mb-6 leading-relaxed">
-                These services are bound by strict data processing agreements and comply with applicable privacy regulations.
+                All third-party service providers are required to maintain data protection standards equivalent to our own and comply with applicable privacy regulations.
               </p>
 
               <h2 className="text-3xl font-bold text-zavi-gray-900 mt-12 mb-4">Children's Privacy</h2>
