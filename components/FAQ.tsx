@@ -7,44 +7,44 @@ import Link from 'next/link';
 
 const faqs = [
   {
-    question: "What is Zavi AI and how does it work?",
-    answer: "Zavi AI is an AI-powered voice typing keyboard that transforms natural speech into clean, professional text. Unlike regular voice typing that transcribes word-for-word (including filler words like 'um' and 'uh'), Zavi's AI automatically removes fillers, fixes grammar, restructures sentences, and produces polished, ready-to-send text. It works as a system-wide keyboard, so you can use it in Gmail, WhatsApp, Slack, Notion, ChatGPT, and every other app."
+    question: "What is Zavi AI?",
+    answer: "Zavi AI is a voice agent that works across every app on your phone and computer. Speak naturally, and Zavi removes filler words, fixes grammar, and produces clean text — or executes tasks like sending emails, messaging on Slack, and searching the web. It works as a system-wide keyboard on iOS and Android, and as a desktop app on macOS, Windows, and Linux."
+  },
+  {
+    question: "What can voice agents do?",
+    answer: "Voice agents let you control apps by speaking. Say 'email John that the meeting is moved to 3pm' and Zavi drafts and sends it in Gmail. Say 'message the team on Slack that the deploy is done' and it happens. Agents work across 27+ integrations including Gmail, Slack, WhatsApp, Notion, Calendar, GitHub, LinkedIn, and more — all from a single voice command."
+  },
+  {
+    question: "What is the Magic Wand?",
+    answer: "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences' — and the text is rewritten in-place instantly. No copy-pasting, no switching apps."
   },
   {
     question: "Is my voice data private?",
-    answer: "Absolutely. Your voice is processed in real-time and immediately deleted. We never store, share, or use your audio to train models. Your conversations are yours alone. Zavi is built with a privacy-first architecture — voice data is processed and discarded instantly."
+    answer: "Yes. Your voice is processed in real-time and immediately deleted. We never store, share, or use your audio to train models. Zavi is built with a privacy-first architecture — voice data is processed and discarded instantly."
   },
   {
-    question: "How is Zavi different from regular voice typing?",
-    answer: "Regular voice typing captures everything word for word, including all your 'um's, 'uh's, and awkward phrasing. Zavi removes fillers, fixes grammar, and turns messy speech into professional text automatically. This is our core technology called Zero-Prompting — no commands needed, the AI understands that clean, polished text is the default output."
-  },
-  {
-    question: "How fast is voice typing with Zavi compared to regular typing?",
-    answer: "Voice typing with Zavi is approximately 4x faster than typing on a mobile keyboard. The average person types at 40 words per minute but speaks at 150 words per minute. Since Zavi eliminates the editing phase entirely, a 500-word email that takes 12 minutes to type can be dictated in about 3 minutes — saving professionals an estimated 40+ hours per year."
+    question: "How fast is Zavi compared to typing?",
+    answer: "Zavi is approximately 5x faster than typing. The average person types at 40 words per minute but speaks at 150 words per minute. Since Zavi eliminates the editing phase entirely (AI handles filler removal and grammar), a 500-word email that takes 12 minutes to type can be dictated in about 3 minutes."
   },
   {
     question: "What's included in the free plan?",
-    answer: "The free plan includes AI-powered speech cleanup with filler word removal, grammar correction, works in every Android app, supports 100+ languages with auto-detection, and comes with generous daily usage limits. Upgrade to Pro for $7.99/month (or $49.99/year) for unlimited usage, 3x faster processing, and advanced formatting."
+    answer: "The free plan includes 1,000 words per day of AI-powered voice typing with filler word removal, grammar correction, Magic Wand, voice commands, all 27+ integrations, translation, tone control, and emoji — across every app. No credit card required. Upgrade to Pro ($7.99/month) for unlimited usage."
   },
   {
-    question: "Which platforms and apps does Zavi support?",
-    answer: "Zavi works on Android 8.0+, iOS 16+, macOS, Windows, and Linux. On Android and iOS, it integrates as a system-wide keyboard in every app — Gmail, WhatsApp, Slack, Notion, Google Docs, Microsoft Teams, ChatGPT, and hundreds more. On desktop, it works as a standalone application with system-wide voice input."
+    question: "Which platforms does Zavi support?",
+    answer: "Zavi works on all 5 major platforms: iOS, Android (8.0+), macOS, Windows, and Linux. On mobile, it integrates as a system-wide keyboard in every app. On desktop, it runs as a standalone application with system-wide voice input."
   },
   {
-    question: "How does Zavi handle multiple languages and translation?",
-    answer: "Zavi supports 100+ languages with automatic language detection — no manual switching needed. You can even speak in one language and have the output appear in another language in real-time. For example, speak in Hindi and get polished English text, or speak in Spanish and get professional French output. Zavi also handles code-switching (mixing languages in one sentence) intelligently."
+    question: "How does multi-language translation work?",
+    answer: "Zavi supports 100+ languages with automatic detection. Speak in one language and get the output in another — in real-time. For example, speak in Hindi and get polished English text, or speak in Spanish and get professional French output. Zavi also handles code-switching (mixing languages in one sentence)."
   },
   {
-    question: "How does Zavi compare to Wispr Flow and Willow?",
-    answer: "Wispr Flow supports macOS, Windows, and iOS with a free tier and Pro at $12/month. It has a polished Command Mode for voice editing. Willow (YC-backed) supports Mac and iOS with writing style learning at $12-15/month. Zavi is cross-platform (Android, iOS, macOS, Windows, Linux), supports 100+ languages with real-time translation, starts free with Pro at $7.99/month, and works as a system-wide keyboard on Android."
+    question: "How does Zavi compare to Wispr Flow?",
+    answer: "Wispr Flow costs $12/month and works on Mac, Windows, and iOS. Zavi starts free, costs $7.99/month for Pro, and works on all 5 platforms including Android and Linux. Zavi also includes voice agents with 27+ app integrations, real-time translation across 100+ languages, and the Magic Wand for in-place text transformation — features Wispr doesn't offer."
   },
   {
-    question: "Can I cancel my subscription anytime?",
+    question: "Can I cancel anytime?",
     answer: "Yes. Cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want."
-  },
-  {
-    question: "Does Zavi work offline?",
-    answer: "Zavi requires an internet connection for AI processing. The advanced language models that clean up your speech, fix grammar, and handle translation run in the cloud to ensure maximum accuracy, speed, and support for 100+ languages."
   }
 ];
 
@@ -60,7 +60,7 @@ export default function FAQ() {
             Questions? Answered.
           </h2>
           <p className="text-lg text-gray-600">
-            Everything you need to know about Zavi AI voice typing keyboard.
+            Everything you need to know about Zavi AI.
           </p>
         </div>
 

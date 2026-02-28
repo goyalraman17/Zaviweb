@@ -21,15 +21,15 @@ export default function FinalCTA() {
                         variants={fadeUp}
                         className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight text-balance"
                     >
-                        Stop typing.<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue-600 to-indigo-600">Start speaking.</span>
+                        Your voice.{' '}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue-600 to-indigo-600">Every app.</span>
                     </motion.h2>
 
                     <motion.p
                         variants={fadeUp}
                         className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium"
                     >
-                        Start saving 1+ hours every day with the voice assistant that actually does the work.
+                        Join thousands of professionals saving 1+ hours every day with voice-first productivity.
                     </motion.p>
 
                     <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">

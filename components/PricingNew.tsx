@@ -65,8 +65,7 @@ export default function PricingNew() {
       } else if (plan === 'teams') {
         amount = billingCycle === 'monthly' ? 999 : 7999; // $9.99 or $79.99
       } else if (plan === 'enterprise') {
-        // Enterprise usually contacts sales
-        window.location.href = 'mailto:sales@zavivoice.com';
+        window.open('https://calendly.com/raman-zavivoice/30min', '_blank');
         return;
       }
 
@@ -157,7 +156,7 @@ export default function PricingNew() {
                 Choose Your Plan. Start Writing Faster Today.
               </h2>
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                Experience the 5-star voice keyboard that's replacing the traditional typing experience.
+                5/5 rated on iOS & Android. Works in every app across all 5 platforms.
               </p>
 
               {/* Trust Pill Badges */}
@@ -345,7 +344,7 @@ export default function PricingNew() {
                           <svg className="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                           </svg>
-                          33% less than alternative AI dictation apps
+                          Save $4+/mo vs Wispr Flow & alternatives
                         </div>
                       )}
                     </div>
@@ -514,10 +513,12 @@ export default function PricingNew() {
                     </li>
                   </ul>
 
-                  <motion.button
+                  <motion.a
+                    href="https://calendly.com/raman-zavivoice/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => {
                       analytics.track('pricing_plan_click', { plan: 'teams_trial', billing_cycle: billingCycle, is_android: isAndroid });
-                      window.location.href = 'mailto:sales@zavivoice.com?subject=Team%20Plan%20Trial%20Request';
                     }}
                     className="block w-full px-6 py-4 rounded-full font-semibold text-center text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
                     initial="rest"
@@ -525,8 +526,8 @@ export default function PricingNew() {
                     whileTap="tap"
                     variants={ctaPrimary}
                   >
-                    Start 14-Day Team Trial
-                  </motion.button>
+                    Book a Team Demo
+                  </motion.a>
 
                   <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
                 </GlowCard>
@@ -546,20 +547,25 @@ export default function PricingNew() {
               }}
               variants={fadeUp}
             >
-              <h3 className="text-3xl font-bold text-white mb-4">Enterprise-grade voice writing</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">Enterprise-grade voice infrastructure</h3>
               <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-                Custom integrations, security reviews, dedicated support, and organization-wide rollout.
+                SSO, SOC2, audit logs, data residency, custom integrations, and dedicated support — built for organizations that need voice at scale.
               </p>
-              <motion.button
-                onClick={() => handlePlanAction('enterprise')}
+              <motion.a
+                href="https://calendly.com/raman-zavivoice/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  analytics.track('pricing_plan_click', { plan: 'enterprise', billing_cycle: billingCycle, is_android: isAndroid });
+                }}
                 className="inline-flex px-10 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all border-none outline-none"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
                 variants={ctaPrimary}
               >
-                Talk to Sales
-              </motion.button>
+                Book a Demo
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

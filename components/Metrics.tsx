@@ -12,11 +12,10 @@ const metrics = [
     detail: "than typing"
   },
   {
-    value: 1,
-    prefix: "<",
-    suffix: "s",
-    label: "Response time",
-    detail: "speech to perfect text"
+    value: 27,
+    suffix: "+",
+    label: "Integrations",
+    detail: "Gmail, Slack, Notion & more"
   },
   {
     value: 100,
@@ -25,10 +24,10 @@ const metrics = [
     detail: "speak any, write English"
   },
   {
-    value: 99,
-    suffix: "%",
-    label: "Accurate",
-    detail: "out of the box"
+    value: 5,
+    suffix: "/5",
+    label: "App Stores",
+    detail: "iOS & Android"
   }
 ];
 
@@ -92,7 +91,7 @@ export default function Metrics() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
-                {metric.prefix}
+                {''}
                 <AnimatedCounter
                   end={metric.value}
                   duration={2}
