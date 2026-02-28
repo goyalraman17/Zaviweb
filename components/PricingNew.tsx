@@ -24,6 +24,12 @@ export default function PricingNew() {
   const [pendingPlan, setPendingPlan] = useState<string | null>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
 
+  // Payment result modal state
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [resultType, setResultType] = useState<'success' | 'error'>('success');
+  const [resultMessage, setResultMessage] = useState('');
+  const [resultPaymentId, setResultPaymentId] = useState('');
+
   const [isAndroid, setIsAndroid] = useState(false);
   const [detectedOS, setDetectedOS] = useState<string>('Unknown');
 
@@ -145,19 +151,20 @@ export default function PricingNew() {
             const result = await verifyRes.json();
 
             if (verifyRes.ok && result.success) {
-              alert(
-                '🎉 Payment successful! Your Pro subscription is now active. Open the Zavi app to enjoy unlimited access.'
-              );
+              setResultType('success');
+              setResultMessage('Your Pro subscription is now active! Open the Zavi app to enjoy unlimited access.');
+              setResultPaymentId(response.razorpay_payment_id);
+              setShowResultModal(true);
               analytics.track('payment_success', {
                 plan: selectedPlan,
                 email: email,
                 payment_id: response.razorpay_payment_id,
               });
             } else {
-              alert(
-                'Payment received but activation failed. Please contact support at hello@zavivoice.com with your payment ID: ' +
-                response.razorpay_payment_id
-              );
+              setResultType('error');
+              setResultMessage(result.error || 'Payment received but activation failed.');
+              setResultPaymentId(response.razorpay_payment_id);
+              setShowResultModal(true);
               analytics.track('payment_verify_failed', {
                 plan: selectedPlan,
                 email: email,
@@ -166,10 +173,10 @@ export default function PricingNew() {
             }
           } catch (err) {
             console.error('Verification error:', err);
-            alert(
-              'Payment received but verification failed. Please contact support at hello@zavivoice.com with your payment ID: ' +
-              response.razorpay_payment_id
-            );
+            setResultType('error');
+            setResultMessage('Payment received but verification failed.');
+            setResultPaymentId(response.razorpay_payment_id);
+            setShowResultModal(true);
           }
         },
         prefill: {
@@ -184,7 +191,10 @@ export default function PricingNew() {
       paymentObject.open();
     } catch (error) {
       console.error('Payment Error:', error);
-      alert('Payment processing failed. Please try again.');
+      setResultType('error');
+      setResultMessage('Payment processing failed. Please try again.');
+      setResultPaymentId('');
+      setShowResultModal(true);
     } finally {
       setIsProcessing(false);
     }
@@ -702,8 +712,8 @@ export default function PricingNew() {
                   }}
                   placeholder="you@example.com"
                   className={`w-full px-4 py-3.5 rounded-xl border-2 text-gray-900 placeholder-gray-400 outline-none transition-all text-base ${emailError
-                      ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-100'
-                      : 'border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-100'
+                    : 'border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
                     }`}
                 />
                 {emailError && (
@@ -738,6 +748,90 @@ export default function PricingNew() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
                 Secure payment powered by Razorpay
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Payment Result Modal */}
+      {showResultModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setShowResultModal(false)}
+          />
+
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: 'spring', duration: 0.4 }}
+            className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden"
+          >
+            {/* Header bar */}
+            <div className={`h-1.5 ${resultType === 'success'
+                ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-green-500'
+                : 'bg-gradient-to-r from-orange-500 via-red-500 to-orange-500'
+              }`} />
+
+            <div className="p-8">
+              {/* Icon */}
+              <div className={`w-16 h-16 mx-auto mb-5 rounded-full flex items-center justify-center ${resultType === 'success'
+                  ? 'bg-green-100'
+                  : 'bg-orange-100'
+                }`}>
+                {resultType === 'success' ? (
+                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                )}
+              </div>
+
+              <h3 className={`text-2xl font-bold text-center mb-2 ${resultType === 'success' ? 'text-gray-900' : 'text-gray-900'
+                }`}>
+                {resultType === 'success' ? '🎉 Payment Successful!' : 'Something went wrong'}
+              </h3>
+
+              <p className="text-center text-gray-600 text-sm mb-6">
+                {resultMessage}
+              </p>
+
+              {resultPaymentId && (
+                <div className="bg-gray-50 rounded-xl p-3 mb-6">
+                  <p className="text-xs text-gray-500 text-center">
+                    Payment ID: <span className="font-mono text-gray-700">{resultPaymentId}</span>
+                  </p>
+                </div>
+              )}
+
+              <button
+                onClick={() => setShowResultModal(false)}
+                className={`w-full px-5 py-3.5 rounded-xl font-semibold text-white transition-all ${resultType === 'success'
+                    ? 'bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 shadow-lg shadow-green-500/25'
+                    : 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25'
+                  }`}
+              >
+                {resultType === 'success' ? 'Got it!' : 'Close'}
+              </button>
+
+              {/* Support link */}
+              <p className="text-center text-xs text-gray-400 mt-4">
+                {resultType === 'success' ? 'Need help? ' : 'Facing issues? '}
+                Email us at{' '}
+                <a
+                  href={`mailto:hello@zavivoice.com?subject=Payment ${resultType === 'success' ? 'Confirmation' : 'Issue'}${resultPaymentId ? `&body=Payment ID: ${resultPaymentId}` : ''}`}
+                  className="text-blue-500 hover:text-blue-600 underline"
+                >
+                  hello@zavivoice.com
+                </a>
               </p>
             </div>
           </motion.div>
