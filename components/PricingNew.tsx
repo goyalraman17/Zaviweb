@@ -3,7 +3,7 @@
 import Script from 'next/script';
 
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   staggerContainerSlow,
   fadeUp,
@@ -16,6 +16,13 @@ import GlowCard from './animated/GlowCard';
 export default function PricingNew() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // Email modal state
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [emailInput, setEmailInput] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [pendingPlan, setPendingPlan] = useState<string | null>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   const [isAndroid, setIsAndroid] = useState(false);
   const [detectedOS, setDetectedOS] = useState<string>('Unknown');
@@ -54,17 +61,30 @@ export default function PricingNew() {
     return 'Try Zavi For Free';
   };
 
-  const handlePayment = async (plan: string) => {
-    if (isProcessing) return;
+  // Show the email modal before payment
+  const startPaymentFlow = (plan: string) => {
+    setPendingPlan(plan);
+    setEmailInput('');
+    setEmailError('');
+    setShowEmailModal(true);
+    setTimeout(() => emailInputRef.current?.focus(), 100);
+  };
 
-    // Prompt for email before starting payment
-    const email = window.prompt(
-      'Enter your email address (same as your Zavi account):'
-    );
-    if (!email || !email.includes('@')) {
-      alert('Please enter a valid email address to continue.');
+  // Called when user submits email in the modal
+  const handleEmailSubmit = () => {
+    const trimmed = emailInput.trim();
+    if (!trimmed || !trimmed.includes('@') || !trimmed.includes('.')) {
+      setEmailError('Please enter a valid email address');
       return;
     }
+    setShowEmailModal(false);
+    if (pendingPlan) {
+      handlePayment(pendingPlan, trimmed);
+    }
+  };
+
+  const handlePayment = async (plan: string, email: string) => {
+    if (isProcessing) return;
 
     setIsProcessing(true);
 
@@ -180,7 +200,7 @@ export default function PricingNew() {
     if (isAndroid) {
       window.open('https://play.google.com/store/apps/details?id=com.pingpros.keyboard', '_blank');
     } else {
-      handlePayment(plan);
+      startPaymentFlow(plan);
     }
   };
 
@@ -628,6 +648,101 @@ export default function PricingNew() {
           </p>
         </div>
       </section >
+
+      {/* Email Modal */}
+      {showEmailModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setShowEmailModal(false)}
+          />
+
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: 'spring', duration: 0.4 }}
+            className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden"
+          >
+            {/* Gradient header bar */}
+            <div className="h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600" />
+
+            <div className="p-8">
+              {/* Icon */}
+              <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center shadow-lg">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+
+              <h3 className="text-2xl font-bold text-center text-gray-900 mb-2">
+                Enter your email
+              </h3>
+              <p className="text-center text-gray-500 text-sm mb-6">
+                Use the same email as your Zavi account so we can activate Pro on your device.
+              </p>
+
+              {/* Email input */}
+              <div className="mb-4">
+                <input
+                  ref={emailInputRef}
+                  type="email"
+                  value={emailInput}
+                  onChange={(e) => {
+                    setEmailInput(e.target.value);
+                    if (emailError) setEmailError('');
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleEmailSubmit();
+                  }}
+                  placeholder="you@example.com"
+                  className={`w-full px-4 py-3.5 rounded-xl border-2 text-gray-900 placeholder-gray-400 outline-none transition-all text-base ${emailError
+                      ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-100'
+                      : 'border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+                    }`}
+                />
+                {emailError && (
+                  <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    {emailError}
+                  </p>
+                )}
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowEmailModal(false)}
+                  className="flex-1 px-5 py-3.5 rounded-xl font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleEmailSubmit}
+                  className="flex-1 px-5 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25 transition-all"
+                >
+                  Continue to Payment
+                </button>
+              </div>
+
+              {/* Security note */}
+              <p className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Secure payment powered by Razorpay
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </>
   );
 }
