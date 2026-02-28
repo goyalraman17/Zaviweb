@@ -56,6 +56,16 @@ export default function PricingNew() {
 
   const handlePayment = async (plan: string) => {
     if (isProcessing) return;
+
+    // Prompt for email before starting payment
+    const email = window.prompt(
+      'Enter your email address (same as your Zavi account):'
+    );
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address to continue.');
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
@@ -88,29 +98,70 @@ export default function PricingNew() {
         throw new Error('Order creation failed');
       }
 
+      const selectedPlan = billingCycle;
+
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: amount.toString(),
         currency: 'USD',
         name: 'Zavi AI',
-        description: `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan - ${billingCycle}`,
+        description: `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan - ${selectedPlan}`,
         order_id: data.orderId,
-        handler: function (response: any) {
-          alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
-          // TODO: Verify signature and update user subscription
+        handler: async function (response: any) {
+          try {
+            // Verify payment and update Firestore subscription
+            const verifyRes = await fetch('/api/razorpay/verify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                email: email,
+                plan: selectedPlan,
+              }),
+            });
+
+            const result = await verifyRes.json();
+
+            if (verifyRes.ok && result.success) {
+              alert(
+                '🎉 Payment successful! Your Pro subscription is now active. Open the Zavi app to enjoy unlimited access.'
+              );
+              analytics.track('payment_success', {
+                plan: selectedPlan,
+                email: email,
+                payment_id: response.razorpay_payment_id,
+              });
+            } else {
+              alert(
+                'Payment received but activation failed. Please contact support at hello@zavivoice.com with your payment ID: ' +
+                response.razorpay_payment_id
+              );
+              analytics.track('payment_verify_failed', {
+                plan: selectedPlan,
+                email: email,
+                error: result.error,
+              });
+            }
+          } catch (err) {
+            console.error('Verification error:', err);
+            alert(
+              'Payment received but verification failed. Please contact support at hello@zavivoice.com with your payment ID: ' +
+              response.razorpay_payment_id
+            );
+          }
         },
         prefill: {
-          contact: '',
-          email: ''
+          email: email,
         },
         theme: {
-          color: '#2563EB'
-        }
+          color: '#2563EB',
+        },
       };
 
       const paymentObject = new (window as any).Razorpay(options);
       paymentObject.open();
-
     } catch (error) {
       console.error('Payment Error:', error);
       alert('Payment processing failed. Please try again.');

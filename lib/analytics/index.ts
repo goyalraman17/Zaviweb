@@ -39,7 +39,10 @@ export type AnalyticsEventName =
   | 'video_complete'
   | 'waitlist_signup'
   // Social Proof Events
-  | 'product_hunt_badge_click';
+  | 'product_hunt_badge_click'
+  // Payment Events
+  | 'payment_success'
+  | 'payment_verify_failed';
 
 export interface AnalyticsEvent {
   name: AnalyticsEventName;
