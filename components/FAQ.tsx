@@ -64,8 +64,8 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* FAQ Items — Using semantic HTML for AI readability */}
-        <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
+        {/* FAQ Items */}
+        <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -76,9 +76,6 @@ export default function FAQ() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className="border-b border-gray-200 last:border-0"
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -87,7 +84,6 @@ export default function FAQ() {
                 >
                   <span
                     className="text-lg md:text-xl font-semibold text-gray-900 pr-8 group-hover:text-[#2563EB] transition-colors"
-                    itemProp="name"
                   >
                     {faq.question}
                   </span>
@@ -105,13 +101,9 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
                     >
                       <p
                         className="pb-6 text-gray-600 leading-relaxed text-base md:text-lg"
-                        itemProp="text"
                       >
                         {faq.answer}
                       </p>
@@ -121,13 +113,8 @@ export default function FAQ() {
 
                 {/* Hidden answer for AI crawlers — always present in DOM */}
                 {!isOpen && (
-                  <div
-                    className="sr-only"
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
-                  >
-                    <span itemProp="text">{faq.answer}</span>
+                  <div className="sr-only">
+                    <span>{faq.answer}</span>
                   </div>
                 )}
               </motion.div>
