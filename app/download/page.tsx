@@ -221,6 +221,93 @@ export default function DownloadPage() {
                         </p>
                     </div>
 
+                    {/* What You Get — unique content for SEO */}
+                    <div className="max-w-5xl mx-auto mb-20">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center mb-4">What You Get with Zavi AI</h2>
+                        <p className="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
+                            Zavi isn&apos;t just voice typing. It&apos;s an AI-powered voice agent that types, edits, and executes tasks across every app on your device.
+                        </p>
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                                <div className="text-3xl mb-3">🎙️</div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">AI Voice Typing</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">Speak naturally and get clean, professional text. Zavi&apos;s AI automatically removes filler words like &quot;um&quot; and &quot;uh,&quot; fixes grammar, and restructures sentences in real-time.</p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                                <div className="text-3xl mb-3">🪄</div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">Magic Wand</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">Highlight any text in any app, then speak to transform it. Say &quot;make this more professional&quot; or &quot;translate to Japanese&quot; and watch the text rewrite itself in place.</p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                                <div className="text-3xl mb-3">🤖</div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">Voice Agent</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">Execute actions across 27+ apps with voice commands. Say &quot;email John that the meeting is at 3pm&quot; and Zavi drafts and sends it in Gmail — without opening the app.</p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                                <div className="text-3xl mb-3">🌍</div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">100+ Languages</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">Speak in one language, type in another. Zavi supports real-time translation across 100+ languages with automatic detection — no manual switching required.</p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                                <div className="text-3xl mb-3">🔒</div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">Privacy First</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">Your voice is processed in real-time and immediately deleted. Audio is never stored, shared, or used for model training. Built with a zero-retention architecture.</p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                                <div className="text-3xl mb-3">⚡</div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">5x Faster Than Typing</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">The average person speaks at 150 words per minute but types at 40. Zavi eliminates the editing phase entirely — a 500-word email takes about 3 minutes instead of 12.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* System Requirements */}
+                    <div className="max-w-4xl mx-auto mb-20">
+                        <h2 className="text-3xl font-bold text-slate-900 text-center mb-8">System Requirements</h2>
+                        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b border-slate-200 bg-slate-50">
+                                        <th className="text-left py-4 px-6 text-sm font-semibold text-slate-500 uppercase tracking-wider">Platform</th>
+                                        <th className="text-left py-4 px-6 text-sm font-semibold text-slate-500 uppercase tracking-wider">Minimum Version</th>
+                                        <th className="text-left py-4 px-6 text-sm font-semibold text-slate-500 uppercase tracking-wider">Format</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="border-b border-slate-100">
+                                        <td className="py-4 px-6 font-medium text-slate-900">iOS (iPhone &amp; iPad)</td>
+                                        <td className="py-4 px-6 text-slate-600">iOS 16.0+</td>
+                                        <td className="py-4 px-6 text-slate-600">App Store</td>
+                                    </tr>
+                                    <tr className="border-b border-slate-100 bg-slate-50/50">
+                                        <td className="py-4 px-6 font-medium text-slate-900">Android</td>
+                                        <td className="py-4 px-6 text-slate-600">Android 8.0+</td>
+                                        <td className="py-4 px-6 text-slate-600">Google Play</td>
+                                    </tr>
+                                    <tr className="border-b border-slate-100">
+                                        <td className="py-4 px-6 font-medium text-slate-900">macOS</td>
+                                        <td className="py-4 px-6 text-slate-600">macOS 12 (Monterey)+</td>
+                                        <td className="py-4 px-6 text-slate-600">.dmg</td>
+                                    </tr>
+                                    <tr className="border-b border-slate-100 bg-slate-50/50">
+                                        <td className="py-4 px-6 font-medium text-slate-900">Windows</td>
+                                        <td className="py-4 px-6 text-slate-600">Windows 10+ (64-bit)</td>
+                                        <td className="py-4 px-6 text-slate-600">.exe</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="py-4 px-6 font-medium text-slate-900">Linux</td>
+                                        <td className="py-4 px-6 text-slate-600">Ubuntu 20.04+ / Debian 11+</td>
+                                        <td className="py-4 px-6 text-slate-600">.deb</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="text-center text-slate-500 text-sm mt-4">
+                            All platforms require an internet connection for AI processing. Zavi works in every app that has a text input field.
+                        </p>
+                    </div>
+
                     {/* FAQ */}
                     <FAQ />
                 </div>
