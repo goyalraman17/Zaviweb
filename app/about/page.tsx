@@ -273,7 +273,7 @@ export default function AboutPage() {
                   </p>
 
                   <a
-                    href="https://www.linkedin.com/in/himanshukr033"
+                    href="https://www.linkedin.com/in/hsyvy/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-xl transition-all shadow-md"

@@ -58,7 +58,7 @@ export const organizationSchema = {
                 "@type": "CollegeOrUniversity",
                 "name": "IIT Kharagpur"
             },
-            "sameAs": "https://www.linkedin.com/in/himanshukr033"
+            "sameAs": "https://www.linkedin.com/in/hsyvy/"
         }
     ],
     "sameAs": [
@@ -411,7 +411,7 @@ export const founderSchemas = [
             "@type": "CollegeOrUniversity",
             "name": "IIT Kharagpur"
         },
-        "sameAs": "https://www.linkedin.com/in/himanshukr033",
+        "sameAs": "https://www.linkedin.com/in/hsyvy/",
         "description": "Co-founder and CTO of Zavi AI. Deep expertise in ML systems and infrastructure. Builds the technology behind Zavi's AI-powered voice-to-text transformation."
     }
 ];
@@ -444,7 +444,7 @@ export function generateArticleSchema(post: {
             "url": post.author === "Raman Goyal"
                 ? "https://www.linkedin.com/in/ramangoyal3"
                 : post.author === "Himanshu Kumar"
-                    ? "https://www.linkedin.com/in/himanshukr033"
+                    ? "https://www.linkedin.com/in/hsyvy/"
                     : undefined
         },
         "datePublished": post.date,

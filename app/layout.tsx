@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   category: "Productivity",
   authors: [
     { name: "Raman Goyal", url: "https://www.linkedin.com/in/ramangoyal3" },
-    { name: "Himanshu Kumar", url: "https://www.linkedin.com/in/himanshukr033" },
+    { name: "Himanshu Kumar", url: "https://www.linkedin.com/in/hsyvy/" },
   ],
   creator: "Zavi AI",
   publisher: "Zavi AI",
