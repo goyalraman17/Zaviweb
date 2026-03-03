@@ -14,9 +14,9 @@ export default function Hero() {
           className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#34384c] leading-[1.1] mb-6"
           style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", serif' }}
         >
-          Don't type,{' '}
+          Zavi: Stop Typing.{' '}
           <span className="text-[#9B86BD] inline-block">
-            just speak
+            Start Commanding.
           </span>
         </motion.h1>
 

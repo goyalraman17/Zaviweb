@@ -120,8 +120,8 @@ export default function HeroWithScreenshot() {
               transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
               style={{ lineHeight: 1.1 }}
             >
-              Your voice. Every app.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Zero editing.</span>
+              Zavi: Stop Typing.{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Start Commanding.</span>
             </motion.h1>
             <motion.p
               className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed font-medium"
@@ -341,7 +341,7 @@ export default function HeroWithScreenshot() {
                     <path d="M22.667 18H18v-4h4.667a2 2 0 110 4zM16 12v16h2v-6h4.667a4 4 0 100-8H16z" fill="white" />
                   </svg>
                   <span className="text-xs font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">
-                    #7 Product of the Day · 171 upvotes
+                    #7 Product of the Day · 175 upvotes
                   </span>
                 </motion.a>
 

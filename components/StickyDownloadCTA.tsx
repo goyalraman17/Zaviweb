@@ -40,7 +40,7 @@ export default function StickyDownloadCTA() {
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                         className="pointer-events-auto w-full md:w-auto md:min-w-[480px]"
                     >
-                        <div className="bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_8px_32px_rgba(37,99,235,0.15)] rounded-full p-2.5 flex flex-row items-center justify-between gap-4">
+                        <div className="bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_8px_32px_rgba(37,99,235,0.15)] rounded-full p-1.5 md:p-2.5 flex flex-row items-center justify-between gap-2 md:gap-4">
 
                             {/* Social Proof / Mini Info (Desktop Only) */}
                             <div className="hidden md:flex items-center pl-4 pr-2 space-x-3">
@@ -59,7 +59,7 @@ export default function StickyDownloadCTA() {
                             {/* CTA Button */}
                             <button
                                 onClick={handleDownload}
-                                className="flex-1 md:flex-none relative overflow-hidden bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold py-3.5 md:py-3 px-8 rounded-full shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)] hover:scale-[1.02] transition-all flex items-center justify-center md:justify-between group"
+                                className="flex-1 md:flex-none relative overflow-hidden bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold py-2.5 md:py-3 px-4 md:px-8 rounded-full shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)] hover:scale-[1.02] transition-all flex items-center justify-center md:justify-between group text-sm md:text-base"
                             >
                                 {/* Shimmer Effect */}
                                 <motion.div
