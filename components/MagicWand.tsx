@@ -178,34 +178,6 @@ export default function MagicWand() {
                         variants={fadeUp}
                         className="bg-white/40 backdrop-blur-2xl rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
                     >
-                        <h3 className="text-xl font-bold text-gray-900 uppercase tracking-widest mb-10 relative z-10 flex items-center justify-center gap-4">
-                            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-gray-300"></span>
-                            Stop Doing This
-                            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-gray-300"></span>
-                        </h3>
-
-                        <div className="flex flex-wrap justify-center gap-4 py-8 px-6 bg-gradient-to-b from-white/40 to-white/20 rounded-[2rem] border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] mb-12 relative z-10 max-w-3xl mx-auto backdrop-blur-md">
-                            {[
-                                "Switching Apps",
-                                "Copy-Pasting",
-                                "Formatting",
-                                "Prompt Engineering"
-                            ].map((text, i) => (
-                                <motion.div
-                                    key={i}
-                                    whileHover={{ scale: 1.05, rotate: 1 }}
-                                    className="group/tag px-6 py-3.5 rounded-2xl bg-white/80 border border-red-100/50 text-red-500 font-bold text-[13px] tracking-wide shadow-sm flex items-center gap-2.5 transition-all hover:bg-red-50/50"
-                                >
-                                    <div className="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center text-red-400 group-hover/tag:bg-red-100 transition-colors">
-                                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </div>
-                                    <span className="line-through decoration-red-200 decoration-2">{text}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
                             <a
                                 href="#download"
