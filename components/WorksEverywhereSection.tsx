@@ -148,7 +148,7 @@ export default function WorksEverywhereSection() {
             >
               Write Anywhere
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zavi-blue to-blue-600">
+              <span className="text-gray-900 underline decoration-gray-200 underline-offset-8">
                 You Work.
               </span>
             </motion.h2>
@@ -165,14 +165,14 @@ export default function WorksEverywhereSection() {
 
             {/* Center Zavi Node */}
             <motion.div
-              className="absolute z-30 w-24 h-24 md:w-32 md:h-32 bg-white rounded-3xl border border-blue-100 flex items-center justify-center flex-col gap-1"
+              className="absolute z-30 w-24 h-24 md:w-32 md:h-32 bg-white rounded-3xl border border-gray-200 flex items-center justify-center flex-col gap-1 shadow-sm"
               animate={{
                 scale: [1, 1.05, 1],
-                boxShadow: ["0_0_40px_rgba(37,99,235,0.2)", "0_0_80px_rgba(37,99,235,0.5)", "0_0_40px_rgba(37,99,235,0.2)"]
+                boxShadow: ["0_4px_10px_rgba(0,0,0,0.02)", "0_10px_30px_rgba(0,0,0,0.08)", "0_4px_10px_rgba(0,0,0,0.02)"]
               }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">Zavi</div>
+              <div className="text-3xl font-black text-gray-900">Zavi</div>
               <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Core Engine</div>
             </motion.div>
 
@@ -180,8 +180,8 @@ export default function WorksEverywhereSection() {
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
               <defs>
                 <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2563EB" stopOpacity="0.1" />
-                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.5" />
+                  <stop offset="0%" stopColor="#9CA3AF" stopOpacity="0.1" />
+                  <stop offset="100%" stopColor="#4B5563" stopOpacity="0.3" />
                 </linearGradient>
                 <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
                   <feGaussianBlur stdDeviation="4" result="blur" />
@@ -201,22 +201,22 @@ export default function WorksEverywhereSection() {
               <path id="path-linkedin" d="M 50% 50% L 85% 80%" stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="6,6" />
 
               {/* Animated Path Particles (Data flowing out) */}
-              <circle r="6" fill="#60A5FA" filter="url(#glow)">
+              <circle r="4" fill="#9CA3AF" filter="url(#glow)">
                 <animateMotion dur="2s" repeatCount="indefinite" path="M 50% 50% L 15% 20%" />
               </circle>
-              <circle r="6" fill="#60A5FA" filter="url(#glow)">
+              <circle r="4" fill="#9CA3AF" filter="url(#glow)">
                 <animateMotion dur="2.5s" repeatCount="indefinite" path="M 50% 50% L 50% 10%" />
               </circle>
-              <circle r="6" fill="#60A5FA" filter="url(#glow)">
+              <circle r="4" fill="#9CA3AF" filter="url(#glow)">
                 <animateMotion dur="2.2s" repeatCount="indefinite" path="M 50% 50% L 85% 20%" />
               </circle>
-              <circle r="6" fill="#60A5FA" filter="url(#glow)">
+              <circle r="4" fill="#9CA3AF" filter="url(#glow)">
                 <animateMotion dur="1.8s" repeatCount="indefinite" path="M 50% 50% L 15% 80%" />
               </circle>
-              <circle r="6" fill="#60A5FA" filter="url(#glow)">
+              <circle r="4" fill="#9CA3AF" filter="url(#glow)">
                 <animateMotion dur="2.7s" repeatCount="indefinite" path="M 50% 50% L 50% 90%" />
               </circle>
-              <circle r="6" fill="#60A5FA" filter="url(#glow)">
+              <circle r="4" fill="#9CA3AF" filter="url(#glow)">
                 <animateMotion dur="2.1s" repeatCount="indefinite" path="M 50% 50% L 85% 80%" />
               </circle>
             </svg>

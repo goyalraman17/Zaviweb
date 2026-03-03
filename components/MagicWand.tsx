@@ -19,7 +19,7 @@ const magicExamples = [
         color: 'border-indigo-100',
         icon: <div className="relative w-full h-full"><Image src="/icons/instagram.svg" alt="Instagram" fill className="object-contain filter drop-shadow-sm" /></div>,
         prompt: "Post about how magical Zavi is",
-        result: "You guys, I just found the ultimate cheat code for content creation! 🪄 Zavi writes my captions instantly. It's like magic! ✨ #ContentCreator #ZaviMagic"
+        result: "You guys, I just found the ultimate cheat code for content creation! Zavi writes my captions instantly. It's like magic! #ContentCreator #ZaviMagic"
     },
     {
         id: 'gmail',
@@ -27,7 +27,7 @@ const magicExamples = [
         color: 'border-red-100',
         icon: <div className="relative w-full h-full"><Image src="/icons/gmail.svg" alt="Gmail" fill className="object-contain filter drop-shadow-sm" /></div>,
         prompt: "Write an email with positive feedback",
-        result: "Subject: Loving the app! ❤️\n\nHi Zavi Team,\n\nJust wanted to share that your app has completely changed how I work. The 'No Prompts' feature is genius. Keep it up!\n\nBest,\n[Name]"
+        result: "Subject: Loving the app!\n\nHi Zavi Team,\n\nJust wanted to share that your app has completely changed how I work. The 'No Prompts' feature is genius. Keep it up!\n\nBest,\n[Name]"
     },
     {
         id: 'slack',
@@ -35,7 +35,7 @@ const magicExamples = [
         color: 'border-emerald-100',
         icon: <div className="relative w-full h-full"><Image src="/icons/slack.svg" alt="Slack" fill className="object-contain filter drop-shadow-sm" /></div>,
         prompt: "Tell team about this new tool",
-        result: "Hey team! 👋 You have to install Zavi. It's saving me so much time on documentation and messages. Let's get a team plan! 🚀"
+        result: "Hey team! You have to install Zavi. It's saving me so much time on documentation and messages. Let's get a team plan!"
     }
 ];
 
@@ -79,9 +79,11 @@ export default function MagicWand() {
                         <motion.span
                             animate={{ rotate: [0, 15, -15, 10, -10, 0] }}
                             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            className="text-lg"
+                            className="text-lg opacity-80"
                         >
-                            ✨
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
                         </motion.span>
                         <span className="tracking-wide uppercase text-[10px]">Magic Wand</span>
                     </motion.div>
@@ -105,10 +107,34 @@ export default function MagicWand() {
                         className="flex flex-wrap justify-center gap-3 sm:gap-4"
                     >
                         {[
-                            { icon: "🚫", text: "No Prompts" },
-                            { icon: "⚡️", text: "Instant Drafts" },
-                            { icon: "🧠", text: "Context Aware" },
-                            { icon: "📱", text: "Works Everywhere" }
+                            {
+                                icon: (
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                    </svg>
+                                ), text: "No Prompts"
+                            },
+                            {
+                                icon: (
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                ), text: "Instant Drafts"
+                            },
+                            {
+                                icon: (
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                ), text: "Context Aware"
+                            },
+                            {
+                                icon: (
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                    </svg>
+                                ), text: "Works Everywhere"
+                            }
                         ].map((badge, i) => (
                             <motion.div
                                 key={i}
@@ -152,11 +178,7 @@ export default function MagicWand() {
                         variants={fadeUp}
                         className="bg-white/40 backdrop-blur-2xl rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
                     >
-                        {/* Decorative background elements */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100/40 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-100/40 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
-
-                        <h3 className="text-xl font-black text-gray-900 uppercase tracking-[0.2em] mb-10 relative z-10 flex items-center justify-center gap-4">
+                        <h3 className="text-xl font-bold text-gray-900 uppercase tracking-widest mb-10 relative z-10 flex items-center justify-center gap-4">
                             <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-gray-300"></span>
                             Stop Doing This
                             <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-gray-300"></span>
@@ -210,7 +232,6 @@ export default function MagicWand() {
                             </a>
                         </div>
                         <p className="mt-6 text-sm text-gray-500 font-medium relative z-10 flex items-center justify-center gap-2">
-                            <svg className="w-4 h-4 text-green-500" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>
                             Automatic • Private • Native Integration
                         </p>
                     </motion.div>
@@ -255,7 +276,7 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
                 `}
             >
                 {/* Visual Glow behind icons */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-indigo-50/50 rounded-full blur-3xl -mr-16 -mt-16 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
+                <div className={`absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-full blur-2xl -mr-16 -mt-16 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
                 {/* App Icon - Top Right - Official Brand Style */}
                 <div className="absolute top-6 right-6 w-10 h-10 transition-transform duration-300 group-hover:scale-110">
                     {item.icon}
@@ -273,10 +294,10 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
                         <button
                             onClick={onActivate}
                             className={`
-                            group/btn flex items-center justify-center w-14 h-14 rounded-full border-4 border-white shadow-md transition-all duration-300
+                            กลุ่ม/btn flex items-center justify-center w-14 h-14 rounded-full border-4 border-white shadow-sm transition-all duration-300
                             ${isActive
-                                    ? 'bg-blue-600 scale-110 shadow-blue-500/30 ring-2 ring-blue-100 ring-offset-2'
-                                    : 'bg-blue-600 hover:bg-blue-700 hover:scale-105 hover:shadow-lg'
+                                    ? 'bg-gray-900 scale-105 shadow-md'
+                                    : 'bg-white border-2 border-gray-200 hover:bg-gray-50'
                                 }
                         `}
                         >
@@ -285,7 +306,7 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
                                 alt="Activate"
                                 width={24}
                                 height={24}
-                                className={`object-contain transition-transform duration-500 brightness-0 invert ${isActive ? 'rotate-[15deg] scale-110' : ''}`}
+                                className={`object-contain transition-transform duration-500 ${isActive ? 'brightness-0 invert' : 'opacity-70'} ${isActive ? 'rotate-[15deg]' : ''}`}
                             />
                         </button>
                     </div>
@@ -293,8 +314,8 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
                     {/* Result Container */}
                     <div className={`mt-0 flex-1 rounded-2xl border p-6 pt-10 relative overflow-hidden transition-all duration-500 md:min-h-[180px]
                     ${isActive
-                            ? 'bg-white border-blue-200 shadow-[0_2px_15px_-3px_rgba(37,99,235,0.1)]'
-                            : 'bg-gray-50 border-gray-100'
+                            ? 'bg-white border-gray-200 shadow-sm'
+                            : 'bg-gray-50/50 border-gray-100'
                         }`}
                     >
 
@@ -328,7 +349,7 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
                                         <div className="space-y-3">
                                             {/* User Header - Fixed Visibility */}
                                             <div className="flex items-center gap-2.5">
-                                                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xs font-bold ring-2 ring-white shadow-sm">
+                                                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 text-xs font-bold ring-2 ring-white shadow-sm">
                                                     you
                                                 </div>
                                                 <div className="flex flex-col">
@@ -357,12 +378,12 @@ function MagicCard({ item, isActive, onActivate }: { item: any, isActive: boolea
                                             </div>
 
                                             <div className="mb-2 text-xs font-bold text-gray-900">
-                                                Subject: Loving the app! ❤️
+                                                Subject: Loving the app!
                                             </div>
 
                                             <div className="text-[15px] leading-relaxed whitespace-pre-wrap font-sans text-gray-800">
                                                 {typedText}
-                                                <span className="inline-block w-0.5 h-5 ml-0.5 align-middle bg-blue-600 animate-pulse"></span>
+                                                <span className="inline-block w-0.5 h-5 ml-0.5 align-middle bg-gray-900 animate-pulse"></span>
                                             </div>
                                         </div>
                                     )}

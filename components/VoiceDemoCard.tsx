@@ -479,7 +479,7 @@ export default function VoiceDemoCard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 mb-4"
+              className="bg-white rounded-2xl shadow-sm border border-gray-200/60 p-6 mb-4"
             >
               {/* Status indicators - Subtle, inside card */}
               <div className="flex justify-center items-center gap-2 mb-4">
@@ -509,39 +509,39 @@ export default function VoiceDemoCard() {
                       value={language}
                       onChange={(e) => setLanguage(e.target.value)}
                       disabled={isRecording}
-                      className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      className="px-3 py-1.5 bg-gray-50/50 border border-gray-200 text-gray-800 rounded-lg text-sm font-medium focus:ring-1 focus:ring-gray-300 focus:border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all outline-none"
                     >
-                      <option value="auto">🌐 Auto-detect</option>
-                      <option value="en-US">🇺🇸 English (US)</option>
-                      <option value="en-GB">🇬🇧 English (UK)</option>
-                      <option value="cmn-Hans-CN">🇨🇳 Mandarin Chinese (Simplified)</option>
-                      <option value="cmn-Hant-TW">🇹🇼 Mandarin Chinese (Traditional)</option>
-                      <option value="hi-IN">🇮🇳 Hindi</option>
-                      <option value="es-ES">🇪🇸 Spanish (Spain)</option>
-                      <option value="es-MX">🇲🇽 Spanish (Mexico)</option>
-                      <option value="fr-FR">🇫🇷 French (France)</option>
-                      <option value="fr-CA">🇨🇦 French (Canada)</option>
-                      <option value="ar-SA">🇸🇦 Arabic</option>
-                      <option value="bn-IN">🇮🇳 Bengali</option>
-                      <option value="pt-BR">🇧🇷 Portuguese (Brazil)</option>
-                      <option value="pt-PT">🇵🇹 Portuguese (Portugal)</option>
-                      <option value="ru-RU">🇷🇺 Russian</option>
-                      <option value="ur-PK">🇵🇰 Urdu</option>
-                      <option value="id-ID">🇮🇩 Indonesian</option>
-                      <option value="de-DE">🇩🇪 German</option>
-                      <option value="ja-JP">🇯🇵 Japanese</option>
-                      <option value="mr-IN">🇮🇳 Marathi</option>
-                      <option value="te-IN">🇮🇳 Telugu</option>
-                      <option value="tr-TR">🇹🇷 Turkish</option>
-                      <option value="ta-IN">🇮🇳 Tamil</option>
-                      <option value="vi-VN">🇻🇳 Vietnamese</option>
-                      <option value="ko-KR">🇰🇷 Korean</option>
-                      <option value="it-IT">🇮🇹 Italian</option>
-                      <option value="th-TH">🇹🇭 Thai</option>
-                      <option value="pa-Guru-IN">🇮🇳 Punjabi</option>
-                      <option value="fil-PH">🇵🇭 Filipino</option>
-                      <option value="pl-PL">🇵🇱 Polish</option>
-                      <option value="sw-KE">🇰🇪 Swahili</option>
+                      <option value="auto">Auto-detect</option>
+                      <option value="en-US">English (US)</option>
+                      <option value="en-GB">English (UK)</option>
+                      <option value="cmn-Hans-CN">Mandarin Chinese (Simplified)</option>
+                      <option value="cmn-Hant-TW">Mandarin Chinese (Traditional)</option>
+                      <option value="hi-IN">Hindi</option>
+                      <option value="es-ES">Spanish (Spain)</option>
+                      <option value="es-MX">Spanish (Mexico)</option>
+                      <option value="fr-FR">French (France)</option>
+                      <option value="fr-CA">French (Canada)</option>
+                      <option value="ar-SA">Arabic</option>
+                      <option value="bn-IN">Bengali</option>
+                      <option value="pt-BR">Portuguese (Brazil)</option>
+                      <option value="pt-PT">Portuguese (Portugal)</option>
+                      <option value="ru-RU">Russian</option>
+                      <option value="ur-PK">Urdu</option>
+                      <option value="id-ID">Indonesian</option>
+                      <option value="de-DE">German</option>
+                      <option value="ja-JP">Japanese</option>
+                      <option value="mr-IN">Marathi</option>
+                      <option value="te-IN">Telugu</option>
+                      <option value="tr-TR">Turkish</option>
+                      <option value="ta-IN">Tamil</option>
+                      <option value="vi-VN">Vietnamese</option>
+                      <option value="ko-KR">Korean</option>
+                      <option value="it-IT">Italian</option>
+                      <option value="th-TH">Thai</option>
+                      <option value="pa-Guru-IN">Punjabi</option>
+                      <option value="fil-PH">Filipino</option>
+                      <option value="pl-PL">Polish</option>
+                      <option value="sw-KE">Swahili</option>
                     </select>
                   </div>
 
@@ -554,7 +554,7 @@ export default function VoiceDemoCard() {
                       value={targetLanguage}
                       onChange={(e) => setTargetLanguage(e.target.value)}
                       disabled={isRecording}
-                      className="px-3 py-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      className="px-3 py-1.5 bg-gray-50/50 border border-gray-200 text-gray-800 rounded-lg text-sm font-medium focus:ring-1 focus:ring-gray-300 focus:border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all outline-none"
                     >
                       <option value="English">English</option>
                       <option value="Mandarin Chinese">Mandarin Chinese</option>
@@ -595,7 +595,7 @@ export default function VoiceDemoCard() {
                   <motion.div
                     key={i}
                     className={`w-0.5 rounded-full transition-all duration-100 ${isRecording && waveBarsRef.current[i] > 20
-                      ? 'bg-gradient-to-t from-blue-600 to-blue-400'
+                      ? 'bg-gray-800'
                       : 'bg-gray-200'
                       }`}
                     style={{ height: `${Math.min(waveBarsRef.current[i] || 20, 48)}px` }}
@@ -617,9 +617,9 @@ export default function VoiceDemoCard() {
                   type="button"
                   onClick={toggleRecording}
                   disabled={authStatus === 'error'}
-                  className={`relative w-20 h-20 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none ${isRecording
-                    ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:scale-105 active:scale-95'
-                    : 'bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95'
+                  className={`relative w-20 h-20 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none flex items-center justify-center ${isRecording
+                    ? 'bg-gray-900 scale-95 border-2 border-transparent'
+                    : 'bg-white border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm'
                     }`}
                 >
                   <AnimatePresence mode="wait">
@@ -641,7 +641,7 @@ export default function VoiceDemoCard() {
                         exit={{ scale: 0, opacity: 0 }}
                         className="absolute inset-0 flex items-center justify-center pointer-events-none"
                       >
-                        <svg className="w-10 h-10 text-white pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className={`w-8 h-8 pointer-events-none ${isRecording ? 'text-white' : 'text-gray-800'}`} fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
                           <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
                         </svg>
@@ -649,14 +649,12 @@ export default function VoiceDemoCard() {
                     )}
                   </AnimatePresence>
 
-                  {isRecording && (
-                    <motion.div
-                      className="absolute inset-0 rounded-full bg-red-500 pointer-events-none z-[-1]"
-                      initial={{ scale: 1, opacity: 0.5 }}
-                      animate={{ scale: 1.4, opacity: 0 }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                  )}
+                  <motion.div
+                    className="absolute inset-[-4px] rounded-full border border-gray-900/20 pointer-events-none"
+                    initial={{ scale: 1, opacity: 0.5 }}
+                    animate={{ scale: 1.15, opacity: 0 }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
                 </button>
 
                 <motion.p
@@ -665,7 +663,7 @@ export default function VoiceDemoCard() {
                   animate={{ opacity: 1 }}
                 >
                   {isRecording ? (
-                    <span className="font-semibold text-red-600">
+                    <span className="font-semibold text-gray-900">
                       Listening...
                     </span>
                   ) : pendingRecordStart ? (
@@ -734,14 +732,14 @@ export default function VoiceDemoCard() {
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 overflow-hidden"
+                  className="bg-white rounded-xl border border-gray-200 p-4 overflow-hidden"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2">
                       <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
-                      Live Transcript
+                      Transcript
                     </h3>
                     <button
                       onClick={clearTranscript}
@@ -753,8 +751,8 @@ export default function VoiceDemoCard() {
                       Clear
                     </button>
                   </div>
-                  <div className="max-h-32 overflow-y-auto p-3 bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-lg border border-gray-100">
-                    <div className="text-sm leading-relaxed">
+                  <div className="max-h-32 overflow-y-auto p-3 bg-gray-50/50 rounded-lg border border-gray-100">
+                    <div className="text-sm leading-relaxed text-gray-800">
                       {committedText && <span className="text-gray-900 font-medium">{committedText} </span>}
                       {editableText && <span className="text-gray-900">{editableText} </span>}
                       {interimTranscript && (

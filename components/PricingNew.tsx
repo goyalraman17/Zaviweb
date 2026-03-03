@@ -222,7 +222,7 @@ export default function PricingNew() {
       />
       <section
         id="pricing"
-        className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-zavi-blue-50/50 via-white to-white"
+        className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-white"
         data-section="pricing"
       >
         <div className="container-large relative z-10">
@@ -242,20 +242,20 @@ export default function PricingNew() {
 
               {/* Trust Pill Badges */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-                <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700 shadow-sm">
-                  <svg className="w-4 h-4 text-zavi-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                  <svg className="w-4 h-4 text-gray-900" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
                   Rated 5 Stars on iOS & Android
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-semibold text-green-700 shadow-sm">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                  <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   Cancel Anytime
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-zavi-blue-50 border border-zavi-blue-200 rounded-full text-sm font-semibold text-zavi-blue-700 shadow-sm">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
+                  <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                   </svg>
                   No Card Required
@@ -270,7 +270,7 @@ export default function PricingNew() {
                     analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
                   }}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'monthly'
-                    ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
+                    ? 'bg-gray-900 text-white shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
                     }`}
                 >
@@ -282,7 +282,7 @@ export default function PricingNew() {
                     analytics.track('pricing_toggle_billing', { cycle: 'annual' });
                   }}
                   className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'annual'
-                    ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-md'
+                    ? 'bg-gray-900 text-white shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
                     }`}
                 >
@@ -299,14 +299,14 @@ export default function PricingNew() {
 
               {/* Free Plan */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(34, 197, 94, 0.4)" className="relative rounded-3xl p-8 bg-gradient-to-b from-green-50/50 to-white border-2 border-green-100 shadow-xl h-full flex flex-col">
+                <GlowCard glowColor="rgba(0, 0, 0, 0.03)" className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col">
                   {/* Zero Risk Badge */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-green-100 text-green-700 text-xs font-bold rounded-full border border-green-200 shadow-sm whitespace-nowrap">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-gray-100 text-gray-600 text-[11px] font-bold uppercase tracking-wider rounded-full border border-gray-200 shadow-sm whitespace-nowrap">
                     Zero Risk • No Card
                   </div>
 
-                  <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Free Tier</h3>
-                  <p className="text-sm font-semibold text-green-600 mb-2">Start saving time instantly</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">Free Tier</h3>
+                  <p className="text-sm font-medium text-gray-500 mb-2">Start saving time instantly</p>
 
                   <div className="mb-6">
                     <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
@@ -386,7 +386,7 @@ export default function PricingNew() {
                         analytics.track('pricing_plan_click', { plan: 'free', billing_cycle: billingCycle, is_android: isAndroid });
                       }
                     }}
-                    className="w-full px-6 py-4 rounded-full font-bold text-center bg-white border-2 border-green-500 text-green-700 shadow-sm hover:bg-green-50 hover:scale-[1.02] transition-all mt-auto"
+                    className="w-full px-6 py-4 rounded-xl font-bold text-center bg-white border border-gray-300 text-gray-700 shadow-sm hover:bg-gray-50 transition-all mt-auto"
                   >
                     {getButtonText()}
                   </button>
@@ -395,34 +395,32 @@ export default function PricingNew() {
 
               {/* Pro Plan - Most Popular */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(37, 99, 235, 0.6)" className="h-full">
-                  <div className="relative rounded-3xl p-8 shadow-2xl transform md:scale-105 h-full" style={{
-                    background: 'linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%)',
-                  }}>
+                <GlowCard glowColor="rgba(0, 0, 0, 0.05)" className="h-full">
+                  <div className="relative rounded-3xl p-8 bg-white border-2 border-gray-900 shadow-xl transform md:scale-105 h-full">
                     {/* Most Popular Badge */}
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 bg-white text-zavi-blue-700 text-sm font-bold rounded-full shadow-lg">
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-gray-900 text-white text-[11px] uppercase tracking-wider font-bold rounded-full shadow-lg">
                       Most Popular
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white mb-1">Pro</h3>
-                    <p className="text-sm font-semibold text-white/90 mb-2">Recommended for: Daily communicators</p>
-                    <p className="text-white/80 mb-4">Write at the speed of thought</p>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-1">Pro</h3>
+                    <p className="text-sm font-medium text-gray-500 mb-2">Recommended for: Daily communicators</p>
+                    <p className="text-gray-600 mb-4">Write at the speed of thought</p>
 
                     {/* Pricing */}
                     <div className="mb-4">
-                      <div className="text-5xl font-bold text-white">
+                      <div className="text-5xl font-bold text-gray-900">
                         ${billingCycle === 'monthly' ? '7.99' : '49.99'}
                       </div>
-                      <div className="text-white/80 text-sm">
+                      <div className="text-gray-500 text-sm">
                         {billingCycle === 'monthly' ? 'per month' : 'per year'}
                       </div>
                       {billingCycle === 'annual' ? (
-                        <div className="text-white/70 text-xs mt-1">
+                        <div className="text-gray-500 text-xs mt-1">
                           Save $46 compared to monthly
                         </div>
                       ) : (
-                        <div className="text-white/70 text-xs font-semibold mt-2 inline-flex items-center gap-1 bg-white/10 px-2 py-1 rounded">
-                          <svg className="w-3 h-3 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <div className="text-gray-600 text-xs font-semibold mt-2 inline-flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
+                          <svg className="w-3 h-3 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                           </svg>
                           Save $4+/mo vs Wispr Flow & alternatives
@@ -431,79 +429,79 @@ export default function PricingNew() {
                     </div>
 
                     {/* Save Time Badge */}
-                    <div className="bg-[#E6C15A] text-gray-900 font-semibold text-sm px-4 py-2 rounded-lg mb-6">
+                    <div className="bg-gray-100 text-gray-800 font-semibold text-xs uppercase tracking-wider px-3 py-1.5 rounded-md inline-block mb-6">
                       Save 30+ minutes per day
                     </div>
 
                     <ul className="space-y-4 mb-8">
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">Unlimited Voice Typing</span>
-                          <span className="block text-sm text-white/80">No daily word limits, type anywhere by voice</span>
+                          <span className="block font-semibold text-gray-900">Unlimited Voice Typing</span>
+                          <span className="block text-sm text-gray-600">No daily word limits, type anywhere by voice</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">Magic Wand</span>
-                          <span className="block text-sm text-white/80">Edit, rewrite, or transform any text by voice</span>
+                          <span className="block font-semibold text-gray-900">Magic Wand</span>
+                          <span className="block text-sm text-gray-600">Edit, rewrite, or transform any text by voice</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">Voice Commands</span>
-                          <span className="block text-sm text-white/80">Send emails, messages, and more — hands free</span>
+                          <span className="block font-semibold text-gray-900">Voice Commands</span>
+                          <span className="block text-sm text-gray-600">Send emails, messages, and more — hands free</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">All Superpowers</span>
-                          <span className="block text-sm text-white/80">Gmail, Slack, Notion, GitHub, and more connectors</span>
+                          <span className="block font-semibold text-gray-900">All Superpowers</span>
+                          <span className="block text-sm text-gray-600">Gmail, Slack, Notion, GitHub, and more connectors</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">Translate</span>
-                          <span className="block text-sm text-white/80">Speak in one language, type in another</span>
+                          <span className="block font-semibold text-gray-900">Translate</span>
+                          <span className="block text-sm text-gray-600">Speak in one language, type in another</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">Priority Processing</span>
-                          <span className="block text-sm text-white/80">Fastest transcription with AI enhancement</span>
+                          <span className="block font-semibold text-gray-900">Priority Processing</span>
+                          <span className="block text-sm text-gray-600">Fastest transcription with AI enhancement</span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-white">Tone & Emoji</span>
-                          <span className="block text-sm text-white/80">Casual, formal, or fun — your voice, your style</span>
+                          <span className="block font-semibold text-gray-900">Tone & Formatting</span>
+                          <span className="block text-sm text-gray-600">Casual, formal, or fun — your voice, your style</span>
                         </div>
                       </li>
                     </ul>
 
                     <motion.button
                       onClick={() => handlePlanAction('pro')}
-                      className="w-full px-6 py-4 rounded-full font-semibold text-center bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all mb-3"
+                      className="w-full px-6 py-4 rounded-xl font-semibold text-center bg-gray-900 text-white shadow-md hover:bg-gray-800 transition-all mb-3"
                       initial="rest"
                       whileHover="hover"
                       whileTap="tap"
@@ -519,9 +517,9 @@ export default function PricingNew() {
 
               {/* Teams Plan */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(37, 99, 235, 0.4)" className="relative rounded-3xl p-8 bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg h-full">
-                  <h3 className="text-3xl font-bold text-[#1a1a1a] mb-1">Teams</h3>
-                  <p className="text-sm font-semibold text-zavi-blue mb-2">Recommended for: Growing companies</p>
+                <GlowCard glowColor="rgba(0, 0, 0, 0.03)" className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">Teams</h3>
+                  <p className="text-sm font-medium text-gray-500 mb-2">Recommended for: Growing companies</p>
                   <div className="mb-4">
                     <div className="text-4xl font-bold text-[#1a1a1a]">
                       ${billingCycle === 'monthly' ? '9.99' : '79.99'}
@@ -537,9 +535,9 @@ export default function PricingNew() {
                   </div>
                   <p className="text-gray-600 mb-6">Communicate faster as a team</p>
 
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-4 mb-8 flex-grow">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div>
@@ -548,7 +546,7 @@ export default function PricingNew() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div>
@@ -557,7 +555,7 @@ export default function PricingNew() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div>
@@ -566,7 +564,7 @@ export default function PricingNew() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div>
@@ -575,7 +573,7 @@ export default function PricingNew() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div>
@@ -584,7 +582,7 @@ export default function PricingNew() {
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <div>
@@ -601,7 +599,7 @@ export default function PricingNew() {
                     onClick={() => {
                       analytics.track('pricing_plan_click', { plan: 'teams_trial', billing_cycle: billingCycle, is_android: isAndroid });
                     }}
-                    className="block w-full px-6 py-4 rounded-full font-semibold text-center text-gray-900 bg-white border-2 border-gray-300 shadow-md hover:border-zavi-blue-500 hover:bg-gray-50 transition-all mb-3"
+                    className="block w-full px-6 py-4 rounded-xl font-semibold text-center text-gray-900 bg-white border border-gray-300 shadow-sm hover:border-gray-500 hover:bg-gray-50 transition-all mb-3 mt-auto"
                     initial="rest"
                     whileHover="hover"
                     whileTap="tap"
@@ -622,14 +620,11 @@ export default function PricingNew() {
 
             {/* Enterprise Section */}
             <motion.div
-              className="max-w-5xl mx-auto rounded-3xl p-12 text-center shadow-xl mb-16"
-              style={{
-                background: 'linear-gradient(135deg, #0EA5E9 0%, #2563EB 100%)',
-              }}
+              className="max-w-5xl mx-auto rounded-3xl p-12 text-center shadow-sm border border-gray-200 bg-gray-50 mb-16"
               variants={fadeUp}
             >
-              <h3 className="text-3xl font-bold text-white mb-4">Enterprise-grade voice infrastructure</h3>
-              <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Enterprise-grade voice infrastructure</h3>
+              <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
                 SSO, SOC2, audit logs, data residency, custom integrations, and dedicated support — built for organizations that need voice at scale.
               </p>
               <motion.a
@@ -639,7 +634,7 @@ export default function PricingNew() {
                 onClick={() => {
                   analytics.track('pricing_plan_click', { plan: 'enterprise', billing_cycle: billingCycle, is_android: isAndroid });
                 }}
-                className="inline-flex px-10 py-4 rounded-full font-semibold bg-white text-zavi-blue-700 shadow-lg hover:bg-gray-50 transition-all border-none outline-none"
+                className="inline-flex px-10 py-4 rounded-xl font-semibold bg-gray-900 text-white shadow-sm hover:bg-gray-800 transition-all border-none outline-none"
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
@@ -774,15 +769,15 @@ export default function PricingNew() {
           >
             {/* Header bar */}
             <div className={`h-1.5 ${resultType === 'success'
-                ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-green-500'
-                : 'bg-gradient-to-r from-orange-500 via-red-500 to-orange-500'
+              ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-green-500'
+              : 'bg-gradient-to-r from-orange-500 via-red-500 to-orange-500'
               }`} />
 
             <div className="p-8">
               {/* Icon */}
               <div className={`w-16 h-16 mx-auto mb-5 rounded-full flex items-center justify-center ${resultType === 'success'
-                  ? 'bg-green-100'
-                  : 'bg-orange-100'
+                ? 'bg-green-100'
+                : 'bg-orange-100'
                 }`}>
                 {resultType === 'success' ? (
                   <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -815,8 +810,8 @@ export default function PricingNew() {
               <button
                 onClick={() => setShowResultModal(false)}
                 className={`w-full px-5 py-3.5 rounded-xl font-semibold text-white transition-all ${resultType === 'success'
-                    ? 'bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 shadow-lg shadow-green-500/25'
-                    : 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25'
+                  ? 'bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 shadow-lg shadow-green-500/25'
+                  : 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25'
                   }`}
               >
                 {resultType === 'success' ? 'Got it!' : 'Close'}

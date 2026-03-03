@@ -13,8 +13,8 @@ const superpowers = [
             </svg>
         ),
         command: '"Reply to Sarah\'s email saying I approve..."',
-        color: 'from-red-50 to-red-100/50',
-        borderColor: 'border-red-200/50',
+        color: 'from-white to-gray-50/50',
+        borderColor: 'border-gray-200/60',
         slug: 'gmail'
     },
     {
@@ -25,8 +25,8 @@ const superpowers = [
             </svg>
         ),
         command: '"Post an update to #general..."',
-        color: 'from-purple-50 to-purple-100/50',
-        borderColor: 'border-purple-200/50',
+        color: 'from-white to-gray-50/50',
+        borderColor: 'border-gray-200/60',
         slug: 'slack'
     },
     {
@@ -37,8 +37,8 @@ const superpowers = [
             </svg>
         ),
         command: '"What PRs need my review?"',
-        color: 'from-slate-100 to-slate-200/50',
-        borderColor: 'border-slate-300/50',
+        color: 'from-white to-gray-50/50',
+        borderColor: 'border-gray-200/60',
         slug: 'github'
     },
     {
@@ -49,8 +49,8 @@ const superpowers = [
             </svg>
         ),
         command: '"Read my Notion page about the project"',
-        color: 'from-gray-50 to-gray-100/50',
-        borderColor: 'border-gray-200/50',
+        color: 'from-white to-gray-50/50',
+        borderColor: 'border-gray-200/60',
         slug: 'notion'
     },
     {
@@ -61,8 +61,8 @@ const superpowers = [
             </svg>
         ),
         command: '"Post on LinkedIn about our launch..."',
-        color: 'from-blue-50 to-blue-100/50',
-        borderColor: 'border-blue-200/50',
+        color: 'from-white to-gray-50/50',
+        borderColor: 'border-gray-200/60',
         slug: 'linkedin'
     },
     {
@@ -73,8 +73,8 @@ const superpowers = [
             </svg>
         ),
         command: '"Ask ChatGPT to brainstorm ideas..."',
-        color: 'from-emerald-50 to-emerald-100/50',
-        borderColor: 'border-emerald-200/50',
+        color: 'from-white to-gray-50/50',
+        borderColor: 'border-gray-200/60',
         slug: 'chatgpt'
     }
 ];
@@ -83,7 +83,7 @@ export default function SuperpowersSection() {
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             {/* Background elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-zavi-blue-100/40 via-purple-100/40 to-zavi-blue-100/40 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
@@ -112,33 +112,33 @@ export default function SuperpowersSection() {
                         <motion.div
                             key={app.name}
                             variants={fadeUp}
-                            className={`group relative bg-gradient-to-br ${app.color} border ${app.borderColor} rounded-3xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer`}
+                            className={`group relative bg-gradient-to-br ${app.color} border ${app.borderColor} rounded-3xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer`}
                         >
                             <Link href={`/integrations/${app.slug}`} className="absolute inset-0 z-20" aria-label={`Read more about Zavi integration with ${app.name}`}>
                                 <span className="sr-only">Learn about {app.name}</span>
                             </Link>
 
                             <div className="flex justify-between items-start mb-6">
-                                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm relative z-10">
+                                <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 relative z-10 transition-colors group-hover:bg-white group-hover:shadow-sm">
                                     {app.icon}
                                 </div>
-                                <div className="px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 shadow-sm">
-                                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-wider">Connected</span>
+                                <div className="px-3 py-1 bg-gray-50/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm">
+                                    <span className="text-[10px] font-bold text-gray-700 uppercase tracking-wider">Connected</span>
                                 </div>
                             </div>
 
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">{app.name}</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-4">{app.name}</h3>
 
-                            <div className="px-4 py-3 bg-white/60 backdrop-blur-md rounded-2xl border border-white/80 shadow-inner group-hover:bg-white/90 transition-colors">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <div className="flex gap-0.5 items-center">
-                                        <div className="w-1 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                                        <div className="w-1 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                                        <div className="w-1 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                            <div className="px-4 py-3 bg-gray-50/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 group-hover:bg-white transition-colors">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="flex gap-0.5 items-center opacity-70">
+                                        <div className="w-1 h-2 bg-gray-400 rounded-full animate-pulse" />
+                                        <div className="w-1 h-3 bg-gray-500 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
+                                        <div className="w-1 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
                                     </div>
-                                    <span className="text-xs font-semibold text-gray-500">You say:</span>
+                                    <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide">You say</span>
                                 </div>
-                                <p className="text-sm font-medium text-gray-800 italic">
+                                <p className="text-sm font-medium text-gray-800">
                                     {app.command}
                                 </p>
                             </div>

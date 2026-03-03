@@ -50,57 +50,19 @@ export default function HeroWithScreenshot() {
       {/* Grid Pattern Background */}
       <GridPattern className="opacity-30" width={60} height={60} strokeWidth={0.5} />
 
-      {/* Morphing Blobs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 opacity-20">
-        <MorphingBlob duration={15} color="rgba(37, 99, 235, 0.3)" />
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 opacity-5">
+        <MorphingBlob duration={15} color="#e5e7eb" />
       </div>
-      <div className="absolute bottom-1/3 right-1/3 w-80 h-80 opacity-15">
-        <MorphingBlob duration={20} color="rgba(59, 130, 246, 0.3)" />
+      <div className="absolute bottom-1/3 right-1/3 w-80 h-80 opacity-5">
+        <MorphingBlob duration={20} color="#f3f4f6" />
       </div>
 
-      {/* Floating Elements */}
-      <FloatingElements count={6} />
+      {/* Floating Elements (Subtle) */}
+      <FloatingElements count={3} />
 
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-zavi-blue-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-zavi-blue-400/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-96 h-96 bg-zavi-blue-400/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-96 bg-gray-50/50 blur-[100px] rounded-full" />
       </div>
 
       <div className="container-large relative z-10">
@@ -139,8 +101,8 @@ export default function HeroWithScreenshot() {
               initial="hidden"
               animate="visible"
             >
-              <div className="bg-white rounded-2xl md:rounded-[2rem] p-4 md:p-8 shadow-2xl border border-gray-200 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-100/50 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
+              <div className="bg-white rounded-2xl md:rounded-[2rem] p-4 md:p-8 shadow-sm border border-gray-200/60 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
 
                 {/* Simulated Input Area */}
                 <div className="relative z-10 text-left">
