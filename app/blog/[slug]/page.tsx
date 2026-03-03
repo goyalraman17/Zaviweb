@@ -81,11 +81,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
         <div className="min-h-screen bg-white text-gray-900 font-sans">
             <Navigation />
 
-            {/* Enhanced Article Schema */}
-            <JsonLd data={articleSchema} />
-            <JsonLd data={breadcrumbSchema} />
-
-            {/* Enhanced Article Schema */}
+            {/* Structured Data */}
             <JsonLd data={articleSchema} />
             <JsonLd data={breadcrumbSchema} />
 

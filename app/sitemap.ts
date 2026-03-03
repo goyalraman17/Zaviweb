@@ -25,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/changelog', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' as const },
     { path: '/download', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/download/ios', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/download/android', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/download/mac', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/download/windows', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/download/linux', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/use-cases', priority: 0.8, changeFrequency: 'monthly' as const },
   ];
 

@@ -734,5 +734,269 @@ export const blogPosts: BlogPost[] = [
       <h2>Try Zero-Prompt Voice Typing</h2>
       <p>You can experience Zero-Prompt voice typing today with <a href="https://zavivoice.com">Zavi AI</a>. Download the free app on Android, set it as your keyboard, and just start talking. You'll immediately see the difference between traditional transcription and Zero-Prompt AI output.</p>
     `
+  },
+  {
+    slug: 'what-is-a-voice-agent-os',
+    title: 'What Is a Voice Agent OS? The Future of Voice Beyond Typing',
+    excerpt: 'Voice typing was step one. Voice agents that execute tasks across your apps are step two. Learn what a Voice Agent OS is, why it matters, and how Zavi is building it.',
+    date: 'March 2026',
+    author: 'Raman Goyal',
+    readTime: '6 min read',
+    category: 'Future of Work',
+    tags: ['Voice Agent', 'Voice Agent OS', 'AI', 'Future of Work', 'Zavi'],
+    content: `
+      <h2>Voice Typing Is Not Enough</h2>
+      <p>For decades, voice technology meant one thing: speech-to-text. You speak, the computer types. But in 2026, we're at an inflection point. The question is no longer "can AI understand my words?" — it's <strong>"can AI act on my intent?"</strong></p>
+      <p>This is the leap from <strong>voice typing</strong> to <strong>voice agents</strong>. And Zavi is building the operating system for it.</p>
+
+      <h2>What Is a Voice Agent OS?</h2>
+      <p>A <strong>Voice Agent OS</strong> is a system-level voice layer that doesn't just type what you say — it <strong>understands what you want to do</strong> and <strong>executes it across multiple apps simultaneously</strong>.</p>
+      <p>Think of it as four layers of voice intelligence:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>Layer 1 — Input:</strong> AI-powered voice typing with filler removal, grammar correction, and 100+ languages. This is what most voice tools do today.</li>
+        <li><strong>Layer 2 — Wand:</strong> Highlight any text in any app and transform it by voice. Say "make this professional" or "translate to Japanese" — Zavi rewrites the text in place.</li>
+        <li><strong>Layer 3 — Live Agents:</strong> Execute tasks across Gmail, Slack, GitHub, Notion, WhatsApp, LinkedIn, and 27+ apps simultaneously by voice. Say "send the meeting notes to the team on Slack and email the client a follow-up" — and it happens.</li>
+        <li><strong>Layer 4 — Autonomous Agents:</strong> Create agents that run on schedules. "Every Monday morning, summarize my unread emails and send a digest to my Slack." Set once, runs forever.</li>
+      </ul>
+
+      <h2>Why "OS" and Not Just "App"?</h2>
+      <p>The key word is <strong>OS</strong> — operating system. Zavi isn't an app you open; it's a <strong>system-wide layer that lives underneath every app</strong>. On mobile, it's your keyboard. On desktop, it's a persistent voice input that works in every window and every application.</p>
+      <p>This is what separates a Voice Agent OS from a chatbot or voice assistant:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>Siri / Google Assistant:</strong> Locked in a bubble. Can answer questions but can't type, edit, or execute inside your apps.</li>
+        <li><strong>ChatGPT / Claude:</strong> Powerful reasoning but locked in a chat window. You copy-paste results manually.</li>
+        <li><strong>Zapier / Make:</strong> Automation but requires manual setup, no voice, and no ad-hoc decisions.</li>
+        <li><strong>Zavi:</strong> Speaks once. Types, transforms, sends, and executes across all apps. No copy-paste. No switching tabs.</li>
+      </ul>
+
+      <h2>The Voice Agent OS Stack</h2>
+      <p>Under the hood, a Voice Agent OS requires solving four hard problems:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>Intent Extraction:</strong> Understanding what the user wants from natural, messy speech — not just transcribing words.</li>
+        <li><strong>Action Registry:</strong> Mapping verbal intents to deterministic API calls across 27+ apps.</li>
+        <li><strong>Context Compounding:</strong> Learning the user's vocabulary, team hierarchy, and project context over time.</li>
+        <li><strong>Parallel Execution:</strong> Running multiple actions across multiple apps simultaneously from a single voice command.</li>
+      </ul>
+
+      <h2>Why Now?</h2>
+      <p>Three things have converged to make Voice Agent OS possible in 2026:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>LLM quality:</strong> Models are finally good enough to understand messy human speech and map it to structured actions reliably.</li>
+        <li><strong>API ecosystem:</strong> Every major app (Gmail, Slack, Notion, GitHub) now has robust APIs that enable deep integration.</li>
+        <li><strong>Mobile-first computing:</strong> Voice is the natural input for mobile. Keyboards are a compromise — voice is how humans actually communicate.</li>
+      </ul>
+
+      <h2>Try the Voice Agent OS</h2>
+      <p>Zavi is available today on iOS, Android, macOS, Windows, and Linux. Start with free voice typing and graduate to voice agents as you discover the power of speaking your way through work. <a href="https://zavivoice.com/download">Download Zavi</a> and experience the future of voice computing.</p>
+    `
+  },
+  {
+    slug: 'best-voice-typing-app-iphone-ios-2026',
+    title: 'Best Voice Typing Apps for iPhone & iOS in 2026',
+    excerpt: 'Looking for the best voice typing app on iPhone? We compare Apple Dictation, Zavi AI, Whisper Transcription, and others for accuracy, AI cleanup, and real-world usability on iOS.',
+    date: 'March 2026',
+    author: 'Zavi Team',
+    readTime: '7 min read',
+    category: 'Comparisons',
+    tags: ['iOS', 'iPhone', 'Voice Typing', 'Best Apps', 'Apple Dictation', 'Comparison'],
+    content: `
+      <h2>Voice Typing on iPhone: The 2026 Landscape</h2>
+      <p>Apple has dramatically improved built-in dictation with on-device processing and auto-punctuation. But for professionals who need <strong>AI-powered cleanup, filler removal, and cross-language support</strong>, third-party voice typing apps offer significantly more power.</p>
+      <p>We tested every major voice typing option available on iOS in 2026. Here's our definitive ranking for iPhone users.</p>
+
+      <h2>1. Zavi AI — Best Overall Voice Typing for iPhone</h2>
+      <p><strong>Rating: 4.9/5</strong> | <strong>Price: Free (Pro at $7.99/mo)</strong></p>
+      <p>Zavi AI brings its powerful Zero-Prompt voice typing to iOS with a custom keyboard that works system-wide — in iMessage, WhatsApp, Gmail, Slack, Notes, and every other app on your iPhone.</p>
+      <p>What sets Zavi apart from Apple's built-in dictation:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>AI filler word removal:</strong> Automatically strips "um," "uh," "like," "you know" from your speech</li>
+        <li><strong>Grammar correction:</strong> Converts spoken grammar into written grammar automatically</li>
+        <li><strong>Real-time translation:</strong> Speak in any of 100+ languages, get output in your target language</li>
+        <li><strong>Voice agents:</strong> Beyond typing — execute tasks across apps by voice</li>
+      </ul>
+      <p><strong>Best for:</strong> Professionals who want the highest-quality voice typing output on iPhone. Anyone who sends emails, messages, or writes documents daily.</p>
+
+      <h2>2. Apple Dictation — Best Free Built-In Option</h2>
+      <p><strong>Rating: 4.0/5</strong> | <strong>Price: Free (built into iOS)</strong></p>
+      <p>Apple Dictation has improved significantly with iOS 18, offering on-device processing for privacy, auto-punctuation, and emoji dictation. However, it still transcribes <strong>word-for-word</strong> without AI cleanup — every filler word makes it into your text.</p>
+      <p><strong>Best for:</strong> Casual users who want basic dictation without installing additional apps.</p>
+
+      <h2>3. Whisper Transcription — Best for Long-Form Recording</h2>
+      <p><strong>Rating: 3.8/5</strong> | <strong>Price: $9.99 one-time</strong></p>
+      <p>This app uses OpenAI's Whisper model for high-accuracy transcription of recordings. Great for transcribing lectures or meetings, but not designed for real-time keyboard input. You record, wait for processing, then copy-paste.</p>
+      <p><strong>Best for:</strong> Students and journalists who need to transcribe long recordings.</p>
+
+      <h2>4. Otter.ai — Best for Meeting Transcription</h2>
+      <p><strong>Rating: 3.5/5</strong> | <strong>Price: Free (Pro $16.99/mo)</strong></p>
+      <p>Otter excels at real-time meeting transcription with speaker identification. However, it's a standalone app — not a keyboard — so you can't use it for messaging or email composition.</p>
+      <p><strong>Best for:</strong> Users who primarily need meeting transcription rather than everyday voice typing.</p>
+
+      <h2>Comparison: Voice Typing Apps for iPhone</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>AI Filler Removal:</strong> Zavi AI ✅ | Apple Dictation ❌ | Whisper ❌ | Otter ❌</li>
+        <li><strong>Grammar Correction:</strong> Zavi AI ✅ | Apple Dictation ❌ | Whisper ❌ | Otter ❌</li>
+        <li><strong>Works in All Apps:</strong> Zavi AI ✅ | Apple Dictation ✅ | Whisper ❌ | Otter ❌</li>
+        <li><strong>Real-Time Translation:</strong> Zavi AI ✅ | Apple Dictation ❌ | Whisper ❌ | Otter ❌</li>
+        <li><strong>Voice Agents:</strong> Zavi AI ✅ | Apple Dictation ❌ | Whisper ❌ | Otter ❌</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+      <p>For iPhone users who want the best voice typing experience, <strong>Zavi AI</strong> is the clear winner. It's the only app that combines a system-wide keyboard, AI-powered cleanup, 100+ languages, and voice agent capabilities. Apple Dictation is fine for casual use, but for professionals, Zavi's AI cleanup makes voice typing genuinely faster than thumb typing with zero trade-offs.</p>
+    `
+  },
+  {
+    slug: 'best-dictation-app-mac-2026',
+    title: 'Best Dictation Apps for Mac in 2026: Voice Typing That Actually Works',
+    excerpt: 'From Apple Dictation to Zavi AI to Wispr Flow — we compare the best Mac dictation apps for professionals. Includes real speed tests, AI cleanup quality, and privacy analysis.',
+    date: 'March 2026',
+    author: 'Raman Goyal',
+    readTime: '6 min read',
+    category: 'Comparisons',
+    tags: ['Mac', 'macOS', 'Dictation', 'Voice Typing', 'Desktop', 'Comparison'],
+    content: `
+      <h2>Voice Typing on Mac: Beyond Apple Dictation</h2>
+      <p>macOS has built-in dictation that's improved over the years, but it still transcribes verbatim — fillers, grammar errors, and all. In 2026, a new generation of AI-powered dictation apps for Mac offers <strong>intelligent cleanup</strong> that makes voice typing genuinely faster than keyboard typing.</p>
+      <p>We tested the top Mac dictation apps for speed, accuracy, AI cleanup quality, and privacy.</p>
+
+      <h2>1. Zavi AI — Best All-Platform Dictation</h2>
+      <p><strong>Rating: 4.8/5</strong> | <strong>Price: Free (Pro at $7.99/mo)</strong></p>
+      <p>Zavi AI's desktop app runs system-wide on macOS, providing voice typing in every application — VS Code, Slack, Chrome, Mail, Notion, and any other app with a text field. Its standout feature is the <strong>Magic Wand</strong>: highlight any text and transform it by voice.</p>
+      <p>Key advantages on Mac:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>System-wide input:</strong> Works in every app, not just a standalone window</li>
+        <li><strong>Zero-Prompt AI:</strong> Automatic filler removal, grammar correction, and sentence restructuring</li>
+        <li><strong>Magic Wand:</strong> Select text → speak → text is transformed (translate, rewrite, summarize)</li>
+        <li><strong>Voice agents:</strong> Execute cross-app tasks by voice — "send this to Slack and create a GitHub issue"</li>
+        <li><strong>Cross-platform:</strong> Same account works on your iPhone and Android too</li>
+      </ul>
+      <p><strong>Best for:</strong> Professionals who work across multiple apps and want voice typing + voice agents across Mac, phone, and all platforms.</p>
+
+      <h2>2. Wispr Flow — Best Desktop-Only Dictation</h2>
+      <p><strong>Rating: 4.5/5</strong> | <strong>Price: $12/mo</strong></p>
+      <p>Wispr Flow is a polished desktop dictation tool with strong contextual understanding. It maintains context across sessions and features a "Command Mode" for editing text by voice. However, it's desktop-only (no mobile app) and more expensive than alternatives.</p>
+      <p><strong>Best for:</strong> Desktop power users who don't need mobile voice typing.</p>
+
+      <h2>3. Apple Dictation — Best Free Built-In</h2>
+      <p><strong>Rating: 3.8/5</strong> | <strong>Price: Free (built into macOS)</strong></p>
+      <p>Apple's built-in dictation has improved with Apple Silicon processing. It offers on-device transcription for privacy and basic auto-punctuation. However, no AI cleanup, no filler removal, and no grammar correction.</p>
+      <p><strong>Best for:</strong> Users who want basic, free dictation without any extras.</p>
+
+      <h2>Comparison Table</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>AI Cleanup:</strong> Zavi ✅ | Wispr Flow ✅ | Apple Dictation ❌</li>
+        <li><strong>Voice Agents:</strong> Zavi ✅ | Wispr Flow ❌ | Apple Dictation ❌</li>
+        <li><strong>Mobile App:</strong> Zavi ✅ | Wispr Flow ❌ | Apple Dictation ✅ (iPhone only)</li>
+        <li><strong>Magic Wand:</strong> Zavi ✅ | Wispr Flow ❌ | Apple Dictation ❌</li>
+        <li><strong>Price:</strong> Zavi Free/$7.99/mo | Wispr Flow $12/mo | Apple Free</li>
+      </ul>
+
+      <h2>The Bottom Line</h2>
+      <p>For Mac users who want the most complete voice experience — typing, editing, and executing — <strong>Zavi AI</strong> offers the best value with its cross-platform approach and voice agent capabilities. Wispr Flow is excellent for desktop-only dictation. Apple Dictation remains a solid free fallback for basic needs.</p>
+    `
+  },
+  {
+    slug: 'voice-commands-productivity-guide',
+    title: '25 Voice Commands That Will Transform Your Productivity in 2026',
+    excerpt: 'Move beyond voice typing. These 25 voice commands let you send emails, manage tasks, update spreadsheets, and control apps — all hands-free. A practical guide to voice-driven productivity.',
+    date: 'March 2026',
+    author: 'Zavi Team',
+    readTime: '7 min read',
+    category: 'Productivity',
+    tags: ['Voice Commands', 'Productivity', 'Automation', 'Voice Agent', 'Workflow'],
+    content: `
+      <h2>Voice Is the New Keyboard Shortcut</h2>
+      <p>Keyboard shortcuts revolutionized productivity in the 1980s. In 2026, <strong>voice commands</strong> are becoming the next leap. Instead of memorizing Ctrl+C, Cmd+Tab, or Alt+F4, you simply <strong>say what you want to happen</strong>.</p>
+      <p>With voice agent technology like Zavi AI, these aren't just dictation commands — they're <strong>actions that execute across multiple apps simultaneously</strong>. Here are 25 voice commands that can transform how you work.</p>
+
+      <h2>Email & Communication</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>"Reply to Sarah's email about the Q1 report — tell her the numbers look great and I'll present them at Thursday's meeting."</strong> → Zavi drafts and sends a professional reply in Gmail.</li>
+        <li><strong>"Send the marketing deck to the team on Slack and email David a summary."</strong> → Two actions, two apps, one voice command.</li>
+        <li><strong>"Set up an out-of-office reply for next week saying I'm at the conference."</strong> → Auto-reply configured.</li>
+        <li><strong>"Translate this email to Spanish and send it to the Mexico City team."</strong> → Translation + send in one step.</li>
+        <li><strong>"Summarize my unread emails from today."</strong> → AI reads and summarizes your inbox.</li>
+      </ul>
+
+      <h2>Task & Project Management</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>"Create a task in Notion: Review the design mockups by Friday, assign to me, high priority."</strong> → Task created with all metadata.</li>
+        <li><strong>"Move the homepage redesign task to In Progress and add a comment that I started working on it."</strong> → Project board updated.</li>
+        <li><strong>"What's on my schedule for tomorrow?"</strong> → Calendar summary read back to you.</li>
+        <li><strong>"Schedule a 30-minute meeting with the design team next Tuesday afternoon."</strong> → Calendar invite sent.</li>
+        <li><strong>"Add a reminder for 3 PM to review the client proposal."</strong> → Reminder set.</li>
+      </ul>
+
+      <h2>Writing & Editing</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>"Make this paragraph more concise."</strong> → Magic Wand rewrites the selected text.</li>
+        <li><strong>"Translate the selected text to French."</strong> → In-place translation.</li>
+        <li><strong>"Fix the grammar in this document."</strong> → AI proofreads and corrects.</li>
+        <li><strong>"Rewrite this in a more casual tone."</strong> → Tone adjustment without rewriting manually.</li>
+        <li><strong>"Summarize this 2,000-word article into 3 bullet points."</strong> → Instant summary.</li>
+      </ul>
+
+      <h2>Development & Technical</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>"Create a GitHub issue: Fix the login redirect bug on mobile, label it P1."</strong> → Issue created with labels.</li>
+        <li><strong>"Post a standup update to the engineering channel: Completed the API integration, starting frontend work today."</strong> → Slack message posted.</li>
+        <li><strong>"Add a code comment explaining this function."</strong> → Documentation added to selected code.</li>
+        <li><strong>"Log 4 hours on the billing feature in Jira."</strong> → Time tracked.</li>
+        <li><strong>"What PRs are waiting for my review?"</strong> → GitHub status check.</li>
+      </ul>
+
+      <h2>Personal & Quick Actions</h2>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>"Text Mom that I'll be home by 7."</strong> → WhatsApp message sent.</li>
+        <li><strong>"Add milk, bread, and eggs to my shopping list."</strong> → List updated.</li>
+        <li><strong>"Post on LinkedIn: Excited to announce we just hit 10,000 users!"</strong> → Social post drafted.</li>
+        <li><strong>"Save this article to my reading list."</strong> → Bookmarked.</li>
+        <li><strong>"Set a timer for 25 minutes — starting a focus session."</strong> → Pomodoro timer started.</li>
+      </ul>
+
+      <h2>Getting Started with Voice Commands</h2>
+      <p>Most of these commands work today with <strong>Zavi AI's voice agent layer</strong>. Start with simple voice typing (Layer 1), then graduate to Magic Wand text transformations (Layer 2), and eventually unlock full voice agent execution (Layer 3). Download Zavi for free on <a href="https://zavivoice.com/download">iOS, Android, Mac, Windows, or Linux</a>.</p>
+    `
+  },
+  {
+    slug: 'zavi-story-building-voice-agent-os',
+    title: 'The Zavi Story: How Two Engineers Built the Voice Agent OS',
+    excerpt: 'From IIT Kharagpur to Nvidia to Edinburgh to Antler — the story of how Raman and Himanshu built Zavi across 5 platforms with zero marketing spend, earning #7 Product of the Day on Product Hunt.',
+    date: 'March 2026',
+    author: 'Raman Goyal',
+    readTime: '5 min read',
+    category: 'Company',
+    tags: ['Zavi', 'Startup Story', 'Founders', 'Product Hunt', 'Voice AI'],
+    content: `
+      <h2>The Origin: Speaking Is Natural, Typing Is Not</h2>
+      <p>Humans have been speaking for 100,000 years. We've been typing for about 150. Yet in 2026, the primary way we interact with computers is still through a QWERTY keyboard — a layout designed in 1873 to prevent typewriter jams.</p>
+      <p>This disconnect is what led <strong>Raman Goyal</strong> and <strong>Himanshu Kumar</strong> to build Zavi. The idea was simple: what if your voice could do everything your keyboard does — but faster, across every app, and with AI that understands what you actually mean?</p>
+
+      <h2>The Founders</h2>
+      <p><strong>Raman Goyal (CEO)</strong> studied at the University of Edinburgh and went through both Antler and Entrepreneur First — two of Europe's top founder programs. His background in product and go-to-market strategy drives Zavi's positioning as the Voice Agent OS.</p>
+      <p><strong>Himanshu Kumar (CTO)</strong> graduated from IIT Kharagpur and spent years at Nvidia and AMD working on systems-level engineering. His deep expertise in low-latency computing, signal processing, and cross-platform development is what makes Zavi work across iOS, Android, macOS, Windows, and Linux.</p>
+
+      <h2>Building Across 5 Platforms</h2>
+      <p>Most startups launch on one platform and expand later. Zavi launched on <strong>all five</strong> — iOS, Android, macOS, Windows, and Linux — from day one. Why?</p>
+      <p>Because voice is a system-level input. You don't check email on only your phone or only your laptop. You use both. A voice layer that only works on one platform creates friction — you'd have to switch between voice and keyboard depending on which device you're using.</p>
+      <p>Building across five platforms as a two-person team was the hardest technical challenge. Himanshu architected a shared core that handles voice processing, AI cleanup, and agent execution, with platform-specific input layers for each OS.</p>
+
+      <h2>Zero Marketing, 171 Upvotes</h2>
+      <p>Zavi came out of stealth on February 15, 2026. Within 12 days, it earned <strong>#7 Product of the Day on Product Hunt</strong> with 171 upvotes and 423 followers — entirely organically with <strong>zero marketing spend</strong>.</p>
+      <p>The product is rated <strong>5/5 on both the iOS App Store and Google Play</strong>. Real enterprise inbound started within a week, with CEOs requesting multi-channel inbox agents and digital executive assistants.</p>
+
+      <h2>Beyond Voice Typing: The Voice Agent OS</h2>
+      <p>Zavi started as a voice typing keyboard — but that was always step one. The vision from day one was to build the <strong>Voice Agent OS</strong>: a system-level voice layer that doesn't just type what you say, but understands what you want to do and executes it across every app.</p>
+      <p>Today, Zavi's four-layer architecture delivers:</p>
+      <ul class="list-disc pl-6 space-y-2 my-4">
+        <li><strong>Layer 1 — Input:</strong> AI voice typing with zero-prompt cleanup across 100+ languages</li>
+        <li><strong>Layer 2 — Wand:</strong> Select text anywhere, transform it by voice</li>
+        <li><strong>Layer 3 — Live Agents:</strong> Execute across Gmail, Slack, Notion, GitHub, WhatsApp, and 27+ apps</li>
+        <li><strong>Layer 4 — Autonomous Agents:</strong> Scheduled agents that run automatically — daily digests, weekly summaries, meeting prep</li>
+      </ul>
+
+      <h2>What's Next</h2>
+      <p>Zavi is building toward a world where voice is the primary interface for all computing. Not a world of chatbots and voice assistants locked in bubbles — but a world where you speak once, and everything happens across every app you use.</p>
+      <p>Try Zavi today for free on <a href="https://zavivoice.com/download">any platform</a>. The future of computing sounds like you.</p>
+    `
   }
 ];

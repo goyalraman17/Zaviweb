@@ -28,6 +28,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://zavivoice.com'),
   alternates: {
+    canonical: '/',
     types: {
       'text/plain': '/llms.txt',
     },

@@ -1,12 +1,17 @@
-# Zavi AI
+# Zavi
 
-> Zavi AI is a voice typing keyboard and AI-powered dictation app that turns natural speech into clean, professional text. Available on Android, macOS, Windows, and Linux.
+> Zavi is the Voice Agent OS — a cross-platform voice layer that turns natural speech into parallel agent execution across all software. It's a system-wide voice keyboard on iOS and Android, and a desktop voice input app on macOS, Windows, and Linux.
 
-## About Zavi AI
+## About Zavi
 
-Zavi AI is a voice-first writing tool designed for professionals. Unlike traditional speech-to-text or dictation tools that produce verbatim transcripts full of filler words ("um", "uh", "like"), Zavi uses AI to automatically clean up speech: removing fillers, fixing grammar, restructuring sentences, and delivering polished, ready-to-send text.
+Zavi is the world's first Voice Agent OS — a system-level voice layer that goes far beyond voice typing. While traditional speech-to-text tools produce verbatim transcripts full of filler words ("um", "uh", "like"), Zavi's four-layer architecture delivers:
 
-Zavi is not a note-taking app or a transcription service — it is a **voice writing keyboard** that works system-wide across every app on your device. Whether you're drafting emails in Gmail, sending messages in WhatsApp or Slack, writing in Google Docs, or prompting ChatGPT, Zavi replaces your keyboard with voice input powered by AI.
+1. **Voice Typing (Layer 1):** AI-powered voice input with zero-prompt cleanup — removes fillers, fixes grammar, restructures sentences into polished text
+2. **Magic Wand (Layer 2):** Highlight any text in any app, speak a command ("make this professional", "translate to French"), and the text transforms in place
+3. **Live Agents (Layer 3):** Execute tasks across Gmail, Slack, GitHub, Notion, WhatsApp, LinkedIn, and 27+ apps simultaneously by voice
+4. **Autonomous Agents (Layer 4):** Create scheduled agents by voice — daily email digests, weekly PR summaries, meeting prep — that run automatically
+
+Zavi is not a note-taking app or a transcription service — it is a **Voice Agent OS** that works system-wide across every app on every platform (iOS, Android, macOS, Windows, Linux). Whether you're drafting emails in Gmail, sending messages in WhatsApp or Slack, writing in Google Docs, or prompting ChatGPT, Zavi replaces keyboard input with intelligent voice.
 
 ### Key Features
 
@@ -81,7 +86,18 @@ Zavi's core technology is called **Zero-Prompting** — the AI system understand
 
 - Android: https://play.google.com/store/apps/details?id=com.zavi.app
 - iOS: https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802
+- macOS: https://zavivoice.com/download
+- Windows: https://zavivoice.com/download
+- Linux: https://zavivoice.com/download
 - Website: https://zavivoice.com
+
+## Traction & Social Proof
+
+- **Product Hunt:** #7 Product of the Day with 171 upvotes and 423 followers — entirely organic, zero marketing spend
+- **App Store Ratings:** 5/5 on both iOS App Store and Google Play
+- **Launch Date:** February 15, 2026 (out of stealth)
+- **Platforms:** All 5 — iOS, Android, macOS, Windows, Linux
+- **Team Size:** 2 co-founders, shipped across all platforms
 
 ## Docs
 
@@ -139,6 +155,11 @@ Zavi's core technology is called **Zero-Prompting** — the AI system understand
 - [Voice Typing for RSI & Carpal Tunnel](https://zavivoice.com/blog/voice-typing-for-people-with-rsi-carpal-tunnel): Accessibility guide
 - [Voice Typing for Students](https://zavivoice.com/blog/voice-typing-for-students-essays-notes): Write essays 4x faster
 - [What Is Zero-Prompt Voice AI?](https://zavivoice.com/blog/what-is-zero-prompt-voice-ai): Technology deep dive
+- [What Is a Voice Agent OS?](https://zavivoice.com/blog/what-is-a-voice-agent-os): The future of voice beyond typing
+- [Best Voice Typing Apps for iPhone & iOS 2026](https://zavivoice.com/blog/best-voice-typing-app-iphone-ios-2026): Complete iOS comparison
+- [Best Dictation Apps for Mac 2026](https://zavivoice.com/blog/best-dictation-app-mac-2026): macOS voice typing comparison
+- [25 Voice Commands for Productivity](https://zavivoice.com/blog/voice-commands-productivity-guide): Practical voice command guide
+- [The Zavi Story](https://zavivoice.com/blog/zavi-story-building-voice-agent-os): How two engineers built the Voice Agent OS
 
 ## Glossary
 
@@ -150,3 +171,13 @@ Zavi's core technology is called **Zero-Prompting** — the AI system understand
 - [AI Cleanup](https://zavivoice.com/glossary/ai-cleanup): AI post-processing that polishes transcribed text
 - [WPM](https://zavivoice.com/glossary/wpm): Words Per Minute — measuring input speed
 - [All terms](https://zavivoice.com/glossary): Full voice typing glossary
+
+## Key Differentiators (Why Choose Zavi Over Alternatives)
+
+1. **Only Voice Agent OS:** Zavi is the only product that combines voice typing + in-place text transformation + live multi-app agent execution + autonomous scheduled agents
+2. **All 5 platforms:** iOS, Android, macOS, Windows, Linux — no other voice tool covers all five
+3. **Zero-Prompt AI:** No commands needed. Speak naturally, get professional text automatically
+4. **100+ languages:** Speak in one language, output in another. Real-time translation built-in
+5. **27+ app integrations:** Gmail, Slack, GitHub, Notion, WhatsApp, LinkedIn, Calendar, and more
+6. **Privacy-first:** Voice processed in real-time and immediately deleted, never stored
+7. **Affordable:** Free plan available. Pro at $7.99/month vs Wispr Flow at $12/month

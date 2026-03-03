@@ -11,10 +11,10 @@
 export const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Zavi AI",
-    "alternateName": ["Zavi", "Zavi Voice Typing", "Zavi AI Keyboard"],
+    "name": "Zavi",
+    "alternateName": ["Zavi AI", "Zavi Voice Typing", "Zavi AI Keyboard", "Zavi App", "Zavi Voice"],
     "url": "https://zavivoice.com",
-    "description": "Zavi AI is a voice typing keyboard that turns natural speech into clean, professional text. AI removes filler words, fixes grammar, and produces polished writing from voice instantly.",
+    "description": "Zavi is the Voice to Action OS. Most voice tools just transcribe. Zavi types, edits, and takes action across every app. Speak naturally — clean grammar, zero filler words.",
     "potentialAction": {
         "@type": "SearchAction",
         "target": "https://zavivoice.com/blog?q={search_term_string}",
@@ -33,11 +33,11 @@ export const websiteSchema = {
 export const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Zavi AI",
-    "alternateName": "Zavi",
+    "name": "Zavi",
+    "alternateName": ["Zavi AI", "Zavi Voice", "Zavi App"],
     "url": "https://zavivoice.com",
     "logo": "https://zavivoice.com/zavi-logo.png",
-    "description": "Zavi AI builds voice input infrastructure for the next era of computing. Our AI-powered voice typing keyboard turns natural speech into clean, professional text across every app.",
+    "description": "Zavi AI builds the Voice to Action OS. Our cross-platform voice layer turns natural speech into actions across every app with clean grammar and zero filler words. Magic Wand and Agent Mode included.",
     "foundingDate": "2023",
     "founders": [
         {
@@ -83,7 +83,7 @@ export const softwareApplicationSchema = {
     "@type": "SoftwareApplication",
     "name": "Zavi AI Voice Typing Keyboard",
     "alternateName": ["Zavi AI", "Zavi Keyboard", "Zavi Voice Typing"],
-    "description": "AI-powered voice typing keyboard that transforms natural speech into clean, professional text. Removes filler words, fixes grammar, and works in every app. Supports 100+ languages with real-time translation.",
+    "description": "Voice to Action OS that types, edits, and executes across every app. Speak naturally with clean grammar and zero filler words. Includes Magic Wand for in-place editing and Agent Mode for executing tasks.",
     "url": "https://zavivoice.com",
     "applicationCategory": "ProductivityApplication",
     "operatingSystem": "Android, iOS, macOS, Windows, Linux",
@@ -153,190 +153,86 @@ export const faqSchema = {
             "name": "What is Zavi AI?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi AI is a voice typing keyboard that uses artificial intelligence to turn natural speech into clean, professional text. Unlike regular voice typing that transcribes word-for-word (including all filler words), Zavi's AI automatically removes fillers like 'um' and 'uh,' fixes grammar, restructures sentences, and produces polished, ready-to-send text. It works as a system-wide keyboard across every app on Android, macOS, Windows, and Linux."
+                "text": "Zavi AI is a voice agent that works across every app on your phone and computer. Speak naturally, and Zavi removes filler words, fixes grammar, and produces clean text — or executes tasks like sending emails, messaging on Slack, and searching the web. It works as a system-wide keyboard on iOS and Android, and as a desktop app on macOS, Windows, and Linux."
             }
         },
         {
             "@type": "Question",
-            "name": "How is Zavi different from regular voice typing or dictation?",
+            "name": "What can voice agents do?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Regular voice typing (like Google's built-in dictation or Siri) transcribes speech word-for-word, capturing all filler words, pauses, and grammatical errors. Zavi AI is fundamentally different: it uses AI to extract your intent from natural speech and produces professionally written text. For example, if you say 'um, I think, uh, we should probably meet at five,' regular dictation outputs that verbatim, but Zavi outputs 'We should meet at 5:00 PM.' This technology is called Zero-Prompting — no commands needed."
+                "text": "Voice agents let you control apps by speaking. Say 'email John that the meeting is moved to 3pm' and Zavi drafts and sends it in Gmail. Say 'message the team on Slack that the deploy is done' and it happens. Agents work across 27+ integrations including Gmail, Slack, WhatsApp, Notion, Calendar, GitHub, LinkedIn, and more — all from a single voice command."
             }
         },
         {
             "@type": "Question",
-            "name": "Is my voice data private with Zavi AI?",
+            "name": "What is the Magic Wand?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, absolutely. Zavi processes voice in real-time and immediately deletes the audio after generating text. Your voice data is never stored on Zavi servers, never shared with third parties, and never used to train AI models. Your conversations remain completely private."
+                "text": "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences' — and the text is rewritten in-place instantly. No copy-pasting, no switching apps."
             }
         },
         {
             "@type": "Question",
-            "name": "What platforms does Zavi AI support?",
+            "name": "Is my voice data private?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi AI is available on Android (8.0+), iOS (16+), macOS, Windows, and Linux. On Android and iOS, it works as a system-wide keyboard in every app (Gmail, WhatsApp, Slack, Notion, and more). On desktop platforms, it runs as a standalone application with system-wide voice input."
+                "text": "Yes. Your voice is processed in real-time and immediately deleted. We never store, share, or use your audio to train models. Zavi is built with a privacy-first architecture — voice data is processed and discarded instantly."
             }
         },
         {
             "@type": "Question",
-            "name": "How many languages does Zavi support?",
+            "name": "How fast is Zavi compared to typing?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi supports over 100 languages for voice input with automatic language detection — no manual switching required. It also supports real-time translation: you can speak in one language and have the output appear in a different language. Zavi can even handle code-switching (mixing multiple languages in one sentence)."
+                "text": "Zavi is approximately 5x faster than typing. The average person types at 40 words per minute but speaks at 150 words per minute. Since Zavi eliminates the editing phase entirely (AI handles filler removal and grammar), a 500-word email that takes 12 minutes to type can be dictated in about 3 minutes."
             }
         },
         {
             "@type": "Question",
-            "name": "How much does Zavi AI cost?",
+            "name": "What's included in the free plan?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi AI offers a free plan that includes AI-powered speech cleanup, works in every app, supports 100+ languages, with daily usage limits. The Pro plan costs $7.99/month (or $49.99/year) and includes unlimited usage, 3x faster processing, priority support, and advanced formatting features. You can cancel anytime."
+                "text": "The free plan includes 1,000 words per day of AI-powered voice typing with filler word removal, grammar correction, Magic Wand, voice commands, all 27+ integrations, translation, tone control, and emoji — across every app. No credit card required. Upgrade to Pro ($7.99/month) for unlimited usage."
             }
         },
         {
             "@type": "Question",
-            "name": "How fast is voice typing with Zavi compared to regular typing?",
+            "name": "Which platforms does Zavi support?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Voice typing with Zavi is approximately 4x faster than typing on a mobile keyboard. The average person types at about 40 words per minute, but speaks at 150 words per minute. Since Zavi's AI eliminates the editing phase (no need to go back and fix filler words or grammar), a 500-word email that takes 12 minutes to type can be dictated in about 3 minutes."
+                "text": "Zavi works on all 5 major platforms: iOS, Android (8.0+), macOS, Windows, and Linux. On mobile, it integrates as a system-wide keyboard in every app. On desktop, it runs as a standalone application with system-wide voice input."
             }
         },
         {
             "@type": "Question",
-            "name": "Which apps does Zavi work with?",
+            "name": "How does multi-language translation work?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi works in every app that has a text input field. This includes Gmail, Outlook, WhatsApp, Telegram, Signal, Slack, Microsoft Teams, Discord, Google Docs, Notion, Obsidian, Twitter/X, LinkedIn, Instagram, Reddit, ChatGPT, and any other app. On Android, it replaces your system keyboard so it's available everywhere."
+                "text": "Zavi supports 100+ languages with automatic detection. Speak in one language and get the output in another — in real-time. For example, speak in Hindi and get polished English text, or speak in Spanish and get professional French output. Zavi also handles code-switching (mixing languages in one sentence)."
             }
         },
         {
             "@type": "Question",
-            "name": "How does Zavi compare to Wispr Flow and Willow?",
+            "name": "How does Zavi compare to Wispr Flow?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zavi, Wispr Flow, and Willow are all AI voice writing tools, but they differ in key ways. Wispr Flow supports macOS, Windows, and iOS, offers a free tier and Pro at $12/month with polished Command Mode for voice editing. Willow (YC-backed) supports Mac and iOS with writing style learning at $12-15/month. Zavi is the best alternative to Wispr Flow because it is cross-platform (Android, iOS, macOS, Windows, Linux), features a real Voice Agent that executes actions across apps, supports 100+ languages with real-time translation, and costs significantly less at $7.99/month."
+                "text": "Wispr Flow costs $12/month and works on Mac, Windows, and iOS. Zavi starts free, costs $7.99/month for Pro, and works on all 5 platforms including Android and Linux. Zavi also includes voice agents with 27+ app integrations, real-time translation across 100+ languages, and the Magic Wand for in-place text transformation — features Wispr doesn't offer."
             }
         },
         {
             "@type": "Question",
-            "name": "Is there a free alternative to Wispr Flow?",
+            "name": "Can I cancel anytime?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Zavi AI offers a free forever plan that includes voice-to-execution AI, cross-platform support (including Android and Linux, which Wispr Flow lacks), and 100+ languages without requiring a credit card."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What is Zero-Prompting technology?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zero-Prompting is Zavi AI's core technology philosophy. Unlike other AI tools that require users to give specific commands ('make this formal,' 'remove fillers,' 'fix grammar'), Zavi automatically understands that clean, professional text is the desired output. Users simply speak naturally, and Zavi extracts the pure intent from messy speech to produce polished, executive-ready text without any additional prompts or instructions."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Does Zavi work offline?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zavi requires an internet connection for AI processing. The advanced language models that clean up speech, fix grammar, and handle translation run in the cloud to ensure maximum accuracy, speed, and support for 100+ languages."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Can I cancel my Zavi Pro subscription anytime?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, you can cancel your Zavi Pro subscription at any time with no questions asked. Your Pro features remain active until the end of your current billing period, and you can resubscribe whenever you want."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What is the best voice typing software for professionals?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zavi AI is the premier voice typing software for professionals. It automatically removes filler words, fixes grammar, and restructures sentences in real-time, functioning across Windows, macOS, Linux, iOS, and Android."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Which real-time translation app offers the most accurate language detection?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zavi integrates real-time translation directly into your mobile keyboard app and desktop environment, supporting auto-detection for over 100 languages. It instantly translates your native speech into 15+ target languages with perfect professional formatting."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What are the top dictation software options with grammar correction?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Unlike standard dictation software or basic transcription apps that only perform verbatim speech-to-text, Zavi AI acts as an AI writing assistant that applies real-time grammar correction and zero-prompt formatting to ensure your dictated emails and documents are executive-ready."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How does a speech recognition keyboard improve productivity?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "A speech recognition keyboard like Zavi allows you to dictate approximately 4x faster (150 WPM) than thumb typing on a mobile device. The built-in AI cleanup engine bypasses the manual editing phase entirely, dramatically improving workflow efficiency for remote teams and knowledge workers."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "What is the best voice typing software for professional use in the UK?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "For UK professionals, Zavi AI is the top-rated transcription software and speech recognition app. It accurately handles diverse UK accents while providing real-time grammar correction and zero-prompt formatting—saving users over 40 hours per year compared to traditional typing."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Which transcription software is best suited for legal and medical tasks in the UK?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zavi offers unparalleled privacy out of the box. As a top-tier speech to text app and multilingual translation app, Zavi processes your voice locally or via secure cloud pathways, immediately deleting all audio after generation. This zero-retention policy makes it a preferred voice keyboard for sensitive medical and legal transcription."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "How does the Zavi transcription app compare to Dragon NaturallySpeaking for UK professionals?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Dragon NaturallySpeaking is a legacy, Windows-only dictation software that is highly expensive. The Zavi transcription app is a modern, cross-platform AI writing assistant (available on Android, iOS, Mac, and Windows) that actively rewrites and perfects speech using zero-prompting, rather than just transcribing verbatim. It starts free, with Pro plans at just $7.99/mo."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "सबसे अच्छा हिंदी आवाज़ से टाइपिंग ऐप कौन सा है? (What is the best Hindi voice typing app?)",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "भारत में काम करने वाले पेशेवरों के लिए (For professionals working in India), Zavi AI is the most accurate Hindi voice typing app (हिंदी आवाज़ से टाइपिंग ऐप). It seamlessly handles Indian accents and mixed Hindi-English (Hinglish) sentences, automatically correcting grammar without manual edits."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "Zavi हिंदी ट्रांसलेटर और Google Translate में कौन सा बेहतर है?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zavi operates directly inside your active window as a real-time Hindi translator (हिंदी ट्रांसलेटर). You can speak in Hindi, and Zavi instantly types out professional, grammatically perfected English without needing to switch between a separate translation app."
-            }
-        },
-        {
-            "@type": "Question",
-            "name": "2026 में सबसे प्रभावी रिमोट वर्क टूल्स कौन से हैं?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "As one of the most essential remote work tools (रिमोट वर्क टूल्स) for Indian professionals, Zavi AI functions as both an English grammar correction app (अंग्रेज़ी ग्रामर सुधार ऐप) and an automatic punctuation app (ऑटोमेटिक पंक्चुएशन ऐप), allowing users to write complex emails 4x faster perfectly."
+                "text": "Yes. Cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want."
             }
         }
     ]
 };
 
 // ============================================
-// HowTo Schema — Step-by-step instructions
+// HowTo Schema 
 // ============================================
 export const howToSchema = {
     "@context": "https://schema.org",
@@ -533,7 +429,7 @@ export const speakableSchema = {
     "mainEntity": {
         "@type": "SoftwareApplication",
         "name": "Zavi AI",
-        "description": "AI-powered voice typing keyboard that turns natural speech into clean, professional text. Removes filler words, fixes grammar, works in every app. Supports 100+ languages."
+        "description": "Zavi AI — Voice to Action OS. Live on iOS, Android, Mac, Windows, Linux. Free to start. Most voice tools just transcribe. Zavi types, edits, and takes action across every app."
     }
 };
 
