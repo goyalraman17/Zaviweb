@@ -4,6 +4,7 @@ import {
     getRazorpayClient,
     mapSubscriptionStatus,
     toDateFromUnixTimestamp,
+    verifyOrderSignature,
     verifySubscriptionSignature,
     type RazorpaySubscriptionEntity,
 } from '@/lib/razorpay';
@@ -15,18 +16,21 @@ export async function POST(request: NextRequest) {
         const {
             razorpay_payment_id,
             razorpay_subscription_id,
+            razorpay_order_id,
             razorpay_signature,
             email,
             plan,
+            billingCycle,
+            tier,
+            source,
         } = await request.json();
 
         // Validate required fields
         if (
             !razorpay_payment_id ||
-            !razorpay_subscription_id ||
             !razorpay_signature ||
             !email ||
-            !plan
+            !(billingCycle || plan)
         ) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
@@ -34,20 +38,46 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        if (!['monthly', 'annual'].includes(plan)) {
+        const selectedBillingCycle = billingCycle || plan;
+        const selectedTier = tier || (['pro', 'teams', 'f6s'].includes(plan) ? plan : 'pro');
+        const selectedSource = source || (selectedTier === 'f6s' ? 'f6s' : null);
+
+        if (!['monthly', 'annual', 'quarterly'].includes(selectedBillingCycle)) {
             return NextResponse.json({ error: 'Invalid plan type' }, { status: 400 });
         }
 
-        if (!verifySubscriptionSignature({
-            paymentId: razorpay_payment_id,
-            subscriptionId: razorpay_subscription_id,
-            signature: razorpay_signature,
-        })) {
-            console.error('Razorpay signature verification failed');
-            return NextResponse.json(
-                { error: 'Payment verification failed' },
-                { status: 400 }
-            );
+        if (selectedSource === 'f6s') {
+            if (!razorpay_order_id) {
+                return NextResponse.json({ error: 'Missing order ID' }, { status: 400 });
+            }
+
+            if (!verifyOrderSignature({
+                orderId: razorpay_order_id,
+                paymentId: razorpay_payment_id,
+                signature: razorpay_signature,
+            })) {
+                console.error('Razorpay order signature verification failed');
+                return NextResponse.json(
+                    { error: 'Payment verification failed' },
+                    { status: 400 }
+                );
+            }
+        } else {
+            if (!razorpay_subscription_id) {
+                return NextResponse.json({ error: 'Missing subscription ID' }, { status: 400 });
+            }
+
+            if (!verifySubscriptionSignature({
+                paymentId: razorpay_payment_id,
+                subscriptionId: razorpay_subscription_id,
+                signature: razorpay_signature,
+            })) {
+                console.error('Razorpay signature verification failed');
+                return NextResponse.json(
+                    { error: 'Payment verification failed' },
+                    { status: 400 }
+                );
+            }
         }
 
         // Step 2: Look up Firebase Auth user by email to get their UID
@@ -69,31 +99,46 @@ export async function POST(request: NextRequest) {
             throw authError;
         }
 
-        const razorpay = getRazorpayClient();
-        const subscription = await razorpay.subscriptions.fetch(
-            razorpay_subscription_id
-        ) as RazorpaySubscriptionEntity;
-
         const now = new Date();
-        const expiresAt =
-            toDateFromUnixTimestamp(subscription.current_end) ||
-            toDateFromUnixTimestamp(subscription.charge_at) ||
-            toDateFromUnixTimestamp(subscription.start_at) ||
-            now;
+        let subscription: RazorpaySubscriptionEntity | null = null;
+        let expiresAt = now;
+
+        if (selectedSource === 'f6s') {
+            expiresAt = new Date(now);
+            expiresAt.setDate(expiresAt.getDate() + 90);
+        } else {
+            const razorpay = getRazorpayClient();
+            subscription = await razorpay.subscriptions.fetch(
+                razorpay_subscription_id
+            ) as RazorpaySubscriptionEntity;
+
+            expiresAt =
+                toDateFromUnixTimestamp(subscription.current_end) ||
+                toDateFromUnixTimestamp(subscription.charge_at) ||
+                toDateFromUnixTimestamp(subscription.start_at) ||
+                now;
+        }
 
         const userDocRef = adminDb.collection('users').doc(uid);
         const userDoc = await userDocRef.get();
 
         const subscriptionData = {
-            subscription_tier: plan,
-            subscription_status: mapSubscriptionStatus(subscription.status),
+            subscription_tier: selectedTier === 'f6s' ? 'pro' : selectedTier,
+            subscription_billing_cycle: selectedBillingCycle,
+            subscription_source: selectedSource,
+            subscription_status: selectedSource === 'f6s'
+                ? 'active'
+                : mapSubscriptionStatus(subscription?.status),
             subscription_expires_at: expiresAt,
             razorpay_payment_id: razorpay_payment_id,
-            razorpay_subscription_id: razorpay_subscription_id,
-            razorpay_subscription_status: subscription.status || 'unknown',
-            razorpay_subscription_plan_id: subscription.plan_id || null,
-            razorpay_subscription_current_end: toDateFromUnixTimestamp(subscription.current_end),
-            razorpay_subscription_current_start: toDateFromUnixTimestamp(subscription.current_start),
+            razorpay_order_id: razorpay_order_id || null,
+            razorpay_subscription_id: razorpay_subscription_id || null,
+            razorpay_subscription_status: selectedSource === 'f6s'
+                ? 'one_time_pass'
+                : (subscription?.status || 'unknown'),
+            razorpay_subscription_plan_id: subscription?.plan_id || null,
+            razorpay_subscription_current_end: toDateFromUnixTimestamp(subscription?.current_end),
+            razorpay_subscription_current_start: toDateFromUnixTimestamp(subscription?.current_start),
             updated_at: now,
         };
 
@@ -107,16 +152,22 @@ export async function POST(request: NextRequest) {
         }
 
         console.log(
-            `Updated user ${uid} to ${plan} subscription ${razorpay_subscription_id}, expires ${expiresAt.toISOString()}`
+            `Updated user ${uid} to ${selectedTier} (${selectedSource || 'standard'}) expires ${expiresAt.toISOString()}`
         );
 
         return NextResponse.json(
             {
                 success: true,
-                message: 'Payment verified and subscription activated',
-                plan,
-                subscriptionId: razorpay_subscription_id,
-                subscriptionStatus: subscription.status || 'unknown',
+                message: selectedSource === 'f6s'
+                    ? 'Payment verified and 3-month pass activated'
+                    : 'Payment verified and subscription activated',
+                plan: selectedTier,
+                billingCycle: selectedBillingCycle,
+                source: selectedSource,
+                subscriptionId: razorpay_subscription_id || null,
+                subscriptionStatus: selectedSource === 'f6s'
+                    ? 'active'
+                    : (subscription?.status || 'unknown'),
                 expiresAt: expiresAt.toISOString(),
             },
             { status: 200 }

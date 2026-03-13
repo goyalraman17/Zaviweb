@@ -19,7 +19,19 @@ function initFirebaseAdmin() {
     );
   }
 
-  const serviceAccount: ServiceAccount = JSON.parse(serviceAccountKey);
+  let serviceAccount: ServiceAccount;
+
+  try {
+    serviceAccount = JSON.parse(serviceAccountKey);
+  } catch {
+    // Some env loaders materialize the embedded private key with literal newlines,
+    // which breaks JSON.parse for the full service account payload.
+    const normalized = serviceAccountKey.replace(
+      /"private_key":"([\s\S]*?)","client_email":/,
+      (_, privateKey) => `"private_key":"${privateKey.replace(/\n/g, '\\n')}","client_email":`
+    );
+    serviceAccount = JSON.parse(normalized);
+  }
 
   initializeApp({
     credential: cert(serviceAccount),

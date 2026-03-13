@@ -107,6 +107,24 @@ export function verifySubscriptionSignature({
   return crypto.createHmac('sha256', keySecret).update(payload).digest('hex') === signature;
 }
 
+export function verifyOrderSignature({
+  orderId,
+  paymentId,
+  signature,
+}: {
+  orderId: string;
+  paymentId: string;
+  signature: string;
+}) {
+  const keySecret = process.env.RAZORPAY_KEY_SECRET;
+  if (!keySecret) {
+    throw new Error('RAZORPAY_KEY_SECRET is not set');
+  }
+
+  const payload = `${orderId}|${paymentId}`;
+  return crypto.createHmac('sha256', keySecret).update(payload).digest('hex') === signature;
+}
+
 export function toDateFromUnixTimestamp(timestamp?: number | null) {
   if (!timestamp) {
     return null;

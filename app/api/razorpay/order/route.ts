@@ -1,12 +1,38 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getPlanConfig, getRazorpayClient } from '@/lib/razorpay';
 
+const F6S_OFFER_AMOUNT = 1199;
 
 export async function POST(request: NextRequest) {
     try {
-        const { plan, billingCycle, email } = await request.json();
+        const { plan, billingCycle, email, source } = await request.json();
 
         const razorpay = getRazorpayClient();
+
+        if (source === 'f6s') {
+            const order = await razorpay.orders.create({
+                amount: F6S_OFFER_AMOUNT,
+                currency: 'USD',
+                receipt: `f6s_${Date.now()}`,
+                notes: {
+                    email: email?.toLowerCase?.().trim?.() || '',
+                    plan: 'pro',
+                    billingCycle: 'quarterly',
+                    source: 'f6s',
+                },
+            });
+
+            return NextResponse.json(
+                {
+                    orderId: order.id,
+                    amount: F6S_OFFER_AMOUNT,
+                    currency: 'USD',
+                    source: 'f6s',
+                },
+                { status: 200 }
+            );
+        }
+
         const planConfig = getPlanConfig(plan, billingCycle);
 
         const subscription = await razorpay.subscriptions.create({

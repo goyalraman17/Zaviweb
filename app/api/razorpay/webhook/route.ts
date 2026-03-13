@@ -43,6 +43,15 @@ function getEmail(payload: any, subscription: RazorpaySubscriptionEntity) {
 
 function getPlan(payload: any, subscription: RazorpaySubscriptionEntity) {
   return (
+    payload?.payload?.subscription?.entity?.notes?.plan ||
+    payload?.payload?.payment?.entity?.notes?.plan ||
+    subscription.notes?.plan ||
+    null
+  );
+}
+
+function getBillingCycle(payload: any, subscription: RazorpaySubscriptionEntity) {
+  return (
     payload?.payload?.subscription?.entity?.notes?.billingCycle ||
     payload?.payload?.payment?.entity?.notes?.billingCycle ||
     subscription.notes?.billingCycle ||
@@ -87,10 +96,13 @@ export async function POST(request: NextRequest) {
       now;
     const paymentId = getPaymentId(payload);
     const plan = getPlan(payload, subscription);
+    const billingCycle = getBillingCycle(payload, subscription);
 
     await userDocRef.set(
       {
-        subscription_tier: plan,
+        subscription_tier: plan === 'f6s' ? 'pro' : plan,
+        subscription_billing_cycle: billingCycle,
+        subscription_source: plan,
         subscription_status: mapSubscriptionStatus(subscription.status),
         subscription_expires_at: expiresAt,
         razorpay_payment_id: paymentId,
