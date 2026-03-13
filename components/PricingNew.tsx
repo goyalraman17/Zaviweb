@@ -16,12 +16,14 @@ import GlowCard from './animated/GlowCard';
 export default function PricingNew() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [checkoutScriptReady, setCheckoutScriptReady] = useState(false);
 
   // Email modal state
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [emailInput, setEmailInput] = useState('');
   const [emailError, setEmailError] = useState('');
   const [pendingPlan, setPendingPlan] = useState<string | null>(null);
+  const [paymentStep, setPaymentStep] = useState('');
   const emailInputRef = useRef<HTMLInputElement>(null);
 
   // Payment result modal state
@@ -39,12 +41,18 @@ export default function PricingNew() {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent.toLowerCase();
 
-      if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod') || userAgent.includes('mobile') || (userAgent.includes('mac') && navigator.maxTouchPoints > 1)) {
-        setDetectedOS('iOS');
-        setIsAndroid(false);
-      } else if (userAgent.includes('android')) {
+      if (userAgent.includes('android')) {
         setDetectedOS('Android');
         setIsAndroid(true);
+      } else if (
+        userAgent.includes('iphone') ||
+        userAgent.includes('ipad') ||
+        userAgent.includes('ipod') ||
+        (userAgent.includes('mobile') && !userAgent.includes('android')) ||
+        (userAgent.includes('mac') && navigator.maxTouchPoints > 1)
+      ) {
+        setDetectedOS('iOS');
+        setIsAndroid(false);
       } else if (userAgent.includes('mac')) {
         setDetectedOS('macOS');
         setIsAndroid(false);
@@ -69,9 +77,11 @@ export default function PricingNew() {
 
   // Show the email modal before payment
   const startPaymentFlow = (plan: string) => {
+    console.log('[Pricing] Starting payment flow', { plan, billingCycle, checkoutScriptReady });
     setPendingPlan(plan);
     setEmailInput('');
     setEmailError('');
+    setPaymentStep('');
     setShowEmailModal(true);
     setTimeout(() => emailInputRef.current?.focus(), 100);
   };
@@ -83,16 +93,24 @@ export default function PricingNew() {
       setEmailError('Please enter a valid email address');
       return;
     }
-    setShowEmailModal(false);
-    if (pendingPlan) {
-      handlePayment(pendingPlan, trimmed);
+
+    if (!pendingPlan) {
+      setEmailError('Please choose a plan again before continuing.');
+      return;
     }
+
+    console.log('[Pricing] Email submitted', { pendingPlan, billingCycle, email: trimmed });
+    setPaymentStep('Creating your subscription...');
+    setShowEmailModal(false);
+    handlePayment(pendingPlan, trimmed);
   };
 
   const handlePayment = async (plan: string, email: string) => {
     if (isProcessing) return;
 
     setIsProcessing(true);
+    setPaymentStep('Creating your subscription...');
+    console.log('[Pricing] handlePayment called', { plan, billingCycle, email });
 
     try {
       let amount = 0;
@@ -113,35 +131,51 @@ export default function PricingNew() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          amount,
-          currency: 'USD',
+          plan,
+          billingCycle,
+          email,
         }),
       });
 
       const data = await response.json();
+      console.log('[Pricing] Subscription creation response', {
+        ok: response.ok,
+        status: response.status,
+        data,
+      });
 
-      if (!data.orderId) {
-        throw new Error('Order creation failed');
+      if (!data.subscriptionId) {
+        throw new Error(data.error || 'Subscription creation failed');
+      }
+
+      if (!(window as any).Razorpay || !checkoutScriptReady) {
+        throw new Error('Razorpay checkout is still loading. Please try again in a moment.');
       }
 
       const selectedPlan = billingCycle;
+      setPaymentStep('Opening Razorpay checkout...');
 
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-        amount: amount.toString(),
+        amount: (data.amount || amount).toString(),
         currency: 'USD',
         name: 'Zavi AI',
         description: `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan - ${selectedPlan}`,
-        order_id: data.orderId,
+        subscription_id: data.subscriptionId,
         handler: async function (response: any) {
+          console.log('[Pricing] Razorpay handler received response', {
+            payment_id: response.razorpay_payment_id,
+            subscription_id: response.razorpay_subscription_id,
+          });
           try {
+            setPaymentStep('Activating your subscription...');
             // Verify payment and update Firestore subscription
             const verifyRes = await fetch('/api/razorpay/verify', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_subscription_id: response.razorpay_subscription_id,
                 razorpay_signature: response.razorpay_signature,
                 email: email,
                 plan: selectedPlan,
@@ -149,21 +183,27 @@ export default function PricingNew() {
             });
 
             const result = await verifyRes.json();
+            console.log('[Pricing] Verify response', {
+              ok: verifyRes.ok,
+              status: verifyRes.status,
+              result,
+            });
 
             if (verifyRes.ok && result.success) {
               setResultType('success');
               setResultMessage('Your Pro subscription is now active! Open the Zavi app to enjoy unlimited access.');
-              setResultPaymentId(response.razorpay_payment_id);
+              setResultPaymentId(response.razorpay_subscription_id || response.razorpay_payment_id);
               setShowResultModal(true);
               analytics.track('payment_success', {
                 plan: selectedPlan,
                 email: email,
                 payment_id: response.razorpay_payment_id,
+                subscription_id: response.razorpay_subscription_id,
               });
             } else {
               setResultType('error');
               setResultMessage(result.error || 'Payment received but activation failed.');
-              setResultPaymentId(response.razorpay_payment_id);
+              setResultPaymentId(response.razorpay_subscription_id || response.razorpay_payment_id);
               setShowResultModal(true);
               analytics.track('payment_verify_failed', {
                 plan: selectedPlan,
@@ -175,7 +215,7 @@ export default function PricingNew() {
             console.error('Verification error:', err);
             setResultType('error');
             setResultMessage('Payment received but verification failed.');
-            setResultPaymentId(response.razorpay_payment_id);
+            setResultPaymentId(response.razorpay_subscription_id || response.razorpay_payment_id);
             setShowResultModal(true);
           }
         },
@@ -185,6 +225,11 @@ export default function PricingNew() {
         theme: {
           color: '#2563EB',
         },
+        notes: {
+          email,
+          plan,
+          billingCycle: selectedPlan,
+        },
       };
 
       const paymentObject = new (window as any).Razorpay(options);
@@ -192,11 +237,12 @@ export default function PricingNew() {
     } catch (error) {
       console.error('Payment Error:', error);
       setResultType('error');
-      setResultMessage('Payment processing failed. Please try again.');
+      setResultMessage(error instanceof Error ? error.message : 'Payment processing failed. Please try again.');
       setResultPaymentId('');
       setShowResultModal(true);
     } finally {
       setIsProcessing(false);
+      setPaymentStep('');
     }
   };
 
@@ -207,7 +253,7 @@ export default function PricingNew() {
       is_android: isAndroid
     });
 
-    if (isAndroid) {
+    if (plan === 'free' && isAndroid) {
       window.open('https://play.google.com/store/apps/details?id=com.pingpros.keyboard', '_blank');
     } else {
       startPaymentFlow(plan);
@@ -219,6 +265,14 @@ export default function PricingNew() {
       <Script
         id="razorpay-checkout-js"
         src="https://checkout.razorpay.com/v1/checkout.js"
+        onLoad={() => {
+          console.log('[Pricing] Razorpay checkout script loaded');
+          setCheckoutScriptReady(true);
+        }}
+        onError={() => {
+          console.error('[Pricing] Failed to load Razorpay checkout script');
+          setCheckoutScriptReady(false);
+        }}
       />
       <section
         id="pricing"
@@ -724,18 +778,25 @@ export default function PricingNew() {
               {/* Buttons */}
               <div className="flex gap-3">
                 <button
+                  type="button"
                   onClick={() => setShowEmailModal(false)}
                   className="flex-1 px-5 py-3.5 rounded-xl font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
+                  type="button"
                   onClick={handleEmailSubmit}
+                  disabled={isProcessing}
                   className="flex-1 px-5 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25 transition-all"
                 >
-                  Continue to Payment
+                  {isProcessing ? 'Starting...' : 'Continue to Payment'}
                 </button>
               </div>
+
+              {paymentStep && (
+                <p className="mt-4 text-center text-sm text-blue-600">{paymentStep}</p>
+              )}
 
               {/* Security note */}
               <p className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">

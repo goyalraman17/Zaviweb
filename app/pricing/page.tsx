@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation';
+import PricingNew from '@/components/PricingNew';
 import Link from 'next/link';
 import JsonLd from '@/components/SEO/JsonLd';
 import { generateBreadcrumbSchema } from '@/lib/schemaData';
@@ -14,45 +15,6 @@ export const metadata: Metadata = {
         url: 'https://zavivoice.com/pricing',
     },
 };
-
-const plans = [
-    {
-        name: 'Free',
-        price: '$0',
-        period: 'forever',
-        description: 'Everything you need to start voice typing with AI',
-        features: [
-            'AI-powered filler word removal',
-            'Grammar & punctuation correction',
-            'Works in every app (WhatsApp, Gmail, Slack, etc.)',
-            '100+ language support',
-            'Automatic language detection',
-            'Daily usage limits apply',
-        ],
-        cta: 'Download Free',
-        ctaHref: '/#download',
-        highlight: false,
-    },
-    {
-        name: 'Pro',
-        price: '$7.99',
-        period: 'per month',
-        yearlyPrice: '$49.99/year (2 months free)',
-        description: 'Unlimited voice typing for professionals who want maximum productivity',
-        features: [
-            'Everything in Free, plus:',
-            'Unlimited daily usage',
-            '3x faster processing speed',
-            'Real-time translation (speak in one language, type in another)',
-            'Advanced sentence restructuring',
-            'Priority AI processing',
-            'Priority support',
-        ],
-        cta: 'Get Pro',
-        ctaHref: '/#download',
-        highlight: true,
-    },
-];
 
 const comparisonFeatures = [
     { feature: 'AI filler word removal', free: '✅', pro: '✅' },
@@ -180,47 +142,8 @@ export default function PricingPage() {
                         </p>
                     </div>
 
-                    {/* Plans */}
-                    <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-20">
-                        {plans.map((plan) => (
-                            <div
-                                key={plan.name}
-                                className={`rounded-2xl p-8 ${plan.highlight
-                                    ? 'bg-blue-600 text-white ring-4 ring-blue-600/20 shadow-xl'
-                                    : 'bg-white border-2 border-gray-200'
-                                    }`}
-                            >
-                                {plan.highlight && (
-                                    <span className="inline-block px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">Most Popular</span>
-                                )}
-                                <h2 className={`text-2xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h2>
-                                <div className="flex items-baseline gap-1 mb-1">
-                                    <span className={`text-5xl font-bold ${plan.highlight ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
-                                    <span className={`text-lg ${plan.highlight ? 'text-blue-200' : 'text-gray-500'}`}>/{plan.period}</span>
-                                </div>
-                                {plan.yearlyPrice && (
-                                    <p className={`text-sm mb-4 ${plan.highlight ? 'text-blue-200' : 'text-gray-500'}`}>{plan.yearlyPrice}</p>
-                                )}
-                                <p className={`mb-6 ${plan.highlight ? 'text-blue-100' : 'text-gray-600'}`}>{plan.description}</p>
-                                <ul className="space-y-3 mb-8">
-                                    {plan.features.map((f, i) => (
-                                        <li key={i} className="flex items-start gap-2">
-                                            <span className={`mt-1 ${plan.highlight ? 'text-blue-200' : 'text-blue-600'}`}>✓</span>
-                                            <span className={plan.highlight ? 'text-white' : 'text-gray-700'}>{f}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link
-                                    href={plan.ctaHref}
-                                    className={`block text-center px-6 py-3 rounded-xl font-semibold transition-all ${plan.highlight
-                                        ? 'bg-white text-blue-600 hover:bg-blue-50'
-                                        : 'bg-blue-600 text-white hover:bg-blue-700'
-                                        }`}
-                                >
-                                    {plan.cta}
-                                </Link>
-                            </div>
-                        ))}
+                    <div className="mb-20">
+                        <PricingNew />
                     </div>
 
                     {/* Feature Comparison Table */}

@@ -1,37 +1,38 @@
-import Razorpay from 'razorpay';
 import { NextRequest, NextResponse } from 'next/server';
+import { getPlanConfig, getRazorpayClient } from '@/lib/razorpay';
 
 
 export async function POST(request: NextRequest) {
     try {
-        const { amount, currency } = await request.json();
+        const { plan, billingCycle, email } = await request.json();
 
-        // Initialize Razorpay lazily to avoid build-time errors if keys are missing
-        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-            console.error('Razorpay keys are missing');
-            return NextResponse.json(
-                { error: 'Server configuration error' },
-                { status: 500 }
-            );
-        }
+        const razorpay = getRazorpayClient();
+        const planConfig = getPlanConfig(plan, billingCycle);
 
-        const razorpay = new Razorpay({
-            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-            key_secret: process.env.RAZORPAY_KEY_SECRET,
+        const subscription = await razorpay.subscriptions.create({
+            plan_id: planConfig.planId,
+            total_count: planConfig.totalCount,
+            quantity: 1,
+            customer_notify: 1,
+            notes: {
+                email: email?.toLowerCase?.().trim?.() || '',
+                plan,
+                billingCycle,
+            },
         });
 
-        const options = {
-            amount: amount.toString(),
-            currency: currency,
-            receipt: 'rcpt_' + Date.now(),
-        };
-
-        const order = await razorpay.orders.create(options);
-        return NextResponse.json({ orderId: order.id }, { status: 200 });
-    } catch (error) {
-        console.error('Error creating order:', error);
         return NextResponse.json(
-            { error: 'Error creating order' },
+            {
+                subscriptionId: subscription.id,
+                amount: planConfig.amount,
+                billingCycle: planConfig.billingCycle,
+            },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error('Error creating subscription:', error);
+        return NextResponse.json(
+            { error: error instanceof Error ? error.message : 'Error creating subscription' },
             { status: 500 }
         );
     }

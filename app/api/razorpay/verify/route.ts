@@ -1,12 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import crypto from 'crypto';
-import { adminDb, adminAuth } from '@/lib/firebase-admin';
+import { getAdminAuth, getAdminDb } from '@/lib/firebase-admin';
+import {
+    getRazorpayClient,
+    mapSubscriptionStatus,
+    toDateFromUnixTimestamp,
+    verifySubscriptionSignature,
+    type RazorpaySubscriptionEntity,
+} from '@/lib/razorpay';
 
 export async function POST(request: NextRequest) {
     try {
+        const adminAuth = getAdminAuth();
+        const adminDb = getAdminDb();
         const {
-            razorpay_order_id,
             razorpay_payment_id,
+            razorpay_subscription_id,
             razorpay_signature,
             email,
             plan,
@@ -14,8 +22,8 @@ export async function POST(request: NextRequest) {
 
         // Validate required fields
         if (
-            !razorpay_order_id ||
             !razorpay_payment_id ||
+            !razorpay_subscription_id ||
             !razorpay_signature ||
             !email ||
             !plan
@@ -30,23 +38,11 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Invalid plan type' }, { status: 400 });
         }
 
-        // Step 1: Verify Razorpay signature
-        const keySecret = process.env.RAZORPAY_KEY_SECRET;
-        if (!keySecret) {
-            console.error('RAZORPAY_KEY_SECRET is not set');
-            return NextResponse.json(
-                { error: 'Server configuration error' },
-                { status: 500 }
-            );
-        }
-
-        const body = razorpay_order_id + '|' + razorpay_payment_id;
-        const expectedSignature = crypto
-            .createHmac('sha256', keySecret)
-            .update(body)
-            .digest('hex');
-
-        if (expectedSignature !== razorpay_signature) {
+        if (!verifySubscriptionSignature({
+            paymentId: razorpay_payment_id,
+            subscriptionId: razorpay_subscription_id,
+            signature: razorpay_signature,
+        })) {
             console.error('Razorpay signature verification failed');
             return NextResponse.json(
                 { error: 'Payment verification failed' },
@@ -73,41 +69,45 @@ export async function POST(request: NextRequest) {
             throw authError;
         }
 
-        // Step 3: Update the user's Firestore doc at users/{uid}
+        const razorpay = getRazorpayClient();
+        const subscription = await razorpay.subscriptions.fetch(
+            razorpay_subscription_id
+        ) as RazorpaySubscriptionEntity;
+
         const now = new Date();
-        const expiresAt = new Date(now);
-        if (plan === 'monthly') {
-            expiresAt.setDate(expiresAt.getDate() + 30);
-        } else {
-            expiresAt.setDate(expiresAt.getDate() + 365);
-        }
+        const expiresAt =
+            toDateFromUnixTimestamp(subscription.current_end) ||
+            toDateFromUnixTimestamp(subscription.charge_at) ||
+            toDateFromUnixTimestamp(subscription.start_at) ||
+            now;
 
         const userDocRef = adminDb.collection('users').doc(uid);
         const userDoc = await userDocRef.get();
 
+        const subscriptionData = {
+            subscription_tier: plan,
+            subscription_status: mapSubscriptionStatus(subscription.status),
+            subscription_expires_at: expiresAt,
+            razorpay_payment_id: razorpay_payment_id,
+            razorpay_subscription_id: razorpay_subscription_id,
+            razorpay_subscription_status: subscription.status || 'unknown',
+            razorpay_subscription_plan_id: subscription.plan_id || null,
+            razorpay_subscription_current_end: toDateFromUnixTimestamp(subscription.current_end),
+            razorpay_subscription_current_start: toDateFromUnixTimestamp(subscription.current_start),
+            updated_at: now,
+        };
+
         if (userDoc.exists) {
-            // Update existing user doc
-            await userDocRef.update({
-                subscription_tier: plan,
-                subscription_expires_at: expiresAt,
-                razorpay_payment_id: razorpay_payment_id,
-                razorpay_order_id: razorpay_order_id,
-                updated_at: now,
-            });
+            await userDocRef.update(subscriptionData);
         } else {
-            // Create new user doc (edge case: Auth user exists but no Firestore doc yet)
             await userDocRef.set({
-                subscription_tier: plan,
-                subscription_expires_at: expiresAt,
-                razorpay_payment_id: razorpay_payment_id,
-                razorpay_order_id: razorpay_order_id,
+                ...subscriptionData,
                 created_at: now,
-                updated_at: now,
             });
         }
 
         console.log(
-            `Updated user ${uid} to ${plan} plan, expires ${expiresAt.toISOString()}`
+            `Updated user ${uid} to ${plan} subscription ${razorpay_subscription_id}, expires ${expiresAt.toISOString()}`
         );
 
         return NextResponse.json(
@@ -115,6 +115,8 @@ export async function POST(request: NextRequest) {
                 success: true,
                 message: 'Payment verified and subscription activated',
                 plan,
+                subscriptionId: razorpay_subscription_id,
+                subscriptionStatus: subscription.status || 'unknown',
                 expiresAt: expiresAt.toISOString(),
             },
             { status: 200 }
