@@ -8,6 +8,52 @@ import { getOptionalPaymentSession } from '@/lib/firebase-client-auth';
 
 const OFFER_PRICE = 11.99;
 const FULL_PRICE = 23.97;
+const OFFER_DEADLINE = 'Limited partner offer for the current F6S campaign';
+
+const audienceCards = [
+  {
+    title: 'Founders',
+    body: 'Send faster investor updates, hiring messages, and founder outreach without getting stuck in draft mode.',
+  },
+  {
+    title: 'Operators',
+    body: 'Move through docs, Slack, Notion, CRM notes, and internal comms with less typing and less context switching.',
+  },
+  {
+    title: 'Investors',
+    body: 'Write cleaner outreach, memos, and founder follow-ups while staying fast across every app you already use.',
+  },
+];
+
+const proofPoints = [
+  'Type into email, docs, forms, chat, and every major desktop or mobile app',
+  'Rewrite rough dictation into polished business writing instantly',
+  'Use voice commands, cleanup, and translation without app switching',
+  'Keep full Pro access for 3 months with one payment and no auto-renewal',
+];
+
+const faqItems = [
+  {
+    question: 'What exactly do I get with this F6S offer?',
+    answer:
+      'You get full Zavi Pro access for 3 months at a one-time discounted price of $11.99. This includes unlimited voice typing, AI cleanup, rewrite tools, translation, commands, and all current Pro features.',
+  },
+  {
+    question: 'Will this renew automatically?',
+    answer:
+      'No. This F6S offer is a one-time payment. When the 3 months end, your Pro access ends and you can choose whether to buy again from the website.',
+  },
+  {
+    question: 'Do I need to use my Zavi account email?',
+    answer:
+      'Yes. Use the same email you use in Zavi so we can activate Pro on the correct account as soon as payment is verified.',
+  },
+  {
+    question: 'Why is this page different from the main pricing page?',
+    answer:
+      'This is a dedicated partner offer for the F6S audience. It is intentionally built to be simple: one offer, one checkout, one clear outcome.',
+  },
+];
 
 export default function F6SOffer() {
   const [email, setEmail] = useState('');
@@ -166,22 +212,23 @@ export default function F6SOffer() {
 
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,#dbeafe_0%,#f8fafc_42%,#ffffff_75%)] pt-20 pb-14 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(37,99,235,0.08),transparent_45%,rgba(245,158,11,0.08))]" />
+        <div className="absolute left-[-12%] top-20 h-64 w-64 rounded-full bg-amber-200/25 blur-3xl sm:h-80 sm:w-80" />
+        <div className="absolute right-[-10%] top-12 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl sm:h-96 sm:w-96" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-10">
             <div>
               <div className="mb-4 inline-flex flex-wrap items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-3 py-2 text-xs font-semibold text-blue-700 shadow-sm sm:mb-5 sm:px-4 sm:text-sm">
                 <span>Exclusive F6S Member Offer</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-                <span>Limited campaign access</span>
+                <span>{OFFER_DEADLINE}</span>
               </div>
 
               <h1 className="max-w-3xl text-4xl font-black leading-[0.95] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-                Get 3 months of Zavi Pro at 50% off.
+                Turn more thoughts into finished work.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-700 sm:mt-5 sm:text-lg sm:leading-8 xl:text-xl">
-                Built for founders, operators, and investors who need to write faster across
-                email, messages, docs, and outreach. This F6S offer gives you full Pro access
-                for three months at half the usual price, with no automatic renewal afterward.
+                Zavi helps you speak naturally and get polished writing across email, docs, chat, forms, and daily workflows.
+                This F6S partner offer gives you 3 months of full Pro access at 50% off, with one payment, no auto-renewal, and no extra decisions to make later.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-slate-700 sm:mt-8 sm:gap-3 sm:text-sm">
@@ -196,6 +243,21 @@ export default function F6SOffer() {
                 </div>
                 <div className="rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm sm:px-4">
                   Secure Razorpay checkout
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-3 rounded-[1.75rem] border border-slate-200 bg-white/85 p-4 shadow-sm sm:grid-cols-3 sm:p-5">
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">For speed</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">Get to a sendable first draft faster instead of losing momentum to typing and cleanup.</p>
+                </div>
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">For quality</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">Improve clarity, tone, and structure instantly while still sounding like you.</p>
+                </div>
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">For momentum</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">Stay inside the tools you already use instead of slowing down to manually type every message.</p>
                 </div>
               </div>
 
@@ -223,8 +285,17 @@ export default function F6SOffer() {
                 </div>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-600">
                   This is a one-time F6S payment for 3 months of Pro access. It does not
-                  auto-renew. When your access ends, you can come back and buy again from the website.
+                  auto-renew. You get the discount now, full access immediately after activation, and the freedom to decide later whether you want more.
                 </p>
+              </div>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {audienceCards.map((card) => (
+                  <div key={card.title} className="rounded-[1.6rem] border border-slate-200 bg-slate-950 px-5 py-5 text-white shadow-lg shadow-slate-300/20">
+                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-200">{card.title}</div>
+                    <p className="mt-3 text-sm leading-6 text-slate-200">{card.body}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -241,8 +312,11 @@ export default function F6SOffer() {
                       F6S special pricing
                     </div>
                     <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                      Claim your 3-month Pro offer
+                      Claim your F6S Pro offer
                     </h2>
+                    <p className="mt-2 max-w-md text-sm leading-6 text-slate-600">
+                      Best for people who write constantly and want less friction across the whole workday.
+                    </p>
                   </div>
                   <div className="w-full rounded-2xl bg-amber-100 px-4 py-3 text-left sm:w-auto sm:text-right">
                     <div className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-800">
@@ -276,13 +350,15 @@ export default function F6SOffer() {
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                        Included in Pro
+                        What you unlock
                       </div>
                       <ul className="mt-3 space-y-3 text-sm text-slate-700">
-                        <li>Unlimited voice typing across apps</li>
-                        <li>Magic Wand editing and rewriting</li>
-                        <li>Translation, commands, and premium AI speed</li>
-                        <li>Priority support and all current Pro features</li>
+                        {proofPoints.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <span className="mt-1 h-2 w-2 rounded-full bg-blue-500" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                     <div className="rounded-2xl bg-white p-4 text-left shadow-sm sm:min-w-[120px] sm:text-right">
@@ -301,7 +377,7 @@ export default function F6SOffer() {
                   disabled={isProcessing}
                   className="mt-6 w-full rounded-2xl bg-[linear-gradient(135deg,#2563eb,#1d4ed8_45%,#0f172a)] px-5 py-4 text-base font-bold text-white shadow-lg shadow-blue-300 transition hover:translate-y-[-1px] disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:text-lg"
                 >
-                  {isProcessing ? 'Starting secure checkout...' : 'Claim 50% Off for 3 Months'}
+                  {isProcessing ? 'Starting secure checkout...' : 'Start My 3-Month Pro Offer'}
                 </button>
 
                 <div className="mt-4 text-center text-sm text-slate-600">
@@ -314,19 +390,53 @@ export default function F6SOffer() {
                     <p className="mt-2 text-sm leading-6 text-slate-600">
                       You&apos;ll be charged ${OFFER_PRICE.toFixed(2)} once today for 3 months of Pro
                       access. After that period ends, you can come back to the website and buy
-                      again if you want to continue.
+                      again if you want to continue. Nothing renews automatically.
                     </p>
                   </div>
                   <div className="rounded-2xl border border-slate-200 p-4">
-                    <div className="text-sm font-semibold text-slate-950">Who this is for</div>
+                    <div className="text-sm font-semibold text-slate-950">Why people buy</div>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Startup founders, operators, and investors who want cleaner, faster writing
-                      without bouncing between apps.
+                      They want less typing, faster turnaround, and cleaner writing across the tools where work already happens.
                     </p>
                   </div>
                 </div>
+
+                <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-4 text-sm leading-6 text-slate-700">
+                  <span className="font-semibold text-slate-950">Simple promise:</span> one payment, 3 months of Pro,
+                  no surprise renewal, and activation tied to your Zavi account email.
+                </div>
               </div>
             </motion.div>
+          </div>
+
+          <div className="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-lg shadow-slate-200/60">
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Why teams adopt Zavi</div>
+              <h2 className="mt-3 text-2xl font-black text-slate-950 sm:text-3xl">
+                It removes the slowest part of everyday communication.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-slate-700">
+                Most people already know what they want to say. The bottleneck is typing, editing,
+                and rewriting it everywhere. Zavi closes that gap by letting you speak naturally and
+                turn that into polished output inside the apps where work already happens.
+              </p>
+              <p className="mt-4 text-base leading-7 text-slate-700">
+                For an F6S audience, that usually means faster founder updates, stronger outreach,
+                cleaner operating notes, faster follow-ups, and more output without adding more tools.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl shadow-slate-300/25">
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-200">Frequently asked</div>
+              <div className="mt-5 space-y-4">
+                {faqItems.map((item) => (
+                  <div key={item.question} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4">
+                    <div className="text-base font-semibold text-white">{item.question}</div>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
