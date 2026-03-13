@@ -164,62 +164,62 @@ export default function F6SOffer() {
         onError={() => setCheckoutScriptReady(false)}
       />
 
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,#dbeafe_0%,#f8fafc_42%,#ffffff_75%)] pt-28 pb-20">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,#dbeafe_0%,#f8fafc_42%,#ffffff_75%)] pt-20 pb-14 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(37,99,235,0.08),transparent_45%,rgba(245,158,11,0.08))]" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-10">
             <div>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm">
+              <div className="mb-4 inline-flex flex-wrap items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-3 py-2 text-xs font-semibold text-blue-700 shadow-sm sm:mb-5 sm:px-4 sm:text-sm">
                 <span>Exclusive F6S Member Offer</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
                 <span>Limited campaign access</span>
               </div>
 
-              <h1 className="max-w-3xl text-5xl font-black tracking-tight text-slate-950 sm:text-6xl">
+              <h1 className="max-w-3xl text-4xl font-black leading-[0.95] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Get 3 months of Zavi Pro at 50% off.
               </h1>
-              <p className="mt-5 max-w-2xl text-xl leading-8 text-slate-700">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-700 sm:mt-5 sm:text-lg sm:leading-8 xl:text-xl">
                 Built for founders, operators, and investors who need to write faster across
                 email, messages, docs, and outreach. This F6S offer gives you full Pro access
                 for three months at half the usual price, with no automatic renewal afterward.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold text-slate-700">
-                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+              <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-slate-700 sm:mt-8 sm:gap-3 sm:text-sm">
+                <div className="rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm sm:px-4">
                   Unlimited voice typing
                 </div>
-                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <div className="rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm sm:px-4">
                   AI cleanup and rewrite
                 </div>
-                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <div className="rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm sm:px-4">
                   Works across every app
                 </div>
-                <div className="rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm">
+                <div className="rounded-full border border-slate-200 bg-white px-3 py-2 shadow-sm sm:px-4">
                   Secure Razorpay checkout
                 </div>
               </div>
 
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 sm:grid-cols-3">
                 {[
                   ['3 months', 'full Pro access'],
                   ['50% off', 'exclusive F6S rate'],
                   ['$11.99', 'one-time payment today'],
                 ].map(([value, label]) => (
-                  <div key={value} className="rounded-3xl border border-slate-200 bg-white/90 p-5 shadow-sm">
-                    <div className="text-3xl font-black text-slate-950">{value}</div>
+                  <div key={value} className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm sm:rounded-3xl sm:p-5">
+                    <div className="text-2xl font-black text-slate-950 sm:text-3xl">{value}</div>
                     <div className="mt-1 text-sm text-slate-600">{label}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-lg shadow-blue-100/60">
-                <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-600">
+              <div className="mt-8 rounded-[1.75rem] border border-slate-200 bg-white/90 p-5 shadow-lg shadow-blue-100/60 sm:mt-10 sm:rounded-[2rem] sm:p-6">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600 sm:gap-3 sm:text-sm">
                   <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-800">Partner promo</span>
                   <span>Regular price: ${FULL_PRICE.toFixed(2)}</span>
                 </div>
-                <div className="mt-4 flex flex-wrap items-end gap-4">
-                  <div className="text-6xl font-black text-slate-950">${OFFER_PRICE.toFixed(2)}</div>
-                  <div className="pb-2 text-lg text-slate-600">for 3 months of Pro</div>
+                <div className="mt-4 flex flex-col items-start gap-1 sm:flex-row sm:flex-wrap sm:items-end sm:gap-4">
+                  <div className="text-5xl font-black text-slate-950 sm:text-6xl">${OFFER_PRICE.toFixed(2)}</div>
+                  <div className="text-base text-slate-600 sm:pb-2 sm:text-lg">for 3 months of Pro</div>
                 </div>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-600">
                   This is a one-time F6S payment for 3 months of Pro access. It does not
@@ -232,19 +232,19 @@ export default function F6SOffer() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 p-1 shadow-2xl shadow-blue-200/60"
+              className="relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-950 p-1 shadow-2xl shadow-blue-200/60 sm:rounded-[2rem]"
             >
-              <div className="rounded-[1.85rem] bg-white p-8">
-                <div className="mb-6 flex items-center justify-between">
+              <div className="rounded-[1.55rem] bg-white p-5 sm:rounded-[1.85rem] sm:p-8">
+                <div className="mb-5 flex flex-col gap-4 sm:mb-6 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <div className="text-sm font-semibold uppercase tracking-[0.22em] text-blue-600">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 sm:text-sm sm:tracking-[0.22em]">
                       F6S special pricing
                     </div>
-                    <h2 className="mt-2 text-3xl font-black text-slate-950">
+                    <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
                       Claim your 3-month Pro offer
                     </h2>
                   </div>
-                  <div className="rounded-2xl bg-amber-100 px-4 py-3 text-right">
+                  <div className="w-full rounded-2xl bg-amber-100 px-4 py-3 text-left sm:w-auto sm:text-right">
                     <div className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-800">
                       Save today
                     </div>
@@ -264,7 +264,7 @@ export default function F6SOffer() {
                     if (emailError) setEmailError('');
                   }}
                   placeholder="you@startup.com"
-                  className={`w-full rounded-2xl border-2 px-4 py-4 text-lg text-slate-950 outline-none transition ${
+                  className={`w-full rounded-2xl border-2 px-4 py-3.5 text-base text-slate-950 outline-none transition sm:py-4 sm:text-lg ${
                     emailError
                       ? 'border-red-300 focus:border-red-400'
                       : 'border-slate-200 focus:border-blue-500'
@@ -272,8 +272,8 @@ export default function F6SOffer() {
                 />
                 {emailError && <p className="mt-2 text-sm font-medium text-red-500">{emailError}</p>}
 
-                <div className="mt-6 rounded-3xl bg-slate-50 p-5">
-                  <div className="flex items-start justify-between gap-4">
+                <div className="mt-6 rounded-3xl bg-slate-50 p-4 sm:p-5">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                         Included in Pro
@@ -285,7 +285,7 @@ export default function F6SOffer() {
                         <li>Priority support and all current Pro features</li>
                       </ul>
                     </div>
-                    <div className="min-w-[120px] rounded-2xl bg-white p-4 text-right shadow-sm">
+                    <div className="rounded-2xl bg-white p-4 text-left shadow-sm sm:min-w-[120px] sm:text-right">
                       <div className="text-sm text-slate-500 line-through">${FULL_PRICE.toFixed(2)}</div>
                       <div className="text-3xl font-black text-slate-950">${OFFER_PRICE.toFixed(2)}</div>
                       <div className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-600">
@@ -299,7 +299,7 @@ export default function F6SOffer() {
                   type="button"
                   onClick={startCheckout}
                   disabled={isProcessing}
-                  className="mt-6 w-full rounded-2xl bg-[linear-gradient(135deg,#2563eb,#1d4ed8_45%,#0f172a)] px-6 py-4 text-lg font-bold text-white shadow-lg shadow-blue-300 transition hover:translate-y-[-1px] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="mt-6 w-full rounded-2xl bg-[linear-gradient(135deg,#2563eb,#1d4ed8_45%,#0f172a)] px-5 py-4 text-base font-bold text-white shadow-lg shadow-blue-300 transition hover:translate-y-[-1px] disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 sm:text-lg"
                 >
                   {isProcessing ? 'Starting secure checkout...' : 'Claim 50% Off for 3 Months'}
                 </button>
@@ -334,13 +334,13 @@ export default function F6SOffer() {
       {showResultModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setShowResultModal(false)} />
-          <div className="relative w-full max-w-md overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+          <div className="relative w-full max-w-md overflow-hidden rounded-[1.75rem] bg-white shadow-2xl sm:rounded-[2rem]">
             <div className={`h-2 ${resultType === 'success' ? 'bg-emerald-500' : 'bg-red-500'}`} />
-            <div className="p-8">
-              <h3 className="text-2xl font-black text-slate-950">
+            <div className="p-6 sm:p-8">
+              <h3 className="text-xl font-black text-slate-950 sm:text-2xl">
                 {resultType === 'success' ? 'Offer activated' : 'We hit a snag'}
               </h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{resultMessage}</p>
+              <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">{resultMessage}</p>
               {resultPaymentId && (
                 <p className="mt-3 text-sm text-slate-500">Reference: {resultPaymentId}</p>
               )}
