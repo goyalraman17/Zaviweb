@@ -11,6 +11,7 @@ import {
   ctaPrimary,
 } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
+import { getOptionalPaymentSession } from '@/lib/firebase-client-auth';
 import GlowCard from './animated/GlowCard';
 
 export default function PricingNew() {
@@ -113,6 +114,8 @@ export default function PricingNew() {
     console.log('[Pricing] handlePayment called', { plan, billingCycle, email });
 
     try {
+      const paymentSession = await getOptionalPaymentSession(email);
+
       let amount = 0;
       if (plan === 'pro') {
         amount = billingCycle === 'monthly' ? 799 : 4999; // $7.99 or $49.99
@@ -134,6 +137,7 @@ export default function PricingNew() {
           plan,
           billingCycle,
           email,
+          firebase_id_token: paymentSession?.idToken || null,
         }),
       });
 
@@ -179,6 +183,7 @@ export default function PricingNew() {
                 razorpay_signature: response.razorpay_signature,
                 email: email,
                 plan: selectedPlan,
+                firebase_id_token: paymentSession?.idToken || null,
               }),
             });
 
@@ -262,6 +267,14 @@ export default function PricingNew() {
 
   return (
     <>
+      <Script
+        id="firebase-app-compat-pricing"
+        src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"
+      />
+      <Script
+        id="firebase-auth-compat-pricing"
+        src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"
+      />
       <Script
         id="razorpay-checkout-js"
         src="https://checkout.razorpay.com/v1/checkout.js"

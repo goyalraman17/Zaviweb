@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { analytics } from '@/lib/analytics';
+import { getOptionalPaymentSession } from '@/lib/firebase-client-auth';
 
 const OFFER_PRICE = 11.99;
 const FULL_PRICE = 23.97;
@@ -42,6 +43,8 @@ export default function F6SOffer() {
     setIsProcessing(true);
     setPaymentStep('Preparing your F6S offer...');
     try {
+      const paymentSession = await getOptionalPaymentSession(trimmed);
+
       const response = await fetch('/api/razorpay/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -50,6 +53,7 @@ export default function F6SOffer() {
           billingCycle: 'quarterly',
           email: trimmed,
           source: 'f6s',
+          firebase_id_token: paymentSession?.idToken || null,
         }),
       });
 
@@ -89,6 +93,7 @@ export default function F6SOffer() {
                 tier: 'f6s',
                 billingCycle: 'quarterly',
                 source: 'f6s',
+                firebase_id_token: paymentSession?.idToken || null,
               }),
             });
 
@@ -144,6 +149,14 @@ export default function F6SOffer() {
 
   return (
     <>
+      <Script
+        id="firebase-app-compat-f6s"
+        src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"
+      />
+      <Script
+        id="firebase-auth-compat-f6s"
+        src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"
+      />
       <Script
         id="razorpay-checkout-js-f6s"
         src="https://checkout.razorpay.com/v1/checkout.js"

@@ -1,13 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getAdminAuth } from '@/lib/firebase-admin';
 import { getPlanConfig, getRazorpayClient } from '@/lib/razorpay';
 
 const F6S_OFFER_AMOUNT = 1199;
 
 export async function POST(request: NextRequest) {
     try {
-        const { plan, billingCycle, email, source } = await request.json();
+        const { plan, billingCycle, email, source, firebase_id_token } = await request.json();
 
         const razorpay = getRazorpayClient();
+        const normalizedEmail = email?.toLowerCase?.().trim?.() || '';
+        let uid = '';
+
+        if (firebase_id_token) {
+            let decodedToken;
+            try {
+                decodedToken = await getAdminAuth().verifyIdToken(firebase_id_token);
+            } catch {
+                return NextResponse.json(
+                    { error: 'Your sign-in session expired. Please sign in again and retry checkout.' },
+                    { status: 401 }
+                );
+            }
+
+            uid = decodedToken.uid;
+
+            if (normalizedEmail && decodedToken.email?.toLowerCase?.() !== normalizedEmail) {
+                return NextResponse.json(
+                    { error: 'Signed-in account email does not match the checkout email.' },
+                    { status: 400 }
+                );
+            }
+        }
 
         if (source === 'f6s') {
             const order = await razorpay.orders.create({
@@ -15,7 +39,8 @@ export async function POST(request: NextRequest) {
                 currency: 'USD',
                 receipt: `f6s_${Date.now()}`,
                 notes: {
-                    email: email?.toLowerCase?.().trim?.() || '',
+                    email: normalizedEmail,
+                    uid,
                     plan: 'pro',
                     billingCycle: 'quarterly',
                     source: 'f6s',
@@ -41,7 +66,8 @@ export async function POST(request: NextRequest) {
             quantity: 1,
             customer_notify: 1,
             notes: {
-                email: email?.toLowerCase?.().trim?.() || '',
+                email: normalizedEmail,
+                uid,
                 plan,
                 billingCycle,
             },

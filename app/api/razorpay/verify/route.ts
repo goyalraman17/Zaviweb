@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
             billingCycle,
             tier,
             source,
+            firebase_id_token,
         } = await request.json();
 
         // Validate required fields
@@ -80,23 +81,45 @@ export async function POST(request: NextRequest) {
             }
         }
 
-        // Step 2: Look up Firebase Auth user by email to get their UID
         const normalizedEmail = email.toLowerCase().trim();
-        let uid: string;
+        let uid = '';
 
-        try {
-            const userRecord = await adminAuth.getUserByEmail(normalizedEmail);
-            uid = userRecord.uid;
-            console.log(`Found Firebase Auth user: ${uid} for email: ${normalizedEmail}`);
-        } catch (authError: any) {
-            if (authError.code === 'auth/user-not-found') {
-                console.error(`No Firebase Auth user found for email: ${normalizedEmail}`);
+        if (firebase_id_token) {
+            let decodedToken;
+            try {
+                decodedToken = await adminAuth.verifyIdToken(firebase_id_token);
+            } catch {
                 return NextResponse.json(
-                    { error: 'No account found with this email. Please use the email you signed up with in the Zavi app.' },
-                    { status: 404 }
+                    { error: 'Your sign-in session expired. Please sign in again and retry activation.' },
+                    { status: 401 }
                 );
             }
-            throw authError;
+
+            uid = decodedToken.uid;
+
+            if (decodedToken.email?.toLowerCase?.() !== normalizedEmail) {
+                return NextResponse.json(
+                    { error: 'Signed-in account email does not match the checkout email.' },
+                    { status: 400 }
+                );
+            }
+
+            console.log(`Using Firebase ID token uid ${uid} for email: ${normalizedEmail}`);
+        } else {
+            try {
+                const userRecord = await adminAuth.getUserByEmail(normalizedEmail);
+                uid = userRecord.uid;
+                console.log(`Found Firebase Auth user: ${uid} for email: ${normalizedEmail}`);
+            } catch (authError: any) {
+                if (authError.code === 'auth/user-not-found') {
+                    console.error(`No Firebase Auth user found for email: ${normalizedEmail}`);
+                    return NextResponse.json(
+                        { error: 'No account found with this email. Please use the email you signed up with in the Zavi app.' },
+                        { status: 404 }
+                    );
+                }
+                throw authError;
+            }
         }
 
         const now = new Date();

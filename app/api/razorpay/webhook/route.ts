@@ -31,6 +31,15 @@ function getPaymentId(payload: any) {
   return payload?.payload?.payment?.entity?.id || null;
 }
 
+function getUid(payload: any, subscription: RazorpaySubscriptionEntity) {
+  return (
+    payload?.payload?.subscription?.entity?.notes?.uid ||
+    payload?.payload?.payment?.entity?.notes?.uid ||
+    subscription.notes?.uid ||
+    null
+  );
+}
+
 function getEmail(payload: any, subscription: RazorpaySubscriptionEntity) {
   return (
     payload?.payload?.subscription?.entity?.notes?.email ||
@@ -82,12 +91,18 @@ export async function POST(request: NextRequest) {
       subscriptionId
     ) as RazorpaySubscriptionEntity;
 
+    const uid = getUid(payload, subscription);
     const email = getEmail(payload, subscription);
-    if (!email) {
-      return NextResponse.json({ ok: true, skipped: 'No email for subscription sync' });
+    let userRecord;
+
+    if (uid) {
+      userRecord = await adminAuth.getUser(uid);
+    } else if (email) {
+      userRecord = await adminAuth.getUserByEmail(email.toLowerCase().trim());
+    } else {
+      return NextResponse.json({ ok: true, skipped: 'No uid or email for subscription sync' });
     }
 
-    const userRecord = await adminAuth.getUserByEmail(email.toLowerCase().trim());
     const userDocRef = adminDb.collection('users').doc(userRecord.uid);
     const now = new Date();
     const expiresAt =
