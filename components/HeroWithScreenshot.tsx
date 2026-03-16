@@ -91,7 +91,7 @@ export default function HeroWithScreenshot() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Speak naturally. Zavi removes filler words, fixes grammar, and executes tasks across Gmail, Slack, and 27+ apps — all by voice.
+              Stop typing and start commanding. Speak naturally while Zavi removes filler words, fixes grammar, and executes tasks across Gmail, Slack, and 27+ apps.
             </motion.p>
 
             {/* Interactive Product Demo - Replacing static icons */}

@@ -72,7 +72,7 @@ export default function Footer() {
         >
           <div className="flex items-center gap-8 px-4 w-full justify-center hover:opacity-80 transition-opacity">
             <Link href="/">
-              <h1 className="text-[100px] md:text-[200px] leading-none font-black text-slate-900 tracking-tighter cursor-pointer">Zavi</h1>
+              <span className="block text-[100px] md:text-[200px] leading-none font-black text-slate-900 tracking-tighter cursor-pointer">Zavi</span>
             </Link>
           </div>
         </motion.div>

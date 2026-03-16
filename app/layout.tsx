@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    default: "Zavi AI – Voice to Action OS | Live on iOS, Android, Mac, Windows",
+    default: "Zavi AI | Voice to Action OS for Every App",
     template: "%s | Zavi AI"
   },
-  description: "Live on iOS, Android, Mac, Windows, Linux. Free to start. Most voice tools just transcribe. Zavi types, edits, and takes action across every app. Speak naturally — clean grammar, zero filler words. Magic Wand and Agent Mode included.",
+  description: "Zavi turns voice into clean text, edits, and app actions. Stop typing, start commanding across iOS, Android, Mac, Windows, and Linux.",
   keywords: [
     "Zavi",
     "Zavi AI",
