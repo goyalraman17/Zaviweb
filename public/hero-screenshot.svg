@@ -1,0 +1,76 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Email Window Background -->
+  <rect width="800" height="600" fill="#FAFAFA" rx="12"/>
+
+  <!-- Window Chrome -->
+  <rect width="800" height="50" fill="white" rx="12"/>
+  <rect y="50" width="800" height="1" fill="#E0E0E0"/>
+
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="25" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="25" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="25" r="6" fill="#28CA42"/>
+
+  <!-- Toolbar Icons -->
+  <rect x="540" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+  <rect x="570" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+  <rect x="600" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+  <rect x="630" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+  <rect x="865" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+  <rect x="895" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+  <rect x="925" y="17" width="16" height="16" rx="2" fill="#9CA3AF"/>
+
+  <!-- To Field -->
+  <text x="30" y="90" font-family="system-ui, -apple-system" font-size="14" fill="#6B7280" font-weight="500">To:</text>
+  <rect x="80" y="75" width="140" height="20" rx="3" fill="#E5E7EB"/>
+
+  <!-- Cc Field -->
+  <text x="30" y="130" font-family="system-ui, -apple-system" font-size="14" fill="#6B7280" font-weight="500">Cc:</text>
+  <rect x="80" y="115" width="200" height="20" rx="3" fill="#E5E7EB"/>
+
+  <!-- Left Card - Raw Text -->
+  <rect x="40" y="170" width="340" height="320" rx="12" fill="white"/>
+  <rect x="40" y="170" width="340" height="320" rx="12" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Tag on Left Card -->
+  <rect x="50" y="185" width="130" height="28" rx="14" fill="#6B7FE8"/>
+  <text x="115" y="204" font-family="system-ui, -apple-system" font-size="12" fill="white" font-weight="600" text-anchor="middle">Removed Filler</text>
+
+  <!-- Raw text content -->
+  <text x="60" y="240" font-family="system-ui, -apple-system" font-size="13" fill="#374151" font-weight="400">
+    <tspan x="60" dy="0">uh yeah so like we</tspan>
+    <tspan x="60" dy="22">should probably tell</tspan>
+    <tspan x="60" dy="22">Jenny from legal about</tspan>
+    <tspan x="60" dy="22">the NDA um being not</tspan>
+    <tspan x="60" dy="22">ready yet or maybe she</tspan>
+    <tspan x="60" dy="22">did send it idk</tspan>
+  </text>
+
+  <!-- Arrow -->
+  <path d="M400 320 L420 320 L420 310 L445 330 L420 350 L420 340 L400 340 Z" fill="#A78BFA"/>
+
+  <!-- Right Card - Polished Text -->
+  <rect x="460" y="170" width="340" height="320" rx="12" fill="white"/>
+  <rect x="460" y="170" width="340" height="320" rx="12" stroke="#E0E0E0" stroke-width="1"/>
+
+  <!-- Tag on Right Card -->
+  <rect x="670" y="185" width="120" height="28" rx="14" fill="#8B5CF6"/>
+  <text x="730" y="204" font-family="system-ui, -apple-system" font-size="12" fill="white" font-weight="600" text-anchor="middle">Fixed Phrasing</text>
+
+  <!-- Polished text content -->
+  <text x="480" y="240" font-family="system-ui, -apple-system" font-size="13" fill="#1F2937" font-weight="400">
+    <tspan x="480" dy="0">Let's inform Jenny from</tspan>
+    <tspan x="480" dy="22">Legal that the NDA is not</tspan>
+    <tspan x="480" dy="22">yet finalized, or check if</tspan>
+    <tspan x="480" dy="22">she has already sent it.</tspan>
+  </text>
+
+  <!-- Bottom Shadow -->
+  <defs>
+    <linearGradient id="shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  <rect y="590" width="800" height="10" fill="url(#shadow)"/>
+</svg>

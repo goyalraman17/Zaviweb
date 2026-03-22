@@ -1,0 +1,105 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  images: { unoptimized: true },
+  reactStrictMode: true,
+  async headers() {
+    return [
+      {
+        source: '/downloads/Zavi_AI.dmg',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="Zavi_AI.dmg"',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/x-apple-diskimage',
+          },
+        ],
+      },
+      {
+        source: '/downloads/Zavi_Windows.exe',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="Zavi_Windows.exe"',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/x-msdos-program',
+          },
+        ],
+      },
+      {
+        source: '/downloads/Zavi_Linux.deb',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="Zavi_Linux.deb"',
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/vnd.debian.binary-package',
+          },
+        ],
+      },
+      // Serve llms.txt files with proper content type for AI crawlers
+      {
+        source: '/llms.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=86400',
+          },
+        ],
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=86400',
+          },
+        ],
+      },
+      // Security and caching headers for all pages
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      // Serve llms.txt at .well-known/llms.txt as well (emerging standard path)
+      {
+        source: '/.well-known/llms.txt',
+        destination: '/llms.txt',
+      },
+    ];
+  },
+}
+
+module.exports = nextConfig

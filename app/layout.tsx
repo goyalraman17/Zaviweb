@@ -1,0 +1,182 @@
+// Deployment trigger: GEO/AEO optimization for AI engine visibility
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/animated/ScrollProgress";
+import JsonLd from "@/components/SEO/JsonLd";
+import StickyDownloadCTA from "@/components/StickyDownloadCTA";
+import {
+  websiteSchema,
+  organizationSchema,
+  softwareApplicationSchema,
+  faqSchema,
+  howToSchema,
+  videoObjectSchema,
+  speakableSchema,
+} from "@/lib/schemaData";
+
+// Optimize font loading with Next.js font optimization
+// Only load essential weights: 400 (regular), 600 (semibold), 700 (bold)
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://zavivoice.com'),
+  alternates: {
+    types: {
+      'text/plain': '/llms.txt',
+    },
+  },
+  title: {
+    default: "Zavi AI | Voice to Action OS for Every App",
+    template: "%s | Zavi AI"
+  },
+  description: "Zavi turns voice into clean text, edits, and app actions. Stop typing, start commanding across iOS, Android, Mac, Windows, and Linux.",
+  keywords: [
+    "Zavi",
+    "Zavi AI",
+    "Zavi AI Voice to Action OS",
+    "Voice to Action OS",
+    "Zavi app",
+    "voice agent",
+    "voice agent OS",
+    "voice to action",
+    "voice assistant app",
+    "voice typing",
+    "voice action engine",
+    "AI voice typing",
+    "speech to text",
+    "dictation app",
+    "AI keyboard",
+    "voice to text",
+    "AI voice writer",
+    "voice writing keyboard",
+    "professional dictation",
+    "filler word removal",
+    "voice typing app",
+    "best voice typing app",
+    "AI dictation",
+    "speech to text app",
+    "voice input",
+    "hands-free typing",
+    "multilingual voice typing",
+    "voice translation",
+    "Zavi vs Wispr Flow",
+    "Zavi vs Siri",
+    "Zavi vs Gboard",
+    "best AI keyboard 2026",
+    "voice typing for professionals",
+  ],
+  category: "Productivity",
+  authors: [
+    { name: "Raman Goyal", url: "https://www.linkedin.com/in/ramangoyal3" },
+    { name: "Himanshu Kumar", url: "https://www.linkedin.com/in/hsyvy/" },
+  ],
+  creator: "Zavi AI",
+  publisher: "Zavi AI",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  openGraph: {
+    title: "Zavi – The Voice Agent OS | Voice to Action Across Every App",
+    description: "Stop typing. Start speaking. Zavi turns your voice into clean text, transforms content with Magic Wand, and executes tasks across 27+ apps. Works everywhere. Free.",
+    url: "https://zavivoice.com",
+    siteName: "Zavi AI",
+    images: [
+      {
+        url: 'https://zavivoice.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Zavi AI – Voice to Action OS with autonomous background agents and 27+ app integrations',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Zavi – The Voice Agent OS | Voice to Action Across Every App",
+    description: "Stop typing. Start speaking. Zavi turns your voice into action — types, transforms, and executes across 27+ apps. Free.",
+    creator: '@zavivoice',
+    site: '@zavivoice',
+    images: ['https://zavivoice.com/twitter-image.png'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/zavi-logo.png', color: '#2563EB' },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  other: {
+    // AI-specific meta tags
+    'ai-content-declaration': 'This website contains factual information about Zavi AI, a voice-to-action OS with autonomous background agents, 27+ app integrations, and WhatsApp/Telegram bot reporting.',
+    'citation-title': 'Zavi AI – Voice to Action OS',
+    'citation-author': 'Zavi AI',
+    'citation-url': 'https://zavivoice.com',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#ffffff',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
+      <head>
+        {/* Font preconnect for ~200ms faster font load on mobile */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch for analytics and external resources */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        {/* RSS Feed autodiscovery */}
+        <link rel="alternate" type="application/rss+xml" title="Zavi AI Blog RSS Feed" href="https://zavivoice.com/feed.xml" />
+      </head>
+      <body className="font-sans font-normal" suppressHydrationWarning>
+        {/* Comprehensive Schema.org structured data for GEO/AEO */}
+        <JsonLd data={websiteSchema} />
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={softwareApplicationSchema} />
+        <JsonLd data={faqSchema} />
+        <JsonLd data={howToSchema} />
+        <JsonLd data={videoObjectSchema} />
+        <JsonLd data={speakableSchema} />
+
+        <StickyDownloadCTA />
+        <ScrollProgress color="#0a0a0a" height={2} />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,63 @@
+import Navigation from '@/components/Navigation';
+import Link from 'next/link';
+import JsonLd from '@/components/SEO/JsonLd';
+import { generateBreadcrumbSchema, generateDefinedTermSetSchema } from '@/lib/schemaData';
+import { glossaryTerms } from '@/lib/glossaryData';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Voice Typing Glossary — AI Speech to Text Terms & Definitions | Zavi AI',
+    description: 'Learn the key terms behind voice typing, speech-to-text, AI dictation, and voice AI technology. From ASR to Zero Prompting, understand the technology that powers modern voice input.',
+    alternates: { canonical: 'https://zavivoice.com/glossary' },
+    openGraph: {
+        title: 'Voice Typing Glossary — Zavi AI',
+        description: 'Key terms and definitions for voice typing, speech-to-text, and AI dictation technology.',
+        url: 'https://zavivoice.com/glossary',
+        images: [{ url: 'https://zavivoice.com/og-image.png', width: 1200, height: 630, alt: 'Zavi AI — Voice Typing Glossary' }],
+    },
+};
+
+export default function GlossaryPage() {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://zavivoice.com' },
+        { name: 'Glossary', url: 'https://zavivoice.com/glossary' },
+    ]);
+
+    const termSetSchema = generateDefinedTermSetSchema(
+        glossaryTerms.map((t) => ({ term: t.term, slug: t.slug, shortDefinition: t.shortDefinition }))
+    );
+
+    return (
+        <>
+            <Navigation />
+            <JsonLd data={breadcrumbSchema} />
+            <JsonLd data={termSetSchema} />
+
+            <main className="min-h-screen bg-white pt-20 md:pt-28 pb-16 md:pb-20">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6">
+                    <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
+                        <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+                        <span>/</span>
+                        <span className="text-gray-900 font-medium">Glossary</span>
+                    </nav>
+
+                    <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Voice Typing Glossary</h1>
+                    <p className="text-xl text-gray-600 mb-12">Key terms and definitions for voice typing, speech-to-text, and AI dictation technology.</p>
+
+                    <div className="space-y-4">
+                        {glossaryTerms.map((term) => (
+                            <Link
+                                key={term.slug}
+                                href={`/glossary/${term.slug}`}
+                                className="group block p-6 border border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-md transition-all"
+                            >
+                                <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">{term.term}</h2>
+                                <p className="text-gray-600">{term.shortDefinition}</p>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </main>
+        </>
+    );
+}
