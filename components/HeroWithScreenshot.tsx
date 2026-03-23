@@ -89,9 +89,9 @@ export default function HeroWithScreenshot() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ lineHeight: 1.05 }}
             >
-              Your personal Jarvis.{' '}
+              Speak to write, command apps, and{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                Powered by voice.
+                automate work.
               </span>
             </motion.h1>
 
