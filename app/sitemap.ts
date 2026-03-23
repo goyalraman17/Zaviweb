@@ -1,4 +1,6 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
+import { statSync } from 'fs';
+import { join } from 'path';
 
 import { blogPosts } from '@/lib/blogData';
 import { comparisons } from '@/lib/comparisonData';
@@ -7,38 +9,159 @@ import { glossaryTerms } from '@/lib/glossaryData';
 import { useCases } from '@/lib/useCaseData';
 import { integrations } from '@/lib/integrationData';
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-static';
+
+const baseUrl = 'https://zavivoice.com';
+
+function getFileModifiedDate(relativePath: string): Date {
+  try {
+    return statSync(join(process.cwd(), relativePath)).mtime;
+  } catch {
+    return new Date('2026-01-01');
+  }
+}
+
+function parseMonthYear(value: string, fallbackPath: string): Date {
+  const parsed = new Date(`1 ${value}`);
+  return Number.isNaN(parsed.getTime())
+    ? getFileModifiedDate(fallbackPath)
+    : parsed;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://zavivoice.com';
-
   // Static routes with strategic priority assignments for GEO/AEO
   const staticRoutes = [
-    { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
-    { path: '/about', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/faq', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/contact', priority: 0.6, changeFrequency: 'monthly' as const },
-    { path: '/demo', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '/privacy', priority: 0.4, changeFrequency: 'yearly' as const },
-    { path: '/terms', priority: 0.4, changeFrequency: 'yearly' as const },
-    { path: '/blog', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '/compare', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/languages', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/glossary', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/changelog', priority: 0.6, changeFrequency: 'monthly' as const },
-    { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/download', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/download/ios', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/download/android', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/download/mac', priority: 0.9, changeFrequency: 'monthly' as const },
-    { path: '/download/windows', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/download/linux', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/use-cases', priority: 0.8, changeFrequency: 'monthly' as const },
+    {
+      path: '',
+      source: 'app/page.tsx',
+      priority: 1.0,
+      changeFrequency: 'weekly' as const,
+    },
+    {
+      path: '/about',
+      source: 'app/about/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/contact',
+      source: 'app/contact/page.tsx',
+      priority: 0.6,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/demo',
+      source: 'app/demo/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'weekly' as const,
+    },
+    {
+      path: '/privacy',
+      source: 'app/privacy/page.tsx',
+      priority: 0.4,
+      changeFrequency: 'yearly' as const,
+    },
+    {
+      path: '/terms',
+      source: 'app/terms/page.tsx',
+      priority: 0.4,
+      changeFrequency: 'yearly' as const,
+    },
+    {
+      path: '/blog',
+      source: 'app/blog/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'weekly' as const,
+    },
+    {
+      path: '/compare',
+      source: 'app/compare/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/integrations',
+      source: 'app/integrations/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/languages',
+      source: 'app/languages/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/glossary',
+      source: 'app/glossary/page.tsx',
+      priority: 0.7,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/changelog',
+      source: 'app/changelog/page.tsx',
+      priority: 0.6,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/pricing',
+      source: 'app/pricing/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/download',
+      source: 'app/download/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/download/ios',
+      source: 'app/download/[platform]/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/download/android',
+      source: 'app/download/[platform]/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/download/macos',
+      source: 'app/download/[platform]/page.tsx',
+      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/download/windows',
+      source: 'app/download/[platform]/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/download/linux',
+      source: 'app/download/[platform]/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/use-cases',
+      source: 'app/use-cases/page.tsx',
+      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+    },
+    {
+      path: '/f6s',
+      source: 'app/f6s/page.tsx',
+      priority: 0.5,
+      changeFrequency: 'monthly' as const,
+    },
   ];
 
   const staticUrls = staticRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,
-    lastModified: new Date(),
+    lastModified: getFileModifiedDate(route.source),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
@@ -46,7 +169,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts
   const blogUrls = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(),
+    lastModified: parseMonthYear(post.date, 'lib/blogData.ts'),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
@@ -54,8 +177,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog categories
   const categories = Array.from(new Set(blogPosts.map((p) => p.category)));
   const categoryUrls = categories.map((cat) => ({
-    url: `${baseUrl}/blog/category/${cat.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
-    lastModified: new Date(),
+    url: `${baseUrl}/blog/category/${cat
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '')}`,
+    lastModified: getFileModifiedDate('lib/blogData.ts'),
     changeFrequency: 'weekly' as const,
     priority: 0.6,
   }));
@@ -63,8 +189,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog tags
   const tags = Array.from(new Set(blogPosts.flatMap((p) => p.tags)));
   const tagUrls = tags.map((tag) => ({
-    url: `${baseUrl}/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
-    lastModified: new Date(),
+    url: `${baseUrl}/blog/tag/${tag
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '')}`,
+    lastModified: getFileModifiedDate('lib/blogData.ts'),
     changeFrequency: 'weekly' as const,
     priority: 0.5,
   }));
@@ -72,7 +201,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Comparison pages — high-intent, high-value
   const comparisonUrls = comparisons.map((comp) => ({
     url: `${baseUrl}/compare/${comp.slug}`,
-    lastModified: new Date(),
+    lastModified: parseMonthYear(comp.lastUpdated, 'lib/comparisonData.ts'),
     changeFrequency: 'monthly' as const,
     priority: 0.9,
   }));
@@ -80,7 +209,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Language pages — programmatic SEO
   const languageUrls = languages.map((lang) => ({
     url: `${baseUrl}/languages/${lang.slug}`,
-    lastModified: new Date(),
+    lastModified: getFileModifiedDate('lib/languageData.ts'),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
@@ -88,7 +217,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Glossary terms
   const glossaryUrls = glossaryTerms.map((term) => ({
     url: `${baseUrl}/glossary/${term.slug}`,
-    lastModified: new Date(),
+    lastModified: getFileModifiedDate('lib/glossaryData.ts'),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
@@ -96,7 +225,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Use case pages — high-intent
   const useCaseUrls = useCases.map((uc) => ({
     url: `${baseUrl}/use-cases/${uc.slug}`,
-    lastModified: new Date(),
+    lastModified: getFileModifiedDate('lib/useCaseData.ts'),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
@@ -104,7 +233,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // App Integration pages (Superpowers)
   const integrationUrls = integrations.map((int) => ({
     url: `${baseUrl}/integrations/${int.slug}`,
-    lastModified: new Date(),
+    lastModified: getFileModifiedDate('lib/integrationData.ts'),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
