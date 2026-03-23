@@ -83,13 +83,13 @@ export default function HeroWithScreenshot() {
 
             {/* Headline */}
             <motion.h1
-              className="text-[2.4rem] leading-tight sm:text-6xl lg:text-[5.5rem] font-black text-[#0a0a0a] tracking-tight mb-5 text-balance"
+              className="text-[2.4rem] leading-tight sm:text-6xl lg:text-[5.15rem] font-black text-[#0a0a0a] tracking-tight mb-5"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ lineHeight: 1.05 }}
             >
-              Speak to write, command apps, and{' '}
+              Speak to command apps and{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
                 automate work.
               </span>
@@ -102,9 +102,8 @@ export default function HeroWithScreenshot() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              Zavi lives inside your keyboard. Speak to write perfect text, or
-              command it to manage your email, Slack, and calendar — even while
-              you sleep.
+              Zavi lives inside your keyboard. Write clean text, trigger
+              actions, and automate repetitive work by speaking.
             </motion.p>
 
             {/* Primary CTA */}
