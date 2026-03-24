@@ -1,10 +1,9 @@
-// Maximum conversion homepage — Jarvis positioning
-// Every section answers: "Why should I install this right now?"
+// Homepage flow:
+// problem -> core solution -> proof -> differentiation -> trust -> install
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import HeroWithScreenshot from '@/components/HeroWithScreenshot';
-import BackgroundAgents from '@/components/BackgroundAgents';
 import PageAnalytics from '@/components/PageAnalytics';
 import JsonLd from '@/components/SEO/JsonLd';
 import {
@@ -12,6 +11,7 @@ import {
   faqSchema,
   videoObjectSchema,
 } from '@/lib/schemaData';
+import BackgroundAgents from '@/components/BackgroundAgents';
 
 // Lazy load below-the-fold for performance
 const WhatsAppBot = dynamic(() => import('@/components/WhatsAppBot'));
@@ -77,50 +77,48 @@ export default function Home() {
         {/* 1. HERO */}
         <HeroWithScreenshot />
 
-        {/* 2. BACKGROUND AGENTS — biggest differentiator */}
-        <BackgroundAgents />
-
-        {/* 3. WHATSAPP BOT */}
-        <WhatsAppBot />
-
-        {/* 4. VIDEO DEMO */}
-        <VideoDemo />
-
-        {/* 5. BEFORE/AFTER */}
-        <KillYourKeyboard />
-
-        {/* 6. PROBLEM → SOLUTION */}
+        {/* 2. THE BROAD PROBLEM */}
         <ProblemSolution />
 
-        {/* 7. USE CASES */}
+        {/* 3. CORE PRODUCT PROOF */}
+        <KillYourKeyboard />
+
+        {/* 4. SEE IT IN ACTION */}
+        <VideoDemo />
+
+        {/* 5. WHAT PEOPLE USE IT FOR */}
         <UseCaseShowcase />
 
-        {/* 8. MAGIC WAND */}
+        {/* 6. BIGGEST DIFFERENTIATOR */}
+        <BackgroundAgents />
+
+        {/* 7. IN-PLACE EDITING */}
         <MagicWand />
 
-        {/* 9. LANGUAGE TRANSLATION */}
+        {/* 8. APPROVALS AND CHAT-BASED CONTROL */}
+        <WhatsAppBot />
+
+        {/* 9. MULTILINGUAL WORKFLOWS */}
         <LanguageTranslation />
 
-        {/* 10. SUPERPOWERS */}
+        {/* 10. EVERYTHING ELSE IT CAN DO */}
         <SuperpowersSection />
 
-        {/* 11. PRIVACY */}
+        {/* 11. TRUST */}
         <PrivacyStrip />
-
-        {/* 12. SOCIAL PROOF */}
         <Metrics />
         <Testimonials />
 
-        {/* 13. PRICING */}
+        {/* 12. PRICING */}
         <PricingNew />
 
-        {/* 14. DOWNLOAD */}
+        {/* 13. DOWNLOAD */}
         <DeviceDownload />
 
-        {/* 15. FAQ */}
+        {/* 14. FAQ */}
         <FAQ />
 
-        {/* 16. FINAL CTA */}
+        {/* 15. FINAL CTA */}
         <FinalCTA />
       </main>
       {/* NOTE: StickyDownloadCTA is global in layout.tsx — do not add another one here */}
