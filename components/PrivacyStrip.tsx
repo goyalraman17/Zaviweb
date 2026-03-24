@@ -53,8 +53,11 @@ export default function PrivacyStrip() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl font-black text-[#0a0a0a] tracking-tight">
-              Private by design. Not by afterthought.
+              A faster workflow only works if you trust it.
             </h2>
+            <p className="mt-3 text-sm sm:text-base text-gray-500 max-w-2xl mx-auto font-medium">
+              Zavi is built to feel powerful without feeling risky.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

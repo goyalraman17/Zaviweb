@@ -119,17 +119,17 @@ export default function SuperpowersSection() {
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight text-balance"
           >
-            27+ apps.{' '}
+            You should not have to jump between tools to finish one{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              One voice.
+              thought.
             </span>
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-xl text-gray-600 max-w-2xl mx-auto font-medium"
           >
-            Zavi connects to your entire stack. Send emails, post to Slack,
-            create Notion tasks, and search the web without touching an app.
+            Zavi carries intent across Gmail, Slack, Notion, GitHub, LinkedIn,
+            ChatGPT, and the rest of your workflow so you do not have to.
           </motion.p>
         </motion.div>
 

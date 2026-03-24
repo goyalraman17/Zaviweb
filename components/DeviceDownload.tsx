@@ -150,14 +150,14 @@ export default function DeviceDownload() {
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3"
           >
-            Download Zavi. Start talking.
+            If typing still feels like the bottleneck, fix it now.
           </motion.h2>
 
           <motion.div
             variants={fadeUp}
             className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto space-y-3 px-4"
           >
-            <p className="font-medium text-gray-900">Live on Android, iOS, Mac, Windows, and Linux.</p>
+            <p className="font-medium text-gray-900">Install Zavi on the device you already work from.</p>
             <div className="flex items-center justify-center gap-2 text-sm">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-full font-semibold border border-green-200">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -301,4 +301,3 @@ export default function DeviceDownload() {
     </section>
   );
 }
-

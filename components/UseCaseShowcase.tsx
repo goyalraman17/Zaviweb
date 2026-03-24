@@ -122,13 +122,14 @@ export default function UseCaseShowcase() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
-              What people actually{' '}
+              One task should not take five apps.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                use Zavi for.
+                Zavi keeps it in one flow.
               </span>
             </h2>
             <p className="text-lg text-gray-500 font-medium">
-              Real commands. Real results. Every single day.
+              Email, chat, docs, meetings, research, and recurring work all
+              move from the same sentence instead of a chain of manual steps.
             </p>
           </motion.div>
 
@@ -206,7 +207,7 @@ export default function UseCaseShowcase() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Start using Zavi for free
+              Use it on real work
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

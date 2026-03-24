@@ -77,10 +77,10 @@ export default function Testimonials() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="text-sm font-semibold text-blue-600 tracking-wider uppercase">
-            Real users. Real results.
+            The old way starts feeling broken fast.
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mt-3 mb-6">
-            Loved by people who hate typing
+            Once people start speaking instead of typing, they do not go back
           </h2>
         </motion.div>
 
@@ -215,7 +215,7 @@ export default function Testimonials() {
             }}
             className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
           >
-            Join them. Download Zavi free.
+            Start moving this fast
             <svg
               className="w-4 h-4"
               fill="none"

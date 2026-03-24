@@ -22,7 +22,14 @@ export default function StickyDownloadCTA() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 720) {
+      const pricingSection = document.getElementById('pricing');
+      const pricingRect = pricingSection?.getBoundingClientRect();
+      const pricingInView =
+        pricingRect &&
+        pricingRect.top < window.innerHeight - 120 &&
+        pricingRect.bottom > 180;
+
+      if (window.scrollY > 720 && !pricingInView) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -79,7 +86,7 @@ export default function StickyDownloadCTA() {
                 </div>
                 <div className="text-[11px] font-semibold leading-tight text-slate-600">
                   <span className="text-sm font-bold text-blue-600">
-                    5 platforms
+                    No Credit Card
                   </span>
                   <br />
                   1,000 free words daily

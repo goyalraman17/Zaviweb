@@ -35,14 +35,16 @@ export default function WhatsAppBot() {
               </div>
 
               <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-6" style={{ lineHeight: 1.1 }}>
-                Your AI that{' '}
+                You should not have to keep checking whether work moved{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#25D366] to-emerald-500">
-                  messages you back.
+                  forward.
                 </span>
               </h2>
 
               <p className="text-lg text-gray-500 mb-8 leading-relaxed font-medium">
-                Zavi doesn't just execute tasks silently. It reports back to you on WhatsApp or Telegram, asks for approvals, and lets you respond with a simple "yes" or "edit this."
+                Zavi brings the update to you, asks for approval when needed,
+                and lets you respond from chat instead of reopening your whole
+                stack.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -64,7 +66,7 @@ export default function WhatsAppBot() {
               </div>
 
               <p className="text-sm text-gray-400 font-medium mb-6">
-                It's like having a chief of staff in your pocket.
+                Less checking. Less chasing. More work already handled.
               </p>
 
               <a
@@ -75,7 +77,7 @@ export default function WhatsAppBot() {
                 }}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
               >
-                Try it free
+                Run Zavi from chat
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

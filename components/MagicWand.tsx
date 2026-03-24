@@ -136,8 +136,18 @@ export default function MagicWand() {
             variants={fadeUp}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight"
           >
-            ChatGPT inside every text box.
+            When you need changes, just speak the edit.
           </motion.h2>
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-lg text-gray-500 max-w-3xl mx-auto font-medium mb-8"
+          >
+            Highlight text anywhere and tell Zavi what to change. No
+            copy-paste. No prompt window. No rewriting from scratch.
+          </motion.p>
 
           {/* Benefit Badges */}
           <motion.div
@@ -164,7 +174,7 @@ export default function MagicWand() {
                     />
                   </svg>
                 ),
-                text: 'No Prompts',
+                text: 'No prompt box',
               },
               {
                 icon: (
@@ -182,7 +192,7 @@ export default function MagicWand() {
                     />
                   </svg>
                 ),
-                text: 'Instant Drafts',
+                text: 'Instant rewrites',
               },
               {
                 icon: (
@@ -200,7 +210,7 @@ export default function MagicWand() {
                     />
                   </svg>
                 ),
-                text: 'Context Aware',
+                text: 'Knows the context',
               },
               {
                 icon: (
@@ -218,7 +228,7 @@ export default function MagicWand() {
                     />
                   </svg>
                 ),
-                text: 'Works Everywhere',
+                text: 'In any text field',
               },
             ].map((badge, i) => (
               <motion.div

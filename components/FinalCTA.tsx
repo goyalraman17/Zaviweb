@@ -21,7 +21,7 @@ export default function FinalCTA() {
                         variants={fadeUp}
                         className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-6"
                     >
-                        While you read this, someone dictated 3 emails with Zavi.
+                        Stop feeding work through a keyboard.
                     </motion.p>
 
                     <motion.h2
@@ -29,9 +29,9 @@ export default function FinalCTA() {
                         className="text-4xl md:text-6xl lg:text-7xl font-black text-[#0a0a0a] mb-8 tracking-tight"
                         style={{ lineHeight: 1.05 }}
                     >
-                        Reclaim your time.{' '}
+                        Speak once. Leave with more{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                            Install Zavi.
+                            done.
                         </span>
                     </motion.h2>
 
@@ -39,8 +39,8 @@ export default function FinalCTA() {
                         variants={fadeUp}
                         className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-medium"
                     >
-                        30 seconds to set up. Works inside every app you already use. 
-                        Your keyboard becomes your most powerful tool.
+                        Zavi writes, acts, and follows through inside the apps
+                        you already use.
                     </motion.p>
 
                     <motion.div variants={fadeUp} className="flex flex-col items-center gap-6">

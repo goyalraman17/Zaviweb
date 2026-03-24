@@ -62,11 +62,16 @@ export default function ProblemSolution() {
             viewport={{ once: true }}
           >
             <p className="text-sm font-bold text-red-500 uppercase tracking-widest mb-4">
-              You're still doing this manually?
+              The bottleneck is not the work. It is the input.
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
-              Every problem. One voice command.
+              The keyboard is slowing everything down.
             </h2>
+            <p className="text-lg text-gray-500 max-w-3xl mx-auto font-medium">
+              Every message, update, follow-up, and recurring task gets pushed
+              through the same slow manual step. Zavi turns your voice into
+              momentum.
+            </p>
           </motion.div>
 
           {/* Problem Cards */}
@@ -122,7 +127,7 @@ export default function ProblemSolution() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Stop doing this manually
+              Get your time back
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

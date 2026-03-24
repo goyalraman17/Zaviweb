@@ -37,6 +37,18 @@ export default function PricingNew() {
 
   const [isAndroid, setIsAndroid] = useState(false);
   const [detectedOS, setDetectedOS] = useState<string>('Unknown');
+  const proMonthlyPrice = 7.99;
+  const proAnnualPrice = 49.99;
+  const proAnnualEquivalent = (proAnnualPrice / 12).toFixed(2);
+  const proAnnualSavingsPercent = Math.round(
+    (1 - proAnnualPrice / (proMonthlyPrice * 12)) * 100
+  );
+  const teamMonthlyPrice = 9.99;
+  const teamAnnualPrice = 79.99;
+  const teamAnnualEquivalent = (teamAnnualPrice / 12).toFixed(2);
+  const teamAnnualSavingsPercent = Math.round(
+    (1 - teamAnnualPrice / (teamMonthlyPrice * 12)) * 100
+  );
 
   // Track pricing page view and detect OS
   useEffect(() => {
@@ -336,11 +348,11 @@ export default function PricingNew() {
             {/* Header */}
             <motion.div className="text-center mb-12" variants={fadeUpLarge}>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1a1a1a] mb-4">
-                Less than a coffee. More than an assistant.
+                Priced to be an obvious yes.
               </h2>
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                You spend 14 hours a week typing, switching apps, and following
-                up. Zavi gives that time back.
+                Start free. Upgrade for less than Wispr Flow. Get voice typing,
+                commands, and background agents in one product.
               </p>
 
               {/* Trust Pill Badges */}
@@ -419,7 +431,7 @@ export default function PricingNew() {
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
-                  Annual (Save 16%)
+                  Annual
                 </button>
               </div>
             </motion.div>
@@ -436,11 +448,11 @@ export default function PricingNew() {
                   className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col"
                 >
                   {/* Zero Risk Badge */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-gray-100 text-gray-600 text-[11px] font-bold uppercase tracking-wider rounded-full border border-gray-200 shadow-sm whitespace-nowrap">
+                  <div className="absolute top-5 right-5 px-4 py-1.5 bg-gray-100 text-gray-600 text-[11px] font-bold uppercase tracking-wider rounded-full border border-gray-200 shadow-sm whitespace-nowrap">
                     Zero Risk • No Card
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1 pr-28">
                     Free Tier
                   </h3>
                   <p className="text-sm font-medium text-gray-500 mb-2">
@@ -651,45 +663,40 @@ export default function PricingNew() {
                     <p className="text-sm font-medium text-gray-500 mb-2">
                       Recommended for: Daily communicators
                     </p>
-                    <p className="text-gray-600 mb-4">
-                      Write at the speed of thought
+                    <p className="text-gray-600 mb-3">
+                      The no-brainer upgrade
                     </p>
 
                     {/* Pricing */}
                     <div className="mb-4">
-                      <div className="text-5xl font-bold text-gray-900">
-                        ${billingCycle === 'monthly' ? '7.99' : '49.99'}
-                      </div>
-                      <div className="text-gray-500 text-sm">
-                        {billingCycle === 'monthly' ? 'per month' : 'per year'}
-                      </div>
-                      {billingCycle === 'annual' ? (
-                        <div className="text-gray-500 text-xs mt-1">
-                          Save $46 compared to monthly
+                      <div className="flex items-end gap-2">
+                        <div className="text-5xl font-bold text-gray-900">
+                          $
+                          {billingCycle === 'monthly'
+                            ? proMonthlyPrice.toFixed(2)
+                            : proAnnualEquivalent}
                         </div>
-                      ) : (
-                        <div className="text-gray-600 text-xs font-semibold mt-2 inline-flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
-                          <svg
-                            className="w-3 h-3 text-gray-900"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={3}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                            />
-                          </svg>
-                          Save $4+/mo vs Wispr Flow & alternatives
+                        <div className="pb-1 text-gray-500 text-sm">
+                          {billingCycle === 'monthly'
+                            ? '/ month'
+                            : '/ month'}
                         </div>
-                      )}
+                      </div>
+                      <div className="text-gray-500 text-sm mt-1">
+                        {billingCycle === 'monthly'
+                          ? 'Billed monthly'
+                          : `Billed annually at $${proAnnualPrice.toFixed(2)}/year`}
+                      </div>
+                      <div className="mt-3 text-sm font-semibold text-gray-700">
+                        {billingCycle === 'annual'
+                          ? `Save ${proAnnualSavingsPercent}% vs monthly`
+                          : '33% less than Wispr Flow at $12/mo'}
+                      </div>
                     </div>
 
                     {/* Save Time Badge */}
                     <div className="bg-gray-100 text-gray-800 font-semibold text-xs uppercase tracking-wider px-3 py-1.5 rounded-md inline-block mb-6">
-                      Save 30+ minutes per day
+                      Pays for itself fast
                     </div>
 
                     <ul className="space-y-4 mb-8">
@@ -888,16 +895,24 @@ export default function PricingNew() {
                   </p>
                   <div className="mb-4">
                     <div className="text-4xl font-bold text-[#1a1a1a]">
-                      ${billingCycle === 'monthly' ? '9.99' : '79.99'}
+                      $
+                      {billingCycle === 'monthly'
+                        ? teamMonthlyPrice.toFixed(2)
+                        : teamAnnualEquivalent}
                     </div>
                     <div className="text-gray-600 text-sm">
                       {billingCycle === 'monthly'
                         ? 'per seat / month'
-                        : 'per seat / year'}
+                        : 'per seat / month'}
+                    </div>
+                    <div className="text-gray-500 text-sm mt-1">
+                      {billingCycle === 'monthly'
+                        ? 'Billed monthly'
+                        : `Billed annually at $${teamAnnualPrice.toFixed(2)} per seat`}
                     </div>
                     {billingCycle === 'annual' && (
                       <div className="text-gray-600 text-xs mt-1">
-                        Save $40 per seat compared to monthly
+                        Save {teamAnnualSavingsPercent}% per seat vs monthly
                       </div>
                     )}
                   </div>

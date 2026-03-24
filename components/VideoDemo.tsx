@@ -30,11 +30,11 @@ export default function VideoDemo() {
           {/* Section Header */}
           <motion.div variants={fadeUp} className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0a0a] tracking-tight mb-4">
-              See Zavi in action
+              Watch the loop: speech to finished work
             </h2>
             <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto font-medium">
-              Watch how a messy, rambling voice note becomes a polished
-              professional email in under a second.
+              One take. No prompt box. No cleanup pass. Just speech becoming
+              output you can use immediately.
             </p>
           </motion.div>
 
@@ -103,14 +103,14 @@ export default function VideoDemo() {
             className="flex flex-wrap items-center justify-center gap-3 mt-8"
           >
             {[
-              { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'Real-Time' },
+              { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'Under a second' },
               {
                 icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-                label: 'Natural Speech',
+                label: 'Clean output',
               },
               {
                 icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-                label: 'Works Everywhere',
+                label: 'Inside your apps',
               },
             ].map((item) => (
               <span

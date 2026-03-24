@@ -49,14 +49,13 @@ export default function KillYourKeyboard() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-[#0a0a0a] tracking-tight text-balance"
                 style={{ lineHeight: 1.1 }}
               >
-                Say "um." See{' '}
+                It does not type what you said. It writes{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                  perfection.
+                  what you meant.
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-                Standard dictation types your mistakes. Zavi types your
-                intentions.
+                That is the difference between plain dictation and Zavi.
               </p>
             </div>
           </RevealOnScroll>
@@ -74,7 +73,7 @@ export default function KillYourKeyboard() {
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">
-                  What you mumbled
+                  Raw speech
                 </span>
               </div>
               <p className="text-gray-500 text-sm md:text-base leading-relaxed italic">
@@ -104,7 +103,7 @@ export default function KillYourKeyboard() {
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-3 h-3 rounded-full bg-emerald-400" />
                 <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">
-                  What Zavi typed (instantly)
+                  Ready to send
                 </span>
               </div>
               <div className="text-gray-800 text-sm md:text-base leading-relaxed whitespace-pre-line min-h-[180px]">
@@ -152,7 +151,7 @@ export default function KillYourKeyboard() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Try it yourself, free
+              Try the clean-up
               <svg
                 className="w-4 h-4"
                 fill="none"

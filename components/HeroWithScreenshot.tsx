@@ -89,9 +89,9 @@ export default function HeroWithScreenshot() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ lineHeight: 1.05 }}
             >
-              Speak to command apps and{' '}
+              Your thoughts move fast. Zavi{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                automate work.
+                keeps up.
               </span>
             </motion.h1>
 
@@ -102,8 +102,9 @@ export default function HeroWithScreenshot() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              Zavi lives inside your keyboard. Write clean text, trigger
-              actions, and automate repetitive work by speaking.
+              Speak naturally. Zavi turns rough speech into clean writing,
+              takes action across your apps, and keeps work moving after you
+              stop.
             </motion.p>
 
             {/* Primary CTA */}
@@ -247,7 +248,7 @@ export default function HeroWithScreenshot() {
             >
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-8">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
-                  What you can say right now:
+                  What this sounds like in real life:
                 </p>
                 <div className="space-y-3">
                   {[
