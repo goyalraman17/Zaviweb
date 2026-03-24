@@ -2,7 +2,12 @@ import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import JsonLd from '@/components/SEO/JsonLd';
 import { generateBreadcrumbSchema } from '@/lib/schemaData';
-import { glossaryTerms, getGlossaryTerm, getAllGlossarySlugs } from '@/lib/glossaryData';
+import {
+  glossaryTerms,
+  getGlossaryTerm,
+  getAllGlossarySlugs,
+  type GlossaryTerm,
+} from '@/lib/glossaryData';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
@@ -58,8 +63,8 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
     };
 
     const relatedTerms = data.seeAlso
-        .map((s) => glossaryTerms.find((t) => t.slug === s))
-        .filter(Boolean);
+        .map((s: string) => glossaryTerms.find((t: GlossaryTerm) => t.slug === s))
+        .filter(Boolean) as GlossaryTerm[];
 
     return (
         <>
@@ -93,7 +98,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
                     <div className="mb-12">
                         <h2 className="text-xl font-bold text-gray-900 mb-4">Also Known As</h2>
                         <div className="flex flex-wrap gap-2">
-                            {data.relatedTerms.map((rt) => (
+                            {data.relatedTerms.map((rt: string) => (
                                 <span key={rt} className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm">
                                     {rt}
                                 </span>
@@ -106,7 +111,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
                         <div className="mb-12">
                             <h2 className="text-xl font-bold text-gray-900 mb-4">Related Terms</h2>
                             <div className="space-y-3">
-                                {relatedTerms.map((rt) => rt && (
+                                {relatedTerms.map((rt: GlossaryTerm) => rt && (
                                     <Link
                                         key={rt.slug}
                                         href={`/glossary/${rt.slug}`}
@@ -133,7 +138,9 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
                     <div className="mt-12">
                         <h2 className="text-xl font-bold text-gray-900 mb-4">Browse All Terms</h2>
                         <div className="flex flex-wrap gap-2">
-                            {glossaryTerms.filter(t => t.slug !== data.slug).map((t) => (
+                            {glossaryTerms
+                                .filter((t: GlossaryTerm) => t.slug !== data.slug)
+                                .map((t: GlossaryTerm) => (
                                 <Link
                                     key={t.slug}
                                     href={`/glossary/${t.slug}`}

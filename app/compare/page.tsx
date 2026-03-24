@@ -15,12 +15,12 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title:
-    'Zavi AI vs Every Alternative — The Voice AGI That Replaces Typing, Prompting & Automation (2026)',
+    'Zavi AI vs Every Alternative, The Voice AGI That Replaces Typing, Prompting & Automation (2026)',
   description:
     'Compare Zavi AI to Wispr Flow, ChatGPT, Claude, Gemini Live, Gboard, SwiftKey, Dragon, Zapier, Siri & more. The only tool with voice input, zero prompting, screen awareness, and in-app execution. Free download.',
   alternates: { canonical: 'https://zavivoice.com/compare' },
   openGraph: {
-    title: 'Zavi AI vs Every Alternative — Voice AGI Comparison 2026',
+    title: 'Zavi AI vs Every Alternative: Voice AGI Comparison 2026',
     description:
       'Dictation tools transcribe. Chat AI needs prompts. Zavi speaks, understands, and executes. See the full landscape comparison.',
     url: 'https://zavivoice.com/compare',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: 'https://zavivoice.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zavi AI vs Every Alternative — Full Comparison 2026',
+        alt: 'Zavi AI vs Every Alternative: Full Comparison 2026',
       },
     ],
   },
@@ -43,31 +43,31 @@ const categoryMeta: Record<
     title: 'vs Voice & Dictation Tools',
     subtitle: 'Wispr Flow · Willow · Otter.ai · Dragon',
     description:
-      'Dictation tools turn speech into text. Zavi turns speech into intent and action — with 100+ languages, real-time translation, and mobile support they lack.',
+      'Dictation tools turn speech into text. Zavi turns speech into intent and action, with 100+ languages, real-time translation, and mobile support they lack.',
   },
   'chat-ai': {
     title: 'vs Chat-First AI',
     subtitle: 'ChatGPT · Claude',
     description:
-      'Chat AI is powerful intelligence locked behind a prompt box. Zavi embeds that intelligence inside every app — triggered by voice, no copy-paste needed.',
+      'Chat AI is powerful intelligence locked behind a prompt box. Zavi embeds that intelligence inside every app, triggered by voice, no copy-paste needed.',
   },
   'screen-assistants': {
     title: 'vs Screen-Aware Assistants',
     subtitle: 'Gemini Live · Siri',
     description:
-      'Screen-aware assistants can discuss what you see. Only Zavi can act on it — writing, replying, and executing inside the active app.',
+      'Screen-aware assistants can discuss what you see. Only Zavi can act on it, writing, replying, and executing inside the active app.',
   },
   automation: {
     title: 'vs Automation & RPA',
     subtitle: 'Zapier · Make · OpenClaw',
     description:
-      'Automation tools execute pre-defined workflows. Zavi executes ad-hoc human decisions by voice — no setup, no triggers, no Zap-building.',
+      'Automation tools execute pre-defined workflows. Zavi executes ad-hoc human decisions by voice, no setup, no triggers, no Zap-building.',
   },
   keyboards: {
     title: 'vs Mobile Keyboards',
     subtitle: 'Google Gboard · SwiftKey',
     description:
-      'Default keyboards transcribe speech verbatim — filler words, grammar errors, and all. Zavi produces professional-quality text with AI cleanup.',
+      'Default keyboards transcribe speech verbatim, filler words, grammar errors, and all. Zavi produces professional-quality text with AI cleanup.',
   },
 };
 
@@ -110,7 +110,7 @@ export default function ComparePage() {
             <span className="text-gray-900 font-medium">Compare</span>
           </nav>
 
-          {/* Hero — Thesis-level positioning */}
+          {/* Hero, Thesis-level positioning */}
           <div className="mb-20">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               The Next Interface Shift
@@ -128,13 +128,13 @@ export default function ComparePage() {
                 <strong className="text-gray-900">voice as execution</strong>.
               </p>
               <p className="text-xl font-semibold text-blue-600">
-                Zavi is building the Voice AGI inside every app — turning
-                natural human speech directly into action.
+                Zavi is building the Voice AGI inside every app, turning natural
+                human speech directly into action.
               </p>
             </div>
           </div>
 
-          {/* The Problem — Why existing tools fail */}
+          {/* The Problem, Why existing tools fail */}
           <div className="mb-20 bg-gray-50 rounded-2xl p-8 sm:p-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
               Why Every Other Approach Falls Short
@@ -274,7 +274,7 @@ export default function ComparePage() {
               <div className="grid md:grid-cols-3 gap-8">
                 <div>
                   <div className="text-blue-200 text-sm font-semibold uppercase tracking-wider mb-2">
-                    Free Layer — The Wedge
+                    Free Layer, The Wedge
                   </div>
                   <h3 className="text-xl font-bold mb-3">Input Ownership</h3>
                   <ul className="space-y-2 text-blue-100 text-sm">

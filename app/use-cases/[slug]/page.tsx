@@ -1,5 +1,9 @@
 import Navigation from '@/components/Navigation';
-import { useCases, getUseCaseBySlug } from '@/lib/useCaseData';
+import {
+  useCases,
+  getUseCaseBySlug,
+  type UseCase,
+} from '@/lib/useCaseData';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import JsonLd from '@/components/SEO/JsonLd';
@@ -57,7 +61,7 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: uc.faqItems.map((faq) => ({
+    mainEntity: uc.faqItems.map((faq: { question: string; answer: string }) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: { '@type': 'Answer', text: faq.answer },
@@ -65,8 +69,8 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
   };
 
   const relatedCases = uc.relatedUseCases
-    .map((s) => useCases.find((u) => u.slug === s))
-    .filter(Boolean);
+    .map((s: string) => useCases.find((u: UseCase) => u.slug === s))
+    .filter(Boolean) as UseCase[];
   const proofItems = [
     { label: 'Best for', value: uc.targetAudience.slice(0, 3).join(' · ') },
     { label: 'Works on', value: 'iOS, Android, macOS, Windows, Linux' },
@@ -213,7 +217,7 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
               How It Works
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
-              {uc.howItWorks.map((step, i) => (
+              {uc.howItWorks.map((step: string, i: number) => (
                 <div
                   key={i}
                   className="flex items-start gap-4 p-4 rounded-xl bg-gray-50"
@@ -233,7 +237,7 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
               Why Professionals Choose Zavi
             </h2>
             <div className="grid sm:grid-cols-2 gap-6">
-              {uc.benefits.map((b) => (
+              {uc.benefits.map((b: { title: string; description: string }) => (
                 <div
                   key={b.title}
                   className="p-5 rounded-xl border border-gray-200"
@@ -251,7 +255,7 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
               Who Is This For?
             </h2>
             <div className="flex flex-wrap gap-2">
-              {uc.targetAudience.map((audience) => (
+              {uc.targetAudience.map((audience: string) => (
                 <span
                   key={audience}
                   className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium"
@@ -268,7 +272,7 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
-              {uc.faqItems.map((faq) => (
+              {uc.faqItems.map((faq: { question: string; answer: string }) => (
                 <div
                   key={faq.question}
                   className="border-b border-gray-200 pb-6"
@@ -306,7 +310,7 @@ export default async function UseCasePage({ params }: UseCasePageProps) {
               </h2>
               <div className="grid sm:grid-cols-3 gap-4">
                 {relatedCases.map(
-                  (rc) =>
+                  (rc: UseCase) =>
                     rc && (
                       <Link
                         key={rc.slug}

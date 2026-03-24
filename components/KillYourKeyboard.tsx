@@ -26,9 +26,12 @@ export default function KillYourKeyboard() {
   useEffect(() => {
     if (!isInView) return;
     if (displayedChars >= fullAfterText.length) return;
-    const timeout = setTimeout(() => {
-      setDisplayedChars((c) => c + 1);
-    }, 15 + Math.random() * 20);
+    const timeout = setTimeout(
+      () => {
+        setDisplayedChars((c) => c + 1);
+      },
+      15 + Math.random() * 20
+    );
     return () => clearTimeout(timeout);
   }, [isInView, displayedChars, fullAfterText.length]);
 
@@ -52,7 +55,8 @@ export default function KillYourKeyboard() {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-                Standard dictation types your mistakes. Zavi types your intentions.
+                Standard dictation types your mistakes. Zavi types your
+                intentions.
               </p>
             </div>
           </RevealOnScroll>
@@ -69,7 +73,9 @@ export default function KillYourKeyboard() {
             <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 relative">
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
-                <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">What you mumbled</span>
+                <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">
+                  What you mumbled
+                </span>
               </div>
               <p className="text-gray-500 text-sm md:text-base leading-relaxed italic">
                 {beforeText}
@@ -90,11 +96,16 @@ export default function KillYourKeyboard() {
               </div>
             </div>
 
-            {/* After — with typing animation */}
-            <div ref={afterRef} className="bg-white rounded-2xl p-6 md:p-8 border-2 border-blue-200 relative shadow-lg shadow-blue-50">
+            {/* After, with typing animation */}
+            <div
+              ref={afterRef}
+              className="bg-white rounded-2xl p-6 md:p-8 border-2 border-blue-200 relative shadow-lg shadow-blue-50"
+            >
               <div className="flex items-center gap-2 mb-5">
                 <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">What Zavi typed (instantly)</span>
+                <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">
+                  What Zavi typed (instantly)
+                </span>
               </div>
               <div className="text-gray-800 text-sm md:text-base leading-relaxed whitespace-pre-line min-h-[180px]">
                 {visibleText}
@@ -104,8 +115,18 @@ export default function KillYourKeyboard() {
               </div>
               <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6">
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-[11px] font-bold border border-blue-100">
-                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-3 h-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   &lt;200ms
                 </span>
@@ -125,13 +146,25 @@ export default function KillYourKeyboard() {
               href="/#download"
               onClick={(e: React.MouseEvent) => {
                 e.preventDefault();
-                document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                document
+                  .getElementById('download')
+                  ?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Try it yourself — free
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              Try it yourself, free
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
               </svg>
             </a>
           </motion.div>

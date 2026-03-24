@@ -9,22 +9,22 @@ const faqs = [
   {
     question: 'What is Zavi AI?',
     answer:
-      'Zavi is your personal Jarvis — a voice-powered AI assistant that lives inside your keyboard. It does three things: (1) types perfect text when you speak, removing filler words and fixing grammar instantly, (2) executes commands across 27+ apps like Gmail, Slack, and Notion, and (3) runs background agents that automate tasks on a schedule and report back via WhatsApp. It works on iOS, Android, macOS, Windows, and Linux.',
+      'Zavi is your personal Jarvis, a voice-powered AI assistant that lives inside your keyboard. It does three things: (1) types perfect text when you speak, removing filler words and fixing grammar instantly, (2) executes commands across 27+ apps like Gmail, Slack, and Notion, and (3) runs background agents that automate tasks on a schedule and report back via WhatsApp. It works on iOS, Android, macOS, Windows, and Linux.',
   },
   {
     question: 'What are background agents?',
     answer:
-      "Background agents are automations you create with a single sentence. Say 'summarize my inbox every morning at 8 AM and text me on WhatsApp' — Zavi builds the automation, runs it on schedule via Cloud Scheduler, and delivers results to your WhatsApp or Telegram. No code, no Zapier, no manual setup. You can create agents for email triage, Slack monitoring, meeting prep, weekly reports, and more.",
+      "Background agents are automations you create with a single sentence. Say 'summarize my inbox every morning at 8 AM and text me on WhatsApp.' Zavi builds the automation, runs it on schedule via Cloud Scheduler, and delivers results to your WhatsApp or Telegram. No code, no Zapier, no manual setup. You can create agents for email triage, Slack monitoring, meeting prep, weekly reports, and more.",
   },
   {
     question: 'What is the Magic Wand?',
     answer:
-      "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences' — and the text is rewritten in-place instantly. No copy-pasting, no switching apps.",
+      "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences.' The text is rewritten in place instantly. No copy-pasting, no switching apps.",
   },
   {
     question: 'Is my voice data private?',
     answer:
-      'Yes. Your voice is processed in real-time and immediately deleted. We never store, share, or use your audio to train models. Zavi is built with a privacy-first architecture — voice data is processed and discarded instantly.',
+      'Yes. Your voice is processed in real-time and immediately deleted. We never store, share, or use your audio to train models. Zavi is built with a privacy-first architecture, voice data is processed and discarded instantly.',
   },
   {
     question: 'How fast is Zavi compared to typing?',
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "What's included in the free plan?",
     answer:
-      'The free plan includes 1,000 words per day of AI-powered voice typing with filler word removal, grammar correction, Magic Wand, voice commands, all 27+ integrations, translation, tone control, and emoji — across every app. No credit card required. Upgrade to Pro ($7.99/month) for unlimited usage.',
+      'The free plan includes 1,000 words per day of AI-powered voice typing with filler word removal, grammar correction, Magic Wand, voice commands, all 27+ integrations, translation, tone control, and emoji, across every app. No credit card required. Upgrade to Pro ($7.99/month) for unlimited usage.',
   },
   {
     question: 'Which platforms does Zavi support?',
@@ -44,12 +44,12 @@ const faqs = [
   {
     question: 'How does multi-language translation work?',
     answer:
-      'Zavi supports 100+ languages with automatic detection. Speak in one language and get the output in another — in real-time. For example, speak in Hindi and get polished English text, or speak in Spanish and get professional French output. Zavi also handles code-switching (mixing languages in one sentence).',
+      'Zavi supports 100+ languages with automatic detection. Speak in one language and get the output in another, in real-time. For example, speak in Hindi and get polished English text, or speak in Spanish and get professional French output. Zavi also handles code-switching (mixing languages in one sentence).',
   },
   {
     question: 'How does Zavi compare to Wispr Flow?',
     answer:
-      "Wispr Flow costs $12/month and works on Mac, Windows, and iOS. Zavi starts free, costs $7.99/month for Pro, and works on all 5 platforms including Android and Linux. Zavi also includes voice agents with 27+ app integrations, real-time translation across 100+ languages, and the Magic Wand for in-place text transformation — features Wispr doesn't offer.",
+      "Wispr Flow costs $12/month and works on Mac, Windows, and iOS. Zavi starts free, costs $7.99/month for Pro, and works on all 5 platforms including Android and Linux. Zavi also includes voice agents with 27+ app integrations, real-time translation across 100+ languages, and the Magic Wand for in-place text transformation, features Wispr doesn't offer.",
   },
   {
     question: 'Can I cancel anytime?',
@@ -59,7 +59,7 @@ const faqs = [
   {
     question: 'How do I create a background agent?',
     answer:
-      "Just speak. Say something like 'Summarize my inbox every morning at 8 AM and WhatsApp me the priorities' or 'Watch #engineering on Slack and alert me if there's an incident.' Zavi automatically creates the scheduled automation — no code, no setup, no Zapier. Agents run in the background and report results to your WhatsApp or Telegram.",
+      "Just speak. Say something like 'Summarize my inbox every morning at 8 AM and WhatsApp me the priorities' or 'Watch #engineering on Slack and alert me if there's an incident.' Zavi automatically creates the scheduled automation. No code, no setup, no Zapier. Agents run in the background and report results to your WhatsApp or Telegram.",
   },
   {
     question: 'Can Zavi send me WhatsApp messages automatically?',
@@ -136,7 +136,7 @@ export default function FAQ() {
                   )}
                 </AnimatePresence>
 
-                {/* Hidden answer for AI crawlers — always present in DOM */}
+                {/* Hidden answer for AI crawlers, always present in DOM */}
                 {!isOpen && (
                   <div className="sr-only">
                     <span>{faq.answer}</span>

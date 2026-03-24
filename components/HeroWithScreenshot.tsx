@@ -95,7 +95,7 @@ export default function HeroWithScreenshot() {
               </span>
             </motion.h1>
 
-            {/* Subheadline — outcome-driven, zero jargon */}
+            {/* Subheadline, outcome-driven, zero jargon */}
             <motion.p
               className="text-base sm:text-xl lg:text-2xl text-gray-500 mb-8 max-w-3xl mx-auto leading-relaxed font-medium"
               initial={{ opacity: 0, y: 20 }}

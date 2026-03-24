@@ -15,8 +15,8 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-  }
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const staggerContainer = {
@@ -26,11 +26,17 @@ const staggerContainer = {
     transition: {
       staggerChildren: 0.15,
       delayChildren: 0.1,
-    }
-  }
+    },
+  },
 };
 
-function AnimatedSection({ children, className = '' }: { children: React.ReactNode, className?: string }) {
+function AnimatedSection({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -38,7 +44,7 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      animate={isInView ? 'visible' : 'hidden'}
       variants={fadeUp}
       className={className}
     >
@@ -55,10 +61,12 @@ export default function AboutPage() {
       {founderSchemas.map((schema, i) => (
         <JsonLd key={i} data={schema} />
       ))}
-      <JsonLd data={generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://zavivoice.com' },
-        { name: 'About', url: 'https://zavivoice.com/about' },
-      ])} />
+      <JsonLd
+        data={generateBreadcrumbSchema([
+          { name: 'Home', url: 'https://zavivoice.com' },
+          { name: 'About', url: 'https://zavivoice.com/about' },
+        ])}
+      />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white">
@@ -72,7 +80,8 @@ export default function AboutPage() {
                 About Zavi
               </h1>
               <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed">
-                We're building voice input infrastructure for the next era of computing.
+                We're building voice input infrastructure for the next era of
+                computing.
               </p>
             </motion.div>
           </div>
@@ -82,20 +91,31 @@ export default function AboutPage() {
         <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Our Story
+              </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
             </div>
 
             <div className="prose prose-lg max-w-none">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Zavi started with a simple observation: our brains think faster than our fingers can type. In 2023, our founders spent countless hours typing emails, messages, and documents—always feeling the frustration of their thoughts bottlenecking at the keyboard.
+                  Zavi started with a simple observation: our brains think
+                  faster than our fingers can type. In 2023, our founders spent
+                  countless hours typing emails, messages, and documents, always
+                  feeling the frustration of their thoughts bottlenecking at the
+                  keyboard.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Voice typing existed, but it was broken. It gave you "um, uh, like" filled transcripts that needed extensive editing. It defeated the whole purpose of speed.
+                  Voice typing existed, but it was broken. It gave you "um, uh,
+                  like" filled transcripts that needed extensive editing. It
+                  defeated the whole purpose of speed.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  So we built Zavi—not as another note-taking app, but as fundamental input infrastructure. A system that understands intent, removes fillers, fixes grammar, and delivers perfect writing from natural speech.
+                  So we built Zavi, not as another note-taking app, but as
+                  fundamental input infrastructure. A system that understands
+                  intent, removes fillers, fixes grammar, and delivers perfect
+                  writing from natural speech.
                 </p>
               </div>
             </div>
@@ -106,7 +126,9 @@ export default function AboutPage() {
         <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-sky-50">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Mission & Vision</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Mission & Vision
+              </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
             </div>
 
@@ -122,7 +144,9 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-bold text-gray-900">Mission</h3>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  To eliminate the gap between human thought and written communication by making voice the primary input method for professional writing.
+                  To eliminate the gap between human thought and written
+                  communication by making voice the primary input method for
+                  professional writing.
                 </p>
               </motion.div>
 
@@ -137,7 +161,9 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-bold text-gray-900">Vision</h3>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  A world where keyboards are optional—where anyone can communicate in perfect, professional writing just by speaking naturally in any language.
+                  A world where keyboards are optional, where anyone can
+                  communicate in perfect, professional writing just by speaking
+                  naturally in any language.
                 </p>
               </motion.div>
             </div>
@@ -148,7 +174,9 @@ export default function AboutPage() {
         <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Our Values
+              </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
             </div>
 
@@ -156,19 +184,22 @@ export default function AboutPage() {
               {[
                 {
                   icon: Heart,
-                  title: "User First",
-                  description: "Every decision starts with what's best for people using Zavi. Privacy, speed, and quality are non-negotiable."
+                  title: 'User First',
+                  description:
+                    "Every decision starts with what's best for people using Zavi. Privacy, speed, and quality are non-negotiable.",
                 },
                 {
                   icon: Zap,
-                  title: "Move Fast",
-                  description: "Ship quickly, iterate constantly. The best product comes from real-world feedback, not endless planning."
+                  title: 'Move Fast',
+                  description:
+                    'Ship quickly, iterate constantly. The best product comes from real-world feedback, not endless planning.',
                 },
                 {
                   icon: Globe,
-                  title: "Break Barriers",
-                  description: "Language shouldn't limit anyone's ability to communicate professionally. We're building for 8 billion people."
-                }
+                  title: 'Break Barriers',
+                  description:
+                    "Language shouldn't limit anyone's ability to communicate professionally. We're building for 8 billion people.",
+                },
               ].map((value, i) => (
                 <motion.div
                   key={i}
@@ -178,8 +209,12 @@ export default function AboutPage() {
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-sky-100 rounded-xl flex items-center justify-center mb-4">
                     <value.icon className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {value.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -192,7 +227,9 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Users className="w-8 h-8 text-blue-600" />
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">The Team</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                  The Team
+                </h2>
               </div>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
             </div>
@@ -215,7 +252,9 @@ export default function AboutPage() {
                     />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Raman Goyal</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Raman Goyal
+                  </h3>
                   <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
                     <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
                       Founder & CEO
@@ -226,7 +265,9 @@ export default function AboutPage() {
                   </div>
 
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    Previously built voice AI systems. Frustrated by spending hours typing when ideas came in seconds. Founded Zavi to fix this for everyone.
+                    Previously built voice AI systems. Frustrated by spending
+                    hours typing when ideas came in seconds. Founded Zavi to fix
+                    this for everyone.
                   </p>
 
                   <a
@@ -258,7 +299,9 @@ export default function AboutPage() {
                     />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Himanshu Kumar</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Himanshu Kumar
+                  </h3>
                   <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
                     <span className="inline-flex items-center px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold">
                       Co-founder & CTO
@@ -269,7 +312,9 @@ export default function AboutPage() {
                   </div>
 
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    Deep expertise in ML systems and infrastructure. Builds the technology that makes Zavi's voice-to-text transformation feel like magic.
+                    Deep expertise in ML systems and infrastructure. Builds the
+                    technology that makes Zavi's voice-to-text transformation
+                    feel like magic.
                   </p>
 
                   <a
@@ -291,31 +336,45 @@ export default function AboutPage() {
         <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Now</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Why Now
+              </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-sky-600 mx-auto rounded-full"></div>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-8 shadow-lg border border-blue-100">
               <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Every major computing platform was defined by a new input method:
+                  Every major computing platform was defined by a new input
+                  method:
                 </p>
                 <ul className="space-y-2 ml-6">
                   <li className="flex items-start gap-3">
                     <span className="text-blue-600 mt-1">⌨️</span>
-                    <span><strong>PCs:</strong> Keyboard enabled text-based computing</span>
+                    <span>
+                      <strong>PCs:</strong> Keyboard enabled text-based
+                      computing
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-blue-600 mt-1">👆</span>
-                    <span><strong>Smartphones:</strong> Touch made mobile computing possible</span>
+                    <span>
+                      <strong>Smartphones:</strong> Touch made mobile computing
+                      possible
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-blue-600 mt-1">🎤</span>
-                    <span><strong>Next Era:</strong> Voice will define the next platform</span>
+                    <span>
+                      <strong>Next Era:</strong> Voice will define the next
+                      platform
+                    </span>
                   </li>
                 </ul>
                 <p className="pt-4">
-                  AI models are finally good enough to understand intent, not just transcribe words. Hardware is powerful enough to run this locally. The time is now.
+                  AI models are finally good enough to understand intent, not
+                  just transcribe words. Hardware is powerful enough to run this
+                  locally. The time is now.
                 </p>
               </div>
             </div>
@@ -329,7 +388,9 @@ export default function AboutPage() {
               Join Us
             </h2>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              We're building the future of human-computer interaction. If you're passionate about making technology more human, we'd love to hear from you.
+              We're building the future of human-computer interaction. If you're
+              passionate about making technology more human, we'd love to hear
+              from you.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

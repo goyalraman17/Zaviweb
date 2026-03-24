@@ -15,7 +15,9 @@ import { getOptionalPaymentSession } from '@/lib/firebase-client-auth';
 import GlowCard from './animated/GlowCard';
 
 export default function PricingNew() {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>(
+    'monthly'
+  );
   const [isProcessing, setIsProcessing] = useState(false);
   const [checkoutScriptReady, setCheckoutScriptReady] = useState(false);
 
@@ -78,7 +80,11 @@ export default function PricingNew() {
 
   // Show the email modal before payment
   const startPaymentFlow = (plan: string) => {
-    console.log('[Pricing] Starting payment flow', { plan, billingCycle, checkoutScriptReady });
+    console.log('[Pricing] Starting payment flow', {
+      plan,
+      billingCycle,
+      checkoutScriptReady,
+    });
     setPendingPlan(plan);
     setEmailInput('');
     setEmailError('');
@@ -100,7 +106,11 @@ export default function PricingNew() {
       return;
     }
 
-    console.log('[Pricing] Email submitted', { pendingPlan, billingCycle, email: trimmed });
+    console.log('[Pricing] Email submitted', {
+      pendingPlan,
+      billingCycle,
+      email: trimmed,
+    });
     setPaymentStep('Creating your subscription...');
     setShowEmailModal(false);
     handlePayment(pendingPlan, trimmed);
@@ -111,7 +121,11 @@ export default function PricingNew() {
 
     setIsProcessing(true);
     setPaymentStep('Creating your subscription...');
-    console.log('[Pricing] handlePayment called', { plan, billingCycle, email });
+    console.log('[Pricing] handlePayment called', {
+      plan,
+      billingCycle,
+      email,
+    });
 
     try {
       const paymentSession = await getOptionalPaymentSession(email);
@@ -153,7 +167,9 @@ export default function PricingNew() {
       }
 
       if (!(window as any).Razorpay || !checkoutScriptReady) {
-        throw new Error('Razorpay checkout is still loading. Please try again in a moment.');
+        throw new Error(
+          'Razorpay checkout is still loading. Please try again in a moment.'
+        );
       }
 
       const selectedPlan = billingCycle;
@@ -196,8 +212,13 @@ export default function PricingNew() {
 
             if (verifyRes.ok && result.success) {
               setResultType('success');
-              setResultMessage('Your Pro subscription is now active! Open the Zavi app to enjoy unlimited access.');
-              setResultPaymentId(response.razorpay_subscription_id || response.razorpay_payment_id);
+              setResultMessage(
+                'Your Pro subscription is now active! Open the Zavi app to enjoy unlimited access.'
+              );
+              setResultPaymentId(
+                response.razorpay_subscription_id ||
+                  response.razorpay_payment_id
+              );
               setShowResultModal(true);
               analytics.track('payment_success', {
                 plan: selectedPlan,
@@ -207,8 +228,13 @@ export default function PricingNew() {
               });
             } else {
               setResultType('error');
-              setResultMessage(result.error || 'Payment received but activation failed.');
-              setResultPaymentId(response.razorpay_subscription_id || response.razorpay_payment_id);
+              setResultMessage(
+                result.error || 'Payment received but activation failed.'
+              );
+              setResultPaymentId(
+                response.razorpay_subscription_id ||
+                  response.razorpay_payment_id
+              );
               setShowResultModal(true);
               analytics.track('payment_verify_failed', {
                 plan: selectedPlan,
@@ -220,7 +246,9 @@ export default function PricingNew() {
             console.error('Verification error:', err);
             setResultType('error');
             setResultMessage('Payment received but verification failed.');
-            setResultPaymentId(response.razorpay_subscription_id || response.razorpay_payment_id);
+            setResultPaymentId(
+              response.razorpay_subscription_id || response.razorpay_payment_id
+            );
             setShowResultModal(true);
           }
         },
@@ -242,7 +270,11 @@ export default function PricingNew() {
     } catch (error) {
       console.error('Payment Error:', error);
       setResultType('error');
-      setResultMessage(error instanceof Error ? error.message : 'Payment processing failed. Please try again.');
+      setResultMessage(
+        error instanceof Error
+          ? error.message
+          : 'Payment processing failed. Please try again.'
+      );
       setResultPaymentId('');
       setShowResultModal(true);
     } finally {
@@ -255,11 +287,14 @@ export default function PricingNew() {
     analytics.track('pricing_plan_click', {
       plan,
       billing_cycle: billingCycle,
-      is_android: isAndroid
+      is_android: isAndroid,
     });
 
     if (plan === 'free' && isAndroid) {
-      window.open('https://play.google.com/store/apps/details?id=com.pingpros.keyboard', '_blank');
+      window.open(
+        'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
+        '_blank'
+      );
     } else {
       startPaymentFlow(plan);
     }
@@ -304,26 +339,51 @@ export default function PricingNew() {
                 Less than a coffee. More than an assistant.
               </h2>
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                You spend 14 hours a week typing, switching apps, and following up. Zavi gives that time back.
+                You spend 14 hours a week typing, switching apps, and following
+                up. Zavi gives that time back.
               </p>
 
               {/* Trust Pill Badges */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
                 <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
-                  <svg className="w-4 h-4 text-gray-900" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    className="w-4 h-4 text-gray-900"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
                   Rated 5 Stars on iOS & Android
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
-                  <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-4 h-4 text-gray-900"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   Cancel Anytime
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-semibold text-gray-700 shadow-sm">
-                  <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  <svg
+                    className="w-4 h-4 text-gray-900"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                    />
                   </svg>
                   No Card Required
                 </span>
@@ -334,24 +394,30 @@ export default function PricingNew() {
                 <button
                   onClick={() => {
                     setBillingCycle('monthly');
-                    analytics.track('pricing_toggle_billing', { cycle: 'monthly' });
+                    analytics.track('pricing_toggle_billing', {
+                      cycle: 'monthly',
+                    });
                   }}
-                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'monthly'
-                    ? 'bg-gray-900 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
-                    }`}
+                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                    billingCycle === 'monthly'
+                      ? 'bg-gray-900 text-white shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
                   Monthly
                 </button>
                 <button
                   onClick={() => {
                     setBillingCycle('annual');
-                    analytics.track('pricing_toggle_billing', { cycle: 'annual' });
+                    analytics.track('pricing_toggle_billing', {
+                      cycle: 'annual',
+                    });
                   }}
-                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${billingCycle === 'annual'
-                    ? 'bg-gray-900 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
-                    }`}
+                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                    billingCycle === 'annual'
+                      ? 'bg-gray-900 text-white shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
                   Annual (Save 16%)
                 </button>
@@ -363,17 +429,23 @@ export default function PricingNew() {
               className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12"
               variants={staggerContainerSlow}
             >
-
               {/* Free Plan */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(0, 0, 0, 0.03)" className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col">
+                <GlowCard
+                  glowColor="rgba(0, 0, 0, 0.03)"
+                  className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col"
+                >
                   {/* Zero Risk Badge */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-gray-100 text-gray-600 text-[11px] font-bold uppercase tracking-wider rounded-full border border-gray-200 shadow-sm whitespace-nowrap">
                     Zero Risk • No Card
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">Free Tier</h3>
-                  <p className="text-sm font-medium text-gray-500 mb-2">Start saving time instantly</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Free Tier
+                  </h3>
+                  <p className="text-sm font-medium text-gray-500 mb-2">
+                    Start saving time instantly
+                  </p>
 
                   <div className="mb-6">
                     <div className="text-4xl font-bold text-[#1a1a1a]">$0</div>
@@ -382,75 +454,179 @@ export default function PricingNew() {
 
                   <ul className="space-y-4 mb-8 flex-grow">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">1,000 Words Per Day</span>
-                        <span className="block text-sm text-gray-600">Daily word limit, type anywhere by voice</span>
+                        <span className="block font-semibold text-gray-900">
+                          1,000 Words Per Day
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Daily word limit, type anywhere by voice
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Magic Wand</span>
-                        <span className="block text-sm text-gray-600">Edit, rewrite, or transform any text by voice</span>
+                        <span className="block font-semibold text-gray-900">
+                          Magic Wand
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Edit, rewrite, or transform any text by voice
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Voice Commands</span>
-                        <span className="block text-sm text-gray-600">Send emails, messages, and more — hands free</span>
+                        <span className="block font-semibold text-gray-900">
+                          Voice Commands
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Send emails, messages, and more hands free
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">All Superpowers</span>
-                        <span className="block text-sm text-gray-600">Gmail, Slack, Notion, GitHub, and more connectors</span>
+                        <span className="block font-semibold text-gray-900">
+                          All Superpowers
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Gmail, Slack, Notion, GitHub, and more connectors
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Translate</span>
-                        <span className="block text-sm text-gray-600">Speak in one language, type in another</span>
+                        <span className="block font-semibold text-gray-900">
+                          Translate
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Speak in one language, type in another
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Priority Processing</span>
-                        <span className="block text-sm text-gray-600">Fastest transcription with AI enhancement</span>
+                        <span className="block font-semibold text-gray-900">
+                          Priority Processing
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Fastest transcription with AI enhancement
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Tone & Emoji</span>
-                        <span className="block text-sm text-gray-600">Casual, formal, or fun — your voice, your style</span>
+                        <span className="block font-semibold text-gray-900">
+                          Tone & Emoji
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Casual, formal, or fun. Your voice, your style.
+                        </span>
                       </div>
                     </li>
                   </ul>
 
                   <button
                     onClick={() => {
-                      document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                      document
+                        .getElementById('download')
+                        ?.scrollIntoView({ behavior: 'smooth' });
                       if (typeof analytics !== 'undefined') {
-                        analytics.track('pricing_plan_click', { plan: 'free', billing_cycle: billingCycle, is_android: isAndroid });
+                        analytics.track('pricing_plan_click', {
+                          plan: 'free',
+                          billing_cycle: billingCycle,
+                          is_android: isAndroid,
+                        });
                       }
                     }}
                     className="w-full px-6 py-4 rounded-xl font-bold text-center bg-white border border-gray-300 text-gray-700 shadow-sm hover:bg-gray-50 transition-all mt-auto"
@@ -469,9 +645,15 @@ export default function PricingNew() {
                       Most Popular
                     </div>
 
-                    <h3 className="text-3xl font-bold text-gray-900 mb-1">Pro</h3>
-                    <p className="text-sm font-medium text-gray-500 mb-2">Recommended for: Daily communicators</p>
-                    <p className="text-gray-600 mb-4">Write at the speed of thought</p>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-1">
+                      Pro
+                    </h3>
+                    <p className="text-sm font-medium text-gray-500 mb-2">
+                      Recommended for: Daily communicators
+                    </p>
+                    <p className="text-gray-600 mb-4">
+                      Write at the speed of thought
+                    </p>
 
                     {/* Pricing */}
                     <div className="mb-4">
@@ -487,8 +669,18 @@ export default function PricingNew() {
                         </div>
                       ) : (
                         <div className="text-gray-600 text-xs font-semibold mt-2 inline-flex items-center gap-1 bg-gray-100 px-2 py-1 rounded">
-                          <svg className="w-3 h-3 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          <svg
+                            className="w-3 h-3 text-gray-900"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={3}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                            />
                           </svg>
                           Save $4+/mo vs Wispr Flow & alternatives
                         </div>
@@ -502,66 +694,164 @@ export default function PricingNew() {
 
                     <ul className="space-y-4 mb-8">
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">Unlimited Voice Typing</span>
-                          <span className="block text-sm text-gray-600">No daily word limits, type anywhere by voice</span>
+                          <span className="block font-semibold text-gray-900">
+                            Unlimited Voice Typing
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            No daily word limits, type anywhere by voice
+                          </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">Magic Wand</span>
-                          <span className="block text-sm text-gray-600">Edit, rewrite, or transform any text by voice</span>
+                          <span className="block font-semibold text-gray-900">
+                            Magic Wand
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            Edit, rewrite, or transform any text by voice
+                          </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">Voice Commands</span>
-                          <span className="block text-sm text-gray-600">Send emails, messages, and more — hands free</span>
+                          <span className="block font-semibold text-gray-900">
+                            Voice Commands
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            Send emails, messages, and more hands free
+                          </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">All Superpowers</span>
-                          <span className="block text-sm text-gray-600">Gmail, Slack, Notion, GitHub, and more connectors</span>
+                          <span className="block font-semibold text-gray-900">
+                            All Superpowers
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            Gmail, Slack, Notion, GitHub, and more connectors
+                          </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">Translate</span>
-                          <span className="block text-sm text-gray-600">Speak in one language, type in another</span>
+                          <span className="block font-semibold text-gray-900">
+                            Translate
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            Speak in one language, type in another
+                          </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">Priority Processing</span>
-                          <span className="block text-sm text-gray-600">Fastest transcription with AI enhancement</span>
+                          <span className="block font-semibold text-gray-900">
+                            Priority Processing
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            Fastest transcription with AI enhancement
+                          </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                         <div>
-                          <span className="block font-semibold text-gray-900">Tone & Formatting</span>
-                          <span className="block text-sm text-gray-600">Casual, formal, or fun — your voice, your style</span>
+                          <span className="block font-semibold text-gray-900">
+                            Tone & Formatting
+                          </span>
+                          <span className="block text-sm text-gray-600">
+                            Casual, formal, or fun. Your voice, your style.
+                          </span>
                         </div>
                       </li>
                     </ul>
@@ -574,25 +864,36 @@ export default function PricingNew() {
                       whileTap="tap"
                       variants={ctaPrimary}
                     >
-                      {getButtonText().includes('Try') ? 'Get Pro Access' : getButtonText().replace('Get Zavi for', 'Start Pro on').replace('Download for', 'Start Pro on')}
+                      {getButtonText().includes('Try')
+                        ? 'Get Pro Access'
+                        : getButtonText()
+                            .replace('Get Zavi for', 'Start Pro on')
+                            .replace('Download for', 'Start Pro on')}
                     </motion.button>
-
-
                   </div>
                 </GlowCard>
               </motion.div>
 
               {/* Teams Plan */}
               <motion.div variants={fadeUp}>
-                <GlowCard glowColor="rgba(0, 0, 0, 0.03)" className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-1">Teams</h3>
-                  <p className="text-sm font-medium text-gray-500 mb-2">Recommended for: Growing companies</p>
+                <GlowCard
+                  glowColor="rgba(0, 0, 0, 0.03)"
+                  className="relative rounded-3xl p-8 bg-gray-50/50 border border-gray-200 shadow-sm h-full flex flex-col"
+                >
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    Teams
+                  </h3>
+                  <p className="text-sm font-medium text-gray-500 mb-2">
+                    Recommended for: Growing companies
+                  </p>
                   <div className="mb-4">
                     <div className="text-4xl font-bold text-[#1a1a1a]">
                       ${billingCycle === 'monthly' ? '9.99' : '79.99'}
                     </div>
                     <div className="text-gray-600 text-sm">
-                      {billingCycle === 'monthly' ? 'per seat / month' : 'per seat / year'}
+                      {billingCycle === 'monthly'
+                        ? 'per seat / month'
+                        : 'per seat / year'}
                     </div>
                     {billingCycle === 'annual' && (
                       <div className="text-gray-600 text-xs mt-1">
@@ -600,61 +901,147 @@ export default function PricingNew() {
                       </div>
                     )}
                   </div>
-                  <p className="text-gray-600 mb-6">Communicate faster as a team</p>
+                  <p className="text-gray-600 mb-6">
+                    Communicate faster as a team
+                  </p>
 
                   <ul className="space-y-4 mb-8 flex-grow">
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Unlimited Voice Typing</span>
-                        <span className="block text-sm text-gray-600">No daily word limits for any team member</span>
+                        <span className="block font-semibold text-gray-900">
+                          Unlimited Voice Typing
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          No daily word limits for any team member
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Everything in Pro</span>
-                        <span className="block text-sm text-gray-600">All Superpowers, Magic Wand, & Commands</span>
+                        <span className="block font-semibold text-gray-900">
+                          Everything in Pro
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          All Superpowers, Magic Wand, & Commands
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Brand Voice</span>
-                        <span className="block text-sm text-gray-600">Stay consistent across all team messages</span>
+                        <span className="block font-semibold text-gray-900">
+                          Brand Voice
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Stay consistent across all team messages
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Productivity Analytics</span>
-                        <span className="block text-sm text-gray-600">Track and measure team time savings</span>
+                        <span className="block font-semibold text-gray-900">
+                          Productivity Analytics
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Track and measure team time savings
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Centralized Admin</span>
-                        <span className="block text-sm text-gray-600">Simple user management and unified billing</span>
+                        <span className="block font-semibold text-gray-900">
+                          Centralized Admin
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Simple user management and unified billing
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path
+                          d="M5 13l4 4L19 7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <div>
-                        <span className="block font-semibold text-gray-900">Priority Support</span>
-                        <span className="block text-sm text-gray-600">Get dedicated help when your team needs it</span>
+                        <span className="block font-semibold text-gray-900">
+                          Priority Support
+                        </span>
+                        <span className="block text-sm text-gray-600">
+                          Get dedicated help when your team needs it
+                        </span>
                       </div>
                     </li>
                   </ul>
@@ -664,7 +1051,11 @@ export default function PricingNew() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
-                      analytics.track('pricing_plan_click', { plan: 'teams_trial', billing_cycle: billingCycle, is_android: isAndroid });
+                      analytics.track('pricing_plan_click', {
+                        plan: 'teams_trial',
+                        billing_cycle: billingCycle,
+                        is_android: isAndroid,
+                      });
                     }}
                     className="block w-full px-6 py-4 rounded-xl font-semibold text-center text-gray-900 bg-white border border-gray-300 shadow-sm hover:border-gray-500 hover:bg-gray-50 transition-all mb-3 mt-auto"
                     initial="rest"
@@ -675,14 +1066,22 @@ export default function PricingNew() {
                     Book a Team Demo
                   </motion.a>
 
-                  <p className="text-center text-gray-600 text-sm">Billed annually · Volume discounts available</p>
+                  <p className="text-center text-gray-600 text-sm">
+                    Billed annually · Volume discounts available
+                  </p>
                 </GlowCard>
               </motion.div>
             </motion.div>
 
             {/* Footnote */}
             <div className="text-center mb-16">
-              <p className="text-gray-500 text-sm">* Subject to fair usage policy. See <a href="/terms" className="underline hover:text-gray-700">Terms and Conditions</a>.</p>
+              <p className="text-gray-500 text-sm">
+                * Subject to fair usage policy. See{' '}
+                <a href="/terms" className="underline hover:text-gray-700">
+                  Terms and Conditions
+                </a>
+                .
+              </p>
             </div>
 
             {/* Enterprise Section */}
@@ -690,16 +1089,24 @@ export default function PricingNew() {
               className="max-w-5xl mx-auto rounded-3xl p-12 text-center shadow-sm border border-gray-200 bg-gray-50 mb-16"
               variants={fadeUp}
             >
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Enterprise-grade voice infrastructure</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                Enterprise-grade voice infrastructure
+              </h3>
               <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                SSO, SOC2, audit logs, data residency, custom integrations, and dedicated support — built for organizations that need voice at scale.
+                SSO, SOC2, audit logs, data residency, custom integrations, and
+                dedicated support. Built for organizations that need voice at
+                scale.
               </p>
               <motion.a
                 href="https://calendly.com/raman-zavivoice/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
-                  analytics.track('pricing_plan_click', { plan: 'enterprise', billing_cycle: billingCycle, is_android: isAndroid });
+                  analytics.track('pricing_plan_click', {
+                    plan: 'enterprise',
+                    billing_cycle: billingCycle,
+                    is_android: isAndroid,
+                  });
                 }}
                 className="inline-flex px-10 py-4 rounded-xl font-semibold bg-gray-900 text-white shadow-sm hover:bg-gray-800 transition-all border-none outline-none"
                 initial="rest"
@@ -716,10 +1123,11 @@ export default function PricingNew() {
         {/* Bottom Tagline */}
         <div className="text-center mt-16">
           <p className="text-2xl md:text-3xl text-[#1a1a1a] font-medium">
-            Stop typing. <span className="font-bold">Start delegating.</span> Your personal Jarvis is one install away.
+            Stop typing. <span className="font-bold">Start delegating.</span>{' '}
+            Your personal Jarvis is one install away.
           </p>
         </div>
-      </section >
+      </section>
 
       {/* Email Modal */}
       {showEmailModal && (
@@ -747,8 +1155,18 @@ export default function PricingNew() {
             <div className="p-8">
               {/* Icon */}
               <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 flex items-center justify-center shadow-lg">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <svg
+                  className="w-7 h-7 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
               </div>
 
@@ -756,7 +1174,8 @@ export default function PricingNew() {
                 Enter your email
               </h3>
               <p className="text-center text-gray-500 text-sm mb-6">
-                Use the same email as your Zavi account so we can activate Pro on your device.
+                Use the same email as your Zavi account so we can activate Pro
+                on your device.
               </p>
 
               {/* Email input */}
@@ -773,15 +1192,24 @@ export default function PricingNew() {
                     if (e.key === 'Enter') handleEmailSubmit();
                   }}
                   placeholder="you@example.com"
-                  className={`w-full px-4 py-3.5 rounded-xl border-2 text-gray-900 placeholder-gray-400 outline-none transition-all text-base ${emailError
-                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-100'
-                    : 'border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
-                    }`}
+                  className={`w-full px-4 py-3.5 rounded-xl border-2 text-gray-900 placeholder-gray-400 outline-none transition-all text-base ${
+                    emailError
+                      ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-100'
+                      : 'border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+                  }`}
                 />
                 {emailError && (
                   <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {emailError}
                   </p>
@@ -808,13 +1236,25 @@ export default function PricingNew() {
               </div>
 
               {paymentStep && (
-                <p className="mt-4 text-center text-sm text-blue-600">{paymentStep}</p>
+                <p className="mt-4 text-center text-sm text-blue-600">
+                  {paymentStep}
+                </p>
               )}
 
               {/* Security note */}
               <p className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
                 </svg>
                 Secure payment powered by Razorpay
               </p>
@@ -842,31 +1282,60 @@ export default function PricingNew() {
             className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden"
           >
             {/* Header bar */}
-            <div className={`h-1.5 ${resultType === 'success'
-              ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-green-500'
-              : 'bg-gradient-to-r from-orange-500 via-red-500 to-orange-500'
-              }`} />
+            <div
+              className={`h-1.5 ${
+                resultType === 'success'
+                  ? 'bg-gradient-to-r from-green-500 via-emerald-500 to-green-500'
+                  : 'bg-gradient-to-r from-orange-500 via-red-500 to-orange-500'
+              }`}
+            />
 
             <div className="p-8">
               {/* Icon */}
-              <div className={`w-16 h-16 mx-auto mb-5 rounded-full flex items-center justify-center ${resultType === 'success'
-                ? 'bg-green-100'
-                : 'bg-orange-100'
-                }`}>
+              <div
+                className={`w-16 h-16 mx-auto mb-5 rounded-full flex items-center justify-center ${
+                  resultType === 'success' ? 'bg-green-100' : 'bg-orange-100'
+                }`}
+              >
                 {resultType === 'success' ? (
-                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-8 h-8 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 ) : (
-                  <svg className="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  <svg
+                    className="w-8 h-8 text-orange-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"
+                    />
                   </svg>
                 )}
               </div>
 
-              <h3 className={`text-2xl font-bold text-center mb-2 ${resultType === 'success' ? 'text-gray-900' : 'text-gray-900'
-                }`}>
-                {resultType === 'success' ? '🎉 Payment Successful!' : 'Something went wrong'}
+              <h3
+                className={`text-2xl font-bold text-center mb-2 ${
+                  resultType === 'success' ? 'text-gray-900' : 'text-gray-900'
+                }`}
+              >
+                {resultType === 'success'
+                  ? '🎉 Payment Successful!'
+                  : 'Something went wrong'}
               </h3>
 
               <p className="text-center text-gray-600 text-sm mb-6">
@@ -876,17 +1345,21 @@ export default function PricingNew() {
               {resultPaymentId && (
                 <div className="bg-gray-50 rounded-xl p-3 mb-6">
                   <p className="text-xs text-gray-500 text-center">
-                    Payment ID: <span className="font-mono text-gray-700">{resultPaymentId}</span>
+                    Payment ID:{' '}
+                    <span className="font-mono text-gray-700">
+                      {resultPaymentId}
+                    </span>
                   </p>
                 </div>
               )}
 
               <button
                 onClick={() => setShowResultModal(false)}
-                className={`w-full px-5 py-3.5 rounded-xl font-semibold text-white transition-all ${resultType === 'success'
-                  ? 'bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 shadow-lg shadow-green-500/25'
-                  : 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25'
-                  }`}
+                className={`w-full px-5 py-3.5 rounded-xl font-semibold text-white transition-all ${
+                  resultType === 'success'
+                    ? 'bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 shadow-lg shadow-green-500/25'
+                    : 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 shadow-lg shadow-blue-500/25'
+                }`}
               >
                 {resultType === 'success' ? 'Got it!' : 'Close'}
               </button>

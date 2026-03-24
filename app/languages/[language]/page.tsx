@@ -8,6 +8,8 @@ import {
   languages,
   getLanguage,
   getAllLanguageSlugs,
+  type LanguageFAQ,
+  type LanguagePageData,
 } from '@/lib/languageData';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -26,11 +28,11 @@ export async function generateMetadata({
   if (!data) return {};
 
   return {
-    title: `Voice Typing in ${data.language} — AI Speech to Text | Zavi AI`,
+    title: `Voice Typing in ${data.language}: AI Speech to Text: Zavi AI`,
     description: `Use Zavi AI for ${data.language} voice typing and speech-to-text. ${data.intro.slice(0, 130)}`,
     alternates: { canonical: `https://zavivoice.com/languages/${data.slug}` },
     openGraph: {
-      title: `${data.language} Voice Typing — Zavi AI`,
+      title: `${data.language} Voice Typing: Zavi AI`,
       description: `AI-powered voice typing for ${data.language}. ${data.description}`,
       url: `https://zavivoice.com/languages/${data.slug}`,
       images: [
@@ -39,7 +41,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${data.language} Voice Typing — Zavi AI`,
+      title: `${data.language} Voice Typing: Zavi AI`,
       description: `AI-powered voice typing for ${data.language}. ${data.description}`,
     },
   };
@@ -66,7 +68,7 @@ export default async function LanguagePage({
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: data.faq.map((item) => ({
+    mainEntity: data.faq.map((item: LanguageFAQ) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
@@ -125,7 +127,7 @@ export default async function LanguagePage({
           </nav>
         </div>
 
-        {/* Hero — unique intro per language */}
+        {/* Hero, unique intro per language */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
           <div className="text-center">
             <p className="text-6xl mb-4">{data.nativeName}</p>
@@ -196,7 +198,7 @@ export default async function LanguagePage({
             for {data.language} speakers:
           </p>
           <div className="space-y-4">
-            {data.challenges.map((challenge, i) => (
+            {data.challenges.map((challenge: string, i: number) => (
               <div
                 key={i}
                 className="flex gap-4 items-start bg-gray-50 rounded-xl p-5"
@@ -216,18 +218,20 @@ export default async function LanguagePage({
             How People Use Zavi for {data.language}
           </h2>
           <div className="grid md:grid-cols-1 gap-6">
-            {data.useCases.map((useCase, i) => (
+            {data.useCases.map(
+              (useCase: { title: string; text: string }, i: number) => (
               <div key={i} className="border border-gray-200 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {useCase.title}
                 </h3>
                 <p className="text-gray-600">{useCase.text}</p>
               </div>
-            ))}
+              )
+            )}
           </div>
         </div>
 
-        {/* How It Works — brief, language-specific */}
+        {/* How It Works, brief, language-specific */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             How {data.language} Voice Typing Works
@@ -243,7 +247,7 @@ export default async function LanguagePage({
                 </h3>
                 <p className="text-gray-600">
                   Open any app and tap the microphone on your Zavi keyboard.
-                  Speak naturally in {data.language} ({data.nativeName}) —
+                  Speak naturally in {data.language} ({data.nativeName}),
                   don&apos;t worry about fillers, pauses, or getting every word
                   perfect.
                 </p>
@@ -260,7 +264,7 @@ export default async function LanguagePage({
                 <p className="text-gray-600">
                   Zavi&apos;s Zero-Prompting AI removes filler words, corrects
                   grammar, adds punctuation, and handles {data.language}
-                  -specific formatting — including{' '}
+                  -specific formatting, including{' '}
                   {data.scriptInfo.toLowerCase()}.
                 </p>
               </div>
@@ -283,13 +287,13 @@ export default async function LanguagePage({
           </div>
         </div>
 
-        {/* FAQ — unique per language (also adds FAQPage schema) */}
+        {/* FAQ, unique per language (also adds FAQPage schema) */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             {data.language} Voice Typing FAQ
           </h2>
           <div className="space-y-4">
-            {data.faq.map((item, i) => (
+            {data.faq.map((item: LanguageFAQ, i: number) => (
               <details
                 key={i}
                 className="group border border-gray-200 rounded-xl overflow-hidden"
@@ -334,9 +338,9 @@ export default async function LanguagePage({
           </h2>
           <div className="flex flex-wrap gap-3">
             {languages
-              .filter((l) => l.slug !== data.slug)
+              .filter((l: LanguagePageData) => l.slug !== data.slug)
               .slice(0, 15)
-              .map((lang) => (
+              .map((lang: LanguagePageData) => (
                 <Link
                   key={lang.slug}
                   href={`/languages/${lang.slug}`}

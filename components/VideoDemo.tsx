@@ -33,14 +33,14 @@ export default function VideoDemo() {
               See Zavi in action
             </h2>
             <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto font-medium">
-              Watch how a messy, rambling voice note becomes a polished professional email in under a second.
+              Watch how a messy, rambling voice note becomes a polished
+              professional email in under a second.
             </p>
           </motion.div>
 
           {/* Video Player Container */}
           <motion.div variants={fadeUp} className="relative">
             <div className="relative aspect-video w-full max-w-5xl mx-auto bg-gray-900 rounded-2xl md:rounded-[1.5rem] shadow-2xl overflow-hidden">
-
               {!isPlaying ? (
                 /* Thumbnail / Play Button State */
                 <div
@@ -85,7 +85,7 @@ export default function VideoDemo() {
                   </div>
                 </div>
               ) : (
-                /* YouTube Iframe State — full player */
+                /* YouTube Iframe State, full player */
                 <iframe
                   src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&controls=1&showinfo=0&modestbranding=1`}
                   title="Zavi Demo Video"
@@ -104,12 +104,31 @@ export default function VideoDemo() {
           >
             {[
               { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'Real-Time' },
-              { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Natural Speech' },
-              { icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Works Everywhere' },
+              {
+                icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+                label: 'Natural Speech',
+              },
+              {
+                icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                label: 'Works Everywhere',
+              },
             ].map((item) => (
-              <span key={item.label} className="inline-flex items-center gap-1.5 px-3 py-2 bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full text-xs font-semibold text-blue-700 shadow-sm">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+              <span
+                key={item.label}
+                className="inline-flex items-center gap-1.5 px-3 py-2 bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full text-xs font-semibold text-blue-700 shadow-sm"
+              >
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d={item.icon}
+                  />
                 </svg>
                 {item.label}
               </span>

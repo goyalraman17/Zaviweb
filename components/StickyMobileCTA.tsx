@@ -27,14 +27,20 @@ export default function StickyMobileCTA() {
         >
           <div className="bg-white/95 backdrop-blur-lg border-t border-gray-200 px-4 py-3 flex items-center gap-3">
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold text-[#0a0a0a] truncate">Zavi AI</p>
-              <p className="text-[10px] text-gray-500 truncate">Free — no credit card</p>
+              <p className="text-xs font-bold text-[#0a0a0a] truncate">
+                Zavi AI
+              </p>
+              <p className="text-[10px] text-gray-500 truncate">
+                Free, no credit card
+              </p>
             </div>
             <a
               href="/#download"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+                document
+                  .getElementById('download')
+                  ?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="flex-shrink-0 px-5 py-2.5 text-xs font-bold text-white bg-[#0a0a0a] rounded-lg"
             >

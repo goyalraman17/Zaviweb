@@ -7,6 +7,8 @@ import {
   comparisons,
   getComparison,
   getAllComparisonSlugs,
+  type ComparisonData,
+  type ComparisonFeature,
 } from '@/lib/comparisonData';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -66,14 +68,18 @@ export default async function ComparisonPage({
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: data.faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: { '@type': 'Answer', text: item.answer },
-    })),
+    mainEntity: data.faqItems.map(
+      (item: { question: string; answer: string }) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })
+    ),
   };
 
-  const otherComparisons = comparisons.filter((c) => c.slug !== data.slug);
+  const otherComparisons: ComparisonData[] = comparisons.filter(
+    (c) => c.slug !== data.slug
+  );
   const topHighlights = [
     { label: 'Platforms', value: 'iOS, Android, macOS, Windows, Linux' },
     { label: 'Connected apps', value: '27+ integrations across work tools' },
@@ -129,7 +135,7 @@ export default async function ComparisonPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-14">
           <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8">
             <h2 className="text-xl font-bold text-blue-900 mb-3">
-              ⚡ TL;DR — Zavi AI vs {data.competitorName}
+              ⚡ TL;DR, Zavi AI vs {data.competitorName}
             </h2>
             <p className="text-blue-800 text-lg font-medium mb-4">
               {data.verdict}
@@ -198,7 +204,7 @@ export default async function ComparisonPage({
                 </tr>
               </thead>
               <tbody>
-                {data.features.map((feature, i) => (
+                {data.features.map((feature: ComparisonFeature, i: number) => (
                   <tr
                     key={feature.name}
                     className={`border-b border-gray-100 ${i % 2 === 0 ? 'bg-gray-50/50' : ''}`}
@@ -234,7 +240,7 @@ export default async function ComparisonPage({
                 ✅ Why Choose Zavi AI
               </h3>
               <ul className="space-y-3">
-                {data.zaviAdvantages.map((adv) => (
+                {data.zaviAdvantages.map((adv: string) => (
                   <li key={adv} className="flex items-start gap-3">
                     <span className="text-green-600 mt-0.5 shrink-0">•</span>
                     <span className="text-green-800 text-sm">{adv}</span>
@@ -247,7 +253,7 @@ export default async function ComparisonPage({
                 🔹 Why Choose {data.competitorName}
               </h3>
               <ul className="space-y-3">
-                {data.competitorAdvantages.map((adv) => (
+                {data.competitorAdvantages.map((adv: string) => (
                   <li key={adv} className="flex items-start gap-3">
                     <span className="text-gray-500 mt-0.5 shrink-0">•</span>
                     <span className="text-gray-700 text-sm">{adv}</span>
@@ -258,7 +264,7 @@ export default async function ComparisonPage({
           </div>
         </div>
 
-        {/* The Bigger Picture — Voice AGI thesis */}
+        {/* The Bigger Picture, Voice AGI thesis */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-14">
           <div className="bg-gray-900 rounded-2xl p-8 sm:p-10 text-white">
             <h2 className="text-2xl font-bold mb-4">
@@ -279,7 +285,7 @@ export default async function ComparisonPage({
               prompts instead of expressing intent.
             </p>
             <p className="text-gray-300">
-              Zavi doesn&apos;t just improve one step — it replaces the entire
+              Zavi doesn&apos;t just improve one step, it replaces the entire
               interaction model.{' '}
               <strong className="text-white">
                 Speak naturally. AI infers intent. Execution follows
@@ -317,24 +323,26 @@ export default async function ComparisonPage({
             {data.competitorName} vs Zavi AI: FAQ
           </h2>
           <div className="space-y-3">
-            {data.faqItems.map((item, i) => (
-              <details
-                key={i}
-                className="group border border-gray-200 rounded-xl overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer hover:bg-gray-50 transition-colors">
-                  <h3 className="font-semibold text-gray-900 text-left">
-                    {item.question}
-                  </h3>
-                  <span className="text-gray-400 group-open:rotate-45 transition-transform text-xl shrink-0">
-                    +
-                  </span>
-                </summary>
-                <div className="px-5 pb-5 text-gray-600 leading-relaxed">
-                  {item.answer}
-                </div>
-              </details>
-            ))}
+            {data.faqItems.map(
+              (item: { question: string; answer: string }, i: number) => (
+                <details
+                  key={i}
+                  className="group border border-gray-200 rounded-xl overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer hover:bg-gray-50 transition-colors">
+                    <h3 className="font-semibold text-gray-900 text-left">
+                      {item.question}
+                    </h3>
+                    <span className="text-gray-400 group-open:rotate-45 transition-transform text-xl shrink-0">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-gray-600 leading-relaxed">
+                    {item.answer}
+                  </div>
+                </details>
+              )
+            )}
           </div>
         </div>
 
@@ -365,13 +373,13 @@ export default async function ComparisonPage({
           </div>
         </div>
 
-        {/* Other Comparisons — internal linking for SEO */}
+        {/* Other Comparisons, internal linking for SEO */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Compare Zavi AI to Other Tools
           </h2>
           <div className="grid sm:grid-cols-3 gap-3">
-            {otherComparisons.map((comp) => (
+            {otherComparisons.map((comp: ComparisonData) => (
               <Link
                 key={comp.slug}
                 href={`/compare/${comp.slug}`}

@@ -51,33 +51,33 @@ export default function StickyDownloadCTA() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="pointer-events-none fixed bottom-8 left-0 z-[9990] hidden w-full justify-center px-4 md:flex">
+        <div className="pointer-events-none fixed bottom-6 left-1/2 z-[9990] hidden w-full -translate-x-1/2 justify-center px-4 md:flex">
           <motion.div
             initial={{ y: 80, opacity: 0, scale: 0.9 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 80, opacity: 0, scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            className="pointer-events-auto w-full md:w-auto md:min-w-[480px]"
+            className="pointer-events-auto w-full max-w-[420px] md:w-auto"
           >
-            <div className="bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_8px_32px_rgba(37,99,235,0.15)] rounded-full p-1.5 md:p-2.5 flex flex-row items-center justify-between gap-2 md:gap-4">
+            <div className="flex items-center gap-2 rounded-full border border-white/60 bg-white/80 p-1.5 shadow-[0_8px_32px_rgba(37,99,235,0.15)] backdrop-blur-2xl md:gap-2.5 md:p-2">
               {/* Social Proof / Mini Info (Desktop Only) */}
-              <div className="hidden md:flex items-center pl-4 pr-2 space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-blue-600 shadow-sm">
+              <div className="hidden items-center space-x-2.5 pl-3 pr-1 xl:flex">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50 text-blue-600 shadow-sm">
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
-                    strokeWidth={2.25}
+                    strokeWidth={2}
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M12 18v3m0 0a9 9 0 109-9m-9 9A9 9 0 013 12m9 9V11m0 0a3 3 0 100-6 3 3 0 000 6z"
+                      d="M12 4a3 3 0 00-3 3v4a3 3 0 006 0V7a3 3 0 00-3-3zm5 7a5 5 0 01-10 0M12 16v4m-3 0h6"
                     />
                   </svg>
                 </div>
-                <div className="text-xs font-semibold leading-tight text-slate-600">
+                <div className="text-[11px] font-semibold leading-tight text-slate-600">
                   <span className="text-sm font-bold text-blue-600">
                     5 platforms
                   </span>
@@ -89,7 +89,7 @@ export default function StickyDownloadCTA() {
               {/* CTA Button */}
               <button
                 onClick={handleDownload}
-                className="flex-1 md:flex-none relative overflow-hidden bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold py-2.5 md:py-3 px-4 md:px-8 rounded-full shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)] hover:scale-[1.02] transition-all flex items-center justify-center md:justify-between group text-sm md:text-base"
+                className="group relative flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 text-sm font-bold text-white shadow-[0_4px_14px_rgba(37,99,235,0.3)] transition-all hover:scale-[1.02] hover:shadow-[0_6px_20px_rgba(37,99,235,0.4)] md:px-7"
               >
                 {/* Shimmer Effect */}
                 <motion.div
@@ -100,7 +100,7 @@ export default function StickyDownloadCTA() {
                 <span className="relative z-10 whitespace-nowrap tracking-wide">
                   {ctaLabel}
                 </span>
-                <div className="ml-3 bg-white/20 p-1.5 rounded-full relative z-10 transition-transform group-hover:translate-x-1 hidden md:block">
+                <div className="relative z-10 ml-3 hidden rounded-full bg-white/20 p-1.5 transition-transform group-hover:translate-x-1 md:block">
                   <svg
                     className="w-4 h-4"
                     fill="none"
