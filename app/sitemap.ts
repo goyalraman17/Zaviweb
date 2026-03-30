@@ -157,6 +157,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
       changeFrequency: 'monthly' as const,
     },
+    {
+      path: '/ef',
+      source: 'app/ef/page.tsx',
+      priority: 0.5,
+      changeFrequency: 'monthly' as const,
+    },
   ];
 
   const staticUrls = staticRoutes.map((route) => ({
