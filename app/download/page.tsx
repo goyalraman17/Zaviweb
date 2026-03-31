@@ -6,6 +6,7 @@ import {
   generateBreadcrumbSchema,
   softwareApplicationSchema,
 } from '@/lib/schemaData';
+import { DESKTOP_RELEASE_VERSION } from '@/lib/desktopBuilds';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -61,8 +62,8 @@ const platforms = [
       </svg>
     ),
     req: 'macOS 12+',
-    cta: 'Download .dmg',
-    href: '/Zavi_AI.dmg',
+    cta: 'Choose build',
+    href: '/download/macos',
   },
   {
     name: 'Windows',
@@ -72,8 +73,8 @@ const platforms = [
       </svg>
     ),
     req: 'Windows 10+',
-    cta: 'Download .exe',
-    href: '/downloads/Zavi_Windows.exe',
+    cta: 'View installer',
+    href: '/download/windows',
   },
   {
     name: 'Linux',
@@ -83,8 +84,8 @@ const platforms = [
       </svg>
     ),
     req: 'Ubuntu 20.04+',
-    cta: 'Download .deb',
-    href: '/downloads/Zavi_Linux.deb',
+    cta: 'Choose build',
+    href: '/download/linux',
   },
 ];
 
@@ -233,6 +234,10 @@ export default function DownloadPage() {
                 </svg>
                 No credit card
               </span>
+            </div>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
+              <span className="h-2 w-2 rounded-full bg-blue-500" />
+              Desktop builds updated to v{DESKTOP_RELEASE_VERSION}
             </div>
           </div>
 

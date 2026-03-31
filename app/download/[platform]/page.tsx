@@ -5,17 +5,27 @@ import {
   generateBreadcrumbSchema,
   softwareApplicationSchema,
 } from '@/lib/schemaData';
+import {
+  DESKTOP_BUILD_ARTIFACTS,
+  DESKTOP_RELEASE_VERSION,
+} from '@/lib/desktopBuilds';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+
+interface DownloadOption {
+  href: string;
+  label: string;
+  helperText?: string;
+}
 
 const platformData: Record<
   string,
   {
     name: string;
     fullName: string;
-    downloadUrl: string;
-    extension: string;
+    downloadOptions: DownloadOption[];
     requirement: string;
+    versionLabel: string;
     steps: string[];
     metaTitle: string;
     metaDescription: string;
@@ -26,11 +36,22 @@ const platformData: Record<
   macos: {
     name: 'macOS',
     fullName: 'Apple Mac (Intel & Apple Silicon)',
-    downloadUrl: '/Zavi_AI.dmg',
-    extension: '.dmg',
+    downloadOptions: [
+      {
+        href: DESKTOP_BUILD_ARTIFACTS['macos-apple-silicon'].internalPath,
+        label: 'Apple Silicon (.dmg)',
+        helperText: 'Best for M1, M2, M3, and M4 Macs.',
+      },
+      {
+        href: DESKTOP_BUILD_ARTIFACTS['macos-intel'].internalPath,
+        label: 'Intel (.dmg)',
+        helperText: 'Use this if your Mac has an Intel processor.',
+      },
+    ],
     requirement: 'macOS 12+',
+    versionLabel: `Latest desktop build (v${DESKTOP_RELEASE_VERSION})`,
     steps: [
-      'Download the Zavi.dmg file',
+      'Choose the Apple Silicon or Intel build for your Mac',
       'Double-click to open and drag Zavi to Applications',
       'Open Zavi and follow the accessibility setup',
       'Start speaking into any app!',
@@ -46,11 +67,16 @@ const platformData: Record<
   windows: {
     name: 'Windows',
     fullName: 'Microsoft Windows (x64)',
-    downloadUrl: '/downloads/Zavi_Windows.exe',
-    extension: '.exe',
+    downloadOptions: [
+      {
+        href: DESKTOP_BUILD_ARTIFACTS['windows-installer'].internalPath,
+        label: 'Windows Installer (.exe)',
+      },
+    ],
     requirement: 'Windows 10+',
+    versionLabel: `Latest desktop build (v${DESKTOP_RELEASE_VERSION})`,
     steps: [
-      'Download Zavi_Windows.exe',
+      'Download the Windows installer',
       'Run the installer and follow instructions',
       'Launch Zavi from your desktop or Start menu',
       'Use the shortcut key to start speaking',
@@ -66,12 +92,23 @@ const platformData: Record<
   linux: {
     name: 'Linux',
     fullName: 'Linux (.deb for Debian/Ubuntu)',
-    downloadUrl: '/downloads/Zavi_Linux.deb',
-    extension: '.deb',
+    downloadOptions: [
+      {
+        href: DESKTOP_BUILD_ARTIFACTS['linux-appimage'].internalPath,
+        label: 'AppImage',
+        helperText: 'Portable build for most modern Linux distributions.',
+      },
+      {
+        href: DESKTOP_BUILD_ARTIFACTS['linux-deb'].internalPath,
+        label: '.deb package',
+        helperText: 'Recommended for Ubuntu, Debian, Linux Mint, and Pop!_OS.',
+      },
+    ],
     requirement: 'Ubuntu 20.04+ / Debian',
+    versionLabel: `Latest desktop build (v${DESKTOP_RELEASE_VERSION})`,
     steps: [
-      'Download the .deb package',
-      'Install via Software Center or terminal: sudo dpkg -i Zavi_Linux.deb',
+      'Choose AppImage for a portable install or .deb for Debian/Ubuntu systems',
+      'Install via Software Center or terminal: sudo dpkg -i Zavi_1.10.0_amd64.deb',
       'Open Zavi from your applications menu',
       'Voice type in any Linux window',
     ],
@@ -87,10 +124,14 @@ const platformData: Record<
   ios: {
     name: 'iOS',
     fullName: 'iPhone & iPad',
-    downloadUrl:
-      'https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802',
-    extension: 'App Store',
+    downloadOptions: [
+      {
+        href: 'https://apps.apple.com/in/app/zavi-ai-voice-typing-keyboard/id6759040802',
+        label: 'App Store',
+      },
+    ],
     requirement: 'iOS 16.0+',
+    versionLabel: 'Live on the App Store',
     steps: [
       'Get Zavi from the Apple App Store',
       'Go to Settings > General > Keyboard',
@@ -109,10 +150,14 @@ const platformData: Record<
   android: {
     name: 'Android',
     fullName: 'Android Smartphones & Tablets',
-    downloadUrl:
-      'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
-    extension: 'Play Store',
+    downloadOptions: [
+      {
+        href: 'https://play.google.com/store/apps/details?id=com.pingpros.keyboard',
+        label: 'Google Play',
+      },
+    ],
     requirement: 'Android 8.0+',
+    versionLabel: 'Live on Google Play',
     steps: [
       'Get Zavi on Google Play',
       'Open the Zavi app and follow the setup',
@@ -158,10 +203,13 @@ export async function generateMetadata({
 
 export default async function PlatformDownloadPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ platform: string }>;
+  searchParams: Promise<{ installing?: string }>;
 }) {
   const { platform } = await params;
+  const { installing } = await searchParams;
   const data = platformData[platform?.toLowerCase()];
   if (!data) notFound();
 
@@ -170,8 +218,7 @@ export default async function PlatformDownloadPage({
     { name: 'Download', url: 'https://zavivoice.com/download' },
     { name: data.name, url: `https://zavivoice.com/download/${platform}` },
   ]);
-
-  const isExternalLink = data.downloadUrl.startsWith('http');
+  const hasMultipleDownloads = data.downloadOptions.length > 1;
 
   return (
     <>
@@ -209,6 +256,23 @@ export default async function PlatformDownloadPage({
             </p>
           </div>
 
+          {installing === '1' ? (
+            <div className="mb-10 rounded-3xl border border-emerald-200 bg-emerald-50 px-6 py-5 text-left shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-700">
+                Download Starting
+              </p>
+              <p className="mt-2 text-base font-medium text-slate-900">
+                Your {data.name} installer should start downloading
+                automatically.
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                If nothing happens, use the download button below. After the
+                file finishes downloading, follow the install steps on this
+                page.
+              </p>
+            </div>
+          ) : null}
+
           <div className="grid md:grid-cols-2 gap-12 items-start mb-20">
             {/* Download Card */}
             <div className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-blue-200/50 border border-slate-100">
@@ -219,26 +283,64 @@ export default async function PlatformDownloadPage({
                 Install Zavi
               </h2>
 
-              <a
-                href={data.downloadUrl}
-                className="inline-flex items-center justify-center gap-3 w-full py-5 bg-blue-600 text-white text-xl font-bold rounded-2xl shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:-translate-y-1 transition-all active:translate-y-0"
-                target={isExternalLink ? '_blank' : undefined}
-                rel={isExternalLink ? 'noopener noreferrer' : undefined}
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-                </svg>
-                {isExternalLink
-                  ? `Get it on ${data.extension}`
-                  : `Download ${data.extension}`}
-              </a>
+              <div className="space-y-3">
+                {data.downloadOptions.map((option, index) => {
+                  const isExternalLink = option.href.startsWith('http');
+
+                  return (
+                    <a
+                      key={option.label}
+                      href={option.href}
+                      className={`inline-flex items-center justify-center gap-3 w-full py-5 text-lg font-bold rounded-2xl transition-all active:translate-y-0 ${
+                        index === 0
+                          ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-700 hover:-translate-y-1'
+                          : 'border border-slate-200 bg-slate-50 text-slate-900 hover:border-blue-200 hover:bg-blue-50'
+                      }`}
+                      target={isExternalLink ? '_blank' : undefined}
+                      rel={isExternalLink ? 'noopener noreferrer' : undefined}
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                      </svg>
+                      {isExternalLink
+                        ? `Get it on ${option.label}`
+                        : `Download ${option.label}`}
+                    </a>
+                  );
+                })}
+              </div>
+
+              {hasMultipleDownloads ? (
+                <p className="mt-4 text-sm text-slate-500">
+                  Pick the build that matches your device. If you are not sure,
+                  start with the first option above.
+                </p>
+              ) : null}
+
+              {data.downloadOptions.some((option) => option.helperText) ? (
+                <div className="mt-4 space-y-2 rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                  {data.downloadOptions.map((option) =>
+                    option.helperText ? (
+                      <p
+                        key={`${option.label}-helper`}
+                        className="text-sm text-slate-600"
+                      >
+                        <span className="font-semibold text-slate-900">
+                          {option.label}:
+                        </span>{' '}
+                        {option.helperText}
+                      </p>
+                    ) : null
+                  )}
+                </div>
+              ) : null}
 
               <div className="mt-8 pt-8 border-t border-slate-100 space-y-4">
                 <div className="flex justify-between text-sm">
@@ -254,7 +356,7 @@ export default async function PlatformDownloadPage({
                     Version
                   </span>
                   <span className="text-slate-900 font-bold">
-                    Latest (v1.0.5)
+                    {data.versionLabel}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">

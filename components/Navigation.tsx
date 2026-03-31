@@ -11,6 +11,7 @@ import {
   hoverScaleSubtle,
 } from '@/lib/animations';
 import { detectPlatform, getDownloadLabel } from '@/lib/platform';
+import { handlePlatformDownloadFlow } from '@/lib/clientDownloadFlow';
 
 export default function Navigation() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
@@ -69,6 +70,16 @@ export default function Navigation() {
       detectedOS as Parameters<typeof getDownloadLabel>[0],
       {
         fallback: 'Try Zavi For Free',
+      }
+    );
+  };
+
+  const handleDownloadCta = () => {
+    handlePlatformDownloadFlow(
+      detectedOS as Parameters<typeof handlePlatformDownloadFlow>[0],
+      {
+        onBeforeNavigate: closeMobileMenu,
+        fallbackHref: '/#download',
       }
     );
   };
@@ -146,8 +157,9 @@ export default function Navigation() {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block relative">
-            <motion.a
-              href="/#download"
+            <motion.button
+              type="button"
+              onClick={handleDownloadCta}
               className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-lg transition-all shadow-sm"
               initial="rest"
               whileHover={{
@@ -160,7 +172,7 @@ export default function Navigation() {
               onMouseLeave={() => setShowDetectedTooltip(false)}
             >
               {getDownloadText()}
-            </motion.a>
+            </motion.button>
             {showDetectedTooltip && detectedOS !== 'Unknown' && (
               <motion.div
                 initial={{ opacity: 0, y: 5 }}
@@ -174,15 +186,16 @@ export default function Navigation() {
           </div>
 
           {/* CTA Button - Mobile (visible outside menu) */}
-          <motion.a
-            href="/#download"
+          <motion.button
+            type="button"
+            onClick={handleDownloadCta}
             className="md:hidden flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-lg transition-all shadow-sm mr-2"
             initial="rest"
             whileTap="tap"
             variants={ctaPrimary}
           >
             {getDownloadText()}
-          </motion.a>
+          </motion.button>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -243,16 +256,16 @@ export default function Navigation() {
             >
               <div className="max-w-screen-xl mx-auto px-4 py-4">
                 {/* CTA Button - First in menu */}
-                <motion.a
-                  href="/#download"
+                <motion.button
+                  type="button"
+                  onClick={handleDownloadCta}
                   className="block w-full px-6 py-3 text-center text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-500 rounded-lg transition-all mb-4 shadow-md"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 }}
-                  onClick={closeMobileMenu}
                 >
                   {getDownloadText()}
-                </motion.a>
+                </motion.button>
 
                 {/* Navigation Links */}
                 <div className="space-y-1">

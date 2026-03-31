@@ -2,6 +2,30 @@
 const nextConfig = {
   images: { unoptimized: true },
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/Zavi_AI.dmg',
+        destination: '/download/macos',
+        permanent: false,
+      },
+      {
+        source: '/downloads/Zavi_AI.dmg',
+        destination: '/download/macos',
+        permanent: false,
+      },
+      {
+        source: '/downloads/Zavi_Windows.exe',
+        destination: '/downloads/desktop/windows-installer',
+        permanent: false,
+      },
+      {
+        source: '/downloads/Zavi_Linux.deb',
+        destination: '/downloads/desktop/linux-deb',
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -99,6 +123,6 @@ const nextConfig = {
       },
     ];
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

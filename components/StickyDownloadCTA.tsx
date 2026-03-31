@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { analytics } from '@/lib/analytics';
 import { detectPlatform, getDownloadLabel } from '@/lib/platform';
+import { handlePlatformDownloadFlow } from '@/lib/clientDownloadFlow';
 
 export default function StickyDownloadCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,10 +43,12 @@ export default function StickyDownloadCTA() {
 
   const handleDownload = () => {
     analytics.track('cta_sticky_click');
-    const downloadSection = document.getElementById('download');
-    if (downloadSection) {
-      downloadSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    handlePlatformDownloadFlow(
+      detectedOS as Parameters<typeof handlePlatformDownloadFlow>[0],
+      {
+        fallbackHref: '/#download',
+      }
+    );
   };
 
   const ctaLabel = getDownloadLabel(
