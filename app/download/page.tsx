@@ -1,12 +1,14 @@
 import Navigation from '@/components/Navigation';
 import FAQ from '@/components/FAQ';
 import Link from 'next/link';
+import DownloadPlatformGrid from '@/components/DownloadPlatformGrid';
+import type { PlatformCard } from '@/components/DownloadPlatformGrid';
 import JsonLd from '@/components/SEO/JsonLd';
 import {
   generateBreadcrumbSchema,
   softwareApplicationSchema,
 } from '@/lib/schemaData';
-import { DESKTOP_RELEASE_VERSION } from '@/lib/desktopBuilds';
+import { getLatestDesktopRelease } from '@/lib/desktopBuilds';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-const platforms = [
+const platforms: PlatformCard[] = [
   {
     name: 'iOS',
     icon: (
@@ -131,7 +133,8 @@ const commands = [
   '"Text mom that I\'ll be home by 7."',
 ];
 
-export default function DownloadPage() {
+export default async function DownloadPage() {
+  const desktopRelease = await getLatestDesktopRelease();
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://zavivoice.com' },
     { name: 'Download', url: 'https://zavivoice.com/download' },
@@ -237,35 +240,12 @@ export default function DownloadPage() {
             </div>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
               <span className="h-2 w-2 rounded-full bg-blue-500" />
-              Desktop builds updated to v{DESKTOP_RELEASE_VERSION}
+              Desktop builds updated to v{desktopRelease.version}
             </div>
           </div>
 
           {/* Platform Grid, All 5 Equal */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-20">
-            {platforms.map((p) => (
-              <a
-                key={p.name}
-                href={p.href}
-                target={p.href.startsWith('http') ? '_blank' : undefined}
-                rel={
-                  p.href.startsWith('http') ? 'noopener noreferrer' : undefined
-                }
-                className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all text-center flex flex-col items-center"
-              >
-                <div className="text-gray-700 group-hover:text-blue-600 transition-colors mb-3">
-                  {p.icon}
-                </div>
-                <h2 className="text-lg font-bold text-[#0a0a0a] mb-1">
-                  {p.name}
-                </h2>
-                <p className="text-xs text-gray-400 mb-4">{p.req}</p>
-                <span className="mt-auto w-full py-3 px-4 rounded-xl text-sm font-bold bg-[#0a0a0a] text-white group-hover:bg-blue-600 transition-colors">
-                  {p.cta}
-                </span>
-              </a>
-            ))}
-          </div>
+          <DownloadPlatformGrid platforms={platforms} />
 
           {/* What You Can Say, Real Commands */}
           <div className="mb-20">

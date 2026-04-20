@@ -1,7 +1,7 @@
-export const DESKTOP_RELEASE_VERSION = '1.10.0';
-
 export const DESKTOP_RELEASE_BASE_URL =
   'https://storage.googleapis.com/zavi-releases';
+
+export const DESKTOP_RELEASE_FALLBACK_VERSION = '1.12.0';
 
 export type DesktopArtifactSlug =
   | 'macos-apple-silicon'
@@ -12,52 +12,56 @@ export type DesktopArtifactSlug =
 
 export type DesktopPlatformSlug = 'macos' | 'windows' | 'linux';
 
-interface DesktopArtifact {
-  fileName: string;
+interface DesktopArtifactDefinition {
+  fileTemplate: string;
   contentType: string;
   platform: DesktopPlatformSlug;
   internalPath: string;
+}
+
+export interface DesktopArtifact extends DesktopArtifactDefinition {
+  fileName: string;
   sourceUrl: string;
+}
+
+export interface DesktopReleaseMeta {
+  version: string;
+  pubDate?: string;
 }
 
 export const DESKTOP_BUILD_ARTIFACTS: Record<
   DesktopArtifactSlug,
-  DesktopArtifact
+  DesktopArtifactDefinition
 > = {
   'macos-apple-silicon': {
-    fileName: `Zavi_${DESKTOP_RELEASE_VERSION}_aarch64.dmg`,
+    fileTemplate: 'Zavi_{version}_aarch64.dmg',
     contentType: 'application/x-apple-diskimage',
     platform: 'macos',
     internalPath: '/downloads/desktop/macos-apple-silicon',
-    sourceUrl: `${DESKTOP_RELEASE_BASE_URL}/Zavi_${DESKTOP_RELEASE_VERSION}_aarch64.dmg`,
   },
   'macos-intel': {
-    fileName: `Zavi_${DESKTOP_RELEASE_VERSION}_x64.dmg`,
+    fileTemplate: 'Zavi_{version}_x64.dmg',
     contentType: 'application/x-apple-diskimage',
     platform: 'macos',
     internalPath: '/downloads/desktop/macos-intel',
-    sourceUrl: `${DESKTOP_RELEASE_BASE_URL}/Zavi_${DESKTOP_RELEASE_VERSION}_x64.dmg`,
   },
   'windows-installer': {
-    fileName: `Zavi_${DESKTOP_RELEASE_VERSION}_x64-setup.exe`,
+    fileTemplate: 'Zavi_{version}_x64-setup.exe',
     contentType: 'application/x-msdownload',
     platform: 'windows',
     internalPath: '/downloads/desktop/windows-installer',
-    sourceUrl: `${DESKTOP_RELEASE_BASE_URL}/Zavi_${DESKTOP_RELEASE_VERSION}_x64-setup.exe`,
   },
   'linux-appimage': {
-    fileName: `Zavi_${DESKTOP_RELEASE_VERSION}_amd64.AppImage`,
+    fileTemplate: 'Zavi_{version}_amd64.AppImage',
     contentType: 'application/octet-stream',
     platform: 'linux',
     internalPath: '/downloads/desktop/linux-appimage',
-    sourceUrl: `${DESKTOP_RELEASE_BASE_URL}/Zavi_${DESKTOP_RELEASE_VERSION}_amd64.AppImage`,
   },
   'linux-deb': {
-    fileName: `Zavi_${DESKTOP_RELEASE_VERSION}_amd64.deb`,
+    fileTemplate: 'Zavi_{version}_amd64.deb',
     contentType: 'application/vnd.debian.binary-package',
     platform: 'linux',
     internalPath: '/downloads/desktop/linux-deb',
-    sourceUrl: `${DESKTOP_RELEASE_BASE_URL}/Zavi_${DESKTOP_RELEASE_VERSION}_amd64.deb`,
   },
 };
 
@@ -71,4 +75,44 @@ export function isDesktopArtifactSlug(
   value: string
 ): value is DesktopArtifactSlug {
   return value in DESKTOP_BUILD_ARTIFACTS;
+}
+
+export function resolveDesktopArtifact(
+  artifact: DesktopArtifactSlug,
+  version = DESKTOP_RELEASE_FALLBACK_VERSION
+): DesktopArtifact {
+  const build = DESKTOP_BUILD_ARTIFACTS[artifact];
+  const fileName = build.fileTemplate.replace('{version}', version);
+
+  return {
+    ...build,
+    fileName,
+    sourceUrl: `${DESKTOP_RELEASE_BASE_URL}/${fileName}`,
+  };
+}
+
+export async function getLatestDesktopRelease(): Promise<DesktopReleaseMeta> {
+  try {
+    const response = await fetch(`${DESKTOP_RELEASE_BASE_URL}/latest.json`, {
+      next: { revalidate: 300 },
+    });
+
+    if (!response.ok) {
+      throw new Error(`latest.json returned ${response.status}`);
+    }
+
+    const data = (await response.json()) as {
+      version?: string;
+      pub_date?: string;
+    };
+
+    return {
+      version: data.version || DESKTOP_RELEASE_FALLBACK_VERSION,
+      pubDate: data.pub_date,
+    };
+  } catch {
+    return {
+      version: DESKTOP_RELEASE_FALLBACK_VERSION,
+    };
+  }
 }

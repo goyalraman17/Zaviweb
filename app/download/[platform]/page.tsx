@@ -7,7 +7,7 @@ import {
 } from '@/lib/schemaData';
 import {
   DESKTOP_BUILD_ARTIFACTS,
-  DESKTOP_RELEASE_VERSION,
+  getLatestDesktopRelease,
 } from '@/lib/desktopBuilds';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -49,7 +49,7 @@ const platformData: Record<
       },
     ],
     requirement: 'macOS 12+',
-    versionLabel: `Latest desktop build (v${DESKTOP_RELEASE_VERSION})`,
+    versionLabel: 'Latest desktop build',
     steps: [
       'Choose the Apple Silicon or Intel build for your Mac',
       'Double-click to open and drag Zavi to Applications',
@@ -74,7 +74,7 @@ const platformData: Record<
       },
     ],
     requirement: 'Windows 10+',
-    versionLabel: `Latest desktop build (v${DESKTOP_RELEASE_VERSION})`,
+    versionLabel: 'Latest desktop build',
     steps: [
       'Download the Windows installer',
       'Run the installer and follow instructions',
@@ -105,7 +105,7 @@ const platformData: Record<
       },
     ],
     requirement: 'Ubuntu 20.04+ / Debian',
-    versionLabel: `Latest desktop build (v${DESKTOP_RELEASE_VERSION})`,
+    versionLabel: 'Latest desktop build',
     steps: [
       'Choose AppImage for a portable install or .deb for Debian/Ubuntu systems',
       'Install via Software Center or terminal: sudo dpkg -i Zavi_1.10.0_amd64.deb',
@@ -212,6 +212,23 @@ export default async function PlatformDownloadPage({
   const { installing } = await searchParams;
   const data = platformData[platform?.toLowerCase()];
   if (!data) notFound();
+  const desktopRelease = await getLatestDesktopRelease();
+  const desktopVersion = desktopRelease.version;
+  const normalizedPlatform = platform?.toLowerCase();
+  const versionLabel =
+    normalizedPlatform === 'macos' ||
+    normalizedPlatform === 'windows' ||
+    normalizedPlatform === 'linux'
+      ? `Latest desktop build (v${desktopVersion})`
+      : data.versionLabel;
+  const steps =
+    normalizedPlatform === 'linux'
+      ? [
+          data.steps[0],
+          `Install via Software Center or terminal: sudo dpkg -i Zavi_${desktopVersion}_amd64.deb`,
+          ...data.steps.slice(2),
+        ]
+      : data.steps;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://zavivoice.com' },
@@ -356,7 +373,7 @@ export default async function PlatformDownloadPage({
                     Version
                   </span>
                   <span className="text-slate-900 font-bold">
-                    {data.versionLabel}
+                    {versionLabel}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
@@ -380,7 +397,7 @@ export default async function PlatformDownloadPage({
               </h2>
 
               <div className="space-y-6">
-                {data.steps.map((step: string, i: number) => (
+                {steps.map((step: string, i: number) => (
                   <div key={i} className="flex gap-4">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full border border-slate-700 flex items-center justify-center text-xs font-medium text-slate-400">
                       {i + 1}
