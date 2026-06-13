@@ -112,19 +112,9 @@ const whatYouGet = [
     title: 'Every Text Field',
     desc: 'Use Zavi in email, chat, docs, notes, browsers, social apps, and your daily tools.',
   },
-  {
-    emoji: '🤖',
-    title: 'Optional Agents',
-    desc: 'When you want more than writing, agents can summarize, report back, and ask for approval.',
-  },
-  {
-    emoji: '🔌',
-    title: '27+ Integrations',
-    desc: 'Gmail, Slack, GitHub, Notion, Calendar, LinkedIn, Telegram, and more.',
-  },
 ];
 
-const commands = [
+const examples = [
   '"Kal meeting shift kar do, make it professional English."',
   '"Translate this reply to Japanese and make it polite."',
   '"Make this shorter and more confident."',
@@ -248,16 +238,16 @@ export default async function DownloadPage() {
           {/* Platform Grid, All 5 Equal */}
           <DownloadPlatformGrid platforms={platforms} />
 
-          {/* What You Can Say, Real Commands */}
+          {/* Voice Writing Examples */}
           <div className="mb-20">
             <h2 className="text-3xl sm:text-4xl font-black text-[#0a0a0a] text-center mb-3 tracking-tight">
-              What you can say after installing
+              Say it naturally
             </h2>
             <p className="text-center text-gray-400 mb-10 font-medium">
-              Real commands. Real results. Right away.
+              Zavi turns rough speech into clean text.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {commands.map((cmd, i) => (
+              {examples.map((example, i) => (
                 <div
                   key={i}
                   className="bg-gray-50 rounded-xl px-5 py-4 border border-gray-100 flex items-start gap-3"
@@ -273,7 +263,7 @@ export default async function DownloadPage() {
                     </svg>
                   </div>
                   <p className="text-[14px] text-gray-600 font-medium italic">
-                    {cmd}
+                    {example}
                   </p>
                 </div>
               ))}
@@ -324,9 +314,9 @@ export default async function DownloadPage() {
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-black text-[#0a0a0a]">27+</p>
+                <p className="text-3xl font-black text-[#0a0a0a]">5</p>
                 <p className="text-xs text-gray-400 font-medium mt-1">
-                  App integrations
+                  Platforms
                 </p>
               </div>
               <div className="text-center">

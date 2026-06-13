@@ -102,10 +102,7 @@ export default function HeroWithScreenshot() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              Speak in any app on Android, iOS, Mac, Windows, or Linux. Zavi
-              removes fillers, fixes grammar, and writes polished text in the
-              language you choose. Magic Wand handles quick rewrites and
-              translations when you need an edit.
+              Speak anywhere. Get polished text in any language.
             </motion.p>
 
             {/* Primary CTA */}
@@ -254,12 +251,12 @@ export default function HeroWithScreenshot() {
                 <div className="space-y-3">
                   {[
                     {
-                      cmd: '"Summarize my last 5 emails and text me the urgent ones on WhatsApp."',
-                      tag: 'Background Agent',
+                      cmd: '"Kal client meeting shift kar do. Make it professional English."',
+                      tag: 'Voice writing',
                     },
                     {
-                      cmd: '"Reply to Sarah saying I approve the budget. Keep it professional."',
-                      tag: 'Voice Command',
+                      cmd: '"Translate this reply to Japanese and make it polite."',
+                      tag: 'Translation',
                     },
                     {
                       cmd: '"Translate this paragraph to Japanese and make it more formal."',

@@ -1,5 +1,5 @@
 // Homepage flow:
-// problem -> core solution -> proof -> differentiation -> trust -> install
+// problem -> core solution -> proof -> translation -> trust -> install
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
@@ -11,10 +11,8 @@ import {
   faqSchema,
   videoObjectSchema,
 } from '@/lib/schemaData';
-import BackgroundAgents from '@/components/BackgroundAgents';
 
 // Lazy load below-the-fold for performance
-const WhatsAppBot = dynamic(() => import('@/components/WhatsAppBot'));
 const VideoDemo = dynamic(() => import('@/components/VideoDemo'));
 const KillYourKeyboard = dynamic(() => import('@/components/KillYourKeyboard'));
 const ProblemSolution = dynamic(() => import('@/components/ProblemSolution'));
@@ -24,9 +22,6 @@ const MagicWand = dynamic(() => import('@/components/MagicWand'), {
 });
 const LanguageTranslation = dynamic(
   () => import('@/components/LanguageTranslationHero')
-);
-const SuperpowersSection = dynamic(
-  () => import('@/components/SuperpowersSection')
 );
 const PrivacyStrip = dynamic(() => import('@/components/PrivacyStrip'));
 const Metrics = dynamic(() => import('@/components/Metrics'));
@@ -89,36 +84,36 @@ export default function Home() {
         {/* 5. WHAT PEOPLE USE IT FOR */}
         <UseCaseShowcase />
 
-        {/* 6. BIGGEST DIFFERENTIATOR */}
-        <BackgroundAgents />
+        {/* Voice command / agent sections are intentionally hidden for now.
+            They diluted the core positioning: speak anywhere, get polished multilingual text. */}
 
-        {/* 7. IN-PLACE EDITING */}
+        {/* 6. IN-PLACE EDITING */}
         <MagicWand />
 
-        {/* 8. APPROVALS AND CHAT-BASED CONTROL */}
-        <WhatsAppBot />
+        {/* WhatsApp / approval control is intentionally hidden for now.
+            It reads like an agent product instead of a dictation product. */}
 
-        {/* 9. MULTILINGUAL WORKFLOWS */}
+        {/* 7. MULTILINGUAL WRITING */}
         <LanguageTranslation />
 
-        {/* 10. EVERYTHING ELSE IT CAN DO */}
-        <SuperpowersSection />
+        {/* Integrations / command surface is intentionally hidden for now.
+            Keep the page focused on the daily download habit. */}
 
-        {/* 11. TRUST */}
+        {/* 8. TRUST */}
         <PrivacyStrip />
         <Metrics />
         <Testimonials />
 
-        {/* 12. PRICING */}
+        {/* 9. PRICING */}
         <PricingNew />
 
-        {/* 13. DOWNLOAD */}
+        {/* 10. DOWNLOAD */}
         <DeviceDownload />
 
-        {/* 14. FAQ */}
+        {/* 11. FAQ */}
         <FAQ />
 
-        {/* 15. FINAL CTA */}
+        {/* 12. FINAL CTA */}
         <FinalCTA />
       </main>
       {/* NOTE: StickyDownloadCTA is global in layout.tsx — do not add another one here */}

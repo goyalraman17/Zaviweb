@@ -528,10 +528,10 @@ export default function PricingNew() {
                       </svg>
                       <div>
                         <span className="block font-semibold text-gray-900">
-                          Voice Commands
+                          Language output
                         </span>
                         <span className="block text-sm text-gray-600">
-                          Send emails, messages, and more hands free
+                          Speak one language and write in another
                         </span>
                       </div>
                     </li>
@@ -551,10 +551,10 @@ export default function PricingNew() {
                       </svg>
                       <div>
                         <span className="block font-semibold text-gray-900">
-                          All Superpowers
+                          Multilingual voice writing
                         </span>
                         <span className="block text-sm text-gray-600">
-                          Gmail, Slack, Notion, GitHub, and more connectors
+                          Translation, cleanup, tone, and Magic Wand
                         </span>
                       </div>
                     </li>
@@ -763,10 +763,10 @@ export default function PricingNew() {
                         </svg>
                         <div>
                           <span className="block font-semibold text-gray-900">
-                            Voice Commands
+                            Language output
                           </span>
                           <span className="block text-sm text-gray-600">
-                            Send emails, messages, and more hands free
+                            Speak one language and write in another
                           </span>
                         </div>
                       </li>
@@ -786,10 +786,10 @@ export default function PricingNew() {
                         </svg>
                         <div>
                           <span className="block font-semibold text-gray-900">
-                            All Superpowers
+                            Multilingual voice writing
                           </span>
                           <span className="block text-sm text-gray-600">
-                            Gmail, Slack, Notion, GitHub, and more connectors
+                            Translation, cleanup, tone, and Magic Wand
                           </span>
                         </div>
                       </li>
@@ -964,7 +964,7 @@ export default function PricingNew() {
                           Everything in Pro
                         </span>
                         <span className="block text-sm text-gray-600">
-                          All Superpowers, Magic Wand, & Commands
+                          Unlimited dictation, translation, and Magic Wand
                         </span>
                       </div>
                     </li>
@@ -1109,7 +1109,7 @@ export default function PricingNew() {
                 Enterprise-grade voice infrastructure
               </h3>
               <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                SSO, SOC2, audit logs, data residency, custom integrations, and
+                SSO, SOC2, audit logs, data residency, rollout support, and
                 dedicated support. Built for organizations that need voice at
                 scale.
               </p>

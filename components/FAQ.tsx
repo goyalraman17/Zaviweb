@@ -12,11 +12,6 @@ const faqs = [
       'Zavi is AI voice dictation for every app and device. Speak naturally, including mixed-language speech, and Zavi turns it into polished text in the language you choose. It works on iOS, Android, macOS, Windows, and Linux. Magic Wand helps rewrite or translate selected text when you need a quick edit.',
   },
   {
-    question: 'What are background agents?',
-    answer:
-      "Background agents are optional automations for people who want Zavi to do more than write. You can say 'summarize my inbox every morning at 8 AM and text me on WhatsApp' and Zavi can run that workflow on a schedule. Most people start with voice dictation and use agents later when they want follow-through.",
-  },
-  {
     question: 'What is the Magic Wand?',
     answer:
       "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences.' The text is rewritten in place instantly. No copy-pasting, no switching apps.",
@@ -57,19 +52,9 @@ const faqs = [
       'Yes. Cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want.',
   },
   {
-    question: 'How do I create a background agent?',
+    question: 'Where can I use Zavi?',
     answer:
-      "Just speak. Say something like 'Summarize my inbox every morning at 8 AM and WhatsApp me the priorities' or 'Watch #engineering on Slack and alert me if there is an incident.' Zavi can create the scheduled automation and report results to your WhatsApp or Telegram. Agents are optional; the core product is still fast voice writing everywhere.",
-  },
-  {
-    question: 'Can Zavi send me WhatsApp messages automatically?',
-    answer:
-      "Yes. Zavi has WhatsApp and Telegram bots for optional agent workflows. Agents can deliver summaries, ask for approvals, and let you respond with simple replies like 'Yes' or 'Edit the subject line.'",
-  },
-  {
-    question: 'What apps does Zavi integrate with?',
-    answer:
-      'Zavi works wherever you write, including email, chat, docs, notes, browsers, and social apps. It also connects to 27+ apps including Gmail, Slack, GitHub, Notion, Calendar, LinkedIn, WhatsApp, Telegram, iMessage, web search, and more for optional voice commands and agent workflows.',
+      'Zavi works wherever you write, including email, chat, docs, notes, browsers, and social apps. On mobile, it works through the keyboard. On desktop, it gives you system-wide voice input.',
   },
 ];
 

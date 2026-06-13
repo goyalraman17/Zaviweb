@@ -9,7 +9,6 @@ const categories = [
   { id: 'email', label: 'Email' },
   { id: 'messaging', label: 'Messaging' },
   { id: 'work', label: 'Work' },
-  { id: 'automation', label: 'Automations' },
   { id: 'writing', label: 'Writing' },
 ];
 
@@ -55,48 +54,6 @@ const useCases = [
     title: 'Draft posts faster',
     command: '"Write a LinkedIn post from this thought. Keep it direct."',
     result: 'Turns a spoken idea into a ready-to-edit draft.',
-  },
-  {
-    category: 'email',
-    emoji: '🔄',
-    title: 'Auto-reply to emails',
-    command: '"Draft replies to my 3 most urgent unread emails."',
-    result: 'Reads context, drafts replies, saves as drafts for review.',
-  },
-  {
-    category: 'work',
-    emoji: '📅',
-    title: 'Schedule meetings',
-    command: '"Find 30 minutes with Sarah next week for a design review."',
-    result: 'Checks calendars, finds a slot, sends the invite.',
-  },
-  {
-    category: 'writing',
-    emoji: '🌍',
-    title: 'Translate anything',
-    command: '"Translate this email to Japanese and make it more formal."',
-    result: 'Translates in-place with cultural tone adjustments.',
-  },
-  {
-    category: 'messaging',
-    emoji: '📱',
-    title: 'Send iMessages',
-    command: '"Text mom that I\'ll be home by 7."',
-    result: 'Sends via iMessage on Mac. No phone needed.',
-  },
-  {
-    category: 'automation',
-    emoji: '📊',
-    title: 'Weekly team updates',
-    command: '"Every Friday at 5 PM, summarize our GitHub PRs and post to #engineering."',
-    result: 'Pulls PR data, formats summary, posts to Slack.',
-  },
-  {
-    category: 'work',
-    emoji: '🔍',
-    title: 'Research anything',
-    command: '"What\'s NVIDIA\'s current stock price and their top 3 competitors?"',
-    result: 'Searches the web, compiles data, gives you a summary.',
   },
 ];
 
