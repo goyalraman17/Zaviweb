@@ -12,14 +12,14 @@ import { getLatestDesktopRelease } from '@/lib/desktopBuilds';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Download Zavi AI: Free Voice Action Engine for All 5 Platforms',
+  title: 'Download Zavi AI: Free AI Voice Dictation for Every Device',
   description:
-    'Download Zavi AI free. Background agents, 27+ app integrations, WhatsApp bot, Magic Wand, and 100+ language translation. Available on Android, iOS, macOS, Windows, and Linux.',
+    'Download Zavi AI free. Speak naturally in any app and get polished multilingual text on Android, iOS, macOS, Windows, and Linux. Magic Wand edits selected text in place.',
   alternates: { canonical: 'https://zavivoice.com/download' },
   openGraph: {
-    title: 'Download Zavi AI: Your Personal Jarvis. Free.',
+    title: 'Download Zavi AI: Free AI Voice Dictation',
     description:
-      'Background agents that run while you sleep. 27+ app integrations. WhatsApp bot reporting. Available on all 5 platforms.',
+      'Speak instead of typing across Android, iOS, macOS, Windows, and Linux. Zavi writes polished text in the language you choose.',
     url: 'https://zavivoice.com/download',
     images: [
       { url: 'https://zavivoice.com/og-image.png', width: 1200, height: 630 },
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Download Zavi AI: Voice to Action OS',
+    title: 'Download Zavi AI: Free AI Voice Dictation',
     description:
-      'Speak to type, command, and automate. Free on Android, iOS, Mac, Windows, and Linux.',
+      'Speak in any app, get polished multilingual text, and use Magic Wand for quick edits.',
   },
 };
 
@@ -94,28 +94,28 @@ const platforms: PlatformCard[] = [
 const whatYouGet = [
   {
     emoji: '🎙️',
-    title: 'Voice Typing',
-    desc: 'Speak naturally. Zavi removes filler words, fixes grammar, and types perfect text.',
+    title: 'AI Voice Dictation',
+    desc: 'Speak naturally. Zavi removes filler words, fixes grammar, and writes polished text.',
   },
   {
-    emoji: '🤖',
-    title: 'Background Agents',
-    desc: '"Summarize my inbox every morning and WhatsApp me." Runs on schedule, reports back.',
+    emoji: '🌍',
+    title: 'Language In, Language Out',
+    desc: 'Speak Hindi, English, Spanish, or mixed speech and output the language you choose.',
   },
   {
     emoji: '🪄',
     title: 'Magic Wand',
-    desc: 'Highlight any text, speak to transform it. Say "Make this professional" and it is done.',
+    desc: 'Highlight selected text and speak the edit. Rewrite, translate, shorten, or polish in place.',
   },
   {
     emoji: '💬',
-    title: 'WhatsApp Bot',
-    desc: 'Agents message you back. Approve emails, get summaries, run workflows from chat.',
+    title: 'Every Text Field',
+    desc: 'Use Zavi in email, chat, docs, notes, browsers, social apps, and your daily tools.',
   },
   {
-    emoji: '🌍',
-    title: '100+ Languages',
-    desc: 'Speak Hindi, get English. Speak English, get French. Real-time translation.',
+    emoji: '🤖',
+    title: 'Optional Agents',
+    desc: 'When you want more than writing, agents can summarize, report back, and ask for approval.',
   },
   {
     emoji: '🔌',
@@ -125,12 +125,12 @@ const whatYouGet = [
 ];
 
 const commands = [
-  '"Reply to Sarah saying I approve the budget."',
-  '"Summarize my inbox every morning at 8 AM."',
-  '"Watch #engineering on Slack and alert me."',
+  '"Kal meeting shift kar do, make it professional English."',
+  '"Translate this reply to Japanese and make it polite."',
+  '"Make this shorter and more confident."',
   '"Translate this email to Japanese."',
   '"Draft a LinkedIn post about our launch."',
-  '"Text mom that I\'ll be home by 7."',
+  '"Remove the filler words and clean up the grammar."',
 ];
 
 export default async function DownloadPage() {
@@ -179,14 +179,15 @@ export default async function DownloadPage() {
               className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#0a0a0a] mb-6"
               style={{ lineHeight: 1.05 }}
             >
-              Install Zavi.{' '}
+              Download Zavi.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                Start commanding.
+                Start speaking.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-3 font-medium">
-              Your personal Jarvis with voice typing, background agents, and 27+
-              app integrations. All from your keyboard.
+              AI voice dictation for every app. Speak naturally, output polished
+              text in any language, and use Magic Wand when selected text needs
+              a quick edit.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-gray-400 font-medium">
               <span className="flex items-center gap-1.5">

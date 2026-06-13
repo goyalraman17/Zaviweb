@@ -17,44 +17,44 @@ const useCases = [
   {
     category: 'email',
     emoji: '📧',
-    title: 'Draft & send emails',
-    command: '"Email John the meeting notes from yesterday. Keep it professional."',
-    result: 'Zavi pulls notes, drafts the email, and sends it.',
-  },
-  {
-    category: 'automation',
-    emoji: '☀️',
-    title: 'Morning briefings',
-    command: '"Summarize my inbox every morning at 8 AM and text me on WhatsApp."',
-    result: 'Runs daily. Reads Gmail. Sends WhatsApp summary.',
+    title: 'Write emails by voice',
+    command: '"Kal meeting shift kar do, make it professional English."',
+    result: 'Zavi turns mixed speech into a polished email draft.',
   },
   {
     category: 'messaging',
     emoji: '💬',
-    title: 'Reply to WhatsApp & Slack',
-    command: '"Tell the team on Slack that the deploy is done."',
-    result: 'Posts to the right channel with perfect formatting.',
+    title: 'Reply in any language',
+    command: '"Reply in Japanese and make it warm but concise."',
+    result: 'Writes the reply in place, with the right tone.',
+  },
+  {
+    category: 'messaging',
+    emoji: '🌍',
+    title: 'Translate while you type',
+    command: '"Translate this to English and make it sound natural."',
+    result: 'Keeps the meaning and cleans up the output instantly.',
+  },
+  {
+    category: 'writing',
+    emoji: '🪄',
+    title: 'Rewrite selected text',
+    command: '"Make this shorter and more confident."',
+    result: 'Magic Wand rewrites the highlighted text in the same app.',
   },
   {
     category: 'work',
     emoji: '📋',
-    title: 'Create tasks & tickets',
-    command: '"Create a Notion task: review the Q3 marketing deck by Friday."',
-    result: 'Creates the task with deadline in your Notion workspace.',
-  },
-  {
-    category: 'automation',
-    emoji: '👀',
-    title: 'Monitor Slack channels',
-    command: '"Watch #incidents and alert me on WhatsApp if severity is high."',
-    result: 'Runs 24/7. Filters by severity. Pings you instantly.',
+    title: 'Turn thoughts into notes',
+    command: '"Summarize this idea into clean meeting notes."',
+    result: 'Creates structured notes from rough speech.',
   },
   {
     category: 'writing',
     emoji: '✍️',
-    title: 'Write long-form content',
-    command: '"Write a LinkedIn post about our Series A announcement."',
-    result: 'Drafts a professional post with proper tone and formatting.',
+    title: 'Draft posts faster',
+    command: '"Write a LinkedIn post from this thought. Keep it direct."',
+    result: 'Turns a spoken idea into a ready-to-edit draft.',
   },
   {
     category: 'email',
@@ -122,14 +122,14 @@ export default function UseCaseShowcase() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
-              One task should not take five apps.{' '}
+              One thought should not take five apps.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
                 Zavi keeps it in one flow.
               </span>
             </h2>
             <p className="text-lg text-gray-500 font-medium">
-              Email, chat, docs, meetings, research, and recurring work all
-              move from the same sentence instead of a chain of manual steps.
+              Email, chat, docs, notes, and posts move from voice to polished
+              text without a translator, prompt box, or cleanup loop.
             </p>
           </motion.div>
 
@@ -207,7 +207,7 @@ export default function UseCaseShowcase() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Use it on real work
+              Download and try it today
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

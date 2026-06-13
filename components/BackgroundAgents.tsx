@@ -49,19 +49,19 @@ export default function BackgroundAgents() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-sm font-semibold mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              Beyond dictation
+              Optional power-up
             </div>
 
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0a0a0a] tracking-tight mb-6" style={{ lineHeight: 1.1 }}>
-              The real unlock is work that runs without{' '}
+              Voice writing first. Automation when you need{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                you.
+                it.
               </span>
             </h2>
 
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-              Speak the job once. Zavi watches inboxes, checks tools, sends
-              updates, and asks for approval only when it matters.
+              Start with dictation in every app. When you want more, Zavi can
+              watch inboxes, summarize updates, and ask before taking action.
             </p>
           </motion.div>
 
@@ -138,8 +138,8 @@ export default function BackgroundAgents() {
             transition={{ delay: 0.3 }}
           >
             <p className="text-gray-400 text-sm font-medium mb-6">
-              Most voice tools help you write faster. Zavi helps you finish
-              faster.
+              Dictation is the daily habit. Agents are there when the work needs
+              a follow-through.
             </p>
             <a
               href="/#download"
@@ -150,7 +150,7 @@ export default function BackgroundAgents() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all hover:scale-[1.02]"
             >
-              Build your first agent
+              Explore voice agents
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

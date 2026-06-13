@@ -4,7 +4,7 @@ export const dynamic = 'force-static'
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Zavi AI – Voice to Action OS',
+        name: 'Zavi AI - Voice Dictation',
         short_name: 'Zavi AI',
         description: 'Stop typing. Start speaking. Turn natural speech into clean, professional text.',
         start_url: '/',

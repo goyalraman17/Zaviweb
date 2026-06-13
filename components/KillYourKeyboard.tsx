@@ -5,14 +5,14 @@ import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'framer-motion';
 import RevealOnScroll from './animated/RevealOnScroll';
 
-const beforeText = `"Hey Sarah, um, yeah I reviewed the, like, the Q3 design files you sent over. They look good but maybe we should, uh, bump up the logo size on the hero section? Also, just wanted to check if we're still doing the sync at 2pm? Thanks"`;
+const beforeText = `"Kal client meeting shift kar do because confirmation nahi aaya, and please make it sound professional but not too formal."`;
 
 const afterLines = [
   'Hi Sarah,',
   '',
-  "I've reviewed the Q3 design files. They look great overall. My only suggestion is to slightly increase the logo size in the hero section for better visibility.",
+  "Can we move tomorrow's client meeting? We have not received the confirmation yet.",
   '',
-  'Also, confirming our sync at 2 PM today.',
+  'I will share an update as soon as we hear back.',
   '',
   'Best,',
 ];
@@ -49,13 +49,13 @@ export default function KillYourKeyboard() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-[#0a0a0a] tracking-tight text-balance"
                 style={{ lineHeight: 1.1 }}
               >
-                It does not type what you said. It writes{' '}
+                It does not just transcribe. It carries{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
                   what you meant.
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-                That is the difference between plain dictation and Zavi.
+                That is the difference between plain dictation and multilingual voice writing.
               </p>
             </div>
           </RevealOnScroll>
@@ -80,7 +80,7 @@ export default function KillYourKeyboard() {
                 {beforeText}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {['um', 'like', 'uh', 'just', 'yeah'].map((w, i) => (
+                {['Kal', 'kar do', 'nahi aaya', 'please', 'not too formal'].map((w, i) => (
                   <motion.span
                     key={w}
                     initial={{ opacity: 1 }}
@@ -151,7 +151,7 @@ export default function KillYourKeyboard() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Try the clean-up
+              Try language-in, language-out
               <svg
                 className="w-4 h-4"
                 fill="none"

@@ -89,9 +89,9 @@ export default function HeroWithScreenshot() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{ lineHeight: 1.05 }}
             >
-              Your thoughts move fast. Zavi{' '}
+              Stop typing. Zavi{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                keeps up.
+                works everywhere.
               </span>
             </motion.h1>
 
@@ -102,9 +102,10 @@ export default function HeroWithScreenshot() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              Speak naturally. Zavi turns rough speech into clean writing,
-              takes action across your apps, and keeps work moving after you
-              stop.
+              Speak in any app on Android, iOS, Mac, Windows, or Linux. Zavi
+              removes fillers, fixes grammar, and writes polished text in the
+              language you choose. Magic Wand handles quick rewrites and
+              translations when you need an edit.
             </motion.p>
 
             {/* Primary CTA */}
@@ -201,7 +202,7 @@ export default function HeroWithScreenshot() {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  Works inside every app
+                  Speak in one language, send in another
                 </span>
               </div>
               <p className="text-xs text-gray-400">

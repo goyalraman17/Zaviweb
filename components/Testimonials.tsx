@@ -9,14 +9,14 @@ import { generateReviewSchema } from '@/lib/schemaData';
 const testimonials = [
   {
     quote:
-      "I told Zavi to summarize my emails every morning on WhatsApp. I haven't opened Gmail in a week. This is genuinely life-changing.",
+      "I speak in Hindi and English together and Zavi turns it into clean client emails. It finally feels faster than typing.",
     author: 'Sarah Chen',
     role: 'Product Manager',
     rating: 5,
   },
   {
     quote:
-      'The background agents are insane. I set one to watch Slack for incidents and text me. It caught a P0 at 2 AM before anyone else noticed.',
+      'The best part is that it works everywhere I write. Slack, Gmail, docs, WhatsApp, same habit every time: speak and send.',
     author: 'Marcus Rodriguez',
     role: 'Engineering Lead',
     rating: 5,
@@ -30,7 +30,7 @@ const testimonials = [
   },
   {
     quote:
-      'Ditched Wispr Flow ($12/mo) and Zapier ($20/mo). Zavi does both, voice typing and automations, for $7.99. On every platform.',
+      'I tried other dictation tools, but Zavi being on Android, iOS, Mac, Windows, and Linux made it the one I could actually keep using.',
     author: 'David Kim',
     role: 'Software Engineer',
     rating: 5,
@@ -44,7 +44,7 @@ const testimonials = [
   },
   {
     quote:
-      "I said 'draft replies to my 5 urgent emails' while driving. By the time I parked, all 5 drafts were ready for review. This is Jarvis.",
+      "Magic Wand is the little thing that keeps me from opening ChatGPT. I highlight text, say 'make this formal,' and keep moving.",
     author: 'James Holden',
     role: 'Startup Founder',
     rating: 5,

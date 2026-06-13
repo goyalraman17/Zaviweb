@@ -136,7 +136,7 @@ export default function MagicWand() {
             variants={fadeUp}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight"
           >
-            When you need changes, just speak the edit.
+            Need an edit? Use the Magic Wand.
           </motion.h2>
           <motion.p
             initial="hidden"
@@ -145,8 +145,9 @@ export default function MagicWand() {
             variants={fadeUp}
             className="text-lg text-gray-500 max-w-3xl mx-auto font-medium mb-8"
           >
-            Highlight text anywhere and tell Zavi what to change. No
-            copy-paste. No prompt window. No rewriting from scratch.
+            Highlight text anywhere and ask Zavi to rewrite, translate, shorten,
+            or clean it up. It is the fast fix after dictation, not another app
+            to manage.
           </motion.p>
 
           {/* Benefit Badges */}
@@ -291,7 +292,7 @@ export default function MagicWand() {
                 }}
                 className="inline-flex justify-center w-full sm:w-auto items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-[0_8px_20px_rgba(37,99,235,0.25)] group"
               >
-                <span>Try the Magic Wand Free</span>
+                <span>Download Zavi Free</span>
                 <Image
                   src="/icons/magic-wand-filled.svg"
                   alt="Magic Wand"
@@ -302,7 +303,7 @@ export default function MagicWand() {
               </a>
             </div>
             <p className="mt-6 text-sm text-gray-500 font-medium relative z-10 flex items-center justify-center gap-2">
-              Works inside Gmail, Slack, WhatsApp, and every other app.
+              Dictate first. Use Magic Wand when selected text needs a quick fix.
             </p>
           </motion.div>
         </div>

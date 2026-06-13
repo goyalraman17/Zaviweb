@@ -15,7 +15,7 @@ const superpowers = [
         />
       </svg>
     ),
-    command: '"Reply to Sarah\'s email saying I approve..."',
+    command: '"Write this in professional English..."',
     color: 'from-white to-gray-50/50',
     borderColor: 'border-gray-200/60',
     slug: 'gmail',
@@ -30,7 +30,7 @@ const superpowers = [
         />
       </svg>
     ),
-    command: '"Post an update to #general..."',
+    command: '"Tell the team the deploy is done..."',
     color: 'from-white to-gray-50/50',
     borderColor: 'border-gray-200/60',
     slug: 'slack',
@@ -45,7 +45,7 @@ const superpowers = [
         />
       </svg>
     ),
-    command: '"What PRs need my review?"',
+    command: '"Summarize this PR in plain English..."',
     color: 'from-white to-gray-50/50',
     borderColor: 'border-gray-200/60',
     slug: 'github',
@@ -62,7 +62,7 @@ const superpowers = [
         />
       </svg>
     ),
-    command: '"Read my Notion page about the project"',
+    command: '"Turn this thought into meeting notes..."',
     color: 'from-white to-gray-50/50',
     borderColor: 'border-gray-200/60',
     slug: 'notion',
@@ -79,7 +79,7 @@ const superpowers = [
         />
       </svg>
     ),
-    command: '"Post on LinkedIn about our launch..."',
+    command: '"Make this LinkedIn post sharper..."',
     color: 'from-white to-gray-50/50',
     borderColor: 'border-gray-200/60',
     slug: 'linkedin',
@@ -94,7 +94,7 @@ const superpowers = [
         />
       </svg>
     ),
-    command: '"Ask ChatGPT to brainstorm ideas..."',
+    command: '"Rewrite this with a clearer tone..."',
     color: 'from-white to-gray-50/50',
     borderColor: 'border-gray-200/60',
     slug: 'chatgpt',
@@ -119,17 +119,17 @@ export default function SuperpowersSection() {
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight text-balance"
           >
-            You should not have to jump between tools to finish one{' '}
+            Wherever there is a text box, Zavi is ready for your{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              thought.
+              voice.
             </span>
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-xl text-gray-600 max-w-2xl mx-auto font-medium"
           >
-            Zavi carries intent across Gmail, Slack, Notion, GitHub, LinkedIn,
-            ChatGPT, and the rest of your workflow so you do not have to.
+            Use the same habit across Gmail, Slack, Notion, GitHub, LinkedIn,
+            ChatGPT, and the rest of your workflow: speak, clean up, send.
           </motion.p>
         </motion.div>
 
@@ -205,7 +205,7 @@ export default function SuperpowersSection() {
             href="/integrations"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-xl text-gray-700 font-semibold hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm mr-4"
           >
-            See all 27+ integrations
+            See where Zavi works
             <svg
               className="w-4 h-4"
               fill="none"

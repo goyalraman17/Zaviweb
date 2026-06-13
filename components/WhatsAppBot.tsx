@@ -3,14 +3,14 @@
 import { motion } from 'framer-motion';
 
 const messages = [
-  { from: 'zavi', text: "Good morning! Here's your daily briefing:", time: '8:00 AM' },
-  { from: 'zavi', text: "3 urgent emails:\n1. Sarah (Budget approval needed)\n2. DevOps (Server alert - resolved)\n3. HR (Benefits enrollment deadline tomorrow)\n\nShall I draft replies?", time: '8:00 AM' },
-  { from: 'user', text: "Reply to Sarah: Approved. Send it.", time: '8:02 AM' },
-  { from: 'zavi', text: "Done. Email sent to Sarah:\n\n\"Hi Sarah, the budget is approved. Please proceed with the next steps. Best, [You]\"\n\nAnything else?", time: '8:02 AM' },
-  { from: 'user', text: "Draft a reply to HR about the benefits.", time: '8:03 AM' },
-  { from: 'zavi', text: "Draft ready:\n\n\"Hi HR Team, Thank you for the reminder. I'll complete my benefits enrollment today before the deadline. Best regards.\"\n\nApprove or edit?", time: '8:03 AM' },
-  { from: 'user', text: "Approve", time: '8:03 AM' },
-  { from: 'zavi', text: "Sent. You're all caught up. Have a great day!", time: '8:03 AM' },
+  { from: 'zavi', text: "Your voice note is ready as polished English:", time: '8:00 AM' },
+  { from: 'zavi', text: "\"Hi Sarah, can we move tomorrow's client meeting? We have not received the confirmation yet. I will share an update as soon as we hear back.\"", time: '8:00 AM' },
+  { from: 'user', text: "Make it shorter and warmer.", time: '8:02 AM' },
+  { from: 'zavi', text: "\"Hi Sarah, could we move tomorrow's client meeting? We are still waiting on confirmation, and I will update you as soon as it comes through.\"", time: '8:02 AM' },
+  { from: 'user', text: "Translate it to Japanese.", time: '8:03 AM' },
+  { from: 'zavi', text: "Done. Japanese version ready. Want to copy it or send it?", time: '8:03 AM' },
+  { from: 'user', text: "Copy", time: '8:03 AM' },
+  { from: 'zavi', text: "Copied. You can paste it anywhere.", time: '8:03 AM' },
 ];
 
 export default function WhatsAppBot() {
@@ -35,24 +35,24 @@ export default function WhatsAppBot() {
               </div>
 
               <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-6" style={{ lineHeight: 1.1 }}>
-                You should not have to keep checking whether work moved{' '}
+                Your edits can come back to you in{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#25D366] to-emerald-500">
-                  forward.
+                  chat.
                 </span>
               </h2>
 
               <p className="text-lg text-gray-500 mb-8 leading-relaxed font-medium">
-                Zavi brings the update to you, asks for approval when needed,
-                and lets you respond from chat instead of reopening your whole
-                stack.
+                Dictate in any app first. When you use Magic Wand or optional
+                agents, Zavi can send drafts, translations, and approval checks
+                to WhatsApp or Telegram.
               </p>
 
               <div className="space-y-4 mb-8">
                 {[
-                  'Agents deliver results to your chat',
-                  'Reply "approve" to send emails or messages',
-                  'Ask follow-up questions naturally',
-                  'Run any agent from a text message',
+                  'Get polished drafts back in chat',
+                  'Translate or rewrite with a quick reply',
+                  'Approve optional agent actions before they run',
+                  'Keep moving without opening another tool',
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
@@ -66,7 +66,7 @@ export default function WhatsAppBot() {
               </div>
 
               <p className="text-sm text-gray-400 font-medium mb-6">
-                Less checking. Less chasing. More work already handled.
+                Voice writing stays the habit. Chat is just a convenient follow-up.
               </p>
 
               <a
@@ -77,7 +77,7 @@ export default function WhatsAppBot() {
                 }}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
               >
-                Run Zavi from chat
+                Download Zavi Free
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

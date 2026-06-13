@@ -95,16 +95,16 @@ export default function LanguageTranslationHero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0a0a0a] tracking-tight mb-6"
               style={{ lineHeight: 1.1 }}
             >
-              Language should not slow the work{' '}
+              Speak in one language. Write in{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                down.
+                another.
               </span>
             </h2>
 
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-              Speak the way you actually speak. Zavi keeps the meaning, cleans
-              the output, and delivers it in the language the other person
-              needs.
+              Speak naturally, code-switch freely, and get polished output in
+              the language the other person needs. No translator tab. No prompt
+              box. No cleanup after.
             </p>
           </motion.div>
 
@@ -188,7 +188,7 @@ export default function LanguageTranslationHero() {
             <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
               {[
                 { value: '100+', label: 'Input languages' },
-                { value: '15+', label: 'Translation targets' },
+                { value: 'Any', label: 'Output language' },
                 { value: 'Real-time', label: 'Code-switching' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">

@@ -152,7 +152,7 @@ export default function DeviceDownload() {
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3"
           >
-            If typing still feels like the bottleneck, fix it now.
+            Download Zavi free and start speaking instead of typing.
           </motion.h2>
 
           <motion.div
@@ -160,7 +160,7 @@ export default function DeviceDownload() {
             className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto space-y-3 px-4"
           >
             <p className="font-medium text-gray-900">
-              Install Zavi on the device you already work from.
+              Pick your device. Speak in any app. Send polished text in any language.
             </p>
             <div className="flex items-center justify-center gap-2 text-sm">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-full font-semibold border border-green-200">

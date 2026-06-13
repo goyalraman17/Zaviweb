@@ -351,8 +351,9 @@ export default function PricingNew() {
                 Priced to be an obvious yes.
               </h2>
               <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                Start free. Upgrade for less than Wispr Flow. Get voice typing,
-                commands, and background agents in one product.
+                Start free with daily AI dictation. Upgrade when you want
+                unlimited voice writing, multilingual output, and Magic Wand
+                edits across every app.
               </p>
 
               {/* Trust Pill Badges */}
@@ -1138,8 +1139,8 @@ export default function PricingNew() {
         {/* Bottom Tagline */}
         <div className="text-center mt-16">
           <p className="text-2xl md:text-3xl text-[#1a1a1a] font-medium">
-            Stop typing. <span className="font-bold">Start delegating.</span>{' '}
-            Your personal Jarvis is one install away.
+            Stop typing. <span className="font-bold">Start speaking.</span>{' '}
+            Polished text is one install away.
           </p>
         </div>
       </section>

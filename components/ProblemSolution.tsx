@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const problems = [
   {
-    pain: "You're still typing emails with your thumbs.",
-    stat: "Average professional types 40 WPM. You speak at 150.",
-    solution: "Speak naturally. Zavi removes filler words, fixes grammar, and types perfect text.",
-    command: '"Reply to Sarah saying I approve the budget"',
+    pain: "You think in one language, but work happens in another.",
+    stat: "Translation apps turn one message into copy, paste, edit, repeat.",
+    solution: "Speak naturally. Zavi translates, cleans grammar, and writes polished text where your cursor is.",
+    command: '"Kal meeting shift kar do, write it in professional English"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -15,10 +15,10 @@ const problems = [
     ),
   },
   {
-    pain: "You check Slack, Gmail, and Notion 50+ times a day.",
-    stat: "Context switching costs 23 minutes per interruption.",
-    solution: "Background agents monitor your apps and send summaries to WhatsApp.",
-    command: '"Summarize my unread Slack and email every morning at 9"',
+    pain: "You keep switching between keyboard, translator, and ChatGPT.",
+    stat: "Every app switch breaks the flow of the thought.",
+    solution: "Zavi keeps translation, cleanup, and writing inside the app you are already using.",
+    command: '"Translate this to Japanese and make it more formal"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
@@ -26,10 +26,10 @@ const problems = [
     ),
   },
   {
-    pain: "You forget to follow up. Every single time.",
-    stat: "80% of deals need 5+ follow-ups. Most people stop at 1.",
-    solution: "Tell Zavi once. It drafts, schedules, and reminds you automatically.",
-    command: '"Follow up with the design team about Q3 assets on Friday"',
+    pain: "Code-switching confuses normal dictation.",
+    stat: "Real speech mixes Hindi, English, names, and work terms.",
+    solution: "Zavi understands mixed-language speech and turns the meaning into clean output.",
+    command: '"Client ka confirmation nahi aaya, send this in English"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -37,10 +37,10 @@ const problems = [
     ),
   },
   {
-    pain: "You're doing the same tasks manually, every day.",
-    stat: "Professionals waste 2+ hours daily on repetitive digital tasks.",
-    solution: "Create voice-triggered automations that run across your entire stack.",
-    command: '"Every Monday, pull my Notion tasks and post a summary to #team"',
+    pain: "Your message is clear in your head, but not on the screen.",
+    stat: "Raw dictation captures words. It does not carry tone or intent.",
+    solution: "Zavi removes fillers, fixes grammar, and makes the translated text sound natural.",
+    command: '"Make this shorter, polite, and ready to send"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
@@ -62,15 +62,14 @@ export default function ProblemSolution() {
             viewport={{ once: true }}
           >
             <p className="text-sm font-bold text-red-500 uppercase tracking-widest mb-4">
-              The bottleneck is not the work. It is the input.
+              The bottleneck is not language. It is the keyboard.
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
-              The keyboard is slowing everything down.
+              Multilingual writing should not mean copy-paste.
             </h2>
             <p className="text-lg text-gray-500 max-w-3xl mx-auto font-medium">
-              Every message, update, follow-up, and recurring task gets pushed
-              through the same slow manual step. Zavi turns your voice into
-              momentum.
+              Speak the way you actually think. Zavi turns mixed, messy speech
+              into polished text in the language the other person needs.
             </p>
           </motion.div>
 

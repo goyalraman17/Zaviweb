@@ -26,23 +26,23 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    default: 'Zavi AI | AI Voice Typing and Voice Agents for Every App',
+    default: 'Zavi AI | Free AI Voice Dictation for Every App',
     template: '%s | Zavi AI',
   },
   description:
-    'Zavi is AI voice typing and voice agents for every app. Speak to write clean text, command apps, and automate work across iOS, Android, macOS, Windows, and Linux.',
+    'Download Zavi free. Speak naturally in any app on Android, iOS, Mac, Windows, or Linux and get polished text in the language you choose. Magic Wand edits selected text in place.',
   keywords: [
     'Zavi',
     'Zavi AI',
-    'Zavi AI Voice to Action OS',
-    'Voice to Action OS',
+    'Zavi AI voice dictation',
+    'AI voice dictation',
     'Zavi app',
-    'voice agent',
-    'voice agent OS',
-    'voice to action',
+    'multilingual dictation',
+    'voice translator',
+    'voice to polished text',
     'voice assistant app',
     'voice typing',
-    'voice action engine',
+    'voice writing app',
     'AI voice typing',
     'speech to text',
     'dictation app',
@@ -86,9 +86,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'Zavi AI | AI Voice Typing and Voice Agents for Every App',
+    title: 'Zavi AI | Free AI Voice Dictation for Every App',
     description:
-      'Speak to write clean text, command apps, and automate work. Zavi works across iOS, Android, macOS, Windows, and Linux.',
+      'Speak naturally across Android, iOS, Mac, Windows, and Linux. Zavi writes polished multilingual text in any app, with Magic Wand for quick edits.',
     url: 'https://zavivoice.com',
     siteName: 'Zavi AI',
     images: [
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
         url: 'https://zavivoice.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zavi AI – Voice to Action OS with autonomous background agents and 27+ app integrations',
+        alt: 'Zavi AI voice dictation across Android, iOS, Mac, Windows, and Linux',
       },
     ],
     locale: 'en_US',
@@ -104,9 +104,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zavi AI | AI Voice Typing and Voice Agents for Every App',
+    title: 'Zavi AI | Free AI Voice Dictation for Every App',
     description:
-      'Speak to write clean text, command apps, and automate work across every device.',
+      'Download Zavi free. Speak in any app and get polished text in the language you choose.',
     creator: '@zavivoice',
     site: '@zavivoice',
     images: ['https://zavivoice.com/twitter-image.png'],

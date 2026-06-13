@@ -37,16 +37,16 @@ const FAQ = dynamic(() => import('@/components/FAQ'));
 const FinalCTA = dynamic(() => import('@/components/FinalCTA'));
 
 export const metadata: Metadata = {
-  title: 'AI Voice Typing and Voice Agents for Every App',
+  title: 'Free AI Voice Dictation for Every App',
   description:
-    'Zavi combines AI voice typing, voice commands, and background agents so you can write clean text, command apps, and automate recurring work across every device.',
+    'Download Zavi free. Speak naturally in any app on Android, iOS, Mac, Windows, or Linux and get polished text in the language you choose.',
   alternates: {
     canonical: 'https://zavivoice.com',
   },
   openGraph: {
-    title: 'Zavi AI | AI Voice Typing and Voice Agents for Every App',
+    title: 'Zavi AI | Free AI Voice Dictation for Every App',
     description:
-      'Speak to write clean text, command Gmail, Slack, and Calendar, and automate recurring work with background agents.',
+      'Speak in any app, on any device. Zavi turns rough multilingual speech into clean text and Magic Wand edits selected text in place.',
     url: 'https://zavivoice.com',
     images: [
       {
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zavi AI | AI Voice Typing and Voice Agents for Every App',
+    title: 'Zavi AI | Free AI Voice Dictation for Every App',
     description:
-      'AI voice typing, voice commands, and background agents across iOS, Android, macOS, Windows, and Linux.',
+      'Speak naturally across Android, iOS, Mac, Windows, and Linux. Download free.',
   },
 };
 
