@@ -31,6 +31,12 @@ const DeviceDownload = dynamic(() => import('@/components/DeviceDownload'));
 const FAQ = dynamic(() => import('@/components/FAQ'));
 const FinalCTA = dynamic(() => import('@/components/FinalCTA'));
 
+// Hidden for current positioning. Restore by uncommenting these imports and the
+// matching JSX calls below.
+// const BackgroundAgents = dynamic(() => import('@/components/BackgroundAgents'));
+// const WhatsAppBot = dynamic(() => import('@/components/WhatsAppBot'));
+// const SuperpowersSection = dynamic(() => import('@/components/SuperpowersSection'));
+
 export const metadata: Metadata = {
   title: 'Free AI Voice Dictation for Every App',
   description:
@@ -85,19 +91,22 @@ export default function Home() {
         <UseCaseShowcase />
 
         {/* Voice command / agent sections are intentionally hidden for now.
-            They diluted the core positioning: speak anywhere, get polished multilingual text. */}
+            They diluted the core positioning: speak anywhere, get polished multilingual text.
+            Restore with: <BackgroundAgents /> */}
 
         {/* 6. IN-PLACE EDITING */}
         <MagicWand />
 
         {/* WhatsApp / approval control is intentionally hidden for now.
-            It reads like an agent product instead of a dictation product. */}
+            It reads like an agent product instead of a dictation product.
+            Restore with: <WhatsAppBot /> */}
 
         {/* 7. MULTILINGUAL WRITING */}
         <LanguageTranslation />
 
         {/* Integrations / command surface is intentionally hidden for now.
-            Keep the page focused on the daily download habit. */}
+            Keep the page focused on the daily download habit.
+            Restore with: <SuperpowersSection /> */}
 
         {/* 8. TRUST */}
         <PrivacyStrip />
