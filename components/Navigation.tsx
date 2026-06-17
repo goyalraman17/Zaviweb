@@ -86,7 +86,6 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'How it Works', href: '/#how-it-works', id: 'how-it-works' },
-    { name: 'Vault', href: '/vault', id: 'vault' },
     { name: 'Use Cases', href: '/use-cases', id: 'use-cases' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
     { name: 'Compare', href: '/compare', id: 'compare' },
