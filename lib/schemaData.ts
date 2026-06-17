@@ -14,14 +14,14 @@ export const websiteSchema = {
   name: 'Zavi',
   alternateName: [
     'Zavi AI',
-    'Zavi Voice Agent',
-    'Zavi Voice to Action',
+    'Zavi Voice Dictation',
+    'Zavi AI Voice Typing',
     'Zavi App',
     'Zavi Voice',
   ],
   url: 'https://zavivoice.com',
   description:
-    'Zavi is AI voice typing and voice agents for every app. Speak to write clean text, command apps, and automate work across every device.',
+    'Zavi is AI voice typing for every app. Speak naturally to dictate text, remove filler words, fix grammar, add punctuation, and polish what you said. Magic Wand edits selected text by instruction across every device.',
   inLanguage: 'en-US',
   publisher: {
     '@type': 'Organization',
@@ -40,7 +40,7 @@ export const organizationSchema = {
   url: 'https://zavivoice.com',
   logo: 'https://zavivoice.com/zavi-logo.png',
   description:
-    'Zavi AI builds the Voice to Action OS. Our cross-platform voice layer turns natural speech into actions across every app with clean grammar and zero filler words. Magic Wand and Agent Mode included.',
+    'Zavi AI builds a cross-platform voice dictation layer that removes filler words, fixes grammar, adds punctuation, and polishes what you say across every app. Magic Wand handles instruction-based edits on selected text.',
   foundingDate: '2023',
   founders: [
     {
@@ -85,9 +85,9 @@ export const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'Zavi AI',
-  alternateName: ['Zavi', 'Zavi Voice Agent', 'Zavi Voice to Action OS'],
+  alternateName: ['Zavi', 'Zavi Voice Dictation', 'Zavi AI Voice Typing'],
   description:
-    'Voice to Action OS with autonomous background agents, 27+ app integrations, and WhatsApp/Telegram bot reporting. Speak to type perfect text, execute commands across Gmail/Slack/GitHub/Notion, or create scheduled automations — all from your keyboard. Available on Android, iOS, macOS, Windows, and Linux.',
+    'AI voice dictation for every app. Speak naturally to type your words with filler removal, grammar correction, punctuation, and polish. Use Magic Wand when you want instruction-based edits on selected text. Available on Android, iOS, macOS, Windows, and Linux.',
   url: 'https://zavivoice.com',
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'Android, iOS, macOS, Windows, Linux',
@@ -120,10 +120,10 @@ export const softwareApplicationSchema = {
     },
   ],
   featureList: [
-    'Background Agents — Schedule automations with a voice command (e.g. daily email summaries)',
-    'Voice Agent — Execute cross-app commands across 27+ integrations via speech',
-    'WhatsApp & Telegram Bots — Agents report back and ask for approvals via messaging',
-    'Magic Wand — In-place voice editing for text correction and transformation',
+    'AI voice dictation for messages, email, docs, notes, and prompts',
+    'Works where your cursor is, without switching apps or copy-pasting',
+    'Filler word removal, grammar correction, punctuation, and polish for dictated text',
+    'Magic Wand — In-place instruction-based editing for selected text',
     'AI-powered filler word removal (um, uh, like, you know)',
     '4 Writing Tones (Professional, Casual, Chat, Witty)',
     'Automatic grammar and punctuation correction',
@@ -161,15 +161,15 @@ export const faqSchema = {
       name: 'What is Zavi AI?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Zavi AI is a voice agent that works across every app on your phone and computer. Speak naturally, and Zavi removes filler words, fixes grammar, and produces clean text — or executes tasks like sending emails, messaging on Slack, and searching the web. It works as a system-wide keyboard on iOS and Android, and as a desktop app on macOS, Windows, and Linux.',
+        text: 'Zavi AI is voice dictation that works across apps on your phone and computer. Speak naturally, and Zavi removes filler words, fixes grammar, and produces clean text where your cursor is. It works as a system-wide keyboard on iOS and Android, and as a desktop app on macOS, Windows, and Linux.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What can voice agents do?',
+      name: 'Can Zavi help me write better AI prompts?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Voice agents let you control apps by speaking. Say 'email John that the meeting is moved to 3pm' and Zavi drafts and sends it in Gmail. Say 'message the team on Slack that the deploy is done' and it happens. Agents work across 27+ integrations including Gmail, Slack, WhatsApp, Notion, Calendar, GitHub, LinkedIn, and more — all from a single voice command.",
+        text: 'Yes. You can dictate the full context for ChatGPT, Claude, Cursor, or any AI tool, and Zavi cleans up the text with filler removal, grammar correction, punctuation, and polish. It helps you give AI more context without spending extra time typing.',
       },
     },
     {
@@ -177,7 +177,7 @@ export const faqSchema = {
       name: 'What is the Magic Wand?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences' — and the text is rewritten in-place instantly. No copy-pasting, no switching apps.",
+        text: "The Magic Wand is the instruction-based feature. Highlight any text in any app and tell Zavi what you want changed, such as 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences.' No copy-pasting, no switching apps.",
       },
     },
     {
@@ -201,7 +201,7 @@ export const faqSchema = {
       name: "What's included in the free plan?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'The free plan includes 1,000 words per day of AI-powered voice typing with filler word removal, grammar correction, Magic Wand, voice commands, all 27+ integrations, translation, tone control, and emoji — across every app. No credit card required. Upgrade to Pro ($7.99/month) for unlimited usage.',
+        text: 'The free plan includes 1,000 words per day of AI-powered voice typing with filler word removal, grammar correction, Magic Wand, translation, tone control, and emoji across every app. No credit card required. Upgrade to Pro ($7.99/month) for unlimited usage.',
       },
     },
     {
@@ -225,7 +225,7 @@ export const faqSchema = {
       name: 'How does Zavi compare to Wispr Flow?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Wispr Flow costs $12/month and works on Mac, Windows, and iOS. Zavi starts free, costs $7.99/month for Pro, and works on all 5 platforms including Android and Linux. Zavi also includes voice agents with 27+ app integrations, real-time translation across 100+ languages, and the Magic Wand for in-place text transformation — features Wispr doesn't offer.",
+        text: 'Zavi is built for the same daily habit of speaking instead of typing, but it is available across iOS, Android, macOS, Windows, and Linux. Zavi also puts multilingual output and Magic Wand edits at the center, so you can speak in one language, send in another, and fix selected text without switching apps.',
       },
     },
     {
@@ -238,26 +238,26 @@ export const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'How do I create a background agent?',
+      name: 'Can I use Zavi in messaging apps?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Just speak. Say something like 'Summarize my inbox every morning at 8 AM and WhatsApp me the priorities.' Zavi automatically creates the scheduled automation — no code, no setup, no Zapier. Agents run in the background and report results to your WhatsApp or Telegram.",
+        text: 'Yes. Zavi works wherever you can type, including messaging apps, email, notes, docs, browsers, and social apps. On mobile, it works through the keyboard. On desktop, it gives you system-wide voice input.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can Zavi send me WhatsApp messages automatically?',
+      name: 'Can I edit selected text with Zavi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Zavi has WhatsApp and Telegram bots that deliver summaries, ask for approvals, and let you respond with simple replies. Background agents report back automatically.',
+        text: "Yes. Highlight text and use Magic Wand to transform it by voice. You can say things like 'make this more professional,' 'shorten this,' 'translate this,' or 'summarize this in two sentences.'",
       },
     },
     {
       '@type': 'Question',
-      name: 'What apps does Zavi integrate with?',
+      name: 'When should I use Dictation, Translate, or Magic Wand?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Zavi connects to 27+ apps including Gmail, Slack, GitHub, Notion, Calendar, LinkedIn, WhatsApp, Telegram, iMessage, web search, and more.',
+        text: 'Use normal Dictation when you are writing new text and want Zavi to remove filler words, fix grammar, add punctuation, and polish what you said. Use Translate when you speak one language but need the output in another. Use Magic Wand when text already exists and you want an instruction-based edit on selected text.',
       },
     },
   ],
@@ -298,8 +298,8 @@ export const howToSchema = {
     {
       '@type': 'HowToStep',
       position: 4,
-      name: 'Get Perfect Text',
-      text: "Zavi's AI instantly removes filler words, fixes grammar, restructures sentences, and delivers clean, professional text ready to send. No editing needed.",
+      name: 'Get Polished Text',
+      text: "Zavi's AI removes filler words, fixes grammar, adds punctuation, and polishes your dictated text so it is ready to send.",
       url: 'https://zavivoice.com/#how-it-works',
     },
   ],
@@ -459,7 +459,7 @@ export const videoObjectSchema = {
 export const speakableSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Zavi AI — Voice to Action OS',
+  name: 'Zavi AI — Voice Dictation for Every App',
   url: 'https://zavivoice.com',
   speakable: {
     '@type': 'SpeakableSpecification',
@@ -469,7 +469,7 @@ export const speakableSchema = {
     '@type': 'SoftwareApplication',
     name: 'Zavi AI',
     description:
-      'Zavi AI — Voice to Action OS. Live on iOS, Android, Mac, Windows, Linux. Free to start. Most voice tools just transcribe. Zavi types, edits, and takes action across every app.',
+      'Zavi AI is live on iOS, Android, Mac, Windows, and Linux. Free to start. Normal dictation removes filler words, fixes grammar, adds punctuation, and polishes what you said. Magic Wand handles instruction-based edits on selected text.',
   },
 };
 

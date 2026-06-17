@@ -37,7 +37,7 @@ const points = [
       </svg>
     ),
     title: 'Encrypted in transit',
-    desc: 'All data transmitted over TLS. OAuth for all integrations.',
+    desc: 'All data is transmitted over TLS while Zavi processes your voice.',
   },
 ];
 

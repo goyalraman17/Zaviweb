@@ -78,12 +78,6 @@ export default function Footer() {
                 Pricing
               </a>
               <a
-                href="/integrations"
-                className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors"
-              >
-                Integrations
-              </a>
-              <a
                 href="/use-cases"
                 className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors"
               >
@@ -198,7 +192,7 @@ export default function Footer() {
             Stay in the loop
           </h3>
           <p className="text-sm text-slate-500 mb-4">
-            Product updates, new integrations, and tips. No spam.
+            Product updates, dictation tips, and launch notes. No spam.
           </p>
           <form
             onSubmit={(e) => {

@@ -9,12 +9,12 @@ const faqs = [
   {
     question: 'What is Zavi AI?',
     answer:
-      'Zavi is AI voice dictation for every app and device. Speak naturally, including mixed-language speech, and Zavi turns it into polished text in the language you choose. It works on iOS, Android, macOS, Windows, and Linux. Magic Wand helps rewrite or translate selected text when you need a quick edit.',
+      'Zavi is AI voice dictation for every app and device. Speak naturally, including mixed-language speech, and Zavi removes filler words, fixes grammar, adds punctuation, and polishes your dictated text. It works on iOS, Android, macOS, Windows, and Linux. Magic Wand is the instruction-based mode for selected text.',
   },
   {
     question: 'What is the Magic Wand?',
     answer:
-      "The Magic Wand lets you highlight any text in any app and transform it by voice. Say 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences.' The text is rewritten in place instantly. No copy-pasting, no switching apps.",
+      "Magic Wand is the instruction feature. Highlight any text in any app and tell Zavi what you want changed, like 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences.' No copy-pasting, no switching apps.",
   },
   {
     question: 'Is my voice data private?',
@@ -52,9 +52,9 @@ const faqs = [
       'Yes. Cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want.',
   },
   {
-    question: 'Where can I use Zavi?',
+    question: 'When should I use Dictation, Translate, or Magic Wand?',
     answer:
-      'Zavi works wherever you write, including email, chat, docs, notes, browsers, and social apps. On mobile, it works through the keyboard. On desktop, it gives you system-wide voice input.',
+      'Use normal Dictation when you are writing new text and want Zavi to remove filler words, fix grammar, add punctuation, and polish what you said. Use Translate when you speak one language but need the output in another. Use Magic Wand when text already exists and you want an instruction-based edit on selected text.',
   },
 ];
 

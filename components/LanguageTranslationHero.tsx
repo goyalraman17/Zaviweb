@@ -97,14 +97,14 @@ export default function LanguageTranslationHero() {
             >
               Speak in one language. Write in{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                another.
+                any language.
               </span>
             </h2>
 
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-              Speak naturally, code-switch freely, and get polished output in
-              the language the other person needs. No translator tab. No prompt
-              box. No cleanup after.
+              Use Translate when the language you speak and the language you
+              need to send are different. Speak naturally, code-switch freely,
+              and keep the same no copy-paste flow.
             </p>
           </motion.div>
 
@@ -213,7 +213,7 @@ export default function LanguageTranslationHero() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Work across languages
+              Use voice across languages
               <svg
                 className="w-4 h-4"
                 fill="none"

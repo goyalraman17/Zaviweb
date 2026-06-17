@@ -40,14 +40,14 @@ const FinalCTA = dynamic(() => import('@/components/FinalCTA'));
 export const metadata: Metadata = {
   title: 'Free AI Voice Dictation for Every App',
   description:
-    'Download Zavi free. Speak naturally in any app on Android, iOS, Mac, Windows, or Linux and get polished text in the language you choose.',
+    'Download Zavi free. Speak naturally in any app on Android, iOS, Mac, Windows, or Linux and get polished text where your cursor is.',
   alternates: {
     canonical: 'https://zavivoice.com',
   },
   openGraph: {
     title: 'Zavi AI | Free AI Voice Dictation for Every App',
     description:
-      'Speak in any app, on any device. Zavi turns rough multilingual speech into clean text and Magic Wand edits selected text in place.',
+      'Speak in any app, on any device. Zavi removes filler words, fixes grammar, and polishes your dictated text. Magic Wand edits selected text in place.',
     url: 'https://zavivoice.com',
     images: [
       {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zavi AI | Free AI Voice Dictation for Every App',
     description:
-      'Speak naturally across Android, iOS, Mac, Windows, and Linux. Download free.',
+      'Hold the mic, talk naturally, and get polished text in the app you are already using. Download free.',
   },
 };
 
@@ -81,43 +81,43 @@ export default function Home() {
         {/* 2. THE BROAD PROBLEM */}
         <ProblemSolution />
 
-        {/* 3. CORE PRODUCT PROOF */}
+        {/* 3. DOWNLOAD OPTIONS */}
+        <DeviceDownload />
+
+        {/* 4. CORE PRODUCT PROOF */}
         <KillYourKeyboard />
 
-        {/* 4. SEE IT IN ACTION */}
+        {/* 5. SEE IT IN ACTION */}
         <VideoDemo />
 
-        {/* 5. WHAT PEOPLE USE IT FOR */}
+        {/* 6. WHAT PEOPLE USE IT FOR */}
         <UseCaseShowcase />
 
         {/* Voice command / agent sections are intentionally hidden for now.
             They diluted the core positioning: speak anywhere, get polished multilingual text.
             Restore with: <BackgroundAgents /> */}
 
-        {/* 6. IN-PLACE EDITING */}
+        {/* 7. IN-PLACE EDITING */}
         <MagicWand />
 
         {/* WhatsApp / approval control is intentionally hidden for now.
             It reads like an agent product instead of a dictation product.
             Restore with: <WhatsAppBot /> */}
 
-        {/* 7. MULTILINGUAL WRITING */}
+        {/* 8. MULTILINGUAL WRITING */}
         <LanguageTranslation />
 
         {/* Integrations / command surface is intentionally hidden for now.
             Keep the page focused on the daily download habit.
             Restore with: <SuperpowersSection /> */}
 
-        {/* 8. TRUST */}
+        {/* 9. TRUST */}
         <PrivacyStrip />
         <Metrics />
         <Testimonials />
 
-        {/* 9. PRICING */}
+        {/* 10. PRICING */}
         <PricingNew />
-
-        {/* 10. DOWNLOAD */}
-        <DeviceDownload />
 
         {/* 11. FAQ */}
         <FAQ />

@@ -102,7 +102,8 @@ export default function HeroWithScreenshot() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              Speak anywhere. Get polished text in any language.
+              Hold the mic, talk naturally, and clean text appears where your
+              cursor is.
             </motion.p>
 
             {/* Primary CTA */}
@@ -199,7 +200,7 @@ export default function HeroWithScreenshot() {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  Speak in one language, send in another
+                  No switching apps or copy-paste
                 </span>
               </div>
               <p className="text-xs text-gray-400">
@@ -251,16 +252,16 @@ export default function HeroWithScreenshot() {
                 <div className="space-y-3">
                   {[
                     {
-                      cmd: '"Kal client meeting shift kar do. Make it professional English."',
-                      tag: 'Voice writing',
+                      cmd: '"Um, we shipped the update and I can walk you through it tomorrow if that works."',
+                      tag: 'Use Dictation for new text',
                     },
                     {
-                      cmd: '"Translate this reply to Japanese and make it polite."',
-                      tag: 'Translation',
+                      cmd: '"Kal meeting shift kar do. Send it in professional English."',
+                      tag: 'Use Translate for another language',
                     },
                     {
-                      cmd: '"Translate this paragraph to Japanese and make it more formal."',
-                      tag: 'Magic Wand',
+                      cmd: '"Make this paragraph shorter, sharper, and ready to send."',
+                      tag: 'Use Magic Wand on selected text',
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">

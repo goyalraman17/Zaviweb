@@ -3,16 +3,15 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'framer-motion';
-import RevealOnScroll from './animated/RevealOnScroll';
 
-const beforeText = `"Kal client meeting shift kar do because confirmation nahi aaya, and please make it sound professional but not too formal."`;
+const beforeText = `"Um hi Sarah, we shipped the update and I can walk you through the changes tomorrow if that works for you, let me know what time is convenient."`;
 
 const afterLines = [
   'Hi Sarah,',
   '',
-  "Can we move tomorrow's client meeting? We have not received the confirmation yet.",
+  'We shipped the update and I can walk you through the changes tomorrow if that works for you.',
   '',
-  'I will share an update as soon as we hear back.',
+  'Let me know what time is convenient.',
   '',
   'Best,',
 ];
@@ -39,26 +38,27 @@ export default function KillYourKeyboard() {
   const showCursor = isInView && displayedChars < fullAfterText.length;
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-gray-50">
+    <section
+      id="how-it-works"
+      className="relative py-12 md:py-28 overflow-hidden bg-gray-50"
+    >
       <div className="container-large relative z-10 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <RevealOnScroll direction="bottom" duration={0.8}>
-            <div className="text-center mb-14">
-              <h2
-                className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 text-[#0a0a0a] tracking-tight text-balance"
-                style={{ lineHeight: 1.1 }}
-              >
-                It does not just transcribe. It carries{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
-                  what you meant.
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
-                That is the difference between plain dictation and multilingual voice writing.
-              </p>
-            </div>
-          </RevealOnScroll>
+          <div className="text-center mb-8 md:mb-14">
+            <h2
+              className="text-4xl sm:text-5xl lg:text-6xl font-black mb-5 md:mb-6 text-[#0a0a0a] tracking-tight text-balance"
+              style={{ lineHeight: 1.1 }}
+            >
+              It does not just transcribe. It cleans up{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
+                what you said.
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium">
+              That is the difference between plain dictation and AI voice writing.
+            </p>
+          </div>
 
           {/* Before / After */}
           <motion.div
@@ -66,7 +66,7 @@ export default function KillYourKeyboard() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid md:grid-cols-2 gap-8"
+            className="grid md:grid-cols-2 gap-4 md:gap-8"
           >
             {/* Before */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 relative">
@@ -80,7 +80,7 @@ export default function KillYourKeyboard() {
                 {beforeText}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {['Kal', 'kar do', 'nahi aaya', 'please', 'not too formal'].map((w, i) => (
+                {['Um', 'hi', 'if that works for you', 'let me know'].map((w, i) => (
                   <motion.span
                     key={w}
                     initial={{ opacity: 1 }}
@@ -151,7 +151,7 @@ export default function KillYourKeyboard() {
               }}
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#0a0a0a] rounded-xl hover:bg-[#1a1a1a] transition-all"
             >
-              Try language-in, language-out
+              Try speaking instead of typing
               <svg
                 className="w-4 h-4"
                 fill="none"

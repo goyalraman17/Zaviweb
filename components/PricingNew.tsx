@@ -1100,18 +1100,18 @@ export default function PricingNew() {
               </p>
             </div>
 
-            {/* Enterprise Section */}
+            {/* Organization Section */}
             <motion.div
               className="max-w-5xl mx-auto rounded-3xl p-12 text-center shadow-sm border border-gray-200 bg-gray-50 mb-16"
               variants={fadeUp}
             >
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Enterprise-grade voice infrastructure
+                Rolling Zavi out to a team?
               </h3>
               <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                SSO, SOC2, audit logs, data residency, rollout support, and
-                dedicated support. Built for organizations that need voice at
-                scale.
+                We can help with onboarding, billing, usage planning, and
+                rollout support for teams that want everyone speaking instead
+                of typing.
               </p>
               <motion.a
                 href="https://calendly.com/raman-zavivoice/30min"

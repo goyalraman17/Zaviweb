@@ -24,13 +24,30 @@ export default function StickyDownloadCTA() {
   useEffect(() => {
     const handleScroll = () => {
       const pricingSection = document.getElementById('pricing');
+      const downloadSection = document.getElementById('download');
+      const howItWorksSection = document.getElementById('how-it-works');
       const pricingRect = pricingSection?.getBoundingClientRect();
+      const downloadRect = downloadSection?.getBoundingClientRect();
+      const howItWorksRect = howItWorksSection?.getBoundingClientRect();
       const pricingInView =
         pricingRect &&
         pricingRect.top < window.innerHeight - 120 &&
         pricingRect.bottom > 180;
+      const downloadInView =
+        downloadRect &&
+        downloadRect.top < window.innerHeight - 80 &&
+        downloadRect.bottom > 80;
+      const howItWorksInView =
+        howItWorksRect &&
+        howItWorksRect.top < window.innerHeight - 80 &&
+        howItWorksRect.bottom > 80;
 
-      if (window.scrollY > 720 && !pricingInView) {
+      if (
+        window.scrollY > 720 &&
+        !pricingInView &&
+        !downloadInView &&
+        !howItWorksInView
+      ) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -61,7 +78,7 @@ export default function StickyDownloadCTA() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="pointer-events-none fixed bottom-6 left-1/2 z-[9990] hidden w-full -translate-x-1/2 justify-center px-4 md:flex">
+        <div className="pointer-events-none fixed bottom-6 left-1/2 z-[9990] flex w-full -translate-x-1/2 justify-center px-4 md:hidden">
           <motion.div
             initial={{ y: 80, opacity: 0, scale: 0.9 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}

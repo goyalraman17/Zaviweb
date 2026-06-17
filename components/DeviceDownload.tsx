@@ -138,7 +138,7 @@ export default function DeviceDownload() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white" id="download">
+    <section className="py-10 md:py-24 bg-white" id="download">
       <div className="container-large">
         <motion.div
           initial="hidden"
@@ -157,7 +157,7 @@ export default function DeviceDownload() {
 
           <motion.div
             variants={fadeUp}
-            className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto space-y-3 px-4"
+            className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 max-w-2xl mx-auto space-y-3 px-4"
           >
             <p className="font-medium text-gray-900">
               Pick your device. Speak in any app. Send polished text in any language.
@@ -188,7 +188,7 @@ export default function DeviceDownload() {
           {/* Platform Grid */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto mb-12 px-4 md:px-0"
+            className="flex flex-wrap justify-center gap-3 md:gap-6 max-w-6xl mx-auto mb-4 md:mb-12 px-4 md:px-0"
           >
             {platforms.map((platform) => {
               const isDetected = platform.name === detectedPlatform;
@@ -200,7 +200,7 @@ export default function DeviceDownload() {
                   key={platform.name}
                   onClick={() => handleAction(platform.name, platform)}
                   className={`
-                    relative group p-6 md:p-8 rounded-2xl border-2 transition-all duration-300
+                    relative group p-4 md:p-8 rounded-2xl border-2 transition-all duration-300
                     ${
                       isDetected
                         ? 'bg-gradient-to-br from-blue-600 to-sky-500 border-blue-600 text-white shadow-xl scale-110 z-10 ring-4 ring-blue-200'
@@ -323,31 +323,6 @@ export default function DeviceDownload() {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Social Proof Badges */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-16 pt-8 border-t border-slate-100 flex flex-wrap items-center justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all"
-          >
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-xl text-slate-400">5/5</span>
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                App Store & Play Store Rating
-              </span>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

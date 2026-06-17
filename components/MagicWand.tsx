@@ -3,38 +3,23 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { analytics } from '@/lib/analytics';
 import {
   fadeUp,
   staggerContainer,
   staggerContainerSlow,
-  ctaPrimary,
 } from '@/lib/animations';
 import GlowCard from './animated/GlowCard';
 
 const magicExamples = [
   {
-    id: 'instagram',
-    app: 'Instagram',
-    color: 'border-indigo-100',
-    icon: (
-      <div className="relative w-full h-full">
-        <Image
-          src="/icons/instagram.svg"
-          alt="Instagram"
-          fill
-          className="object-contain filter drop-shadow-sm"
-        />
-      </div>
-    ),
-    prompt: 'Post about how magical Zavi is',
-    result:
-      "You guys, I just found the ultimate cheat code for content creation! Zavi writes my captions instantly. It's like magic! #ContentCreator #ZaviMagic",
-  },
-  {
     id: 'gmail',
     app: 'Gmail',
     color: 'border-red-100',
+    selected:
+      'Hey, just checking if you saw this. Need the update soon because we are blocked.',
+    prompt: 'Make this warmer and more professional',
+    result:
+      'Hi, just checking whether you had a chance to review this. We are currently blocked, so an update would be really helpful when you have a moment.',
     icon: (
       <div className="relative w-full h-full">
         <Image
@@ -45,14 +30,16 @@ const magicExamples = [
         />
       </div>
     ),
-    prompt: 'Write an email with positive feedback',
-    result:
-      "Subject: Loving the app!\n\nHi Zavi Team,\n\nJust wanted to share that your app has completely changed how I work. The 'No Prompts' feature is genius. Keep it up!\n\nBest,\n[Name]",
   },
   {
     id: 'slack',
     app: 'Slack',
     color: 'border-emerald-100',
+    selected:
+      'The release is done but there are some small things we should talk about later.',
+    prompt: 'Make this shorter and clearer',
+    result:
+      'The release is done. A few small follow-ups still need discussion.',
     icon: (
       <div className="relative w-full h-full">
         <Image
@@ -63,9 +50,6 @@ const magicExamples = [
         />
       </div>
     ),
-    prompt: 'Tell team about this new tool',
-    result:
-      "Hey team! You have to install Zavi. It's saving me so much time on documentation and messages. Let's get a team plan!",
   },
 ];
 
@@ -76,7 +60,7 @@ export default function MagicWand() {
   useEffect(() => {
     if (!autoPlay) return;
 
-    const sequence = ['instagram', 'gmail', 'slack'];
+    const sequence = magicExamples.map((example) => example.id);
     let currentIndex = 0;
 
     // Start the first one immediately
@@ -91,13 +75,13 @@ export default function MagicWand() {
   }, [autoPlay]);
 
   return (
-    <section className="py-14 md:py-24 relative overflow-hidden bg-white">
+    <section className="py-12 md:py-16 relative overflow-hidden bg-white">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-50/20 via-white to-white pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -134,7 +118,7 @@ export default function MagicWand() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
           >
             Need an edit? Use the Magic Wand.
           </motion.h2>
@@ -143,11 +127,11 @@ export default function MagicWand() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-lg text-gray-500 max-w-3xl mx-auto font-medium mb-8"
+            className="text-base md:text-lg text-gray-500 max-w-3xl mx-auto font-medium mb-6"
           >
-            Highlight text anywhere and ask Zavi to rewrite, translate, shorten,
-            or clean it up. It is the fast fix after dictation, not another app
-            to manage.
+            Use Magic Wand after text already exists. Highlight text anywhere
+            and tell Zavi the edit you want: rewrite, translate, shorten, or
+            clean it up without opening another app.
           </motion.p>
 
           {/* Benefit Badges */}
@@ -250,7 +234,7 @@ export default function MagicWand() {
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={staggerContainerSlow}
-          className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20"
+          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           {magicExamples.map((item) => (
             <MagicCard
@@ -265,48 +249,6 @@ export default function MagicWand() {
           ))}
         </motion.div>
 
-        {/* Bottom Section - Visual "Replaces" & CTA */}
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="bg-white/40 backdrop-blur-2xl rounded-[2.5rem] p-10 md:p-14 text-center relative overflow-hidden border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
-          >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-              <a
-                href="#download"
-                onClick={(e) => {
-                  e.preventDefault();
-                  analytics.track('cta_magic_wand_click', {
-                    location: 'magic_wand_section',
-                  });
-                  const downloadSection = document.getElementById('download');
-                  if (downloadSection) {
-                    downloadSection.scrollIntoView({
-                      behavior: 'smooth',
-                      block: 'start',
-                    });
-                  }
-                }}
-                className="inline-flex justify-center w-full sm:w-auto items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white rounded-2xl font-bold text-lg transition-all hover:scale-105 shadow-[0_8px_20px_rgba(37,99,235,0.25)] group"
-              >
-                <span>Download Zavi Free</span>
-                <Image
-                  src="/icons/magic-wand-filled.svg"
-                  alt="Magic Wand"
-                  width={20}
-                  height={20}
-                  className="object-contain brightness-0 invert"
-                />
-              </a>
-            </div>
-            <p className="mt-6 text-sm text-gray-500 font-medium relative z-10 flex items-center justify-center gap-2">
-              Dictate first. Use Magic Wand when selected text needs a quick fix.
-            </p>
-          </motion.div>
-        </div>
       </div>
     </section>
   );
@@ -350,7 +292,7 @@ function MagicCard({
       <motion.div
         variants={fadeUp}
         className={`
-                    bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border transition-all duration-500 relative group flex flex-col h-[420px] lg:h-[460px] overflow-hidden
+                    bg-white/80 backdrop-blur-xl rounded-[2rem] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border transition-all duration-500 relative group flex flex-col min-h-[340px] overflow-hidden
                     ${isActive ? 'border-blue-400/50 ring-[12px] ring-blue-50/50' : 'border-white/60 hover:border-blue-200/50'}
                 `}
       >
@@ -363,17 +305,20 @@ function MagicCard({
           {item.icon}
         </div>
 
-        <div className="mt-2 mb-8 pr-12">
+        <div className="mt-2 mb-5 pr-12">
           <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-2 font-sans">
-            You Say
+            Selected text
           </p>
-          <p className="text-gray-900 font-bold text-xl leading-snug tracking-tight">
-            "{item.prompt}"
+          <p className="text-gray-900 font-semibold text-base leading-relaxed tracking-tight">
+            "{item.selected}"
+          </p>
+          <p className="mt-3 text-xs font-bold text-blue-600">
+            Say: "{item.prompt}"
           </p>
         </div>
 
         {/* Interaction Zone */}
-        <div className="flex-1 flex flex-col gap-0 mt-4 relative">
+        <div className="flex-1 flex flex-col gap-0 mt-2 relative">
           {/* Floating Action Button */}
           <div className="absolute -top-7 left-1/2 transform -translate-x-1/2 z-20">
             <button
@@ -399,7 +344,7 @@ function MagicCard({
 
           {/* Result Container */}
           <div
-            className={`mt-0 flex-1 rounded-2xl border p-6 pt-10 relative overflow-hidden transition-all duration-500 md:min-h-[180px]
+            className={`mt-0 flex-1 rounded-2xl border p-5 pt-9 relative overflow-hidden transition-all duration-500 md:min-h-[150px]
                     ${
                       isActive
                         ? 'bg-white border-gray-200 shadow-sm'
@@ -409,6 +354,9 @@ function MagicCard({
             {/* Static preview when not active, shows the result text so cards never look empty */}
             {!isActive && (
               <div className="opacity-60 transition-opacity duration-300 group-hover:opacity-80">
+                <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-2">
+                  Updated text
+                </p>
                 <p className="text-[14px] text-gray-600 leading-relaxed">
                   {item.result}
                 </p>
@@ -424,80 +372,13 @@ function MagicCard({
                   exit={{ opacity: 0 }}
                   className="relative z-10 w-full"
                 >
-                  {/* Instagram UI */}
-                  {item.id === 'instagram' && (
-                    <div className="space-y-3">
-                      {/* User Header - Fixed Visibility */}
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 text-xs font-bold ring-2 ring-white shadow-sm">
-                          you
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-sm font-bold text-gray-900 leading-none">
-                            @zavivoice
-                          </span>
-                          <span className="text-[10px] text-gray-400 font-medium">
-                            Original Audio
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-[15px] text-gray-800 leading-relaxed font-normal">
-                        {typedText}
-                        <span className="inline-block w-0.5 h-5 ml-0.5 align-middle bg-blue-600 animate-pulse"></span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Gmail UI */}
-                  {item.id === 'gmail' && (
-                    <div className="text-sm text-gray-800">
-                      {/* User Header */}
-                      <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-100">
-                        <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-[10px] font-bold">
-                          Y
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          To:{' '}
-                          <span className="font-semibold text-gray-900">
-                            Zavi Team
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="mb-2 text-xs font-bold text-gray-900">
-                        Subject: Loving the app!
-                      </div>
-
-                      <div className="text-[15px] leading-relaxed whitespace-pre-wrap font-sans text-gray-800">
-                        {typedText}
-                        <span className="inline-block w-0.5 h-5 ml-0.5 align-middle bg-gray-900 animate-pulse"></span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Slack UI */}
-                  {item.id === 'slack' && (
-                    <div className="flex gap-3">
-                      {/* User Avatar */}
-                      <div className="w-9 h-9 rounded bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-700 font-bold text-sm shadow-sm">
-                        Y
-                      </div>
-                      <div className="flex-1 space-y-0.5">
-                        <div className="flex items-baseline gap-2">
-                          <span className="font-bold text-gray-900 text-sm">
-                            You
-                          </span>
-                          <span className="text-[10px] text-gray-400">
-                            10:42 AM
-                          </span>
-                        </div>
-                        <div className="text-[15px] text-gray-900 leading-relaxed">
-                          {typedText}
-                          <span className="inline-block w-0.5 h-5 ml-0.5 align-middle bg-blue-600 animate-pulse"></span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  <p className="text-[11px] font-bold text-blue-600 uppercase tracking-widest mb-2">
+                    Updated text
+                  </p>
+                  <p className="text-[15px] text-gray-900 leading-relaxed">
+                    {typedText}
+                    <span className="inline-block w-0.5 h-5 ml-0.5 align-middle bg-blue-600 animate-pulse"></span>
+                  </p>
                 </motion.div>
               )}
             </AnimatePresence>

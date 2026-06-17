@@ -12,10 +12,10 @@ const metrics = [
     detail: "than typing manually"
   },
   {
-    value: 27,
-    suffix: "+",
-    label: "App Integrations",
-    detail: "Gmail, Slack, GitHub, Notion..."
+    value: 5,
+    suffix: "",
+    label: "Platforms",
+    detail: "iOS, Android, Mac, Windows, Linux"
   },
   {
     value: 200,

@@ -39,9 +39,9 @@ export default function FinalCTA() {
                         variants={fadeUp}
                         className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-medium"
                     >
-                        Download free, speak in any app, and turn rough
-                        multilingual thoughts into polished text. Magic Wand is
-                        there when selected text needs a quick fix.
+                        Download free, speak in any app, and turn dictated
+                        words into polished text. Magic Wand is there when
+                        selected text needs an instruction-based edit.
                     </motion.p>
 
                     <motion.div variants={fadeUp} className="flex flex-col items-center gap-6">

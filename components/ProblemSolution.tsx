@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const problems = [
   {
-    pain: "You think in one language, but work happens in another.",
-    stat: "Translation apps turn one message into copy, paste, edit, repeat.",
-    solution: "Speak naturally. Zavi translates, cleans grammar, and writes polished text where your cursor is.",
-    command: '"Kal meeting shift kar do, write it in professional English"',
+    pain: "Blank text field? Use normal dictation.",
+    stat: "Best for new messages, emails, notes, docs, and AI prompts.",
+    solution: "Speak naturally. Zavi removes filler words, fixes grammar, adds punctuation, and writes polished text where your cursor is.",
+    command: '"Um Sarah we shipped the update and I can walk you through it tomorrow"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -15,10 +15,10 @@ const problems = [
     ),
   },
   {
-    pain: "You keep switching between keyboard, translator, and ChatGPT.",
-    stat: "Every app switch breaks the flow of the thought.",
-    solution: "Zavi keeps translation, cleanup, and writing inside the app you are already using.",
-    command: '"Translate this to Japanese and make it more formal"',
+    pain: "Need a different output language? Use Translate.",
+    stat: "Best when you speak one language but want to send another.",
+    solution: "Speak naturally, even with mixed languages. Zavi keeps the meaning and outputs polished text in the language you choose.",
+    command: '"Kal meeting shift kar do and send it in English"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
@@ -26,10 +26,10 @@ const problems = [
     ),
   },
   {
-    pain: "Code-switching confuses normal dictation.",
-    stat: "Real speech mixes Hindi, English, names, and work terms.",
-    solution: "Zavi understands mixed-language speech and turns the meaning into clean output.",
-    command: '"Client ka confirmation nahi aaya, send this in English"',
+    pain: "AI needs context, but typing context takes forever.",
+    stat: "Use normal dictation when you want to give AI more detail.",
+    solution: "Dictate the full context in your own words, and Zavi cleans up the prompt text without adding new instructions.",
+    command: '"The login bug happens after password reset when the session token expires"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -37,9 +37,9 @@ const problems = [
     ),
   },
   {
-    pain: "Your message is clear in your head, but not on the screen.",
-    stat: "Raw dictation captures words. It does not carry tone or intent.",
-    solution: "Zavi removes fillers, fixes grammar, and makes the translated text sound natural.",
+    pain: "Already-written text needs a change? Use Magic Wand.",
+    stat: "Best after text exists and you want to give an instruction.",
+    solution: "Magic Wand lets you highlight text and say the edit you want: shorter, warmer, more professional, or translated.",
     command: '"Make this shorter, polite, and ready to send"',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -65,11 +65,12 @@ export default function ProblemSolution() {
               The bottleneck is not language. It is the keyboard.
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-[#0a0a0a] tracking-tight mb-4" style={{ lineHeight: 1.1 }}>
-              Multilingual writing should not mean copy-paste.
+              Writing should move at the speed of thought.
             </h2>
             <p className="text-lg text-gray-500 max-w-3xl mx-auto font-medium">
-              Speak the way you actually think. Zavi turns mixed, messy speech
-              into polished text in the language the other person needs.
+              Speak the way you actually think. Zavi removes filler words,
+              fixes grammar, and polishes dictated text for messages, emails,
+              notes, docs, and AI prompts.
             </p>
           </motion.div>
 
