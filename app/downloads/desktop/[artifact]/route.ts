@@ -1,5 +1,6 @@
 import {
   getLatestDesktopRelease,
+  getDesktopArtifactVersion,
   isDesktopArtifactSlug,
   resolveDesktopArtifact,
 } from '@/lib/desktopBuilds';
@@ -7,16 +8,14 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
-async function fetchArtifact(
-  artifact: string,
-  method: 'GET' | 'HEAD'
-) {
+async function fetchArtifact(artifact: string, method: 'GET' | 'HEAD') {
   if (!isDesktopArtifactSlug(artifact)) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
   const release = await getLatestDesktopRelease();
-  const build = resolveDesktopArtifact(artifact, release.version);
+  const version = getDesktopArtifactVersion(release, artifact);
+  const build = resolveDesktopArtifact(artifact, version);
   const status = method === 'HEAD' ? 308 : 307;
 
   return NextResponse.redirect(build.sourceUrl, status);

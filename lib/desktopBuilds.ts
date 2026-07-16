@@ -27,6 +27,7 @@ export interface DesktopArtifact extends DesktopArtifactDefinition {
 export interface DesktopReleaseMeta {
   version: string;
   pubDate?: string;
+  artifactVersions?: Partial<Record<DesktopArtifactSlug, string>>;
 }
 
 export const DESKTOP_BUILD_ARTIFACTS: Record<
@@ -91,6 +92,13 @@ export function resolveDesktopArtifact(
   };
 }
 
+export function getDesktopArtifactVersion(
+  release: DesktopReleaseMeta,
+  artifact: DesktopArtifactSlug
+): string {
+  return release.artifactVersions?.[artifact] || release.version;
+}
+
 export async function getLatestDesktopRelease(): Promise<DesktopReleaseMeta> {
   try {
     const response = await fetch(`${DESKTOP_RELEASE_BASE_URL}/latest.json`, {
@@ -104,11 +112,13 @@ export async function getLatestDesktopRelease(): Promise<DesktopReleaseMeta> {
     const data = (await response.json()) as {
       version?: string;
       pub_date?: string;
+      artifact_versions?: Partial<Record<DesktopArtifactSlug, string>>;
     };
 
     return {
       version: data.version || DESKTOP_RELEASE_FALLBACK_VERSION,
       pubDate: data.pub_date,
+      artifactVersions: data.artifact_versions,
     };
   } catch {
     return {

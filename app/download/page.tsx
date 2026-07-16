@@ -8,7 +8,6 @@ import {
   generateBreadcrumbSchema,
   softwareApplicationSchema,
 } from '@/lib/schemaData';
-import { getLatestDesktopRelease } from '@/lib/desktopBuilds';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -124,7 +123,6 @@ const examples = [
 ];
 
 export default async function DownloadPage() {
-  const desktopRelease = await getLatestDesktopRelease();
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://zavivoice.com' },
     { name: 'Download', url: 'https://zavivoice.com/download' },
@@ -231,7 +229,7 @@ export default async function DownloadPage() {
             </div>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
               <span className="h-2 w-2 rounded-full bg-blue-500" />
-              Desktop builds updated to v{desktopRelease.version}
+              Latest desktop installers available
             </div>
           </div>
 
