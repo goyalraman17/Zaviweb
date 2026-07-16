@@ -7,6 +7,7 @@ import {
 } from '@/lib/schemaData';
 import {
   DESKTOP_BUILD_ARTIFACTS,
+  getDesktopArtifactVersion,
   getLatestDesktopRelease,
 } from '@/lib/desktopBuilds';
 import { notFound } from 'next/navigation';
@@ -213,14 +214,24 @@ export default async function PlatformDownloadPage({
   const data = platformData[platform?.toLowerCase()];
   if (!data) notFound();
   const desktopRelease = await getLatestDesktopRelease();
-  const desktopVersion = desktopRelease.version;
   const normalizedPlatform = platform?.toLowerCase();
+  const appleSiliconVersion = getDesktopArtifactVersion(
+    desktopRelease,
+    'macos-apple-silicon'
+  );
+  const intelVersion = getDesktopArtifactVersion(desktopRelease, 'macos-intel');
+  const desktopVersion =
+    normalizedPlatform === 'windows'
+      ? getDesktopArtifactVersion(desktopRelease, 'windows-installer')
+      : normalizedPlatform === 'linux'
+        ? getDesktopArtifactVersion(desktopRelease, 'linux-deb')
+        : desktopRelease.version;
   const versionLabel =
-    normalizedPlatform === 'macos' ||
-    normalizedPlatform === 'windows' ||
-    normalizedPlatform === 'linux'
-      ? `Latest desktop build (v${desktopVersion})`
-      : data.versionLabel;
+    normalizedPlatform === 'macos'
+      ? `Apple Silicon v${appleSiliconVersion} · Intel v${intelVersion}`
+      : normalizedPlatform === 'windows' || normalizedPlatform === 'linux'
+        ? `Latest desktop build (v${desktopVersion})`
+        : data.versionLabel;
   const steps =
     normalizedPlatform === 'linux'
       ? [
