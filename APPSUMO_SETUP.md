@@ -19,6 +19,7 @@ APPSUMO_API_KEY=
 APPSUMO_CLIENT_ID=
 APPSUMO_CLIENT_SECRET=
 APPSUMO_REDIRECT_URI=https://zavivoice.com/appsumo/activate
+APPSUMO_DEAL_URL=https://appsumo.com/products/your-zavi-listing/
 ```
 
 The four default tier limits mirror the reference configuration selected for
@@ -40,12 +41,15 @@ Use `APPSUMO_TIER_<N>_MONTHLY_WORD_LIMIT`,
 
 1. Configure the four secrets and limits in production.
 2. Add the webhook and OAuth URLs in the AppSumo Partner Portal.
-3. Send AppSumo's test webhook and verify a successful response.
-4. Redeem one test license for every tier using the same email/account in the
+3. Set `APPSUMO_DEAL_URL` to the live Zavi listing. Website and Mac links use
+   the stable `https://zavivoice.com/appsumo` redirect, so future listing URL
+   changes do not require a Mac release.
+4. Send AppSumo's test webhook and verify a successful response.
+5. Redeem one test license for every tier using the same email/account in the
    browser and Mac app.
-5. Verify device ceilings, monthly allowance display, upgrade/downgrade,
+6. Verify device ceilings, monthly allowance display, upgrade/downgrade,
    deactivation/refund, and reactivation.
-6. Confirm the customer-support team can search Firestore collection
+7. Confirm the customer-support team can search Firestore collection
    `appsumo_licenses` by license key.
 
 Local and BYOK transcription send only an authenticated word count for quota
