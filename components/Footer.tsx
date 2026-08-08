@@ -110,7 +110,9 @@ export default function Footer() {
                 Mac App
               </a>
               <a
-                href="/download/windows"
+                href="https://apps.microsoft.com/detail/9pl4hz8zclms?hl=en-GB&gl=IN"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-[15px] font-bold text-slate-800 hover:text-slate-500 transition-colors"
               >
                 Windows App

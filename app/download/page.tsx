@@ -8,6 +8,7 @@ import {
   generateBreadcrumbSchema,
   softwareApplicationSchema,
 } from '@/lib/schemaData';
+import { WINDOWS_STORE_URL } from '@/lib/desktopBuilds';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -74,8 +75,8 @@ const platforms: PlatformCard[] = [
       </svg>
     ),
     req: 'Windows 10+',
-    cta: 'View installer',
-    href: '/download/windows',
+    cta: 'Get from Microsoft Store',
+    href: WINDOWS_STORE_URL,
   },
   {
     name: 'Linux',

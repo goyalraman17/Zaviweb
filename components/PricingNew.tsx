@@ -82,7 +82,7 @@ export default function PricingNew() {
   }, []);
 
   const getButtonText = () => {
-    if (detectedOS === 'Windows') return 'Join Waitlist';
+    if (detectedOS === 'Windows') return 'Get from Microsoft Store';
     if (detectedOS === 'iOS') return 'Get Zavi for iPhone';
     if (detectedOS === 'Android') return 'Get Zavi for Android';
     if (detectedOS === 'macOS') return 'Download for macOS';
@@ -664,9 +664,7 @@ export default function PricingNew() {
                     <p className="text-sm font-medium text-gray-500 mb-2">
                       Recommended for: Daily communicators
                     </p>
-                    <p className="text-gray-600 mb-3">
-                      The no-brainer upgrade
-                    </p>
+                    <p className="text-gray-600 mb-3">The no-brainer upgrade</p>
 
                     {/* Pricing */}
                     <div className="mb-4">
@@ -678,9 +676,7 @@ export default function PricingNew() {
                             : proAnnualEquivalent}
                         </div>
                         <div className="pb-1 text-gray-500 text-sm">
-                          {billingCycle === 'monthly'
-                            ? '/ month'
-                            : '/ month'}
+                          {billingCycle === 'monthly' ? '/ month' : '/ month'}
                         </div>
                       </div>
                       <div className="text-gray-500 text-sm mt-1">
@@ -1110,8 +1106,8 @@ export default function PricingNew() {
               </h3>
               <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
                 We can help with onboarding, billing, usage planning, and
-                rollout support for teams that want everyone speaking instead
-                of typing.
+                rollout support for teams that want everyone speaking instead of
+                typing.
               </p>
               <motion.a
                 href="https://calendly.com/raman-zavivoice/30min"

@@ -46,7 +46,7 @@ export function getDownloadLabel(
 ): string {
   const {
     fallback = 'Download Zavi Free',
-    windowsLabel = 'Download for Windows',
+    windowsLabel = 'Get from Microsoft Store',
   } = options;
 
   if (platform === 'Windows') return windowsLabel;

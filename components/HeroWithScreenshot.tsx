@@ -29,7 +29,7 @@ export default function HeroWithScreenshot() {
   }, []);
 
   const getDownloadText = () => {
-    if (detectedOS === 'Windows') return 'Download for Windows';
+    if (detectedOS === 'Windows') return 'Get from Microsoft Store';
     if (detectedOS === 'iOS') return 'Get Zavi for iPhone';
     if (detectedOS === 'Android') return 'Get Zavi for Android';
     if (detectedOS === 'macOS') return 'Download for macOS';

@@ -1,6 +1,7 @@
 import {
   DESKTOP_BUILD_ARTIFACTS,
   DESKTOP_PLATFORM_PAGES,
+  WINDOWS_STORE_URL,
 } from '@/lib/desktopBuilds';
 import type { DetectedPlatform } from '@/lib/platform';
 
@@ -62,22 +63,12 @@ function startHiddenDownload(url: string) {
   }, 5_000);
 }
 
-function startDesktopFlow(platform: 'macOS' | 'Windows' | 'Linux') {
+function startDesktopFlow(platform: 'macOS' | 'Linux') {
   if (platform === 'macOS') {
     const artifact = DESKTOP_BUILD_ARTIFACTS[detectMacArtifact()];
     startHiddenDownload(artifact.internalPath);
     window.setTimeout(() => {
       window.location.assign(`${DESKTOP_PLATFORM_PAGES.macos}?installing=1`);
-    }, 900);
-    return;
-  }
-
-  if (platform === 'Windows') {
-    startHiddenDownload(
-      DESKTOP_BUILD_ARTIFACTS['windows-installer'].internalPath
-    );
-    window.setTimeout(() => {
-      window.location.assign(`${DESKTOP_PLATFORM_PAGES.windows}?installing=1`);
     }, 900);
     return;
   }
@@ -97,7 +88,12 @@ export function handlePlatformDownloadFlow(
 ) {
   options.onBeforeNavigate?.();
 
-  if (platform === 'macOS' || platform === 'Windows' || platform === 'Linux') {
+  if (platform === 'Windows') {
+    window.open(WINDOWS_STORE_URL, '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  if (platform === 'macOS' || platform === 'Linux') {
     startDesktopFlow(platform);
     return;
   }

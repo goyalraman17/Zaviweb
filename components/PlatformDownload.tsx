@@ -3,7 +3,7 @@
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { analytics } from '@/lib/analytics';
-import { DESKTOP_PLATFORM_PAGES } from '@/lib/desktopBuilds';
+import { DESKTOP_PLATFORM_PAGES, WINDOWS_STORE_URL } from '@/lib/desktopBuilds';
 import { handlePlatformDownloadFlow } from '@/lib/clientDownloadFlow';
 
 type Platform = 'mac' | 'windows' | 'linux' | 'ios' | 'android';
@@ -39,7 +39,8 @@ const platforms: Record<Platform, PlatformConfig> = {
   },
   windows: {
     name: 'Windows',
-    downloadUrl: DESKTOP_PLATFORM_PAGES.windows,
+    downloadUrl: WINDOWS_STORE_URL,
+    badge: 'Microsoft Store',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
         <path d="M4 4v11h11V4H4zm13 0v11h11V4H17zM4 17v11h11V17H4zm13 0v11h11V17H17z" />
@@ -239,8 +240,10 @@ export default function PlatformDownload() {
               >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
               </svg>
-              {activePlatform === 'ios' || activePlatform === 'android'
-                ? `Get Zavi on ${platformInfo.name}`
+              {activePlatform === 'ios' ||
+              activePlatform === 'android' ||
+              activePlatform === 'windows'
+                ? `Get Zavi on ${activePlatform === 'windows' ? 'Microsoft Store' : platformInfo.name}`
                 : `Download for ${platformInfo.name}`}
             </motion.button>
             <p className="text-sm text-zavi-gray-text mt-6 font-medium">

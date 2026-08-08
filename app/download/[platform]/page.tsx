@@ -9,6 +9,7 @@ import {
   DESKTOP_BUILD_ARTIFACTS,
   getDesktopArtifactVersion,
   getLatestDesktopRelease,
+  WINDOWS_STORE_URL,
 } from '@/lib/desktopBuilds';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -70,21 +71,21 @@ const platformData: Record<
     fullName: 'Microsoft Windows (x64)',
     downloadOptions: [
       {
-        href: DESKTOP_BUILD_ARTIFACTS['windows-installer'].internalPath,
-        label: 'Windows Installer (.exe)',
+        href: WINDOWS_STORE_URL,
+        label: 'Microsoft Store',
       },
     ],
     requirement: 'Windows 10+',
-    versionLabel: 'Latest desktop build',
+    versionLabel: 'Live on Microsoft Store',
     steps: [
-      'Download the Windows installer',
-      'Run the installer and follow instructions',
+      'Get Zavi from the Microsoft Store',
+      'Select Install and let Microsoft Store finish setup',
       'Launch Zavi from your desktop or Start menu',
       'Use the shortcut key to start speaking',
     ],
-    metaTitle: 'Download Zavi AI for Windows: Free Voice Typing App for PC',
+    metaTitle: 'Zavi AI for Windows: Get It from Microsoft Store',
     metaDescription:
-      'Download Zavi AI for Windows 10 and 11. AI voice typing that removes filler words, fixes grammar, and works in every PC app. Free download, no credit card.',
+      'Get Zavi AI for Windows 10 and 11 from the Microsoft Store. AI voice typing that removes filler words, fixes grammar, and works in every PC app.',
     introText:
       'Zavi AI for Windows brings intelligent voice typing to your PC. Speak naturally into any application, Microsoft Word, Outlook, Chrome, Teams, or any text input, and get clean, professional text instantly. Zavi runs in your system tray and is always one shortcut key away.',
     detailText:
@@ -221,15 +222,13 @@ export default async function PlatformDownloadPage({
   );
   const intelVersion = getDesktopArtifactVersion(desktopRelease, 'macos-intel');
   const desktopVersion =
-    normalizedPlatform === 'windows'
-      ? getDesktopArtifactVersion(desktopRelease, 'windows-installer')
-      : normalizedPlatform === 'linux'
-        ? getDesktopArtifactVersion(desktopRelease, 'linux-deb')
-        : desktopRelease.version;
+    normalizedPlatform === 'linux'
+      ? getDesktopArtifactVersion(desktopRelease, 'linux-deb')
+      : desktopRelease.version;
   const versionLabel =
     normalizedPlatform === 'macos'
       ? `Apple Silicon v${appleSiliconVersion} · Intel v${intelVersion}`
-      : normalizedPlatform === 'windows' || normalizedPlatform === 'linux'
+      : normalizedPlatform === 'linux'
         ? `Latest desktop build (v${desktopVersion})`
         : data.versionLabel;
   const steps =
@@ -275,7 +274,9 @@ export default async function PlatformDownloadPage({
           {/* Hero */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
-              Download Zavi for{' '}
+              {normalizedPlatform === 'windows'
+                ? 'Get Zavi for '
+                : 'Download Zavi for '}
               <span className="text-blue-600">{data.name}</span>
             </h1>
             <p className="text-xl text-slate-600 font-medium max-w-2xl mx-auto">
@@ -284,7 +285,7 @@ export default async function PlatformDownloadPage({
             </p>
           </div>
 
-          {installing === '1' ? (
+          {installing === '1' && normalizedPlatform !== 'windows' ? (
             <div className="mb-10 rounded-3xl border border-emerald-200 bg-emerald-50 px-6 py-5 text-left shadow-sm">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-700">
                 Download Starting

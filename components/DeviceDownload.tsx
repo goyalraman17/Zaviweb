@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import { analytics } from '@/lib/analytics';
-import { DESKTOP_PLATFORM_PAGES } from '@/lib/desktopBuilds';
+import { DESKTOP_PLATFORM_PAGES, WINDOWS_STORE_URL } from '@/lib/desktopBuilds';
 import { handlePlatformDownloadFlow } from '@/lib/clientDownloadFlow';
 
 type Platform = 'iOS' | 'Android' | 'macOS' | 'Windows' | 'Linux';
@@ -53,7 +53,7 @@ const platforms: PlatformInfo[] = [
   {
     name: 'Windows',
     label: 'Windows',
-    downloadUrl: DESKTOP_PLATFORM_PAGES.windows,
+    downloadUrl: WINDOWS_STORE_URL,
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
         <path d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" />
@@ -160,7 +160,8 @@ export default function DeviceDownload() {
             className="text-lg md:text-xl text-gray-600 mb-8 md:mb-10 max-w-2xl mx-auto space-y-3 px-4"
           >
             <p className="font-medium text-gray-900">
-              Pick your device. Speak in any app. Send polished text in any language.
+              Pick your device. Speak in any app. Send polished text in any
+              language.
             </p>
             <div className="flex items-center justify-center gap-2 text-sm">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-full font-semibold border border-green-200">

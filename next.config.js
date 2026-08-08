@@ -16,7 +16,8 @@ const nextConfig = {
       },
       {
         source: '/downloads/Zavi_Windows.exe',
-        destination: '/downloads/desktop/windows-installer',
+        destination:
+          'https://apps.microsoft.com/detail/9pl4hz8zclms?hl=en-GB&gl=IN',
         permanent: false,
       },
       {
@@ -38,19 +39,6 @@ const nextConfig = {
           {
             key: 'Content-Type',
             value: 'application/x-apple-diskimage',
-          },
-        ],
-      },
-      {
-        source: '/downloads/Zavi_Windows.exe',
-        headers: [
-          {
-            key: 'Content-Disposition',
-            value: 'attachment; filename="Zavi_Windows.exe"',
-          },
-          {
-            key: 'Content-Type',
-            value: 'application/x-msdos-program',
           },
         ],
       },

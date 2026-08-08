@@ -6,7 +6,6 @@ export const DESKTOP_RELEASE_FALLBACK_VERSION = '1.12.0';
 export type DesktopArtifactSlug =
   | 'macos-apple-silicon'
   | 'macos-intel'
-  | 'windows-installer'
   | 'linux-appimage'
   | 'linux-deb';
 
@@ -46,12 +45,6 @@ export const DESKTOP_BUILD_ARTIFACTS: Record<
     platform: 'macos',
     internalPath: '/downloads/desktop/macos-intel',
   },
-  'windows-installer': {
-    fileTemplate: 'Zavi_{version}_x64-setup.exe',
-    contentType: 'application/x-msdownload',
-    platform: 'windows',
-    internalPath: '/downloads/desktop/windows-installer',
-  },
   'linux-appimage': {
     fileTemplate: 'Zavi_{version}_amd64.AppImage',
     contentType: 'application/octet-stream',
@@ -65,6 +58,9 @@ export const DESKTOP_BUILD_ARTIFACTS: Record<
     internalPath: '/downloads/desktop/linux-deb',
   },
 };
+
+export const WINDOWS_STORE_URL =
+  'https://apps.microsoft.com/detail/9pl4hz8zclms?hl=en-GB&gl=IN';
 
 export const DESKTOP_PLATFORM_PAGES: Record<DesktopPlatformSlug, string> = {
   macos: '/download/macos',
