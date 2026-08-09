@@ -411,7 +411,7 @@ export default async function DownloadPage() {
                     {
                       platform: 'macOS',
                       min: 'macOS 12 (Monterey)+',
-                      format: '.zip',
+                      format: '.dmg',
                     },
                     {
                       platform: 'Windows',

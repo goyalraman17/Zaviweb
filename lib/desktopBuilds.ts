@@ -44,7 +44,7 @@ export const DESKTOP_BUILD_ARTIFACTS: Record<
 };
 
 export const MAC_LATEST_DOWNLOAD_URL =
-  'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.zip';
+  'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.dmg';
 
 export const WINDOWS_STORE_URL =
   'https://apps.microsoft.com/detail/9pl4hz8zclms?hl=en-GB&gl=IN';

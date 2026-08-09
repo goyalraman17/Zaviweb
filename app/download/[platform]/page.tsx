@@ -42,7 +42,7 @@ const platformData: Record<
     downloadOptions: [
       {
         href: MAC_LATEST_DOWNLOAD_URL,
-        label: 'Mac app (.zip)',
+        label: 'Mac app (.dmg)',
         helperText:
           'This permanent link always downloads the latest Mac release.',
       },
@@ -50,8 +50,8 @@ const platformData: Record<
     requirement: 'macOS 12+',
     versionLabel: 'Always the latest release',
     steps: [
-      'Download and open the latest Zavi ZIP file',
-      'Move Zavi to your Applications folder',
+      'Download and open the latest Zavi DMG file',
+      'Drag Zavi to your Applications folder',
       'Open Zavi and follow the accessibility setup',
       'Start speaking into any app!',
     ],

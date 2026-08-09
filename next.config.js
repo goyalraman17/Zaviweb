@@ -7,13 +7,13 @@ const nextConfig = {
       {
         source: '/Zavi_AI.dmg',
         destination:
-          'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.zip',
+          'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.dmg',
         permanent: false,
       },
       {
         source: '/downloads/Zavi_AI.dmg',
         destination:
-          'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.zip',
+          'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.dmg',
         permanent: false,
       },
       {
