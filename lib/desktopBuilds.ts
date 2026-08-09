@@ -3,11 +3,7 @@ export const DESKTOP_RELEASE_BASE_URL =
 
 export const DESKTOP_RELEASE_FALLBACK_VERSION = '1.12.0';
 
-export type DesktopArtifactSlug =
-  | 'macos-apple-silicon'
-  | 'macos-intel'
-  | 'linux-appimage'
-  | 'linux-deb';
+export type DesktopArtifactSlug = 'linux-appimage' | 'linux-deb';
 
 export type DesktopPlatformSlug = 'macos' | 'windows' | 'linux';
 
@@ -33,18 +29,6 @@ export const DESKTOP_BUILD_ARTIFACTS: Record<
   DesktopArtifactSlug,
   DesktopArtifactDefinition
 > = {
-  'macos-apple-silicon': {
-    fileTemplate: 'Zavi_{version}_aarch64.dmg',
-    contentType: 'application/x-apple-diskimage',
-    platform: 'macos',
-    internalPath: '/downloads/desktop/macos-apple-silicon',
-  },
-  'macos-intel': {
-    fileTemplate: 'Zavi_{version}_x64.dmg',
-    contentType: 'application/x-apple-diskimage',
-    platform: 'macos',
-    internalPath: '/downloads/desktop/macos-intel',
-  },
   'linux-appimage': {
     fileTemplate: 'Zavi_{version}_amd64.AppImage',
     contentType: 'application/octet-stream',
@@ -58,6 +42,9 @@ export const DESKTOP_BUILD_ARTIFACTS: Record<
     internalPath: '/downloads/desktop/linux-deb',
   },
 };
+
+export const MAC_LATEST_DOWNLOAD_URL =
+  'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.zip';
 
 export const WINDOWS_STORE_URL =
   'https://apps.microsoft.com/detail/9pl4hz8zclms?hl=en-GB&gl=IN';

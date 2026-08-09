@@ -9,6 +9,7 @@ import {
   DESKTOP_BUILD_ARTIFACTS,
   getDesktopArtifactVersion,
   getLatestDesktopRelease,
+  MAC_LATEST_DOWNLOAD_URL,
   WINDOWS_STORE_URL,
 } from '@/lib/desktopBuilds';
 import { notFound } from 'next/navigation';
@@ -37,24 +38,20 @@ const platformData: Record<
 > = {
   macos: {
     name: 'macOS',
-    fullName: 'Apple Mac (Intel & Apple Silicon)',
+    fullName: 'Apple Mac',
     downloadOptions: [
       {
-        href: DESKTOP_BUILD_ARTIFACTS['macos-apple-silicon'].internalPath,
-        label: 'Apple Silicon (.dmg)',
-        helperText: 'Best for M1, M2, M3, and M4 Macs.',
-      },
-      {
-        href: DESKTOP_BUILD_ARTIFACTS['macos-intel'].internalPath,
-        label: 'Intel (.dmg)',
-        helperText: 'Use this if your Mac has an Intel processor.',
+        href: MAC_LATEST_DOWNLOAD_URL,
+        label: 'Mac app (.zip)',
+        helperText:
+          'This permanent link always downloads the latest Mac release.',
       },
     ],
     requirement: 'macOS 12+',
-    versionLabel: 'Latest desktop build',
+    versionLabel: 'Always the latest release',
     steps: [
-      'Choose the Apple Silicon or Intel build for your Mac',
-      'Double-click to open and drag Zavi to Applications',
+      'Download and open the latest Zavi ZIP file',
+      'Move Zavi to your Applications folder',
       'Open Zavi and follow the accessibility setup',
       'Start speaking into any app!',
     ],
@@ -216,18 +213,13 @@ export default async function PlatformDownloadPage({
   if (!data) notFound();
   const desktopRelease = await getLatestDesktopRelease();
   const normalizedPlatform = platform?.toLowerCase();
-  const appleSiliconVersion = getDesktopArtifactVersion(
-    desktopRelease,
-    'macos-apple-silicon'
-  );
-  const intelVersion = getDesktopArtifactVersion(desktopRelease, 'macos-intel');
   const desktopVersion =
     normalizedPlatform === 'linux'
       ? getDesktopArtifactVersion(desktopRelease, 'linux-deb')
       : desktopRelease.version;
   const versionLabel =
     normalizedPlatform === 'macos'
-      ? `Apple Silicon v${appleSiliconVersion} · Intel v${intelVersion}`
+      ? data.versionLabel
       : normalizedPlatform === 'linux'
         ? `Latest desktop build (v${desktopVersion})`
         : data.versionLabel;

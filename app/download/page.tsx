@@ -8,7 +8,10 @@ import {
   generateBreadcrumbSchema,
   softwareApplicationSchema,
 } from '@/lib/schemaData';
-import { WINDOWS_STORE_URL } from '@/lib/desktopBuilds';
+import {
+  MAC_LATEST_DOWNLOAD_URL,
+  WINDOWS_STORE_URL,
+} from '@/lib/desktopBuilds';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -64,8 +67,8 @@ const platforms: PlatformCard[] = [
       </svg>
     ),
     req: 'macOS 12+',
-    cta: 'Choose build',
-    href: '/download/macos',
+    cta: 'Download for Mac',
+    href: MAC_LATEST_DOWNLOAD_URL,
   },
   {
     name: 'Windows',
@@ -408,7 +411,7 @@ export default async function DownloadPage() {
                     {
                       platform: 'macOS',
                       min: 'macOS 12 (Monterey)+',
-                      format: '.dmg',
+                      format: '.zip',
                     },
                     {
                       platform: 'Windows',

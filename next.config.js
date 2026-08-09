@@ -6,12 +6,14 @@ const nextConfig = {
     return [
       {
         source: '/Zavi_AI.dmg',
-        destination: '/download/macos',
+        destination:
+          'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.zip',
         permanent: false,
       },
       {
         source: '/downloads/Zavi_AI.dmg',
-        destination: '/download/macos',
+        destination:
+          'https://storage.googleapis.com/zavi-releases/mac/Zavi-latest.zip',
         permanent: false,
       },
       {
@@ -29,19 +31,6 @@ const nextConfig = {
   },
   async headers() {
     return [
-      {
-        source: '/downloads/Zavi_AI.dmg',
-        headers: [
-          {
-            key: 'Content-Disposition',
-            value: 'attachment; filename="Zavi_AI.dmg"',
-          },
-          {
-            key: 'Content-Type',
-            value: 'application/x-apple-diskimage',
-          },
-        ],
-      },
       {
         source: '/downloads/Zavi_Linux.deb',
         headers: [
