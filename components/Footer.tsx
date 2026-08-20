@@ -421,6 +421,20 @@ export default function Footer() {
               className="h-7 w-auto"
             />
           </a>
+          <a
+            href="https://turbo0.com/item/zavi"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Zavi listed on Turbo0"
+          >
+            <img
+              src="https://img.turbo0.com/badge-listed-light.svg"
+              alt="Listed on Turbo0"
+              width="104"
+              height="28"
+              className="h-7 w-auto"
+            />
+          </a>
         </div>
       </div>
     </footer>
