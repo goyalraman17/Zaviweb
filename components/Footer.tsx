@@ -393,6 +393,34 @@ export default function Footer() {
               className="h-7 w-auto"
             />
           </a>
+          <a
+            href="https://www.toolpilot.ai"
+            target="_blank"
+            rel="noopener"
+            aria-label="Zavi featured on ToolPilot"
+          >
+            <img
+              src="https://www.toolpilot.ai/cdn/shop/files/f-w_690x151_crop_center.png"
+              alt="Zavi featured on ToolPilot"
+              width="128"
+              height="28"
+              className="h-7 w-auto"
+            />
+          </a>
+          <a
+            href="https://twelve.tools"
+            target="_blank"
+            rel="noopener"
+            aria-label="Zavi featured on Twelve Tools"
+          >
+            <img
+              src="https://twelve.tools/badge0-light.svg"
+              alt="Zavi featured on Twelve Tools"
+              width="104"
+              height="28"
+              className="h-7 w-auto"
+            />
+          </a>
         </div>
       </div>
     </footer>
