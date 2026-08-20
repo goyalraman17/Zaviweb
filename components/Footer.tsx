@@ -386,7 +386,7 @@ export default function Footer() {
             aria-label="Zavi featured on Startup Fame"
           >
             <img
-              src="https://startupfa.me/badges/featured/default-small.webp"
+              src="https://startupfa.me/badges/featured-badge-small.webp"
               alt="Zavi - Featured on Startup Fame"
               width="174"
               height="28"
