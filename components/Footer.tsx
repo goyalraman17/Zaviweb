@@ -380,13 +380,18 @@ export default function Footer() {
             />
           </a>
           <a
-            href="https://startupfa.me"
+            href="https://startupfa.me/s/zavi?utm_source=www.zavivoice.com"
             target="_blank"
             rel="noopener"
-            className="inline-flex h-7 items-center rounded-md border border-slate-300 bg-white px-2.5 text-[10px] font-bold text-slate-600"
             aria-label="Zavi featured on Startup Fame"
           >
-            Startup Fame
+            <img
+              src="https://startupfa.me/badges/featured/default-small.webp"
+              alt="Zavi - Featured on Startup Fame"
+              width="174"
+              height="28"
+              className="h-7 w-auto"
+            />
           </a>
         </div>
       </div>
