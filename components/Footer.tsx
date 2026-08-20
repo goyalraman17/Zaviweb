@@ -331,6 +331,64 @@ export default function Footer() {
             ))}
           </div>
         </motion.div>
+
+        {/* Directory verification badges */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 border-t border-slate-200/70 pt-6 opacity-70 transition-opacity hover:opacity-100">
+          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+            Featured on
+          </span>
+          <a
+            href="https://nicklaunches.com/products/zavi/?utm_source=zavivoice.com&utm_medium=badge&utm_campaign=featured"
+            target="_blank"
+            rel="noopener"
+            aria-label="Zavi on Nick Launches"
+          >
+            <img
+              src="https://nicklaunches.com/badges/featured.png"
+              alt="Zavi on Nick Launches"
+              width="122"
+              height="28"
+              className="h-7 w-auto"
+            />
+          </a>
+          <a
+            href="https://dang.ai"
+            target="_blank"
+            rel="dofollow noopener"
+            aria-label="Verified on DANG!"
+          >
+            <img
+              src="https://assets.dang.ai/badges/dang-verified-dark.png"
+              alt="Verified on DANG!"
+              width="77"
+              height="28"
+              className="h-7 w-auto"
+            />
+          </a>
+          <a
+            href="https://fazier.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Zavi launched on Fazier"
+          >
+            <img
+              src="https://fazier.com/api/v1/public/badges/launch_badges.svg?badge_type=launched&theme=neutral"
+              alt="Zavi launched on Fazier"
+              width="98"
+              height="28"
+              className="h-7 w-auto"
+            />
+          </a>
+          <a
+            href="https://startupfa.me"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex h-7 items-center rounded-md border border-slate-300 bg-white px-2.5 text-[10px] font-bold text-slate-600"
+            aria-label="Zavi featured on Startup Fame"
+          >
+            Startup Fame
+          </a>
+        </div>
       </div>
     </footer>
   );
