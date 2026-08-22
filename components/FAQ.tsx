@@ -1,146 +1,115 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowUpRight, Plus } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const faqs = [
-  {
-    question: 'What is Zavi AI?',
-    answer:
-      'Zavi is AI voice dictation for every app and device. Speak naturally, including mixed-language speech, and Zavi removes filler words, fixes grammar, adds punctuation, and polishes your dictated text. It works on iOS, Android, macOS, Windows, and Linux. Magic Wand is the instruction-based mode for selected text.',
-  },
-  {
-    question: 'What is the Magic Wand?',
-    answer:
-      "Magic Wand is the instruction feature. Highlight any text in any app and tell Zavi what you want changed, like 'make this more professional,' 'translate to Japanese,' or 'summarize this in 2 sentences.' No copy-pasting, no switching apps.",
-  },
-  {
-    question: 'Is my voice data private?',
-    answer:
-      'Yes. Your voice is processed in real-time and immediately deleted. We never store, share, or use your audio to train models. Zavi is built with a privacy-first architecture, voice data is processed and discarded instantly.',
-  },
-  {
-    question: 'How fast is Zavi compared to typing?',
-    answer:
-      'Zavi is approximately 4x faster than typing. The average person types at roughly 40 words per minute but speaks at around 150. Because Zavi removes filler words and cleans up grammar automatically, long messages and emails get finished much faster than traditional typing.',
-  },
-  {
-    question: "What's included in the free plan?",
-    answer:
-      'The free plan includes 1,000 words per day of AI-powered dictation with filler word removal, grammar correction, multilingual output, Magic Wand, tone control, and emoji across every app. No credit card required. Upgrade to Pro for unlimited usage.',
-  },
-  {
-    question: 'Which platforms does Zavi support?',
-    answer:
-      'Zavi works on all 5 major platforms: iOS, Android (8.0+), macOS, Windows, and Linux. On mobile, it integrates as a system-wide keyboard in every app. On desktop, it runs as a standalone application with system-wide voice input.',
-  },
-  {
-    question: 'How does multi-language translation work?',
-    answer:
-      'Zavi supports 100+ languages with automatic detection. Speak in one language and get the output in another, in real-time. For example, speak in Hindi and get polished English text, or speak in Spanish and get professional French output. Zavi also handles code-switching (mixing languages in one sentence).',
-  },
-  {
-    question: 'How does Zavi compare to Wispr Flow?',
-    answer:
-      'Zavi is built for the same daily habit of speaking instead of typing, but it is available across iOS, Android, macOS, Windows, and Linux. Zavi also puts multilingual output and Magic Wand edits at the center, so you can speak in one language, send in another, and fix selected text without switching apps.',
-  },
-  {
-    question: 'Can I cancel anytime?',
-    answer:
-      'Yes. Cancel anytime with no questions asked. Your Pro features remain active until the end of your billing period, and you can resubscribe whenever you want.',
-  },
-  {
-    question: 'When should I use Dictation, Translate, or Magic Wand?',
-    answer:
-      'Use normal Dictation when you are writing new text and want Zavi to remove filler words, fix grammar, add punctuation, and polish what you said. Use Translate when you speak one language but need the output in another. Use Magic Wand when text already exists and you want an instruction-based edit on selected text.',
-  },
-];
+  [
+    'What does Zavi do?',
+    'Speak naturally in any app. Zavi removes filler words, fixes grammar, adds punctuation, and writes polished text where your cursor is.',
+  ],
+  [
+    'Where does it work?',
+    'On iOS, Android, macOS, Windows, and Linux—inside the apps and text fields you already use.',
+  ],
+  [
+    'Is my voice private?',
+    'Yes. Audio is processed in real time, immediately deleted, and never used to train models.',
+  ],
+  [
+    'What is Magic Wand?',
+    'Select existing text and say the edit you want: shorter, warmer, translated, summarized, or more professional.',
+  ],
+  [
+    'Can it translate while I speak?',
+    'Yes. Zavi supports 100+ languages, mixed-language speech, and output in a different language.',
+  ],
+  [
+    'What is included for free?',
+    'You get 1,000 AI-powered words every day, including dictation, multilingual output, and Magic Wand. No card required.',
+  ],
+  [
+    'Can I cancel Pro anytime?',
+    'Yes. Your Pro access continues through the current billing period, and you can return whenever you want.',
+  ],
+] as const;
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section
-      id="faq"
-      className="py-20 md:py-32 bg-gradient-to-br from-blue-50/50 via-white to-sky-50/50"
-    >
-      <div className="container-wide max-w-4xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Still thinking about it?
-          </h2>
-          <p className="text-lg text-gray-600">
-            Here's everything you need to know before you install.
-          </p>
-        </div>
-
-        {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="border-b border-gray-200 last:border-0"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full py-6 flex items-center justify-between text-left group"
-                  aria-expanded={isOpen}
-                >
-                  <span className="text-lg md:text-xl font-semibold text-gray-900 pr-8 group-hover:text-[#2563EB] transition-colors">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 text-[#2563EB]' : ''
-                    }`}
-                  />
-                </button>
-
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-6 text-gray-600 leading-relaxed text-base md:text-lg">
-                        {faq.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {/* Hidden answer for AI crawlers, always present in DOM */}
-                {!isOpen && (
-                  <div className="sr-only">
-                    <span>{faq.answer}</span>
-                  </div>
-                )}
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Footer CTA */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-6">Still have questions?</p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+    <section id="faq" className="bg-[#f3f1eb] py-20 sm:py-28 lg:py-36">
+      <div className="container-large">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+          <motion.div
+            initial={{ opacity: 0.84, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:sticky lg:top-28 lg:self-start"
           >
-            Contact Support
-          </Link>
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-blue-600">
+              Good questions
+            </p>
+            <h2 className="mt-5 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              Everything before install.
+            </h2>
+            <p className="mt-5 max-w-sm text-lg text-slate-500">
+              The short answers. No technical detour.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600"
+            >
+              Ask us directly <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
+
+          <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white">
+            {faqs.map(([question, answer], index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={question}
+                  className="border-b border-slate-200 last:border-0"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="group flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-8"
+                  >
+                    <span className="text-lg font-bold text-slate-900 sm:text-xl">
+                      {question}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      className={`flex h-9 w-9 flex-none items-center justify-center rounded-full ${isOpen ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-500'}`}
+                    >
+                      <Plus className="h-4 w-4" />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="max-w-2xl px-6 pb-7 text-base leading-relaxed text-slate-500 sm:px-8 sm:text-lg">
+                          {answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  {!isOpen && <span className="sr-only">{answer}</span>}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

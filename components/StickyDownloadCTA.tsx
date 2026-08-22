@@ -41,12 +41,16 @@ export default function StickyDownloadCTA() {
         howItWorksRect &&
         howItWorksRect.top < window.innerHeight - 80 &&
         howItWorksRect.bottom > 80;
+      const nearPageEnd =
+        window.scrollY + window.innerHeight >
+        document.documentElement.scrollHeight - 900;
 
       if (
         window.scrollY > 720 &&
         !pricingInView &&
         !downloadInView &&
-        !howItWorksInView
+        !howItWorksInView &&
+        !nearPageEnd
       ) {
         setIsVisible(true);
       } else {
@@ -86,7 +90,7 @@ export default function StickyDownloadCTA() {
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
             className="pointer-events-auto w-full max-w-[420px] md:w-auto"
           >
-            <div className="flex items-center gap-2 rounded-full border border-white/60 bg-white/80 p-1.5 shadow-[0_8px_32px_rgba(37,99,235,0.15)] backdrop-blur-2xl md:gap-2.5 md:p-2">
+            <div className="flex items-center justify-center gap-2 rounded-full border border-white/60 bg-white/80 p-1.5 shadow-[0_8px_32px_rgba(37,99,235,0.15)] backdrop-blur-2xl md:gap-2.5 md:p-2">
               {/* Social Proof / Mini Info (Desktop Only) */}
               <div className="hidden items-center space-x-2.5 pl-3 pr-1 xl:flex">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50 text-blue-600 shadow-sm">

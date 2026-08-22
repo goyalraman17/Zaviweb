@@ -336,7 +336,7 @@ export default function PricingNew() {
       />
       <section
         id="pricing"
-        className="relative py-12 md:py-20 lg:py-32 overflow-hidden bg-white"
+        className="premium-pricing relative overflow-hidden bg-[#f3f1eb] py-20 sm:py-28 lg:py-36"
         data-section="pricing"
       >
         <div className="container-large relative z-10">
@@ -347,13 +347,14 @@ export default function PricingNew() {
           >
             {/* Header */}
             <motion.div className="text-center mb-12" variants={fadeUpLarge}>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1a1a1a] mb-4">
-                Priced to be an obvious yes.
+              <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-blue-600">
+                Simple pricing
+              </p>
+              <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-[#1a1a1a] mb-5">
+                Start free. Stay fast.
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-                Start free with daily AI dictation. Upgrade when you want
-                unlimited voice writing, multilingual output, and Magic Wand
-                edits across every app.
+              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Upgrade when voice becomes the way you work.
               </p>
 
               {/* Trust Pill Badges */}
@@ -684,11 +685,11 @@ export default function PricingNew() {
                           ? 'Billed monthly'
                           : `Billed annually at $${proAnnualPrice.toFixed(2)}/year`}
                       </div>
-                      <div className="mt-3 text-sm font-semibold text-gray-700">
-                        {billingCycle === 'annual'
-                          ? `Save ${proAnnualSavingsPercent}% vs monthly`
-                          : '33% less than Wispr Flow at $12/mo'}
-                      </div>
+                      {billingCycle === 'annual' && (
+                        <div className="mt-3 text-sm font-semibold text-gray-700">
+                          Save {proAnnualSavingsPercent}% vs monthly
+                        </div>
+                      )}
                     </div>
 
                     {/* Save Time Badge */}

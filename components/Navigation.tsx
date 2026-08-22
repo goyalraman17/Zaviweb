@@ -17,7 +17,6 @@ export default function Navigation() {
   const [activeLink, setActiveLink] = useState<string | null>(null);
   const [detectedOS, setDetectedOS] = useState<string>('Unknown');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [showDetectedTooltip, setShowDetectedTooltip] =
     useState<boolean>(false);
 
@@ -41,16 +40,6 @@ export default function Navigation() {
         })
       );
     }
-  }, []);
-
-  // Handle scroll for navbar height
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent body scroll when mobile menu is open
@@ -86,9 +75,7 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'How it Works', href: '/#how-it-works', id: 'how-it-works' },
-    { name: 'Use Cases', href: '/use-cases', id: 'use-cases' },
     { name: 'Pricing', href: '/#pricing', id: 'pricing' },
-    { name: 'Compare', href: '/compare', id: 'compare' },
   ];
 
   return (
@@ -100,9 +87,7 @@ export default function Navigation() {
       style={{ transitionProperty: 'height' }}
     >
       <div className="container-large">
-        <div
-          className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'}`}
-        >
+        <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <motion.div
             className="flex items-center gap-3 group relative z-50 cursor-pointer"
@@ -241,7 +226,7 @@ export default function Navigation() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={closeMobileMenu}
-              style={{ top: isScrolled ? '56px' : '64px' }}
+              style={{ top: '64px' }}
             />
 
             {/* Dropdown Menu Panel */}
@@ -251,7 +236,7 @@ export default function Navigation() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              style={{ top: isScrolled ? '56px' : '64px', overflow: 'hidden' }}
+              style={{ top: '64px', overflow: 'hidden' }}
             >
               <div className="max-w-screen-xl mx-auto px-4 py-4">
                 {/* CTA Button - First in menu */}

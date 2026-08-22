@@ -1,5 +1,5 @@
 // Homepage flow:
-// problem -> core solution -> proof -> translation -> trust -> install
+// promise -> live product proof -> visual features -> trust -> pricing -> install
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
@@ -13,18 +13,13 @@ import {
 } from '@/lib/schemaData';
 
 // Lazy load below-the-fold for performance
-const VideoDemo = dynamic(() => import('@/components/VideoDemo'));
-const KillYourKeyboard = dynamic(() => import('@/components/KillYourKeyboard'));
-const ProblemSolution = dynamic(() => import('@/components/ProblemSolution'));
-const UseCaseShowcase = dynamic(() => import('@/components/UseCaseShowcase'));
-const MagicWand = dynamic(() => import('@/components/MagicWand'), {
-  loading: () => <div className="h-96 bg-gray-50" />,
-});
-const LanguageTranslation = dynamic(
-  () => import('@/components/LanguageTranslationHero')
+const LandingVisualStory = dynamic(
+  () => import('@/components/LandingVisualStory')
+);
+const FeatureVisualShowcase = dynamic(
+  () => import('@/components/FeatureVisualShowcase')
 );
 const PrivacyStrip = dynamic(() => import('@/components/PrivacyStrip'));
-const Metrics = dynamic(() => import('@/components/Metrics'));
 const Testimonials = dynamic(() => import('@/components/Testimonials'));
 const PricingNew = dynamic(() => import('@/components/PricingNew'));
 const DeviceDownload = dynamic(() => import('@/components/DeviceDownload'));
@@ -40,7 +35,7 @@ const FinalCTA = dynamic(() => import('@/components/FinalCTA'));
 export const metadata: Metadata = {
   title: 'Free AI Voice Dictation for Every App',
   description:
-    'Download Zavi free. Speak naturally in any app on Android, iOS, Mac, Windows, or Linux and get polished text where your cursor is.',
+    'Download Zavi free. Speak naturally in any app on Android, iOS, Mac, or Windows and get polished text where your cursor is.',
   alternates: {
     canonical: 'https://zavivoice.com',
   },
@@ -78,51 +73,38 @@ export default function Home() {
         {/* 1. HERO */}
         <HeroWithScreenshot />
 
-        {/* 2. THE BROAD PROBLEM */}
-        <ProblemSolution />
+        {/* 2. WORKS-EVERYWHERE + SPEED STORY */}
+        <LandingVisualStory />
 
-        {/* 3. DOWNLOAD OPTIONS */}
-        <DeviceDownload />
-
-        {/* 4. CORE PRODUCT PROOF */}
-        <KillYourKeyboard />
-
-        {/* 5. SEE IT IN ACTION */}
-        <VideoDemo />
-
-        {/* 6. WHAT PEOPLE USE IT FOR */}
-        <UseCaseShowcase />
+        {/* 3. THREE CORE PRODUCT FLOWS */}
+        <FeatureVisualShowcase />
 
         {/* Voice command / agent sections are intentionally hidden for now.
             They diluted the core positioning: speak anywhere, get polished multilingual text.
             Restore with: <BackgroundAgents /> */}
 
-        {/* 7. IN-PLACE EDITING */}
-        <MagicWand />
-
         {/* WhatsApp / approval control is intentionally hidden for now.
             It reads like an agent product instead of a dictation product.
             Restore with: <WhatsAppBot /> */}
-
-        {/* 8. MULTILINGUAL WRITING */}
-        <LanguageTranslation />
 
         {/* Integrations / command surface is intentionally hidden for now.
             Keep the page focused on the daily download habit.
             Restore with: <SuperpowersSection /> */}
 
-        {/* 9. TRUST */}
+        {/* 4. TRUST */}
         <PrivacyStrip />
-        <Metrics />
         <Testimonials />
 
-        {/* 10. PRICING */}
+        {/* 5. PRICING */}
         <PricingNew />
 
-        {/* 11. FAQ */}
+        {/* 6. DOWNLOAD OPTIONS */}
+        <DeviceDownload />
+
+        {/* 7. FAQ */}
         <FAQ />
 
-        {/* 12. FINAL CTA */}
+        {/* 8. FINAL CTA */}
         <FinalCTA />
       </main>
       {/* NOTE: StickyDownloadCTA is global in layout.tsx — do not add another one here */}

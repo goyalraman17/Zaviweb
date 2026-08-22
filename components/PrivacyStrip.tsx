@@ -1,84 +1,101 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { EyeOff, Fingerprint, LockKeyhole, Mic } from 'lucide-react';
 
 const points = [
   {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-    title: 'Audio never stored',
-    desc: 'Voice is processed in real-time and immediately deleted.',
+    icon: Mic,
+    title: 'Audio disappears',
+    desc: 'Processed live, then deleted.',
+  },
+  { icon: EyeOff, title: 'Never trains AI', desc: 'Your data stays yours.' },
+  {
+    icon: Fingerprint,
+    title: 'You control the mic',
+    desc: 'Active only when pressed.',
   },
   {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-      </svg>
-    ),
-    title: 'Never used for training',
-    desc: 'Your data is never used to train AI models. Period.',
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-      </svg>
-    ),
-    title: 'Mic only when you tap',
-    desc: 'Microphone activates only when you press the button.',
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
+    icon: LockKeyhole,
     title: 'Encrypted in transit',
-    desc: 'All data is transmitted over TLS while Zavi processes your voice.',
+    desc: 'Protected while processing.',
   },
 ];
 
 export default function PrivacyStrip() {
   return (
-    <section className="py-16 md:py-20 bg-slate-50 border-y border-gray-100">
+    <section className="bg-white py-20 sm:py-28 lg:py-36">
       <div className="container-large">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            className="text-center mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl sm:text-3xl font-black text-[#0a0a0a] tracking-tight">
-              A faster workflow only works if you trust it.
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-gray-500 max-w-2xl mx-auto font-medium">
-              Zavi is built to feel powerful without feeling risky.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {points.map((point, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center mx-auto mb-3 text-gray-600">
-                  {point.icon}
-                </div>
-                <h3 className="text-sm font-bold text-[#0a0a0a] mb-1">{point.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{point.desc}</p>
-              </motion.div>
-            ))}
+        <motion.div
+          initial={{ opacity: 0.86, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mx-auto grid max-w-6xl overflow-hidden rounded-[2.5rem] bg-[#111416] text-white lg:grid-cols-[0.9fr_1.1fr]"
+        >
+          <div className="relative flex min-h-[450px] items-center justify-center overflow-hidden p-10">
+            <motion.div
+              className="absolute h-[380px] w-[380px] rounded-full border border-emerald-300/15"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+            >
+              <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-emerald-300 shadow-[0_0_24px_8px_rgba(110,231,183,.25)]" />
+            </motion.div>
+            <motion.div
+              className="absolute h-[270px] w-[270px] rounded-full border border-white/10"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+            >
+              <span className="absolute bottom-6 right-6 h-1.5 w-1.5 rounded-full bg-blue-300" />
+            </motion.div>
+            <div className="absolute h-52 w-52 rounded-full bg-emerald-300/10 blur-3xl" />
+            <motion.div
+              whileHover={{ scale: 1.06, rotate: -2 }}
+              className="relative flex h-36 w-36 items-center justify-center rounded-[2.2rem] border border-white/10 bg-white/[0.07] shadow-2xl backdrop-blur-xl"
+            >
+              <LockKeyhole
+                className="h-14 w-14 text-emerald-300"
+                strokeWidth={1.5}
+              />
+            </motion.div>
           </div>
-        </div>
+
+          <div className="flex flex-col justify-center px-7 pb-10 sm:px-12 lg:py-16 lg:pr-16">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">
+              Private by design
+            </p>
+            <h2 className="mt-5 max-w-xl text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+              Your voice is not the product.
+            </h2>
+            <p className="mt-5 max-w-lg text-lg text-slate-300">
+              Zavi processes only what it needs—and keeps nothing it does not.
+            </p>
+            <div className="mt-10 grid gap-3 sm:grid-cols-2">
+              {points.map((point, index) => {
+                const Icon = point.icon;
+                return (
+                  <motion.div
+                    key={point.title}
+                    initial={{ opacity: 0.78, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.45,
+                      delay: 0.05 + index * 0.04,
+                    }}
+                    className="rounded-2xl border border-white/10 bg-white/[0.045] p-4"
+                  >
+                    <Icon className="h-5 w-5 text-emerald-300" />
+                    <h3 className="mt-3 text-sm font-bold text-white">
+                      {point.title}
+                    </h3>
+                    <p className="mt-1 text-xs text-slate-300">{point.desc}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

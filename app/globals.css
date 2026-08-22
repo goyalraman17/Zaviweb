@@ -12,10 +12,10 @@
 
   body {
     @apply antialiased;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    color: #1A1A1A;
+    color: #1a1a1a;
     /* Prevent horizontal overflow on mobile */
     overflow-x: hidden;
     /* Improve mobile text rendering */
@@ -60,6 +60,39 @@
   p {
     line-height: 1.6;
     font-weight: 400;
+  }
+}
+
+@layer components {
+  .premium-pricing::before {
+    content: '';
+    position: absolute;
+    width: 34rem;
+    height: 34rem;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 9999px;
+    background: rgba(147, 197, 253, 0.18);
+    filter: blur(110px);
+    pointer-events: none;
+  }
+
+  .premium-pricing ul li:nth-child(n + 5) {
+    display: none;
+  }
+
+  .premium-pricing .rounded-3xl {
+    border-radius: 2rem;
+  }
+
+  .premium-pricing .shadow-xl {
+    box-shadow: 0 24px 70px -38px rgba(15, 23, 42, 0.45);
+  }
+
+  .premium-pricing button,
+  .premium-pricing a {
+    transition-duration: 300ms;
   }
 }
 
@@ -293,9 +326,9 @@
      ============================================ */
   @media (max-width: 768px) {
     button,
-    a[role="button"],
-    input[type="button"],
-    input[type="submit"] {
+    a[role='button'],
+    input[type='button'],
+    input[type='submit'] {
       min-height: 44px;
       min-width: 44px;
     }
