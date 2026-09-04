@@ -25,7 +25,9 @@ async function getFirebaseCompat() {
   }
 
   if (!window.firebase) {
-    throw new Error('Sign-in is still loading. Please wait a moment and try again.');
+    throw new Error(
+      'Sign-in is still loading. Please wait a moment and try again.'
+    );
   }
 
   if (!initPromise) {
@@ -33,7 +35,11 @@ async function getFirebaseCompat() {
       const response = await fetch('/api/config');
       const config = (await response.json()) as ConfigResponse;
 
-      if (!config.authEnabled || !config.firebase?.apiKey || !config.firebase.projectId) {
+      if (
+        !config.authEnabled ||
+        !config.firebase?.apiKey ||
+        !config.firebase.projectId
+      ) {
         throw new Error('Website sign-in is not configured right now.');
       }
 
@@ -46,6 +52,11 @@ async function getFirebaseCompat() {
   }
 
   return initPromise;
+}
+
+export async function getFirebaseAuthClient() {
+  const firebase = await getFirebaseCompat();
+  return { firebase, auth: firebase.auth() };
 }
 
 async function waitForCurrentUser(auth: any) {
@@ -80,7 +91,9 @@ export async function getVerifiedPaymentSession(expectedEmail?: string) {
   const user = await waitForCurrentUser(auth);
 
   if (!user) {
-    throw new Error('Please sign in to your Zavi account in this browser before checkout.');
+    throw new Error(
+      'Please sign in to your Zavi account in this browser before checkout.'
+    );
   }
 
   const signedInEmail = user.email?.toLowerCase().trim();
@@ -91,7 +104,9 @@ export async function getVerifiedPaymentSession(expectedEmail?: string) {
   }
 
   if (normalizedExpected && signedInEmail !== normalizedExpected) {
-    throw new Error(`You are signed in as ${signedInEmail}. Please use that email for checkout.`);
+    throw new Error(
+      `You are signed in as ${signedInEmail}. Please use that email for checkout.`
+    );
   }
 
   return {

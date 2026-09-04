@@ -61,6 +61,7 @@ const faqs = [
 ];
 
 export default function PricingPage() {
+    const appSumoDealAvailable = Boolean(process.env.APPSUMO_DEAL_URL);
     const breadcrumbSchema = generateBreadcrumbSchema([
         { name: 'Home', url: 'https://zavivoice.com' },
         { name: 'Pricing', url: 'https://zavivoice.com/pricing' },
@@ -141,6 +142,19 @@ export default function PricingPage() {
                             Start free with AI voice typing. Upgrade to Pro when you want unlimited usage and real-time translation.
                         </p>
                     </div>
+
+                    {appSumoDealAvailable ? (
+                        <div className="mb-8 flex flex-col items-center justify-between gap-5 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-6 text-center sm:flex-row sm:text-left">
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-[0.16em] text-amber-700">Limited-time AppSumo offer</p>
+                                <h2 className="mt-1 text-xl font-bold text-gray-900">Prefer a lifetime license?</h2>
+                                <p className="mt-1 text-sm text-gray-600">Buy on AppSumo, then connect the license to your Zavi account in under a minute.</p>
+                            </div>
+                            <Link href="/appsumo" className="shrink-0 rounded-xl bg-gray-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-gray-800">
+                                View AppSumo deal
+                            </Link>
+                        </div>
+                    ) : null}
 
                     <div className="mb-20">
                         <PricingNew />
