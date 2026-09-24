@@ -63,6 +63,10 @@ export function activeSubscription(licenseKey: string, tier: number) {
     appsumo_cloud_words_per_month: plan.words,
     appsumo_team_seats: plan.seats,
     appsumo_byok_enabled: plan.byok,
+    // The live Zavi gateway reads these entitlement fields from users/{uid}.
+    monthly_word_limit: plan.words,
+    team_seat_limit: plan.seats,
+    device_limit: 0,
     updated_at: new Date(),
   };
 }
