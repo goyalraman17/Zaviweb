@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAdminAuth, getAdminDb } from '@/lib/firebase-admin';
 import { activeSubscription, isLicenseKey } from '@/lib/appsumo';
+import { priorSubscription } from '@/lib/appsumo-team';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -90,21 +91,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         updated_at: new Date(),
       }, { merge: true });
       const existing = userDoc.data();
-      const previousSubscription = existing?.subscription_source !== 'appsumo' && existing?.subscription_status === 'active'
-        ? {
-            subscription_tier: existing.subscription_tier || 'pro',
-            subscription_billing_cycle: existing.subscription_billing_cycle || null,
-            subscription_source: existing.subscription_source || null,
-            subscription_status: existing.subscription_status,
-            subscription_expires_at: existing.subscription_expires_at || null,
-            payment_platform: existing.payment_platform || null,
-          }
-        : existing?.appsumo_previous_subscription || null;
       tx.set(userRef, {
         ...activeSubscription(license.license_key, tier),
         appsumo_license_status: 'active',
-        appsumo_previous_subscription: previousSubscription,
+        appsumo_team_owner_uid: user.uid,
+        appsumo_previous_subscription: priorSubscription(existing),
         ...(userDoc.exists ? {} : { created_at: new Date() }),
+      }, { merge: true });
+      tx.set(db.collection('appsumo_teams').doc(user.uid), {
+        owner_uid: user.uid,
+        license_key: license.license_key,
+        updated_at: new Date(),
       }, { merge: true });
     });
     return res.status(200).json({ success: true, tier: licenseDetails.tier });

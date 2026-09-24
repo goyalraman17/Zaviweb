@@ -1,0 +1,211 @@
+--- a/internal/billing/types.go
++++ b/internal/billing/types.go
+@@ -30,6 +30,7 @@
+ 	MonthlyWordLimit      int64            `firestore:"monthly_word_limit"`
+ 	DeviceLimit           int              `firestore:"device_limit"`
+ 	TeamSeatLimit         int              `firestore:"team_seat_limit"`
++	AppSumoTeamOwnerUID   string           `firestore:"appsumo_team_owner_uid"`
+ 	CreatedAt             time.Time        `firestore:"created_at"`
+ 	UpdatedAt             time.Time        `firestore:"updated_at"`
+ }
+@@ -53,6 +54,14 @@
+ 	return u.PaymentPlatform == "appsumo" ||
+ 		u.Tier == TierAppSumoOne || u.Tier == TierAppSumoTwo ||
+ 		u.Tier == TierAppSumoThree || u.Tier == TierAppSumoFour
++}
++
++// UsageOwnerUID selects the shared monthly word pool for a team member.
++func (u *UserSubscription) UsageOwnerUID(uid string) string {
++	if u.IsAppSumo() && u.AppSumoTeamOwnerUID != "" {
++		return u.AppSumoTeamOwnerUID
++	}
++	return uid
+ }
+ 
+ // DailyUsage represents a user's daily usage in Firestore.
+--- a/internal/billing/usage.go
++++ b/internal/billing/usage.go
+@@ -15,11 +15,17 @@
+ 
+ 	// Batching: accumulate counts per user, flush periodically
+ 	mu            sync.Mutex
+-	pendingCounts map[string]int64 // uid -> accumulated words
++	pendingCounts map[usageBucket]int64 // member and owner at recording time
++	usageOwners   map[string]string     // uid -> AppSumo team owner for shared quota
+ 
+ 	// Lifecycle
+ 	stopCh chan struct{}
+ 	wg     sync.WaitGroup
++}
++
++type usageBucket struct {
++	uid      string
++	ownerUID string
+ }
+ 
+ // NewUsageTracker creates a new usage tracker.
+@@ -31,7 +37,8 @@
+ 		firestoreClient: fc,
+ 		config:          cfg,
+ 		logger:          logger,
+-		pendingCounts:   make(map[string]int64),
++		pendingCounts:   make(map[usageBucket]int64),
++		usageOwners:     make(map[string]string),
+ 		stopCh:          make(chan struct{}),
+ 	}
+ }
+@@ -72,12 +79,19 @@
+ 
+ 	// AppSumo lifetime plans use a monthly allowance configured on the license.
+ 	if sub.IsActive() && sub.IsAppSumo() {
+-		usage, err := ut.firestoreClient.GetMonthlyUsage(ctx, uid)
++		ownerUID := sub.UsageOwnerUID(uid)
++		usage, err := ut.firestoreClient.GetMonthlyUsage(ctx, ownerUID)
+ 		if err != nil {
+ 			return nil, err
+ 		}
+ 		ut.mu.Lock()
+-		pendingWords := ut.pendingCounts[uid]
++		ut.usageOwners[uid] = ownerUID
++		var pendingWords int64
++		for bucket, words := range ut.pendingCounts {
++			if bucket.ownerUID == ownerUID {
++				pendingWords += words
++			}
++		}
+ 		ut.mu.Unlock()
+ 		totalUsed := usage.WordCount + pendingWords
+ 		limit := sub.MonthlyWordLimit
+@@ -91,6 +105,9 @@
+ 
+ 	// Other paid subscribers are unlimited.
+ 	if sub.IsActive() {
++		ut.mu.Lock()
++		ut.usageOwners[uid] = uid
++		ut.mu.Unlock()
+ 		return &QuotaStatus{
+ 			WordsUsed:       0,
+ 			WordsLimit:      0,
+@@ -114,7 +131,13 @@
+ 
+ 	// Add any pending (not yet flushed) words for this user
+ 	ut.mu.Lock()
+-	pendingWords := ut.pendingCounts[uid]
++	ut.usageOwners[uid] = uid
++	var pendingWords int64
++	for bucket, words := range ut.pendingCounts {
++		if bucket.uid == uid {
++			pendingWords += words
++		}
++	}
+ 	ut.mu.Unlock()
+ 
+ 	totalUsed := usage.WordCount + pendingWords
+@@ -134,7 +157,11 @@
+ 	}
+ 
+ 	ut.mu.Lock()
+-	ut.pendingCounts[uid] += wordCount
++	ownerUID := ut.usageOwners[uid]
++	if ownerUID == "" {
++		ownerUID = uid
++	}
++	ut.pendingCounts[usageBucket{uid: uid, ownerUID: ownerUID}] += wordCount
+ 	ut.mu.Unlock()
+ 
+ 	ut.logger.Debug("recorded words", "uid", uid, "words", wordCount)
+@@ -150,22 +177,22 @@
+ 
+ 	// Swap out the pending counts
+ 	counts := ut.pendingCounts
+-	ut.pendingCounts = make(map[string]int64)
++	ut.pendingCounts = make(map[usageBucket]int64)
+ 	ut.mu.Unlock()
+ 
+ 	// Write each user's count to Firestore
+ 	var lastErr error
+-	for uid, words := range counts {
+-		if err := ut.firestoreClient.IncrementWordCount(ctx, uid, words); err != nil {
+-			ut.logger.Warn("failed to flush word count", "uid", uid, "words", words, "error", err)
++	for bucket, words := range counts {
++		if err := ut.firestoreClient.incrementWordCountForOwner(ctx, bucket.uid, bucket.ownerUID, words); err != nil {
++			ut.logger.Warn("failed to flush word count", "uid", bucket.uid, "words", words, "error", err)
+ 			lastErr = err
+ 
+ 			// Put the words back for retry
+ 			ut.mu.Lock()
+-			ut.pendingCounts[uid] += words
++			ut.pendingCounts[bucket] += words
+ 			ut.mu.Unlock()
+ 		} else {
+-			ut.logger.Debug("flushed word count", "uid", uid, "words", words)
++			ut.logger.Debug("flushed word count", "uid", bucket.uid, "words", words)
+ 		}
+ 	}
+ 
+--- a/internal/billing/firestore.go
++++ b/internal/billing/firestore.go
+@@ -120,10 +120,18 @@
+ 
+ // IncrementWordCount atomically increments the word count for a user.
+ func (fc *FirestoreClient) IncrementWordCount(ctx context.Context, uid string, words int64) error {
++	sub, err := fc.GetUserSubscription(ctx, uid)
++	if err != nil {
++		return err
++	}
++	return fc.incrementWordCountForOwner(ctx, uid, sub.UsageOwnerUID(uid), words)
++}
++
++func (fc *FirestoreClient) incrementWordCountForOwner(ctx context.Context, uid, ownerUID string, words int64) error {
+ 	today := time.Now().UTC().Format("2006-01-02")
+ 	period := time.Now().UTC().Format("2006-01")
+ 	dailyDoc := fc.client.Collection("usage").Doc(uid).Collection("daily").Doc(today)
+-	monthlyDoc := fc.client.Collection("usage").Doc(uid).Collection("monthly").Doc(period)
++	monthlyDoc := fc.client.Collection("usage").Doc(ownerUID).Collection("monthly").Doc(period)
+ 	return fc.client.RunTransaction(ctx, func(ctx context.Context, tx *firestore.Transaction) error {
+ 		if err := tx.Set(dailyDoc, map[string]interface{}{
+ 			"word_count":   firestore.Increment(words),
+--- /dev/null
++++ b/internal/billing/team_usage_test.go
+@@ -0,0 +1,41 @@
++package billing
++
++import (
++	"log/slog"
++	"testing"
++)
++
++func TestUsageOwnerUID(t *testing.T) {
++	for _, tc := range []struct {
++		name string
++		sub  UserSubscription
++		uid  string
++		want string
++	}{
++		{"team member", UserSubscription{PaymentPlatform: "appsumo", AppSumoTeamOwnerUID: "owner"}, "member", "owner"},
++		{"license owner", UserSubscription{PaymentPlatform: "appsumo", AppSumoTeamOwnerUID: "owner"}, "owner", "owner"},
++		{"legacy AppSumo account", UserSubscription{PaymentPlatform: "appsumo"}, "buyer", "buyer"},
++		{"unrelated plan", UserSubscription{PaymentPlatform: "razorpay", AppSumoTeamOwnerUID: "owner"}, "buyer", "buyer"},
++	} {
++		t.Run(tc.name, func(t *testing.T) {
++			if got := tc.sub.UsageOwnerUID(tc.uid); got != tc.want {
++				t.Fatalf("UsageOwnerUID() = %q, want %q", got, tc.want)
++			}
++		})
++	}
++}
++
++func TestPendingWordsKeepOriginalTeamOwner(t *testing.T) {
++	tracker := NewUsageTracker(nil, nil, slog.Default())
++	tracker.usageOwners["member"] = "owner-a"
++	tracker.RecordWords("member", 12)
++	tracker.usageOwners["member"] = "owner-b"
++	tracker.RecordWords("member", 8)
++
++	if got := tracker.pendingCounts[usageBucket{uid: "member", ownerUID: "owner-a"}]; got != 12 {
++		t.Fatalf("original team's pending words = %d, want 12", got)
++	}
++	if got := tracker.pendingCounts[usageBucket{uid: "member", ownerUID: "owner-b"}]; got != 8 {
++		t.Fatalf("new team's pending words = %d, want 8", got)
++	}
++}

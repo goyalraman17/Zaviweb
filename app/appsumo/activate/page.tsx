@@ -12,6 +12,7 @@ export default function AppSumoActivate() {
   const [createAccount, setCreateAccount] = useState(false);
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
+  const [activatedTier, setActivatedTier] = useState(0);
 
   useEffect(() => { setCode(new URLSearchParams(window.location.search).get('code') || ''); }, []);
 
@@ -41,6 +42,7 @@ export default function AppSumoActivate() {
       if (!response.ok) throw new Error(result.error || 'Activation failed.');
       window.history.replaceState({}, '', '/appsumo/activate');
       setCode('');
+      setActivatedTier(result.tier);
       setMessage(`Your Zavi ${result.tier >= 3 ? 'Teams' : 'Pro'} lifetime plan is active. Open the Zavi app and sign in with this account.`);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Activation failed.');
@@ -63,6 +65,7 @@ export default function AppSumoActivate() {
         <button className="w-full text-sm text-violet-300" type="button" onClick={() => setCreateAccount(!createAccount)}>{createAccount ? 'Already have a Zavi account? Sign in' : 'New to Zavi? Create an account'}</button>
       </form> : <p className="mt-6 text-slate-300">Start activation from your AppSumo purchase page.</p>}
       {message && <p className="mt-6 rounded-lg bg-slate-800 p-4" role="status">{message}</p>}
+      {activatedTier > 1 && <a className="mt-4 block text-violet-300 underline" href="/appsumo/team">Invite your team members</a>}
     </div>
   </main>;
 }

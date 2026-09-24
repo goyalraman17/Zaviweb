@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getAdminDb } from '@/lib/firebase-admin';
 import { activeSubscription, parseWebhook, verifyWebhookSignature } from '@/lib/appsumo';
+import { normalizeTeamMembers, revokedSubscription } from '@/lib/appsumo-team';
 
 export const config = { api: { bodyParser: false } };
 
@@ -61,6 +62,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
       const userRef = uid ? db.collection('users').doc(uid) : null;
       const user = userRef ? await tx.get(userRef) : null;
+      const teamRef = uid ? db.collection('appsumo_teams').doc(uid) : null;
+      const team = teamRef ? await tx.get(teamRef) : null;
+      const members = normalizeTeamMembers(team?.data()?.members);
+      const memberRefs = members.map((member) => member.uid ? db.collection('users').doc(member.uid) : null);
+      const memberDocs = await Promise.all(memberRefs.map((ref) => ref ? tx.get(ref) : null));
       const isAddOn = !!event.parent_license_key;
       const tier = event.tier || currentData?.tier || previousData?.tier || 1;
       const isPlanChange = event.event === 'upgrade' || event.event === 'downgrade';
@@ -90,25 +96,43 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (!isAddOn && userRef && user) {
         const userData = user.data();
         const linkedKey = userData?.appsumo_license_key;
-        if (isPlanChange && status === 'active' && linkedKey === event.prev_license_key) {
-          tx.set(userRef, activeSubscription(event.license_key, tier), { merge: true });
-        } else if (event.event === 'activate' && linkedKey === event.license_key && status === 'active') {
-          tx.set(userRef, activeSubscription(event.license_key, tier), { merge: true });
+        const appliesToOwner = status === 'active' && (
+          (isPlanChange && linkedKey === event.prev_license_key) ||
+          (event.event === 'activate' && linkedKey === event.license_key)
+        );
+        if (appliesToOwner) {
+          tx.set(userRef, { ...activeSubscription(event.license_key, tier), appsumo_team_owner_uid: uid }, { merge: true });
+          const allowedMembers = activeSubscription(event.license_key, tier).team_seat_limit - 1;
+          const retainedIndices = new Set(members
+            .map((member, index) => ({ member, index }))
+            .sort((a, b) => Number(!!b.member.uid) - Number(!!a.member.uid) || a.index - b.index)
+            .slice(0, allowedMembers)
+            .map(({ index }) => index));
+          const retained = members.filter((_, index) => retainedIndices.has(index));
+          members.forEach((member, index) => {
+            const memberRef = memberRefs[index];
+            const memberDoc = memberDocs[index];
+            if (!member.uid || !memberRef || !memberDoc || memberDoc.data()?.subscription_source !== 'appsumo_team' || memberDoc.data()?.appsumo_team_owner_uid !== uid) return;
+            if (retainedIndices.has(index)) {
+              tx.set(memberRef, {
+                ...activeSubscription(event.license_key, tier),
+                subscription_source: 'appsumo_team',
+                appsumo_team_owner_uid: uid,
+              }, { merge: true });
+            } else {
+              tx.set(memberRef, revokedSubscription(memberDoc.data()), { merge: true });
+            }
+          });
+          if (teamRef) tx.set(teamRef, { members: retained, license_key: event.license_key, updated_at: new Date() }, { merge: true });
         } else if (isDeactivation && linkedKey === event.license_key && userData?.subscription_source === 'appsumo' && !currentData?.superseded_by) {
-          const previous = userData?.appsumo_previous_subscription;
-          const previousExpiry = previous?.subscription_expires_at?.toDate?.() || previous?.subscription_expires_at;
-          const previousActive = previous?.subscription_status === 'active' && previousExpiry instanceof Date && previousExpiry > new Date();
-          tx.set(userRef, {
-            ...(previousActive ? previous : {
-              subscription_tier: 'free',
-              subscription_billing_cycle: null,
-              subscription_expires_at: null,
-              subscription_status: 'inactive',
-              payment_platform: null,
-            }),
-            appsumo_license_status: 'deactivated',
-            updated_at: new Date(),
-          }, { merge: true });
+          tx.set(userRef, revokedSubscription(userData), { merge: true });
+          members.forEach((member, index) => {
+            const memberRef = memberRefs[index];
+            const memberDoc = memberDocs[index];
+            if (member.uid && memberRef && memberDoc && memberDoc.data()?.subscription_source === 'appsumo_team' && memberDoc.data()?.appsumo_team_owner_uid === uid) {
+              tx.set(memberRef, revokedSubscription(memberDoc.data()), { merge: true });
+            }
+          });
         }
       }
     });
