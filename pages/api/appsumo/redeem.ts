@@ -20,8 +20,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(401).json({ error: 'Please sign in again and retry activation.' });
   }
 
-  const { APPSUMO_CLIENT_ID, APPSUMO_CLIENT_SECRET, APPSUMO_REDIRECT_URI } = process.env;
-  if (!APPSUMO_CLIENT_ID || !APPSUMO_CLIENT_SECRET || !APPSUMO_REDIRECT_URI) {
+  const { APPSUMO_CLIENT_ID, APPSUMO_CLIENT_SECRET, APPSUMO_REDIRECT_URI, APPSUMO_API_KEY } = process.env;
+  if (!APPSUMO_CLIENT_ID || !APPSUMO_CLIENT_SECRET || !APPSUMO_REDIRECT_URI || !APPSUMO_API_KEY) {
     console.error('AppSumo OAuth credentials are missing');
     return res.status(503).json({ error: 'AppSumo activation is not configured yet.' });
   }
@@ -52,6 +52,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(403).json({ error: 'This AppSumo license has been deactivated.' });
     }
 
+    // OAuth only returns the key and status. Read the license before granting a
+    // tier, since its purchase webhook may arrive after the buyer redeems it.
+    const licenseDetailsResponse = await fetch(
+      `https://api.licensing.appsumo.com/v2/licenses/${license.license_key}`,
+      { headers: { 'X-AppSumo-Licensing-Key': APPSUMO_API_KEY }, signal: AbortSignal.timeout(8000) },
+    );
+    if (!licenseDetailsResponse.ok) throw new Error('Could not verify AppSumo license tier');
+    const licenseDetails = await licenseDetailsResponse.json();
+    if (licenseDetails.license_key !== license.license_key || !Number.isInteger(licenseDetails.tier) || licenseDetails.tier < 1 || licenseDetails.tier > 4) {
+      throw new Error('Invalid AppSumo license tier');
+    }
+    if (licenseDetails.status === 'deactivated') {
+      return res.status(403).json({ error: 'This AppSumo license has been deactivated.' });
+    }
+
     const db = getAdminDb();
     const licenseRef = db.collection('appsumo_licenses').doc(license.license_key);
     const userRef = db.collection('users').doc(user.uid);
@@ -65,7 +80,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (userDoc.data()?.appsumo_license_key && userDoc.data()?.appsumo_license_key !== license.license_key && userDoc.data()?.subscription_source === 'appsumo') {
         throw new Error('This Zavi account already has a different AppSumo license');
       }
-      const tier = Number.isInteger(data?.tier) && data!.tier > 0 ? data!.tier : 1;
+      const tier = licenseDetails.tier;
       tx.set(licenseRef, {
         license_key: license.license_key,
         uid: user.uid,
@@ -92,7 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ...(userDoc.exists ? {} : { created_at: new Date() }),
       }, { merge: true });
     });
-    return res.status(200).json({ success: true, licenseKey: license.license_key });
+    return res.status(200).json({ success: true, tier: licenseDetails.tier });
   } catch (error) {
     console.error('AppSumo redemption failed:', error);
     const message = error instanceof Error ? error.message : 'AppSumo activation failed';

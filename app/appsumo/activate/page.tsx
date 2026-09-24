@@ -41,7 +41,7 @@ export default function AppSumoActivate() {
       if (!response.ok) throw new Error(result.error || 'Activation failed.');
       window.history.replaceState({}, '', '/appsumo/activate');
       setCode('');
-      setMessage('Your Zavi Pro lifetime plan is active. Open the Zavi app and sign in with this account.');
+      setMessage(`Your Zavi ${result.tier >= 3 ? 'Teams' : 'Pro'} lifetime plan is active. Open the Zavi app and sign in with this account.`);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Activation failed.');
     } finally {
